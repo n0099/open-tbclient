@@ -6,15 +6,15 @@ import com.baidu.ufosdk.UfoSDK;
 public final class ds implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f22872a;
+    public final /* synthetic */ FeedbackListActivity f22880a;
 
     public ds(FeedbackListActivity feedbackListActivity) {
-        this.f22872a = feedbackListActivity;
+        this.f22880a = feedbackListActivity;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        Context applicationContext = this.f22872a.getApplicationContext();
+        Context applicationContext = this.f22880a.getApplicationContext();
         String str = UfoSDK.clientid;
         com.baidu.ufosdk.e.a.b(applicationContext);
     }

@@ -1,7 +1,7 @@
 package com.google.common.collect;
 
-import d.g.c.a.n;
-import d.g.c.c.l;
+import d.h.c.a.n;
+import d.h.c.c.l;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class CartesianList$1 extends ImmutableList<E> {
@@ -20,7 +20,7 @@ public class CartesianList$1 extends ImmutableList<E> {
         ImmutableList immutableList;
         n.n(i, size());
         c2 = this.this$0.c(this.val$index, i);
-        immutableList = this.this$0.f67000e;
+        immutableList = this.this$0.f67147e;
         return ((List) immutableList.get(i)).get(c2);
     }
 
@@ -32,7 +32,7 @@ public class CartesianList$1 extends ImmutableList<E> {
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public int size() {
         ImmutableList immutableList;
-        immutableList = this.this$0.f67000e;
+        immutableList = this.this$0.f67147e;
         return immutableList.size();
     }
 }

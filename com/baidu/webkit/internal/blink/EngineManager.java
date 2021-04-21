@@ -82,13 +82,13 @@ public class EngineManager implements INoProGuard {
                 return;
             }
             Log.i(LOG_TAG, "BlinkEngineInstaller.installAsync");
-            if (cVar.f26567b != null && WebKitFactory.getContext() != null) {
+            if (cVar.f26575b != null && WebKitFactory.getContext() != null) {
                 HandlerThread handlerThread = new HandlerThread("T7@ZeusInstaller");
                 handlerThread.start();
                 new Handler(handlerThread.getLooper()).post(new b(cVar, handlerThread));
                 return;
             }
-            WebKitFactory.WebkitInstallListener webkitInstallListener2 = cVar.f26566a;
+            WebKitFactory.WebkitInstallListener webkitInstallListener2 = cVar.f26574a;
             if (webkitInstallListener2 != null) {
                 webkitInstallListener2.onInstallFinish(13, null);
             }

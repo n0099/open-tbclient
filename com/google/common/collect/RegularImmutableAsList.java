@@ -1,6 +1,6 @@
 package com.google.common.collect;
 
-import d.g.c.c.d1;
+import d.h.c.c.d1;
 /* loaded from: classes6.dex */
 public class RegularImmutableAsList<E> extends ImmutableAsList<E> {
     public final ImmutableCollection<E> delegate;
@@ -46,7 +46,7 @@ public class RegularImmutableAsList<E> extends ImmutableAsList<E> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: d.g.c.c.d1<? extends E>, d.g.c.c.d1<E> */
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: d.h.c.c.d1<? extends E>, d.h.c.c.d1<E> */
     @Override // com.google.common.collect.ImmutableList, java.util.List
     public d1<E> listIterator(int i) {
         return (d1<? extends E>) this.delegateList.listIterator(i);

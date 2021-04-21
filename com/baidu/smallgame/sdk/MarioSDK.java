@@ -23,48 +23,48 @@ public class MarioSDK {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public SurfaceHolder f11255a;
+        public SurfaceHolder f11263a;
 
         /* renamed from: b  reason: collision with root package name */
-        public GLSurfaceView.Renderer f11256b;
+        public GLSurfaceView.Renderer f11264b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ArBridge.FirstFrameListener f11257c;
+        public ArBridge.FirstFrameListener f11265c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f11258d;
+        public int f11266d;
 
         /* renamed from: e  reason: collision with root package name */
-        public List<DebugConsole> f11259e = new ArrayList();
+        public List<DebugConsole> f11267e = new ArrayList();
 
         /* renamed from: f  reason: collision with root package name */
-        public Context f11260f;
+        public Context f11268f;
 
         public void f(DebugConsole debugConsole) {
             if (debugConsole == null) {
                 return;
             }
-            this.f11259e.add(debugConsole);
+            this.f11267e.add(debugConsole);
         }
 
         public List<DebugConsole> g() {
-            return this.f11259e;
+            return this.f11267e;
         }
 
         public void h(Context context) {
-            this.f11260f = context;
+            this.f11268f = context;
         }
 
         public void i(ArBridge.FirstFrameListener firstFrameListener) {
-            this.f11257c = firstFrameListener;
+            this.f11265c = firstFrameListener;
         }
 
         public void j(GLSurfaceView.Renderer renderer) {
-            this.f11256b = renderer;
+            this.f11264b = renderer;
         }
 
         public void k(SurfaceHolder surfaceHolder) {
-            this.f11255a = surfaceHolder;
+            this.f11263a = surfaceHolder;
         }
     }
 
@@ -82,19 +82,19 @@ public class MarioSDK {
         if (aVar == null) {
             return null;
         }
-        d.b.d0.a.a aVar2 = new d.b.d0.a.a();
-        if (aVar.f11255a != null) {
-            aVar2.q(aVar.f11255a);
+        d.b.e0.a.a aVar2 = new d.b.e0.a.a();
+        if (aVar.f11263a != null) {
+            aVar2.q(aVar.f11263a);
         }
-        if (aVar.f11257c != null) {
-            aVar2.setFirstFrameListener(aVar.f11257c);
+        if (aVar.f11265c != null) {
+            aVar2.setFirstFrameListener(aVar.f11265c);
         }
-        aVar2.setRenderMode(aVar.f11258d);
-        if (aVar.f11260f != null) {
-            aVar2.p(aVar.f11260f);
+        aVar2.setRenderMode(aVar.f11266d);
+        if (aVar.f11268f != null) {
+            aVar2.p(aVar.f11268f);
         }
-        if (aVar.f11256b != null) {
-            aVar2.setRenderer(aVar.f11256b);
+        if (aVar.f11264b != null) {
+            aVar2.setRenderer(aVar.f11264b);
         }
         if (aVar.g() != null) {
             for (DebugConsole debugConsole : aVar.g()) {

@@ -6,20 +6,20 @@ import android.view.View;
 public class x1 implements s0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ View f40390a;
+    public final /* synthetic */ View f40485a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ B1 f40391b;
+    public final /* synthetic */ B1 f40486b;
 
     public x1(B1 b1, View view) {
-        this.f40391b = b1;
-        this.f40390a = view;
+        this.f40486b = b1;
+        this.f40485a = view;
     }
 
     @Override // com.win.opensdk.s0
     public void a() {
-        if (this.f40390a != null) {
-            new Handler().postDelayed(new w1(this), this.f40391b.f39916c.getSpet());
+        if (this.f40485a != null) {
+            new Handler().postDelayed(new w1(this), this.f40486b.f40011c.getSpet());
         }
     }
 }

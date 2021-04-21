@@ -11,36 +11,36 @@ import org.json.JSONObject;
 public class Y0 implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ boolean f40126a;
+    public final /* synthetic */ boolean f40221a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f40127b;
+    public final /* synthetic */ String f40222b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Z0 f40128c;
+    public final /* synthetic */ Z0 f40223c;
 
     public Y0(Z0 z0, boolean z, String str) {
-        this.f40128c = z0;
-        this.f40126a = z;
-        this.f40127b = str;
+        this.f40223c = z0;
+        this.f40221a = z;
+        this.f40222b = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         String b2;
-        String str = this.f40126a ? t1.f40326b : t1.f40327c;
-        HashMap a2 = p1.a(this.f40128c.f40138a);
+        String str = this.f40221a ? t1.f40421b : t1.f40422c;
+        HashMap a2 = p1.a(this.f40223c.f40233a);
         try {
             str = str + p1.a(a2);
         } catch (UnsupportedEncodingException unused) {
         }
-        String str2 = this.f40127b;
+        String str2 = this.f40222b;
         try {
             T0 t0 = new T0(str, "POST", G.a((Map) null));
-            t0.f40090b = G.j(str2);
+            t0.f40185b = G.j(str2);
             U0 a3 = t0.a();
-            byte[] bArr = a3.f40107b;
-            if (a3.f40106a == 200) {
+            byte[] bArr = a3.f40202b;
+            if (a3.f40201a == 200) {
                 JSONObject jSONObject = new JSONObject(new String(bArr, "UTF-8"));
                 jSONObject.optInt(Constants.KEYS.RET);
                 jSONObject.optString("msg");

@@ -8,9 +8,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.res.ui.SliderBar;
 import com.baidu.swan.menu.BaseMenuView;
-import d.b.g0.a.c1.c.b;
-import d.b.g0.a.d;
-import d.b.g0.a.g;
+import d.b.h0.a.c1.c.b;
+import d.b.h0.a.d;
+import d.b.h0.a.g;
 /* loaded from: classes2.dex */
 public class FontSizeSettingMenuView extends BaseMenuView {
     public Context k;

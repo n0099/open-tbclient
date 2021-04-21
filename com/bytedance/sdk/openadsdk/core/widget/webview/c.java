@@ -29,7 +29,7 @@ import com.bytedance.sdk.openadsdk.utils.r;
 import com.bytedance.sdk.openadsdk.utils.t;
 import com.bytedance.sdk.openadsdk.utils.u;
 import com.sina.weibo.sdk.utils.FileUtils;
-import d.o.a.d.g;
+import d.p.a.d.g;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Map;
@@ -37,47 +37,47 @@ import java.util.Map;
 public class c extends WebViewClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashSet<String> f28695a;
+    public static final HashSet<String> f28703a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final x f28696b;
+    public final x f28704b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Context f28697c;
+    public final Context f28705c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f28698d;
+    public final String f28706d;
 
     /* renamed from: e  reason: collision with root package name */
-    public j f28699e;
+    public j f28707e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f28700f = true;
+    public boolean f28708f = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f28701g = true;
+    public boolean f28709g = true;
 
     static {
         HashSet<String> hashSet = new HashSet<>();
-        f28695a = hashSet;
+        f28703a = hashSet;
         hashSet.add("png");
-        f28695a.add("ico");
-        f28695a.add("jpg");
-        f28695a.add("gif");
-        f28695a.add("svg");
-        f28695a.add("jpeg");
+        f28703a.add("ico");
+        f28703a.add("jpg");
+        f28703a.add("gif");
+        f28703a.add("svg");
+        f28703a.add("jpeg");
     }
 
     public c(Context context, x xVar, String str) {
-        this.f28697c = context;
-        this.f28696b = xVar;
-        this.f28698d = str;
+        this.f28705c = context;
+        this.f28704b = xVar;
+        this.f28706d = str;
     }
 
     public static String a(String str) {
         int lastIndexOf;
         String substring;
-        if (str == null || (lastIndexOf = str.lastIndexOf(46)) < 0 || lastIndexOf == str.length() - 1 || (substring = str.substring(lastIndexOf)) == null || !f28695a.contains(substring.toLowerCase(Locale.getDefault()))) {
+        if (str == null || (lastIndexOf = str.lastIndexOf(46)) < 0 || lastIndexOf == str.length() - 1 || (substring = str.substring(lastIndexOf)) == null || !f28703a.contains(substring.toLowerCase(Locale.getDefault()))) {
             return null;
         }
         return FileUtils.IMAGE_FILE_START + substring;
@@ -93,13 +93,13 @@ public class c extends WebViewClient {
         if (u.a()) {
             u.a("WebChromeClient", "onPageFinished " + str);
         }
-        j jVar = this.f28699e;
+        j jVar = this.f28707e;
         if (jVar != null) {
             jVar.a(webView, str);
         }
-        if (webView != null && this.f28700f) {
+        if (webView != null && this.f28708f) {
             try {
-                String a2 = a.a(p.h().i(), this.f28698d);
+                String a2 = a.a(p.h().i(), this.f28706d);
                 if (!TextUtils.isEmpty(a2)) {
                     t.a(webView, a2);
                 }
@@ -112,19 +112,19 @@ public class c extends WebViewClient {
     @Override // android.webkit.WebViewClient
     public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
         super.onPageStarted(webView, str, bitmap);
-        j jVar = this.f28699e;
+        j jVar = this.f28707e;
         if (jVar != null) {
             jVar.a(webView, str, bitmap);
         }
-        if (this.f28701g) {
-            a.a(this.f28697c).a(Build.VERSION.SDK_INT >= 19).a(webView);
+        if (this.f28709g) {
+            a.a(this.f28705c).a(Build.VERSION.SDK_INT >= 19).a(webView);
         }
     }
 
     @Override // android.webkit.WebViewClient
     public void onReceivedError(WebView webView, int i, String str, String str2) {
         super.onReceivedError(webView, i, str, str2);
-        j jVar = this.f28699e;
+        j jVar = this.f28707e;
         if (jVar != null) {
             jVar.a(i, str, str2, a(str2));
         }
@@ -134,7 +134,7 @@ public class c extends WebViewClient {
     @TargetApi(21)
     public void onReceivedHttpError(WebView webView, WebResourceRequest webResourceRequest, WebResourceResponse webResourceResponse) {
         super.onReceivedHttpError(webView, webResourceRequest, webResourceResponse);
-        if (this.f28699e == null || webResourceResponse == null) {
+        if (this.f28707e == null || webResourceResponse == null) {
             return;
         }
         Uri url = webResourceRequest.getUrl();
@@ -146,7 +146,7 @@ public class c extends WebViewClient {
         } else if (requestHeaders.containsKey(BOSTokenRequest.ACCEPT)) {
             str = requestHeaders.get(BOSTokenRequest.ACCEPT);
         }
-        this.f28699e.a(webResourceResponse.getStatusCode(), String.valueOf(webResourceResponse.getReasonPhrase()), uri, str);
+        this.f28707e.a(webResourceResponse.getStatusCode(), String.valueOf(webResourceResponse.getReasonPhrase()), uri, str);
     }
 
     @Override // android.webkit.WebViewClient
@@ -164,7 +164,7 @@ public class c extends WebViewClient {
             return;
         }
         super.onReceivedSslError(webView, sslErrorHandler, sslError);
-        if (this.f28699e != null) {
+        if (this.f28707e != null) {
             int i = 0;
             String str = "SslError: unknown";
             String str2 = null;
@@ -176,14 +176,14 @@ public class c extends WebViewClient {
                 } catch (Throwable unused) {
                 }
             }
-            this.f28699e.a(i, str, str2, a(str2));
+            this.f28707e.a(i, str, str2, a(str2));
         }
     }
 
     @Override // android.webkit.WebViewClient
     @RequiresApi(api = 21)
     public WebResourceResponse shouldInterceptRequest(WebView webView, WebResourceRequest webResourceRequest) {
-        j jVar = this.f28699e;
+        j jVar = this.f28707e;
         if (jVar != null) {
             jVar.a(webView, webResourceRequest);
         }
@@ -200,49 +200,49 @@ public class c extends WebViewClient {
             lowerCase = parse.getScheme().toLowerCase();
         } catch (Exception e2) {
             u.b("WebChromeClient", "shouldOverrideUrlLoading", e2);
-            x xVar = this.f28696b;
+            x xVar = this.f28704b;
             if (xVar != null && xVar.d()) {
                 return true;
             }
         }
         if ("bytedance".equals(lowerCase)) {
-            r.a(parse, this.f28696b);
+            r.a(parse, this.f28704b);
             return true;
         }
-        if (g.k.a(parse) && this.f28696b != null && this.f28696b.c() != null) {
-            String l = this.f28696b.l();
-            l c2 = this.f28696b.c();
-            d.o.a.b.a.a.c p = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(l, c2, null).p();
-            d.o.a.b.a.a.a e3 = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(c2).e();
-            boolean a2 = com.bytedance.sdk.openadsdk.downloadnew.a.g.d().n().a(this.f28697c, parse, p, com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(c2, this.f28696b.l()).d(), e3);
+        if (g.k.a(parse) && this.f28704b != null && this.f28704b.c() != null) {
+            String l = this.f28704b.l();
+            l c2 = this.f28704b.c();
+            d.p.a.b.a.a.c p = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(l, c2, null).p();
+            d.p.a.b.a.a.a e3 = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(c2).e();
+            boolean a2 = com.bytedance.sdk.openadsdk.downloadnew.a.g.d().n().a(this.f28705c, parse, p, com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(c2, this.f28704b.l()).d(), e3);
             k.a(true);
             if (a2) {
                 return true;
             }
         }
-        if (!com.bytedance.sdk.openadsdk.utils.x.a(str) && this.f28696b != null && this.f28696b.c() != null) {
-            final String l2 = this.f28696b.l();
+        if (!com.bytedance.sdk.openadsdk.utils.x.a(str) && this.f28704b != null && this.f28704b.c() != null) {
+            final String l2 = this.f28704b.l();
             u.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading tag " + l2);
-            final l c3 = this.f28696b.c();
+            final l c3 = this.f28704b.c();
             Intent intent = new Intent("android.intent.action.VIEW");
             intent.setData(parse);
             intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-            com.bytedance.sdk.openadsdk.c.d.a(this.f28697c, c3, l2, "lp_open_dpl", lowerCase);
-            if (ak.c(this.f28697c)) {
-                if (ak.a(this.f28697c, intent)) {
+            com.bytedance.sdk.openadsdk.c.d.a(this.f28705c, c3, l2, "lp_open_dpl", lowerCase);
+            if (ak.c(this.f28705c)) {
+                if (ak.a(this.f28705c, intent)) {
                     u.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading 该app已经安装 tag " + l2 + " URL " + str);
-                    com.bytedance.sdk.openadsdk.utils.b.a(this.f28697c, intent, new b.a() { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.c.1
+                    com.bytedance.sdk.openadsdk.utils.b.a(this.f28705c, intent, new b.a() { // from class: com.bytedance.sdk.openadsdk.core.widget.webview.c.1
                         @Override // com.bytedance.sdk.openadsdk.utils.b.a
                         public void a() {
                             u.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading startActivitySuccess ");
-                            com.bytedance.sdk.openadsdk.c.d.b(c.this.f28697c, c3, l2, "lp_openurl");
+                            com.bytedance.sdk.openadsdk.c.d.b(c.this.f28705c, c3, l2, "lp_openurl");
                             com.bytedance.sdk.openadsdk.c.d.b(p.a(), c3, l2, "lp_deeplink_success_realtime");
                         }
 
                         @Override // com.bytedance.sdk.openadsdk.utils.b.a
                         public void a(Throwable th) {
                             u.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading 调起该app失败 ");
-                            com.bytedance.sdk.openadsdk.c.d.b(c.this.f28697c, c3, l2, "lp_openurl_failed");
+                            com.bytedance.sdk.openadsdk.c.d.b(c.this.f28705c, c3, l2, "lp_openurl_failed");
                             com.bytedance.sdk.openadsdk.c.d.b(p.a(), c3, l2, "lp_deeplink_fail_realtime");
                         }
                     });
@@ -250,13 +250,13 @@ public class c extends WebViewClient {
                     com.bytedance.sdk.openadsdk.c.k.a().a(c3, l2, true);
                 } else {
                     u.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading 该app没有安装 tag " + l2 + " url " + str);
-                    com.bytedance.sdk.openadsdk.c.d.b(this.f28697c, c3, l2, "lp_openurl_failed");
+                    com.bytedance.sdk.openadsdk.c.d.b(this.f28705c, c3, l2, "lp_openurl_failed");
                     com.bytedance.sdk.openadsdk.c.d.b(p.a(), c3, l2, "lp_deeplink_fail_realtime");
                 }
             } else {
-                this.f28697c.startActivity(intent);
+                this.f28705c.startActivity(intent);
                 u.f("TTWebViewClient", "TTWebView shouldOverrideUrlLoading startActivitySuccess ");
-                com.bytedance.sdk.openadsdk.c.d.b(this.f28697c, c3, l2, "lp_openurl");
+                com.bytedance.sdk.openadsdk.c.d.b(this.f28705c, c3, l2, "lp_openurl");
                 com.bytedance.sdk.openadsdk.c.k.a().a(c3, l2, true);
             }
             return true;
@@ -268,7 +268,7 @@ public class c extends WebViewClient {
     @TargetApi(23)
     public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
         super.onReceivedError(webView, webResourceRequest, webResourceError);
-        if (this.f28699e == null || webResourceError == null) {
+        if (this.f28707e == null || webResourceError == null) {
             return;
         }
         Uri url = webResourceRequest.getUrl();
@@ -280,7 +280,7 @@ public class c extends WebViewClient {
         } else if (requestHeaders.containsKey(BOSTokenRequest.ACCEPT)) {
             str = requestHeaders.get(BOSTokenRequest.ACCEPT);
         }
-        this.f28699e.a(webResourceError.getErrorCode(), String.valueOf(webResourceError.getDescription()), uri, str);
+        this.f28707e.a(webResourceError.getErrorCode(), String.valueOf(webResourceError.getDescription()), uri, str);
     }
 
     @Override // android.webkit.WebViewClient
@@ -289,9 +289,9 @@ public class c extends WebViewClient {
     }
 
     public c(Context context, x xVar, String str, j jVar) {
-        this.f28697c = context;
-        this.f28696b = xVar;
-        this.f28698d = str;
-        this.f28699e = jVar;
+        this.f28705c = context;
+        this.f28704b = xVar;
+        this.f28706d = str;
+        this.f28707e = jVar;
     }
 }

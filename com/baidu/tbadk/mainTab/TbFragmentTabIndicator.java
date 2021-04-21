@@ -14,16 +14,16 @@ import tbclient.ThemeColorInfo;
 public abstract class TbFragmentTabIndicator extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13613e;
+    public boolean f13621e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f13614f;
+    public float f13622f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f13615g;
+    public float f13623g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13616h;
+    public int f13624h;
     public int i;
     public ThemeColorInfo j;
 
@@ -31,28 +31,28 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f13617a;
+        public View f13625a;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f13619c;
+        public int f13627c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f13620d;
+        public int f13628d;
 
         /* renamed from: f  reason: collision with root package name */
-        public TbFragmentTabIndicator f13622f;
+        public TbFragmentTabIndicator f13630f;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f13618b = true;
+        public boolean f13626b = true;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f13621e = R.color.common_color_10225;
+        public int f13629e = R.color.common_color_10225;
 
         public final int a(TextView textView) {
             if (textView == null) {
                 return -1;
             }
-            String charSequence = ((TextView) this.f13617a).getText().toString();
+            String charSequence = ((TextView) this.f13625a).getText().toString();
             if ("   ".equals(charSequence)) {
                 return 100;
             }
@@ -60,26 +60,26 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         }
 
         public void b(int i) {
-            int i2 = this.f13620d;
+            int i2 = this.f13628d;
             if (i2 != 0) {
-                SkinManager.setBackgroundResource(this.f13617a, i2);
+                SkinManager.setBackgroundResource(this.f13625a, i2);
             }
-            View view = this.f13617a;
+            View view = this.f13625a;
             if (view instanceof TextView) {
-                int i3 = this.f13621e;
+                int i3 = this.f13629e;
                 if (i3 != 0) {
                     SkinManager.setViewTextColor(view, i3, 1);
                 }
-                int a2 = a((TextView) this.f13617a);
+                int a2 = a((TextView) this.f13625a);
                 if (a2 > 0 && a2 < 10) {
-                    SkinManager.setBackgroundResource(this.f13617a, R.drawable.icon_news_head_prompt_one);
+                    SkinManager.setBackgroundResource(this.f13625a, R.drawable.icon_news_head_prompt_one);
                 } else if (a2 >= 10 && a2 < 100) {
-                    SkinManager.setBackgroundResource(this.f13617a, R.drawable.icon_news_head_prompt_two);
+                    SkinManager.setBackgroundResource(this.f13625a, R.drawable.icon_news_head_prompt_two);
                 } else if (a2 >= 100) {
-                    SkinManager.setBackgroundResource(this.f13617a, R.drawable.icon_news_head_prompt_more);
+                    SkinManager.setBackgroundResource(this.f13625a, R.drawable.icon_news_head_prompt_more);
                 }
             }
-            View view2 = this.f13617a;
+            View view2 = this.f13625a;
             if (view2 instanceof MessageRedDotView) {
                 ((MessageRedDotView) view2).e();
             }
@@ -88,10 +88,10 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
 
     public TbFragmentTabIndicator(Context context) {
         super(context);
-        this.f13613e = false;
-        this.f13614f = 0.0f;
-        this.f13615g = 0.0f;
-        this.f13616h = 0;
+        this.f13621e = false;
+        this.f13622f = 0.0f;
+        this.f13623g = 0.0f;
+        this.f13624h = 0;
         this.i = 0;
     }
 
@@ -135,15 +135,15 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     }
 
     public void setContentDefaultTextSize(float f2) {
-        this.f13615g = f2;
+        this.f13623g = f2;
     }
 
     public void setContentSelectTextColor(int i) {
-        this.f13616h = i;
+        this.f13624h = i;
     }
 
     public void setContentSelectTextSize(float f2) {
-        this.f13614f = f2;
+        this.f13622f = f2;
     }
 
     public void setContentTvTopMargin(int i) {
@@ -159,7 +159,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.f13613e = z;
+        this.f13621e = z;
     }
 
     public void setText(int i) {
@@ -186,19 +186,19 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13613e = false;
-        this.f13614f = 0.0f;
-        this.f13615g = 0.0f;
-        this.f13616h = 0;
+        this.f13621e = false;
+        this.f13622f = 0.0f;
+        this.f13623g = 0.0f;
+        this.f13624h = 0;
         this.i = 0;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f13613e = false;
-        this.f13614f = 0.0f;
-        this.f13615g = 0.0f;
-        this.f13616h = 0;
+        this.f13621e = false;
+        this.f13622f = 0.0f;
+        this.f13623g = 0.0f;
+        this.f13624h = 0;
         this.i = 0;
     }
 }

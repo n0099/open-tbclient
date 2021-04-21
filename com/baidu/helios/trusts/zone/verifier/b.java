@@ -321,9 +321,9 @@ public class b {
     }
 
     public static long c(ByteBuffer byteBuffer, long j) {
-        long b2 = d.b.p.j.a.d.a.b(byteBuffer);
+        long b2 = d.b.q.j.a.d.a.b(byteBuffer);
         if (b2 < j) {
-            if (d.b.p.j.a.d.a.h(byteBuffer) + b2 == j) {
+            if (d.b.q.j.a.d.a.h(byteBuffer) + b2 == j) {
                 return b2;
             }
             throw new e("ZIP Central Directory is not immediately followed by End of Central Directory");
@@ -462,7 +462,7 @@ public class b {
         }
         ByteBuffer duplicate = byteBuffer.duplicate();
         duplicate.order(ByteOrder.LITTLE_ENDIAN);
-        d.b.p.j.a.d.a.f(duplicate, j);
+        d.b.q.j.a.d.a.f(duplicate, j);
         C0088b c0088b3 = new C0088b(duplicate);
         int size = map.size();
         int[] iArr = new int[size];
@@ -777,7 +777,7 @@ public class b {
         Pair<ByteBuffer, Long> t = t(randomAccessFile);
         ByteBuffer byteBuffer = (ByteBuffer) t.first;
         long longValue = ((Long) t.second).longValue();
-        if (d.b.p.j.a.d.a.g(randomAccessFile, longValue)) {
+        if (d.b.q.j.a.d.a.g(randomAccessFile, longValue)) {
             throw new e("ZIP64 APK not supported");
         }
         long c2 = c(byteBuffer, longValue);
@@ -803,12 +803,12 @@ public class b {
         try {
             return m(randomAccessFile);
         } finally {
-            d.b.p.g.c.a.c.c(randomAccessFile);
+            d.b.q.g.c.a.c.c(randomAccessFile);
         }
     }
 
     public static Pair<ByteBuffer, Long> t(RandomAccessFile randomAccessFile) {
-        Pair<ByteBuffer, Long> c2 = d.b.p.j.a.d.a.c(randomAccessFile);
+        Pair<ByteBuffer, Long> c2 = d.b.q.j.a.d.a.c(randomAccessFile);
         if (c2 != null) {
             return c2;
         }

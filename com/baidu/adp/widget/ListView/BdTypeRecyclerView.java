@@ -91,7 +91,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                 if (aVar.y() != null) {
                     bdUniqueId = aVar.y();
                     if (!this.z.containsKey(bdUniqueId)) {
-                        h hVar = new h(aVar.f42855e, bdUniqueId, aVar.i);
+                        h hVar = new h(aVar.f43095e, bdUniqueId, aVar.i);
                         hVar.j0(aVar);
                         this.x.c(hVar);
                         this.z.put(bdUniqueId, hVar);
@@ -100,7 +100,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                 if (aVar.w() != null) {
                     bdUniqueId = aVar.w();
                     if (!this.z.containsKey(bdUniqueId)) {
-                        h hVar2 = new h(aVar.f42855e, bdUniqueId, aVar.i);
+                        h hVar2 = new h(aVar.f43095e, bdUniqueId, aVar.i);
                         hVar2.j0(aVar);
                         this.x.c(hVar2);
                         this.z.put(bdUniqueId, hVar2);
@@ -109,7 +109,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                 if (aVar.x() != null) {
                     bdUniqueId = aVar.x();
                     if (!this.z.containsKey(bdUniqueId)) {
-                        h hVar3 = new h(aVar.f42855e, bdUniqueId, aVar.i);
+                        h hVar3 = new h(aVar.f43095e, bdUniqueId, aVar.i);
                         hVar3.j0(aVar);
                         this.x.c(hVar3);
                         this.z.put(bdUniqueId, hVar3);
@@ -118,7 +118,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                 if (aVar.v() != null) {
                     bdUniqueId = aVar.v();
                     if (!this.z.containsKey(bdUniqueId)) {
-                        h hVar4 = new h(aVar.f42855e, bdUniqueId, aVar.i);
+                        h hVar4 = new h(aVar.f43095e, bdUniqueId, aVar.i);
                         hVar4.j0(aVar);
                         this.x.c(hVar4);
                         this.z.put(bdUniqueId, hVar4);
@@ -127,7 +127,7 @@ public class BdTypeRecyclerView extends BdRecyclerView implements s<BdTypeRecycl
                 if (bdUniqueId == null) {
                     this.x.c(aVar);
                 } else {
-                    this.y.put(aVar.f42858h, aVar);
+                    this.y.put(aVar.f43098h, aVar);
                 }
             }
         }

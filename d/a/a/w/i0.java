@@ -9,7 +9,7 @@ import java.io.IOException;
 public class i0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static JsonReader.a f41756a = JsonReader.a.a("s", "e", Config.OS, SearchView.IME_OPTION_NO_MICROPHONE, "m", "hd");
+    public static JsonReader.a f41851a = JsonReader.a.a("s", "e", Config.OS, SearchView.IME_OPTION_NO_MICROPHONE, "m", "hd");
 
     public static ShapeTrimPath a(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
         String str = null;
@@ -19,7 +19,7 @@ public class i0 {
         d.a.a.u.i.b bVar3 = null;
         boolean z = false;
         while (jsonReader.t()) {
-            int D = jsonReader.D(f41756a);
+            int D = jsonReader.D(f41851a);
             if (D == 0) {
                 bVar = d.f(jsonReader, dVar, false);
             } else if (D == 1) {

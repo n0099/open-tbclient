@@ -28,7 +28,7 @@ import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import com.baidu.tieba.R;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import d.b.c.e.p.l;
-import d.b.h0.r.s.b;
+import d.b.i0.r.s.b;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -73,8 +73,8 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
 
         /* renamed from: com.baidu.tieba.im.chat.AbsMsgImageActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class animation.Animation$AnimationListenerC0196a implements Animation.AnimationListener {
-            public animation.Animation$AnimationListenerC0196a() {
+        public class animation.Animation$AnimationListenerC0198a implements Animation.AnimationListener {
+            public animation.Animation$AnimationListenerC0198a() {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -145,7 +145,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                 }
                 AbsMsgImageActivity.this.mAnim.setDuration(300L);
                 AbsMsgImageActivity.this.mAnim.setFillAfter(true);
-                AbsMsgImageActivity.this.mAnim.setAnimationListener(new animation.Animation$AnimationListenerC0196a());
+                AbsMsgImageActivity.this.mAnim.setAnimationListener(new animation.Animation$AnimationListenerC0198a());
                 AbsMsgImageActivity.this.mAnimFinished = false;
                 AbsMsgImageActivity.this.mTitle.startAnimation(AbsMsgImageActivity.this.mAnim);
             }
@@ -195,8 +195,8 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         public d() {
         }
 
-        @Override // d.b.h0.r.s.b.c
-        public void a(d.b.h0.r.s.b bVar, int i, View view) {
+        @Override // d.b.i0.r.s.b.c
+        public void a(d.b.i0.r.s.b bVar, int i, View view) {
             if (bVar == AbsMsgImageActivity.this.getListMenu()) {
                 if (i == 0) {
                     try {
@@ -230,26 +230,26 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     public class e implements View.OnLongClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ b.c f17412e;
+        public final /* synthetic */ b.c f17420e;
 
         public e(b.c cVar) {
-            this.f17412e = cVar;
+            this.f17420e = cVar;
         }
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
-            AbsMsgImageActivity.this.createListMenu(new String[]{AbsMsgImageActivity.this.getPageContext().getString(R.string.save)}, this.f17412e);
+            AbsMsgImageActivity.this.createListMenu(new String[]{AbsMsgImageActivity.this.getPageContext().getString(R.string.save)}, this.f17420e);
             AbsMsgImageActivity.this.showListMenu();
             return false;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class f implements d.b.i0.e1.s.c {
+    public class f implements d.b.j0.e1.s.c {
         public f() {
         }
 
-        @Override // d.b.i0.e1.s.c
+        @Override // d.b.j0.e1.s.c
         public void a(LinkedHashMap<String, String> linkedHashMap, HashMap<String, ImageUrlData> hashMap) {
             boolean z;
             if (linkedHashMap == null || AbsMsgImageActivity.this.isSingleGif) {
@@ -304,16 +304,16 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     public class g extends BdAsyncTask<String, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17415a;
+        public String f17423a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f17416b;
+        public byte[] f17424b;
 
         public g(String str, byte[] bArr) {
-            this.f17415a = null;
-            this.f17416b = null;
-            this.f17415a = str;
-            this.f17416b = bArr;
+            this.f17423a = null;
+            this.f17424b = null;
+            this.f17423a = str;
+            this.f17424b = bArr;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -331,7 +331,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f17415a, this.f17416b, AbsMsgImageActivity.this.getPageContext().getPageActivity());
+            int saveImageFileByUser = FileHelper.saveImageFileByUser(this.f17423a, this.f17424b, AbsMsgImageActivity.this.getPageContext().getPageActivity());
             if (saveImageFileByUser != -2) {
                 if (saveImageFileByUser != 0) {
                     return AbsMsgImageActivity.this.getPageContext().getString(R.string.save_fail);
@@ -574,7 +574,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    public abstract void queryAllBigImageUrls(String str, d.b.i0.e1.s.c cVar);
+    public abstract void queryAllBigImageUrls(String str, d.b.j0.e1.s.c cVar);
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void releaseResouce() {

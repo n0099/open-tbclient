@@ -18,10 +18,10 @@ import kotlin.text.Typography;
 public final class X0 implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f40119a;
+    public final /* synthetic */ Context f40214a;
 
     public X0(Context context) {
-        this.f40119a = context;
+        this.f40214a = context;
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(21:1|(2:2|3)|4|(4:5|6|(1:8)(1:58)|(2:9|10))|(2:12|13)|14|15|16|(1:18)|20|(1:22)|23|(1:25)(1:50)|26|(6:28|29|30|(2:31|(1:33)(1:34))|35|(5:37|38|(2:43|44)|40|41))|49|38|(0)|40|41|(1:(0))) */
@@ -49,11 +49,11 @@ public final class X0 implements Runnable {
         String str4;
         PackageInfo packageInfo;
         try {
-            T1.a(this.f40119a).d();
+            T1.a(this.f40214a).d();
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        Context context = this.f40119a;
+        Context context = this.f40214a;
         try {
             packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
             ApplicationInfo applicationInfo = packageInfo.applicationInfo;
@@ -84,7 +84,7 @@ public final class X0 implements Runnable {
             if (Build.VERSION.SDK_INT >= 21) {
             }
             String arrays = Arrays.toString(strArr2);
-            Context context2 = this.f40119a;
+            Context context2 = this.f40214a;
             currentTimeMillis = System.currentTimeMillis() - V1.c(context2);
             if (currentTimeMillis < 0) {
             }
@@ -94,13 +94,13 @@ public final class X0 implements Runnable {
             str4 = null;
             if (!TextUtils.isEmpty(str4)) {
             }
-            Context context3 = this.f40119a;
+            Context context3 = this.f40214a;
             long currentTimeMillis2 = System.currentTimeMillis();
             SharedPreferences.Editor edit = context3.getSharedPreferences("_prefs", 0).edit();
             edit.putLong("bdts", currentTimeMillis2);
             edit.apply();
-            Z0 a2 = a1.a(this.f40119a);
-            a2.f40140c = "{\"e\":\"bd\",\"apk_dir\":\"" + str7 + Typography.quote + ",\"istl_ts\":\"" + str5 + Typography.quote + ",\"udt_ts\":\"" + str6 + Typography.quote + ",\"open_ts\":\"" + valueOf + Typography.quote + ",\"cpu_abi\":\"" + arrays + Typography.quote + ",\"app_list\":\"" + str8 + Typography.quote + '}';
+            Z0 a2 = a1.a(this.f40214a);
+            a2.f40235c = "{\"e\":\"bd\",\"apk_dir\":\"" + str7 + Typography.quote + ",\"istl_ts\":\"" + str5 + Typography.quote + ",\"udt_ts\":\"" + str6 + Typography.quote + ",\"open_ts\":\"" + valueOf + Typography.quote + ",\"cpu_abi\":\"" + arrays + Typography.quote + ",\"app_list\":\"" + str8 + Typography.quote + '}';
             a2.a();
         }
         String[] strArr3 = {str2, str3, str};
@@ -113,7 +113,7 @@ public final class X0 implements Runnable {
             strArr22 = Build.SUPPORTED_ABIS;
         }
         String arrays2 = Arrays.toString(strArr22);
-        Context context22 = this.f40119a;
+        Context context22 = this.f40214a;
         currentTimeMillis = System.currentTimeMillis() - V1.c(context22);
         if (currentTimeMillis < 0) {
             long currentTimeMillis3 = System.currentTimeMillis();
@@ -153,26 +153,26 @@ public final class X0 implements Runnable {
                         str82 = str4;
                     }
                 }
-                Context context32 = this.f40119a;
+                Context context32 = this.f40214a;
                 long currentTimeMillis22 = System.currentTimeMillis();
                 SharedPreferences.Editor edit5 = context32.getSharedPreferences("_prefs", 0).edit();
                 edit5.putLong("bdts", currentTimeMillis22);
                 edit5.apply();
-                Z0 a22 = a1.a(this.f40119a);
-                a22.f40140c = "{\"e\":\"bd\",\"apk_dir\":\"" + str72 + Typography.quote + ",\"istl_ts\":\"" + str52 + Typography.quote + ",\"udt_ts\":\"" + str62 + Typography.quote + ",\"open_ts\":\"" + valueOf2 + Typography.quote + ",\"cpu_abi\":\"" + arrays2 + Typography.quote + ",\"app_list\":\"" + str82 + Typography.quote + '}';
+                Z0 a22 = a1.a(this.f40214a);
+                a22.f40235c = "{\"e\":\"bd\",\"apk_dir\":\"" + str72 + Typography.quote + ",\"istl_ts\":\"" + str52 + Typography.quote + ",\"udt_ts\":\"" + str62 + Typography.quote + ",\"open_ts\":\"" + valueOf2 + Typography.quote + ",\"cpu_abi\":\"" + arrays2 + Typography.quote + ",\"app_list\":\"" + str82 + Typography.quote + '}';
                 a22.a();
             }
         }
         str4 = null;
         if (!TextUtils.isEmpty(str4)) {
         }
-        Context context322 = this.f40119a;
+        Context context322 = this.f40214a;
         long currentTimeMillis222 = System.currentTimeMillis();
         SharedPreferences.Editor edit52 = context322.getSharedPreferences("_prefs", 0).edit();
         edit52.putLong("bdts", currentTimeMillis222);
         edit52.apply();
-        Z0 a222 = a1.a(this.f40119a);
-        a222.f40140c = "{\"e\":\"bd\",\"apk_dir\":\"" + str72 + Typography.quote + ",\"istl_ts\":\"" + str52 + Typography.quote + ",\"udt_ts\":\"" + str62 + Typography.quote + ",\"open_ts\":\"" + valueOf2 + Typography.quote + ",\"cpu_abi\":\"" + arrays2 + Typography.quote + ",\"app_list\":\"" + str82 + Typography.quote + '}';
+        Z0 a222 = a1.a(this.f40214a);
+        a222.f40235c = "{\"e\":\"bd\",\"apk_dir\":\"" + str72 + Typography.quote + ",\"istl_ts\":\"" + str52 + Typography.quote + ",\"udt_ts\":\"" + str62 + Typography.quote + ",\"open_ts\":\"" + valueOf2 + Typography.quote + ",\"cpu_abi\":\"" + arrays2 + Typography.quote + ",\"app_list\":\"" + str82 + Typography.quote + '}';
         a222.a();
     }
 }

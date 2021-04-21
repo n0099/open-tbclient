@@ -1,41 +1,71 @@
 package d.b.h0.q;
 
-import android.content.Context;
-import d.b.h0.e0.b;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class a {
+public class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<b> f50818a = new ArrayList<>();
+    public List<d.b.h0.q.c.b<T>> f50060a = new ArrayList(6);
 
-    /* renamed from: b  reason: collision with root package name */
-    public Context f50819b;
-
-    public a(Context context) {
-        this.f50819b = context;
-    }
-
-    public void a(b bVar) {
-        if (bVar == null || bVar.getFragmentTabStructure() == null) {
+    public void a(d.b.h0.q.c.b<T> bVar) {
+        if (bVar == null || this.f50060a.contains(bVar)) {
             return;
         }
-        Iterator<b> it = this.f50818a.iterator();
-        while (it.hasNext()) {
-            b next = it.next();
-            if (next != null && next.getFragmentTabStructure() != null && next.getFragmentTabStructure().f50552e == bVar.getFragmentTabStructure().f50552e) {
-                return;
+        this.f50060a.add(bVar);
+    }
+
+    public T b() {
+        ArrayList<d.b.h0.q.c.b> arrayList = new ArrayList();
+        Iterator<d.b.h0.q.c.b<T>> it = this.f50060a.iterator();
+        T t = null;
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            d.b.h0.q.c.b<T> next = it.next();
+            T t2 = next.get();
+            if (c(t2)) {
+                t = t2;
+                break;
+            }
+            arrayList.add(next);
+            t = t2;
+        }
+        if (arrayList.size() > 0) {
+            for (d.b.h0.q.c.b bVar : arrayList) {
+                bVar.put(t);
             }
         }
-        this.f50818a.add(bVar);
+        return t;
     }
 
-    public Context b() {
-        return this.f50819b;
+    public final boolean c(T t) {
+        char[] charArray;
+        if (t != null && (t instanceof String)) {
+            String str = (String) t;
+            if (str.length() != 32) {
+                return false;
+            }
+            for (char c2 : str.toCharArray()) {
+                if ((c2 < 'A' || c2 > 'Z') && (c2 < '0' || c2 > '9')) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
     }
 
-    public ArrayList<b> c() {
-        return this.f50818a;
+    public void d(T t) {
+        if (c(t)) {
+            return;
+        }
+        for (d.b.h0.q.c.b<T> bVar : this.f50060a) {
+            if (bVar.a()) {
+                bVar.put(t);
+            }
+        }
     }
 }

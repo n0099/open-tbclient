@@ -22,28 +22,28 @@ import com.kwad.sdk.utils.ao;
 public class TrendListItemView extends com.kwad.sdk.widget.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public RoundAngleImageView f33356a;
+    public RoundAngleImageView f33451a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f33357b;
+    public TextView f33452b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f33358c;
+    public TextView f33453c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f33359d;
+    public TextView f33454d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f33360e;
+    public TextView f33455e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f33361f;
+    public ImageView f33456f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f33362g;
+    public ImageView f33457g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f33363h;
+    public boolean f33458h;
     public boolean i;
     public TrendInfo j;
     public SceneImpl k;
@@ -72,40 +72,40 @@ public class TrendListItemView extends com.kwad.sdk.widget.a {
 
     public void a(@NonNull TrendInfo trendInfo, boolean z) {
         this.j = trendInfo;
-        this.f33363h = z;
+        this.f33458h = z;
         setBackgroundColor(z ? 234881023 : ViewCompat.MEASURED_SIZE_MASK);
-        KSImageLoader.loadImage(this.f33356a, trendInfo.coverUrl, (AdTemplate) null, KSImageLoader.IMGOPTION_TREND);
-        this.f33357b.setText(String.valueOf(trendInfo.rank));
+        KSImageLoader.loadImage(this.f33451a, trendInfo.coverUrl, (AdTemplate) null, KSImageLoader.IMGOPTION_TREND);
+        this.f33452b.setText(String.valueOf(trendInfo.rank));
         if (trendInfo.rank <= 3) {
-            this.f33357b.setVisibility(8);
-            this.f33361f.setVisibility(0);
-            this.f33361f.setImageDrawable(ab.b(getContext(), String.format("ksad_trend_list_logo_%d", Integer.valueOf(trendInfo.rank))));
+            this.f33452b.setVisibility(8);
+            this.f33456f.setVisibility(0);
+            this.f33456f.setImageDrawable(ab.b(getContext(), String.format("ksad_trend_list_logo_%d", Integer.valueOf(trendInfo.rank))));
         } else {
-            this.f33357b.setVisibility(0);
-            this.f33361f.setVisibility(8);
-            this.f33357b.setTextColor(-2130706433);
+            this.f33452b.setVisibility(0);
+            this.f33456f.setVisibility(8);
+            this.f33452b.setTextColor(-2130706433);
         }
-        this.f33358c.setText(trendInfo.name);
-        this.f33359d.setText(String.format(getContext().getString(R.string.ksad_trend_list_item_photo_count_format), Integer.valueOf(trendInfo.photoCount)));
+        this.f33453c.setText(trendInfo.name);
+        this.f33454d.setText(String.format(getContext().getString(R.string.ksad_trend_list_item_photo_count_format), Integer.valueOf(trendInfo.photoCount)));
         if (TextUtils.isEmpty(trendInfo.iconUrl)) {
-            this.f33362g.setVisibility(8);
+            this.f33457g.setVisibility(8);
         } else {
-            this.f33362g.setVisibility(0);
-            KSImageLoader.loadImage(this.f33362g, trendInfo.iconUrl, null);
+            this.f33457g.setVisibility(0);
+            KSImageLoader.loadImage(this.f33457g, trendInfo.iconUrl, null);
         }
-        this.f33360e.setText(String.format(getContext().getString(R.string.ksad_photo_hot_enter_watch_count_format), ag.b(trendInfo.viewCount)));
+        this.f33455e.setText(String.format(getContext().getString(R.string.ksad_photo_hot_enter_watch_count_format), ag.b(trendInfo.viewCount)));
     }
 
     public void b() {
         RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.ksad_photo_hot_list_item_photo);
-        this.f33356a = roundAngleImageView;
+        this.f33451a = roundAngleImageView;
         roundAngleImageView.setRadius(ao.a(getContext(), 4.0f));
-        this.f33357b = (TextView) findViewById(R.id.ksad_photo_hot_list_item_index);
-        this.f33358c = (TextView) findViewById(R.id.ksad_photo_hot_list_item_name);
-        this.f33359d = (TextView) findViewById(R.id.ksad_photo_hot_enter_photo_count);
-        this.f33360e = (TextView) findViewById(R.id.ksad_photo_hot_enter_watch_count);
-        this.f33361f = (ImageView) findViewById(R.id.ksad_trend_list_logo);
-        this.f33362g = (ImageView) findViewById(R.id.ksad_photo_hot_list_item_icon);
+        this.f33452b = (TextView) findViewById(R.id.ksad_photo_hot_list_item_index);
+        this.f33453c = (TextView) findViewById(R.id.ksad_photo_hot_list_item_name);
+        this.f33454d = (TextView) findViewById(R.id.ksad_photo_hot_enter_photo_count);
+        this.f33455e = (TextView) findViewById(R.id.ksad_photo_hot_enter_watch_count);
+        this.f33456f = (ImageView) findViewById(R.id.ksad_trend_list_logo);
+        this.f33457g = (ImageView) findViewById(R.id.ksad_photo_hot_list_item_icon);
     }
 
     @Override // android.view.View

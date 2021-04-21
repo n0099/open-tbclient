@@ -3,7 +3,7 @@ package com.baidu.tieba.godSquare.model.res;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.godSquare.model.req.GodSquareRequestMsg;
 import com.squareup.wire.Wire;
-import d.b.i0.v0.c.a;
+import d.b.j0.v0.c.a;
 import tbclient.Error;
 import tbclient.GetHotGod.DataRes;
 import tbclient.GetHotGod.GetHotGodResIdl;

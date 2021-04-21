@@ -3,7 +3,7 @@ package com.baidu.tieba.personExtra;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
-import d.b.i0.i2.e.q;
+import d.b.j0.i2.e.q;
 import tbclient.Error;
 import tbclient.GetRecommendGodList.GetRecommendGodListResIdl;
 /* loaded from: classes3.dex */

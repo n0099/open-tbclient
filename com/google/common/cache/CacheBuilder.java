@@ -4,62 +4,62 @@ import com.google.common.base.Equivalence;
 import com.google.common.base.Suppliers;
 import com.google.common.cache.LocalCache;
 import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
-import d.g.c.a.j;
-import d.g.c.a.n;
-import d.g.c.a.r;
-import d.g.c.a.t;
-import d.g.c.b.c;
-import d.g.c.b.d;
-import d.g.c.b.f;
-import d.g.c.b.i;
-import d.g.c.b.j;
+import d.h.c.a.j;
+import d.h.c.a.n;
+import d.h.c.a.r;
+import d.h.c.a.t;
+import d.h.c.b.c;
+import d.h.c.b.d;
+import d.h.c.b.f;
+import d.h.c.b.i;
+import d.h.c.b.j;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /* loaded from: classes6.dex */
 public final class CacheBuilder<K, V> {
-    public static final r<? extends d.g.c.b.b> q = Suppliers.a(new a());
+    public static final r<? extends d.h.c.b.b> q = Suppliers.a(new a());
     public static final d r = new d(0, 0, 0, 0, 0, 0);
     public static final t s = new b();
     public static final Logger t = Logger.getLogger(CacheBuilder.class.getName());
 
     /* renamed from: f  reason: collision with root package name */
-    public j<? super K, ? super V> f30599f;
+    public j<? super K, ? super V> f30694f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LocalCache.Strength f30600g;
+    public LocalCache.Strength f30695g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LocalCache.Strength f30601h;
+    public LocalCache.Strength f30696h;
     public Equivalence<Object> l;
     public Equivalence<Object> m;
     public i<? super K, ? super V> n;
     public t o;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f30594a = true;
+    public boolean f30689a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30595b = -1;
+    public int f30690b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30596c = -1;
+    public int f30691c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f30597d = -1;
+    public long f30692d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f30598e = -1;
+    public long f30693e = -1;
     public long i = -1;
     public long j = -1;
     public long k = -1;
-    public r<? extends d.g.c.b.b> p = q;
+    public r<? extends d.h.c.b.b> p = q;
 
     /* loaded from: classes6.dex */
     public enum NullListener implements i<Object, Object> {
         INSTANCE;
 
-        @Override // d.g.c.b.i
+        @Override // d.h.c.b.i
         public void onRemoval(RemovalNotification<Object, Object> removalNotification) {
         }
     }
@@ -68,35 +68,35 @@ public final class CacheBuilder<K, V> {
     public enum OneWeigher implements j<Object, Object> {
         INSTANCE;
 
-        @Override // d.g.c.b.j
+        @Override // d.h.c.b.j
         public int weigh(Object obj, Object obj2) {
             return 1;
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class a implements d.g.c.b.b {
-        @Override // d.g.c.b.b
+    public static class a implements d.h.c.b.b {
+        @Override // d.h.c.b.b
         public void a(int i) {
         }
 
-        @Override // d.g.c.b.b
+        @Override // d.h.c.b.b
         public void b(int i) {
         }
 
-        @Override // d.g.c.b.b
+        @Override // d.h.c.b.b
         public void c() {
         }
 
-        @Override // d.g.c.b.b
+        @Override // d.h.c.b.b
         public void d(long j) {
         }
 
-        @Override // d.g.c.b.b
+        @Override // d.h.c.b.b
         public void e(long j) {
         }
 
-        @Override // d.g.c.b.b
+        @Override // d.h.c.b.b
         public d f() {
             return CacheBuilder.r;
         }
@@ -104,7 +104,7 @@ public final class CacheBuilder<K, V> {
 
     /* loaded from: classes6.dex */
     public static class b extends t {
-        @Override // d.g.c.a.t
+        @Override // d.h.c.a.t
         public long a() {
             return 0L;
         }
@@ -115,16 +115,16 @@ public final class CacheBuilder<K, V> {
     }
 
     public CacheBuilder<K, V> A(LocalCache.Strength strength) {
-        n.A(this.f30600g == null, "Key strength was already set to %s", this.f30600g);
+        n.A(this.f30695g == null, "Key strength was already set to %s", this.f30695g);
         n.p(strength);
-        this.f30600g = strength;
+        this.f30695g = strength;
         return this;
     }
 
     public CacheBuilder<K, V> B(LocalCache.Strength strength) {
-        n.A(this.f30601h == null, "Value strength was already set to %s", this.f30601h);
+        n.A(this.f30696h == null, "Value strength was already set to %s", this.f30696h);
         n.p(strength);
-        this.f30601h = strength;
+        this.f30696h = strength;
         return this;
     }
 
@@ -143,15 +143,15 @@ public final class CacheBuilder<K, V> {
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: com.google.common.cache.CacheBuilder<K, V> */
-    /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: d.g.c.b.j<? super K1 extends K, ? super V1 extends V> */
+    /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: d.h.c.b.j<? super K1 extends K, ? super V1 extends V> */
     /* JADX WARN: Multi-variable type inference failed */
     public <K1 extends K, V1 extends V> CacheBuilder<K1, V1> E(j<? super K1, ? super V1> jVar) {
-        n.w(this.f30599f == null);
-        if (this.f30594a) {
-            n.z(this.f30597d == -1, "weigher can not be combined with maximum size", this.f30597d);
+        n.w(this.f30694f == null);
+        if (this.f30689a) {
+            n.z(this.f30692d == -1, "weigher can not be combined with maximum size", this.f30692d);
         }
         n.p(jVar);
-        this.f30599f = jVar;
+        this.f30694f = jVar;
         return this;
     }
 
@@ -171,19 +171,19 @@ public final class CacheBuilder<K, V> {
     }
 
     public final void d() {
-        if (this.f30599f == null) {
-            n.x(this.f30598e == -1, "maximumWeight requires weigher");
-        } else if (this.f30594a) {
-            n.x(this.f30598e != -1, "weigher requires maximumWeight");
-        } else if (this.f30598e == -1) {
+        if (this.f30694f == null) {
+            n.x(this.f30693e == -1, "maximumWeight requires weigher");
+        } else if (this.f30689a) {
+            n.x(this.f30693e != -1, "weigher requires maximumWeight");
+        } else if (this.f30693e == -1) {
             t.log(Level.WARNING, "ignoring weigher specified without maximumWeight");
         }
     }
 
     public CacheBuilder<K, V> e(int i) {
-        n.y(this.f30596c == -1, "concurrency level was already set to %s", this.f30596c);
+        n.y(this.f30691c == -1, "concurrency level was already set to %s", this.f30691c);
         n.d(i > 0);
-        this.f30596c = i;
+        this.f30691c = i;
         return this;
     }
 
@@ -202,7 +202,7 @@ public final class CacheBuilder<K, V> {
     }
 
     public int h() {
-        int i = this.f30596c;
+        int i = this.f30691c;
         if (i == -1) {
             return 4;
         }
@@ -226,7 +226,7 @@ public final class CacheBuilder<K, V> {
     }
 
     public int k() {
-        int i = this.f30595b;
+        int i = this.f30690b;
         if (i == -1) {
             return 16;
         }
@@ -234,18 +234,18 @@ public final class CacheBuilder<K, V> {
     }
 
     public Equivalence<Object> l() {
-        return (Equivalence) d.g.c.a.j.a(this.l, m().defaultEquivalence());
+        return (Equivalence) d.h.c.a.j.a(this.l, m().defaultEquivalence());
     }
 
     public LocalCache.Strength m() {
-        return (LocalCache.Strength) d.g.c.a.j.a(this.f30600g, LocalCache.Strength.STRONG);
+        return (LocalCache.Strength) d.h.c.a.j.a(this.f30695g, LocalCache.Strength.STRONG);
     }
 
     public long n() {
         if (this.i == 0 || this.j == 0) {
             return 0L;
         }
-        return this.f30599f == null ? this.f30597d : this.f30598e;
+        return this.f30694f == null ? this.f30692d : this.f30693e;
     }
 
     public long o() {
@@ -257,10 +257,10 @@ public final class CacheBuilder<K, V> {
     }
 
     public <K1 extends K, V1 extends V> i<K1, V1> p() {
-        return (i) d.g.c.a.j.a(this.n, NullListener.INSTANCE);
+        return (i) d.h.c.a.j.a(this.n, NullListener.INSTANCE);
     }
 
-    public r<? extends d.g.c.b.b> q() {
+    public r<? extends d.h.c.b.b> q() {
         return this.p;
     }
 
@@ -270,28 +270,28 @@ public final class CacheBuilder<K, V> {
     }
 
     public Equivalence<Object> s() {
-        return (Equivalence) d.g.c.a.j.a(this.m, t().defaultEquivalence());
+        return (Equivalence) d.h.c.a.j.a(this.m, t().defaultEquivalence());
     }
 
     public LocalCache.Strength t() {
-        return (LocalCache.Strength) d.g.c.a.j.a(this.f30601h, LocalCache.Strength.STRONG);
+        return (LocalCache.Strength) d.h.c.a.j.a(this.f30696h, LocalCache.Strength.STRONG);
     }
 
     public String toString() {
-        j.b b2 = d.g.c.a.j.b(this);
-        int i = this.f30595b;
+        j.b b2 = d.h.c.a.j.b(this);
+        int i = this.f30690b;
         if (i != -1) {
             b2.b("initialCapacity", i);
         }
-        int i2 = this.f30596c;
+        int i2 = this.f30691c;
         if (i2 != -1) {
             b2.b("concurrencyLevel", i2);
         }
-        long j = this.f30597d;
+        long j = this.f30692d;
         if (j != -1) {
             b2.c("maximumSize", j);
         }
-        long j2 = this.f30598e;
+        long j2 = this.f30693e;
         if (j2 != -1) {
             b2.c("maximumWeight", j2);
         }
@@ -301,13 +301,13 @@ public final class CacheBuilder<K, V> {
         if (this.j != -1) {
             b2.d("expireAfterAccess", this.j + NotificationStyle.NOTIFICATION_STYLE);
         }
-        LocalCache.Strength strength = this.f30600g;
+        LocalCache.Strength strength = this.f30695g;
         if (strength != null) {
-            b2.d("keyStrength", d.g.c.a.a.c(strength.toString()));
+            b2.d("keyStrength", d.h.c.a.a.c(strength.toString()));
         }
-        LocalCache.Strength strength2 = this.f30601h;
+        LocalCache.Strength strength2 = this.f30696h;
         if (strength2 != null) {
-            b2.d("valueStrength", d.g.c.a.a.c(strength2.toString()));
+            b2.d("valueStrength", d.h.c.a.a.c(strength2.toString()));
         }
         if (this.l != null) {
             b2.h("keyEquivalence");
@@ -321,8 +321,8 @@ public final class CacheBuilder<K, V> {
         return b2.toString();
     }
 
-    public <K1 extends K, V1 extends V> d.g.c.b.j<K1, V1> u() {
-        return (d.g.c.b.j) d.g.c.a.j.a(this.f30599f, OneWeigher.INSTANCE);
+    public <K1 extends K, V1 extends V> d.h.c.b.j<K1, V1> u() {
+        return (d.h.c.b.j) d.h.c.a.j.a(this.f30694f, OneWeigher.INSTANCE);
     }
 
     public CacheBuilder<K, V> v(Equivalence<Object> equivalence) {
@@ -333,24 +333,24 @@ public final class CacheBuilder<K, V> {
     }
 
     public CacheBuilder<K, V> w(long j) {
-        n.z(this.f30597d == -1, "maximum size was already set to %s", this.f30597d);
-        n.z(this.f30598e == -1, "maximum weight was already set to %s", this.f30598e);
-        n.x(this.f30599f == null, "maximum size can not be combined with weigher");
+        n.z(this.f30692d == -1, "maximum size was already set to %s", this.f30692d);
+        n.z(this.f30693e == -1, "maximum weight was already set to %s", this.f30693e);
+        n.x(this.f30694f == null, "maximum size can not be combined with weigher");
         n.e(j >= 0, "maximum size must not be negative");
-        this.f30597d = j;
+        this.f30692d = j;
         return this;
     }
 
     public CacheBuilder<K, V> x(long j) {
-        n.z(this.f30598e == -1, "maximum weight was already set to %s", this.f30598e);
-        n.z(this.f30597d == -1, "maximum size was already set to %s", this.f30597d);
-        this.f30598e = j;
+        n.z(this.f30693e == -1, "maximum weight was already set to %s", this.f30693e);
+        n.z(this.f30692d == -1, "maximum size was already set to %s", this.f30692d);
+        this.f30693e = j;
         n.e(j >= 0, "maximum weight must not be negative");
         return this;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.google.common.cache.CacheBuilder<K, V> */
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: d.g.c.b.i<? super K1 extends K, ? super V1 extends V> */
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: d.h.c.b.i<? super K1 extends K, ? super V1 extends V> */
     /* JADX WARN: Multi-variable type inference failed */
     public <K1 extends K, V1 extends V> CacheBuilder<K1, V1> z(i<? super K1, ? super V1> iVar) {
         n.w(this.n == null);

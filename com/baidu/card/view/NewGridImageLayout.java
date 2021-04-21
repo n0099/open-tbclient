@@ -28,14 +28,14 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import d.b.c.e.p.l;
-import d.b.h0.r.k;
-import d.b.h0.r.q.a2;
 import d.b.i.p;
-import d.b.i0.x.b0;
+import d.b.i0.r.k;
+import d.b.i0.r.q.a2;
+import d.b.j0.x.b0;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class NewGridImageLayout extends LinearLayout implements p<d.b.h0.r.q.a>, View.OnClickListener {
+public class NewGridImageLayout extends LinearLayout implements p<d.b.i0.r.q.a>, View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
     public final int f4529e;
@@ -51,13 +51,13 @@ public class NewGridImageLayout extends LinearLayout implements p<d.b.h0.r.q.a>,
     public VoteView i;
     public GridImageLayout j;
     public Context k;
-    public d.b.h0.r.q.a l;
+    public d.b.i0.r.q.a l;
     public String m;
-    public b0<d.b.h0.r.q.a> n;
+    public b0<d.b.i0.r.q.a> n;
     public boolean o;
     public boolean p;
     public LinkedList<MediaData> q;
-    public d.b.h0.b1.m.a r;
+    public d.b.i0.b1.m.a r;
     public View.OnClickListener s;
     public boolean t;
     public int u;
@@ -69,7 +69,7 @@ public class NewGridImageLayout extends LinearLayout implements p<d.b.h0.r.q.a>,
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b0<d.b.h0.r.q.a> subClickListener = NewGridImageLayout.this.getSubClickListener();
+            b0<d.b.i0.r.q.a> subClickListener = NewGridImageLayout.this.getSubClickListener();
             if (subClickListener != null) {
                 view.setTag("2");
                 subClickListener.a(view, NewGridImageLayout.this.l);
@@ -84,7 +84,7 @@ public class NewGridImageLayout extends LinearLayout implements p<d.b.h0.r.q.a>,
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b0<d.b.h0.r.q.a> subClickListener = NewGridImageLayout.this.getSubClickListener();
+            b0<d.b.i0.r.q.a> subClickListener = NewGridImageLayout.this.getSubClickListener();
             if (subClickListener != null) {
                 view.setTag("1");
                 subClickListener.a(view, NewGridImageLayout.this.l);
@@ -107,9 +107,9 @@ public class NewGridImageLayout extends LinearLayout implements p<d.b.h0.r.q.a>,
     public class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.q.a f4536e;
+        public final /* synthetic */ d.b.i0.r.q.a f4536e;
 
-        public d(d.b.h0.r.q.a aVar) {
+        public d(d.b.i0.r.q.a aVar) {
             this.f4536e = aVar;
         }
 
@@ -191,7 +191,7 @@ public class NewGridImageLayout extends LinearLayout implements p<d.b.h0.r.q.a>,
         this.f4532h.m();
     }
 
-    public b0<d.b.h0.r.q.a> getSubClickListener() {
+    public b0<d.b.i0.r.q.a> getSubClickListener() {
         return this.n;
     }
 
@@ -207,7 +207,7 @@ public class NewGridImageLayout extends LinearLayout implements p<d.b.h0.r.q.a>,
             this.j.setVisibility(8);
             return;
         } else {
-            K0 = originalThreadInfo.f12879h;
+            K0 = originalThreadInfo.f12887h;
             z = true;
         }
         if (k.c().g() && ListUtils.getCount(K0) != 0) {
@@ -299,7 +299,7 @@ public class NewGridImageLayout extends LinearLayout implements p<d.b.h0.r.q.a>,
         gridImageLayout.setSupportGifPlay(false);
         this.j.setCornerStyle(1);
         this.j.setAfterClickListener(new b());
-        this.r = new d.b.h0.b1.m.a();
+        this.r = new d.b.i0.b1.m.a();
         int i = l.p(this.k)[0];
         this.r.D = i - (l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X004) * 2);
         this.r.E = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
@@ -345,7 +345,7 @@ public class NewGridImageLayout extends LinearLayout implements p<d.b.h0.r.q.a>,
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.i.p
     /* renamed from: o */
-    public void a(d.b.h0.r.q.a aVar) {
+    public void a(d.b.i0.r.q.a aVar) {
         if (aVar == null || aVar.n() == null) {
             return;
         }
@@ -353,13 +353,13 @@ public class NewGridImageLayout extends LinearLayout implements p<d.b.h0.r.q.a>,
         OriginalThreadInfo originalThreadInfo = n.r1;
         if (originalThreadInfo != null && this.o) {
             q(this.j, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-            d.b.h0.r.u.c d2 = d.b.h0.r.u.c.d(this.f4531g);
+            d.b.i0.r.u.c d2 = d.b.i0.r.u.c.d(this.f4531g);
             d2.v(R.string.F_X01);
             d2.u(R.dimen.T_X07);
-            d.b.h0.r.u.c.d(this.f4530f).u(R.dimen.T_X07);
+            d.b.i0.r.u.c.d(this.f4530f).u(R.dimen.T_X07);
             this.f4530f.setVisibility(8);
             if (originalThreadInfo.m) {
-                ThreadCardUtils.setAbstract(this.f4531g, this.f4530f, new SpannableString(originalThreadInfo.f12878g), n, this.f4529e, this.o, this.t);
+                ThreadCardUtils.setAbstract(this.f4531g, this.f4530f, new SpannableString(originalThreadInfo.f12886g), n, this.f4529e, this.o, this.t);
                 SkinManager.setViewTextColor(this.f4531g, R.color.CAM_X0108);
             } else {
                 ThreadCardUtils.setAbstract(this.f4531g, this.f4530f, originalThreadInfo.t, n, this.f4529e, this.o, this.t);
@@ -369,7 +369,7 @@ public class NewGridImageLayout extends LinearLayout implements p<d.b.h0.r.q.a>,
                 this.i.setOnClickListener(dVar);
                 this.i.setOnItemClickListener(dVar);
                 this.i.setIsTransmit(true);
-                this.i.setData(originalThreadInfo.D, originalThreadInfo.f12877f, originalThreadInfo.f12876e);
+                this.i.setData(originalThreadInfo.D, originalThreadInfo.f12885f, originalThreadInfo.f12884e);
                 this.i.setVisibility(0);
             } else {
                 this.i.setVisibility(8);
@@ -445,7 +445,7 @@ public class NewGridImageLayout extends LinearLayout implements p<d.b.h0.r.q.a>,
     }
 
     public final boolean r(a2 a2Var) {
-        d.b.h0.r.q.a aVar = this.l;
+        d.b.i0.r.q.a aVar = this.l;
         if (aVar == null || aVar.n() == null) {
             return true;
         }
@@ -454,7 +454,7 @@ public class NewGridImageLayout extends LinearLayout implements p<d.b.h0.r.q.a>,
                 if (this.l.n().r1 == null) {
                     return true;
                 }
-                return !m(a2Var.r1.f12879h, this.l.n().r1.f12879h);
+                return !m(a2Var.r1.f12887h, this.l.n().r1.f12887h);
             }
             return !m(a2Var.K0(), this.l.n().K0());
         }
@@ -494,7 +494,7 @@ public class NewGridImageLayout extends LinearLayout implements p<d.b.h0.r.q.a>,
     public void setPreloadSizeReadyCallback(d.b.c.j.c.b bVar) {
     }
 
-    public void setSubClickListener(b0<d.b.h0.r.q.a> b0Var) {
+    public void setSubClickListener(b0<d.b.i0.r.q.a> b0Var) {
         this.n = b0Var;
     }
 

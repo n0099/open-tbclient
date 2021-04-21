@@ -10,31 +10,31 @@ import java.util.Collections;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Matrix f41612a = new Matrix();
+    public final Matrix f41707a = new Matrix();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Matrix f41613b;
+    public final Matrix f41708b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Matrix f41614c;
+    public final Matrix f41709c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Matrix f41615d;
+    public final Matrix f41710d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final float[] f41616e;
+    public final float[] f41711e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public a<PointF, PointF> f41617f;
+    public a<PointF, PointF> f41712f;
     @NonNull
 
     /* renamed from: g  reason: collision with root package name */
-    public a<?, PointF> f41618g;
+    public a<?, PointF> f41713g;
     @NonNull
 
     /* renamed from: h  reason: collision with root package name */
-    public a<d.a.a.y.d, d.a.a.y.d> f41619h;
+    public a<d.a.a.y.d, d.a.a.y.d> f41714h;
     @NonNull
     public a<Float, Float> i;
     @NonNull
@@ -49,22 +49,22 @@ public class o {
     public a<?, Float> n;
 
     public o(d.a.a.u.i.l lVar) {
-        this.f41617f = lVar.c() == null ? null : lVar.c().a();
-        this.f41618g = lVar.f() == null ? null : lVar.f().a();
-        this.f41619h = lVar.h() == null ? null : lVar.h().a();
+        this.f41712f = lVar.c() == null ? null : lVar.c().a();
+        this.f41713g = lVar.f() == null ? null : lVar.f().a();
+        this.f41714h = lVar.h() == null ? null : lVar.h().a();
         this.i = lVar.g() == null ? null : lVar.g().a();
         c cVar = lVar.i() == null ? null : (c) lVar.i().a();
         this.k = cVar;
         if (cVar != null) {
-            this.f41613b = new Matrix();
-            this.f41614c = new Matrix();
-            this.f41615d = new Matrix();
-            this.f41616e = new float[9];
+            this.f41708b = new Matrix();
+            this.f41709c = new Matrix();
+            this.f41710d = new Matrix();
+            this.f41711e = new float[9];
         } else {
-            this.f41613b = null;
-            this.f41614c = null;
-            this.f41615d = null;
-            this.f41616e = null;
+            this.f41708b = null;
+            this.f41709c = null;
+            this.f41710d = null;
+            this.f41711e = null;
         }
         this.l = lVar.j() == null ? null : (c) lVar.j().a();
         if (lVar.e() != null) {
@@ -86,9 +86,9 @@ public class o {
         aVar.i(this.j);
         aVar.i(this.m);
         aVar.i(this.n);
-        aVar.i(this.f41617f);
-        aVar.i(this.f41618g);
-        aVar.i(this.f41619h);
+        aVar.i(this.f41712f);
+        aVar.i(this.f41713g);
+        aVar.i(this.f41714h);
         aVar.i(this.i);
         aVar.i(this.k);
         aVar.i(this.l);
@@ -107,15 +107,15 @@ public class o {
         if (aVar3 != null) {
             aVar3.a(bVar);
         }
-        a<PointF, PointF> aVar4 = this.f41617f;
+        a<PointF, PointF> aVar4 = this.f41712f;
         if (aVar4 != null) {
             aVar4.a(bVar);
         }
-        a<?, PointF> aVar5 = this.f41618g;
+        a<?, PointF> aVar5 = this.f41713g;
         if (aVar5 != null) {
             aVar5.a(bVar);
         }
-        a<d.a.a.y.d, d.a.a.y.d> aVar6 = this.f41619h;
+        a<d.a.a.y.d, d.a.a.y.d> aVar6 = this.f41714h;
         if (aVar6 != null) {
             aVar6.a(bVar);
         }
@@ -138,26 +138,26 @@ public class o {
         c cVar3;
         a<?, Float> aVar;
         a<?, Float> aVar2;
-        if (t == d.a.a.k.f41490e) {
-            a<PointF, PointF> aVar3 = this.f41617f;
+        if (t == d.a.a.k.f41585e) {
+            a<PointF, PointF> aVar3 = this.f41712f;
             if (aVar3 == null) {
-                this.f41617f = new p(cVar, new PointF());
+                this.f41712f = new p(cVar, new PointF());
                 return true;
             }
             aVar3.m(cVar);
             return true;
-        } else if (t == d.a.a.k.f41491f) {
-            a<?, PointF> aVar4 = this.f41618g;
+        } else if (t == d.a.a.k.f41586f) {
+            a<?, PointF> aVar4 = this.f41713g;
             if (aVar4 == null) {
-                this.f41618g = new p(cVar, new PointF());
+                this.f41713g = new p(cVar, new PointF());
                 return true;
             }
             aVar4.m(cVar);
             return true;
         } else if (t == d.a.a.k.k) {
-            a<d.a.a.y.d, d.a.a.y.d> aVar5 = this.f41619h;
+            a<d.a.a.y.d, d.a.a.y.d> aVar5 = this.f41714h;
             if (aVar5 == null) {
-                this.f41619h = new p(cVar, new d.a.a.y.d());
+                this.f41714h = new p(cVar, new d.a.a.y.d());
                 return true;
             }
             aVar5.m(cVar);
@@ -170,7 +170,7 @@ public class o {
             }
             aVar6.m(cVar);
             return true;
-        } else if (t == d.a.a.k.f41488c) {
+        } else if (t == d.a.a.k.f41583c) {
             a<Integer, Integer> aVar7 = this.j;
             if (aVar7 == null) {
                 this.j = new p(cVar, 100);
@@ -211,7 +211,7 @@ public class o {
 
     public final void d() {
         for (int i = 0; i < 9; i++) {
-            this.f41616e[i] = 0.0f;
+            this.f41711e[i] = 0.0f;
         }
     }
 
@@ -222,12 +222,12 @@ public class o {
 
     public Matrix f() {
         float o;
-        this.f41612a.reset();
-        a<?, PointF> aVar = this.f41618g;
+        this.f41707a.reset();
+        a<?, PointF> aVar = this.f41713g;
         if (aVar != null) {
             PointF h2 = aVar.h();
             if (h2.x != 0.0f || h2.y != 0.0f) {
-                this.f41612a.preTranslate(h2.x, h2.y);
+                this.f41707a.preTranslate(h2.x, h2.y);
             }
         }
         a<Float, Float> aVar2 = this.i;
@@ -238,7 +238,7 @@ public class o {
                 o = ((c) aVar2).o();
             }
             if (o != 0.0f) {
-                this.f41612a.preRotate(o);
+                this.f41707a.preRotate(o);
             }
         }
         if (this.k != null) {
@@ -247,71 +247,71 @@ public class o {
             c cVar2 = this.l;
             float sin = cVar2 == null ? 1.0f : (float) Math.sin(Math.toRadians((-cVar2.o()) + 90.0f));
             d();
-            float[] fArr = this.f41616e;
+            float[] fArr = this.f41711e;
             fArr[0] = cos;
             fArr[1] = sin;
             float f2 = -sin;
             fArr[3] = f2;
             fArr[4] = cos;
             fArr[8] = 1.0f;
-            this.f41613b.setValues(fArr);
+            this.f41708b.setValues(fArr);
             d();
-            float[] fArr2 = this.f41616e;
+            float[] fArr2 = this.f41711e;
             fArr2[0] = 1.0f;
             fArr2[3] = (float) Math.tan(Math.toRadians(this.k.o()));
             fArr2[4] = 1.0f;
             fArr2[8] = 1.0f;
-            this.f41614c.setValues(fArr2);
+            this.f41709c.setValues(fArr2);
             d();
-            float[] fArr3 = this.f41616e;
+            float[] fArr3 = this.f41711e;
             fArr3[0] = cos;
             fArr3[1] = f2;
             fArr3[3] = sin;
             fArr3[4] = cos;
             fArr3[8] = 1.0f;
-            this.f41615d.setValues(fArr3);
-            this.f41614c.preConcat(this.f41613b);
-            this.f41615d.preConcat(this.f41614c);
-            this.f41612a.preConcat(this.f41615d);
+            this.f41710d.setValues(fArr3);
+            this.f41709c.preConcat(this.f41708b);
+            this.f41710d.preConcat(this.f41709c);
+            this.f41707a.preConcat(this.f41710d);
         }
-        a<d.a.a.y.d, d.a.a.y.d> aVar3 = this.f41619h;
+        a<d.a.a.y.d, d.a.a.y.d> aVar3 = this.f41714h;
         if (aVar3 != null) {
             d.a.a.y.d h3 = aVar3.h();
             if (h3.b() != 1.0f || h3.c() != 1.0f) {
-                this.f41612a.preScale(h3.b(), h3.c());
+                this.f41707a.preScale(h3.b(), h3.c());
             }
         }
-        a<PointF, PointF> aVar4 = this.f41617f;
+        a<PointF, PointF> aVar4 = this.f41712f;
         if (aVar4 != null) {
             PointF h4 = aVar4.h();
             if (h4.x != 0.0f || h4.y != 0.0f) {
-                this.f41612a.preTranslate(-h4.x, -h4.y);
+                this.f41707a.preTranslate(-h4.x, -h4.y);
             }
         }
-        return this.f41612a;
+        return this.f41707a;
     }
 
     public Matrix g(float f2) {
-        a<?, PointF> aVar = this.f41618g;
+        a<?, PointF> aVar = this.f41713g;
         PointF h2 = aVar == null ? null : aVar.h();
-        a<d.a.a.y.d, d.a.a.y.d> aVar2 = this.f41619h;
+        a<d.a.a.y.d, d.a.a.y.d> aVar2 = this.f41714h;
         d.a.a.y.d h3 = aVar2 == null ? null : aVar2.h();
-        this.f41612a.reset();
+        this.f41707a.reset();
         if (h2 != null) {
-            this.f41612a.preTranslate(h2.x * f2, h2.y * f2);
+            this.f41707a.preTranslate(h2.x * f2, h2.y * f2);
         }
         if (h3 != null) {
             double d2 = f2;
-            this.f41612a.preScale((float) Math.pow(h3.b(), d2), (float) Math.pow(h3.c(), d2));
+            this.f41707a.preScale((float) Math.pow(h3.b(), d2), (float) Math.pow(h3.c(), d2));
         }
         a<Float, Float> aVar3 = this.i;
         if (aVar3 != null) {
             float floatValue = aVar3.h().floatValue();
-            a<PointF, PointF> aVar4 = this.f41617f;
+            a<PointF, PointF> aVar4 = this.f41712f;
             PointF h4 = aVar4 != null ? aVar4.h() : null;
-            this.f41612a.preRotate(floatValue * f2, h4 == null ? 0.0f : h4.x, h4 != null ? h4.y : 0.0f);
+            this.f41707a.preRotate(floatValue * f2, h4 == null ? 0.0f : h4.x, h4 != null ? h4.y : 0.0f);
         }
-        return this.f41612a;
+        return this.f41707a;
     }
 
     @Nullable
@@ -337,15 +337,15 @@ public class o {
         if (aVar3 != null) {
             aVar3.l(f2);
         }
-        a<PointF, PointF> aVar4 = this.f41617f;
+        a<PointF, PointF> aVar4 = this.f41712f;
         if (aVar4 != null) {
             aVar4.l(f2);
         }
-        a<?, PointF> aVar5 = this.f41618g;
+        a<?, PointF> aVar5 = this.f41713g;
         if (aVar5 != null) {
             aVar5.l(f2);
         }
-        a<d.a.a.y.d, d.a.a.y.d> aVar6 = this.f41619h;
+        a<d.a.a.y.d, d.a.a.y.d> aVar6 = this.f41714h;
         if (aVar6 != null) {
             aVar6.l(f2);
         }

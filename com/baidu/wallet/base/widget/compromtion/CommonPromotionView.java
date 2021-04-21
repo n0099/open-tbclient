@@ -17,7 +17,7 @@ import com.baidu.apollon.utils.ResUtils;
 public class CommonPromotionView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f23700a;
+    public final int f23708a;
     public NetImageView leftDraw;
     public View mView;
     public TextView promotionTxt;
@@ -25,7 +25,7 @@ public class CommonPromotionView extends FrameLayout {
 
     public CommonPromotionView(Context context) {
         super(context);
-        this.f23700a = 33;
+        this.f23708a = 33;
         initViews();
     }
 
@@ -125,13 +125,13 @@ public class CommonPromotionView extends FrameLayout {
 
     public CommonPromotionView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f23700a = 33;
+        this.f23708a = 33;
         initViews();
     }
 
     public CommonPromotionView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f23700a = 33;
+        this.f23708a = 33;
         initViews();
     }
 }

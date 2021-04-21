@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import d.b.i0.q0.i1.g;
+import d.b.j0.q0.i1.g;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -24,16 +24,16 @@ import org.json.JSONObject;
 public class VideoAggregationModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15821e;
+    public int f15829e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f15822f;
+    public String f15830f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15823g;
+    public String f15831g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f15824h;
+    public String f15832h;
     public String i;
     public boolean j;
     public c k;
@@ -88,7 +88,7 @@ public class VideoAggregationModel extends BdBaseModel {
             VideoAggregationModel.this.j = false;
             if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                 VideoAggregationResponseMessage videoAggregationResponseMessage = (VideoAggregationResponseMessage) httpResponsedMessage;
-                VideoAggregationModel.this.k.b(videoAggregationResponseMessage.mDataList, VideoAggregationModel.this.f15821e == 1, videoAggregationResponseMessage.mHasMore);
+                VideoAggregationModel.this.k.b(videoAggregationResponseMessage.mDataList, VideoAggregationModel.this.f15829e == 1, videoAggregationResponseMessage.mHasMore);
                 return;
             }
             VideoAggregationModel.v(VideoAggregationModel.this);
@@ -116,7 +116,7 @@ public class VideoAggregationModel extends BdBaseModel {
             VideoAggregationModel.this.j = false;
             if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                 VideoAggregationResponseMessage videoAggregationResponseMessage = (VideoAggregationResponseMessage) httpResponsedMessage;
-                VideoAggregationModel.this.k.b(videoAggregationResponseMessage.mDataList, VideoAggregationModel.this.f15821e == 1, videoAggregationResponseMessage.mHasMore);
+                VideoAggregationModel.this.k.b(videoAggregationResponseMessage.mDataList, VideoAggregationModel.this.f15829e == 1, videoAggregationResponseMessage.mHasMore);
                 return;
             }
             VideoAggregationModel.v(VideoAggregationModel.this);
@@ -150,29 +150,29 @@ public class VideoAggregationModel extends BdBaseModel {
     }
 
     public static /* synthetic */ int v(VideoAggregationModel videoAggregationModel) {
-        int i = videoAggregationModel.f15821e;
-        videoAggregationModel.f15821e = i - 1;
+        int i = videoAggregationModel.f15829e;
+        videoAggregationModel.f15829e = i - 1;
         return i;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
         HttpMessage httpMessage;
-        if (TextUtils.isEmpty(this.f15822f) || this.j) {
+        if (TextUtils.isEmpty(this.f15830f) || this.j) {
             return false;
         }
         this.j = true;
-        if (VideoAggregationActivityConfig.TYPE_FROM_FRS.equals(this.f15823g)) {
+        if (VideoAggregationActivityConfig.TYPE_FROM_FRS.equals(this.f15831g)) {
             httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_AGGREGATION);
-            httpMessage.addParam("fid", this.f15822f);
+            httpMessage.addParam("fid", this.f15830f);
         } else {
             httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION);
-            httpMessage.addParam("tid", this.f15822f);
-            httpMessage.addParam("st_type", this.f15824h);
+            httpMessage.addParam("tid", this.f15830f);
+            httpMessage.addParam("st_type", this.f15832h);
             httpMessage.addParam("yuelaou_locate", this.i);
         }
-        int i = this.f15821e + 1;
-        this.f15821e = i;
+        int i = this.f15829e + 1;
+        this.f15829e = i;
         httpMessage.addParam(Config.PACKAGE_NAME, i);
         sendMessage(httpMessage);
         return true;
@@ -195,16 +195,16 @@ public class VideoAggregationModel extends BdBaseModel {
     }
 
     public void setFrom(String str) {
-        this.f15823g = str;
+        this.f15831g = str;
     }
 
     public void w() {
-        this.f15821e = 0;
+        this.f15829e = 0;
         LoadData();
     }
 
     public void x(String str) {
-        this.f15822f = str;
+        this.f15830f = str;
     }
 
     public void y(String str) {
@@ -212,6 +212,6 @@ public class VideoAggregationModel extends BdBaseModel {
     }
 
     public void z(String str) {
-        this.f15824h = str;
+        this.f15832h = str;
     }
 }

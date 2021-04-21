@@ -15,45 +15,45 @@ import javax.net.ssl.SSLSession;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f42309b;
+    public static b f42549b;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, d.b.c.e.j.a.j.a> f42310a = new HashMap<>();
+    public HashMap<String, d.b.c.e.j.a.j.a> f42550a = new HashMap<>();
 
     /* loaded from: classes.dex */
     public class a implements HostnameVerifier {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f42311a;
+        public final /* synthetic */ c f42551a;
 
         public a(b bVar, c cVar) {
-            this.f42311a = cVar;
+            this.f42551a = cVar;
         }
 
         @Override // javax.net.ssl.HostnameVerifier
         public boolean verify(String str, SSLSession sSLSession) {
             boolean verify = HttpsURLConnection.getDefaultHostnameVerifier().verify("httpsdns.baidu.com", sSLSession);
             if (!verify) {
-                this.f42311a.e(true);
+                this.f42551a.e(true);
             }
             return verify;
         }
     }
 
     public static b a() {
-        if (f42309b == null) {
+        if (f42549b == null) {
             synchronized (b.class) {
-                if (f42309b == null) {
-                    f42309b = new b();
+                if (f42549b == null) {
+                    f42549b = new b();
                 }
             }
         }
-        return f42309b;
+        return f42549b;
     }
 
     public c b(String str) {
         c cVar = new c();
-        d.b.c.e.j.a.j.a aVar = this.f42310a.get(str);
+        d.b.c.e.j.a.j.a aVar = this.f42550a.get(str);
         if (aVar != null && !aVar.c(System.currentTimeMillis()) && aVar.a() != null && aVar.a().size() > 0) {
             cVar.g(aVar.a().get(0));
         }
@@ -304,7 +304,7 @@ public class b {
         if (k.isEmpty(str)) {
             return cVar;
         }
-        d.b.c.e.j.a.j.a aVar = this.f42310a.get(str);
+        d.b.c.e.j.a.j.a aVar = this.f42550a.get(str);
         if (aVar != null && !aVar.c(System.currentTimeMillis()) && aVar.a() != null && aVar.a().size() > 0) {
             for (int i = 0; i < aVar.a().size(); i++) {
                 if (!k.isEquals(str2, aVar.a().get(i))) {
@@ -326,7 +326,7 @@ public class b {
             cVar.f(System.currentTimeMillis() - currentTimeMillis);
             if (c2 != null && c2.a() != null && c2.a().size() > 0) {
                 c2.d(300L);
-                this.f42310a.put(str, c2);
+                this.f42550a.put(str, c2);
                 for (int i3 = 0; i3 < c2.a().size(); i3++) {
                     if (!k.isEquals(str2, c2.a().get(i2))) {
                         cVar.j(i3);
@@ -340,7 +340,7 @@ public class b {
                 }
                 continue;
             } else {
-                d.b.c.e.j.a.j.a aVar2 = this.f42310a.get(str);
+                d.b.c.e.j.a.j.a aVar2 = this.f42550a.get(str);
                 if (aVar2 != null && aVar2.a() != null && aVar2.a().size() > 0) {
                     cVar.g(aVar2.a().get(0));
                     return cVar;

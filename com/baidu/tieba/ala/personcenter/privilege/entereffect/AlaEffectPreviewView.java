@@ -23,21 +23,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import d.b.c.e.p.l;
-import d.b.i0.t.j.g.d.b;
+import d.b.j0.t.j.g.d.b;
 /* loaded from: classes4.dex */
 public class AlaEffectPreviewView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14729e;
+    public int f14737e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14730f;
+    public int f14738f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f14731g;
+    public View f14739g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f14732h;
+    public ImageView f14740h;
     public TextView i;
     public b.c j;
     public ObjectAnimator k;
@@ -83,7 +83,7 @@ public class AlaEffectPreviewView extends LinearLayout {
                 if (g2 != p) {
                     p.recycle();
                 }
-                AlaEffectPreviewView.this.f14732h.setImageBitmap(g2);
+                AlaEffectPreviewView.this.f14740h.setImageBitmap(g2);
             } catch (OutOfMemoryError e4) {
                 BdLog.e(e4);
                 if (p != null) {
@@ -145,13 +145,13 @@ public class AlaEffectPreviewView extends LinearLayout {
             float f3;
             float f4 = f2 * 3500.0f;
             if (f4 <= 500.0f) {
-                f3 = (AlaEffectPreviewView.this.f14729e * ((f4 / 500.0f) - 1.0f)) + AlaEffectPreviewView.this.f14730f;
+                f3 = (AlaEffectPreviewView.this.f14737e * ((f4 / 500.0f) - 1.0f)) + AlaEffectPreviewView.this.f14738f;
             } else {
                 float f5 = 3500.0f - f4;
                 if (f5 <= 500.0f) {
-                    f3 = AlaEffectPreviewView.this.f14730f + (AlaEffectPreviewView.this.f14729e * (1.0f - (f5 / 500.0f)));
+                    f3 = AlaEffectPreviewView.this.f14738f + (AlaEffectPreviewView.this.f14737e * (1.0f - (f5 / 500.0f)));
                 } else {
-                    f3 = AlaEffectPreviewView.this.f14730f;
+                    f3 = AlaEffectPreviewView.this.f14738f;
                 }
             }
             return Float.valueOf(f3);
@@ -164,8 +164,8 @@ public class AlaEffectPreviewView extends LinearLayout {
     }
 
     public final void e() {
-        this.f14731g = LinearLayout.inflate(getContext(), R.layout.ala_enter_effect_preview_view, this);
-        this.f14732h = (ImageView) findViewById(R.id.ala_im_user_enter_icon_view);
+        this.f14739g = LinearLayout.inflate(getContext(), R.layout.ala_enter_effect_preview_view, this);
+        this.f14740h = (ImageView) findViewById(R.id.ala_im_user_enter_icon_view);
         this.i = (TextView) findViewById(R.id.ala_im_user_enter_content);
         this.l = (LinearLayout) findViewById(R.id.ala_enter_effect_content_layout);
         this.m = (ImageView) findViewById(R.id.ala_im_user_enter_tail);
@@ -183,10 +183,10 @@ public class AlaEffectPreviewView extends LinearLayout {
             measure(0, 0);
         }
         int k = l.k(getContext());
-        this.f14729e = k;
-        this.f14730f = (k - getMeasuredWidth()) / 2;
-        View view = this.f14731g;
-        int i = this.f14729e;
+        this.f14737e = k;
+        this.f14738f = (k - getMeasuredWidth()) / 2;
+        View view = this.f14739g;
+        int i = this.f14737e;
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "TranslationX", i, -i);
         this.k = ofFloat;
         ofFloat.setDuration(3500L);
@@ -226,9 +226,9 @@ public class AlaEffectPreviewView extends LinearLayout {
         }
         String str3 = alaEnterEffectData.icon_url;
         if (StringUtils.isNull(str3)) {
-            this.f14732h.setVisibility(8);
+            this.f14740h.setVisibility(8);
         } else {
-            this.f14732h.setVisibility(0);
+            this.f14740h.setVisibility(0);
             d.b.c.e.l.d.h().m(str3, 10, new a(), null);
         }
         this.i.setText(spannableStringBuilder);

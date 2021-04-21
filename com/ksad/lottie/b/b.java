@@ -19,43 +19,43 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f31612a = new Object();
+    public static final Object f31707a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f31613b;
+    public final Context f31708b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f31614c;
+    public String f31709c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public com.ksad.lottie.b f31615d;
+    public com.ksad.lottie.b f31710d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<String, g> f31616e;
+    public final Map<String, g> f31711e;
 
     public b(Drawable.Callback callback, String str, com.ksad.lottie.b bVar, Map<String, g> map) {
         String str2;
-        this.f31614c = str;
+        this.f31709c = str;
         if (!TextUtils.isEmpty(str)) {
-            if (this.f31614c.charAt(str2.length() - 1) != '/') {
-                this.f31614c += '/';
+            if (this.f31709c.charAt(str2.length() - 1) != '/') {
+                this.f31709c += '/';
             }
         }
         if (callback instanceof View) {
-            this.f31613b = ((View) callback).getContext();
-            this.f31616e = map;
+            this.f31708b = ((View) callback).getContext();
+            this.f31711e = map;
             a(bVar);
             return;
         }
         Log.w("LOTTIE", "LottieDrawable must be inside of a view for images to work.");
-        this.f31616e = new HashMap();
-        this.f31613b = null;
+        this.f31711e = new HashMap();
+        this.f31708b = null;
     }
 
     private Bitmap a(String str, @Nullable Bitmap bitmap) {
-        synchronized (f31612a) {
-            this.f31616e.get(str).a(bitmap);
+        synchronized (f31707a) {
+            this.f31711e.get(str).a(bitmap);
         }
         return bitmap;
     }
@@ -64,7 +64,7 @@ public class b {
     public Bitmap a(String str) {
         String str2;
         Bitmap decodeStream;
-        g gVar = this.f31616e.get(str);
+        g gVar = this.f31711e.get(str);
         if (gVar == null) {
             return null;
         }
@@ -72,7 +72,7 @@ public class b {
         if (c2 != null) {
             return c2;
         }
-        com.ksad.lottie.b bVar = this.f31615d;
+        com.ksad.lottie.b bVar = this.f31710d;
         if (bVar != null) {
             Bitmap a2 = bVar.a(gVar);
             if (a2 != null) {
@@ -86,11 +86,11 @@ public class b {
         options.inDensity = 160;
         if (!b2.startsWith(WebGLImageLoader.DATA_URL) || b2.indexOf("base64,") <= 0) {
             try {
-                if (TextUtils.isEmpty(this.f31614c)) {
+                if (TextUtils.isEmpty(this.f31709c)) {
                     throw new IllegalStateException("You must set an images folder before loading an image. Set it with LottieComposition#setImagesFolder or LottieDrawable#setImagesFolder");
                 }
-                AssetManager assets = this.f31613b.getAssets();
-                decodeStream = BitmapFactory.decodeStream(assets.open(this.f31614c + b2), null, options);
+                AssetManager assets = this.f31708b.getAssets();
+                decodeStream = BitmapFactory.decodeStream(assets.open(this.f31709c + b2), null, options);
             } catch (IOException e2) {
                 e = e2;
                 str2 = "Unable to open asset.";
@@ -112,8 +112,8 @@ public class b {
     }
 
     public void a() {
-        synchronized (f31612a) {
-            for (Map.Entry<String, g> entry : this.f31616e.entrySet()) {
+        synchronized (f31707a) {
+            for (Map.Entry<String, g> entry : this.f31711e.entrySet()) {
                 g value = entry.getValue();
                 Bitmap c2 = value.c();
                 if (c2 != null) {
@@ -125,10 +125,10 @@ public class b {
     }
 
     public void a(@Nullable com.ksad.lottie.b bVar) {
-        this.f31615d = bVar;
+        this.f31710d = bVar;
     }
 
     public boolean a(Context context) {
-        return (context == null && this.f31613b == null) || this.f31613b.equals(context);
+        return (context == null && this.f31708b == null) || this.f31708b.equals(context);
     }
 }

@@ -13,26 +13,26 @@ import org.apache.commons.codec.digest4util.Sha2Crypt;
 public class VerticalScrollNumberView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f15785e;
+    public Context f15793e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f15786f;
+    public int f15794f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15787g;
+    public int f15795g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f15788h;
+    public int f15796h;
     public int i;
 
     public VerticalScrollNumberView(Context context) {
         super(context);
-        this.f15785e = null;
+        this.f15793e = null;
         b(context);
     }
 
     public final void a(String str) {
-        ScrollTextView scrollTextView = new ScrollTextView(this.f15785e);
+        ScrollTextView scrollTextView = new ScrollTextView(this.f15793e);
         scrollTextView.setText(str);
         scrollTextView.setGravity(17);
         SkinManager.setBackgroundResource(scrollTextView, R.drawable.lottery_number_bg);
@@ -43,17 +43,17 @@ public class VerticalScrollNumberView extends LinearLayout {
         scrollTextView.setMaxLines(1);
         scrollTextView.setContinuousScrolling(false);
         scrollTextView.setSpeed((float) ((Math.random() * 5.0d) + 10.0d));
-        scrollTextView.setWidth(this.f15786f);
-        scrollTextView.setHeight(this.f15787g);
+        scrollTextView.setWidth(this.f15794f);
+        scrollTextView.setHeight(this.f15795g);
         addView(scrollTextView);
     }
 
     public final void b(Context context) {
-        this.f15785e = context;
-        this.f15786f = l.g(context, R.dimen.ds30);
-        this.f15787g = l.g(this.f15785e, R.dimen.ds40);
-        this.f15788h = l.g(this.f15785e, R.dimen.ds2);
-        this.i = l.g(this.f15785e, R.dimen.ds8);
+        this.f15793e = context;
+        this.f15794f = l.g(context, R.dimen.ds30);
+        this.f15795g = l.g(this.f15793e, R.dimen.ds40);
+        this.f15796h = l.g(this.f15793e, R.dimen.ds2);
+        this.i = l.g(this.f15793e, R.dimen.ds8);
     }
 
     public void setData(int i) {
@@ -78,7 +78,7 @@ public class VerticalScrollNumberView extends LinearLayout {
                     layoutParams.setMargins(this.i, 0, 0, 0);
                     i3 = 0;
                 } else {
-                    layoutParams.setMargins(this.f15788h, 0, 0, 0);
+                    layoutParams.setMargins(this.f15796h, 0, 0, 0);
                     i3++;
                 }
                 getChildAt(childCount).setLayoutParams(layoutParams);
@@ -88,13 +88,13 @@ public class VerticalScrollNumberView extends LinearLayout {
 
     public VerticalScrollNumberView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15785e = null;
+        this.f15793e = null;
         b(context);
     }
 
     public VerticalScrollNumberView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f15785e = null;
+        this.f15793e = null;
         b(context);
     }
 }

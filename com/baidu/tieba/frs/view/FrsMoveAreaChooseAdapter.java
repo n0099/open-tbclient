@@ -11,48 +11,48 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.BdTopToast;
-import d.b.h0.r.f0.m.c;
+import d.b.i0.r.f0.m.c;
 import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes4.dex */
 public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public FrsMoveAreaChooseView f16394e;
+    public FrsMoveAreaChooseView f16402e;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f16396g;
+    public int f16404g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f16397h = -1;
+    public int f16405h = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<FrsTabInfo> f16395f = d.b.i0.q0.a.h().g();
+    public List<FrsTabInfo> f16403f = d.b.j0.q0.a.h().g();
     public SparseArray<FrsTabInfo> i = new SparseArray<>();
 
     /* loaded from: classes4.dex */
     public class a extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public TBSpecificationBtn f16398a;
+        public TBSpecificationBtn f16406a;
 
         public a(FrsMoveAreaChooseAdapter frsMoveAreaChooseAdapter, View view) {
             super(view);
-            this.f16398a = (TBSpecificationBtn) view.findViewById(R.id.cell_frs_area_choose_name);
+            this.f16406a = (TBSpecificationBtn) view.findViewById(R.id.cell_frs_area_choose_name);
         }
     }
 
     public FrsMoveAreaChooseAdapter(FrsMoveAreaChooseView frsMoveAreaChooseView) {
-        this.f16396g = -1;
-        this.f16394e = frsMoveAreaChooseView;
-        if (ListUtils.isEmpty(this.f16395f)) {
+        this.f16404g = -1;
+        this.f16402e = frsMoveAreaChooseView;
+        if (ListUtils.isEmpty(this.f16403f)) {
             return;
         }
-        for (int i = 0; i < this.f16395f.size(); i++) {
-            FrsTabInfo frsTabInfo = this.f16395f.get(i);
-            if (frsTabInfo != null && (frsTabInfo.is_general_tab.intValue() == 0 || frsTabInfo.tab_id.intValue() == d.b.i0.q0.a.h().e() || frsTabInfo.tab_type.intValue() == 3)) {
-                if (frsTabInfo.tab_id.intValue() == d.b.i0.q0.a.h().e()) {
-                    this.f16396g = i;
+        for (int i = 0; i < this.f16403f.size(); i++) {
+            FrsTabInfo frsTabInfo = this.f16403f.get(i);
+            if (frsTabInfo != null && (frsTabInfo.is_general_tab.intValue() == 0 || frsTabInfo.tab_id.intValue() == d.b.j0.q0.a.h().e() || frsTabInfo.tab_type.intValue() == 3)) {
+                if (frsTabInfo.tab_id.intValue() == d.b.j0.q0.a.h().e()) {
+                    this.f16404g = i;
                 }
                 this.i.append(i, frsTabInfo);
             }
@@ -61,15 +61,15 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return ListUtils.getCount(this.f16395f);
+        return ListUtils.getCount(this.f16403f);
     }
 
     public int m() {
-        return this.f16396g;
+        return this.f16404g;
     }
 
     public int n() {
-        return this.f16397h;
+        return this.f16405h;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -77,13 +77,13 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
     /* renamed from: o */
     public void onBindViewHolder(@NonNull a aVar, int i) {
         FrsTabInfo frsTabInfo;
-        if (ListUtils.isEmpty(this.f16395f) || (frsTabInfo = (FrsTabInfo) ListUtils.getItem(this.f16395f, i)) == null) {
+        if (ListUtils.isEmpty(this.f16403f) || (frsTabInfo = (FrsTabInfo) ListUtils.getItem(this.f16403f, i)) == null) {
             return;
         }
-        aVar.f16398a.setTag(Integer.valueOf(i));
-        aVar.f16398a.setText(frsTabInfo.tab_name);
-        aVar.f16398a.setOnClickListener(this);
-        p(aVar.f16398a, i);
+        aVar.f16406a.setTag(Integer.valueOf(i));
+        aVar.f16406a.setText(frsTabInfo.tab_name);
+        aVar.f16406a.setOnClickListener(this);
+        p(aVar.f16406a, i);
     }
 
     @Override // android.view.View.OnClickListener
@@ -91,25 +91,25 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
         if (view.getTag() instanceof Integer) {
             int intValue = ((Integer) view.getTag()).intValue();
             if (this.i.get(intValue) != null) {
-                FrsMoveAreaChooseView frsMoveAreaChooseView = this.f16394e;
-                if (frsMoveAreaChooseView == null || frsMoveAreaChooseView.getContext() == null || this.f16394e.getParent() == null) {
+                FrsMoveAreaChooseView frsMoveAreaChooseView = this.f16402e;
+                if (frsMoveAreaChooseView == null || frsMoveAreaChooseView.getContext() == null || this.f16402e.getParent() == null) {
                     return;
                 }
-                if (intValue == this.f16396g) {
-                    BdTopToast bdTopToast = new BdTopToast(this.f16394e.getContext());
+                if (intValue == this.f16404g) {
+                    BdTopToast bdTopToast = new BdTopToast(this.f16402e.getContext());
                     bdTopToast.i(false);
                     bdTopToast.h(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_cur_tip));
-                    bdTopToast.j((ViewGroup) this.f16394e.getParent());
+                    bdTopToast.j((ViewGroup) this.f16402e.getParent());
                     return;
                 }
-                BdTopToast bdTopToast2 = new BdTopToast(this.f16394e.getContext());
+                BdTopToast bdTopToast2 = new BdTopToast(this.f16402e.getContext());
                 bdTopToast2.i(false);
                 bdTopToast2.h(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_no_tip));
-                bdTopToast2.j((ViewGroup) this.f16394e.getParent());
+                bdTopToast2.j((ViewGroup) this.f16402e.getParent());
                 return;
             }
-            this.f16397h = intValue;
-            FrsMoveAreaChooseView frsMoveAreaChooseView2 = this.f16394e;
+            this.f16405h = intValue;
+            FrsMoveAreaChooseView frsMoveAreaChooseView2 = this.f16402e;
             if (frsMoveAreaChooseView2 != null) {
                 frsMoveAreaChooseView2.onClick(view);
             }
@@ -118,7 +118,7 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
     }
 
     public final void p(TBSpecificationBtn tBSpecificationBtn, int i) {
-        if (i == this.f16397h) {
+        if (i == this.f16405h) {
             c cVar = new c();
             cVar.o(R.color.CAM_X0304);
             tBSpecificationBtn.setConfig(cVar);

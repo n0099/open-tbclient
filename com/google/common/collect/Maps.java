@@ -6,9 +6,9 @@ import com.google.common.base.Converter;
 import com.google.common.base.Predicates;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Sets;
-import d.g.c.c.a1;
-import d.g.c.c.b0;
-import d.g.c.c.c1;
+import d.h.c.c.a1;
+import d.h.c.c.b0;
+import d.h.c.c.c1;
 import java.io.Serializable;
 import java.util.AbstractCollection;
 import java.util.AbstractMap;
@@ -32,16 +32,16 @@ public final class Maps {
     /* loaded from: classes6.dex */
     public static final class BiMapConverter<A, B> extends Converter<A, B> implements Serializable {
         public static final long serialVersionUID = 0;
-        public final d.g.c.c.k<A, B> bimap;
+        public final d.h.c.c.k<A, B> bimap;
 
-        public BiMapConverter(d.g.c.c.k<A, B> kVar) {
-            d.g.c.a.n.p(kVar);
+        public BiMapConverter(d.h.c.c.k<A, B> kVar) {
+            d.h.c.a.n.p(kVar);
             this.bimap = kVar;
         }
 
-        public static <X, Y> Y a(d.g.c.c.k<X, Y> kVar, X x) {
+        public static <X, Y> Y a(d.h.c.c.k<X, Y> kVar, X x) {
             Y y = kVar.get(x);
-            d.g.c.a.n.k(y != null, "No non-null mapping present for input: %s", x);
+            d.h.c.a.n.k(y != null, "No non-null mapping present for input: %s", x);
             return y;
         }
 
@@ -55,7 +55,7 @@ public final class Maps {
             return (B) a(this.bimap, a2);
         }
 
-        @Override // com.google.common.base.Converter, d.g.c.a.g
+        @Override // com.google.common.base.Converter, d.h.c.a.g
         public boolean equals(Object obj) {
             if (obj instanceof BiMapConverter) {
                 return this.bimap.equals(((BiMapConverter) obj).bimap);
@@ -73,23 +73,23 @@ public final class Maps {
     }
 
     /* loaded from: classes6.dex */
-    public enum EntryFunction implements d.g.c.a.g<Map.Entry<?, ?>, Object> {
+    public enum EntryFunction implements d.h.c.a.g<Map.Entry<?, ?>, Object> {
         KEY { // from class: com.google.common.collect.Maps.EntryFunction.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.common.collect.Maps.EntryFunction, d.g.c.a.g
+            @Override // com.google.common.collect.Maps.EntryFunction, d.h.c.a.g
             public Object apply(Map.Entry<?, ?> entry) {
                 return entry.getKey();
             }
         },
         VALUE { // from class: com.google.common.collect.Maps.EntryFunction.2
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.google.common.collect.Maps.EntryFunction, d.g.c.a.g
+            @Override // com.google.common.collect.Maps.EntryFunction, d.h.c.a.g
             public Object apply(Map.Entry<?, ?> entry) {
                 return entry.getValue();
             }
         };
 
-        @Override // d.g.c.a.g
+        @Override // d.h.c.a.g
         public abstract /* synthetic */ T apply(F f2);
 
         /* synthetic */ EntryFunction(c cVar) {
@@ -98,27 +98,27 @@ public final class Maps {
     }
 
     /* loaded from: classes6.dex */
-    public static class UnmodifiableBiMap<K, V> extends d.g.c.c.u<K, V> implements d.g.c.c.k<K, V>, Serializable {
+    public static class UnmodifiableBiMap<K, V> extends d.h.c.c.u<K, V> implements d.h.c.c.k<K, V>, Serializable {
         public static final long serialVersionUID = 0;
-        public final d.g.c.c.k<? extends K, ? extends V> delegate;
-        public d.g.c.c.k<V, K> inverse;
+        public final d.h.c.c.k<? extends K, ? extends V> delegate;
+        public d.h.c.c.k<V, K> inverse;
         public final Map<K, V> unmodifiableMap;
         public transient Set<V> values;
 
-        public UnmodifiableBiMap(d.g.c.c.k<? extends K, ? extends V> kVar, d.g.c.c.k<V, K> kVar2) {
+        public UnmodifiableBiMap(d.h.c.c.k<? extends K, ? extends V> kVar, d.h.c.c.k<V, K> kVar2) {
             this.unmodifiableMap = Collections.unmodifiableMap(kVar);
             this.delegate = kVar;
             this.inverse = kVar2;
         }
 
-        @Override // d.g.c.c.k
+        @Override // d.h.c.c.k
         public V forcePut(K k, V v) {
             throw new UnsupportedOperationException();
         }
 
-        @Override // d.g.c.c.k
-        public d.g.c.c.k<V, K> inverse() {
-            d.g.c.c.k<V, K> kVar = this.inverse;
+        @Override // d.h.c.c.k
+        public d.h.c.c.k<V, K> inverse() {
+            d.h.c.c.k<V, K> kVar = this.inverse;
             if (kVar == null) {
                 UnmodifiableBiMap unmodifiableBiMap = new UnmodifiableBiMap(this.delegate.inverse(), this);
                 this.inverse = unmodifiableBiMap;
@@ -128,13 +128,13 @@ public final class Maps {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.c.u, d.g.c.c.y
+        @Override // d.h.c.c.u, d.h.c.c.y
         public Map<K, V> delegate() {
             return this.unmodifiableMap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.c.u, java.util.Map, d.g.c.c.k
+        @Override // d.h.c.c.u, java.util.Map, d.h.c.c.k
         public Set<V> values() {
             Set<V> set = this.values;
             if (set == null) {
@@ -151,7 +151,7 @@ public final class Maps {
         public final NavigableMap<K, ? extends V> delegate;
 
         /* renamed from: e  reason: collision with root package name */
-        public transient UnmodifiableNavigableMap<K, V> f30933e;
+        public transient UnmodifiableNavigableMap<K, V> f31028e;
 
         public UnmodifiableNavigableMap(NavigableMap<K, ? extends V> navigableMap) {
             this.delegate = navigableMap;
@@ -174,10 +174,10 @@ public final class Maps {
 
         @Override // java.util.NavigableMap
         public NavigableMap<K, V> descendingMap() {
-            UnmodifiableNavigableMap<K, V> unmodifiableNavigableMap = this.f30933e;
+            UnmodifiableNavigableMap<K, V> unmodifiableNavigableMap = this.f31028e;
             if (unmodifiableNavigableMap == null) {
                 UnmodifiableNavigableMap<K, V> unmodifiableNavigableMap2 = new UnmodifiableNavigableMap<>(this.delegate.descendingMap(), this);
-                this.f30933e = unmodifiableNavigableMap2;
+                this.f31028e = unmodifiableNavigableMap2;
                 return unmodifiableNavigableMap2;
             }
             return unmodifiableNavigableMap;
@@ -198,7 +198,7 @@ public final class Maps {
             return this.delegate.floorKey(k);
         }
 
-        @Override // d.g.c.c.b0, java.util.SortedMap, java.util.NavigableMap
+        @Override // d.h.c.c.b0, java.util.SortedMap, java.util.NavigableMap
         public SortedMap<K, V> headMap(K k) {
             return headMap(k, false);
         }
@@ -213,7 +213,7 @@ public final class Maps {
             return this.delegate.higherKey(k);
         }
 
-        @Override // d.g.c.c.u, java.util.Map
+        @Override // d.h.c.c.u, java.util.Map
         public Set<K> keySet() {
             return navigableKeySet();
         }
@@ -248,12 +248,12 @@ public final class Maps {
             throw new UnsupportedOperationException();
         }
 
-        @Override // d.g.c.c.b0, java.util.SortedMap, java.util.NavigableMap
+        @Override // d.h.c.c.b0, java.util.SortedMap, java.util.NavigableMap
         public SortedMap<K, V> subMap(K k, K k2) {
             return subMap(k, true, k2, false);
         }
 
-        @Override // d.g.c.c.b0, java.util.SortedMap, java.util.NavigableMap
+        @Override // d.h.c.c.b0, java.util.SortedMap, java.util.NavigableMap
         public SortedMap<K, V> tailMap(K k) {
             return tailMap(k, true);
         }
@@ -275,58 +275,58 @@ public final class Maps {
 
         public UnmodifiableNavigableMap(NavigableMap<K, ? extends V> navigableMap, UnmodifiableNavigableMap<K, V> unmodifiableNavigableMap) {
             this.delegate = navigableMap;
-            this.f30933e = unmodifiableNavigableMap;
+            this.f31028e = unmodifiableNavigableMap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.c.b0, d.g.c.c.u, d.g.c.c.y
+        @Override // d.h.c.c.b0, d.h.c.c.u, d.h.c.c.y
         public SortedMap<K, V> delegate() {
             return Collections.unmodifiableSortedMap(this.delegate);
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class a extends d.g.c.c.b<K, V2> {
+    public static class a extends d.h.c.c.b<K, V2> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Map.Entry f30934e;
+        public final /* synthetic */ Map.Entry f31029e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ k f30935f;
+        public final /* synthetic */ k f31030f;
 
         public a(Map.Entry entry, k kVar) {
-            this.f30934e = entry;
-            this.f30935f = kVar;
+            this.f31029e = entry;
+            this.f31030f = kVar;
         }
 
         /* JADX WARN: Type inference failed for: r0v1, types: [java.lang.Object, K] */
-        @Override // d.g.c.c.b, java.util.Map.Entry
+        @Override // d.h.c.c.b, java.util.Map.Entry
         public K getKey() {
-            return this.f30934e.getKey();
+            return this.f31029e.getKey();
         }
 
         /* JADX WARN: Type inference failed for: r0v1, types: [java.lang.Object, V2] */
-        @Override // d.g.c.c.b, java.util.Map.Entry
+        @Override // d.h.c.c.b, java.util.Map.Entry
         public V2 getValue() {
-            return this.f30935f.a(this.f30934e.getKey(), this.f30934e.getValue());
+            return this.f31030f.a(this.f31029e.getKey(), this.f31029e.getValue());
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements d.g.c.a.g<Map.Entry<K, V1>, Map.Entry<K, V2>> {
+    public static class b implements d.h.c.a.g<Map.Entry<K, V1>, Map.Entry<K, V2>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f30936e;
+        public final /* synthetic */ k f31031e;
 
         public b(k kVar) {
-            this.f30936e = kVar;
+            this.f31031e = kVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.a.g
+        @Override // d.h.c.a.g
         /* renamed from: a */
         public Map.Entry<K, V2> apply(Map.Entry<K, V1> entry) {
-            return Maps.C(this.f30936e, entry);
+            return Maps.C(this.f31031e, entry);
         }
     }
 
@@ -338,7 +338,7 @@ public final class Maps {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Type inference failed for: r1v1, types: [java.lang.Object, K] */
-        @Override // d.g.c.c.a1
+        @Override // d.h.c.c.a1
         /* renamed from: b */
         public K a(Map.Entry<K, V> entry) {
             return entry.getKey();
@@ -353,7 +353,7 @@ public final class Maps {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Type inference failed for: r1v1, types: [V, java.lang.Object] */
-        @Override // d.g.c.c.a1
+        @Override // d.h.c.c.a1
         /* renamed from: b */
         public V a(Map.Entry<K, V> entry) {
             return entry.getValue();
@@ -364,42 +364,42 @@ public final class Maps {
     public static class e extends a1<K, Map.Entry<K, V>> {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.g.c.a.g f30937f;
+        public final /* synthetic */ d.h.c.a.g f31032f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(Iterator it, d.g.c.a.g gVar) {
+        public e(Iterator it, d.h.c.a.g gVar) {
             super(it);
-            this.f30937f = gVar;
+            this.f31032f = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.c.a1
+        @Override // d.h.c.c.a1
         /* renamed from: b */
         public Map.Entry<K, V> a(K k) {
-            return Maps.j(k, this.f30937f.apply(k));
+            return Maps.j(k, this.f31032f.apply(k));
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class f extends d.g.c.c.b<K, V> {
+    public static class f extends d.h.c.c.b<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Map.Entry f30938e;
+        public final /* synthetic */ Map.Entry f31033e;
 
         public f(Map.Entry entry) {
-            this.f30938e = entry;
+            this.f31033e = entry;
         }
 
         /* JADX WARN: Type inference failed for: r0v1, types: [java.lang.Object, K] */
-        @Override // d.g.c.c.b, java.util.Map.Entry
+        @Override // d.h.c.c.b, java.util.Map.Entry
         public K getKey() {
-            return this.f30938e.getKey();
+            return this.f31033e.getKey();
         }
 
         /* JADX WARN: Type inference failed for: r0v1, types: [V, java.lang.Object] */
-        @Override // d.g.c.c.b, java.util.Map.Entry
+        @Override // d.h.c.c.b, java.util.Map.Entry
         public V getValue() {
-            return this.f30938e.getValue();
+            return this.f31033e.getValue();
         }
     }
 
@@ -407,22 +407,22 @@ public final class Maps {
     public static class g extends c1<Map.Entry<K, V>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Iterator f30939e;
+        public final /* synthetic */ Iterator f31034e;
 
         public g(Iterator it) {
-            this.f30939e = it;
+            this.f31034e = it;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
         /* renamed from: a */
         public Map.Entry<K, V> next() {
-            return Maps.F((Map.Entry) this.f30939e.next());
+            return Maps.F((Map.Entry) this.f31034e.next());
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f30939e.hasNext();
+            return this.f31034e.hasNext();
         }
     }
 
@@ -430,30 +430,30 @@ public final class Maps {
     public static class h implements k<K, V1, V2> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.g.c.a.g f30940a;
+        public final /* synthetic */ d.h.c.a.g f31035a;
 
-        public h(d.g.c.a.g gVar) {
-            this.f30940a = gVar;
+        public h(d.h.c.a.g gVar) {
+            this.f31035a = gVar;
         }
 
         /* JADX WARN: Type inference failed for: r1v2, types: [java.lang.Object, V2] */
         @Override // com.google.common.collect.Maps.k
         public V2 a(K k, V1 v1) {
-            return this.f30940a.apply(v1);
+            return this.f31035a.apply(v1);
         }
     }
 
     /* loaded from: classes6.dex */
-    public static abstract class i<K, V> extends d.g.c.c.u<K, V> implements NavigableMap<K, V> {
+    public static abstract class i<K, V> extends d.h.c.c.u<K, V> implements NavigableMap<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public transient Comparator<? super K> f30941e;
+        public transient Comparator<? super K> f31036e;
 
         /* renamed from: f  reason: collision with root package name */
-        public transient Set<Map.Entry<K, V>> f30942f;
+        public transient Set<Map.Entry<K, V>> f31037f;
 
         /* renamed from: g  reason: collision with root package name */
-        public transient NavigableSet<K> f30943g;
+        public transient NavigableSet<K> f31038g;
 
         /* loaded from: classes6.dex */
         public class a extends j<K, V> {
@@ -493,14 +493,14 @@ public final class Maps {
 
         @Override // java.util.SortedMap
         public Comparator<? super K> comparator() {
-            Comparator<? super K> comparator = this.f30941e;
+            Comparator<? super K> comparator = this.f31036e;
             if (comparator == null) {
                 Comparator<? super K> comparator2 = d().comparator();
                 if (comparator2 == null) {
                     comparator2 = Ordering.natural();
                 }
                 Ordering e2 = e(comparator2);
-                this.f30941e = e2;
+                this.f31036e = e2;
                 return e2;
             }
             return comparator;
@@ -518,12 +518,12 @@ public final class Maps {
             return d();
         }
 
-        @Override // d.g.c.c.u, java.util.Map
+        @Override // d.h.c.c.u, java.util.Map
         public Set<Map.Entry<K, V>> entrySet() {
-            Set<Map.Entry<K, V>> set = this.f30942f;
+            Set<Map.Entry<K, V>> set = this.f31037f;
             if (set == null) {
                 Set<Map.Entry<K, V>> b2 = b();
-                this.f30942f = b2;
+                this.f31037f = b2;
                 return b2;
             }
             return set;
@@ -564,7 +564,7 @@ public final class Maps {
             return d().lowerKey(k);
         }
 
-        @Override // d.g.c.c.u, java.util.Map
+        @Override // d.h.c.c.u, java.util.Map
         public Set<K> keySet() {
             return navigableKeySet();
         }
@@ -591,10 +591,10 @@ public final class Maps {
 
         @Override // java.util.NavigableMap
         public NavigableSet<K> navigableKeySet() {
-            NavigableSet<K> navigableSet = this.f30943g;
+            NavigableSet<K> navigableSet = this.f31038g;
             if (navigableSet == null) {
                 n nVar = new n(this);
-                this.f30943g = nVar;
+                this.f31038g = nVar;
                 return nVar;
             }
             return navigableSet;
@@ -620,18 +620,18 @@ public final class Maps {
             return d().headMap(k, z).descendingMap();
         }
 
-        @Override // d.g.c.c.y
+        @Override // d.h.c.c.y
         public String toString() {
             return standardToString();
         }
 
-        @Override // d.g.c.c.u, java.util.Map, d.g.c.c.k
+        @Override // d.h.c.c.u, java.util.Map, d.h.c.c.k
         public Collection<V> values() {
             return new t(this);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.c.u, d.g.c.c.y
+        @Override // d.h.c.c.u, d.h.c.c.y
         public final Map<K, V> delegate() {
             return d();
         }
@@ -667,7 +667,7 @@ public final class Maps {
                 Map.Entry entry = (Map.Entry) obj;
                 Object key = entry.getKey();
                 Object x = Maps.x(b(), key);
-                if (d.g.c.a.k.a(x, entry.getValue())) {
+                if (d.h.c.a.k.a(x, entry.getValue())) {
                     return x != null || b().containsKey(key);
                 }
                 return false;
@@ -691,7 +691,7 @@ public final class Maps {
         @Override // com.google.common.collect.Sets.a, java.util.AbstractSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean removeAll(Collection<?> collection) {
             try {
-                d.g.c.a.n.p(collection);
+                d.h.c.a.n.p(collection);
                 return super.removeAll(collection);
             } catch (UnsupportedOperationException unused) {
                 return Sets.h(this, collection.iterator());
@@ -701,7 +701,7 @@ public final class Maps {
         @Override // com.google.common.collect.Sets.a, java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean retainAll(Collection<?> collection) {
             try {
-                d.g.c.a.n.p(collection);
+                d.h.c.a.n.p(collection);
                 return super.retainAll(collection);
             } catch (UnsupportedOperationException unused) {
                 HashSet d2 = Sets.d(collection.size());
@@ -761,15 +761,15 @@ public final class Maps {
     public static class m<K, V> extends Sets.a<K> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Map<K, V> f30946e;
+        public final Map<K, V> f31041e;
 
         public m(Map<K, V> map) {
-            d.g.c.a.n.p(map);
-            this.f30946e = map;
+            d.h.c.a.n.p(map);
+            this.f31041e = map;
         }
 
         public Map<K, V> b() {
-            return this.f30946e;
+            return this.f31041e;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -822,7 +822,7 @@ public final class Maps {
         @Override // com.google.common.collect.Maps.o
         /* renamed from: d */
         public NavigableMap<K, V> c() {
-            return (NavigableMap) this.f30946e;
+            return (NavigableMap) this.f31041e;
         }
 
         @Override // java.util.NavigableSet
@@ -936,59 +936,59 @@ public final class Maps {
     public static class p<K, V1, V2> extends l<K, V2> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Map<K, V1> f30947e;
+        public final Map<K, V1> f31042e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final k<? super K, ? super V1, V2> f30948f;
+        public final k<? super K, ? super V1, V2> f31043f;
 
         public p(Map<K, V1> map, k<? super K, ? super V1, V2> kVar) {
-            d.g.c.a.n.p(map);
-            this.f30947e = map;
-            d.g.c.a.n.p(kVar);
-            this.f30948f = kVar;
+            d.h.c.a.n.p(map);
+            this.f31042e = map;
+            d.h.c.a.n.p(kVar);
+            this.f31043f = kVar;
         }
 
         @Override // com.google.common.collect.Maps.l
         public Iterator<Map.Entry<K, V2>> a() {
-            return Iterators.w(this.f30947e.entrySet().iterator(), Maps.b(this.f30948f));
+            return Iterators.w(this.f31042e.entrySet().iterator(), Maps.b(this.f31043f));
         }
 
         @Override // com.google.common.collect.Maps.l, java.util.AbstractMap, java.util.Map
         public void clear() {
-            this.f30947e.clear();
+            this.f31042e.clear();
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public boolean containsKey(Object obj) {
-            return this.f30947e.containsKey(obj);
+            return this.f31042e.containsKey(obj);
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public V2 get(Object obj) {
-            V1 v1 = this.f30947e.get(obj);
-            if (v1 != null || this.f30947e.containsKey(obj)) {
-                return this.f30948f.a(obj, v1);
+            V1 v1 = this.f31042e.get(obj);
+            if (v1 != null || this.f31042e.containsKey(obj)) {
+                return this.f31043f.a(obj, v1);
             }
             return null;
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public Set<K> keySet() {
-            return this.f30947e.keySet();
+            return this.f31042e.keySet();
         }
 
         /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: V1, ? super V1 */
         @Override // java.util.AbstractMap, java.util.Map
         public V2 remove(Object obj) {
-            if (this.f30947e.containsKey(obj)) {
-                return this.f30948f.a(obj, (V1) this.f30947e.remove(obj));
+            if (this.f31042e.containsKey(obj)) {
+                return this.f31043f.a(obj, (V1) this.f31042e.remove(obj));
             }
             return null;
         }
 
         @Override // java.util.AbstractMap, java.util.Map
         public int size() {
-            return this.f30947e.size();
+            return this.f31042e.size();
         }
 
         @Override // java.util.AbstractMap, java.util.Map
@@ -1004,7 +1004,7 @@ public final class Maps {
         }
 
         public SortedMap<K, V1> b() {
-            return (SortedMap) this.f30947e;
+            return (SortedMap) this.f31042e;
         }
 
         @Override // java.util.SortedMap
@@ -1019,7 +1019,7 @@ public final class Maps {
 
         @Override // java.util.SortedMap
         public SortedMap<K, V2> headMap(K k) {
-            return Maps.B(b().headMap(k), this.f30948f);
+            return Maps.B(b().headMap(k), this.f31043f);
         }
 
         @Override // java.util.SortedMap
@@ -1029,42 +1029,42 @@ public final class Maps {
 
         @Override // java.util.SortedMap
         public SortedMap<K, V2> subMap(K k, K k2) {
-            return Maps.B(b().subMap(k, k2), this.f30948f);
+            return Maps.B(b().subMap(k, k2), this.f31043f);
         }
 
         @Override // java.util.SortedMap
         public SortedMap<K, V2> tailMap(K k) {
-            return Maps.B(b().tailMap(k), this.f30948f);
+            return Maps.B(b().tailMap(k), this.f31043f);
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class r<K, V> extends d.g.c.c.r<Map.Entry<K, V>> {
+    public static class r<K, V> extends d.h.c.c.r<Map.Entry<K, V>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Collection<Map.Entry<K, V>> f30949e;
+        public final Collection<Map.Entry<K, V>> f31044e;
 
         public r(Collection<Map.Entry<K, V>> collection) {
-            this.f30949e = collection;
+            this.f31044e = collection;
         }
 
-        @Override // d.g.c.c.r, java.util.Collection, java.lang.Iterable, java.util.Set
+        @Override // d.h.c.c.r, java.util.Collection, java.lang.Iterable, java.util.Set
         public Iterator<Map.Entry<K, V>> iterator() {
-            return Maps.G(this.f30949e.iterator());
+            return Maps.G(this.f31044e.iterator());
         }
 
-        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
+        @Override // d.h.c.c.r, java.util.Collection, java.util.Set
         public Object[] toArray() {
             return standardToArray();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.g.c.c.r, d.g.c.c.y
+        @Override // d.h.c.c.r, d.h.c.c.y
         public Collection<Map.Entry<K, V>> delegate() {
-            return this.f30949e;
+            return this.f31044e;
         }
 
-        @Override // d.g.c.c.r, java.util.Collection, java.util.Set
+        @Override // d.h.c.c.r, java.util.Collection, java.util.Set
         public <T> T[] toArray(T[] tArr) {
             return (T[]) standardToArray(tArr);
         }
@@ -1091,15 +1091,15 @@ public final class Maps {
     public static class t<K, V> extends AbstractCollection<V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Map<K, V> f30950e;
+        public final Map<K, V> f31045e;
 
         public t(Map<K, V> map) {
-            d.g.c.a.n.p(map);
-            this.f30950e = map;
+            d.h.c.a.n.p(map);
+            this.f31045e = map;
         }
 
         public final Map<K, V> b() {
-            return this.f30950e;
+            return this.f31045e;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection
@@ -1128,7 +1128,7 @@ public final class Maps {
                 return super.remove(obj);
             } catch (UnsupportedOperationException unused) {
                 for (Map.Entry<K, V> entry : b().entrySet()) {
-                    if (d.g.c.a.k.a(obj, entry.getValue())) {
+                    if (d.h.c.a.k.a(obj, entry.getValue())) {
                         b().remove(entry.getKey());
                         return true;
                     }
@@ -1140,7 +1140,7 @@ public final class Maps {
         @Override // java.util.AbstractCollection, java.util.Collection
         public boolean removeAll(Collection<?> collection) {
             try {
-                d.g.c.a.n.p(collection);
+                d.h.c.a.n.p(collection);
                 return super.removeAll(collection);
             } catch (UnsupportedOperationException unused) {
                 HashSet c2 = Sets.c();
@@ -1156,7 +1156,7 @@ public final class Maps {
         @Override // java.util.AbstractCollection, java.util.Collection
         public boolean retainAll(Collection<?> collection) {
             try {
-                d.g.c.a.n.p(collection);
+                d.h.c.a.n.p(collection);
                 return super.retainAll(collection);
             } catch (UnsupportedOperationException unused) {
                 HashSet c2 = Sets.c();
@@ -1179,13 +1179,13 @@ public final class Maps {
     public static abstract class u<K, V> extends AbstractMap<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public transient Set<Map.Entry<K, V>> f30951e;
+        public transient Set<Map.Entry<K, V>> f31046e;
 
         /* renamed from: f  reason: collision with root package name */
-        public transient Set<K> f30952f;
+        public transient Set<K> f31047f;
 
         /* renamed from: g  reason: collision with root package name */
-        public transient Collection<V> f30953g;
+        public transient Collection<V> f31048g;
 
         public abstract Set<Map.Entry<K, V>> a();
 
@@ -1199,10 +1199,10 @@ public final class Maps {
 
         @Override // java.util.AbstractMap, java.util.Map
         public Set<Map.Entry<K, V>> entrySet() {
-            Set<Map.Entry<K, V>> set = this.f30951e;
+            Set<Map.Entry<K, V>> set = this.f31046e;
             if (set == null) {
                 Set<Map.Entry<K, V>> a2 = a();
-                this.f30951e = a2;
+                this.f31046e = a2;
                 return a2;
             }
             return set;
@@ -1210,10 +1210,10 @@ public final class Maps {
 
         @Override // java.util.AbstractMap, java.util.Map
         public Set<K> keySet() {
-            Set<K> set = this.f30952f;
+            Set<K> set = this.f31047f;
             if (set == null) {
                 Set<K> b2 = b();
-                this.f30952f = b2;
+                this.f31047f = b2;
                 return b2;
             }
             return set;
@@ -1221,10 +1221,10 @@ public final class Maps {
 
         @Override // java.util.AbstractMap, java.util.Map
         public Collection<V> values() {
-            Collection<V> collection = this.f30953g;
+            Collection<V> collection = this.f31048g;
             if (collection == null) {
                 Collection<V> c2 = c();
-                this.f30953g = c2;
+                this.f31048g = c2;
                 return c2;
             }
             return collection;
@@ -1240,21 +1240,21 @@ public final class Maps {
     }
 
     public static <V2, K, V1> Map.Entry<K, V2> C(k<? super K, ? super V1, V2> kVar, Map.Entry<K, V1> entry) {
-        d.g.c.a.n.p(kVar);
-        d.g.c.a.n.p(entry);
+        d.h.c.a.n.p(kVar);
+        d.h.c.a.n.p(entry);
         return new a(entry, kVar);
     }
 
-    public static <K, V1, V2> Map<K, V2> D(Map<K, V1> map, d.g.c.a.g<? super V1, V2> gVar) {
+    public static <K, V1, V2> Map<K, V2> D(Map<K, V1> map, d.h.c.a.g<? super V1, V2> gVar) {
         return A(map, c(gVar));
     }
 
-    public static <K, V1, V2> SortedMap<K, V2> E(SortedMap<K, V1> sortedMap, d.g.c.a.g<? super V1, V2> gVar) {
+    public static <K, V1, V2> SortedMap<K, V2> E(SortedMap<K, V1> sortedMap, d.h.c.a.g<? super V1, V2> gVar) {
         return B(sortedMap, c(gVar));
     }
 
     public static <K, V> Map.Entry<K, V> F(Map.Entry<? extends K, ? extends V> entry) {
-        d.g.c.a.n.p(entry);
+        d.h.c.a.n.p(entry);
         return new f(entry);
     }
 
@@ -1269,7 +1269,7 @@ public final class Maps {
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.util.NavigableMap<K, ? extends V> */
     /* JADX WARN: Multi-variable type inference failed */
     public static <K, V> NavigableMap<K, V> I(NavigableMap<K, ? extends V> navigableMap) {
-        d.g.c.a.n.p(navigableMap);
+        d.h.c.a.n.p(navigableMap);
         return navigableMap instanceof UnmodifiableNavigableMap ? navigableMap : new UnmodifiableNavigableMap(navigableMap);
     }
 
@@ -1280,7 +1280,7 @@ public final class Maps {
         return F(entry);
     }
 
-    public static <V> d.g.c.a.g<Map.Entry<?, V>, V> K() {
+    public static <V> d.h.c.a.g<Map.Entry<?, V>, V> K() {
         return EntryFunction.VALUE;
     }
 
@@ -1295,27 +1295,27 @@ public final class Maps {
         return entry.getValue();
     }
 
-    public static <V> d.g.c.a.o<Map.Entry<?, V>> N(d.g.c.a.o<? super V> oVar) {
+    public static <V> d.h.c.a.o<Map.Entry<?, V>> N(d.h.c.a.o<? super V> oVar) {
         return Predicates.c(oVar, K());
     }
 
-    public static <K, V1, V2> d.g.c.a.g<Map.Entry<K, V1>, Map.Entry<K, V2>> b(k<? super K, ? super V1, V2> kVar) {
-        d.g.c.a.n.p(kVar);
+    public static <K, V1, V2> d.h.c.a.g<Map.Entry<K, V1>, Map.Entry<K, V2>> b(k<? super K, ? super V1, V2> kVar) {
+        d.h.c.a.n.p(kVar);
         return new b(kVar);
     }
 
-    public static <K, V1, V2> k<K, V1, V2> c(d.g.c.a.g<? super V1, V2> gVar) {
-        d.g.c.a.n.p(gVar);
+    public static <K, V1, V2> k<K, V1, V2> c(d.h.c.a.g<? super V1, V2> gVar) {
+        d.h.c.a.n.p(gVar);
         return new h(gVar);
     }
 
-    public static <K, V> Iterator<Map.Entry<K, V>> d(Set<K> set, d.g.c.a.g<? super K, V> gVar) {
+    public static <K, V> Iterator<Map.Entry<K, V>> d(Set<K> set, d.h.c.a.g<? super K, V> gVar) {
         return new e(set.iterator(), gVar);
     }
 
     public static int e(int i2) {
         if (i2 < 3) {
-            d.g.c.c.m.b(i2, "expectedSize");
+            d.h.c.c.m.b(i2, "expectedSize");
             return i2 + 1;
         } else if (i2 < 1073741824) {
             return (int) ((i2 / 0.75f) + 1.0f);
@@ -1363,7 +1363,7 @@ public final class Maps {
         return bVar.a();
     }
 
-    public static <K> d.g.c.a.g<Map.Entry<K, ?>, K> l() {
+    public static <K> d.h.c.a.g<Map.Entry<K, ?>, K> l() {
         return EntryFunction.KEY;
     }
 
@@ -1378,7 +1378,7 @@ public final class Maps {
         return entry.getKey();
     }
 
-    public static <K> d.g.c.a.o<Map.Entry<K, ?>> o(d.g.c.a.o<? super K> oVar) {
+    public static <K> d.h.c.a.o<Map.Entry<K, ?>> o(d.h.c.a.o<? super K> oVar) {
         return Predicates.c(oVar, l());
     }
 
@@ -1416,7 +1416,7 @@ public final class Maps {
     }
 
     public static boolean w(Map<?, ?> map, Object obj) {
-        d.g.c.a.n.p(map);
+        d.h.c.a.n.p(map);
         try {
             return map.containsKey(obj);
         } catch (ClassCastException | NullPointerException unused) {
@@ -1425,7 +1425,7 @@ public final class Maps {
     }
 
     public static <V> V x(Map<?, V> map, Object obj) {
-        d.g.c.a.n.p(map);
+        d.h.c.a.n.p(map);
         try {
             return map.get(obj);
         } catch (ClassCastException | NullPointerException unused) {
@@ -1434,7 +1434,7 @@ public final class Maps {
     }
 
     public static <V> V y(Map<?, V> map, Object obj) {
-        d.g.c.a.n.p(map);
+        d.h.c.a.n.p(map);
         try {
             return map.remove(obj);
         } catch (ClassCastException | NullPointerException unused) {
@@ -1443,7 +1443,7 @@ public final class Maps {
     }
 
     public static String z(Map<?, ?> map) {
-        StringBuilder c2 = d.g.c.c.n.c(map.size());
+        StringBuilder c2 = d.h.c.c.n.c(map.size());
         c2.append('{');
         boolean z = true;
         for (Map.Entry<?, ?> entry : map.entrySet()) {

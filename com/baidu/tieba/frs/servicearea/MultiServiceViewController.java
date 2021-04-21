@@ -25,56 +25,56 @@ import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import d.b.c.e.p.l;
-import d.b.i0.d3.a0;
-import d.b.i0.d3.b0;
-import d.b.i0.q0.g2.b;
-import d.b.i0.q0.g2.d;
+import d.b.j0.d3.a0;
+import d.b.j0.d3.b0;
+import d.b.j0.q0.g2.b;
+import d.b.j0.q0.g2.d;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class MultiServiceViewController implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f16235a;
+    public final Context f16243a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RecyclerView f16236b;
+    public RecyclerView f16244b;
 
     /* renamed from: d  reason: collision with root package name */
-    public FrsViewData f16238d;
+    public FrsViewData f16246d;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<b0> f16237c = new ArrayList();
+    public List<b0> f16245c = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public RecyclerView.Adapter f16239e = new a();
+    public RecyclerView.Adapter f16247e = new a();
 
     /* loaded from: classes4.dex */
     public static class ServiceViewHolder extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public LinearLayout f16240a;
+        public LinearLayout f16248a;
 
         /* renamed from: b  reason: collision with root package name */
-        public FrameLayout f16241b;
+        public FrameLayout f16249b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TbClipImageView f16242c;
+        public TbClipImageView f16250c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f16243d;
+        public TextView f16251d;
 
         /* renamed from: e  reason: collision with root package name */
-        public b0 f16244e;
+        public b0 f16252e;
 
         /* renamed from: f  reason: collision with root package name */
-        public List<String> f16245f;
+        public List<String> f16253f;
 
         /* renamed from: g  reason: collision with root package name */
-        public FrsViewData f16246g;
+        public FrsViewData f16254g;
 
         /* renamed from: h  reason: collision with root package name */
-        public View.OnClickListener f16247h;
+        public View.OnClickListener f16255h;
 
         /* loaded from: classes4.dex */
         public class a implements View.OnClickListener {
@@ -83,74 +83,74 @@ public class MultiServiceViewController implements b {
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!TextUtils.equals(view.getResources().getString(R.string.hot_user_rank), ServiceViewHolder.this.f16244e.f54760b) || ServiceViewHolder.this.f16246g == null || ServiceViewHolder.this.f16246g.getForum() == null || TextUtils.isEmpty(ServiceViewHolder.this.f16246g.getForum().getId())) {
-                    if (ServiceViewHolder.this.f16244e != null && ServiceViewHolder.this.f16244e.f54764f != null) {
-                        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", ServiceViewHolder.this.f16244e.f54765g).param("obj_source", "frs_card").param("obj_id", ServiceViewHolder.this.f16244e.f54764f.f54768b).param("obj_name", ServiceViewHolder.this.f16244e.f54764f.f54767a).param("obj_param1", ServiceViewHolder.this.f16244e.f54764f.f54770d.intValue()));
+                if (!TextUtils.equals(view.getResources().getString(R.string.hot_user_rank), ServiceViewHolder.this.f16252e.f55181b) || ServiceViewHolder.this.f16254g == null || ServiceViewHolder.this.f16254g.getForum() == null || TextUtils.isEmpty(ServiceViewHolder.this.f16254g.getForum().getId())) {
+                    if (ServiceViewHolder.this.f16252e != null && ServiceViewHolder.this.f16252e.f55185f != null) {
+                        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", ServiceViewHolder.this.f16252e.f55186g).param("obj_source", "frs_card").param("obj_id", ServiceViewHolder.this.f16252e.f55185f.f55189b).param("obj_name", ServiceViewHolder.this.f16252e.f55185f.f55188a).param("obj_param1", ServiceViewHolder.this.f16252e.f55185f.f55191d.intValue()));
                     }
-                    d.a(view.getContext(), ServiceViewHolder.this.f16244e);
-                    d.b(ServiceViewHolder.this.f16244e);
+                    d.a(view.getContext(), ServiceViewHolder.this.f16252e);
+                    d.b(ServiceViewHolder.this.f16252e);
                     return;
                 }
                 HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(view.getContext());
-                hotUserRankActivityConfig.setForumId(Long.valueOf(d.b.c.e.m.b.f(ServiceViewHolder.this.f16246g.getForum().getId(), 0L)));
+                hotUserRankActivityConfig.setForumId(Long.valueOf(d.b.c.e.m.b.f(ServiceViewHolder.this.f16254g.getForum().getId(), 0L)));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
                 StatisticItem statisticItem = new StatisticItem("c13666");
-                statisticItem.param("fid", ServiceViewHolder.this.f16246g.getForum().getId());
+                statisticItem.param("fid", ServiceViewHolder.this.f16254g.getForum().getId());
                 TiebaStatic.log(statisticItem);
             }
         }
 
         public ServiceViewHolder(View view, FrsViewData frsViewData) {
             super(view);
-            this.f16245f = new ArrayList();
-            this.f16247h = new a();
+            this.f16253f = new ArrayList();
+            this.f16255h = new a();
             Context context = view.getContext();
-            this.f16246g = frsViewData;
+            this.f16254g = frsViewData;
             LinearLayout linearLayout = (LinearLayout) view;
-            this.f16240a = linearLayout;
+            this.f16248a = linearLayout;
             linearLayout.setGravity(16);
-            this.f16240a.setOrientation(0);
-            this.f16241b = new FrameLayout(context);
-            this.f16242c = new TbClipImageView(context);
+            this.f16248a.setOrientation(0);
+            this.f16249b = new FrameLayout(context);
+            this.f16250c = new TbClipImageView(context);
             int g2 = l.g(context, R.dimen.tbds57);
-            this.f16242c.setDrawerType(1);
-            this.f16242c.setIsRound(true);
-            this.f16242c.setBorderWidth(R.dimen.L_X01);
-            this.f16242c.setBorderColor(R.color.CAM_X0401);
-            this.f16242c.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f16242c.setPlaceHolder(1);
-            this.f16241b.addView(this.f16242c, new FrameLayout.LayoutParams(g2, g2));
-            this.f16240a.addView(this.f16241b, new LinearLayout.LayoutParams(-2, l.g(this.f16242c.getContext(), R.dimen.tbds62)));
+            this.f16250c.setDrawerType(1);
+            this.f16250c.setIsRound(true);
+            this.f16250c.setBorderWidth(R.dimen.L_X01);
+            this.f16250c.setBorderColor(R.color.CAM_X0401);
+            this.f16250c.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f16250c.setPlaceHolder(1);
+            this.f16249b.addView(this.f16250c, new FrameLayout.LayoutParams(g2, g2));
+            this.f16248a.addView(this.f16249b, new LinearLayout.LayoutParams(-2, l.g(this.f16250c.getContext(), R.dimen.tbds62)));
             TextView textView = new TextView(context);
-            this.f16243d = textView;
+            this.f16251d = textView;
             textView.setTextSize(0, l.g(context, R.dimen.T_X08));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.leftMargin = l.g(context, R.dimen.tbds10);
             layoutParams.rightMargin = l.g(context, R.dimen.M_W_X008);
-            this.f16240a.addView(this.f16243d, layoutParams);
-            view.setOnClickListener(this.f16247h);
+            this.f16248a.addView(this.f16251d, layoutParams);
+            view.setOnClickListener(this.f16255h);
         }
 
         public void c(b0 b0Var) {
             if (b0Var == null) {
                 return;
             }
-            this.f16244e = b0Var;
-            if (TextUtils.equals(this.itemView.getResources().getString(R.string.hot_user_rank), b0Var.f54760b)) {
-                this.f16242c.setImageResource(R.drawable.icon_mask_service_celebrity24);
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f16242c.getLayoutParams();
-                layoutParams.width = l.g(this.f16242c.getContext(), R.dimen.tbds62);
-                layoutParams.height = l.g(this.f16242c.getContext(), R.dimen.tbds62);
+            this.f16252e = b0Var;
+            if (TextUtils.equals(this.itemView.getResources().getString(R.string.hot_user_rank), b0Var.f55181b)) {
+                this.f16250c.setImageResource(R.drawable.icon_mask_service_celebrity24);
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f16250c.getLayoutParams();
+                layoutParams.width = l.g(this.f16250c.getContext(), R.dimen.tbds62);
+                layoutParams.height = l.g(this.f16250c.getContext(), R.dimen.tbds62);
             } else {
-                this.f16242c.W(b0Var.f54760b, 10, false);
+                this.f16250c.W(b0Var.f55181b, 10, false);
             }
-            this.f16243d.setText(StringHelper.cutChineseAndEnglishWithSuffix(b0Var.f54761c, 10, ""));
-            SkinManager.setViewTextColor(this.f16243d, R.color.CAM_X0105);
-            if (this.f16245f.contains(b0Var.f54761c)) {
+            this.f16251d.setText(StringHelper.cutChineseAndEnglishWithSuffix(b0Var.f55182c, 10, ""));
+            SkinManager.setViewTextColor(this.f16251d, R.color.CAM_X0105);
+            if (this.f16253f.contains(b0Var.f55182c)) {
                 return;
             }
             d.c(b0Var);
-            this.f16245f.add(b0Var.f54761c);
+            this.f16253f.add(b0Var.f55182c);
         }
     }
 
@@ -163,51 +163,51 @@ public class MultiServiceViewController implements b {
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         /* renamed from: c */
         public void onBindViewHolder(ServiceViewHolder serviceViewHolder, int i) {
-            serviceViewHolder.c((b0) MultiServiceViewController.this.f16237c.get(i));
+            serviceViewHolder.c((b0) MultiServiceViewController.this.f16245c.get(i));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         /* renamed from: d */
         public ServiceViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-            return new ServiceViewHolder(new LinearLayout(viewGroup.getContext()), MultiServiceViewController.this.f16238d);
+            return new ServiceViewHolder(new LinearLayout(viewGroup.getContext()), MultiServiceViewController.this.f16246d);
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemCount() {
-            return MultiServiceViewController.this.f16237c.size();
+            return MultiServiceViewController.this.f16245c.size();
         }
     }
 
     public MultiServiceViewController(Context context) {
-        this.f16235a = context;
-        this.f16236b = new RecyclerView(context);
+        this.f16243a = context;
+        this.f16244b = new RecyclerView(context);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         linearLayoutManager.setOrientation(0);
-        this.f16236b.setLayoutManager(linearLayoutManager);
-        this.f16236b.setAdapter(this.f16239e);
+        this.f16244b.setLayoutManager(linearLayoutManager);
+        this.f16244b.setAdapter(this.f16247e);
     }
 
-    @Override // d.b.i0.q0.g2.b
+    @Override // d.b.j0.q0.g2.b
     public void a(a0 a0Var, FrsViewData frsViewData) {
-        if (a0Var == null || ListUtils.isEmpty(a0Var.f54758b)) {
+        if (a0Var == null || ListUtils.isEmpty(a0Var.f55179b)) {
             return;
         }
-        this.f16237c = a0Var.f54758b;
-        this.f16238d = frsViewData;
-        this.f16239e.notifyDataSetChanged();
-        RecyclerView recyclerView = this.f16236b;
+        this.f16245c = a0Var.f55179b;
+        this.f16246d = frsViewData;
+        this.f16247e.notifyDataSetChanged();
+        RecyclerView recyclerView = this.f16244b;
         recyclerView.setPadding(l.g(recyclerView.getContext(), R.dimen.M_W_X007), 0, 0, 0);
-        this.f16236b.setClipToPadding(false);
+        this.f16244b.setClipToPadding(false);
     }
 
-    @Override // d.b.i0.q0.g2.b
+    @Override // d.b.j0.q0.g2.b
     public View getView() {
-        return this.f16236b;
+        return this.f16244b;
     }
 
-    @Override // d.b.i0.q0.g2.b
+    @Override // d.b.j0.q0.g2.b
     public void onChangeSkinType(int i) {
-        this.f16239e.notifyDataSetChanged();
+        this.f16247e.notifyDataSetChanged();
     }
 }

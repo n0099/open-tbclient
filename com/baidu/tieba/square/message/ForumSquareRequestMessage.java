@@ -3,7 +3,7 @@ package com.baidu.tieba.square.message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.h0.z0.w;
+import d.b.i0.z0.w;
 import tbclient.GetForumSquare.DataReq;
 import tbclient.GetForumSquare.GetForumSquareReqIdl;
 /* loaded from: classes4.dex */

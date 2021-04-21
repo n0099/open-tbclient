@@ -1,8 +1,8 @@
 package com.facebook.imagepipeline.animated;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class R {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class attr {
         public static final int actualImageResource = 0x7f040024;
         public static final int actualImageScaleType = 0x7f040025;
@@ -34,11 +34,11 @@ public final class R {
         public static final int roundingBorderColor = 0x7f04035f;
         public static final int roundingBorderPadding = 0x7f040360;
         public static final int roundingBorderWidth = 0x7f040361;
-        public static final int svgImage = 0x7f040458;
+        public static final int svgImage = 0x7f040459;
         public static final int viewAspectRatio = 0x7f040489;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class id {
         public static final int center = 0x7f090637;
         public static final int centerCrop = 0x7f09063b;
@@ -52,7 +52,7 @@ public final class R {
         public static final int none = 0x7f0916aa;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static final class styleable {
         public static final int GenericDraweeHierarchy_actualImageScaleType = 0x00000000;
         public static final int GenericDraweeHierarchy_backgroundImage = 0x00000001;

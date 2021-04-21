@@ -3,17 +3,17 @@ package g.c.i;
 public class d extends g implements b {
 
     /* renamed from: c  reason: collision with root package name */
-    public String f68649c = "*";
+    public String f68796c = "*";
 
     @Override // g.c.i.a
-    public String d() {
-        return this.f68649c;
+    public String c() {
+        return this.f68796c;
     }
 
     @Override // g.c.i.b
-    public void g(String str) throws IllegalArgumentException {
+    public void f(String str) throws IllegalArgumentException {
         if (str != null) {
-            this.f68649c = str;
+            this.f68796c = str;
             return;
         }
         throw new IllegalArgumentException("http resource descriptor must not be null");

@@ -10,18 +10,18 @@ import java.util.Map;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f26762a = new HashMap();
+    public Map<String, String> f26770a = new HashMap();
 
     private Map<String, String> a() {
-        if (this.f26762a.isEmpty()) {
-            this.f26762a.put(com.alipay.sdk.sys.a.k, sysParamters.a().b());
-            this.f26762a.put("sv", sysParamters.a().c());
-            this.f26762a.put("md", sysParamters.a().d());
-            this.f26762a.put("mf", sysParamters.a().e());
-            this.f26762a.put(Config.PACKAGE_NAME, sysParamters.g());
+        if (this.f26770a.isEmpty()) {
+            this.f26770a.put(com.alipay.sdk.sys.a.k, sysParamters.a().b());
+            this.f26770a.put("sv", sysParamters.a().c());
+            this.f26770a.put("md", sysParamters.a().d());
+            this.f26770a.put("mf", sysParamters.a().e());
+            this.f26770a.put(Config.PACKAGE_NAME, sysParamters.g());
         }
-        this.f26762a.put("tm", String.valueOf(System.currentTimeMillis()));
-        return this.f26762a;
+        this.f26770a.put("tm", String.valueOf(System.currentTimeMillis()));
+        return this.f26770a;
     }
 
     public boolean a(boolean z, String str, String str2, String str3, String str4) {

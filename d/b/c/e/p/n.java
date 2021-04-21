@@ -6,23 +6,23 @@ import java.util.HashMap;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, String> f42529a;
+    public static HashMap<String, String> f42769a;
 
     static {
         HashMap<String, String> hashMap = new HashMap<>();
-        f42529a = hashMap;
+        f42769a = hashMap;
         hashMap.put("java.lang.String", "java.lang.String");
-        f42529a.put("java.lang.Integer", "java.lang.Integer");
-        f42529a.put("java.lang.Double", "java.lang.Double");
-        f42529a.put("java.lang.Float", "java.lang.Float");
-        f42529a.put("java.lang.Boolean", "java.lang.Boolean");
-        f42529a.put("java.lang.Character", "java.lang.Character");
-        f42529a.put("java.lang.Short", "java.lang.Short");
-        f42529a.put("java.lang.Long", "java.lang.Long");
-        f42529a.put("java.lang.Byte", "java.lang.Byte");
-        f42529a.put("java.util.Date", "java.util.Date");
-        f42529a.put("java.lang.Integer", "java.lang.Integer");
-        f42529a.put("java.lang.Integer", "java.lang.Integer");
+        f42769a.put("java.lang.Integer", "java.lang.Integer");
+        f42769a.put("java.lang.Double", "java.lang.Double");
+        f42769a.put("java.lang.Float", "java.lang.Float");
+        f42769a.put("java.lang.Boolean", "java.lang.Boolean");
+        f42769a.put("java.lang.Character", "java.lang.Character");
+        f42769a.put("java.lang.Short", "java.lang.Short");
+        f42769a.put("java.lang.Long", "java.lang.Long");
+        f42769a.put("java.lang.Byte", "java.lang.Byte");
+        f42769a.put("java.util.Date", "java.util.Date");
+        f42769a.put("java.lang.Integer", "java.lang.Integer");
+        f42769a.put("java.lang.Integer", "java.lang.Integer");
     }
 
     public static Object a(Object obj, Field field) {

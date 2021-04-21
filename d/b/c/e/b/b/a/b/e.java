@@ -3,15 +3,15 @@ package d.b.c.e.b.b.a.b;
 public class e implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public char f42112a;
+    public char f42352a;
 
     public e(char c2) {
-        this.f42112a = c2;
+        this.f42352a = c2;
     }
 
     @Override // d.b.c.e.b.b.a.b.h
     public Object a(d.b.c.e.b.b.a.e.c cVar) {
-        return String.valueOf(this.f42112a);
+        return String.valueOf(this.f42352a);
     }
 
     @Override // d.b.c.e.b.b.a.b.h
@@ -21,21 +21,21 @@ public class e implements h {
 
     @Override // d.b.c.e.b.b.a.b.h
     public Object c(d.b.c.e.b.b.a.e.c cVar) {
-        return Character.valueOf(this.f42112a);
+        return Character.valueOf(this.f42352a);
     }
 
     @Override // d.b.c.e.b.b.a.b.h
     public Object d(d.b.c.e.b.b.a.e.c cVar) {
-        return Character.valueOf(this.f42112a);
+        return Character.valueOf(this.f42352a);
     }
 
     @Override // d.b.c.e.b.b.a.b.h
     public Object e(d.b.c.e.b.b.a.e.c cVar) {
-        return Character.valueOf(this.f42112a);
+        return Character.valueOf(this.f42352a);
     }
 
     @Override // d.b.c.e.b.b.a.b.h
     public Object f(d.b.c.e.b.b.a.e.c cVar) {
-        return String.valueOf(this.f42112a);
+        return String.valueOf(this.f42352a);
     }
 }

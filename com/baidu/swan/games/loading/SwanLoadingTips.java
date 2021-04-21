@@ -13,17 +13,17 @@ import kotlin.reflect.KProperty;
 public final class SwanLoadingTips {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final /* synthetic */ KProperty[] f12518c = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(SwanLoadingTips.class), "loadingTips", "getLoadingTips()[Ljava/lang/String;"))};
+    public static final /* synthetic */ KProperty[] f12526c = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(SwanLoadingTips.class), "loadingTips", "getLoadingTips()[Ljava/lang/String;"))};
 
     /* renamed from: a  reason: collision with root package name */
-    public final Lazy f12519a = LazyKt__LazyJVMKt.lazy(SwanLoadingTips$loadingTips$2.INSTANCE);
+    public final Lazy f12527a = LazyKt__LazyJVMKt.lazy(SwanLoadingTips$loadingTips$2.INSTANCE);
 
     /* renamed from: b  reason: collision with root package name */
-    public int f12520b;
+    public int f12528b;
 
     public final String[] a() {
-        Lazy lazy = this.f12519a;
-        KProperty kProperty = f12518c[0];
+        Lazy lazy = this.f12527a;
+        KProperty kProperty = f12526c[0];
         return (String[]) lazy.getValue();
     }
 
@@ -33,9 +33,9 @@ public final class SwanLoadingTips {
             if (a2.length == 0) {
                 return "";
             }
-            int i = this.f12520b;
+            int i = this.f12528b;
             String str = a2[i % a2.length];
-            this.f12520b = i + 1;
+            this.f12528b = i + 1;
             return str;
         }
         return "";

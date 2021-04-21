@@ -13,16 +13,16 @@ public interface o extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.o$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0508a implements o {
+        public static class C0511a implements o {
 
             /* renamed from: a  reason: collision with root package name */
-            public static o f39118a;
+            public static o f39213a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f39119b;
+            public IBinder f39214b;
 
-            public C0508a(IBinder iBinder) {
-                this.f39119b = iBinder;
+            public C0511a(IBinder iBinder) {
+                this.f39214b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.o
@@ -31,7 +31,7 @@ public interface o extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadDiskSpaceAidlCallback");
-                    if (!this.f39119b.transact(1, obtain, obtain2, 0) && a.b() != null) {
+                    if (!this.f39214b.transact(1, obtain, obtain2, 0) && a.b() != null) {
                         a.b().a();
                     } else {
                         obtain2.readException();
@@ -44,7 +44,7 @@ public interface o extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f39119b;
+                return this.f39214b;
             }
         }
 
@@ -60,11 +60,11 @@ public interface o extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof o)) {
                 return (o) queryLocalInterface;
             }
-            return new C0508a(iBinder);
+            return new C0511a(iBinder);
         }
 
         public static o b() {
-            return C0508a.f39118a;
+            return C0511a.f39213a;
         }
 
         @Override // android.os.IInterface

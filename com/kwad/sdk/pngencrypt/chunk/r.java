@@ -20,7 +20,7 @@ public class r extends ae {
         int i = 0;
         int i2 = 0;
         while (true) {
-            byte[] bArr = dVar.f36432d;
+            byte[] bArr = dVar.f36527d;
             if (i >= bArr.length) {
                 break;
             }
@@ -39,19 +39,19 @@ public class r extends ae {
         if (i2 != 3) {
             com.kwad.sdk.core.d.a.a(new PngjException("Bad formed PngChunkITXT chunk"));
         }
-        ((ae) this).f36420h = b.a(dVar.f36432d, 0, iArr[0]);
+        ((ae) this).f36515h = b.a(dVar.f36527d, 0, iArr[0]);
         int i3 = iArr[0] + 1;
-        boolean z = dVar.f36432d[i3] != 0;
+        boolean z = dVar.f36527d[i3] != 0;
         this.j = z;
         int i4 = i3 + 1;
-        if (z && dVar.f36432d[i4] != 0) {
+        if (z && dVar.f36527d[i4] != 0) {
             com.kwad.sdk.core.d.a.a(new PngjException("Bad formed PngChunkITXT chunk - bad compression method "));
         }
-        this.k = b.a(dVar.f36432d, i4, iArr[1] - i4);
-        this.l = b.b(dVar.f36432d, iArr[1] + 1, (iArr[2] - iArr[1]) - 1);
+        this.k = b.a(dVar.f36527d, i4, iArr[1] - i4);
+        this.l = b.b(dVar.f36527d, iArr[1] + 1, (iArr[2] - iArr[1]) - 1);
         int i5 = iArr[2] + 1;
         boolean z2 = this.j;
-        byte[] bArr2 = dVar.f36432d;
+        byte[] bArr2 = dVar.f36527d;
         this.i = z2 ? b.b(b.a(bArr2, i5, bArr2.length - i5, false)) : b.b(bArr2, i5, bArr2.length - i5);
     }
 }

@@ -5,50 +5,50 @@ import java.nio.ByteBuffer;
 public class a {
 
     /* renamed from: g  reason: collision with root package name */
-    public static byte f42020g = 4;
+    public static byte f42260g = 4;
 
     /* renamed from: h  reason: collision with root package name */
-    public static byte f42021h = Byte.MIN_VALUE;
+    public static byte f42261h = Byte.MIN_VALUE;
     public static byte i = 64;
     public static byte j = 8;
     public static byte k = 4;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f42025d;
+    public int f42265d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42026e;
+    public int f42266e;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f42022a = false;
+    public boolean f42262a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f42023b = false;
+    public boolean f42263b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f42024c = false;
+    public boolean f42264c = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f42027f = false;
+    public boolean f42267f = false;
 
     public static a a(byte[] bArr) {
         ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, f());
         a aVar = new a();
         byte b2 = wrap.get();
-        if ((f42021h & b2) != 0) {
-            aVar.f42022a = true;
+        if ((f42261h & b2) != 0) {
+            aVar.f42262a = true;
         }
         if ((i & b2) != 0) {
-            aVar.f42023b = true;
+            aVar.f42263b = true;
         }
         if ((j & b2) != 0) {
-            aVar.f42024c = true;
+            aVar.f42264c = true;
         }
         if ((b2 & k) != 0) {
-            aVar.f42027f = true;
+            aVar.f42267f = true;
         }
-        aVar.f42025d = wrap.getInt();
-        aVar.f42026e = wrap.getInt();
+        aVar.f42265d = wrap.getInt();
+        aVar.f42266e = wrap.getInt();
         return aVar;
     }
 
@@ -58,7 +58,7 @@ public class a {
 
     public static byte[] i(boolean z, boolean z2, int i2, int i3, byte[] bArr, boolean z3) {
         ByteBuffer allocate = ByteBuffer.allocate(f() + (bArr != null ? bArr.length : 0));
-        byte b2 = z ? (byte) (f42021h | 0) : (byte) 0;
+        byte b2 = z ? (byte) (f42261h | 0) : (byte) 0;
         if (z2) {
             b2 = (byte) (i | b2);
         }
@@ -77,26 +77,26 @@ public class a {
     }
 
     public int b() {
-        return this.f42025d;
+        return this.f42265d;
     }
 
     public boolean c() {
-        return this.f42023b;
+        return this.f42263b;
     }
 
     public boolean d() {
-        return this.f42022a;
+        return this.f42262a;
     }
 
     public boolean e() {
-        return this.f42027f;
+        return this.f42267f;
     }
 
     public boolean g() {
-        return this.f42024c;
+        return this.f42264c;
     }
 
     public int h() {
-        return this.f42026e;
+        return this.f42266e;
     }
 }

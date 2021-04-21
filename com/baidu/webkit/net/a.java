@@ -7,12 +7,12 @@ import android.os.Message;
 public final class a extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ BdNet f26728a;
+    public final /* synthetic */ BdNet f26736a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(BdNet bdNet, Looper looper) {
         super(looper);
-        this.f26728a = bdNet;
+        this.f26736a = bdNet;
     }
 
     @Override // android.os.Handler
@@ -20,6 +20,6 @@ public final class a extends Handler {
         if (message.what != 1) {
             return;
         }
-        this.f26728a.onStartError((BdNetTask) message.obj);
+        this.f26736a.onStartError((BdNetTask) message.obj);
     }
 }

@@ -19,7 +19,7 @@ import java.util.Set;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.NotThreadSafe;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class BasePool<V> implements Pool<V> {
     public static OnFailedListener mOnFailedListener;
     public boolean mAllowNewBuckets;
@@ -40,7 +40,7 @@ public abstract class BasePool<V> implements Pool<V> {
 
     @VisibleForTesting
     @NotThreadSafe
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Counter {
         public static final String TAG = "com.facebook.imagepipeline.memory.BasePool.Counter";
         public int mCount;
@@ -68,33 +68,33 @@ public abstract class BasePool<V> implements Pool<V> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class InvalidSizeException extends RuntimeException {
         public InvalidSizeException(Object obj) {
             super("Invalid size: " + obj.toString());
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class InvalidValueException extends RuntimeException {
         public InvalidValueException(Object obj) {
             super("Invalid value: " + obj.toString());
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface OnFailedListener {
         void onFailed();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class PoolSizeViolationException extends RuntimeException {
         public PoolSizeViolationException(int i, int i2, int i3, int i4) {
             super("Pool hard cap violation? Hard cap = " + i + " Used size = " + i2 + " Free size = " + i3 + " Request size = " + i4);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class SizeTooLargeException extends InvalidSizeException {
         public SizeTooLargeException(Object obj) {
             super(obj);

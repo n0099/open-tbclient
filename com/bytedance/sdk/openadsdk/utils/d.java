@@ -19,16 +19,16 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f30085a = 1800000;
+    public static long f30093a = 1800000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f30086b;
+    public static c f30094b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f30087c;
+    public static long f30095c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Handler f30088d = new Handler(Looper.getMainLooper());
+    public static Handler f30096d = new Handler(Looper.getMainLooper());
 
     /* loaded from: classes5.dex */
     public static class a implements Callable<TTLocation> {
@@ -47,14 +47,14 @@ public class d {
     public static class b implements Callable<Location> {
 
         /* renamed from: a  reason: collision with root package name */
-        public LocationManager f30097a;
+        public LocationManager f30105a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f30098b;
+        public String f30106b;
 
         public b(LocationManager locationManager, String str) {
-            this.f30097a = locationManager;
-            this.f30098b = str;
+            this.f30105a = locationManager;
+            this.f30106b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -62,7 +62,7 @@ public class d {
         /* renamed from: a */
         public Location call() throws Exception {
             long currentTimeMillis = System.currentTimeMillis();
-            Location lastKnownLocation = this.f30097a.getLastKnownLocation(this.f30098b);
+            Location lastKnownLocation = this.f30105a.getLastKnownLocation(this.f30106b);
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             u.b("AdLocationUtils", "location:" + lastKnownLocation + ",getLastKnownLocation use time :" + currentTimeMillis2);
             return lastKnownLocation;
@@ -127,13 +127,13 @@ public class d {
     @Nullable
     public static c a(Context context) {
         if (com.bytedance.sdk.openadsdk.core.i.d().e().isCanUseLocation() || com.bytedance.sdk.openadsdk.core.i.d().e().getTTLocation() != null) {
-            c cVar = f30086b;
+            c cVar = f30094b;
             final Context a2 = context == null ? com.bytedance.sdk.openadsdk.core.p.a() : context.getApplicationContext();
-            u.b("AdLocationUtils", "Location cache time =", Long.valueOf(f30085a));
-            if (f30086b != null && !a()) {
-                return f30086b;
+            u.b("AdLocationUtils", "Location cache time =", Long.valueOf(f30093a));
+            if (f30094b != null && !a()) {
+                return f30094b;
             }
-            String a3 = com.bytedance.sdk.openadsdk.core.i.a("sdk_ad_location", f30085a);
+            String a3 = com.bytedance.sdk.openadsdk.core.i.a("sdk_ad_location", f30093a);
             if (!TextUtils.isEmpty(a3)) {
                 try {
                     JSONObject jSONObject = new JSONObject(a3);
@@ -141,14 +141,14 @@ public class d {
                     String string2 = jSONObject.getString("longitude");
                     long j = jSONObject.getLong("lbstime");
                     if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2)) {
-                        f30086b = new c(Float.valueOf(string).floatValue(), Float.valueOf(string2).floatValue(), j);
+                        f30094b = new c(Float.valueOf(string).floatValue(), Float.valueOf(string2).floatValue(), j);
                     }
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
             }
             if (a()) {
-                f30087c = System.currentTimeMillis();
+                f30095c = System.currentTimeMillis();
                 u.c("AdLocationUtils", "Locating ...");
                 com.bytedance.sdk.openadsdk.l.e.a(new com.bytedance.sdk.openadsdk.l.g("getLocation c") { // from class: com.bytedance.sdk.openadsdk.utils.d.1
                     @Override // java.lang.Runnable
@@ -157,23 +157,23 @@ public class d {
                         if (c2 != null) {
                             try {
                                 JSONObject jSONObject2 = new JSONObject();
-                                jSONObject2.put("latitude", Float.toString(c2.f30082a));
-                                jSONObject2.put("longitude", Float.toString(c2.f30083b));
-                                jSONObject2.put("lbstime", c2.f30084c);
+                                jSONObject2.put("latitude", Float.toString(c2.f30090a));
+                                jSONObject2.put("longitude", Float.toString(c2.f30091b));
+                                jSONObject2.put("lbstime", c2.f30092c);
                                 com.bytedance.sdk.openadsdk.core.i.a("sdk_ad_location", jSONObject2.toString());
                             } catch (JSONException e2) {
                                 e2.printStackTrace();
                             }
-                            c unused = d.f30086b = c2;
+                            c unused = d.f30094b = c2;
                         }
                     }
                 });
             }
-            if (f30086b == null) {
-                f30086b = cVar;
+            if (f30094b == null) {
+                f30094b = cVar;
                 u.c("AdLocationUtils", "Use the last valid location");
             }
-            return f30086b;
+            return f30094b;
         }
         return null;
     }
@@ -222,7 +222,7 @@ public class d {
                 return;
             }
             locationManager.requestSingleUpdate(b2, locationListener, Looper.getMainLooper());
-            f30088d.postDelayed(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.d.6
+            f30096d.postDelayed(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.d.6
                 @Override // java.lang.Runnable
                 public void run() {
                     d.b(locationManager, locationListener);
@@ -254,7 +254,7 @@ public class d {
     }
 
     public static boolean a() {
-        return System.currentTimeMillis() - f30087c > f30085a;
+        return System.currentTimeMillis() - f30095c > f30093a;
     }
 
     public static Location a(LocationManager locationManager) {

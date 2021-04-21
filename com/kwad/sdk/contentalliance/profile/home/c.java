@@ -16,7 +16,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class c extends d implements a.InterfaceC0437a {
+public class c extends d implements a.InterfaceC0440a {
     public SceneImpl i;
     public ProfileHomeParam j;
     public com.kwad.sdk.contentalliance.profile.home.b.b k;
@@ -51,14 +51,14 @@ public class c extends d implements a.InterfaceC0437a {
 
     private com.kwad.sdk.contentalliance.profile.home.b.b l() {
         com.kwad.sdk.contentalliance.profile.home.b.b bVar = new com.kwad.sdk.contentalliance.profile.home.b.b();
-        bVar.f33158a = this;
-        bVar.f33159b = this.i;
-        bVar.f33160c = this.f36227c;
-        com.kwad.sdk.core.i.a aVar = new com.kwad.sdk.core.i.a(this, this.f36225a, 70);
+        bVar.f33253a = this;
+        bVar.f33254b = this.i;
+        bVar.f33255c = this.f36322c;
+        com.kwad.sdk.core.i.a aVar = new com.kwad.sdk.core.i.a(this, this.f36320a, 70);
         this.m = aVar;
         aVar.a();
-        bVar.f33162e = this.m;
-        bVar.f33161d = this.j;
+        bVar.f33257e = this.m;
+        bVar.f33256d = this.j;
         return bVar;
     }
 
@@ -82,7 +82,7 @@ public class c extends d implements a.InterfaceC0437a {
         return new ArrayList();
     }
 
-    @Override // com.kwad.sdk.lib.a.a.InterfaceC0437a
+    @Override // com.kwad.sdk.lib.a.a.InterfaceC0440a
     @NonNull
     public Presenter e() {
         Presenter presenter = new Presenter();

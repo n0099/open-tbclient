@@ -7,7 +7,7 @@ import com.baidu.tbadk.widget.layout.FlowLayout;
 import com.baidu.tieba.R;
 import d.b.c.e.k.b;
 import d.b.c.e.p.l;
-import d.b.i0.i2.e.f;
+import d.b.j0.i2.e.f;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */

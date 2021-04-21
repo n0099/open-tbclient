@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
 import com.heytap.mcssdk.mode.CommandMessage;
-import d.j.a.a.a;
+import d.k.a.a.a;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

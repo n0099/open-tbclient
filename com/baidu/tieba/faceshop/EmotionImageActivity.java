@@ -15,21 +15,21 @@ import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.h0.z0.o;
+import d.b.i0.z0.o;
 /* loaded from: classes4.dex */
 public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public NavigationBar f15236e;
+    public NavigationBar f15244e;
 
     /* renamed from: f  reason: collision with root package name */
-    public GifView f15237f;
+    public GifView f15245f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f15238g;
+    public TbImageView f15246g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f15239h;
+    public TextView f15247h;
     public TextView i;
     public String j;
     public String k;
@@ -96,16 +96,16 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
     public final void i() {
         FrameLayout.LayoutParams layoutParams;
         NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
-        this.f15236e = navigationBar;
+        this.f15244e = navigationBar;
         navigationBar.setTitleText(getString(R.string.emotion_image_title));
-        this.f15236e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a());
-        this.f15237f = (GifView) findViewById(R.id.gifview);
+        this.f15244e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a());
+        this.f15245f = (GifView) findViewById(R.id.gifview);
         if (this.p != 0 && this.q != 0) {
             layoutParams = new FrameLayout.LayoutParams(this.p, this.q, 17);
         } else {
             layoutParams = new FrameLayout.LayoutParams(this.r, this.s, 17);
         }
-        this.f15237f.setLayoutParams(layoutParams);
+        this.f15245f.setLayoutParams(layoutParams);
         boolean f2 = o.f();
         GifInfo gifInfo = new GifInfo();
         gifInfo.mSharpText = this.o;
@@ -117,18 +117,18 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
         } else {
             gifInfo.mStaticUrl = this.n;
         }
-        this.f15237f.w0(gifInfo);
-        this.f15238g = (TbImageView) findViewById(R.id.emotion_icon);
+        this.f15245f.w0(gifInfo);
+        this.f15246g = (TbImageView) findViewById(R.id.emotion_icon);
         if (!TextUtils.isEmpty(this.l)) {
-            this.f15238g.W(this.l, 10, false);
+            this.f15246g.W(this.l, 10, false);
         } else {
-            Bitmap f3 = d.b.i0.l0.b.f(this.j, "panel.png");
+            Bitmap f3 = d.b.j0.l0.b.f(this.j, "panel.png");
             if (f3 != null) {
-                new d.b.c.j.d.a(f3, false).h(this.f15238g);
+                new d.b.c.j.d.a(f3, false).h(this.f15246g);
             }
         }
         TextView textView = (TextView) findViewById(R.id.emotion_pname);
-        this.f15239h = textView;
+        this.f15247h = textView;
         textView.setText(this.k);
         TextView textView2 = (TextView) findViewById(R.id.emotion_detail);
         this.i = textView2;
@@ -140,7 +140,7 @@ public class EmotionImageActivity extends ProxyAdkBaseActivity<EmotionImageActiv
         super.onChangeSkinType(i);
         getLayoutMode().k(i == 1);
         getLayoutMode().j(findViewById(R.id.emotion_image_root));
-        this.f15236e.onChangeSkinType(getPageContext(), i);
+        this.f15244e.onChangeSkinType(getPageContext(), i);
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity

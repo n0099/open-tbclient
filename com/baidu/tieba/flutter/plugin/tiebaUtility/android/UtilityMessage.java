@@ -11,8 +11,8 @@ import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
 import com.baidu.tieba.im.message.SettingChangeMessage;
 import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
 import d.b.c.e.p.k;
-import d.b.i0.e1.t.d;
-import d.b.i0.t2.a;
+import d.b.j0.e1.t.d;
+import d.b.j0.t2.a;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class UtilityMessage implements TiebaUtilityMessageAuto.HostUtilityMessage {

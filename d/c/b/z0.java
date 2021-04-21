@@ -11,26 +11,26 @@ public final class z0 {
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Runnable f65961e;
+        public final Runnable f66056e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f65962f;
+        public final String f66057f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final String f65963g = Log.getStackTraceString(new RuntimeException("origin stacktrace"));
+        public final String f66058g = Log.getStackTraceString(new RuntimeException("origin stacktrace"));
 
         public a(Runnable runnable, String str) {
-            this.f65961e = runnable;
-            this.f65962f = str;
+            this.f66056e = runnable;
+            this.f66057f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                this.f65961e.run();
+                this.f66056e.run();
             } catch (Exception e2) {
                 e2.printStackTrace();
-                y0.f("TrackerDr", "Thread:" + this.f65962f + " exception\n" + this.f65963g, e2);
+                y0.f("TrackerDr", "Thread:" + this.f66057f + " exception\n" + this.f66058g, e2);
             }
         }
     }

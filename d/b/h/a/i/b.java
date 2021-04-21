@@ -5,7 +5,7 @@ import java.util.HashMap;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, a> f49847a = new HashMap<>();
+    public static HashMap<String, a> f43774a = new HashMap<>();
 
     public static synchronized a a(String str) {
         a b2;
@@ -18,13 +18,13 @@ public final class b {
     public static synchronized a b(String str, int i) {
         a aVar;
         synchronized (b.class) {
-            if (!f49847a.containsKey(str) || (aVar = f49847a.get(str)) == null) {
+            if (!f43774a.containsKey(str) || (aVar = f43774a.get(str)) == null) {
                 a aVar2 = new a(str, i);
                 try {
                     aVar2.start();
                 } catch (Exception unused) {
                 }
-                f49847a.put(str, aVar2);
+                f43774a.put(str, aVar2);
                 return aVar2;
             }
             return aVar;
@@ -35,7 +35,7 @@ public final class b {
         synchronized (b.class) {
             if (aVar != null) {
                 aVar.a();
-                f49847a.values().remove(aVar);
+                f43774a.values().remove(aVar);
             }
         }
     }

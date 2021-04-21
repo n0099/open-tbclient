@@ -27,8 +27,8 @@ import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.service.TiebaUpdateService;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import d.b.c.e.m.g;
-import d.b.i0.j;
-import d.b.i0.l;
+import d.b.j0.j;
+import d.b.j0.l;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class UpdateDialog extends BaseActivity<UpdateDialog> {
@@ -68,7 +68,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             @Override // java.lang.Runnable
             public void run() {
                 if (UpdateDialog.this.mData.forceUpdate()) {
-                    d.b.h0.r.a0.b.e(UpdateDialog.this.getPageContext().getPageActivity(), 200);
+                    d.b.i0.r.a0.b.e(UpdateDialog.this.getPageContext().getPageActivity(), 200);
                 }
             }
         }
@@ -116,7 +116,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         public e() {
         }
 
-        @Override // d.b.i0.j.f
+        @Override // d.b.j0.j.f
         public void a(boolean z) {
             UpdateDialog.this.mIsDownloading = true;
             UpdateDialog updateDialog = UpdateDialog.this;
@@ -131,7 +131,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // d.b.i0.j.f
+        @Override // d.b.j0.j.f
         public void b(boolean z) {
             if (UpdateDialog.this.checkMainApkExist()) {
                 UpdateDialog.this.mSupportDialog.dismiss();
@@ -154,17 +154,17 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             UpdateDialog.this.finish();
         }
 
-        @Override // d.b.i0.j.f
+        @Override // d.b.j0.j.f
         public void c() {
             UpdateDialog.this.stopUpdataService();
         }
 
-        @Override // d.b.i0.j.f
+        @Override // d.b.j0.j.f
         public void d() {
             UpdateDialog.this.finish();
         }
 
-        @Override // d.b.i0.j.f
+        @Override // d.b.j0.j.f
         public void e() {
             UpdateDialog.this.mSupportDialog.dismiss();
             UpdateDialog.this.finish();

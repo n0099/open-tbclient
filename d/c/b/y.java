@@ -12,26 +12,26 @@ import org.json.JSONObject;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f65952a = {"ab_version", "device_brand", KsMediaMeta.KSM_KEY_LANGUAGE, "os_api", "resolution", "google_aid", "build_serial", "carrier", "install_id", "package", "app_version", "device_model", "udid", "density_dpi", "aliyun_uuid", "mcc_mnc", "sim_region", "ab_client", "ab_group", "ab_feature", Constants.KEY_DEVICE_ID, "openudid", "clientudid", "aid"};
+    public static final String[] f66047a = {"ab_version", "device_brand", KsMediaMeta.KSM_KEY_LANGUAGE, "os_api", "resolution", "google_aid", "build_serial", "carrier", "install_id", "package", "app_version", "device_model", "udid", "density_dpi", "aliyun_uuid", "mcc_mnc", "sim_region", "ab_client", "ab_group", "ab_feature", Constants.KEY_DEVICE_ID, "openudid", "clientudid", "aid"};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f65953b = {"ab_version", "device_brand", KsMediaMeta.KSM_KEY_LANGUAGE, "os_api", "resolution", "google_aid", "build_serial", "carrier", "iid", DpStatConstants.KEY_APP_NAME, "version_name", "device_type", "uuid", "dpi", "aliyun_uuid", "mcc_mnc", "sim_region", "ab_client", "ab_group", "ab_feature", Constants.KEY_DEVICE_ID, "openudid", "clientudid", "aid"};
+    public static final String[] f66048b = {"ab_version", "device_brand", KsMediaMeta.KSM_KEY_LANGUAGE, "os_api", "resolution", "google_aid", "build_serial", "carrier", "iid", DpStatConstants.KEY_APP_NAME, "version_name", "device_type", "uuid", "dpi", "aliyun_uuid", "mcc_mnc", "sim_region", "ab_client", "ab_group", "ab_feature", Constants.KEY_DEVICE_ID, "openudid", "clientudid", "aid"};
 
     public static String a(Context context, JSONObject jSONObject, String str, boolean z, d dVar) {
         HashMap<String, String> a2;
         if (TextUtils.isEmpty(str)) {
             return str;
         }
-        HashMap hashMap = new HashMap(f65952a.length + 10);
+        HashMap hashMap = new HashMap(f66047a.length + 10);
         int i = 0;
         while (true) {
-            String[] strArr = f65952a;
+            String[] strArr = f66047a;
             if (i >= strArr.length) {
                 break;
             }
             String optString = jSONObject.optString(strArr[i], null);
             if (!TextUtils.isEmpty(optString)) {
-                hashMap.put(f65953b[i], optString);
+                hashMap.put(f66048b[i], optString);
             }
             i++;
         }
@@ -55,8 +55,8 @@ public class y {
         } catch (Exception e3) {
             r0.b(e3);
         }
-        if (a.f65787f.size() > 0) {
-            hashMap.putAll(a.f65787f);
+        if (a.f65882f.size() > 0) {
+            hashMap.putAll(a.f65882f);
         }
         if (z) {
             hashMap.put("ssmix", "a");
@@ -113,7 +113,7 @@ public class y {
         String str = a.h() ? "/service/2/app_log/?tt_data=a" : "/service/2/app_log/?";
         for (int i = 0; i < x.b().f().length; i++) {
             strArr[i] = a(context, jSONObject, x.b().f()[i] + str, true, a.k());
-            strArr[i] = x.e(strArr[i], x.f65943d);
+            strArr[i] = x.e(strArr[i], x.f66038d);
         }
         return strArr;
     }

@@ -1,0 +1,22 @@
+package d.b.h0.a.s0.e.d;
+
+import androidx.annotation.NonNull;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+/* loaded from: classes2.dex */
+public class e extends d.b.h0.a.s0.a<d.b.h0.a.s0.e.c> {
+    @Override // d.b.h0.a.s0.a
+    @NonNull
+    public String b() {
+        return "showsoftkeyboard";
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.b.h0.a.s0.a
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull d.b.h0.a.s0.e.c cVar) {
+        int i = command.arg1;
+        String str = command.what;
+        d(cVar, str, "Type:" + i, false);
+        cVar.s0(i);
+    }
+}

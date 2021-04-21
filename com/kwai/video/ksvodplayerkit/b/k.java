@@ -6,35 +6,35 @@ public final class k {
     public static String a(j jVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("avgBitrate", jVar.f37543a);
+            jSONObject.put("avgBitrate", jVar.f37638a);
         } catch (Exception unused) {
         }
         try {
-            jSONObject.put("host", jVar.f37544b);
+            jSONObject.put("host", jVar.f37639b);
         } catch (Exception unused2) {
         }
         try {
-            jSONObject.put("key", jVar.f37545c);
+            jSONObject.put("key", jVar.f37640c);
         } catch (Exception unused3) {
         }
         try {
-            jSONObject.put("maxBitrate", jVar.f37546d);
+            jSONObject.put("maxBitrate", jVar.f37641d);
         } catch (Exception unused4) {
         }
         try {
-            jSONObject.put("height", jVar.f37547e);
+            jSONObject.put("height", jVar.f37642e);
         } catch (Exception unused5) {
         }
         try {
-            jSONObject.put("width", jVar.f37548f);
+            jSONObject.put("width", jVar.f37643f);
         } catch (Exception unused6) {
         }
         try {
-            jSONObject.put("url", jVar.f37549g);
+            jSONObject.put("url", jVar.f37644g);
         } catch (Exception unused7) {
         }
         try {
-            jSONObject.put("quality", jVar.f37550h);
+            jSONObject.put("quality", jVar.f37645h);
         } catch (Exception unused8) {
         }
         return jSONObject.toString();

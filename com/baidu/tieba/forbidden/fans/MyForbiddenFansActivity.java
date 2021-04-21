@@ -24,8 +24,8 @@ import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 import d.b.c.e.p.l;
-import d.b.i0.n0.a.b;
-import d.b.i0.n0.a.d;
+import d.b.j0.n0.a.b;
+import d.b.j0.n0.a.d;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class MyForbiddenFansActivity extends BaseActivity {
@@ -33,25 +33,25 @@ public class MyForbiddenFansActivity extends BaseActivity {
     public NavigationBarCoverTip mCoverTipNaviBar;
     public BdRecyclerView mListView;
     public PbListView mLoadMoreView;
-    public d.b.i0.n0.a.b mModel;
+    public d.b.j0.n0.a.b mModel;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
-    public d.b.i0.n0.a.d mRemoveController;
+    public d.b.j0.n0.a.d mRemoveController;
     public TextView mRemoveView;
     public TextView mResultTipView;
     public LinearLayout mRootView;
-    public b.InterfaceC1398b mNetDataCallBack = new a();
+    public b.InterfaceC1421b mNetDataCallBack = new a();
     public View.OnClickListener mRemoveAllClick = new b();
     public View.OnClickListener mRemoveSingleClick = new c();
     public View.OnClickListener mPersonClick = new d();
 
     /* loaded from: classes4.dex */
-    public class a implements b.InterfaceC1398b {
+    public class a implements b.InterfaceC1421b {
         public a() {
         }
 
-        @Override // d.b.i0.n0.a.b.InterfaceC1398b
-        public void a(int i, String str, ArrayList<d.b.i0.n0.a.a> arrayList) {
+        @Override // d.b.j0.n0.a.b.InterfaceC1421b
+        public void a(int i, String str, ArrayList<d.b.j0.n0.a.a> arrayList) {
             if (MyForbiddenFansActivity.this.isProgressBarShown()) {
                 MyForbiddenFansActivity.this.hideProgressBar();
             }
@@ -100,9 +100,9 @@ public class MyForbiddenFansActivity extends BaseActivity {
             if (!l.C()) {
                 MyForbiddenFansActivity myForbiddenFansActivity = MyForbiddenFansActivity.this;
                 myForbiddenFansActivity.showToast(myForbiddenFansActivity.getString(R.string.neterror));
-            } else if (view.getTag() instanceof d.b.i0.n0.a.a) {
+            } else if (view.getTag() instanceof d.b.j0.n0.a.a) {
                 TiebaStatic.log(new StatisticItem("c13105"));
-                MyForbiddenFansActivity.this.mRemoveController.f(((d.b.i0.n0.a.a) view.getTag()).f58444a);
+                MyForbiddenFansActivity.this.mRemoveController.f(((d.b.j0.n0.a.a) view.getTag()).f58865a);
             }
         }
     }
@@ -114,9 +114,9 @@ public class MyForbiddenFansActivity extends BaseActivity {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view.getTag() instanceof d.b.i0.n0.a.a) {
-                d.b.i0.n0.a.a aVar = (d.b.i0.n0.a.a) view.getTag();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(MyForbiddenFansActivity.this.getActivity(), String.valueOf(aVar.f58444a), aVar.f58445b)));
+            if (view.getTag() instanceof d.b.j0.n0.a.a) {
+                d.b.j0.n0.a.a aVar = (d.b.j0.n0.a.a) view.getTag();
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(MyForbiddenFansActivity.this.getActivity(), String.valueOf(aVar.f58865a), aVar.f58866b)));
             }
         }
     }
@@ -140,13 +140,13 @@ public class MyForbiddenFansActivity extends BaseActivity {
         public f() {
         }
 
-        @Override // d.b.i0.n0.a.d.e
+        @Override // d.b.j0.n0.a.d.e
         public void a() {
             MyForbiddenFansActivity myForbiddenFansActivity = MyForbiddenFansActivity.this;
             myForbiddenFansActivity.showLoadingDialog(myForbiddenFansActivity.getString(R.string.remove_fans_loading));
         }
 
-        @Override // d.b.i0.n0.a.d.e
+        @Override // d.b.j0.n0.a.d.e
         public void b(int i, String str, boolean z, int i2, long j) {
             if (!z) {
                 if (i == 0 && i2 == 1 && MyForbiddenFansActivity.this.mAdapter.d(j)) {
@@ -233,7 +233,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateLoadMoreView(ArrayList<d.b.i0.n0.a.a> arrayList) {
+    public void updateLoadMoreView(ArrayList<d.b.j0.n0.a.a> arrayList) {
         if (ListUtils.isEmpty(arrayList)) {
             return;
         }
@@ -268,7 +268,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
         super.onCreate(bundle);
         setContentView(R.layout.forbidden_fans_list_layout);
         this.mRootView = (LinearLayout) findViewById(R.id.container_forbidden_fans);
-        this.mModel = new d.b.i0.n0.a.b();
+        this.mModel = new d.b.j0.n0.a.b();
         NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navi_forbidden_fans);
         this.mNavigationBar = navigationBar;
         navigationBar.setCenterTextTitle(getResources().getString(R.string.forbidden_fans));
@@ -294,7 +294,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
         this.mAdapter = myForbiddenFansListAdapter;
         this.mListView.setAdapter(myForbiddenFansListAdapter);
         this.mModel.j(this.mNetDataCallBack);
-        this.mRemoveController = new d.b.i0.n0.a.d(getPageContext(), getUniqueId());
+        this.mRemoveController = new d.b.j0.n0.a.d(getPageContext(), getUniqueId());
         this.mRemoveView.setOnClickListener(this.mRemoveAllClick);
         this.mAdapter.s(this.mPersonClick);
         this.mAdapter.u(this.mRemoveSingleClick);

@@ -17,28 +17,28 @@ import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.apps.model.SwanAppBearInfo;
 import com.baidu.swan.apps.res.ui.BdBaseImageView;
 import com.facebook.drawee.view.SimpleDraweeView;
-import d.b.g0.a.e;
-import d.b.g0.a.f;
-import d.b.g0.a.g;
-import d.b.g0.a.h;
-import d.b.g0.a.k;
+import d.b.h0.a.e;
+import d.b.h0.a.f;
+import d.b.h0.a.g;
+import d.b.h0.a.h;
+import d.b.h0.a.k;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes3.dex */
 public class BearLayout extends LinearLayout {
-    public static final boolean n = k.f45443a;
+    public static final boolean n = k.f45772a;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f12324e;
+    public TextView f12332e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SimpleDraweeView f12325f;
+    public SimpleDraweeView f12333f;
 
     /* renamed from: g  reason: collision with root package name */
-    public BdBaseImageView f12326g;
+    public BdBaseImageView f12334g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrameLayout f12327h;
+    public FrameLayout f12335h;
     public TextView i;
     public BdBaseImageView j;
     public boolean k;
@@ -49,15 +49,15 @@ public class BearLayout extends LinearLayout {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanAppBearInfo f12328e;
+        public final /* synthetic */ SwanAppBearInfo f12336e;
 
         public a(SwanAppBearInfo swanAppBearInfo) {
-            this.f12328e = swanAppBearInfo;
+            this.f12336e = swanAppBearInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            BearLayout.this.j(this.f12328e.bearHomeUrl);
+            BearLayout.this.j(this.f12336e.bearHomeUrl);
         }
     }
 
@@ -65,24 +65,24 @@ public class BearLayout extends LinearLayout {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.g0.a.j2.a f12330e;
+        public final /* synthetic */ d.b.h0.a.j2.a f12338e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ SwanAppBearInfo f12331f;
+        public final /* synthetic */ SwanAppBearInfo f12339f;
 
-        public b(d.b.g0.a.j2.a aVar, SwanAppBearInfo swanAppBearInfo) {
-            this.f12330e = aVar;
-            this.f12331f = swanAppBearInfo;
+        public b(d.b.h0.a.j2.a aVar, SwanAppBearInfo swanAppBearInfo) {
+            this.f12338e = aVar;
+            this.f12339f = swanAppBearInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (!BearLayout.this.k) {
                 BearLayout.this.l();
-                this.f12330e.b();
+                this.f12338e.b();
                 return;
             }
-            BearLayout.this.j(this.f12331f.bearHomeUrl);
+            BearLayout.this.j(this.f12339f.bearHomeUrl);
         }
     }
 
@@ -90,10 +90,10 @@ public class BearLayout extends LinearLayout {
     public class c implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f12333a;
+        public final /* synthetic */ Context f12341a;
 
         public c(Context context) {
-            this.f12333a = context;
+            this.f12341a = context;
         }
 
         @Override // com.baidu.swan.apps.view.BearLayout.d
@@ -122,9 +122,9 @@ public class BearLayout extends LinearLayout {
             BearLayout bearLayout = BearLayout.this;
             textView.setText(z ? bearLayout.m.getText(h.aiapps_bear_btn_navigate) : bearLayout.m.getText(h.aiapps_bear_btn_follow));
             TextView textView2 = BearLayout.this.i;
-            Context context = this.f12333a;
-            textView2.setTextColor(z ? context.getResources().getColor(d.b.g0.a.c.aiapps_black_text) : context.getResources().getColor(d.b.g0.a.c.aiapps_white_text));
-            BearLayout.this.f12327h.setBackgroundResource(z ? e.aiapps_bear_paw_enter_btn : e.aiapps_bear_paw_follow_btn);
+            Context context = this.f12341a;
+            textView2.setTextColor(z ? context.getResources().getColor(d.b.h0.a.c.aiapps_black_text) : context.getResources().getColor(d.b.h0.a.c.aiapps_white_text));
+            BearLayout.this.f12335h.setBackgroundResource(z ? e.aiapps_bear_paw_enter_btn : e.aiapps_bear_paw_follow_btn);
         }
     }
 
@@ -141,11 +141,11 @@ public class BearLayout extends LinearLayout {
     }
 
     private void setVipLogo(String str) {
-        if (this.f12326g == null) {
+        if (this.f12334g == null) {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            this.f12326g.setVisibility(8);
+            this.f12334g.setVisibility(8);
             return;
         }
         int i = e.aiapps_follow_vip_golden;
@@ -182,8 +182,8 @@ public class BearLayout extends LinearLayout {
         } else if (c2 == 3) {
             i = e.aiapps_follow_vip_authentication;
         }
-        this.f12326g.setVisibility(0);
-        this.f12326g.setImageDrawable(this.m.getResources().getDrawable(i));
+        this.f12334g.setVisibility(0);
+        this.f12334g.setImageDrawable(this.m.getResources().getDrawable(i));
     }
 
     public d getCallback() {
@@ -206,19 +206,19 @@ public class BearLayout extends LinearLayout {
         SchemeRouter.invoke(getContext(), "baiduboxapp://v1/easybrowse/open?url=" + str + "&newbrowser=1&forbidautorotate=1");
     }
 
-    public void k(@NonNull Context context, @NonNull SwanAppBearInfo swanAppBearInfo, d.b.g0.a.j2.a aVar) {
+    public void k(@NonNull Context context, @NonNull SwanAppBearInfo swanAppBearInfo, d.b.h0.a.j2.a aVar) {
         this.m = context;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(g.aiapps_bear_layout, this);
         linearLayout.setOnClickListener(new a(swanAppBearInfo));
         TextView textView = (TextView) linearLayout.findViewById(f.bear_account_name);
-        this.f12324e = textView;
+        this.f12332e = textView;
         textView.setText(swanAppBearInfo.bearName);
         SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(f.bear_account_logo);
-        this.f12325f = simpleDraweeView;
+        this.f12333f = simpleDraweeView;
         simpleDraweeView.setImageURI(swanAppBearInfo.bearLogo);
-        this.f12326g = (BdBaseImageView) linearLayout.findViewById(f.bear_account_vip_logo);
+        this.f12334g = (BdBaseImageView) linearLayout.findViewById(f.bear_account_vip_logo);
         setVipLogo(swanAppBearInfo.bearVipType);
-        this.f12327h = (FrameLayout) linearLayout.findViewById(f.bear_account_follow_background);
+        this.f12335h = (FrameLayout) linearLayout.findViewById(f.bear_account_follow_background);
         TextView textView2 = (TextView) linearLayout.findViewById(f.bear_account_follow_btn);
         this.i = textView2;
         textView2.setOnClickListener(new b(aVar, swanAppBearInfo));

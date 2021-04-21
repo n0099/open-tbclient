@@ -8,27 +8,27 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 public final class n implements o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f39850a = "(" + Process.myPid() + SmallTailInfo.EMOTION_SUFFIX;
+    public static final String f39945a = "(" + Process.myPid() + SmallTailInfo.EMOTION_SUFFIX;
 
     @Override // com.vivo.push.util.o
     public final int a(String str, String str2) {
-        return Log.e("VivoPush." + str, f39850a + str2);
+        return Log.e("VivoPush." + str, f39945a + str2);
     }
 
     @Override // com.vivo.push.util.o
     public final int b(String str, String str2) {
-        return Log.w("VivoPush." + str, f39850a + str2);
+        return Log.w("VivoPush." + str, f39945a + str2);
     }
 
     @Override // com.vivo.push.util.o
     public final int c(String str, String str2) {
-        return Log.d("VivoPush." + str, f39850a + str2);
+        return Log.d("VivoPush." + str, f39945a + str2);
     }
 
     @Override // com.vivo.push.util.o
     public final int d(String str, String str2) {
         if (p.a()) {
-            return Log.i("VivoPush." + str, f39850a + str2);
+            return Log.i("VivoPush." + str, f39945a + str2);
         }
         return -1;
     }
@@ -36,7 +36,7 @@ public final class n implements o {
     @Override // com.vivo.push.util.o
     public final int e(String str, String str2) {
         if (p.a()) {
-            return Log.v("VivoPush." + str, f39850a + str2);
+            return Log.v("VivoPush." + str, f39945a + str2);
         }
         return -1;
     }
@@ -49,7 +49,7 @@ public final class n implements o {
     @Override // com.vivo.push.util.o
     public final int b(String str, String str2, Throwable th) {
         if (p.a()) {
-            return Log.i("VivoPush." + str, f39850a + str2, th);
+            return Log.i("VivoPush." + str, f39945a + str2, th);
         }
         return -1;
     }
@@ -70,7 +70,7 @@ public final class n implements o {
 
     @Override // com.vivo.push.util.o
     public final int a(String str, String str2, Throwable th) {
-        return Log.e("VivoPush." + str, f39850a + str2, th);
+        return Log.e("VivoPush." + str, f39945a + str2, th);
     }
 
     @Override // com.vivo.push.util.o

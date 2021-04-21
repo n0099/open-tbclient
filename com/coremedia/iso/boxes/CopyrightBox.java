@@ -12,11 +12,11 @@ import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
 public class CopyrightBox extends AbstractFullBox {
     public static final String TYPE = "cprt";
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
     public String copyright;
     public String language;
 

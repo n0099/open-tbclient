@@ -29,10 +29,10 @@ public class b0 extends z {
     @Override // d.c.b.z
     @NonNull
     public z a(@NonNull Cursor cursor) {
-        this.f65957e = cursor.getLong(0);
-        this.f65958f = cursor.getLong(1);
-        this.f65959g = cursor.getString(2);
-        this.f65960h = cursor.getString(3);
+        this.f66052e = cursor.getLong(0);
+        this.f66053f = cursor.getLong(1);
+        this.f66054g = cursor.getString(2);
+        this.f66055h = cursor.getString(3);
         this.m = cursor.getString(4);
         this.n = cursor.getString(5);
         this.q = cursor.getInt(6);
@@ -46,10 +46,10 @@ public class b0 extends z {
 
     @Override // d.c.b.z
     public void d(@NonNull ContentValues contentValues) {
-        contentValues.put("local_time_ms", Long.valueOf(this.f65957e));
-        contentValues.put("tea_event_index", Long.valueOf(this.f65958f));
-        contentValues.put(ETAG.KEY_STATISTICS_SEESIONID, this.f65959g);
-        contentValues.put("user_unique_id", this.f65960h);
+        contentValues.put("local_time_ms", Long.valueOf(this.f66052e));
+        contentValues.put("tea_event_index", Long.valueOf(this.f66053f));
+        contentValues.put(ETAG.KEY_STATISTICS_SEESIONID, this.f66054g);
+        contentValues.put("user_unique_id", this.f66055h);
         contentValues.put("category", this.m);
         contentValues.put("tag", this.n);
         contentValues.put("value", Long.valueOf(this.q));
@@ -62,10 +62,10 @@ public class b0 extends z {
 
     @Override // d.c.b.z
     public void e(@NonNull JSONObject jSONObject) {
-        jSONObject.put("local_time_ms", this.f65957e);
-        jSONObject.put("tea_event_index", this.f65958f);
-        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f65959g);
-        jSONObject.put("user_unique_id", this.f65960h);
+        jSONObject.put("local_time_ms", this.f66052e);
+        jSONObject.put("tea_event_index", this.f66053f);
+        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f66054g);
+        jSONObject.put("user_unique_id", this.f66055h);
         jSONObject.put("category", this.m);
         jSONObject.put("tag", this.n);
         jSONObject.put("value", this.q);
@@ -83,10 +83,10 @@ public class b0 extends z {
 
     @Override // d.c.b.z
     public z h(@NonNull JSONObject jSONObject) {
-        this.f65957e = jSONObject.optLong("local_time_ms", 0L);
-        this.f65958f = jSONObject.optLong("tea_event_index", 0L);
-        this.f65959g = jSONObject.optString(ETAG.KEY_STATISTICS_SEESIONID, null);
-        this.f65960h = jSONObject.optString("user_unique_id", null);
+        this.f66052e = jSONObject.optLong("local_time_ms", 0L);
+        this.f66053f = jSONObject.optLong("tea_event_index", 0L);
+        this.f66054g = jSONObject.optString(ETAG.KEY_STATISTICS_SEESIONID, null);
+        this.f66055h = jSONObject.optString("user_unique_id", null);
         this.m = jSONObject.optString("category", null);
         this.n = jSONObject.optString("tag", null);
         this.q = jSONObject.optLong("value", 0L);
@@ -104,11 +104,11 @@ public class b0 extends z {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        jSONObject.put("local_time_ms", this.f65957e);
-        jSONObject.put("tea_event_index", this.f65958f);
-        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f65959g);
-        if (!TextUtils.isEmpty(this.f65960h)) {
-            jSONObject.put("user_unique_id", this.f65960h);
+        jSONObject.put("local_time_ms", this.f66052e);
+        jSONObject.put("tea_event_index", this.f66053f);
+        jSONObject.put(ETAG.KEY_STATISTICS_SEESIONID, this.f66054g);
+        if (!TextUtils.isEmpty(this.f66055h)) {
+            jSONObject.put("user_unique_id", this.f66055h);
         }
         jSONObject.put("category", this.m);
         jSONObject.put("tag", this.n);

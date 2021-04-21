@@ -3,7 +3,7 @@ package com.baidu.swan.veloce.preload;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import d.b.g0.r.b;
+import d.b.h0.r.b;
 /* loaded from: classes3.dex */
 public class VelocePreloadService extends Service {
     public static final String ACTION_START_SWAN_APP = "com.baidu.veloce.swan.start_swan_app";

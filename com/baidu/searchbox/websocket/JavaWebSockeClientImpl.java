@@ -72,12 +72,12 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
 
             @Override // g.c.e.a
             public void onOpen(h hVar) {
-                Iterator<String> e2;
+                Iterator<String> d2;
                 HashMap hashMap = new HashMap();
-                if (hVar != null && (e2 = hVar.e()) != null) {
-                    while (e2.hasNext()) {
-                        String next = e2.next();
-                        hashMap.put(next, hVar.i(next));
+                if (hVar != null && (d2 = hVar.d()) != null) {
+                    while (d2.hasNext()) {
+                        String next = d2.next();
+                        hashMap.put(next, hVar.h(next));
                     }
                 }
                 IWebSocketListener.this.onOpen(hashMap);

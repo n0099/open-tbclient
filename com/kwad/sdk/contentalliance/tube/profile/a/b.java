@@ -11,27 +11,27 @@ import java.util.Set;
 public class b extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f33521a;
+    public c f33616a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RecyclerView f33522b;
+    public RecyclerView f33617b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TubeProfileParam f33523c;
+    public TubeProfileParam f33618c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f33524d;
+    public com.kwad.sdk.core.i.a f33619d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Set<e> f33525e = new LinkedHashSet();
+    public Set<e> f33620e = new LinkedHashSet();
 
     /* renamed from: f  reason: collision with root package name */
-    public SceneImpl f33526f;
+    public SceneImpl f33621f;
 
     @Override // com.kwad.sdk.core.e.b
     public void a() {
-        this.f33525e.clear();
-        com.kwad.sdk.core.i.a aVar = this.f33524d;
+        this.f33620e.clear();
+        com.kwad.sdk.core.i.a aVar = this.f33619d;
         if (aVar != null) {
             aVar.f();
         }

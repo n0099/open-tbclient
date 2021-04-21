@@ -21,7 +21,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
-import d.b.i0.q0.i1.g;
+import d.b.j0.q0.i1.g;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -36,16 +36,16 @@ public class VideoMiddleModel extends BdBaseModel {
     public static final String TYPE_CALL_FROM_OTHER = "client_other";
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16328e;
+    public int f16336e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f16329f;
+    public String f16337f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f16330g;
+    public String f16338g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f16331h;
+    public String f16339h;
     public VideoSerializeVideoThreadInfo i;
     public boolean j;
     public b k;
@@ -141,8 +141,8 @@ public class VideoMiddleModel extends BdBaseModel {
     }
 
     public static /* synthetic */ int u(VideoMiddleModel videoMiddleModel) {
-        int i = videoMiddleModel.f16328e;
-        videoMiddleModel.f16328e = i - 1;
+        int i = videoMiddleModel.f16336e;
+        videoMiddleModel.f16336e = i - 1;
         return i;
     }
 
@@ -158,11 +158,11 @@ public class VideoMiddleModel extends BdBaseModel {
         }
         this.j = true;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION);
-        httpMessage.addParam("tid", this.f16329f);
-        httpMessage.addParam("st_type", this.f16330g);
-        httpMessage.addParam("yuelaou_locate", this.f16331h);
-        int i = this.f16328e + 1;
-        this.f16328e = i;
+        httpMessage.addParam("tid", this.f16337f);
+        httpMessage.addParam("st_type", this.f16338g);
+        httpMessage.addParam("yuelaou_locate", this.f16339h);
+        int i = this.f16336e + 1;
+        this.f16336e = i;
         httpMessage.addParam(Config.PACKAGE_NAME, i);
         httpMessage.addParam("user_view_data", v());
         if ("frs".equals(this.l)) {
@@ -203,13 +203,13 @@ public class VideoMiddleModel extends BdBaseModel {
 
     public final String v() {
         JSONArray jSONArray = new JSONArray();
-        LinkedList<d.b.h0.g.a> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
+        LinkedList<d.b.i0.g.a> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
         if (videoRecordList != null) {
             try {
                 if (videoRecordList.size() > 0) {
-                    Iterator<d.b.h0.g.a> it = videoRecordList.iterator();
+                    Iterator<d.b.i0.g.a> it = videoRecordList.iterator();
                     while (it.hasNext()) {
-                        d.b.h0.g.a next = it.next();
+                        d.b.i0.g.a next = it.next();
                         JSONObject jSONObject = new JSONObject();
                         jSONObject.put("tid", next.a());
                         jSONObject.put("duration", next.b());
@@ -224,18 +224,18 @@ public class VideoMiddleModel extends BdBaseModel {
     }
 
     public int w() {
-        return this.f16328e;
+        return this.f16336e;
     }
 
     public void x(String str) {
-        this.f16329f = str;
+        this.f16337f = str;
     }
 
     public void y(String str) {
-        this.f16331h = str;
+        this.f16339h = str;
     }
 
     public void z(String str) {
-        this.f16330g = str;
+        this.f16338g = str;
     }
 }

@@ -29,26 +29,26 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.recommend.message.RequestTestCloseMessage;
 import d.b.c.e.p.j;
 import d.b.c.e.p.l;
-import d.b.h0.r.d0.b;
-import d.b.i0.c3.c;
-import d.b.i0.i0.k.c.f;
-import d.b.i0.i0.k.d.a;
+import d.b.i0.r.d0.b;
+import d.b.j0.c3.c;
+import d.b.j0.i0.k.c.f;
+import d.b.j0.i0.k.d.a;
 /* loaded from: classes4.dex */
 public class CellForumTestView extends RelativeLayout implements View.OnClickListener {
     public boolean A;
     public a B;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f15158e;
+    public int f15166e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f15159f;
+    public TbImageView f15167f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbCornersImageView f15160g;
+    public TbCornersImageView f15168g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f15161h;
+    public ImageView f15169h;
     public TextView i;
     public TBSpecificationBtn j;
     public int k;
@@ -70,40 +70,40 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
 
     public CellForumTestView(Context context) {
         super(context);
-        this.f15158e = 3;
+        this.f15166e = 3;
         this.p = false;
         a(context);
     }
 
     public final void a(Context context) {
         LayoutInflater.from(context).inflate(R.layout.cell_forum_test_layout, (ViewGroup) this, true);
-        this.f15159f = (TbImageView) findViewById(R.id.cell_forum_test_img);
-        this.f15160g = (TbCornersImageView) findViewById(R.id.cell_forum_test_new);
-        this.f15161h = (ImageView) findViewById(R.id.cell_forum_test_del);
+        this.f15167f = (TbImageView) findViewById(R.id.cell_forum_test_img);
+        this.f15168g = (TbCornersImageView) findViewById(R.id.cell_forum_test_new);
+        this.f15169h = (ImageView) findViewById(R.id.cell_forum_test_del);
         this.i = (TextView) findViewById(R.id.cell_forum_test_des);
         this.j = (TBSpecificationBtn) findViewById(R.id.cell_forum_test_btn);
-        d.b.h0.r.f0.m.a aVar = new d.b.h0.r.f0.m.a();
+        d.b.i0.r.f0.m.a aVar = new d.b.i0.r.f0.m.a();
         this.j.setTextSize(R.dimen.tbds42);
         this.j.setConfig(aVar);
         int g2 = l.g(context, R.dimen.tbds10);
-        this.f15160g.setCornerTopLeftRadius(g2);
-        this.f15159f.setRadius(g2);
-        this.f15159f.setConrers(3);
-        this.f15159f.setPlaceHolder(3);
-        this.f15159f.setDrawCorner(true);
+        this.f15168g.setCornerTopLeftRadius(g2);
+        this.f15167f.setRadius(g2);
+        this.f15167f.setConrers(3);
+        this.f15167f.setPlaceHolder(3);
+        this.f15167f.setDrawCorner(true);
         this.m = l.g(context, R.dimen.tbds262);
-        this.f15161h.setOnClickListener(this);
+        this.f15169h.setOnClickListener(this);
         setOnClickListener(this);
         b();
     }
 
     public void b() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f15158e) {
+        if (skinType == this.f15166e) {
             return;
         }
-        this.f15158e = skinType;
-        TbImageView tbImageView = this.f15159f;
+        this.f15166e = skinType;
+        TbImageView tbImageView = this.f15167f;
         if (tbImageView != null) {
             tbImageView.setIsNight(skinType == 1 || skinType == 4);
         }
@@ -111,7 +111,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
         if (tBSpecificationBtn != null) {
             tBSpecificationBtn.k();
         }
-        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f15160g, R.drawable.icon_mask_ba_new30_svg, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f15168g, R.drawable.icon_mask_ba_new30_svg, SvgManager.SvgResourceStateType.NORMAL);
         if (skinType != 1 && skinType != 4) {
             ((ViewGroup.MarginLayoutParams) this.i.getLayoutParams()).setMargins(0, 0, 0, 0);
             TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0207).setShapeRadius(l.g(getContext(), R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.NO_TOP).setShadowRadius(l.g(getContext(), R.dimen.tbds10)).setOffsetX(0).setOffsetY(l.g(getContext(), R.dimen.tbds5)).into(this.i);
@@ -120,7 +120,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
             float g2 = l.g(getContext(), R.dimen.tbds10);
             TBSelector.makeDrawableSelector().blRadius(g2).brRadius(g2).defaultColor(R.color.CAM_X0207).into(this.i);
         }
-        SkinManager.setImageResource(this.f15161h, R.drawable.icon_ba_close);
+        SkinManager.setImageResource(this.f15169h, R.drawable.icon_ba_close);
         SkinManager.setViewTextColor(this.i, R.color.CAM_X0105);
     }
 
@@ -172,29 +172,29 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
     public void onClick(View view) {
         int i;
         StatisticItem l;
-        if (this.f15161h == view) {
+        if (this.f15169h == view) {
             if (j.A() && this.y == 1) {
-                TiebaStatic.log(new StatisticItem("c13373").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", this.o.f56778a));
+                TiebaStatic.log(new StatisticItem("c13373").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", this.o.f57199a));
                 a aVar = this.B;
                 if (aVar != null) {
                     aVar.a(this.y);
                 }
                 RequestTestCloseMessage requestTestCloseMessage = new RequestTestCloseMessage();
-                requestTestCloseMessage.setTestId(this.o.f56778a);
+                requestTestCloseMessage.setTestId(this.o.f57199a);
                 requestTestCloseMessage.setFromPage(1L);
                 MessageManager.getInstance().sendMessage(requestTestCloseMessage);
             }
         } else if (ViewHelper.checkUpIsLogin(getContext())) {
-            TiebaStatic.log(new StatisticItem("c13372").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", this.o.f56778a));
+            TiebaStatic.log(new StatisticItem("c13372").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", this.o.f57199a));
             int i2 = this.z;
             f fVar = this.o;
-            if (fVar != null && i2 >= 0 && (l = d.b.i0.c3.a.l(true, "a065", "common_click", i, (i = i2 + 1), false, null, String.valueOf(fVar.f56778a), 0)) != null) {
+            if (fVar != null && i2 >= 0 && (l = d.b.j0.c3.a.l(true, "a065", "common_click", i, (i = i2 + 1), false, null, String.valueOf(fVar.f57199a), 0)) != null) {
                 c.g().c(this.n, l);
             }
             if (!this.p) {
                 String p = b.j().p("enter_forum_test_id_list", "");
                 String[] split = p.split("[|]");
-                String str = this.o.f56778a + "*" + TbadkCoreApplication.getCurrentAccountId();
+                String str = this.o.f57199a + "*" + TbadkCoreApplication.getCurrentAccountId();
                 StringBuilder sb = new StringBuilder();
                 if (split.length < 20) {
                     sb.append(p);
@@ -213,8 +213,8 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                 }
                 b.j().x("enter_forum_test_id_list", sb.toString());
             }
-            this.f15160g.setVisibility(8);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumTestActivityConfig(getContext(), this.o.f56778a)));
+            this.f15168g.setVisibility(8);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumTestActivityConfig(getContext(), this.o.f57199a)));
         }
     }
 
@@ -228,7 +228,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
         this.k = View.MeasureSpec.getSize(i);
         this.l = View.MeasureSpec.getSize(i2);
         if (!this.A) {
-            this.f15159f.getLayoutParams().height = this.l - this.m;
+            this.f15167f.getLayoutParams().height = this.l - this.m;
         }
         super.onMeasure(View.MeasureSpec.makeMeasureSpec(this.k, 1073741824), View.MeasureSpec.makeMeasureSpec(this.l, 1073741824));
     }
@@ -238,7 +238,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
             return;
         }
         this.o = fVar;
-        this.f15159f.W(fVar.f56781d ? fVar.f56782e : fVar.f56780c, 10, false);
+        this.f15167f.W(fVar.f57202d ? fVar.f57203e : fVar.f57201c, 10, false);
         this.p = false;
         String p = b.j().p("enter_forum_test_id_list", "");
         String[] split = p.split("[|]");
@@ -251,7 +251,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                 }
                 String str = split[i];
                 if (!StringUtils.isNull(str)) {
-                    if (str.equals(fVar.f56778a + "*" + TbadkCoreApplication.getCurrentAccountId())) {
+                    if (str.equals(fVar.f57199a + "*" + TbadkCoreApplication.getCurrentAccountId())) {
                         this.p = true;
                         break;
                     }
@@ -259,13 +259,13 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                 i++;
             }
         }
-        this.f15160g.setVisibility(this.p ? 8 : 0);
-        if (StringUtils.isNull(fVar.f56779b)) {
+        this.f15168g.setVisibility(this.p ? 8 : 0);
+        if (StringUtils.isNull(fVar.f57200b)) {
             this.i.setText(R.string.cell_forum_test_title_default);
         } else {
-            this.i.setText(fVar.f56779b);
+            this.i.setText(fVar.f57200b);
         }
-        this.j.setText(getResources().getString(fVar.f56781d ? R.string.cell_forum_retest_default : R.string.cell_forum_test_default));
+        this.j.setText(getResources().getString(fVar.f57202d ? R.string.cell_forum_retest_default : R.string.cell_forum_test_default));
     }
 
     public void setDataIndex(int i) {
@@ -279,9 +279,9 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
     public void setIndex(int i) {
         this.y = i;
         if (i == 1) {
-            this.f15161h.setVisibility(0);
+            this.f15169h.setVisibility(0);
         } else {
-            this.f15161h.setVisibility(8);
+            this.f15169h.setVisibility(8);
         }
     }
 
@@ -327,14 +327,14 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
 
     public CellForumTestView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15158e = 3;
+        this.f15166e = 3;
         this.p = false;
         a(context);
     }
 
     public CellForumTestView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f15158e = 3;
+        this.f15166e = 3;
         this.p = false;
         a(context);
     }

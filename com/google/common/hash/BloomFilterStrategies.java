@@ -4,8 +4,8 @@ import com.google.common.hash.BloomFilter;
 import com.google.common.math.LongMath;
 import com.google.common.primitives.Ints;
 import com.google.common.primitives.Longs;
-import d.g.c.a.n;
-import d.g.c.d.i;
+import d.h.c.a.n;
+import d.h.c.d.i;
 import java.math.RoundingMode;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicLongArray;
@@ -96,15 +96,15 @@ public enum BloomFilterStrategies implements BloomFilter.Strategy {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final AtomicLongArray f31092a;
+        public final AtomicLongArray f31187a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final i f31093b;
+        public final i f31188b;
 
         public a(long j) {
             n.e(j > 0, "data length is zero!");
-            this.f31092a = new AtomicLongArray(Ints.c(LongMath.a(j, 64L, RoundingMode.CEILING)));
-            this.f31093b = LongAddables.a();
+            this.f31187a = new AtomicLongArray(Ints.c(LongMath.a(j, 64L, RoundingMode.CEILING)));
+            this.f31188b = LongAddables.a();
         }
 
         public static long[] g(AtomicLongArray atomicLongArray) {
@@ -117,48 +117,48 @@ public enum BloomFilterStrategies implements BloomFilter.Strategy {
         }
 
         public long a() {
-            return this.f31093b.sum();
+            return this.f31188b.sum();
         }
 
         public long b() {
-            return this.f31092a.length() * 64;
+            return this.f31187a.length() * 64;
         }
 
         public a c() {
-            return new a(g(this.f31092a));
+            return new a(g(this.f31187a));
         }
 
         public boolean d(long j) {
-            return ((1 << ((int) j)) & this.f31092a.get((int) (j >>> 6))) != 0;
+            return ((1 << ((int) j)) & this.f31187a.get((int) (j >>> 6))) != 0;
         }
 
         public void e(a aVar) {
             long j;
             long j2;
             boolean z;
-            n.g(this.f31092a.length() == aVar.f31092a.length(), "BitArrays must be of equal length (%s != %s)", this.f31092a.length(), aVar.f31092a.length());
-            for (int i = 0; i < this.f31092a.length(); i++) {
-                long j3 = aVar.f31092a.get(i);
+            n.g(this.f31187a.length() == aVar.f31187a.length(), "BitArrays must be of equal length (%s != %s)", this.f31187a.length(), aVar.f31187a.length());
+            for (int i = 0; i < this.f31187a.length(); i++) {
+                long j3 = aVar.f31187a.get(i);
                 while (true) {
-                    j = this.f31092a.get(i);
+                    j = this.f31187a.get(i);
                     j2 = j | j3;
                     if (j == j2) {
                         z = false;
                         break;
-                    } else if (this.f31092a.compareAndSet(i, j, j2)) {
+                    } else if (this.f31187a.compareAndSet(i, j, j2)) {
                         z = true;
                         break;
                     }
                 }
                 if (z) {
-                    this.f31093b.add(Long.bitCount(j2) - Long.bitCount(j));
+                    this.f31188b.add(Long.bitCount(j2) - Long.bitCount(j));
                 }
             }
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof a) {
-                return Arrays.equals(g(this.f31092a), g(((a) obj).f31092a));
+                return Arrays.equals(g(this.f31187a), g(((a) obj).f31187a));
             }
             return false;
         }
@@ -172,29 +172,29 @@ public enum BloomFilterStrategies implements BloomFilter.Strategy {
             int i = (int) (j >>> 6);
             long j4 = 1 << ((int) j);
             do {
-                j2 = this.f31092a.get(i);
+                j2 = this.f31187a.get(i);
                 j3 = j2 | j4;
                 if (j2 == j3) {
                     return false;
                 }
-            } while (!this.f31092a.compareAndSet(i, j2, j3));
-            this.f31093b.increment();
+            } while (!this.f31187a.compareAndSet(i, j2, j3));
+            this.f31188b.increment();
             return true;
         }
 
         public int hashCode() {
-            return Arrays.hashCode(g(this.f31092a));
+            return Arrays.hashCode(g(this.f31187a));
         }
 
         public a(long[] jArr) {
             n.e(jArr.length > 0, "data length is zero!");
-            this.f31092a = new AtomicLongArray(jArr);
-            this.f31093b = LongAddables.a();
+            this.f31187a = new AtomicLongArray(jArr);
+            this.f31188b = LongAddables.a();
             long j = 0;
             for (long j2 : jArr) {
                 j += Long.bitCount(j2);
             }
-            this.f31093b.add(j);
+            this.f31188b.add(j);
         }
     }
 }

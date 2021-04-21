@@ -20,61 +20,61 @@ public abstract class MzPushMessageReceiver extends IntentReceiver {
         a.a(context).a(TAG, new com.meizu.cloud.pushsdk.handler.a() { // from class: com.meizu.cloud.pushsdk.MzPushMessageReceiver.1
             @Override // com.meizu.cloud.pushsdk.handler.a
             public void a(Context context2, Intent intent2) {
-                d.j.a.a.a.d(MzPushMessageReceiver.TAG, "onMessage Flyme3 " + intent2);
+                d.k.a.a.a.d(MzPushMessageReceiver.TAG, "onMessage Flyme3 " + intent2);
                 MzPushMessageReceiver.this.onMessage(context2, intent2);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void a(Context context2, MzPushMessage mzPushMessage) {
-                d.j.a.a.a.d(MzPushMessageReceiver.TAG, "onNotificationClicked title " + mzPushMessage.getTitle() + "content " + mzPushMessage.getContent() + " selfDefineContentString " + mzPushMessage.getSelfDefineContentString());
+                d.k.a.a.a.d(MzPushMessageReceiver.TAG, "onNotificationClicked title " + mzPushMessage.getTitle() + "content " + mzPushMessage.getContent() + " selfDefineContentString " + mzPushMessage.getSelfDefineContentString());
                 MzPushMessageReceiver.this.onNotificationClicked(context2, mzPushMessage);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void a(Context context2, PushSwitchStatus pushSwitchStatus) {
-                d.j.a.a.a.d(MzPushMessageReceiver.TAG, "onPushStatus " + pushSwitchStatus);
+                d.k.a.a.a.d(MzPushMessageReceiver.TAG, "onPushStatus " + pushSwitchStatus);
                 MzPushMessageReceiver.this.onPushStatus(context2, pushSwitchStatus);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void a(Context context2, RegisterStatus registerStatus) {
-                d.j.a.a.a.d(MzPushMessageReceiver.TAG, "onRegisterStatus " + registerStatus);
+                d.k.a.a.a.d(MzPushMessageReceiver.TAG, "onRegisterStatus " + registerStatus);
                 MzPushMessageReceiver.this.onRegisterStatus(context2, registerStatus);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void a(Context context2, SubAliasStatus subAliasStatus) {
-                d.j.a.a.a.d(MzPushMessageReceiver.TAG, "onSubAliasStatus " + subAliasStatus);
+                d.k.a.a.a.d(MzPushMessageReceiver.TAG, "onSubAliasStatus " + subAliasStatus);
                 MzPushMessageReceiver.this.onSubAliasStatus(context2, subAliasStatus);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void a(Context context2, SubTagsStatus subTagsStatus) {
-                d.j.a.a.a.d(MzPushMessageReceiver.TAG, "onSubTagsStatus " + subTagsStatus);
+                d.k.a.a.a.d(MzPushMessageReceiver.TAG, "onSubTagsStatus " + subTagsStatus);
                 MzPushMessageReceiver.this.onSubTagsStatus(context2, subTagsStatus);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void a(Context context2, UnRegisterStatus unRegisterStatus) {
-                d.j.a.a.a.d(MzPushMessageReceiver.TAG, "onUnRegisterStatus " + unRegisterStatus);
+                d.k.a.a.a.d(MzPushMessageReceiver.TAG, "onUnRegisterStatus " + unRegisterStatus);
                 MzPushMessageReceiver.this.onUnRegisterStatus(context2, unRegisterStatus);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void a(Context context2, String str) {
-                d.j.a.a.a.d(MzPushMessageReceiver.TAG, "onRegister " + str);
+                d.k.a.a.a.d(MzPushMessageReceiver.TAG, "onRegister " + str);
                 MzPushMessageReceiver.this.onRegister(context2, str);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void a(Context context2, String str, String str2) {
                 MzPushMessageReceiver.this.onMessage(context2, str, str2);
-                d.j.a.a.a.d(MzPushMessageReceiver.TAG, "receive message " + str + " platformExtra " + str2);
+                d.k.a.a.a.d(MzPushMessageReceiver.TAG, "receive message " + str + " platformExtra " + str2);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void a(Context context2, boolean z) {
-                d.j.a.a.a.d(MzPushMessageReceiver.TAG, "onUnRegister " + z);
+                d.k.a.a.a.d(MzPushMessageReceiver.TAG, "onUnRegister " + z);
                 MzPushMessageReceiver.this.onUnRegister(context2, z);
             }
 
@@ -85,25 +85,25 @@ public abstract class MzPushMessageReceiver extends IntentReceiver {
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void b(Context context2, MzPushMessage mzPushMessage) {
-                d.j.a.a.a.d(MzPushMessageReceiver.TAG, "onNotificationArrived title " + mzPushMessage.getTitle() + "content " + mzPushMessage.getContent() + " selfDefineContentString " + mzPushMessage.getSelfDefineContentString());
+                d.k.a.a.a.d(MzPushMessageReceiver.TAG, "onNotificationArrived title " + mzPushMessage.getTitle() + "content " + mzPushMessage.getContent() + " selfDefineContentString " + mzPushMessage.getSelfDefineContentString());
                 MzPushMessageReceiver.this.onNotificationArrived(context2, mzPushMessage);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void b(Context context2, String str) {
                 MzPushMessageReceiver.this.onMessage(context2, str);
-                d.j.a.a.a.d(MzPushMessageReceiver.TAG, "receive message " + str);
+                d.k.a.a.a.d(MzPushMessageReceiver.TAG, "receive message " + str);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void c(Context context2, MzPushMessage mzPushMessage) {
-                d.j.a.a.a.d(MzPushMessageReceiver.TAG, "onNotificationDeleted title " + mzPushMessage.getTitle() + "content " + mzPushMessage.getContent() + " selfDefineContentString " + mzPushMessage.getSelfDefineContentString());
+                d.k.a.a.a.d(MzPushMessageReceiver.TAG, "onNotificationDeleted title " + mzPushMessage.getTitle() + "content " + mzPushMessage.getContent() + " selfDefineContentString " + mzPushMessage.getSelfDefineContentString());
                 MzPushMessageReceiver.this.onNotificationDeleted(context2, mzPushMessage);
             }
 
             @Override // com.meizu.cloud.pushsdk.handler.b
             public void c(Context context2, String str) {
-                d.j.a.a.a.d(MzPushMessageReceiver.TAG, "onNotifyMessageArrived " + str);
+                d.k.a.a.a.d(MzPushMessageReceiver.TAG, "onNotifyMessageArrived " + str);
                 MzPushMessageReceiver.this.onNotifyMessageArrived(context2, str);
             }
         }).a(intent);
@@ -137,7 +137,7 @@ public abstract class MzPushMessageReceiver extends IntentReceiver {
         try {
             super.onReceive(context, intent);
         } catch (Exception e2) {
-            d.j.a.a.a.b(TAG, "Event core error " + e2.getMessage());
+            d.k.a.a.a.b(TAG, "Event core error " + e2.getMessage());
             String packageName = context.getPackageName();
             d.a(context, packageName, null, null, PushManager.TAG, "MzPushMessageReceiver " + e2.getMessage(), 3000);
         }

@@ -44,7 +44,7 @@ public class d {
                 str2 = "the platformExtra parse error";
             }
         }
-        d.j.a.a.a.b("UxIPUtils", str2);
+        d.k.a.a.a.b("UxIPUtils", str2);
         return dVar;
     }
 
@@ -55,7 +55,7 @@ public class d {
                 MPushMessage mPushMessage = (MPushMessage) intent.getSerializableExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE);
                 return mPushMessage != null ? mPushMessage.getTaskId() : stringExtra;
             } catch (Exception e2) {
-                d.j.a.a.a.b("UxIPUtils", "paese MessageV2 error " + e2.getMessage());
+                d.k.a.a.a.b("UxIPUtils", "paese MessageV2 error " + e2.getMessage());
                 return "no push platform task";
             }
         }
@@ -118,7 +118,7 @@ public class d {
 
     /* JADX WARN: Type inference failed for: r7v1, types: [com.meizu.cloud.pushsdk.c.c.b$a] */
     public static void a(Context context, boolean z, String str, Map<String, String> map) {
-        d.j.a.a.a.b("UxIPUtils", "onLogEvent eventName [" + str + "] properties = " + map);
+        d.k.a.a.a.b("UxIPUtils", "onLogEvent eventName [" + str + "] properties = " + map);
         if ("notification_service_message".equals(str)) {
             return;
         }
@@ -155,7 +155,7 @@ public class d {
         } else {
             str = null;
         }
-        d.j.a.a.a.d("UxIPUtils", "current process packageName " + str3);
+        d.k.a.a.a.d("UxIPUtils", "current process packageName " + str3);
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -166,10 +166,10 @@ public class d {
             intent.setAction(PushConstants.MZ_PUSH_TRACKER_SERVICE_ACTION);
             intent.putExtra(PushConstants.EXTRA_PUSH_TRACKER_JSON_DATA, jSONObject);
             context.startService(intent);
-            d.j.a.a.a.d("UxIPUtils", "Start tracker data in mz_tracker process " + jSONObject);
+            d.k.a.a.a.d("UxIPUtils", "Start tracker data in mz_tracker process " + jSONObject);
             return true;
         } catch (Exception e2) {
-            d.j.a.a.a.b("UxIPUtils", "start RemoteService error " + e2.getMessage());
+            d.k.a.a.a.b("UxIPUtils", "start RemoteService error " + e2.getMessage());
             return false;
         }
     }

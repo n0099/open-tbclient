@@ -30,17 +30,17 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class BankCardDetectionActivity extends CameraBaseActivity implements View.OnClickListener, IImageProcess {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f23176e = BankCardDetectionActivity.class.getSimpleName();
+    public static final String f23184e = BankCardDetectionActivity.class.getSimpleName();
 
     /* renamed from: f  reason: collision with root package name */
-    public MistView f23177f;
+    public MistView f23185f;
     public BankCardProcessing i;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f23178g = null;
+    public View f23186g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f23179h = null;
+    public View f23187h = null;
     public AtomicInteger j = new AtomicInteger(0);
 
     @Override // com.baidu.wallet.base.camera.IImageProcess
@@ -65,7 +65,7 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
                 this.i = null;
                 return;
             }
-            String str = f23176e;
+            String str = f23184e;
             LogUtil.w(str, "destroyProcessor() Classifyer state=" + this.j.intValue());
         }
     }
@@ -77,7 +77,7 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
     @Override // com.baidu.wallet.base.camera.CameraBaseActivity
     public View getCustomizedView() {
         MistView mistView = (MistView) View.inflate(this, ResUtils.layout(getActivity(), "wallet_bankcard_detection_activity"), null);
-        this.f23177f = mistView;
+        this.f23185f = mistView;
         return mistView;
     }
 
@@ -103,7 +103,7 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
             BankCardProcessing bankCardProcessing = BankCardProcessing.getInstance();
             this.i = bankCardProcessing;
             if (bankCardProcessing.init(getAssets(), PathUtils.model_path, PathUtils.mean_path, PathUtils.dtc_model_path_fst, PathUtils.dtc_mean_path_fst, PathUtils.dtc_model_path_scd, PathUtils.dtc_mean_path_scd, PathUtils.captcha_path) < 0) {
-                LogUtil.e(f23176e, "Model initialization failure.", null);
+                LogUtil.e(f23184e, "Model initialization failure.", null);
                 this.i = null;
                 return false;
             }
@@ -146,16 +146,16 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
     @Override // com.baidu.wallet.base.camera.CameraBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        String str = f23176e;
+        String str = f23184e;
         LogUtil.i(str, "onCreate(" + bundle + SmallTailInfo.EMOTION_SUFFIX);
-        this.f23178g = findViewById(ResUtils.id(getActivity(), "focus_view"));
-        this.f23179h = findViewById(ResUtils.id(getActivity(), "flash_light_switch"));
+        this.f23186g = findViewById(ResUtils.id(getActivity(), "focus_view"));
+        this.f23187h = findViewById(ResUtils.id(getActivity(), "flash_light_switch"));
         if (CameraCtrl.isSupprtFlashLight(getPackageManager())) {
-            this.f23179h.setOnClickListener(this);
-            this.f23179h.setVisibility(0);
-            AccessibilityUtils.setContentDescription(this.f23179h, "打开闪光灯");
+            this.f23187h.setOnClickListener(this);
+            this.f23187h.setVisibility(0);
+            AccessibilityUtils.setContentDescription(this.f23187h, "打开闪光灯");
         } else {
-            this.f23179h.setVisibility(4);
+            this.f23187h.setVisibility(4);
         }
         findViewById(ResUtils.id(getActivity(), "title_back")).setOnClickListener(this);
         findViewById(ResUtils.id(getActivity(), "manal_input_prompt")).setOnClickListener(this);
@@ -203,16 +203,16 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
 
     @Override // com.baidu.wallet.base.camera.CameraBaseActivity
     public void relayoutUi() {
-        ViewGroup.LayoutParams layoutParams = this.f23178g.getLayoutParams();
-        int width = this.f23178g.getWidth();
+        ViewGroup.LayoutParams layoutParams = this.f23186g.getLayoutParams();
+        int width = this.f23186g.getWidth();
         layoutParams.width = width;
         layoutParams.height = Math.round(width * getFocusDataYXRatioal() * this.mScaleCoefficient);
-        this.f23178g.setLayoutParams(layoutParams);
-        this.f23178g.requestLayout();
+        this.f23186g.setLayoutParams(layoutParams);
+        this.f23186g.requestLayout();
         int[] iArr = new int[2];
         int[] iArr2 = new int[2];
         this.mPreviewView.getLocationOnScreen(iArr2);
-        this.f23178g.getLocationOnScreen(iArr);
+        this.f23186g.getLocationOnScreen(iArr);
         Rect rect = this.mFocusViewRect;
         int i = iArr[0] - iArr2[0];
         rect.left = i;
@@ -220,7 +220,7 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
         int i2 = iArr[1] - iArr2[1];
         rect.top = i2;
         rect.bottom = i2 + layoutParams.height;
-        this.f23177f.getFocusFrame().set(this.mFocusViewRect);
+        this.f23185f.getFocusFrame().set(this.mFocusViewRect);
     }
 
     @Override // com.baidu.wallet.base.camera.CameraBaseActivity
@@ -229,10 +229,10 @@ public class BankCardDetectionActivity extends CameraBaseActivity implements Vie
 
     @Override // com.baidu.wallet.base.camera.CameraBaseActivity
     public void updateFlashLightUi(boolean z) {
-        if (this.f23179h == null) {
+        if (this.f23187h == null) {
             return;
         }
-        this.f23179h.setBackgroundResource(ResUtils.drawable(getActivity(), z ? "wallet_base_camera_flashlight_on_btn" : "wallet_base_camera_flashlight_off_btn"));
-        AccessibilityUtils.setContentDescription(this.f23179h, z ? "关闭闪光灯" : "打开闪光灯");
+        this.f23187h.setBackgroundResource(ResUtils.drawable(getActivity(), z ? "wallet_base_camera_flashlight_on_btn" : "wallet_base_camera_flashlight_off_btn"));
+        AccessibilityUtils.setContentDescription(this.f23187h, z ? "关闭闪光灯" : "打开闪光灯");
     }
 }

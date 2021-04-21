@@ -6,21 +6,21 @@ import java.util.concurrent.FutureTask;
 public final class e extends FutureTask<Result> {
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ c f38725a;
+    public /* synthetic */ c f38820a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(c cVar, Callable callable) {
         super(callable);
-        this.f38725a = cVar;
+        this.f38820a = cVar;
     }
 
     @Override // java.util.concurrent.FutureTask
     public final void done() {
         try {
-            c.b(this.f38725a, super.get());
+            c.b(this.f38820a, super.get());
         } catch (Exception e2) {
-            c.b(this.f38725a, null);
-            com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", e2.getMessage(), this.f38725a.f38718a);
+            c.b(this.f38820a, null);
+            com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", e2.getMessage(), this.f38820a.f38813a);
         }
     }
 }

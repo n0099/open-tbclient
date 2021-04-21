@@ -12,17 +12,17 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 public abstract class BaseItemView extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public HomeCfgResponse.DataItem f24236a;
+    public HomeCfgResponse.DataItem f24244a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f24237b;
+    public b f24245b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f24238c;
+    public Context f24246c;
 
     public BaseItemView(Context context) {
         super(context);
-        this.f24238c = context;
+        this.f24246c = context;
         a();
     }
 
@@ -32,75 +32,75 @@ public abstract class BaseItemView extends RelativeLayout implements View.OnClic
     }
 
     public void forceShowPoint(String str) {
-        if (TextUtils.isEmpty(this.f24236a.link_addr) || !this.f24236a.link_addr.equalsIgnoreCase(str)) {
+        if (TextUtils.isEmpty(this.f24244a.link_addr) || !this.f24244a.link_addr.equalsIgnoreCase(str)) {
             return;
         }
-        com.baidu.wallet.home.storage.a.a(this.f24238c, this.f24236a.link_addr, "-1");
+        com.baidu.wallet.home.storage.a.a(this.f24246c, this.f24244a.link_addr, "-1");
         handlePoint();
         getWalletInterface().onPointShowChanged();
     }
 
     public HomeCfgResponse.DataItem getData() {
-        return this.f24236a;
+        return this.f24244a;
     }
 
     public b getWalletInterface() {
-        return this.f24237b;
+        return this.f24245b;
     }
 
     public abstract boolean handlePoint();
 
     public boolean hasCornor() {
-        HomeCfgResponse.DataItem dataItem = this.f24236a;
+        HomeCfgResponse.DataItem dataItem = this.f24244a;
         return dataItem != null && dataItem.hasCornor();
     }
 
     public boolean isShoudShowPoint() {
-        HomeCfgResponse.DataItem dataItem = this.f24236a;
+        HomeCfgResponse.DataItem dataItem = this.f24244a;
         return dataItem != null && dataItem.isShoudShowPoint(getContext());
     }
 
     public boolean isShowCopy() {
-        HomeCfgResponse.DataItem dataItem = this.f24236a;
-        return dataItem != null && "3".equalsIgnoreCase(dataItem.timestamp_icon) && this.f24236a.isShoudShowPoint(getContext());
+        HomeCfgResponse.DataItem dataItem = this.f24244a;
+        return dataItem != null && "3".equalsIgnoreCase(dataItem.timestamp_icon) && this.f24244a.isShoudShowPoint(getContext());
     }
 
     public boolean isShowRedDot() {
-        HomeCfgResponse.DataItem dataItem = this.f24236a;
-        return dataItem != null && "2".equalsIgnoreCase(dataItem.timestamp_icon) && this.f24236a.isShoudShowPoint(getContext());
+        HomeCfgResponse.DataItem dataItem = this.f24244a;
+        return dataItem != null && "2".equalsIgnoreCase(dataItem.timestamp_icon) && this.f24244a.isShoudShowPoint(getContext());
     }
 
     public boolean isShowWhiteDot() {
-        HomeCfgResponse.DataItem dataItem = this.f24236a;
-        return dataItem != null && "1".equalsIgnoreCase(dataItem.timestamp_icon) && this.f24236a.isShoudShowPoint(getContext());
+        HomeCfgResponse.DataItem dataItem = this.f24244a;
+        return dataItem != null && "1".equalsIgnoreCase(dataItem.timestamp_icon) && this.f24244a.isShoudShowPoint(getContext());
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (CheckUtils.isFastDoubleClick() || this.f24236a == null || getWalletInterface() == null) {
+        if (CheckUtils.isFastDoubleClick() || this.f24244a == null || getWalletInterface() == null) {
             return;
         }
         if (isShoudShowPoint()) {
-            if (!TextUtils.isEmpty(this.f24236a.link_addr)) {
-                Context context = this.f24238c;
-                HomeCfgResponse.DataItem dataItem = this.f24236a;
-                com.baidu.wallet.home.storage.a.a(context, dataItem.link_addr, TextUtils.isEmpty(dataItem.timestamp) ? "0" : this.f24236a.timestamp);
+            if (!TextUtils.isEmpty(this.f24244a.link_addr)) {
+                Context context = this.f24246c;
+                HomeCfgResponse.DataItem dataItem = this.f24244a;
+                com.baidu.wallet.home.storage.a.a(context, dataItem.link_addr, TextUtils.isEmpty(dataItem.timestamp) ? "0" : this.f24244a.timestamp);
             }
             handlePoint();
             getWalletInterface().onPointShowChanged();
         }
         b walletInterface = getWalletInterface();
-        HomeCfgResponse.DataItem dataItem2 = this.f24236a;
+        HomeCfgResponse.DataItem dataItem2 = this.f24244a;
         HomeCfgResponse.Stat stat = dataItem2.stat;
-        walletInterface.jump(stat != null ? stat.getName() : dataItem2.getName(), this.f24236a.getType(), this.f24236a.getLinkAddr(), this.f24236a.getPrevlogin());
+        walletInterface.jump(stat != null ? stat.getName() : dataItem2.getName(), this.f24244a.getType(), this.f24244a.getLinkAddr(), this.f24244a.getPrevlogin());
     }
 
     public void onEyeMaskChanged() {
     }
 
     public void setData(HomeCfgResponse.DataItem dataItem, b bVar) {
-        this.f24236a = dataItem;
-        this.f24237b = bVar;
+        this.f24244a = dataItem;
+        this.f24245b = bVar;
     }
 
     public void setNetImageViewUrl(NetImageView netImageView, String str) {
@@ -112,7 +112,7 @@ public abstract class BaseItemView extends RelativeLayout implements View.OnClic
 
     public BaseItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24238c = context;
+        this.f24246c = context;
         a();
     }
 }

@@ -48,28 +48,28 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     public OnTabSelectListener S;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f26221a;
+    public Context f26229a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<ICustomTabEntity> f26222b;
+    public ArrayList<ICustomTabEntity> f26230b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f26223c;
+    public LinearLayout f26231c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f26224d;
+    public int f26232d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f26225e;
+    public int f26233e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f26226f;
+    public int f26234f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Rect f26227g;
+    public Rect f26235g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GradientDrawable f26228h;
+    public GradientDrawable f26236h;
     public Paint i;
     public Paint j;
     public Paint k;
@@ -93,10 +93,10 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public float f26229a;
+        public float f26237a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f26230b;
+        public float f26238b;
 
         public a() {
         }
@@ -111,12 +111,12 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
         @Override // android.animation.TypeEvaluator
         /* renamed from: a */
         public a evaluate(float f2, a aVar, a aVar2) {
-            float f3 = aVar.f26229a;
-            float f4 = aVar.f26230b;
-            float f5 = f4 + (f2 * (aVar2.f26230b - f4));
+            float f3 = aVar.f26237a;
+            float f4 = aVar.f26238b;
+            float f5 = f4 + (f2 * (aVar2.f26238b - f4));
             a aVar3 = new a();
-            aVar3.f26229a = f3 + ((aVar2.f26229a - f3) * f2);
-            aVar3.f26230b = f5;
+            aVar3.f26237a = f3 + ((aVar2.f26237a - f3) * f2);
+            aVar3.f26238b = f5;
             return aVar3;
         }
     }
@@ -167,12 +167,12 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
 
     private void b() {
         int i = 0;
-        while (i < this.f26226f) {
-            View childAt = this.f26223c.getChildAt(i);
+        while (i < this.f26234f) {
+            View childAt = this.f26231c.getChildAt(i);
             float f2 = this.n;
             childAt.setPadding((int) f2, 0, (int) f2, 0);
-            TextView textView = (TextView) childAt.findViewById(com.baidu.apollon.utils.ResUtils.id(this.f26221a, "tv_tab_title"));
-            textView.setTextColor(i == this.f26224d ? this.J : this.K);
+            TextView textView = (TextView) childAt.findViewById(com.baidu.apollon.utils.ResUtils.id(this.f26229a, "tv_tab_title"));
+            textView.setTextColor(i == this.f26232d ? this.J : this.K);
             textView.setTextSize(0, this.I);
             if (this.M) {
                 textView.setText(textView.getText().toString().toUpperCase());
@@ -188,16 +188,16 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     }
 
     private void c() {
-        View childAt = this.f26223c.getChildAt(this.f26224d);
-        this.P.f26229a = childAt.getLeft();
-        this.P.f26230b = childAt.getRight();
-        View childAt2 = this.f26223c.getChildAt(this.f26225e);
-        this.Q.f26229a = childAt2.getLeft();
-        this.Q.f26230b = childAt2.getRight();
+        View childAt = this.f26231c.getChildAt(this.f26232d);
+        this.P.f26237a = childAt.getLeft();
+        this.P.f26238b = childAt.getRight();
+        View childAt2 = this.f26231c.getChildAt(this.f26233e);
+        this.Q.f26237a = childAt2.getLeft();
+        this.Q.f26238b = childAt2.getRight();
         a aVar = this.Q;
-        float f2 = aVar.f26229a;
+        float f2 = aVar.f26237a;
         a aVar2 = this.P;
-        if (f2 == aVar2.f26229a && aVar.f26230b == aVar2.f26230b) {
+        if (f2 == aVar2.f26237a && aVar.f26238b == aVar2.f26238b) {
             invalidate();
             return;
         }
@@ -213,14 +213,14 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     }
 
     private void d() {
-        View childAt = this.f26223c.getChildAt(this.f26224d);
-        Rect rect = this.f26227g;
+        View childAt = this.f26231c.getChildAt(this.f26232d);
+        Rect rect = this.f26235g;
         rect.left = childAt.getLeft();
         rect.right = childAt.getRight();
         if (this.s >= 0.0f) {
             float f2 = this.s;
             float left = childAt.getLeft() + ((childAt.getWidth() - f2) / 2.0f);
-            Rect rect2 = this.f26227g;
+            Rect rect2 = this.f26235g;
             int i = (int) left;
             rect2.left = i;
             rect2.right = (int) (i + f2);
@@ -228,8 +228,8 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     }
 
     private void setCurrentTab(int i) {
-        this.f26225e = this.f26224d;
-        this.f26224d = i;
+        this.f26233e = this.f26232d;
+        this.f26232d = i;
         a(i);
         if (this.z) {
             c();
@@ -239,7 +239,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     }
 
     public int getCurrentTab() {
-        return this.f26224d;
+        return this.f26232d;
     }
 
     public int getDividerColor() {
@@ -295,7 +295,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     }
 
     public int getTabCount() {
-        return this.f26226f;
+        return this.f26234f;
     }
 
     public float getTabPadding() {
@@ -323,7 +323,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     }
 
     public TextView getTitleView(int i) {
-        return (TextView) this.f26223c.getChildAt(i).findViewById(com.baidu.apollon.utils.ResUtils.id(this.f26221a, "tv_tab_title"));
+        return (TextView) this.f26231c.getChildAt(i).findViewById(com.baidu.apollon.utils.ResUtils.id(this.f26229a, "tv_tab_title"));
     }
 
     public int getUnderlineColor() {
@@ -343,7 +343,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     }
 
     public boolean isMsgTipsShowing(int i) {
-        return ((TextView) this.f26223c.getChildAt(i).findViewById(com.baidu.apollon.utils.ResUtils.id(this.f26221a, "tv_msg_tips"))).getVisibility() == 0;
+        return ((TextView) this.f26231c.getChildAt(i).findViewById(com.baidu.apollon.utils.ResUtils.id(this.f26229a, "tv_msg_tips"))).getVisibility() == 0;
     }
 
     public boolean isTabSpaceEqual() {
@@ -356,16 +356,16 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
 
     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
     public void onAnimationUpdate(ValueAnimator valueAnimator) {
-        View childAt = this.f26223c.getChildAt(this.f26224d);
+        View childAt = this.f26231c.getChildAt(this.f26232d);
         a aVar = (a) valueAnimator.getAnimatedValue();
-        Rect rect = this.f26227g;
-        float f2 = aVar.f26229a;
+        Rect rect = this.f26235g;
+        float f2 = aVar.f26237a;
         rect.left = (int) f2;
-        rect.right = (int) aVar.f26230b;
+        rect.right = (int) aVar.f26238b;
         if (this.s >= 0.0f) {
             float f3 = this.s;
             float width = f2 + ((childAt.getWidth() - f3) / 2.0f);
-            Rect rect2 = this.f26227g;
+            Rect rect2 = this.f26235g;
             int i = (int) width;
             rect2.left = i;
             rect2.right = (int) (i + f3);
@@ -376,7 +376,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int intValue = ((Integer) view.getTag()).intValue();
-        if (this.f26224d != intValue) {
+        if (this.f26232d != intValue) {
             setCurrentTab(intValue);
             OnTabSelectListener onTabSelectListener = this.S;
             if (onTabSelectListener != null) {
@@ -389,7 +389,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     public void onDraw(Canvas canvas) {
         Rect rect;
         super.onDraw(canvas);
-        if (isInEditMode() || this.f26226f <= 0) {
+        if (isInEditMode() || this.f26234f <= 0) {
             return;
         }
         int height = getHeight();
@@ -398,8 +398,8 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
         if (f2 > 0.0f) {
             this.j.setStrokeWidth(f2);
             this.j.setColor(this.F);
-            for (int i = 0; i < this.f26226f - 1; i++) {
-                View childAt = this.f26223c.getChildAt(i);
+            for (int i = 0; i < this.f26234f - 1; i++) {
+                View childAt = this.f26231c.getChildAt(i);
                 canvas.drawLine(childAt.getRight() + paddingLeft, this.H, childAt.getRight() + paddingLeft, height - this.H, this.j);
             }
         }
@@ -407,9 +407,9 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
             this.i.setColor(this.C);
             if (this.E == 80) {
                 float f3 = height;
-                canvas.drawRect(paddingLeft, f3 - this.D, this.f26223c.getWidth() + paddingLeft, f3, this.i);
+                canvas.drawRect(paddingLeft, f3 - this.D, this.f26231c.getWidth() + paddingLeft, f3, this.i);
             } else {
-                canvas.drawRect(paddingLeft, 0.0f, this.f26223c.getWidth() + paddingLeft, this.D, this.i);
+                canvas.drawRect(paddingLeft, 0.0f, this.f26231c.getWidth() + paddingLeft, this.D, this.i);
             }
         }
         if (this.z) {
@@ -426,11 +426,11 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
                 this.k.setColor(this.q);
                 this.l.reset();
                 float f4 = height;
-                this.l.moveTo(this.f26227g.left + paddingLeft, f4);
+                this.l.moveTo(this.f26235g.left + paddingLeft, f4);
                 Path path = this.l;
-                Rect rect2 = this.f26227g;
+                Rect rect2 = this.f26235g;
                 path.lineTo((rect2.left >> 1) + paddingLeft + (rect2.right >> 1), f4 - this.r);
-                this.l.lineTo(paddingLeft + this.f26227g.right, f4);
+                this.l.lineTo(paddingLeft + this.f26235g.right, f4);
                 this.l.close();
                 canvas.drawPath(this.l, this.k);
             }
@@ -444,30 +444,30 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
                 if (f6 < 0.0f || f6 > f5 / 2.0f) {
                     this.t = this.r / 2.0f;
                 }
-                this.f26228h.setColor(this.q);
-                GradientDrawable gradientDrawable = this.f26228h;
-                int i3 = ((int) this.u) + paddingLeft + this.f26227g.left;
+                this.f26236h.setColor(this.q);
+                GradientDrawable gradientDrawable = this.f26236h;
+                int i3 = ((int) this.u) + paddingLeft + this.f26235g.left;
                 float f7 = this.v;
                 gradientDrawable.setBounds(i3, (int) f7, (int) ((paddingLeft + rect.right) - this.w), (int) (f7 + this.r));
-                this.f26228h.setCornerRadius(this.t);
-                this.f26228h.draw(canvas);
+                this.f26236h.setCornerRadius(this.t);
+                this.f26236h.draw(canvas);
             }
         } else if (this.r > 0.0f) {
-            this.f26228h.setColor(this.q);
+            this.f26236h.setColor(this.q);
             if (this.B == 80) {
-                GradientDrawable gradientDrawable2 = this.f26228h;
-                Rect rect3 = this.f26227g;
+                GradientDrawable gradientDrawable2 = this.f26236h;
+                Rect rect3 = this.f26235g;
                 float f8 = this.x;
                 gradientDrawable2.setBounds(((int) this.u) + paddingLeft + rect3.left, (height - ((int) this.r)) - ((int) f8), (paddingLeft + rect3.right) - ((int) this.w), height - ((int) f8));
             } else {
-                GradientDrawable gradientDrawable3 = this.f26228h;
-                Rect rect4 = this.f26227g;
+                GradientDrawable gradientDrawable3 = this.f26236h;
+                Rect rect4 = this.f26235g;
                 int i4 = ((int) this.u) + paddingLeft + rect4.left;
                 float f9 = this.v;
                 gradientDrawable3.setBounds(i4, (int) f9, (paddingLeft + rect4.right) - ((int) this.w), ((int) this.r) + ((int) f9));
             }
-            this.f26228h.setCornerRadius(this.t);
-            this.f26228h.draw(canvas);
+            this.f26236h.setCornerRadius(this.t);
+            this.f26236h.draw(canvas);
         }
     }
 
@@ -475,10 +475,10 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     public void onRestoreInstanceState(Parcelable parcelable) {
         if (parcelable instanceof Bundle) {
             Bundle bundle = (Bundle) parcelable;
-            this.f26224d = bundle.getInt("mCurrentTab");
+            this.f26232d = bundle.getInt("mCurrentTab");
             parcelable = bundle.getParcelable("instanceState");
-            if (this.f26224d != 0 && this.f26223c.getChildCount() > 0) {
-                a(this.f26224d);
+            if (this.f26232d != 0 && this.f26231c.getChildCount() > 0) {
+                a(this.f26232d);
             }
         }
         super.onRestoreInstanceState(parcelable);
@@ -488,7 +488,7 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     public Parcelable onSaveInstanceState() {
         Bundle bundle = new Bundle();
         bundle.putParcelable("instanceState", super.onSaveInstanceState());
-        bundle.putInt("mCurrentTab", this.f26224d);
+        bundle.putInt("mCurrentTab", this.f26232d);
         return bundle;
     }
 
@@ -567,8 +567,8 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
 
     public void setTabData(ArrayList<ICustomTabEntity> arrayList) {
         if (arrayList != null && arrayList.size() != 0) {
-            this.f26222b.clear();
-            this.f26222b.addAll(arrayList);
+            this.f26230b.clear();
+            this.f26230b.addAll(arrayList);
             a();
             return;
         }
@@ -586,12 +586,12 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     }
 
     public void setTabTitleTipMsg(int i, boolean z, String str) {
-        TextView textView = (TextView) this.f26223c.getChildAt(i).findViewById(com.baidu.apollon.utils.ResUtils.id(this.f26221a, "tv_msg_tips"));
+        TextView textView = (TextView) this.f26231c.getChildAt(i).findViewById(com.baidu.apollon.utils.ResUtils.id(this.f26229a, "tv_msg_tips"));
         if (!TextUtils.isEmpty(str)) {
             textView.setText(str);
         }
         if (z) {
-            ((RelativeLayout.LayoutParams) textView.getLayoutParams()).leftMargin = (DisplayUtils.getDisplayWidth(this.f26221a) / this.f26226f) / 2;
+            ((RelativeLayout.LayoutParams) textView.getLayoutParams()).leftMargin = (DisplayUtils.getDisplayWidth(this.f26229a) / this.f26234f) / 2;
             textView.setVisibility(0);
             return;
         }
@@ -649,9 +649,9 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
 
     public CommonTabLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f26222b = new ArrayList<>();
-        this.f26227g = new Rect();
-        this.f26228h = new GradientDrawable();
+        this.f26230b = new ArrayList<>();
+        this.f26235g = new Rect();
+        this.f26236h = new GradientDrawable();
         this.i = new Paint(1);
         this.j = new Paint(1);
         this.k = new Paint(1);
@@ -664,9 +664,9 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
         setWillNotDraw(false);
         setClipChildren(false);
         setClipToPadding(false);
-        this.f26221a = context;
+        this.f26229a = context;
         LinearLayout linearLayout = new LinearLayout(context);
-        this.f26223c = linearLayout;
+        this.f26231c = linearLayout;
         addView(linearLayout);
         a(context, attributeSet);
         ValueAnimator ofObject = ValueAnimator.ofObject(new b(), this.Q, this.P);
@@ -675,14 +675,14 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     }
 
     private int b(float f2) {
-        return (int) ((f2 * this.f26221a.getResources().getDisplayMetrics().scaledDensity) + 0.5f);
+        return (int) ((f2 * this.f26229a.getResources().getDisplayMetrics().scaledDensity) + 0.5f);
     }
 
     private void a() {
-        this.f26223c.removeAllViews();
-        this.f26226f = this.f26222b.size();
-        for (int i = 0; i < this.f26226f; i++) {
-            Context context = this.f26221a;
+        this.f26231c.removeAllViews();
+        this.f26234f = this.f26230b.size();
+        for (int i = 0; i < this.f26234f; i++) {
+            Context context = this.f26229a;
             View inflate = View.inflate(context, com.baidu.apollon.utils.ResUtils.layout(context, "wallet_custom_tab_layout"), null);
             inflate.setTag(Integer.valueOf(i));
             a(i, inflate);
@@ -691,22 +691,22 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     }
 
     private void a(int i, View view) {
-        ((TextView) view.findViewById(com.baidu.apollon.utils.ResUtils.id(this.f26221a, "tv_tab_title"))).setText(this.f26222b.get(i).getTabTitle());
-        ((TextView) view.findViewById(com.baidu.apollon.utils.ResUtils.id(this.f26221a, "tv_msg_tips"))).setVisibility(8);
+        ((TextView) view.findViewById(com.baidu.apollon.utils.ResUtils.id(this.f26229a, "tv_tab_title"))).setText(this.f26230b.get(i).getTabTitle());
+        ((TextView) view.findViewById(com.baidu.apollon.utils.ResUtils.id(this.f26229a, "tv_msg_tips"))).setVisibility(8);
         view.setOnClickListener(this);
         LinearLayout.LayoutParams layoutParams = this.o ? new LinearLayout.LayoutParams(0, -1, 1.0f) : new LinearLayout.LayoutParams(-2, -1);
         if (this.p > 0.0f) {
             layoutParams = new LinearLayout.LayoutParams((int) this.p, -1);
         }
-        this.f26223c.addView(view, i, layoutParams);
+        this.f26231c.addView(view, i, layoutParams);
     }
 
     private void a(int i) {
         int i2 = 0;
-        while (i2 < this.f26226f) {
-            View childAt = this.f26223c.getChildAt(i2);
+        while (i2 < this.f26234f) {
+            View childAt = this.f26231c.getChildAt(i2);
             boolean z = i2 == i;
-            TextView textView = (TextView) childAt.findViewById(com.baidu.apollon.utils.ResUtils.id(this.f26221a, "tv_tab_title"));
+            TextView textView = (TextView) childAt.findViewById(com.baidu.apollon.utils.ResUtils.id(this.f26229a, "tv_tab_title"));
             textView.setTextColor(z ? this.J : this.K);
             if (this.L == 1) {
                 textView.getPaint().setFakeBoldText(z);
@@ -716,6 +716,6 @@ public class CommonTabLayout extends FrameLayout implements ValueAnimator.Animat
     }
 
     private int a(float f2) {
-        return (int) ((f2 * this.f26221a.getResources().getDisplayMetrics().density) + 0.5f);
+        return (int) ((f2 * this.f26229a.getResources().getDisplayMetrics().density) + 0.5f);
     }
 }

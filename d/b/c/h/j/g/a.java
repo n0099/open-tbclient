@@ -3,8 +3,8 @@ package d.b.c.h.j.g;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f42779a = 1;
+    public static int f43019a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f42780b = 2;
+    public static int f43020b = 2;
 }

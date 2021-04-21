@@ -6,8 +6,8 @@ import android.graphics.SurfaceTexture;
 import android.util.Log;
 import android.view.Surface;
 import android.view.TextureView;
-import d.b.c0.a.i.c;
-import d.b.c0.a.i.d;
+import d.b.d0.a.i.c;
+import d.b.d0.a.i.d;
 @TargetApi(14)
 /* loaded from: classes2.dex */
 public class BaseTextureView extends TextureView implements TextureView.SurfaceTextureListener, c {
@@ -118,7 +118,7 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
     public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
     }
 
-    @Override // d.b.c0.a.i.c
+    @Override // d.b.d0.a.i.c
     public void onVideoSizeChanged(int i, int i2) {
         this.f11224f = i;
         this.f11225g = i2;
@@ -128,7 +128,7 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
         a();
     }
 
-    @Override // d.b.c0.a.i.c
+    @Override // d.b.d0.a.i.c
     public void setDisplayMode(int i) {
         this.f11223e = i;
     }

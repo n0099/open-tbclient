@@ -8,10 +8,10 @@ import android.widget.Toast;
 public class f2 extends WebViewClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ h2 f40220a;
+    public final /* synthetic */ h2 f40315a;
 
     public f2(h2 h2Var) {
-        this.f40220a = h2Var;
+        this.f40315a = h2Var;
     }
 
     @Override // android.webkit.WebViewClient
@@ -27,14 +27,14 @@ public class f2 extends WebViewClient {
     @Override // android.webkit.WebViewClient
     public void onReceivedError(WebView webView, int i, String str, String str2) {
         super.onReceivedError(webView, i, str, str2);
-        this.f40220a.f40232b.setVisibility(8);
+        this.f40315a.f40327b.setVisibility(8);
         if (str.contains("TIMED_OUT")) {
-            h2 h2Var = this.f40220a;
-            if (h2Var.f40233c != null) {
-                Z0 b2 = a1.a(h2Var.f40231a).b(new b1(this.f40220a.f40233c), 4);
+            h2 h2Var = this.f40315a;
+            if (h2Var.f40328c != null) {
+                Z0 b2 = a1.a(h2Var.f40326a).b(new b1(this.f40315a.f40328c), 4);
                 b2.a("desc", str + "&errcode:" + i + "&fileurl:" + str2).a();
             }
-            Toast.makeText(this.f40220a.f40231a, R.string.win_toast_network_error, 0).show();
+            Toast.makeText(this.f40315a.f40326a, R.string.win_toast_network_error, 0).show();
         }
     }
 }

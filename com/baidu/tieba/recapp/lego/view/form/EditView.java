@@ -54,17 +54,17 @@ public class EditView extends FormItemBaseView {
     public class c implements InputFilter {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f20502e;
+        public int f20510e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f20503f = "[\\u4e00-\\u9fa5]";
+        public String f20511f = "[\\u4e00-\\u9fa5]";
 
         public c(int i) {
-            this.f20502e = i;
+            this.f20510e = i;
         }
 
         public final int a(String str) {
-            Matcher matcher = Pattern.compile(this.f20503f).matcher(str);
+            Matcher matcher = Pattern.compile(this.f20511f).matcher(str);
             int i = 0;
             while (matcher.find()) {
                 for (int i2 = 0; i2 <= matcher.groupCount(); i2++) {
@@ -75,7 +75,7 @@ public class EditView extends FormItemBaseView {
         }
 
         public final boolean b(String str) {
-            return Pattern.matches(this.f20503f, str);
+            return Pattern.matches(this.f20511f, str);
         }
 
         @Override // android.text.InputFilter
@@ -83,7 +83,7 @@ public class EditView extends FormItemBaseView {
             int length = spanned.toString().length() + a(spanned.toString());
             int length2 = charSequence.toString().length() + a(charSequence.toString());
             int i5 = length + length2;
-            int i6 = this.f20502e;
+            int i6 = this.f20510e;
             if (i5 > i6) {
                 int i7 = i6 - length;
                 int i8 = 0;
@@ -130,7 +130,7 @@ public class EditView extends FormItemBaseView {
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
     public void e() {
-        this.x.setPadding(this.f20510g, 0, 0, 0);
+        this.x.setPadding(this.f20518g, 0, 0, 0);
         this.x.setText("");
         this.x.setGravity(19);
         this.x.setSingleLine(true);
@@ -145,7 +145,7 @@ public class EditView extends FormItemBaseView {
         if (super.g(bVar)) {
             FormCard.d dVar = (FormCard.d) bVar;
             this.x.setTextSize(0, this.n);
-            int i2 = dVar.f20415a;
+            int i2 = dVar.f20423a;
             if (i2 == 3) {
                 i = this.j;
                 this.x.setInputType(1);
@@ -158,7 +158,7 @@ public class EditView extends FormItemBaseView {
                 this.x.setHorizontallyScrolling(false);
                 this.x.setGravity(51);
                 EditText editText = this.x;
-                int i3 = this.f20510g;
+                int i3 = this.f20518g;
                 editText.setPadding(i3, i3, i3, i3);
             } else if (i2 != 5) {
                 return false;
@@ -166,12 +166,12 @@ public class EditView extends FormItemBaseView {
                 i = this.j;
                 this.x.setInputType(2);
                 this.x.setFilters(new InputFilter[]{new InputFilter.LengthFilter(50)});
-                if (dVar.f20421e != null) {
+                if (dVar.f20429e != null) {
                     this.y.setVisibility(0);
                     this.y.f(this.w);
-                    this.y.g(dVar.f20421e);
+                    this.y.g(dVar.f20429e);
                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.y.getLayoutParams();
-                    marginLayoutParams.topMargin = this.f20511h;
+                    marginLayoutParams.topMargin = this.f20519h;
                     marginLayoutParams.height = this.j;
                     this.y.setListener(new b());
                 }
@@ -184,8 +184,8 @@ public class EditView extends FormItemBaseView {
                 layoutParams2.height = i;
                 this.x.setLayoutParams(layoutParams2);
             }
-            this.x.setHint(dVar.f20416b);
-            this.z = dVar.f20420d;
+            this.x.setHint(dVar.f20424b);
+            this.z = dVar.f20428d;
             return true;
         }
         return false;
@@ -202,7 +202,7 @@ public class EditView extends FormItemBaseView {
     }
 
     public final void k() {
-        EditText editText = new EditText(this.f20508e);
+        EditText editText = new EditText(this.f20516e);
         this.x = editText;
         editText.setId(1);
         this.x.setTextSize(0, this.n);
@@ -215,9 +215,9 @@ public class EditView extends FormItemBaseView {
     }
 
     public final void l() {
-        this.y = new VerificationCodeView(this.f20508e);
+        this.y = new VerificationCodeView(this.f20516e);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.j);
-        layoutParams.topMargin = this.f20511h;
+        layoutParams.topMargin = this.f20519h;
         layoutParams.addRule(3, this.x.getId());
         addView(this.y, layoutParams);
     }

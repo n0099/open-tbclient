@@ -11,28 +11,28 @@ import javax.net.ssl.SSLSocketFactory;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.a.b.s f66293a;
+    public final com.bytedance.sdk.a.b.s f66388a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final s f66294b;
+    public final s f66389b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final SocketFactory f66295c;
+    public final SocketFactory f66390c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final f f66296d;
+    public final f f66391d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<com.bytedance.sdk.a.b.w> f66297e;
+    public final List<com.bytedance.sdk.a.b.w> f66392e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<o> f66298f;
+    public final List<o> f66393f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final ProxySelector f66299g;
+    public final ProxySelector f66394g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Proxy f66300h;
+    public final Proxy f66395h;
     public final SSLSocketFactory i;
     public final HostnameVerifier j;
     public final k k;
@@ -42,20 +42,20 @@ public final class b {
         aVar.d(sSLSocketFactory != null ? "https" : "http");
         aVar.n(str);
         aVar.c(i);
-        this.f66293a = aVar.l();
+        this.f66388a = aVar.l();
         if (sVar != null) {
-            this.f66294b = sVar;
+            this.f66389b = sVar;
             if (socketFactory != null) {
-                this.f66295c = socketFactory;
+                this.f66390c = socketFactory;
                 if (fVar != null) {
-                    this.f66296d = fVar;
+                    this.f66391d = fVar;
                     if (list != null) {
-                        this.f66297e = d.c.c.a.b.a.e.m(list);
+                        this.f66392e = d.c.c.a.b.a.e.m(list);
                         if (list2 != null) {
-                            this.f66298f = d.c.c.a.b.a.e.m(list2);
+                            this.f66393f = d.c.c.a.b.a.e.m(list2);
                             if (proxySelector != null) {
-                                this.f66299g = proxySelector;
-                                this.f66300h = proxy;
+                                this.f66394g = proxySelector;
+                                this.f66395h = proxy;
                                 this.i = sSLSocketFactory;
                                 this.j = hostnameVerifier;
                                 this.k = kVar;
@@ -75,29 +75,29 @@ public final class b {
     }
 
     public com.bytedance.sdk.a.b.s a() {
-        return this.f66293a;
+        return this.f66388a;
     }
 
     public boolean b(b bVar) {
-        return this.f66294b.equals(bVar.f66294b) && this.f66296d.equals(bVar.f66296d) && this.f66297e.equals(bVar.f66297e) && this.f66298f.equals(bVar.f66298f) && this.f66299g.equals(bVar.f66299g) && d.c.c.a.b.a.e.u(this.f66300h, bVar.f66300h) && d.c.c.a.b.a.e.u(this.i, bVar.i) && d.c.c.a.b.a.e.u(this.j, bVar.j) && d.c.c.a.b.a.e.u(this.k, bVar.k) && a().w() == bVar.a().w();
+        return this.f66389b.equals(bVar.f66389b) && this.f66391d.equals(bVar.f66391d) && this.f66392e.equals(bVar.f66392e) && this.f66393f.equals(bVar.f66393f) && this.f66394g.equals(bVar.f66394g) && d.c.c.a.b.a.e.u(this.f66395h, bVar.f66395h) && d.c.c.a.b.a.e.u(this.i, bVar.i) && d.c.c.a.b.a.e.u(this.j, bVar.j) && d.c.c.a.b.a.e.u(this.k, bVar.k) && a().w() == bVar.a().w();
     }
 
     public s c() {
-        return this.f66294b;
+        return this.f66389b;
     }
 
     public SocketFactory d() {
-        return this.f66295c;
+        return this.f66390c;
     }
 
     public f e() {
-        return this.f66296d;
+        return this.f66391d;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof b) {
             b bVar = (b) obj;
-            if (this.f66293a.equals(bVar.f66293a) && b(bVar)) {
+            if (this.f66388a.equals(bVar.f66388a) && b(bVar)) {
                 return true;
             }
         }
@@ -105,20 +105,20 @@ public final class b {
     }
 
     public List<com.bytedance.sdk.a.b.w> f() {
-        return this.f66297e;
+        return this.f66392e;
     }
 
     public List<o> g() {
-        return this.f66298f;
+        return this.f66393f;
     }
 
     public ProxySelector h() {
-        return this.f66299g;
+        return this.f66394g;
     }
 
     public int hashCode() {
-        int hashCode = (((((((((((527 + this.f66293a.hashCode()) * 31) + this.f66294b.hashCode()) * 31) + this.f66296d.hashCode()) * 31) + this.f66297e.hashCode()) * 31) + this.f66298f.hashCode()) * 31) + this.f66299g.hashCode()) * 31;
-        Proxy proxy = this.f66300h;
+        int hashCode = (((((((((((527 + this.f66388a.hashCode()) * 31) + this.f66389b.hashCode()) * 31) + this.f66391d.hashCode()) * 31) + this.f66392e.hashCode()) * 31) + this.f66393f.hashCode()) * 31) + this.f66394g.hashCode()) * 31;
+        Proxy proxy = this.f66395h;
         int hashCode2 = (hashCode + (proxy != null ? proxy.hashCode() : 0)) * 31;
         SSLSocketFactory sSLSocketFactory = this.i;
         int hashCode3 = (hashCode2 + (sSLSocketFactory != null ? sSLSocketFactory.hashCode() : 0)) * 31;
@@ -129,7 +129,7 @@ public final class b {
     }
 
     public Proxy i() {
-        return this.f66300h;
+        return this.f66395h;
     }
 
     public SSLSocketFactory j() {
@@ -147,15 +147,15 @@ public final class b {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Address{");
-        sb.append(this.f66293a.v());
+        sb.append(this.f66388a.v());
         sb.append(":");
-        sb.append(this.f66293a.w());
-        if (this.f66300h != null) {
+        sb.append(this.f66388a.w());
+        if (this.f66395h != null) {
             sb.append(", proxy=");
-            sb.append(this.f66300h);
+            sb.append(this.f66395h);
         } else {
             sb.append(", proxySelector=");
-            sb.append(this.f66299g);
+            sb.append(this.f66394g);
         }
         sb.append("}");
         return sb.toString();

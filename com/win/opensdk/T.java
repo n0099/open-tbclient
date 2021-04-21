@@ -8,28 +8,28 @@ import java.util.HashMap;
 public class T implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final P f40081a;
+    public final P f40176a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f40082b = false;
+    public boolean f40177b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f40083c = 0;
+    public long f40178c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f40084d;
+    public float f40179d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f40085e;
+    public float f40180e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40086f;
+    public int f40181f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f40087g;
+    public int f40182g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f40088h;
+    public int f40183h;
     public int i;
     public int j;
     public int k;
@@ -41,18 +41,18 @@ public class T implements View.OnTouchListener {
     public long q;
 
     public T(Info info, P p) {
-        this.f40081a = p;
+        this.f40176a = p;
     }
 
     public HashMap a() {
         HashMap hashMap = new HashMap();
-        hashMap.put("dx", Integer.valueOf(this.f40086f));
-        hashMap.put("dy", Integer.valueOf(this.f40087g));
+        hashMap.put("dx", Integer.valueOf(this.f40181f));
+        hashMap.put("dy", Integer.valueOf(this.f40182g));
         hashMap.put("dts", Long.valueOf(this.n));
         hashMap.put("ux", Integer.valueOf(this.o));
         hashMap.put("uy", Integer.valueOf(this.p));
         hashMap.put("uts", Long.valueOf(this.q));
-        G.a(hashMap, this.f40088h, this.i, this.j, this.k, this.l, this.m);
+        G.a(hashMap, this.f40183h, this.i, this.j, this.k, this.l, this.m);
         return hashMap;
     }
 
@@ -60,14 +60,14 @@ public class T implements View.OnTouchListener {
     public boolean onTouch(View view, MotionEvent motionEvent) {
         int action = motionEvent.getAction();
         if (action == 0) {
-            this.f40082b = true;
-            this.f40083c = System.currentTimeMillis();
-            this.f40084d = motionEvent.getX();
-            this.f40085e = motionEvent.getY();
-            this.f40088h = (int) motionEvent.getX();
+            this.f40177b = true;
+            this.f40178c = System.currentTimeMillis();
+            this.f40179d = motionEvent.getX();
+            this.f40180e = motionEvent.getY();
+            this.f40183h = (int) motionEvent.getX();
             this.i = (int) motionEvent.getY();
-            this.f40086f = (int) motionEvent.getRawX();
-            this.f40087g = (int) motionEvent.getRawY();
+            this.f40181f = (int) motionEvent.getRawX();
+            this.f40182g = (int) motionEvent.getRawY();
             if (this.l <= 0 || this.m <= 0) {
                 this.m = view.getHeight();
                 this.l = view.getWidth();
@@ -79,28 +79,28 @@ public class T implements View.OnTouchListener {
             this.j = (int) motionEvent.getX();
             this.k = (int) motionEvent.getY();
             this.q = System.currentTimeMillis();
-            boolean z = Math.abs(motionEvent.getX() - this.f40084d) < 51.0f;
-            boolean z2 = Math.abs(motionEvent.getY() - this.f40085e) < 51.0f;
-            boolean z3 = System.currentTimeMillis() - this.f40083c < 2000;
-            if (z && z2 && z3 && this.f40082b) {
+            boolean z = Math.abs(motionEvent.getX() - this.f40179d) < 51.0f;
+            boolean z2 = Math.abs(motionEvent.getY() - this.f40180e) < 51.0f;
+            boolean z3 = System.currentTimeMillis() - this.f40178c < 2000;
+            if (z && z2 && z3 && this.f40177b) {
                 String str = null;
                 try {
                     str = a().toString();
-                    A2 a2 = this.f40081a.f40024a.f40076b;
+                    A2 a2 = this.f40176a.f40119a.f40171b;
                     if (a2 != null) {
                         a2.a(str);
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                P p = this.f40081a;
-                p.f40024a.f40078d = true;
-                p.f40024a.f40079e = str;
+                P p = this.f40176a;
+                p.f40119a.f40173d = true;
+                p.f40119a.f40174e = str;
                 return false;
-            } else if (this.f40081a != null) {
+            } else if (this.f40176a != null) {
                 try {
                     String hashMap = a().toString();
-                    A2 a22 = this.f40081a.f40024a.f40076b;
+                    A2 a22 = this.f40176a.f40119a.f40171b;
                     if (a22 != null) {
                         a22.a(hashMap);
                     }

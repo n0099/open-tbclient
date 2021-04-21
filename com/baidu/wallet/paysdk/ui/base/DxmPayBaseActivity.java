@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.baidu.wallet.core.BaseActivity;
 import com.baidu.wallet.statistics.impl.SensorsSyncHttpImpl;
 import com.baidu.wallet.statistics.impl.StatConfig;
-import d.d.a.a.a;
+import d.e.a.a.a;
 /* loaded from: classes5.dex */
 public class DxmPayBaseActivity extends BaseActivity {
     @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity

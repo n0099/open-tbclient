@@ -17,28 +17,28 @@ import com.bytedance.sdk.openadsdk.utils.al;
 public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f28388a;
+    public boolean f28396a;
 
     public NativeDrawVideoTsView(@NonNull Context context, @NonNull l lVar) {
         super(context, lVar);
-        this.f28388a = false;
+        this.f28396a = false;
         setOnClickListener(this);
     }
 
     private void d() {
-        al.a((View) this.f28394f, 0);
-        al.a((View) this.f28395g, 0);
+        al.a((View) this.f28402f, 0);
+        al.a((View) this.f28403g, 0);
         al.a((View) this.i, 8);
     }
 
     private void e() {
         h();
-        RelativeLayout relativeLayout = this.f28394f;
+        RelativeLayout relativeLayout = this.f28402f;
         if (relativeLayout != null) {
             if (relativeLayout.getVisibility() == 0) {
                 return;
             }
-            com.bytedance.sdk.openadsdk.i.e.c().a(this.f28390b.X().h(), this.f28395g);
+            com.bytedance.sdk.openadsdk.i.e.c().a(this.f28398b.X().h(), this.f28403g);
         }
         d();
     }
@@ -50,31 +50,31 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView
     public void b() {
-        this.f28393e = false;
+        this.f28401e = false;
         this.k = "draw_ad";
-        p.h().r(String.valueOf(ak.d(this.f28390b.ap())));
+        p.h().r(String.valueOf(ak.d(this.f28398b.ap())));
         super.b();
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView
     public void c() {
-        if (this.f28388a) {
+        if (this.f28396a) {
             super.c();
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        ImageView imageView = this.f28396h;
+        ImageView imageView = this.f28404h;
         if (imageView != null && imageView.getVisibility() == 0) {
-            al.f(this.f28394f);
+            al.f(this.f28402f);
         }
         c();
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView, android.view.View
     public void onWindowFocusChanged(boolean z) {
-        ImageView imageView = this.f28396h;
+        ImageView imageView = this.f28404h;
         if (imageView != null && imageView.getVisibility() == 0) {
             e();
         } else {
@@ -84,7 +84,7 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView, android.view.View
     public void onWindowVisibilityChanged(int i) {
-        ImageView imageView = this.f28396h;
+        ImageView imageView = this.f28404h;
         if (imageView != null && imageView.getVisibility() == 0) {
             e();
         } else {
@@ -93,6 +93,6 @@ public class NativeDrawVideoTsView extends NativeVideoTsView implements View.OnC
     }
 
     public void setCanInterruptVideoPlay(boolean z) {
-        this.f28388a = z;
+        this.f28396a = z;
     }
 }

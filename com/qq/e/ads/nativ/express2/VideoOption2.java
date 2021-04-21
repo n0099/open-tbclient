@@ -3,19 +3,19 @@ package com.qq.e.ads.nativ.express2;
 public class VideoOption2 {
 
     /* renamed from: a  reason: collision with root package name */
-    public AutoPlayPolicy f38471a;
+    public AutoPlayPolicy f38566a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f38472b;
+    public boolean f38567b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f38473c;
+    public boolean f38568c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f38474d;
+    public int f38569d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f38475e;
+    public int f38570e;
 
     /* loaded from: classes6.dex */
     public enum AutoPlayPolicy {
@@ -25,14 +25,14 @@ public class VideoOption2 {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public int f38477a;
+        public int f38572a;
 
         AutoPlayPolicy(int i) {
-            this.f38477a = i;
+            this.f38572a = i;
         }
 
         public final int getPolicy() {
-            return this.f38477a;
+            return this.f38572a;
         }
     }
 
@@ -40,58 +40,58 @@ public class VideoOption2 {
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        public AutoPlayPolicy f38478a = AutoPlayPolicy.WIFI;
+        public AutoPlayPolicy f38573a = AutoPlayPolicy.WIFI;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f38479b = true;
+        public boolean f38574b = true;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f38480c = false;
+        public boolean f38575c = false;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f38481d;
+        public int f38576d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f38482e;
+        public int f38577e;
 
         public VideoOption2 build() {
             return new VideoOption2(this, (byte) 0);
         }
 
         public Builder setAutoPlayMuted(boolean z) {
-            this.f38479b = z;
+            this.f38574b = z;
             return this;
         }
 
         public Builder setAutoPlayPolicy(AutoPlayPolicy autoPlayPolicy) {
             if (autoPlayPolicy != null) {
-                this.f38478a = autoPlayPolicy;
+                this.f38573a = autoPlayPolicy;
             }
             return this;
         }
 
         public Builder setDetailPageMuted(boolean z) {
-            this.f38480c = z;
+            this.f38575c = z;
             return this;
         }
 
         public Builder setMaxVideoDuration(int i) {
-            this.f38481d = i;
+            this.f38576d = i;
             return this;
         }
 
         public Builder setMinVideoDuration(int i) {
-            this.f38482e = i;
+            this.f38577e = i;
             return this;
         }
     }
 
     public VideoOption2(Builder builder) {
-        this.f38471a = builder.f38478a;
-        this.f38472b = builder.f38479b;
-        this.f38473c = builder.f38480c;
-        this.f38474d = builder.f38481d;
-        this.f38475e = builder.f38482e;
+        this.f38566a = builder.f38573a;
+        this.f38567b = builder.f38574b;
+        this.f38568c = builder.f38575c;
+        this.f38569d = builder.f38576d;
+        this.f38570e = builder.f38577e;
     }
 
     public /* synthetic */ VideoOption2(Builder builder, byte b2) {
@@ -99,22 +99,22 @@ public class VideoOption2 {
     }
 
     public AutoPlayPolicy getAutoPlayPolicy() {
-        return this.f38471a;
+        return this.f38566a;
     }
 
     public int getMaxVideoDuration() {
-        return this.f38474d;
+        return this.f38569d;
     }
 
     public int getMinVideoDuration() {
-        return this.f38475e;
+        return this.f38570e;
     }
 
     public boolean isAutoPlayMuted() {
-        return this.f38472b;
+        return this.f38567b;
     }
 
     public boolean isDetailPageMuted() {
-        return this.f38473c;
+        return this.f38568c;
     }
 }

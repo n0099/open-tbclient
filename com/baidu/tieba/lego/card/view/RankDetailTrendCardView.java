@@ -33,17 +33,17 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankDetailTrendCard f18353e;
+        public final /* synthetic */ RankDetailTrendCard f18361e;
 
         public a(RankDetailTrendCard rankDetailTrendCard) {
-            this.f18353e = rankDetailTrendCard;
+            this.f18361e = rankDetailTrendCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (ViewHelper.checkUpIsLogin(RankDetailTrendCardView.this.getContext())) {
-                d.b.i0.j1.m.b a2 = d.b.i0.j1.m.b.a();
-                RankDetailTrendCard rankDetailTrendCard = this.f18353e;
+                d.b.j0.j1.m.b a2 = d.b.j0.j1.m.b.a();
+                RankDetailTrendCard rankDetailTrendCard = this.f18361e;
                 a2.e(rankDetailTrendCard, rankDetailTrendCard.getPostUrl(), null, null);
             }
         }
@@ -53,15 +53,15 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RankDetailTrendCard f18355e;
+        public final /* synthetic */ RankDetailTrendCard f18363e;
 
         public b(RankDetailTrendCard rankDetailTrendCard) {
-            this.f18355e = rankDetailTrendCard;
+            this.f18363e = rankDetailTrendCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            RankDetailTrendCardView.this.q(this.f18355e);
+            RankDetailTrendCardView.this.q(this.f18363e);
         }
     }
 
@@ -82,7 +82,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     /* renamed from: K */
     public void y(RankDetailTrendCard rankDetailTrendCard, int i) {
-        d.b.h0.s0.a.a(this.m, getRootView());
+        d.b.i0.s0.a.a(this.m, getRootView());
         SkinManager.setBackgroundResource(this.r, R.drawable.addresslist_item_bg);
         SkinManager.setViewTextColor(this.t, R.color.CAM_X0108);
         SkinManager.setViewTextColor(this.u, R.color.CAM_X0105);

@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import d.b.h0.r.f0.q.b;
+import d.b.i0.r.f0.q.b;
 /* loaded from: classes5.dex */
 public class FollowUserButton extends TBSpecificationBtn implements b {
     public a s;
@@ -25,7 +25,7 @@ public class FollowUserButton extends TBSpecificationBtn implements b {
         this(context, null);
     }
 
-    @Override // d.b.h0.r.f0.q.b
+    @Override // d.b.i0.r.f0.q.b
     public void a(boolean z, int i) {
         if (z) {
             s(true);
@@ -34,7 +34,7 @@ public class FollowUserButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // d.b.h0.r.f0.q.b
+    @Override // d.b.i0.r.f0.q.b
     public void b(View view) {
         a aVar = this.s;
         if (aVar != null) {
@@ -42,17 +42,17 @@ public class FollowUserButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // d.b.h0.r.f0.q.b
+    @Override // d.b.i0.r.f0.q.b
     public void c(View.OnClickListener onClickListener) {
         setOnClickListener(onClickListener);
     }
 
-    @Override // d.b.h0.r.f0.q.b
+    @Override // d.b.i0.r.f0.q.b
     public void d(boolean z, int i, boolean z2) {
         a(z, i);
     }
 
-    @Override // d.b.h0.r.f0.q.b
+    @Override // d.b.i0.r.f0.q.b
     public void e(int i) {
     }
 
@@ -64,14 +64,14 @@ public class FollowUserButton extends TBSpecificationBtn implements b {
         if (z) {
             setVisibility(0);
             setClickable(this.u);
-            d.b.h0.r.f0.m.b bVar = new d.b.h0.r.f0.m.b();
+            d.b.i0.r.f0.m.b bVar = new d.b.i0.r.f0.m.b();
             bVar.r(R.color.CAM_X0109);
             bVar.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
             setConfig(bVar);
             setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
         } else {
             setVisibility(0);
-            d.b.h0.r.f0.m.b bVar2 = new d.b.h0.r.f0.m.b();
+            d.b.i0.r.f0.m.b bVar2 = new d.b.i0.r.f0.m.b();
             bVar2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
             bVar2.i(this.t, 0, TBSpecificationButtonConfig.IconType.SVG);
             bVar2.q(R.color.CAM_X0304);
@@ -103,7 +103,7 @@ public class FollowUserButton extends TBSpecificationBtn implements b {
         super(context, attributeSet, i);
         this.t = 0;
         this.u = true;
-        d.b.h0.r.f0.m.b bVar = new d.b.h0.r.f0.m.b();
+        d.b.i0.r.f0.m.b bVar = new d.b.i0.r.f0.m.b();
         bVar.g(UtilHelper.getDimenPixelSize(R.dimen.tbds30));
         bVar.i(this.t, 0, TBSpecificationButtonConfig.IconType.SVG);
         bVar.q(R.color.CAM_X0304);

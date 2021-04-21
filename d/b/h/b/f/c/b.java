@@ -10,22 +10,22 @@ import com.baidu.webkit.sdk.WebKitFactory;
 public final class b implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Context f49888e;
+    public final /* synthetic */ Context f43815e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ BdZeusUpdate f49889f;
+    public final /* synthetic */ BdZeusUpdate f43816f;
 
     public b(BdZeusUpdate bdZeusUpdate, Context context) {
-        this.f49889f = bdZeusUpdate;
-        this.f49888e = context;
+        this.f43816f = bdZeusUpdate;
+        this.f43815e = context;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        if (this.f49888e != null) {
+        if (this.f43815e != null) {
             Log.i(EngineManager.LOG_TAG, "start check zeus update async");
-            BdZeusUpdate bdZeusUpdate = this.f49889f;
-            Context context = this.f49888e;
+            BdZeusUpdate bdZeusUpdate = this.f43816f;
+            Context context = this.f43815e;
             if (WebKitFactory.isUserPrivacyEnabled() && !bdZeusUpdate.f4386d && d.b.h.b.e.b.d(context)) {
                 BdZeusUpdate.BdZesuUpdateTask bdZesuUpdateTask = new BdZeusUpdate.BdZesuUpdateTask(context, "https://mbrowser.baidu.com/api/update/kernel?version=");
                 BdNet bdNet = new BdNet(context);

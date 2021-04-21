@@ -32,8 +32,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import d.b.c.e.m.h;
 import d.b.c.e.p.l;
-import d.b.h0.r.l.a;
-import d.b.h0.s.i.b;
+import d.b.i0.r.l.a;
+import d.b.i0.s.i.b;
 /* loaded from: classes4.dex */
 public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     public static final int ACTION_LOGIN = 1;
@@ -46,12 +46,12 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     public Button mQuickRegistBtn = null;
     public Button mLoginBtn = null;
     public String mFrom = null;
-    public d.b.h0.s.i.b mInputUserNameDialog = null;
+    public d.b.i0.s.i.b mInputUserNameDialog = null;
     public boolean toLogin = false;
     public boolean firstRegist = false;
     public int currAction = -1;
     public CustomMessageListener mAccountChangeListener = new a(2001385);
-    public final a.InterfaceC1095a mReLoginCallback = new b();
+    public final a.InterfaceC1117a mReLoginCallback = new b();
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -70,7 +70,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements a.InterfaceC1095a {
+    public class b implements a.InterfaceC1117a {
 
         /* loaded from: classes4.dex */
         public class a implements DialogInterface.OnCancelListener {
@@ -86,9 +86,9 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
         public b() {
         }
 
-        @Override // d.b.h0.r.l.a.InterfaceC1095a
+        @Override // d.b.i0.r.l.a.InterfaceC1117a
         public void a(String str, int i, String str2) {
-            d.b.h0.r.z.a.a("account", -1L, 0, "login_silent_fail", i, str2, new Object[0]);
+            d.b.i0.r.z.a.a("account", -1L, 0, "login_silent_fail", i, str2, new Object[0]);
             NotLoginGuideActivity.this.closeLoadingDialog();
             if (NotLoginGuideActivity.this.currAction == 1) {
                 NotLoginGuideActivity.this.goToLogin();
@@ -97,7 +97,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
             }
         }
 
-        @Override // d.b.h0.r.l.a.InterfaceC1095a
+        @Override // d.b.i0.r.l.a.InterfaceC1117a
         public void b(String str) {
             if (NotLoginGuideActivity.this.getLoadingDialog() == null || !NotLoginGuideActivity.this.getLoadingDialog().c()) {
                 NotLoginGuideActivity notLoginGuideActivity = NotLoginGuideActivity.this;
@@ -105,9 +105,9 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
             }
         }
 
-        @Override // d.b.h0.r.l.a.InterfaceC1095a
+        @Override // d.b.i0.r.l.a.InterfaceC1117a
         public void c(AccountData accountData) {
-            d.b.h0.r.z.a.a("account", -1L, 0, "login_silent_success", 0, "", new Object[0]);
+            d.b.i0.r.z.a.a("account", -1L, 0, "login_silent_success", 0, "", new Object[0]);
             NotLoginGuideActivity.this.closeLoadingDialog();
             if (!TbadkCoreApplication.getInst().shouldNeedCheckUserNameDialog() || !TextUtils.isEmpty(accountData.getAccount())) {
                 NotLoginGuideActivity.this.loginSuccess(accountData);
@@ -122,7 +122,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
         public c() {
         }
 
-        @Override // d.b.h0.s.i.b.e
+        @Override // d.b.i0.s.i.b.e
         public void a(AccountData accountData) {
             NotLoginGuideActivity.this.loginSuccess(accountData);
         }
@@ -132,15 +132,15 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     public class d implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f14162e;
+        public final /* synthetic */ AccountData f14170e;
 
         public d(AccountData accountData) {
-            this.f14162e = accountData;
+            this.f14170e = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.h0.r.l.c.g(this.f14162e);
+            d.b.i0.r.l.c.g(this.f14170e);
         }
     }
 
@@ -193,9 +193,9 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void loginSuccess(AccountData accountData) {
         h.a().c(new d(accountData));
-        d.b.h0.r.z.a.a("account", -1L, 0, "not_login_guide_activity", 0, "", new Object[0]);
+        d.b.i0.r.z.a.a("account", -1L, 0, "not_login_guide_activity", 0, "", new Object[0]);
         TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
-        d.b.h0.l.a.f(TbadkCoreApplication.getInst());
+        d.b.i0.l.a.f(TbadkCoreApplication.getInst());
         startApp();
     }
 
@@ -215,7 +215,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void showInputDialog(AccountData accountData) {
         if (this.mInputUserNameDialog == null) {
-            d.b.h0.s.i.b bVar = new d.b.h0.s.i.b(this);
+            d.b.i0.s.i.b bVar = new d.b.i0.s.i.b(this);
             this.mInputUserNameDialog = bVar;
             bVar.w(new c());
         }
@@ -225,7 +225,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     }
 
     private void startApp() {
-        d.b.h0.r.z.a.a("account", -1L, 0, "login_silent_startapp", 0, "", new Object[0]);
+        d.b.i0.r.z.a.a("account", -1L, 0, "login_silent_startapp", 0, "", new Object[0]);
         if (TbadkCoreApplication.getInst().getIsFirstUse()) {
             if (MessageManager.getInstance().findTask(2015001) != null) {
                 sendMessage(new CustomMessage(2015001, new GuildActivityConfig(getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_LOGO_PAGE, false)));
@@ -235,9 +235,9 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
         } else if (!this.firstRegist && !TbadkCoreApplication.getInst().getIsFirstUse() && MessageManager.getInstance().findTask(2015001) != null) {
             sendMessage(new CustomMessage(2015001, new GuildActivityConfig(getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_LOGO_PAGE, true)));
         } else {
-            d.b.h0.r.d0.b j = d.b.h0.r.d0.b.j();
+            d.b.i0.r.d0.b j = d.b.i0.r.d0.b.j();
             if (j.g("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
-                d.b.h0.r.d0.b j2 = d.b.h0.r.d0.b.j();
+                d.b.i0.r.d0.b j2 = d.b.i0.r.d0.b.j();
                 j2.t("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
             }
             sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(1)));
@@ -248,12 +248,12 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     public boolean loginByPassAccount() {
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
-            d.b.h0.r.z.a.a("account", -1L, 0, "login_silent_start", 0, "", new Object[0]);
+            d.b.i0.r.z.a.a("account", -1L, 0, "login_silent_start", 0, "", new Object[0]);
             BdAsyncTask<?, ?, ?> bdAsyncTask = this.mAccountLoginTask;
             if (bdAsyncTask != null) {
                 bdAsyncTask.cancel();
             }
-            this.mAccountLoginTask = d.b.h0.r.l.a.b().a(session.username, session.bduss, "", null, this.mReLoginCallback);
+            this.mAccountLoginTask = d.b.i0.r.l.a.b().a(session.username, session.bduss, "", null, this.mReLoginCallback);
             return true;
         }
         return false;
@@ -302,7 +302,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
     public void onDestroy() {
         super.onDestroy();
         releaseResource();
-        d.b.h0.s.i.b bVar = this.mInputUserNameDialog;
+        d.b.i0.s.i.b bVar = this.mInputUserNameDialog;
         if (bVar != null) {
             bVar.s();
         }
@@ -319,7 +319,7 @@ public class NotLoginGuideActivity extends BaseActivity<NotLoginGuideActivity> {
         }
         closeActivity();
         if (NotLoginGuideActivityConfig.FROM_ACCOUNT.equals(this.mFrom)) {
-            d.b.h0.r.a0.b.e(getPageContext().getPageActivity(), 200);
+            d.b.i0.r.a0.b.e(getPageContext().getPageActivity(), 200);
             return true;
         }
         return true;

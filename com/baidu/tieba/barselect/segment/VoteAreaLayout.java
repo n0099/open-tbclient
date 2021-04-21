@@ -19,12 +19,12 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.view.TrapezoidButton;
 import com.baidu.tieba.view.RoundAndShadowLinearLayout;
 import d.b.c.e.p.l;
-import d.b.i0.v.b.f;
+import d.b.j0.v.b.f;
 /* loaded from: classes4.dex */
 public class VoteAreaLayout extends CardBasicLayout {
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f14861h;
+    public Context f14869h;
     public RoundAndShadowLinearLayout i;
     public View j;
     public TextView k;
@@ -35,26 +35,26 @@ public class VoteAreaLayout extends CardBasicLayout {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ f f14862e;
+        public final /* synthetic */ f f14870e;
 
         public a(f fVar) {
-            this.f14862e = fVar;
+            this.f14870e = fVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             f fVar;
-            if ((VoteAreaLayout.this.f14861h instanceof Activity) && ViewHelper.checkUpIsLogin(VoteAreaLayout.this.f14861h)) {
+            if ((VoteAreaLayout.this.f14869h instanceof Activity) && ViewHelper.checkUpIsLogin(VoteAreaLayout.this.f14869h)) {
                 new StatisticItem(TbadkCoreStatisticKey.KEY_VOTE_BUTTON).eventStat();
-                if (VoteAreaLayout.this.f14858g == null || (fVar = this.f14862e) == null || fVar.a() == null) {
+                if (VoteAreaLayout.this.f14866g == null || (fVar = this.f14870e) == null || fVar.a() == null) {
                     return;
                 }
-                if (this.f14862e.a().a()) {
-                    if (this.f14862e.c() == 0 || this.f14862e.g() == null) {
+                if (this.f14870e.a().a()) {
+                    if (this.f14870e.c() == 0 || this.f14870e.g() == null) {
                         return;
                     }
-                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(VoteAreaLayout.this.f14858g.l(), this.f14862e.c(), VoteAreaLayout.this.f14858g.k(), 1);
-                    commitVoteReqMsg.setTag(this.f14862e.g());
+                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(VoteAreaLayout.this.f14866g.l(), this.f14870e.c(), VoteAreaLayout.this.f14866g.k(), 1);
+                    commitVoteReqMsg.setTag(this.f14870e.g());
                     MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                     return;
                 }
@@ -70,7 +70,7 @@ public class VoteAreaLayout extends CardBasicLayout {
     public final void b() {
         RoundAndShadowLinearLayout roundAndShadowLinearLayout = (RoundAndShadowLinearLayout) findViewById(R.id.vote_area_container);
         this.i = roundAndShadowLinearLayout;
-        roundAndShadowLinearLayout.setRadius(l.g(this.f14861h, R.dimen.tbds8));
+        roundAndShadowLinearLayout.setRadius(l.g(this.f14869h, R.dimen.tbds8));
         this.k = (TextView) findViewById(R.id.vote_num);
         this.l = (TrapezoidButton) findViewById(R.id.vote_button);
         this.m = (TextView) findViewById(R.id.vote_button_tv);
@@ -78,7 +78,7 @@ public class VoteAreaLayout extends CardBasicLayout {
     }
 
     public void c() {
-        this.f14861h = getContext();
+        this.f14869h = getContext();
         setClipChildren(false);
         setClipToPadding(false);
         setOrientation(0);
@@ -99,11 +99,11 @@ public class VoteAreaLayout extends CardBasicLayout {
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, f fVar) {
         super.setData(i, fVar);
-        if (this.f14857f != null && this.f14858g != null && this.f14856e >= 0) {
+        if (this.f14865f != null && this.f14866g != null && this.f14864e >= 0) {
             TextView textView = this.k;
-            textView.setText(StringHelper.numFormatOverWan(this.f14858g.m()) + "票");
+            textView.setText(StringHelper.numFormatOverWan(this.f14866g.m()) + "票");
             this.m.setOnClickListener(new a(fVar));
-            if (this.f14858g.n()) {
+            if (this.f14866g.n()) {
                 this.m.setEnabled(false);
                 return;
             } else {

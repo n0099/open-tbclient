@@ -7,7 +7,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import d.b.c.e.p.l;
-import d.b.h0.s.d.b;
+import d.b.i0.s.d.b;
 /* loaded from: classes3.dex */
 public class Static {
 
@@ -16,8 +16,8 @@ public class Static {
 
         /* renamed from: com.baidu.tbadk.coreExtra.messageCenter.Static$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0178a implements Runnable {
-            public RunnableC0178a(a aVar) {
+        public class RunnableC0180a implements Runnable {
+            public RunnableC0180a(a aVar) {
             }
 
             @Override // java.lang.Runnable
@@ -32,7 +32,7 @@ public class Static {
                 b.g0().h();
                 return null;
             } else if (TbadkCoreApplication.getInst() != null) {
-                TbadkCoreApplication.getInst().handler.post(new RunnableC0178a(this));
+                TbadkCoreApplication.getInst().handler.post(new RunnableC0180a(this));
                 return null;
             } else {
                 return null;

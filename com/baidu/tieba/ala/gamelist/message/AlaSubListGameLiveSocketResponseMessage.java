@@ -3,7 +3,7 @@ package com.baidu.tieba.ala.gamelist.message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.ala.AlaCmdConfigSocket;
 import com.squareup.wire.Wire;
-import d.b.h0.r.q.a2;
+import d.b.i0.r.q.a2;
 import java.util.LinkedList;
 import tbclient.LiveLabelInfo;
 import tbclient.LiveTabliveSubTab.LiveTabliveSubTabResIdl;

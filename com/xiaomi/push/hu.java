@@ -17,22 +17,22 @@ public class hu implements iq<hu, Object>, Serializable, Cloneable {
     public static final jg f553a = new jg("Target");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f40998a = new iy("", (byte) 10, 1);
+    public static final iy f41093a = new iy("", (byte) 10, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f40999b = new iy("", (byte) 11, 2);
+    public static final iy f41094b = new iy("", (byte) 11, 2);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f41000c = new iy("", (byte) 11, 3);
+    public static final iy f41095c = new iy("", (byte) 11, 3);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f41001d = new iy("", (byte) 11, 4);
+    public static final iy f41096d = new iy("", (byte) 11, 4);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f41002e = new iy("", (byte) 2, 5);
+    public static final iy f41097e = new iy("", (byte) 2, 5);
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f41003f = new iy("", (byte) 11, 7);
+    public static final iy f41098f = new iy("", (byte) 11, 7);
 
     /* renamed from: a  reason: collision with other field name */
     public BitSet f556a = new BitSet(2);
@@ -119,7 +119,7 @@ public class hu implements iq<hu, Object>, Serializable, Cloneable {
         jbVar.m509a();
         while (true) {
             iy m505a = jbVar.m505a();
-            byte b2 = m505a.f41156a;
+            byte b2 = m505a.f41251a;
             if (b2 == 0) {
                 break;
             }
@@ -224,31 +224,31 @@ public class hu implements iq<hu, Object>, Serializable, Cloneable {
     public void b(jb jbVar) {
         a();
         jbVar.a(f553a);
-        jbVar.a(f40998a);
+        jbVar.a(f41093a);
         jbVar.a(this.f554a);
         jbVar.b();
         if (this.f555a != null) {
-            jbVar.a(f40999b);
+            jbVar.a(f41094b);
             jbVar.a(this.f555a);
             jbVar.b();
         }
         if (this.f558b != null && c()) {
-            jbVar.a(f41000c);
+            jbVar.a(f41095c);
             jbVar.a(this.f558b);
             jbVar.b();
         }
         if (this.f559c != null && d()) {
-            jbVar.a(f41001d);
+            jbVar.a(f41096d);
             jbVar.a(this.f559c);
             jbVar.b();
         }
         if (e()) {
-            jbVar.a(f41002e);
+            jbVar.a(f41097e);
             jbVar.a(this.f557a);
             jbVar.b();
         }
         if (this.f560d != null && f()) {
-            jbVar.a(f41003f);
+            jbVar.a(f41098f);
             jbVar.a(this.f560d);
             jbVar.b();
         }

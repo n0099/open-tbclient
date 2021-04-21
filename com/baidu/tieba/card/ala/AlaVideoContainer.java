@@ -20,7 +20,7 @@ import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
 import com.baidu.tieba.view.AudioAnimationView;
 import d.b.c.e.p.j;
 import d.b.c.e.p.l;
-import d.b.i0.j2.o;
+import d.b.j0.j2.o;
 /* loaded from: classes4.dex */
 public class AlaVideoContainer extends LinearLayout {
     public Runnable A;
@@ -30,16 +30,16 @@ public class AlaVideoContainer extends LinearLayout {
     public Runnable E;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f14926e;
+    public View f14934e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.i0.x.d0.a f14927f;
+    public d.b.j0.x.d0.a f14935f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbCyberVideoView f14928g;
+    public TbCyberVideoView f14936g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f14929h;
+    public TbImageView f14937h;
     public View i;
     public TextView j;
     public TBLottieAnimationView k;
@@ -66,10 +66,10 @@ public class AlaVideoContainer extends LinearLayout {
 
         @Override // com.baidu.tbadk.widget.TbImageView.f
         public void a(String str, boolean z) {
-            if (!z || AlaVideoContainer.this.f14929h == null) {
+            if (!z || AlaVideoContainer.this.f14937h == null) {
                 return;
             }
-            AlaVideoContainer.this.f14929h.setDefaultBgResource(0);
+            AlaVideoContainer.this.f14937h.setDefaultBgResource(0);
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.f
@@ -84,7 +84,7 @@ public class AlaVideoContainer extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view.getId() == AlaVideoContainer.this.f14926e.getId()) {
+            if (view.getId() == AlaVideoContainer.this.f14934e.getId()) {
                 if (j.z()) {
                     if (AlaVideoContainer.this.t != null) {
                         AlaVideoContainer.this.t.onClick(view);
@@ -104,13 +104,13 @@ public class AlaVideoContainer extends LinearLayout {
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
         public void onPrepared() {
-            if (AlaVideoContainer.this.f14928g != null) {
-                AlaVideoContainer.this.f14928g.setLooping(true);
-                AlaVideoContainer.this.f14928g.setVolume(0.0f, 0.0f);
+            if (AlaVideoContainer.this.f14936g != null) {
+                AlaVideoContainer.this.f14936g.setLooping(true);
+                AlaVideoContainer.this.f14936g.setVolume(0.0f, 0.0f);
             }
             AlaVideoContainer.this.o.g();
             AlaVideoContainer.this.m.setVisibility(8);
-            AlaVideoContainer.this.f14929h.setVisibility(8);
+            AlaVideoContainer.this.f14937h.setVisibility(8);
             d.b.c.e.m.e.a().postDelayed(AlaVideoContainer.this.A, 3000L);
             d.b.c.e.m.e.a().removeCallbacks(AlaVideoContainer.this.E);
         }
@@ -190,16 +190,16 @@ public class AlaVideoContainer extends LinearLayout {
         n();
     }
 
-    public d.b.i0.x.d0.a getController() {
-        return this.f14927f;
+    public d.b.j0.x.d0.a getController() {
+        return this.f14935f;
     }
 
     public TbCyberVideoView getVideoView() {
-        return this.f14928g;
+        return this.f14936g;
     }
 
     public View getView() {
-        return this.f14926e;
+        return this.f14934e;
     }
 
     public void m() {
@@ -212,29 +212,29 @@ public class AlaVideoContainer extends LinearLayout {
     public void n() {
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.ala_video_card_item_new, (ViewGroup) this, true);
         View findViewById = inflate.findViewById(R.id.video_container);
-        this.f14926e = findViewById;
+        this.f14934e = findViewById;
         findViewById.setOnClickListener(this.y);
         TbCyberVideoView tbCyberVideoView = (TbCyberVideoView) inflate.findViewById(R.id.video_view);
-        this.f14928g = tbCyberVideoView;
+        this.f14936g = tbCyberVideoView;
         tbCyberVideoView.setStageType(null);
-        ViewGroup.LayoutParams layoutParams = this.f14928g.getLayoutParams();
-        layoutParams.height = (this.f14928g.getWidth() * 9) / 16;
-        this.f14928g.setLayoutParams(layoutParams);
-        this.f14928g.setOnPreparedListener(this.z);
-        this.f14928g.setOnSurfaceDestroyedListener(this.B);
-        this.f14928g.setOnErrorListener(this.C);
+        ViewGroup.LayoutParams layoutParams = this.f14936g.getLayoutParams();
+        layoutParams.height = (this.f14936g.getWidth() * 9) / 16;
+        this.f14936g.setLayoutParams(layoutParams);
+        this.f14936g.setOnPreparedListener(this.z);
+        this.f14936g.setOnSurfaceDestroyedListener(this.B);
+        this.f14936g.setOnErrorListener(this.C);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.img_thumbnail);
-        this.f14929h = tbImageView;
+        this.f14937h = tbImageView;
         tbImageView.setDrawCorner(true);
-        this.f14929h.setPlaceHolder(3);
-        this.f14929h.setEvent(this.x);
-        this.f14929h.setGifIconSupport(false);
-        this.f14929h.setConrers(15);
-        this.f14929h.setRadius(l.g(getContext(), R.dimen.tbds10));
-        this.f14929h.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
-        this.f14929h.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-        this.f14929h.setBorderSurroundContent(true);
-        this.f14929h.setDrawBorder(true);
+        this.f14937h.setPlaceHolder(3);
+        this.f14937h.setEvent(this.x);
+        this.f14937h.setGifIconSupport(false);
+        this.f14937h.setConrers(15);
+        this.f14937h.setRadius(l.g(getContext(), R.dimen.tbds10));
+        this.f14937h.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
+        this.f14937h.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+        this.f14937h.setBorderSurroundContent(true);
+        this.f14937h.setDrawBorder(true);
         this.i = inflate.findViewById(R.id.layout_title);
         this.j = (TextView) inflate.findViewById(R.id.tv_title);
         TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) inflate.findViewById(R.id.img_play);
@@ -252,7 +252,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.s = (TextView) inflate.findViewById(R.id.video_live_end_tips);
         this.u = (LinearLayout) inflate.findViewById(R.id.llAlaLivingLogLayout);
         this.v = (TextView) inflate.findViewById(R.id.tvAlaLivingLogView);
-        this.f14927f = new d.b.i0.x.d0.a(this);
+        this.f14935f = new d.b.j0.x.d0.a(this);
         this.l = (TextView) inflate.findViewById(R.id.play_count);
         o(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -267,7 +267,7 @@ public class AlaVideoContainer extends LinearLayout {
             SkinManager.setLottieAnimation(this.k, R.raw.ala_play);
             SkinManager.setViewTextColor(this.q, R.color.CAM_X0101);
             SkinManager.setBackgroundColor(this.p, R.color.black_alpha80);
-            SkinManager.setBackgroundColor(this.f14928g, R.color.black_alpha100);
+            SkinManager.setBackgroundColor(this.f14936g, R.color.black_alpha100);
             SkinManager.setViewTextColor(this.s, R.color.CAM_X0101);
             SkinManager.setBackgroundColor(this.r, R.color.black_alpha80);
             SkinManager.setViewTextColor(this.l, R.color.CAM_X0101);
@@ -287,7 +287,7 @@ public class AlaVideoContainer extends LinearLayout {
     }
 
     public void p() {
-        this.f14929h.setVisibility(0);
+        this.f14937h.setVisibility(0);
         this.k.setVisibility(0);
         this.m.setVisibility(8);
         View view = this.i;
@@ -340,12 +340,12 @@ public class AlaVideoContainer extends LinearLayout {
     }
 
     public void setVideoStatsData(o oVar) {
-        this.f14928g.setVideoStatData(oVar);
+        this.f14936g.setVideoStatData(oVar);
     }
 
     public void setVideoThumbnail(String str) {
-        this.f14929h.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-        this.f14929h.W(str, 10, false);
+        this.f14937h.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+        this.f14937h.W(str, 10, false);
     }
 
     public AlaVideoContainer(Context context, AttributeSet attributeSet) {

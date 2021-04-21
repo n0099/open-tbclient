@@ -8,13 +8,13 @@ import com.baidu.android.util.devices.RomUtils;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f42548a = 0;
+    public static int f42788a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f42549b = 3;
+    public static int f42789b = 3;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f42550c = {RomUtils.MANUFACTURER_MEIZU};
+    public static final String[] f42790c = {RomUtils.MANUFACTURER_MEIZU};
 
     public static String a(int i) {
         Application app = BdBaseApplication.getInst().getApp();
@@ -29,7 +29,7 @@ public class h {
         String lowerCase = str.toLowerCase();
         int i = 0;
         while (true) {
-            String[] strArr = f42550c;
+            String[] strArr = f42790c;
             if (i >= strArr.length) {
                 return false;
             }

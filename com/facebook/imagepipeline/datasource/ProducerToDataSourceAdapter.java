@@ -6,7 +6,7 @@ import com.facebook.imagepipeline.producers.Producer;
 import com.facebook.imagepipeline.producers.SettableProducerContext;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ProducerToDataSourceAdapter<T> extends AbstractProducerToDataSourceAdapter<T> {
     public ProducerToDataSourceAdapter(Producer<T> producer, SettableProducerContext settableProducerContext, RequestListener requestListener) {
         super(producer, settableProducerContext, requestListener);

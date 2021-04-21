@@ -18,21 +18,21 @@ public abstract class a extends b {
 
     /* renamed from: g.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class C1895a extends TimerTask {
+    public class C1899a extends TimerTask {
 
         /* renamed from: e  reason: collision with root package name */
-        public ArrayList<WebSocket> f68627e = new ArrayList<>();
+        public ArrayList<WebSocket> f68774e = new ArrayList<>();
 
-        public C1895a() {
+        public C1899a() {
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
-            this.f68627e.clear();
+            this.f68774e.clear();
             try {
-                this.f68627e.addAll(a.this.getConnections());
+                this.f68774e.addAll(a.this.getConnections());
                 long currentTimeMillis = System.currentTimeMillis() - (a.this.connectionLostTimeout * 1500);
-                Iterator<WebSocket> it = this.f68627e.iterator();
+                Iterator<WebSocket> it = this.f68774e.iterator();
                 while (it.hasNext()) {
                     WebSocket next = it.next();
                     if (next instanceof c) {
@@ -57,7 +57,7 @@ public abstract class a extends b {
                     printStream3.println("Exception during connection lost ping: " + e2.getMessage());
                 }
             }
-            this.f68627e.clear();
+            this.f68774e.clear();
         }
     }
 
@@ -77,11 +77,11 @@ public abstract class a extends b {
     private void restartConnectionLostTimer() {
         cancelConnectionLostTimer();
         this.connectionLostTimer = new Timer("WebSocketTimer");
-        C1895a c1895a = new C1895a();
-        this.connectionLostTimerTask = c1895a;
+        C1899a c1899a = new C1899a();
+        this.connectionLostTimerTask = c1899a;
         Timer timer = this.connectionLostTimer;
         int i = this.connectionLostTimeout;
-        timer.scheduleAtFixedRate(c1895a, i * 1000, i * 1000);
+        timer.scheduleAtFixedRate(c1899a, i * 1000, i * 1000);
     }
 
     public int getConnectionLostTimeout() {

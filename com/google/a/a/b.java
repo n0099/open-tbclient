@@ -9,7 +9,7 @@ import android.os.RemoteException;
 public class b extends Binder implements IInterface {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d.g.a.a.b f30548a;
+    public static d.h.a.a.b f30643a;
 
     public b(String str) {
         attachInterface(this, str);

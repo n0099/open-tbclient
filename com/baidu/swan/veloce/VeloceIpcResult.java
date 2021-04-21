@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 public class VeloceIpcResult {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bundle f12709a;
+    public Bundle f12717a;
 
     /* loaded from: classes3.dex */
     public enum VeloceIpcResultCode {
@@ -26,7 +26,7 @@ public class VeloceIpcResult {
 
     public static VeloceIpcResult a(int i, Bundle bundle) {
         VeloceIpcResult veloceIpcResult = new VeloceIpcResult();
-        veloceIpcResult.f12709a = bundle;
+        veloceIpcResult.f12717a = bundle;
         return veloceIpcResult;
     }
 }

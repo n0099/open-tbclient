@@ -29,7 +29,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
 import com.baidu.down.utils.Utils;
 import com.baidu.webkit.sdk.VideoCloudSetting;
-import d.b.q.a;
+import d.b.r.a;
 import java.io.File;
 import java.net.InetAddress;
 import java.net.NetworkInterface;

@@ -8,13 +8,13 @@ import java.util.Map;
 public class d implements d.c.c.b.c.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29184a = "sp_multi_ttadnet_config";
+    public String f29192a = "sp_multi_ttadnet_config";
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f29185b;
+    public Context f29193b;
 
     public d(Context context) {
-        this.f29185b = context;
+        this.f29193b = context;
     }
 
     @Override // d.c.c.b.c.b
@@ -44,7 +44,7 @@ public class d implements d.c.c.b.c.b {
 
     @Override // d.c.c.b.c.b
     public String e() {
-        return k.a(this.f29185b);
+        return k.a(this.f29193b);
     }
 
     @Override // d.c.c.b.c.b
@@ -54,7 +54,7 @@ public class d implements d.c.c.b.c.b {
 
     @Override // d.c.c.b.c.b
     public String a(Context context, String str, String str2) {
-        return com.bytedance.sdk.openadsdk.multipro.d.a.b(this.f29184a, str, str2);
+        return com.bytedance.sdk.openadsdk.multipro.d.a.b(this.f29192a, str, str2);
     }
 
     @Override // d.c.c.b.c.b
@@ -64,15 +64,15 @@ public class d implements d.c.c.b.c.b {
                 for (Map.Entry<String, ?> entry : map.entrySet()) {
                     Object value = entry.getValue();
                     if (value instanceof Integer) {
-                        com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f29184a, entry.getKey(), (Integer) value);
+                        com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f29192a, entry.getKey(), (Integer) value);
                     } else if (value instanceof Long) {
-                        com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f29184a, entry.getKey(), (Long) value);
+                        com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f29192a, entry.getKey(), (Long) value);
                     } else if (value instanceof Float) {
-                        com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f29184a, entry.getKey(), (Float) value);
+                        com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f29192a, entry.getKey(), (Float) value);
                     } else if (value instanceof Boolean) {
-                        com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f29184a, entry.getKey(), (Boolean) value);
+                        com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f29192a, entry.getKey(), (Boolean) value);
                     } else if (value instanceof String) {
-                        com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f29184a, entry.getKey(), (String) value);
+                        com.bytedance.sdk.openadsdk.multipro.d.a.a(this.f29192a, entry.getKey(), (String) value);
                     }
                 }
             } catch (Throwable unused) {

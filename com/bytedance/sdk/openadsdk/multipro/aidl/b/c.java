@@ -9,20 +9,20 @@ import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
 public class c extends IFullScreenVideoAdInteractionListener.Stub {
 
     /* renamed from: a  reason: collision with root package name */
-    public TTFullScreenVideoAd.FullScreenVideoAdInteractionListener f29516a;
+    public TTFullScreenVideoAd.FullScreenVideoAdInteractionListener f29524a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f29517b = new Handler(Looper.getMainLooper());
+    public Handler f29525b = new Handler(Looper.getMainLooper());
 
     public c(TTFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener) {
-        this.f29516a = fullScreenVideoAdInteractionListener;
+        this.f29524a = fullScreenVideoAdInteractionListener;
     }
 
     private Handler b() {
-        Handler handler = this.f29517b;
+        Handler handler = this.f29525b;
         if (handler == null) {
             Handler handler2 = new Handler(Looper.getMainLooper());
-            this.f29517b = handler2;
+            this.f29525b = handler2;
             return handler2;
         }
         return handler;
@@ -33,8 +33,8 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
         b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.c.3
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.f29516a != null) {
-                    c.this.f29516a.onAdClose();
+                if (c.this.f29524a != null) {
+                    c.this.f29524a.onAdClose();
                 }
             }
         });
@@ -45,8 +45,8 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
         b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.c.1
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.f29516a != null) {
-                    c.this.f29516a.onAdShow();
+                if (c.this.f29524a != null) {
+                    c.this.f29524a.onAdShow();
                 }
             }
         });
@@ -57,8 +57,8 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
         b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.c.2
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.f29516a != null) {
-                    c.this.f29516a.onAdVideoBarClick();
+                if (c.this.f29524a != null) {
+                    c.this.f29524a.onAdVideoBarClick();
                 }
             }
         });
@@ -74,8 +74,8 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
         b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.c.5
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.f29516a != null) {
-                    c.this.f29516a.onSkippedVideo();
+                if (c.this.f29524a != null) {
+                    c.this.f29524a.onSkippedVideo();
                 }
             }
         });
@@ -86,15 +86,15 @@ public class c extends IFullScreenVideoAdInteractionListener.Stub {
         b().post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.c.4
             @Override // java.lang.Runnable
             public void run() {
-                if (c.this.f29516a != null) {
-                    c.this.f29516a.onVideoComplete();
+                if (c.this.f29524a != null) {
+                    c.this.f29524a.onVideoComplete();
                 }
             }
         });
     }
 
     private void a() {
-        this.f29516a = null;
-        this.f29517b = null;
+        this.f29524a = null;
+        this.f29525b = null;
     }
 }

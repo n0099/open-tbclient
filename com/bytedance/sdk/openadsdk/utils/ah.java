@@ -17,10 +17,10 @@ import java.util.Properties;
 public class ah implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f30060a = Thread.getDefaultUncaughtExceptionHandler();
+    public Thread.UncaughtExceptionHandler f30068a = Thread.getDefaultUncaughtExceptionHandler();
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30061b;
+    public String f30069b;
 
     public ah() {
         Thread.setDefaultUncaughtExceptionHandler(this);
@@ -40,12 +40,12 @@ public class ah implements Thread.UncaughtExceptionHandler {
         try {
             if ("mounted".equals(Environment.getExternalStorageState()) && (externalFilesDir = a2.getExternalFilesDir("TTCache")) != null) {
                 externalFilesDir.mkdirs();
-                this.f30061b = externalFilesDir.getPath();
+                this.f30069b = externalFilesDir.getPath();
             }
-            if (TextUtils.isEmpty(this.f30061b)) {
+            if (TextUtils.isEmpty(this.f30069b)) {
                 File file = new File(a2.getFilesDir(), "TTCache");
                 file.mkdirs();
-                this.f30061b = file.getPath();
+                this.f30069b = file.getPath();
             }
         } catch (Throwable unused) {
         }
@@ -105,7 +105,7 @@ public class ah implements Thread.UncaughtExceptionHandler {
         if (z) {
             a(thread, th);
         }
-        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f30060a;
+        Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f30068a;
         if (uncaughtExceptionHandler == null || uncaughtExceptionHandler == this) {
             return;
         }
@@ -133,17 +133,17 @@ public class ah implements Thread.UncaughtExceptionHandler {
         boolean z;
         FileInputStream fileInputStream = null;
         try {
-            if (TextUtils.isEmpty(this.f30061b)) {
+            if (TextUtils.isEmpty(this.f30069b)) {
                 b();
             }
         } catch (Throwable th2) {
             th = th2;
             fileOutputStream = null;
         }
-        if (TextUtils.isEmpty(this.f30061b)) {
+        if (TextUtils.isEmpty(this.f30069b)) {
             return;
         }
-        File file = new File(this.f30061b, "tt_crash_count.properties");
+        File file = new File(this.f30069b, "tt_crash_count.properties");
         boolean z2 = true;
         if (file.exists() && file.isFile() && file.canRead()) {
             ?? properties = new Properties();

@@ -8,14 +8,14 @@ import java.util.List;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<ImageHeaderParser> f35432a = new ArrayList();
+    public final List<ImageHeaderParser> f35527a = new ArrayList();
 
     @NonNull
     public synchronized List<ImageHeaderParser> a() {
-        return this.f35432a;
+        return this.f35527a;
     }
 
     public synchronized void a(@NonNull ImageHeaderParser imageHeaderParser) {
-        this.f35432a.add(imageHeaderParser);
+        this.f35527a.add(imageHeaderParser);
     }
 }

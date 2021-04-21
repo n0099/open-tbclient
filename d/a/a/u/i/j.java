@@ -12,6 +12,6 @@ public class j extends n<DocumentData, DocumentData> {
     @Override // d.a.a.u.i.m
     /* renamed from: d */
     public d.a.a.s.c.n a() {
-        return new d.a.a.s.c.n(this.f41668a);
+        return new d.a.a.s.c.n(this.f41763a);
     }
 }

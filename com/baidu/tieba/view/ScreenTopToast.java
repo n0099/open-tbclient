@@ -20,16 +20,16 @@ import d.b.c.e.m.e;
 public class ScreenTopToast extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ShadowLinearLayout f21862e;
+    public ShadowLinearLayout f21870e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f21863f;
+    public TextView f21871f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f21864g;
+    public TextView f21872g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TBSpecificationBtn f21865h;
+    public TBSpecificationBtn f21873h;
     public Animation i;
     public Animation j;
     public Runnable k;
@@ -84,11 +84,11 @@ public class ScreenTopToast extends LinearLayout {
             setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
         }
         LayoutInflater.from(getContext()).inflate(R.layout.screen_top_toast_layout, this);
-        this.f21862e = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
-        this.f21863f = (TextView) findViewById(R.id.screen_top_toast_title);
-        this.f21864g = (TextView) findViewById(R.id.screen_top_toast_content);
-        this.f21865h = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
-        this.f21865h.setConfig(new d.b.h0.r.f0.m.a());
+        this.f21870e = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
+        this.f21871f = (TextView) findViewById(R.id.screen_top_toast_title);
+        this.f21872g = (TextView) findViewById(R.id.screen_top_toast_content);
+        this.f21873h = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
+        this.f21873h.setConfig(new d.b.i0.r.f0.m.a());
         f();
         h();
     }
@@ -106,10 +106,10 @@ public class ScreenTopToast extends LinearLayout {
     }
 
     public void h() {
-        SkinManager.setViewTextColor(this.f21863f, R.color.CAM_X0302);
-        SkinManager.setViewTextColor(this.f21864g, R.color.CAM_X0302);
-        this.f21865h.k();
-        this.f21862e.b();
+        SkinManager.setViewTextColor(this.f21871f, R.color.CAM_X0302);
+        SkinManager.setViewTextColor(this.f21872g, R.color.CAM_X0302);
+        this.f21873h.k();
+        this.f21870e.b();
     }
 
     public final void i() {
@@ -118,22 +118,22 @@ public class ScreenTopToast extends LinearLayout {
     }
 
     public ScreenTopToast j(View.OnClickListener onClickListener) {
-        this.f21865h.setOnClickListener(onClickListener);
+        this.f21873h.setOnClickListener(onClickListener);
         return this;
     }
 
     public ScreenTopToast k(String str) {
-        this.f21865h.setText(str);
+        this.f21873h.setText(str);
         return this;
     }
 
     public ScreenTopToast l(String str) {
-        this.f21864g.setText(str);
+        this.f21872g.setText(str);
         return this;
     }
 
     public ScreenTopToast m(String str) {
-        this.f21863f.setText(str);
+        this.f21871f.setText(str);
         return this;
     }
 
@@ -145,8 +145,8 @@ public class ScreenTopToast extends LinearLayout {
             ((ViewGroup) getParent()).removeView(this);
         }
         i();
-        if (TextUtils.isEmpty(this.f21864g.getText())) {
-            this.f21864g.setVisibility(8);
+        if (TextUtils.isEmpty(this.f21872g.getText())) {
+            this.f21872g.setVisibility(8);
         }
         viewGroup.addView(this, -1, -2);
         this.l = true;

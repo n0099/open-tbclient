@@ -12,13 +12,13 @@ import java.util.Collections;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static JsonReader.a f41763a = JsonReader.a.a(SearchView.IME_OPTION_NO_MICROPHONE, "g", Config.OS, "t", "s", "e", "w", "lc", "lj", "ml", "hd", "d");
+    public static JsonReader.a f41858a = JsonReader.a.a(SearchView.IME_OPTION_NO_MICROPHONE, "g", Config.OS, "t", "s", "e", "w", "lc", "lj", "ml", "hd", "d");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final JsonReader.a f41764b = JsonReader.a.a("p", Config.APP_KEY);
+    public static final JsonReader.a f41859b = JsonReader.a.a("p", Config.APP_KEY);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final JsonReader.a f41765c = JsonReader.a.a("n", "v");
+    public static final JsonReader.a f41860c = JsonReader.a.a("n", "v");
 
     public static d.a.a.u.j.e a(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
         d.a.a.u.i.c cVar;
@@ -36,7 +36,7 @@ public class n {
         boolean z = false;
         d.a.a.u.i.d dVar2 = null;
         while (jsonReader.t()) {
-            switch (jsonReader.D(f41763a)) {
+            switch (jsonReader.D(f41858a)) {
                 case 0:
                     str = jsonReader.z();
                     break;
@@ -44,7 +44,7 @@ public class n {
                     int i = -1;
                     jsonReader.o();
                     while (jsonReader.t()) {
-                        int D = jsonReader.D(f41764b);
+                        int D = jsonReader.D(f41859b);
                         if (D != 0) {
                             cVar = cVar2;
                             if (D != 1) {
@@ -95,7 +95,7 @@ public class n {
                         String str2 = null;
                         d.a.a.u.i.b bVar3 = null;
                         while (jsonReader.t()) {
-                            int D2 = jsonReader.D(f41765c);
+                            int D2 = jsonReader.D(f41860c);
                             if (D2 != 0) {
                                 d.a.a.u.i.b bVar4 = bVar2;
                                 if (D2 != 1) {

@@ -18,7 +18,7 @@ public abstract class ImmutableSortedMultisetFauxverideShim<E> extends Immutable
         throw new UnsupportedOperationException();
     }
 
-    @Override // com.google.common.collect.ImmutableMultiset, d.g.c.c.i0
+    @Override // com.google.common.collect.ImmutableMultiset, d.h.c.c.i0
     public abstract /* synthetic */ int count(Object obj);
 
     @Deprecated

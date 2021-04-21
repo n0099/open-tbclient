@@ -3,14 +3,14 @@ package d.b.b.a.a.a.a;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f41927a;
+    public String f42093a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f41928b;
+    public int f42094b;
 
     public i(int i, String str, Exception exc) {
-        this.f41928b = i;
-        this.f41927a = str;
+        this.f42094b = i;
+        this.f42093a = str;
     }
 
     public static i a(int i) {
@@ -26,6 +26,6 @@ public class i {
     }
 
     public boolean d() {
-        return this.f41928b == 0;
+        return this.f42094b == 0;
     }
 }

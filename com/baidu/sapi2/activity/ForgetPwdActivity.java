@@ -4,8 +4,8 @@ import android.os.Bundle;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.dto.SapiWebDTO;
-import d.b.x.a.f;
-import d.b.x.a.g;
+import d.b.y.a.f;
+import d.b.y.a.g;
 /* loaded from: classes2.dex */
 public class ForgetPwdActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.TitleActivity

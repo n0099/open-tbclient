@@ -16,21 +16,21 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23387a = "a";
+    public static final String f23395a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public Pattern f23388b;
+    public Pattern f23396b;
 
     /* renamed from: com.baidu.wallet.base.statistics.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0242a {
+    public static class C0244a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f23389a = new a();
+        public static a f23397a = new a();
     }
 
     public static a a() {
-        return C0242a.f23389a;
+        return C0244a.f23397a;
     }
 
     public String b(Context context) {
@@ -39,10 +39,10 @@ public class a {
             e = e2;
         }
         try {
-            return this.f23388b.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
+            return this.f23396b.matcher(PhoneUtils.getCUID2(context)).replaceAll("");
         } catch (Exception e3) {
             e = e3;
-            LogUtil.d(f23387a, e.getMessage());
+            LogUtil.d(f23395a, e.getMessage());
             return null;
         }
     }
@@ -59,7 +59,7 @@ public class a {
         try {
             return ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
         } catch (Exception e2) {
-            LogUtil.d(f23387a, e2.getMessage());
+            LogUtil.d(f23395a, e2.getMessage());
             return null;
         }
     }
@@ -104,7 +104,7 @@ public class a {
     }
 
     public a() {
-        this.f23388b = Pattern.compile("\\s*|\t|\r|\n");
+        this.f23396b = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public String a(Context context) {
@@ -113,10 +113,10 @@ public class a {
             e = e2;
         }
         try {
-            return this.f23388b.matcher(PhoneUtils.getCUID(context)).replaceAll("");
+            return this.f23396b.matcher(PhoneUtils.getCUID(context)).replaceAll("");
         } catch (Exception e3) {
             e = e3;
-            LogUtil.d(f23387a, e.getMessage());
+            LogUtil.d(f23395a, e.getMessage());
             return null;
         }
     }

@@ -9,57 +9,57 @@ import java.util.WeakHashMap;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f34126a = true;
+    public static volatile boolean f34221a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f34127b = false;
+    public static volatile boolean f34222b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile Set<c> f34128c = Collections.newSetFromMap(new WeakHashMap());
+    public static volatile Set<c> f34223c = Collections.newSetFromMap(new WeakHashMap());
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile b f34129d = null;
+    public static volatile b f34224d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile int f34130e = 204800;
+    public static volatile int f34225e = 204800;
 
     public static b a() {
-        if (f34129d == null) {
+        if (f34224d == null) {
             synchronized (b.class) {
-                if (f34129d == null) {
-                    f34129d = new b();
+                if (f34224d == null) {
+                    f34224d = new b();
                 }
             }
         }
-        return f34129d;
+        return f34224d;
     }
 
     public static synchronized InputStream a(@NonNull InputStream inputStream) {
         c cVar;
         synchronized (b.class) {
-            cVar = new c(inputStream, f34130e / (f34128c.size() + 1));
-            f34128c.add(cVar);
+            cVar = new c(inputStream, f34225e / (f34223c.size() + 1));
+            f34223c.add(cVar);
         }
         return cVar;
     }
 
     public static synchronized void a(c cVar) {
         synchronized (b.class) {
-            if (f34128c.contains(cVar)) {
-                f34128c.remove(cVar);
+            if (f34223c.contains(cVar)) {
+                f34223c.remove(cVar);
             }
         }
     }
 
     public void a(boolean z) {
-        f34127b = z;
+        f34222b = z;
     }
 
     public void a(boolean z, int i) {
         if (i > 0) {
-            f34130e = i * 1024;
+            f34225e = i * 1024;
         }
-        f34126a = z;
+        f34221a = z;
     }
 
     public InputStream b(InputStream inputStream) {
@@ -67,17 +67,17 @@ public class b {
     }
 
     public boolean b() {
-        return f34126a;
+        return f34221a;
     }
 
     public int c() {
-        return f34130e / 1024;
+        return f34225e / 1024;
     }
 
     public synchronized int d() {
         int i;
         i = 0;
-        for (c cVar : f34128c) {
+        for (c cVar : f34223c) {
             i += (int) cVar.a();
         }
         return i;

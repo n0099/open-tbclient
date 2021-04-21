@@ -21,7 +21,7 @@ public final class ObservableConcatMapEager$ConcatMapEagerMainObserver<T, R> ext
     public InnerQueuedObserver<R> current;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f69066d;
+    public b f69213d;
     public volatile boolean done;
     public final ErrorMode errorMode;
     public final h<? super T, ? extends n<? extends R>> mapper;
@@ -102,7 +102,7 @@ public final class ObservableConcatMapEager$ConcatMapEagerMainObserver<T, R> ext
                         i2++;
                     } catch (Throwable th) {
                         f.b.u.a.a(th);
-                        this.f69066d.dispose();
+                        this.f69213d.dispose();
                         fVar.clear();
                         disposeAll();
                         this.error.addThrowable(th);
@@ -196,7 +196,7 @@ public final class ObservableConcatMapEager$ConcatMapEagerMainObserver<T, R> ext
     public void innerError(InnerQueuedObserver<R> innerQueuedObserver, Throwable th) {
         if (this.error.addThrowable(th)) {
             if (this.errorMode == ErrorMode.IMMEDIATE) {
-                this.f69066d.dispose();
+                this.f69213d.dispose();
             }
             innerQueuedObserver.setDone();
             drain();
@@ -242,8 +242,8 @@ public final class ObservableConcatMapEager$ConcatMapEagerMainObserver<T, R> ext
 
     @Override // f.b.o
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f69066d, bVar)) {
-            this.f69066d = bVar;
+        if (DisposableHelper.validate(this.f69213d, bVar)) {
+            this.f69213d = bVar;
             if (bVar instanceof f.b.x.c.b) {
                 f.b.x.c.b bVar2 = (f.b.x.c.b) bVar;
                 int requestFusion = bVar2.requestFusion(3);

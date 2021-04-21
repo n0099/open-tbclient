@@ -39,18 +39,18 @@ public class BdMemberCenterListView extends BdTypeListView {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f18582a;
+        public int f18590a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f18583b;
+        public int f18591b;
 
         public b(int i, int i2, int i3, int i4) {
-            this.f18582a = i2;
-            this.f18583b = i4;
+            this.f18590a = i2;
+            this.f18591b = i4;
         }
 
         public int a(float f2) {
-            return (int) (this.f18582a + (f2 / 2.5f));
+            return (int) (this.f18590a + (f2 / 2.5f));
         }
     }
 
@@ -82,12 +82,12 @@ public class BdMemberCenterListView extends BdTypeListView {
         }
         View view = this.P;
         int height = view == null ? 0 : view.getHeight();
-        if (height >= this.S.f18583b - (this.a0 / 2)) {
+        if (height >= this.S.f18591b - (this.a0 / 2)) {
             J();
         } else {
             this.b0.a();
         }
-        this.O.startScroll(0, height, 0, this.S.f18582a - height, 200);
+        this.O.startScroll(0, height, 0, this.S.f18590a - height, 200);
         invalidate();
         this.T = false;
     }
@@ -124,15 +124,15 @@ public class BdMemberCenterListView extends BdTypeListView {
                         if (view != null && view.getParent() == this && this.S != null && this.P.isShown() && this.P.getTop() >= 0 && Math.abs(f4) >= this.W && Math.abs(f3) < this.W) {
                             int a2 = this.S.a(this.R - this.Q);
                             b bVar = this.S;
-                            if (a2 > bVar.f18582a && a2 <= bVar.f18583b) {
+                            if (a2 > bVar.f18590a && a2 <= bVar.f18591b) {
                                 this.T = true;
                                 this.P.setLayoutParams(new AbsListView.LayoutParams(this.P.getWidth(), a2));
-                                I(a2 - this.S.f18582a);
+                                I(a2 - this.S.f18590a);
                             } else {
                                 b bVar2 = this.S;
-                                if (a2 <= bVar2.f18582a) {
+                                if (a2 <= bVar2.f18590a) {
                                     this.T = false;
-                                } else if (a2 > bVar2.f18583b) {
+                                } else if (a2 > bVar2.f18591b) {
                                     this.T = true;
                                 } else {
                                     this.T = false;

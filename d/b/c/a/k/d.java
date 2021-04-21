@@ -7,7 +7,7 @@ import d.b.c.a.k.a;
 import java.io.File;
 /* loaded from: classes.dex */
 public abstract class d implements a {
-    public a.InterfaceC0549a callback;
+    public a.InterfaceC0568a callback;
     public SQLiteDatabase database = null;
     public final String dbFileFullPath;
     public int mVersion;
@@ -19,9 +19,9 @@ public abstract class d implements a {
     }
 
     private void exeCallback(SQLiteDatabase sQLiteDatabase) {
-        a.InterfaceC0549a interfaceC0549a = this.callback;
-        if (interfaceC0549a != null) {
-            interfaceC0549a.a(sQLiteDatabase);
+        a.InterfaceC0568a interfaceC0568a = this.callback;
+        if (interfaceC0568a != null) {
+            interfaceC0568a.a(sQLiteDatabase);
         }
     }
 
@@ -96,7 +96,7 @@ public abstract class d implements a {
     }
 
     @Override // d.b.c.a.k.a
-    public void setOnCreateCallback(a.InterfaceC0549a interfaceC0549a) {
-        this.callback = interfaceC0549a;
+    public void setOnCreateCallback(a.InterfaceC0568a interfaceC0568a) {
+        this.callback = interfaceC0568a;
     }
 }

@@ -2,9 +2,9 @@ package com.google.common.collect;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.SortedLists;
-import d.g.c.a.n;
-import d.g.c.c.c1;
-import d.g.c.c.o0;
+import d.h.c.a.n;
+import d.h.c.c.c1;
+import d.h.c.c.o0;
 import java.io.Serializable;
 import java.lang.Comparable;
 import java.util.Collections;
@@ -49,22 +49,22 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements o0<K, V>, 
     public static final class a<K extends Comparable<?>, V> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<Map.Entry<Range<K>, V>> f30822a = Lists.i();
+        public final List<Map.Entry<Range<K>, V>> f30917a = Lists.i();
 
         public ImmutableRangeMap<K, V> a() {
-            Collections.sort(this.f30822a, Range.rangeLexOrdering().onKeys());
-            ImmutableList.a aVar = new ImmutableList.a(this.f30822a.size());
-            ImmutableList.a aVar2 = new ImmutableList.a(this.f30822a.size());
-            for (int i = 0; i < this.f30822a.size(); i++) {
-                Range<K> key = this.f30822a.get(i).getKey();
+            Collections.sort(this.f30917a, Range.rangeLexOrdering().onKeys());
+            ImmutableList.a aVar = new ImmutableList.a(this.f30917a.size());
+            ImmutableList.a aVar2 = new ImmutableList.a(this.f30917a.size());
+            for (int i = 0; i < this.f30917a.size(); i++) {
+                Range<K> key = this.f30917a.get(i).getKey();
                 if (i > 0) {
-                    Range<K> key2 = this.f30822a.get(i - 1).getKey();
+                    Range<K> key2 = this.f30917a.get(i - 1).getKey();
                     if (key.isConnected(key2) && !key.intersection(key2).isEmpty()) {
                         throw new IllegalArgumentException("Overlapping ranges: range " + key2 + " overlaps with entry " + key);
                     }
                 }
                 aVar.h(key);
-                aVar2.h(this.f30822a.get(i).getValue());
+                aVar2.h(this.f30917a.get(i).getValue());
             }
             return new ImmutableRangeMap<>(aVar.j(), aVar2.j());
         }
@@ -73,7 +73,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements o0<K, V>, 
             n.p(range);
             n.p(v);
             n.k(!range.isEmpty(), "Range must not be empty, but was %s", range);
-            this.f30822a.add(Maps.j(range, v));
+            this.f30917a.add(Maps.j(range, v));
             return this;
         }
     }
@@ -191,7 +191,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements o0<K, V>, 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.o0
+    @Override // d.h.c.c.o0
     public ImmutableMap<Range<K>, V> asMapOfRanges() {
         if (this.ranges.isEmpty()) {
             return ImmutableMap.of();
@@ -238,7 +238,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements o0<K, V>, 
                 return super.m35asDescendingMapOfRanges();
             }
 
-            @Override // com.google.common.collect.ImmutableRangeMap, d.g.c.c.o0
+            @Override // com.google.common.collect.ImmutableRangeMap, d.h.c.c.o0
             public /* bridge */ /* synthetic */ Map asMapOfRanges() {
                 return super.asMapOfRanges();
             }

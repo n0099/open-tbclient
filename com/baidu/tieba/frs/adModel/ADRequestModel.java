@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f15808e;
+    public b f15816e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.b.c.c.g.a f15809f;
+    public final d.b.c.c.g.a f15817f;
 
     /* loaded from: classes4.dex */
     public class a extends d.b.c.c.g.a {
@@ -27,11 +27,11 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
             boolean z = responsedMessage instanceof ADSocketResponseMessage;
-            if ((z || (responsedMessage instanceof ADHttpResponseMessage)) && ADRequestModel.this.f15808e != null) {
+            if ((z || (responsedMessage instanceof ADHttpResponseMessage)) && ADRequestModel.this.f15816e != null) {
                 if (z) {
-                    ADRequestModel.this.f15808e.b((ADSocketResponseMessage) responsedMessage);
+                    ADRequestModel.this.f15816e.b((ADSocketResponseMessage) responsedMessage);
                 } else if (responsedMessage instanceof ADHttpResponseMessage) {
-                    ADRequestModel.this.f15808e.a((ADHttpResponseMessage) responsedMessage);
+                    ADRequestModel.this.f15816e.a((ADHttpResponseMessage) responsedMessage);
                 }
             }
         }
@@ -46,10 +46,10 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
 
     public ADRequestModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.f15809f = new a(CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, 309611);
-        d.b.i0.d3.d0.a.h(309611, ADSocketResponseMessage.class, false, false);
-        d.b.i0.d3.d0.a.c(309611, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, "c/f/frs/getadlist", ADHttpResponseMessage.class, false, false, true, false);
-        registerListener(this.f15809f);
+        this.f15817f = new a(CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, 309611);
+        d.b.j0.d3.d0.a.h(309611, ADSocketResponseMessage.class, false, false);
+        d.b.j0.d3.d0.a.c(309611, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, "c/f/frs/getadlist", ADHttpResponseMessage.class, false, false, true, false);
+        registerListener(this.f15817f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -63,7 +63,7 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.f15809f);
+        MessageManager.getInstance().unRegisterListener(this.f15817f);
     }
 
     public void t(long j, int i, int i2) {
@@ -76,6 +76,6 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void u(b bVar) {
-        this.f15808e = bVar;
+        this.f15816e = bVar;
     }
 }

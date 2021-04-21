@@ -12,44 +12,44 @@ import java.io.File;
 public final class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final File f35969a = new File("/proc/self/fd");
+    public static final File f36064a = new File("/proc/self/fd");
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile p f35970d;
+    public static volatile p f36065d;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile int f35971b;
+    public volatile int f36066b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f35972c = true;
+    public volatile boolean f36067c = true;
 
     public static p a() {
-        if (f35970d == null) {
+        if (f36065d == null) {
             synchronized (p.class) {
-                if (f35970d == null) {
-                    f35970d = new p();
+                if (f36065d == null) {
+                    f36065d = new p();
                 }
             }
         }
-        return f35970d;
+        return f36065d;
     }
 
     private synchronized boolean b() {
         boolean z = true;
-        int i = this.f35971b + 1;
-        this.f35971b = i;
+        int i = this.f36066b + 1;
+        this.f36066b = i;
         if (i >= 50) {
-            this.f35971b = 0;
-            int length = f35969a.list().length;
+            this.f36066b = 0;
+            int length = f36064a.list().length;
             if (length >= 700) {
                 z = false;
             }
-            this.f35972c = z;
-            if (!this.f35972c && Log.isLoggable(Downsampler.TAG, 5)) {
+            this.f36067c = z;
+            if (!this.f36067c && Log.isLoggable(Downsampler.TAG, 5)) {
                 Log.w(Downsampler.TAG, "Excluding HARDWARE bitmap config because we're over the file descriptor limit, file descriptors " + length + ", limit 700");
             }
         }
-        return this.f35972c;
+        return this.f36067c;
     }
 
     @TargetApi(26)

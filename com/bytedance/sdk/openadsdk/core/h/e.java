@@ -3,14 +3,14 @@ package com.bytedance.sdk.openadsdk.core.h;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f28095a;
+    public String f28103a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f28096b;
+    public String f28104b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f28097c;
+    public String f28105c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f28098d = 3600000;
+    public int f28106d = 3600000;
 }

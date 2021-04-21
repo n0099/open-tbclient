@@ -9,23 +9,23 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24227a;
+    public String f24235a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.baidu.wallet.home.ui.a.a f24228b;
+    public com.baidu.wallet.home.ui.a.a f24236b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f24229c = false;
+    public boolean f24237c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public HomeCfgResponse.TitleConfig f24230d;
+    public HomeCfgResponse.TitleConfig f24238d;
 
     public a(com.baidu.wallet.home.ui.a.a aVar) {
-        this.f24228b = aVar;
+        this.f24236b = aVar;
     }
 
     private void b(Context context, HomeCfgResponse.TitleItemData titleItemData) {
-        com.baidu.wallet.home.ui.a.a aVar = this.f24228b;
+        com.baidu.wallet.home.ui.a.a aVar = this.f24236b;
         if (aVar != null) {
             aVar.refreshRightZoneDot(a(context, titleItemData));
         }
@@ -33,31 +33,31 @@ public class a {
 
     public void a(Context context, String str, HomeCfgResponse.TitleConfig titleConfig, String str2) {
         HomeCfgResponse.TitleItem[] titleItemArr;
-        this.f24227a = str2;
-        com.baidu.wallet.home.ui.a.a aVar = this.f24228b;
+        this.f24235a = str2;
+        com.baidu.wallet.home.ui.a.a aVar = this.f24236b;
         if (aVar == null) {
             return;
         }
         if (titleConfig != null && (titleItemArr = titleConfig.data) != null && titleItemArr.length > 0) {
             aVar.refreshRightZoneDot(false);
-            this.f24230d = titleConfig;
+            this.f24238d = titleConfig;
             if (!TextUtils.isEmpty(titleConfig.data[0].titlebar)) {
-                this.f24228b.refreshTitle(titleConfig.data[0].titlebar);
+                this.f24236b.refreshTitle(titleConfig.data[0].titlebar);
             }
-            this.f24228b.refreshSafeTip(titleConfig.data[0].safe_title);
+            this.f24236b.refreshSafeTip(titleConfig.data[0].safe_title);
             HomeCfgResponse.TitleItem[] titleItemArr2 = titleConfig.data;
             if (titleItemArr2[0].list != null && titleItemArr2[0].list.length >= 1) {
                 if (titleItemArr2[0].list.length > 1) {
-                    this.f24229c = true;
-                    this.f24228b.refreshRightZone(ResUtils.drawable(context, "wallet_base_actionbar_more"));
-                    this.f24228b.refreshMenu(str, titleConfig.data[0].list, this.f24227a);
+                    this.f24237c = true;
+                    this.f24236b.refreshRightZone(ResUtils.drawable(context, "wallet_base_actionbar_more"));
+                    this.f24236b.refreshMenu(str, titleConfig.data[0].list, this.f24235a);
                     return;
                 } else if (titleItemArr2[0].list.length == 1) {
                     HomeCfgResponse.TitleItemData titleItemData = titleItemArr2[0].list[0];
                     if (titleItemData != null && !TextUtils.isEmpty(titleItemData.setting_addr) && !TextUtils.isEmpty(titleItemData.setting_type)) {
-                        this.f24228b.refreshRightZone(ResUtils.drawable(context, a(this.f24227a)));
+                        this.f24236b.refreshRightZone(ResUtils.drawable(context, a(this.f24235a)));
                         b(context, titleItemData);
-                        this.f24229c = false;
+                        this.f24237c = false;
                         String str3 = titleConfig.data[0].list[0].setting_icon;
                         if (TextUtils.isEmpty(str3)) {
                             return;
@@ -65,40 +65,40 @@ public class a {
                         if (TextUtils.isEmpty(str)) {
                             str = "";
                         }
-                        this.f24228b.refreshRightZone(str + str3);
+                        this.f24236b.refreshRightZone(str + str3);
                         return;
                     }
-                    this.f24228b.hideRightZone();
+                    this.f24236b.hideRightZone();
                     return;
                 } else {
                     return;
                 }
             }
-            this.f24228b.hideRightZone();
+            this.f24236b.hideRightZone();
             return;
         }
-        this.f24228b.hideRightZone();
+        this.f24236b.hideRightZone();
     }
 
     public void a(Context context) {
-        if (this.f24229c) {
-            com.baidu.wallet.home.ui.a.a aVar = this.f24228b;
+        if (this.f24237c) {
+            com.baidu.wallet.home.ui.a.a aVar = this.f24236b;
             if (aVar != null) {
                 aVar.showMenu();
             }
-        } else if (this.f24230d.checkTitleConfig()) {
-            HomeCfgResponse.TitleItem[] titleItemArr = this.f24230d.data;
+        } else if (this.f24238d.checkTitleConfig()) {
+            HomeCfgResponse.TitleItem[] titleItemArr = this.f24238d.data;
             if (titleItemArr[0].list == null || titleItemArr[0].list.length <= 0 || titleItemArr[0].list[0] == null || TextUtils.isEmpty(titleItemArr[0].list[0].setting_addr)) {
                 return;
             }
-            HomeCfgResponse.TitleItemData titleItemData = this.f24230d.data[0].list[0];
+            HomeCfgResponse.TitleItemData titleItemData = this.f24238d.data[0].list[0];
             if (a(context, titleItemData)) {
                 if (!TextUtils.isEmpty(titleItemData.getLinkAddr())) {
                     com.baidu.wallet.home.storage.a.a(context, titleItemData.getLinkAddr(), TextUtils.isEmpty(titleItemData.getTimeStamp()) ? "0" : titleItemData.getTimeStamp());
                 }
                 b(context, titleItemData);
             }
-            com.baidu.wallet.home.a.a().a(context, titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr, false, this.f24227a);
+            com.baidu.wallet.home.a.a().a(context, titleItemData.setting_name, titleItemData.setting_type, titleItemData.setting_addr, false, this.f24235a);
         }
     }
 

@@ -15,13 +15,13 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f34329a = false;
+    public static boolean f34424a = false;
 
     public static void a() {
-        if (f34329a) {
+        if (f34424a) {
             return;
         }
-        f34329a = true;
+        f34424a = true;
         g.a(new a(8L));
     }
 
@@ -94,7 +94,7 @@ public class e {
 
     public static void a(@NonNull AdTemplate adTemplate, long j) {
         a aVar = new a(2L, adTemplate);
-        aVar.f34288f = j;
+        aVar.f34383f = j;
         aVar.b();
         g.a(aVar);
     }
@@ -103,13 +103,13 @@ public class e {
         a aVar = new a(18L, adTemplate);
         com.kwad.sdk.core.d.a.a("BatchReportManager", "stayDuration=" + j2 + " seenCount=" + j);
         aVar.z = j;
-        aVar.f34289g = j2;
+        aVar.f34384g = j2;
         g.a(aVar);
     }
 
     public static void a(@NonNull AdTemplate adTemplate, long j, long j2, int i) {
         a aVar = new a(10203L, adTemplate);
-        aVar.f34287e = j;
+        aVar.f34382e = j;
         aVar.i = j2;
         aVar.j = i;
         g.a(aVar);
@@ -143,37 +143,37 @@ public class e {
 
     public static void a(@NonNull com.kwad.sdk.core.response.model.a aVar) {
         a aVar2 = new a(19L);
-        aVar2.w = aVar.f34358e;
+        aVar2.w = aVar.f34453e;
         List<AdTemplate> list = aVar.k;
         if (list != null && list.size() > 0) {
-            aVar2.f34284b = aVar.k.get(0).mAdScene;
+            aVar2.f34379b = aVar.k.get(0).mAdScene;
         }
         g.a(aVar2);
     }
 
     public static void a(@NonNull SceneImpl sceneImpl) {
         a aVar = new a(43L);
-        aVar.f34284b = sceneImpl;
+        aVar.f34379b = sceneImpl;
         g.a(aVar);
     }
 
     public static void a(@NonNull SceneImpl sceneImpl, int i) {
         a aVar = new a(46L);
-        aVar.f34284b = sceneImpl;
+        aVar.f34379b = sceneImpl;
         aVar.F = i;
         g.a(aVar);
     }
 
     public static void a(@NonNull SceneImpl sceneImpl, long j) {
         a aVar = new a(28L);
-        aVar.f34284b = sceneImpl;
-        aVar.f34290h = j;
+        aVar.f34379b = sceneImpl;
+        aVar.f34385h = j;
         g.a(aVar);
     }
 
     public static void a(@NonNull SceneImpl sceneImpl, long j, String str) {
         a aVar = new a(41L);
-        aVar.f34284b = sceneImpl;
+        aVar.f34379b = sceneImpl;
         aVar.C = j;
         aVar.D = str;
         g.a(aVar);
@@ -182,18 +182,18 @@ public class e {
     public static void a(SceneImpl sceneImpl, @NonNull AdTemplate adTemplate, long j) {
         a aVar = new a(5L, adTemplate);
         aVar.b();
-        aVar.f34284b = sceneImpl;
-        aVar.f34286d = j;
+        aVar.f34379b = sceneImpl;
+        aVar.f34381d = j;
         g.a(aVar);
     }
 
     public static void a(SceneImpl sceneImpl, @NonNull AdTemplate adTemplate, long j, int i, long j2, long j3, int i2) {
         a aVar = new a(4L, adTemplate);
         aVar.b();
-        aVar.f34284b = sceneImpl;
-        aVar.f34287e = j;
+        aVar.f34379b = sceneImpl;
+        aVar.f34382e = j;
         aVar.p = i;
-        aVar.f34289g = j2;
+        aVar.f34384g = j2;
         aVar.i = j3;
         aVar.j = i2;
         g.c(aVar);
@@ -201,7 +201,7 @@ public class e {
 
     public static void a(@NonNull SceneImpl sceneImpl, String str) {
         a aVar = new a(36L);
-        aVar.f34284b = sceneImpl;
+        aVar.f34379b = sceneImpl;
         aVar.B = str;
         g.a(aVar);
     }
@@ -290,7 +290,7 @@ public class e {
 
     public static void b(AdTemplate adTemplate, int i, String str) {
         a aVar = new a(10109L);
-        aVar.f34283a = adTemplate;
+        aVar.f34378a = adTemplate;
         aVar.Q = i;
         aVar.S = str;
         g.a(aVar);
@@ -322,20 +322,20 @@ public class e {
     public static void b(@NonNull SceneImpl sceneImpl) {
         com.kwad.sdk.core.scene.a.a().a(sceneImpl);
         a aVar = new a(27L);
-        aVar.f34284b = sceneImpl;
+        aVar.f34379b = sceneImpl;
         g.a(aVar);
     }
 
     public static void b(@NonNull SceneImpl sceneImpl, int i) {
         a aVar = new a(52L);
-        aVar.f34284b = sceneImpl;
+        aVar.f34379b = sceneImpl;
         aVar.M = i;
         g.a(aVar);
     }
 
     public static void b(@NonNull SceneImpl sceneImpl, long j, String str) {
         a aVar = new a(42L);
-        aVar.f34284b = sceneImpl;
+        aVar.f34379b = sceneImpl;
         aVar.C = j;
         aVar.D = str;
         g.a(aVar);
@@ -384,13 +384,13 @@ public class e {
     public static void c(@NonNull SceneImpl sceneImpl) {
         com.kwad.sdk.core.scene.a.a().a(sceneImpl);
         a aVar = new a(29L);
-        aVar.f34284b = sceneImpl;
+        aVar.f34379b = sceneImpl;
         g.a(aVar);
     }
 
     public static void c(@NonNull SceneImpl sceneImpl, long j, String str) {
         a aVar = new a(44L);
-        aVar.f34284b = sceneImpl;
+        aVar.f34379b = sceneImpl;
         aVar.C = j;
         aVar.D = str;
         g.a(aVar);
@@ -403,7 +403,7 @@ public class e {
     public static void d(AdTemplate adTemplate, int i) {
         a aVar = new a(10108L);
         aVar.Q = i;
-        aVar.f34283a = adTemplate;
+        aVar.f34378a = adTemplate;
         g.a(aVar);
     }
 
@@ -422,13 +422,13 @@ public class e {
 
     public static void d(@NonNull SceneImpl sceneImpl) {
         a aVar = new a(35L);
-        aVar.f34284b = sceneImpl;
+        aVar.f34379b = sceneImpl;
         g.a(aVar);
     }
 
     public static void d(@NonNull SceneImpl sceneImpl, long j, String str) {
         a aVar = new a(45L);
-        aVar.f34284b = sceneImpl;
+        aVar.f34379b = sceneImpl;
         aVar.C = j;
         aVar.D = str;
         g.a(aVar);
@@ -455,7 +455,7 @@ public class e {
 
     public static void e(@NonNull SceneImpl sceneImpl) {
         a aVar = new a(37L);
-        aVar.f34284b = sceneImpl;
+        aVar.f34379b = sceneImpl;
         g.a(aVar);
     }
 
@@ -472,7 +472,7 @@ public class e {
 
     public static void f(@NonNull SceneImpl sceneImpl) {
         a aVar = new a(38L);
-        aVar.f34284b = sceneImpl;
+        aVar.f34379b = sceneImpl;
         g.a(aVar);
     }
 

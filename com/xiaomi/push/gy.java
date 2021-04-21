@@ -6,10 +6,10 @@ import com.xiaomi.push.service.bi;
 public class gy extends bi.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ gx f40908a;
+    public final /* synthetic */ gx f41003a;
 
     public gy(gx gxVar) {
-        this.f40908a = gxVar;
+        this.f41003a = gxVar;
     }
 
     @Override // com.xiaomi.push.service.bi.a

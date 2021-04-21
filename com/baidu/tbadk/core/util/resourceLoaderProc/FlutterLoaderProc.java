@@ -97,7 +97,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f42345a = diskCancelWorker;
+            bVar.f42585a = diskCancelWorker;
         }
     }
 
@@ -119,7 +119,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(createDiskPicOperate);
-            bVar.f42345a = diskCancelWorker;
+            bVar.f42585a = diskCancelWorker;
         }
         boolean H = j.H();
         if (d.g().a(createDiskPicOperate)) {
@@ -187,7 +187,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                 z = true;
                 webClient = new WebClient();
                 if (bVar != null) {
-                    bVar.f42345a = webClient;
+                    bVar.f42585a = webClient;
                 }
                 downloadImageBytes = webClient.downloadImageBytes(urlbyClientServerAddr, !isFromCDN);
                 boolean needCache = webClient.needCache();
@@ -231,13 +231,13 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                     z2 = needCache;
                     webClient2 = webClient;
                     i3 = 1;
-                    if (!webClient2.getResponse().f42294a) {
+                    if (!webClient2.getResponse().f42534a) {
                         ImageLogger.imagePerfNetLog(str, false, urlbyClientServerAddr, Boolean.valueOf(z), webClient2.mStat, "NetworkError", System.currentTimeMillis() - currentTimeMillis, webClient2.isMobileProxy(), getProcType());
                         return null;
                     }
                 }
                 if (downloadImageBytes != null) {
-                    if (!webClient2.getResponse().f42294a) {
+                    if (!webClient2.getResponse().f42534a) {
                         ImageLogger.imagePerfNetLog(str, false, urlbyClientServerAddr, Boolean.valueOf(z), webClient2.mStat, "ByteIsNull", System.currentTimeMillis() - currentTimeMillis, webClient2.isMobileProxy(), getProcType());
                     }
                     return null;
@@ -255,7 +255,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                     c2 = 1;
                     ImageLogger.imagePerfNetLog(str, false, urlbyClientServerAddr, Boolean.valueOf(z), webClient2.mStat, "bytes<1", currentTimeMillis2, webClient2.isMobileProxy(), getProcType());
                 }
-                d.b.h0.a0.c.k().i(TbConfig.getPbImageSize() + bArr.length);
+                d.b.i0.a0.c.k().i(TbConfig.getPbImageSize() + bArr.length);
                 boolean z7 = webClient2.isGif || l.A(bArr);
                 a aVar3 = new a((Bitmap) null, z7, str, bArr);
                 boolean z8 = z3;

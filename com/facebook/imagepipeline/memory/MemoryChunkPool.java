@@ -6,7 +6,7 @@ import com.facebook.common.memory.MemoryTrimmableRegistry;
 import com.facebook.imagepipeline.memory.BasePool;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class MemoryChunkPool extends BasePool<MemoryChunk> {
     public final int[] mBucketSizes;
 

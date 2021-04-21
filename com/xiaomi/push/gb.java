@@ -6,40 +6,40 @@ import android.text.TextUtils;
 public class gb extends gc {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f40837a;
+    public boolean f40932a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40838b;
+    public String f40933b;
 
     /* renamed from: b  reason: collision with other field name */
     public boolean f422b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f40839c;
+    public String f40934c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40840d;
+    public String f40935d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f40841e;
+    public String f40936e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f40842f;
+    public String f40937f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f40843g;
+    public String f40938g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f40844h;
+    public String f40939h;
     public String i;
     public String j;
     public String k;
     public String l;
 
     public gb() {
-        this.f40838b = null;
-        this.f40839c = null;
-        this.f40837a = false;
+        this.f40933b = null;
+        this.f40934c = null;
+        this.f40932a = false;
         this.i = "";
         this.j = "";
         this.k = "";
@@ -49,22 +49,22 @@ public class gb extends gc {
 
     public gb(Bundle bundle) {
         super(bundle);
-        this.f40838b = null;
-        this.f40839c = null;
-        this.f40837a = false;
+        this.f40933b = null;
+        this.f40934c = null;
+        this.f40932a = false;
         this.i = "";
         this.j = "";
         this.k = "";
         this.l = "";
         this.f422b = false;
-        this.f40838b = bundle.getString("ext_msg_type");
-        this.f40840d = bundle.getString("ext_msg_lang");
-        this.f40839c = bundle.getString("ext_msg_thread");
-        this.f40841e = bundle.getString("ext_msg_sub");
-        this.f40842f = bundle.getString("ext_msg_body");
-        this.f40843g = bundle.getString("ext_body_encode");
-        this.f40844h = bundle.getString("ext_msg_appid");
-        this.f40837a = bundle.getBoolean("ext_msg_trans", false);
+        this.f40933b = bundle.getString("ext_msg_type");
+        this.f40935d = bundle.getString("ext_msg_lang");
+        this.f40934c = bundle.getString("ext_msg_thread");
+        this.f40936e = bundle.getString("ext_msg_sub");
+        this.f40937f = bundle.getString("ext_msg_body");
+        this.f40938g = bundle.getString("ext_body_encode");
+        this.f40939h = bundle.getString("ext_msg_appid");
+        this.f40932a = bundle.getBoolean("ext_msg_trans", false);
         this.f422b = bundle.getBoolean("ext_msg_encrypt", false);
         this.i = bundle.getString("ext_msg_seq");
         this.j = bundle.getString("ext_msg_mseq");
@@ -75,33 +75,33 @@ public class gb extends gc {
     @Override // com.xiaomi.push.gc
     public Bundle a() {
         Bundle a2 = super.a();
-        if (!TextUtils.isEmpty(this.f40838b)) {
-            a2.putString("ext_msg_type", this.f40838b);
+        if (!TextUtils.isEmpty(this.f40933b)) {
+            a2.putString("ext_msg_type", this.f40933b);
         }
-        String str = this.f40840d;
+        String str = this.f40935d;
         if (str != null) {
             a2.putString("ext_msg_lang", str);
         }
-        String str2 = this.f40841e;
+        String str2 = this.f40936e;
         if (str2 != null) {
             a2.putString("ext_msg_sub", str2);
         }
-        String str3 = this.f40842f;
+        String str3 = this.f40937f;
         if (str3 != null) {
             a2.putString("ext_msg_body", str3);
         }
-        if (!TextUtils.isEmpty(this.f40843g)) {
-            a2.putString("ext_body_encode", this.f40843g);
+        if (!TextUtils.isEmpty(this.f40938g)) {
+            a2.putString("ext_body_encode", this.f40938g);
         }
-        String str4 = this.f40839c;
+        String str4 = this.f40934c;
         if (str4 != null) {
             a2.putString("ext_msg_thread", str4);
         }
-        String str5 = this.f40844h;
+        String str5 = this.f40939h;
         if (str5 != null) {
             a2.putString("ext_msg_appid", str5);
         }
-        if (this.f40837a) {
+        if (this.f40932a) {
             a2.putBoolean("ext_msg_trans", true);
         }
         if (!TextUtils.isEmpty(this.i)) {
@@ -132,7 +132,7 @@ public class gb extends gc {
             sb.append(p());
             sb.append("\"");
         }
-        if (this.f40840d != null) {
+        if (this.f40935d != null) {
             sb.append(" xml:lang=\"");
             sb.append(h());
             sb.append("\"");
@@ -177,45 +177,45 @@ public class gb extends gc {
             sb.append(gn.a(k()));
             sb.append("\"");
         }
-        if (this.f40837a) {
+        if (this.f40932a) {
             sb.append(" transient=\"true\"");
         }
-        if (!TextUtils.isEmpty(this.f40844h)) {
+        if (!TextUtils.isEmpty(this.f40939h)) {
             sb.append(" appid=\"");
             sb.append(c());
             sb.append("\"");
         }
-        if (!TextUtils.isEmpty(this.f40838b)) {
+        if (!TextUtils.isEmpty(this.f40933b)) {
             sb.append(" type=\"");
-            sb.append(this.f40838b);
+            sb.append(this.f40933b);
             sb.append("\"");
         }
         if (this.f422b) {
             sb.append(" s=\"1\"");
         }
         sb.append(">");
-        if (this.f40841e != null) {
+        if (this.f40936e != null) {
             sb.append("<subject>");
-            sb.append(gn.a(this.f40841e));
+            sb.append(gn.a(this.f40936e));
             sb.append("</subject>");
         }
-        if (this.f40842f != null) {
+        if (this.f40937f != null) {
             sb.append("<body");
-            if (!TextUtils.isEmpty(this.f40843g)) {
+            if (!TextUtils.isEmpty(this.f40938g)) {
                 sb.append(" encode=\"");
-                sb.append(this.f40843g);
+                sb.append(this.f40938g);
                 sb.append("\"");
             }
             sb.append(">");
-            sb.append(gn.a(this.f40842f));
+            sb.append(gn.a(this.f40937f));
             sb.append("</body>");
         }
-        if (this.f40839c != null) {
+        if (this.f40934c != null) {
             sb.append("<thread>");
-            sb.append(this.f40839c);
+            sb.append(this.f40934c);
             sb.append("</thread>");
         }
-        if ("error".equalsIgnoreCase(this.f40838b) && (m328a = m328a()) != null) {
+        if ("error".equalsIgnoreCase(this.f40933b) && (m328a = m328a()) != null) {
             sb.append(m328a.m332a());
         }
         sb.append(o());
@@ -225,22 +225,22 @@ public class gb extends gc {
 
     @Override // com.xiaomi.push.gc
     public void a(String str) {
-        this.f40844h = str;
+        this.f40939h = str;
     }
 
     @Override // com.xiaomi.push.gc
     public void a(String str, String str2) {
-        this.f40842f = str;
-        this.f40843g = str2;
+        this.f40937f = str;
+        this.f40938g = str2;
     }
 
     public void a(boolean z) {
-        this.f40837a = z;
+        this.f40932a = z;
     }
 
     @Override // com.xiaomi.push.gc
     public String b() {
-        return this.f40838b;
+        return this.f40933b;
     }
 
     public void b(String str) {
@@ -252,7 +252,7 @@ public class gb extends gc {
     }
 
     public String c() {
-        return this.f40844h;
+        return this.f40939h;
     }
 
     public void c(String str) {
@@ -285,15 +285,15 @@ public class gb extends gc {
         }
         gb gbVar = (gb) obj;
         if (super.equals(gbVar)) {
-            String str = this.f40842f;
-            if (str == null ? gbVar.f40842f == null : str.equals(gbVar.f40842f)) {
-                String str2 = this.f40840d;
-                if (str2 == null ? gbVar.f40840d == null : str2.equals(gbVar.f40840d)) {
-                    String str3 = this.f40841e;
-                    if (str3 == null ? gbVar.f40841e == null : str3.equals(gbVar.f40841e)) {
-                        String str4 = this.f40839c;
-                        if (str4 == null ? gbVar.f40839c == null : str4.equals(gbVar.f40839c)) {
-                            return this.f40838b == gbVar.f40838b;
+            String str = this.f40937f;
+            if (str == null ? gbVar.f40937f == null : str.equals(gbVar.f40937f)) {
+                String str2 = this.f40935d;
+                if (str2 == null ? gbVar.f40935d == null : str2.equals(gbVar.f40935d)) {
+                    String str3 = this.f40936e;
+                    if (str3 == null ? gbVar.f40936e == null : str3.equals(gbVar.f40936e)) {
+                        String str4 = this.f40934c;
+                        if (str4 == null ? gbVar.f40934c == null : str4.equals(gbVar.f40934c)) {
+                            return this.f40933b == gbVar.f40933b;
                         }
                         return false;
                     }
@@ -311,7 +311,7 @@ public class gb extends gc {
     }
 
     public void f(String str) {
-        this.f40838b = str;
+        this.f40933b = str;
     }
 
     public String g() {
@@ -319,36 +319,36 @@ public class gb extends gc {
     }
 
     public void g(String str) {
-        this.f40841e = str;
+        this.f40936e = str;
     }
 
     public String h() {
-        return this.f40840d;
+        return this.f40935d;
     }
 
     public void h(String str) {
-        this.f40842f = str;
+        this.f40937f = str;
     }
 
     @Override // com.xiaomi.push.gc
     public int hashCode() {
-        String str = this.f40838b;
+        String str = this.f40933b;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
-        String str2 = this.f40842f;
+        String str2 = this.f40937f;
         int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-        String str3 = this.f40839c;
+        String str3 = this.f40934c;
         int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
-        String str4 = this.f40840d;
+        String str4 = this.f40935d;
         int hashCode4 = (hashCode3 + (str4 != null ? str4.hashCode() : 0)) * 31;
-        String str5 = this.f40841e;
+        String str5 = this.f40936e;
         return hashCode4 + (str5 != null ? str5.hashCode() : 0);
     }
 
     public void i(String str) {
-        this.f40839c = str;
+        this.f40934c = str;
     }
 
     public void j(String str) {
-        this.f40840d = str;
+        this.f40935d = str;
     }
 }

@@ -19,21 +19,21 @@ import java.util.List;
 public class ContextMenuView extends BdContextMenuView {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23445a = "LightappContextMenuView";
+    public static final String f23453a = "LightappContextMenuView";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final float f23446b = 0.5f;
+    public static final float f23454b = 0.5f;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final float f23447c = 1.0f;
+    public static final float f23455c = 1.0f;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f23448d;
+    public int f23456d;
 
     @SuppressLint({"NewApi"})
     public ContextMenuView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f23448d = 0;
+        this.f23456d = 0;
     }
 
     private View a(final BdMenuItem bdMenuItem) {
@@ -65,7 +65,7 @@ public class ContextMenuView extends BdContextMenuView {
     }
 
     public int getMaxMenuItemWidth() {
-        return this.f23448d;
+        return this.f23456d;
     }
 
     @Override // com.baidu.wallet.base.widget.BdContextMenuView
@@ -98,9 +98,9 @@ public class ContextMenuView extends BdContextMenuView {
         for (int i = 0; i < size; i++) {
             View a2 = a(list.get(i));
             a2.measure(0, 0);
-            if (this.f23448d < a2.getMeasuredWidth()) {
+            if (this.f23456d < a2.getMeasuredWidth()) {
                 int measuredWidth = a2.getMeasuredWidth();
-                this.f23448d = measuredWidth;
+                this.f23456d = measuredWidth;
                 a2.setMinimumWidth(measuredWidth);
             }
             if (size == 1) {
@@ -125,11 +125,11 @@ public class ContextMenuView extends BdContextMenuView {
 
     public ContextMenuView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f23448d = 0;
+        this.f23456d = 0;
     }
 
     public ContextMenuView(Context context) {
         super(context);
-        this.f23448d = 0;
+        this.f23456d = 0;
     }
 }

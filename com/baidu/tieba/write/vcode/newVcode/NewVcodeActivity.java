@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import d.b.h0.s.c.h0;
-import d.b.i0.v3.t.a.a.a;
-import d.b.i0.v3.t.a.a.b;
-import d.b.i0.v3.t.a.a.c;
+import d.b.i0.s.c.h0;
+import d.b.j0.v3.t.a.a.a;
+import d.b.j0.v3.t.a.a.b;
+import d.b.j0.v3.t.a.a.c;
 /* loaded from: classes5.dex */
 public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     public boolean mNeedFeedBackButton;
@@ -76,7 +76,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     private void gotoMainTab() {
         WriteData writeData = this.mWriteData;
         if (writeData != null && writeData.getType() == 3) {
-            d.b.h0.r.a0.b.g(getPageContext().getPageActivity(), 200, false);
+            d.b.i0.r.a0.b.g(getPageContext().getPageActivity(), 200, false);
         }
     }
 

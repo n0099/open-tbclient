@@ -36,23 +36,23 @@ import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
 import com.baidu.tieba.video.editvideo.view.MaskVideoView;
 import com.google.protobuf.CodedInputStream;
 import d.b.c.e.p.j;
-import d.b.i0.t1.g;
-import d.b.i0.t1.k;
+import d.b.j0.t1.g;
+import d.b.j0.t1.k;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.b.i0.q3.j.b, MaskVideoView.f {
+public class EditVideoActivity extends BaseActivity implements d.b.j0.q3.j.a, d.b.j0.q3.j.b, MaskVideoView.f {
     public boolean isCancel;
     public boolean isSend;
     public List<VideoTitleData> mAllVideoTitleDatas;
     public String mCallFrom;
     public SelectCoverModel mCoverModel;
     public String mCoverPath;
-    public d.b.i0.q3.j.h.a mEditVideoView;
+    public d.b.j0.q3.j.h.a mEditVideoView;
     public String mFid;
-    public d.b.i0.q3.j.d.a mFilterEffectManager;
+    public d.b.j0.q3.j.d.a mFilterEffectManager;
     public int mForumLevel;
     public String mForumName;
     public String mFrom;
@@ -63,14 +63,14 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
     public g mPostMonitorManager;
     public CustomMessageListener mPostSuccessListener;
     public int mProZone;
-    public d.b.h0.r.f0.a mProgressDialog;
+    public d.b.i0.r.f0.a mProgressDialog;
     public VideoInfo mVideoInfo;
     public String mVideoPath;
     public String mVideoTitle;
     public VideoTitleData mVideoTitleData;
-    public d.b.i0.q3.j.h.b saveEditVideoController;
+    public d.b.j0.q3.j.h.b saveEditVideoController;
     public int statisticFrom;
-    public d.b.i0.q3.b thisPageCallback;
+    public d.b.j0.q3.b thisPageCallback;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -92,35 +92,35 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
     }
 
     /* loaded from: classes5.dex */
-    public class b extends d.b.i0.q3.b {
+    public class b extends d.b.j0.q3.b {
         public b(BaseActivity baseActivity, String str, String str2) {
             super(baseActivity, str, str2);
         }
 
-        @Override // d.b.i0.q3.b
+        @Override // d.b.j0.q3.b
         public void c() {
             super.c();
             EditVideoActivity.this.hideProgress();
         }
 
-        @Override // d.b.i0.q3.b
+        @Override // d.b.j0.q3.b
         public void d(int i, String str) {
             super.d(i, str);
             EditVideoActivity.this.hideProgress();
         }
 
-        @Override // d.b.i0.q3.b
+        @Override // d.b.j0.q3.b
         public void e() {
         }
 
-        @Override // d.b.i0.q3.b
+        @Override // d.b.j0.q3.b
         public void f(VideoInfo videoInfo) {
             super.f(videoInfo);
             if (EditVideoActivity.this.isSend) {
                 return;
             }
             File file = new File(videoInfo.getVideoPath());
-            String str = d.b.i0.q3.c.f60559d + file.getName();
+            String str = d.b.j0.q3.c.f60980d + file.getName();
             if (!str.equals(file.getAbsolutePath())) {
                 FileHelper.copyFile(file.getAbsolutePath(), str);
             }
@@ -128,13 +128,13 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
             EditVideoActivity.this.finishPage();
         }
 
-        @Override // d.b.i0.q3.b
+        @Override // d.b.j0.q3.b
         public void g(int i, String str) {
             super.g(i, str);
             EditVideoActivity.this.hideProgress();
         }
 
-        @Override // d.b.i0.q3.b
+        @Override // d.b.j0.q3.b
         public void h() {
             EditVideoActivity.this.mEditVideoView.P();
             EditVideoActivity.this.mEditVideoView.Q();
@@ -168,7 +168,7 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
     }
 
     private void cancelProgress() {
-        d.b.i0.q3.j.h.b bVar = this.saveEditVideoController;
+        d.b.j0.q3.j.h.b bVar = this.saveEditVideoController;
         if (bVar != null) {
             bVar.cancel();
         }
@@ -178,7 +178,7 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
     }
 
     private void handleGenMaskCoverFinish(Bitmap bitmap) {
-        d.b.i0.q3.j.h.a aVar = this.mEditVideoView;
+        d.b.j0.q3.j.h.a aVar = this.mEditVideoView;
         if (aVar != null && this.mCoverModel != null) {
             if (this.isCancel) {
                 this.isCancel = false;
@@ -188,7 +188,7 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
                 bitmap = this.mEditVideoView.r(bitmap);
             }
             if (bitmap != null) {
-                this.mCoverModel.w(bitmap, d.b.i0.q3.c.f60557b);
+                this.mCoverModel.w(bitmap, d.b.j0.q3.c.f60978b);
                 return;
             }
             return;
@@ -199,7 +199,7 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideProgress() {
-        d.b.h0.r.f0.a aVar = this.mProgressDialog;
+        d.b.i0.r.f0.a aVar = this.mProgressDialog;
         if (aVar != null) {
             aVar.h(false);
         }
@@ -225,14 +225,14 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
     }
 
     private void setSelectedMusicAndFilter() {
-        d.b.i0.q3.j.h.a aVar;
+        d.b.j0.q3.j.h.a aVar;
         VideoInfo videoInfo = this.mVideoInfo;
         if (videoInfo == null || videoInfo.getEditVideoData() == null || (aVar = this.mEditVideoView) == null) {
             return;
         }
-        d.b.i0.q3.j.e.a v = aVar.v(this.mVideoInfo.getEditVideoData().filterName);
+        d.b.j0.q3.j.e.a v = aVar.v(this.mVideoInfo.getEditVideoData().filterName);
         if (v != null) {
-            d.b.i0.q3.j.d.a aVar2 = this.mFilterEffectManager;
+            d.b.j0.q3.j.d.a aVar2 = this.mFilterEffectManager;
             if (aVar2 != null) {
                 aVar2.h(v);
             }
@@ -245,7 +245,7 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
     private void syncCoverData(String str) {
         try {
             new MediaScannerClient(this).saveImage(str);
-            d.b.i0.q3.j.d.c.c(this, str);
+            d.b.j0.q3.j.d.c.c(this, str);
         } catch (Exception unused) {
             hideProgress();
             this.isSend = false;
@@ -256,26 +256,26 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
     public void syncMediaData(String str) {
         try {
             new MediaScannerClient(this).saveVideo(str);
-            d.b.i0.q3.j.d.c.c(this, str);
+            d.b.j0.q3.j.d.c.c(this, str);
         } catch (Exception unused) {
             hideProgress();
             this.isSend = false;
         }
     }
 
-    @Override // d.b.i0.q3.j.a
+    @Override // d.b.j0.q3.j.a
     public void clearFinalVideoPath() {
     }
 
-    @Override // d.b.i0.q3.j.a
+    @Override // d.b.j0.q3.j.a
     public void finishPage() {
         hideProgress();
         this.isSend = false;
-        d.b.i0.q3.j.h.b bVar = this.saveEditVideoController;
+        d.b.j0.q3.j.h.b bVar = this.saveEditVideoController;
         if (bVar != null) {
             bVar.cancel();
         }
-        d.b.i0.q3.j.h.a aVar = this.mEditVideoView;
+        d.b.j0.q3.j.h.a aVar = this.mEditVideoView;
         if (aVar != null && aVar.z() != null) {
             this.mEditVideoView.z().pause();
             this.mEditVideoView.z().r();
@@ -309,7 +309,7 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
             if (TextUtils.isEmpty(stringExtra) || TextUtils.isEmpty(stringExtra2)) {
                 return;
             }
-            String g2 = d.b.i0.q3.j.f.a.h().g(stringExtra);
+            String g2 = d.b.j0.q3.j.f.a.h().g(stringExtra);
             if (this.mEditVideoView == null || TextUtils.isEmpty(g2)) {
                 return;
             }
@@ -319,7 +319,7 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        d.b.i0.q3.j.h.a aVar = this.mEditVideoView;
+        d.b.j0.q3.j.h.a aVar = this.mEditVideoView;
         if (aVar != null) {
             aVar.h0();
         }
@@ -329,13 +329,13 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
     public void onChangeSkinType(int i) {
         getLayoutMode().k(i == 1);
         getLayoutMode().j(this.mEditVideoView.x());
-        d.b.i0.q3.j.h.a aVar = this.mEditVideoView;
+        d.b.j0.q3.j.h.a aVar = this.mEditVideoView;
         if (aVar != null) {
             aVar.K(getPageContext(), i);
         }
     }
 
-    @Override // d.b.i0.q3.j.a
+    @Override // d.b.j0.q3.j.a
     public void onCheckUegFail(String str) {
         if (this.isCancel) {
             this.isCancel = false;
@@ -346,10 +346,10 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
         }
     }
 
-    @Override // d.b.i0.q3.j.a
+    @Override // d.b.j0.q3.j.a
     public void onCheckUegSuccess() {
         SelectCoverModel selectCoverModel;
-        d.b.i0.q3.j.h.a aVar = this.mEditVideoView;
+        d.b.j0.q3.j.h.a aVar = this.mEditVideoView;
         if (aVar != null && (selectCoverModel = this.mCoverModel) != null) {
             if (this.isCancel) {
                 this.isCancel = false;
@@ -389,11 +389,11 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
         if (!TextUtils.isEmpty(this.mVideoPath) && !new File(this.mVideoPath).exists()) {
             finishPage();
         }
-        new File(d.b.i0.q3.c.f60559d).mkdirs();
+        new File(d.b.j0.q3.c.f60980d).mkdirs();
         this.mCoverModel = new SelectCoverModel(getPageContext(), this, this.mPostMonitorManager);
         this.mMusicModel = new SelectMusicModel(getPageContext(), this);
-        this.mFilterEffectManager = new d.b.i0.q3.j.d.a(this);
-        d.b.i0.q3.j.h.a aVar = new d.b.i0.q3.j.h.a(getPageContext(), this, findViewById(R.id.root_layout), this.mPostMonitorManager);
+        this.mFilterEffectManager = new d.b.j0.q3.j.d.a(this);
+        d.b.j0.q3.j.h.a aVar = new d.b.j0.q3.j.h.a(getPageContext(), this, findViewById(R.id.root_layout), this.mPostMonitorManager);
         this.mEditVideoView = aVar;
         aVar.U(this.mVideoPath);
         this.mEditVideoView.c0(getIntent());
@@ -401,7 +401,7 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
         this.mEditVideoView.W(this);
         this.mCoverModel.v();
         this.mMusicModel.t();
-        d.b.h0.r.f0.a aVar2 = new d.b.h0.r.f0.a(getPageContext());
+        d.b.i0.r.f0.a aVar2 = new d.b.i0.r.f0.a(getPageContext());
         this.mProgressDialog = aVar2;
         aVar2.i(R.string.mixing);
         registerListener(this.mPostSuccessListener);
@@ -411,14 +411,14 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
         TiebaStatic.log("c12303");
         b bVar = new b(this, this.mVideoPath, this.mCoverPath);
         this.thisPageCallback = bVar;
-        this.saveEditVideoController = new d.b.i0.q3.j.h.b(bVar);
+        this.saveEditVideoController = new d.b.j0.q3.j.h.b(bVar);
         setSelectedMusicAndFilter();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d.b.i0.q3.j.h.a aVar = this.mEditVideoView;
+        d.b.j0.q3.j.h.a aVar = this.mEditVideoView;
         if (aVar != null) {
             aVar.R();
         }
@@ -438,7 +438,7 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
         handleGenMaskCoverFinish(bitmap);
     }
 
-    @Override // d.b.i0.q3.j.a
+    @Override // d.b.j0.q3.j.a
     public void onGetCoverBitmap(Bitmap bitmap) {
         this.mEditVideoView.z().p(bitmap);
     }
@@ -452,14 +452,14 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
             this.mVideoInfo = videoInfo;
             String videoPath = videoInfo.getVideoPath();
             this.mVideoPath = videoPath;
-            this.thisPageCallback.f60549b = videoPath;
+            this.thisPageCallback.f60970b = videoPath;
         }
         this.mEditVideoView.U(this.mVideoPath);
         setSelectedMusicAndFilter();
         this.mFromType = getIntent().getStringExtra("from_type");
     }
 
-    @Override // d.b.i0.q3.j.a
+    @Override // d.b.j0.q3.j.a
     public void onNext() {
         if (this.mEditVideoView != null && this.mCoverModel != null && this.mMusicModel != null) {
             if (!j.z()) {
@@ -470,7 +470,7 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
             } else {
                 this.isSend = true;
                 this.isCancel = false;
-                d.b.i0.q3.j.h.b bVar = this.saveEditVideoController;
+                d.b.j0.q3.j.h.b bVar = this.saveEditVideoController;
                 if (bVar != null) {
                     bVar.cancel();
                 }
@@ -488,7 +488,7 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        d.b.i0.q3.j.h.a aVar = this.mEditVideoView;
+        d.b.j0.q3.j.h.a aVar = this.mEditVideoView;
         if (aVar != null) {
             aVar.M();
             this.mEditVideoView.P();
@@ -500,7 +500,7 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
         }
         this.isSend = false;
         this.isCancel = true;
-        d.b.i0.q3.j.h.b bVar = this.saveEditVideoController;
+        d.b.j0.q3.j.h.b bVar = this.saveEditVideoController;
         if (bVar != null) {
             bVar.cancel();
         }
@@ -510,37 +510,37 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRestart() {
         super.onRestart();
-        d.b.i0.q3.j.f.a.h().e();
-        d.b.i0.q3.j.f.b.g().d();
+        d.b.j0.q3.j.f.a.h().e();
+        d.b.j0.q3.j.f.b.g().d();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        d.b.i0.q3.j.h.a aVar = this.mEditVideoView;
+        d.b.j0.q3.j.h.a aVar = this.mEditVideoView;
         if (aVar != null) {
             aVar.O();
         }
     }
 
-    @Override // d.b.i0.q3.j.a
+    @Override // d.b.j0.q3.j.a
     public void onSave() {
         this.isCancel = false;
         this.isSend = false;
         this.thisPageCallback.i(false);
-        d.b.i0.q3.b bVar = this.thisPageCallback;
-        bVar.f60550c = this.mCoverPath;
-        bVar.f60549b = this.mVideoPath;
-        bVar.f60551d = this.mEditVideoView.w();
-        this.thisPageCallback.f60552e = this.mEditVideoView.G();
-        this.thisPageCallback.f60553f = this.mFilterEffectManager.b();
+        d.b.j0.q3.b bVar = this.thisPageCallback;
+        bVar.f60971c = this.mCoverPath;
+        bVar.f60970b = this.mVideoPath;
+        bVar.f60972d = this.mEditVideoView.w();
+        this.thisPageCallback.f60973e = this.mEditVideoView.G();
+        this.thisPageCallback.f60974f = this.mFilterEffectManager.b();
         this.saveEditVideoController.e();
     }
 
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v13, types: [com.baidu.tbadk.core.data.PostPrefixData] */
     /* JADX WARN: Type inference failed for: r7v12 */
-    @Override // d.b.i0.q3.j.a
+    @Override // d.b.j0.q3.j.a
     public void onSaveCover(String str) {
         String str2;
         PostPrefixData postPrefixData;
@@ -583,11 +583,11 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
         videoInfo.send();
     }
 
-    @Override // d.b.i0.q3.j.b
+    @Override // d.b.j0.q3.j.b
     public void onSaveMusicVideo(String str, int i, String str2) {
     }
 
-    @Override // d.b.i0.q3.j.b
+    @Override // d.b.j0.q3.j.b
     public void setMusicData(List<MusicData> list) {
         if (list == null) {
             list = new ArrayList<>();
@@ -597,7 +597,7 @@ public class EditVideoActivity extends BaseActivity implements d.b.i0.q3.j.a, d.
         this.mEditVideoView.X(list);
     }
 
-    @Override // d.b.i0.q3.j.a
+    @Override // d.b.j0.q3.j.a
     public void setPendantData(List<PendantData> list) {
         this.mEditVideoView.b0(list);
     }

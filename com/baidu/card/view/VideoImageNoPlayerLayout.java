@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.h0.r.u.c;
 import d.b.i.p;
-import d.b.i0.x.b0;
+import d.b.i0.r.u.c;
+import d.b.j0.x.b0;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.b.h0.r.q.a> {
+public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.b.i0.r.q.a> {
 
     /* renamed from: e  reason: collision with root package name */
     public Context f4570e;
@@ -41,8 +41,8 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.b.h0
     public RelativeLayout n;
     public RelativeLayout o;
     public boolean p;
-    public b0<d.b.h0.r.q.a> q;
-    public d.b.h0.r.q.a r;
+    public b0<d.b.i0.r.q.a> q;
+    public d.b.i0.r.q.a r;
     public View.OnClickListener s;
     public d.b.i.v0.a t;
 
@@ -107,16 +107,16 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.b.h0
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.i.p
     /* renamed from: g */
-    public void a(d.b.h0.r.q.a aVar) {
+    public void a(d.b.i0.r.q.a aVar) {
         if (aVar == null || aVar.n() == null || aVar.n().r1 == null) {
             return;
         }
         OriginalThreadInfo originalThreadInfo = aVar.n().r1;
         originalThreadInfo.r.is_vertical.intValue();
-        String str = originalThreadInfo.f12877f;
+        String str = originalThreadInfo.f12885f;
         originalThreadInfo.r.video_length.intValue();
         originalThreadInfo.r.video_duration.intValue();
-        long j = originalThreadInfo.f12876e;
+        long j = originalThreadInfo.f12884e;
         this.m.setText(StringHelper.stringForVideoTime(originalThreadInfo.r.video_duration.intValue() * 1000));
         this.k.setText(String.format(this.f4570e.getResources().getString(R.string.play_count_new), StringHelper.numFormatOverWan(originalThreadInfo.r.play_count.intValue())));
         this.l.setVisibility(8);
@@ -152,7 +152,7 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.b.h0
         this.p = z;
     }
 
-    public void setData(d.b.h0.r.q.a aVar) {
+    public void setData(d.b.i0.r.q.a aVar) {
         this.r = aVar;
     }
 
@@ -160,7 +160,7 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements p<d.b.h0
         this.s = onClickListener;
     }
 
-    public void setOnCardSubClickListener(b0<d.b.h0.r.q.a> b0Var) {
+    public void setOnCardSubClickListener(b0<d.b.i0.r.q.a> b0Var) {
         this.q = b0Var;
     }
 

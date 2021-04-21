@@ -6,27 +6,27 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import d.b.c.a.f;
-import d.b.h0.r.q.j0;
-import d.b.i0.u0.c.a;
+import d.b.i0.r.q.j0;
+import d.b.j0.u0.c.a;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f16600e;
+    public boolean f16608e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f16601f;
+    public int f16609f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f16602g;
+    public boolean f16610g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f16603h;
+    public boolean f16611h;
     public boolean i;
     public long j;
     public String k;
-    public d.b.i0.u0.c.a l;
+    public d.b.j0.u0.c.a l;
     public b m;
     public int mUserType;
     public d.b.c.c.g.a n;
@@ -61,35 +61,35 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(int i, String str, boolean z, d.b.i0.u0.c.a aVar);
+        void a(int i, String str, boolean z, d.b.j0.u0.c.a aVar);
     }
 
     public MyGiftListModel(f<MyGiftListActivity> fVar, String str) {
         super(fVar);
-        this.f16602g = false;
+        this.f16610g = false;
         this.i = true;
         this.j = 0L;
         a aVar = new a(CmdConfigHttp.CMD_GET_PERSONAL_GIFT_LIST, 309052);
         this.n = aVar;
-        this.f16603h = true;
+        this.f16611h = true;
         this.k = str;
         aVar.getHttpMessageListener().setSelfListener(true);
         this.n.getSocketMessageListener().setSelfListener(true);
         registerListener(this.n);
-        d.b.i0.d3.d0.a.h(309052, GetPersonalGiftListSocketResponseMessage.class, false, false);
-        d.b.i0.d3.d0.a.c(309052, CmdConfigHttp.CMD_GET_PERSONAL_GIFT_LIST, TbConfig.GET_PERSONAL_GIFT_LIST, GetPersonalGiftListHttpResponseMessage.class, false, false, false, false);
+        d.b.j0.d3.d0.a.h(309052, GetPersonalGiftListSocketResponseMessage.class, false, false);
+        d.b.j0.d3.d0.a.c(309052, CmdConfigHttp.CMD_GET_PERSONAL_GIFT_LIST, TbConfig.GET_PERSONAL_GIFT_LIST, GetPersonalGiftListHttpResponseMessage.class, false, false, false, false);
     }
 
     public boolean A() {
-        return this.f16600e;
+        return this.f16608e;
     }
 
-    public final void B(d.b.i0.u0.c.a aVar) {
+    public final void B(d.b.j0.u0.c.a aVar) {
         if (aVar == null) {
             return;
         }
         if (this.l == null) {
-            this.l = new d.b.i0.u0.c.a();
+            this.l = new d.b.j0.u0.c.a();
         }
         if (this.l.c() == null) {
             this.l.i(new a.b());
@@ -104,29 +104,29 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
         this.l.k(aVar.e());
         this.l.i(aVar.c());
         this.l.j(aVar.d());
-        d.b.i0.u0.c.a aVar2 = this.l;
-        aVar2.f62719f = aVar.f62719f;
-        if (aVar.f62720g != null) {
-            aVar2.f62720g = new j0();
-            j0 j0Var = this.l.f62720g;
-            j0 j0Var2 = aVar.f62720g;
-            j0Var.f51228a = j0Var2.f51228a;
-            j0Var.f51229b = j0Var2.f51229b;
+        d.b.j0.u0.c.a aVar2 = this.l;
+        aVar2.f63140f = aVar.f63140f;
+        if (aVar.f63141g != null) {
+            aVar2.f63141g = new j0();
+            j0 j0Var = this.l.f63141g;
+            j0 j0Var2 = aVar.f63141g;
+            j0Var.f51564a = j0Var2.f51564a;
+            j0Var.f51565b = j0Var2.f51565b;
         }
         if (this.l.c() != null) {
-            this.f16601f = this.l.c().f62729a;
-            this.f16600e = this.l.c().f62730b == 1;
+            this.f16609f = this.l.c().f63150a;
+            this.f16608e = this.l.c().f63151b == 1;
         }
         if (aVar.a() == null || aVar.a().size() <= 0) {
             return;
         }
-        if (this.f16602g) {
-            ArrayList<a.C1642a> a2 = aVar.a();
+        if (this.f16610g) {
+            ArrayList<a.C1665a> a2 = aVar.a();
             int size = this.l.a().size() + 1;
             for (int i = 0; i < a2.size(); i++) {
-                a.C1642a c1642a = a2.get(i);
-                if (c1642a != null) {
-                    c1642a.j = size;
+                a.C1665a c1665a = a2.get(i);
+                if (c1665a != null) {
+                    c1665a.j = size;
                     size++;
                 }
             }
@@ -153,11 +153,11 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
     }
 
     public void E(boolean z) {
-        this.f16602g = z;
+        this.f16610g = z;
     }
 
     public void F(boolean z) {
-        this.f16603h = z;
+        this.f16611h = z;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -189,20 +189,20 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
         getPersonalGiftListRequest.setUserId(j);
         getPersonalGiftListRequest.setType(this.k);
         getPersonalGiftListRequest.userType = this.mUserType;
-        this.f16601f = i;
+        this.f16609f = i;
         return getPersonalGiftListRequest;
     }
 
     public boolean y() {
-        return this.f16603h;
+        return this.f16611h;
     }
 
     public final void z() {
         GetPersonalGiftListRequest x;
-        if (!this.f16602g) {
+        if (!this.f16610g) {
             x = x(1, this.j);
         } else {
-            x = x(this.f16601f + 1, this.j);
+            x = x(this.f16609f + 1, this.j);
         }
         sendMessage(x);
     }

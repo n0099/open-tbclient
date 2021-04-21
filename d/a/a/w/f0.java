@@ -9,14 +9,14 @@ import java.util.ArrayList;
 public class f0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static JsonReader.a f41748a = JsonReader.a.a(SearchView.IME_OPTION_NO_MICROPHONE, "hd", AdvanceSetting.NETWORK_TYPE);
+    public static JsonReader.a f41843a = JsonReader.a.a(SearchView.IME_OPTION_NO_MICROPHONE, "hd", AdvanceSetting.NETWORK_TYPE);
 
     public static d.a.a.u.j.j a(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
         ArrayList arrayList = new ArrayList();
         String str = null;
         boolean z = false;
         while (jsonReader.t()) {
-            int D = jsonReader.D(f41748a);
+            int D = jsonReader.D(f41843a);
             if (D == 0) {
                 str = jsonReader.z();
             } else if (D == 1) {

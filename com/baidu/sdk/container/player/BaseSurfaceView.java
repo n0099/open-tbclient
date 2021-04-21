@@ -4,8 +4,8 @@ import android.content.Context;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import d.b.c0.a.i.b;
-import d.b.c0.a.i.c;
+import d.b.d0.a.i.b;
+import d.b.d0.a.i.c;
 /* loaded from: classes2.dex */
 public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callback, c {
 
@@ -88,7 +88,7 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         setMeasuredDimension(defaultSize, defaultSize2);
     }
 
-    @Override // d.b.c0.a.i.c
+    @Override // d.b.d0.a.i.c
     public void onVideoSizeChanged(int i, int i2) {
         this.f11220f = i;
         this.f11221g = i2;
@@ -98,7 +98,7 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         a();
     }
 
-    @Override // d.b.c0.a.i.c
+    @Override // d.b.d0.a.i.c
     public void setDisplayMode(int i) {
         this.f11219e = i;
     }

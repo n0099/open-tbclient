@@ -5,8 +5,8 @@ import androidx.annotation.NonNull;
 import com.baidu.prologue.service.network.Request;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
-import d.b.a0.d.a.f;
-import d.b.a0.d.a.l;
+import d.b.b0.d.a.f;
+import d.b.b0.d.a.l;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -76,7 +76,7 @@ public class Als {
 
     /* loaded from: classes2.dex */
     public static class a implements l {
-        @Override // d.b.a0.d.a.i
+        @Override // d.b.b0.d.a.i
         public void a(Throwable th) {
             if (Als.f10053a) {
                 Log.e("Als", "Als get error response, " + th);
@@ -84,7 +84,7 @@ public class Als {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.a0.d.a.i
+        @Override // d.b.b0.d.a.i
         /* renamed from: c */
         public void b(String str) {
             if (Als.f10053a) {
@@ -95,7 +95,7 @@ public class Als {
 
     /* loaded from: classes2.dex */
     public static class b implements l {
-        @Override // d.b.a0.d.a.i
+        @Override // d.b.b0.d.a.i
         public void a(Throwable th) {
             if (Als.f10053a) {
                 Log.e("Als", "Als performance get error response, " + th);
@@ -103,7 +103,7 @@ public class Als {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.a0.d.a.i
+        @Override // d.b.b0.d.a.i
         /* renamed from: c */
         public void b(String str) {
             if (Als.f10053a) {
@@ -179,10 +179,10 @@ public class Als {
     }
 
     static {
-        f10053a = d.b.a0.a.b.a.f41817a.get() != null && d.b.a0.a.b.a.f41817a.get().D();
+        f10053a = d.b.b0.a.b.a.f42106a.get() != null && d.b.b0.a.b.a.f42106a.get().D();
     }
 
-    public static void b(Request.c cVar, d.b.a0.a.b.a aVar) {
+    public static void b(Request.c cVar, d.b.b0.a.b.a aVar) {
         cVar.j(HttpRequest.CLIENT_TYPE, "2");
         cVar.j(AdUploadHttpRequest.KEY_OS_TYPE, "2");
         cVar.j(HttpRequest.CLIENT_VERSION, aVar.t());
@@ -207,7 +207,7 @@ public class Als {
     }
 
     public static void e(@NonNull c cVar) {
-        d.b.a0.a.b.a aVar = d.b.a0.a.b.a.f41817a.get();
+        d.b.b0.a.b.a aVar = d.b.b0.a.b.a.f42106a.get();
         if (aVar == null) {
             if (f10053a) {
                 throw new IllegalStateException("宿主App未初始化IAppContext");
@@ -224,7 +224,7 @@ public class Als {
     }
 
     public static void f(String str, String str2, String str3, long j, String str4) {
-        d.b.a0.a.b.a aVar = d.b.a0.a.b.a.f41817a.get();
+        d.b.b0.a.b.a aVar = d.b.b0.a.b.a.f42106a.get();
         if (aVar == null) {
             if (f10053a) {
                 throw new IllegalStateException("宿主App未初始化IAppContext");

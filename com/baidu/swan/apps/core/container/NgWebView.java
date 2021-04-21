@@ -22,27 +22,27 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.widget.SlideInterceptor;
 import com.baidu.swan.apps.core.container.view.SwanAppSelectPopView;
 import com.baidu.webkit.sdk.WebView;
-import d.b.g0.a.e;
-import d.b.g0.a.e0.k.b;
-import d.b.g0.a.f;
-import d.b.g0.a.g;
-import d.b.g0.a.i2.h0;
-import d.b.g0.a.k;
-import d.b.g0.a.p.d.c;
-import d.b.g0.a.p.d.d;
+import d.b.h0.a.e;
+import d.b.h0.a.e0.k.b;
+import d.b.h0.a.f;
+import d.b.h0.a.g;
+import d.b.h0.a.i2.h0;
+import d.b.h0.a.k;
+import d.b.h0.a.p.d.c;
+import d.b.h0.a.p.d.d;
 /* loaded from: classes2.dex */
 public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, SwanAppSelectPopView.a {
     public static final String APP_CACHE_PATH = "appcache";
     public static final String APP_DATABASE_PATH = "databases";
     public static final String APP_GEO_PATH = "geolocation";
-    public static final boolean DEBUG = k.f45443a;
+    public static final boolean DEBUG = k.f45772a;
     public static final String TAG = "NgWebView";
     public static final String WEBVIEW_SIZE_SWITCH = "swan_app_set_webview_size_switch";
     public static final boolean sIsSetWebViewSize;
     public b mCommonEventHandler;
     public SwanAppSelectPopView mSelectPopWindow;
     public SwanAppSelectPopView.a mSelectPopWindowListener;
-    public d.b.g0.a.e0.k.c mWebViewHookHandler;
+    public d.b.h0.a.e0.k.c mWebViewHookHandler;
     public d mWebViewManager;
 
     /* loaded from: classes2.dex */
@@ -59,7 +59,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
     }
 
     static {
-        d.b.g0.a.w0.a.N().getSwitch(WEBVIEW_SIZE_SWITCH, false);
+        d.b.h0.a.w0.a.N().getSwitch(WEBVIEW_SIZE_SWITCH, false);
         sIsSetWebViewSize = false;
     }
 
@@ -126,7 +126,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
 
     @DebugTrace
     private void init(Context context) {
-        d.b.g0.a.i2.a.a(this);
+        d.b.h0.a.i2.a.a(this);
         disableFeature(BdSailorConfig.SAILOR_EXT_WEBVIEWPAGER);
         disableControls();
     }
@@ -172,10 +172,10 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
         }
     }
 
-    @Override // com.baidu.browser.sailor.BdSailorWebView, d.b.g0.a.p.d.c
+    @Override // com.baidu.browser.sailor.BdSailorWebView, d.b.h0.a.p.d.c
     public boolean canGoBack() {
         boolean canGoBack = super.canGoBack();
-        d.b.g0.a.e0.k.c cVar = this.mWebViewHookHandler;
+        d.b.h0.a.e0.k.c cVar = this.mWebViewHookHandler;
         return cVar != null ? cVar.N(canGoBack) : canGoBack;
     }
 
@@ -195,12 +195,12 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
         return false;
     }
 
-    @Override // d.b.g0.a.p.d.c
+    @Override // d.b.h0.a.p.d.c
     public View covertToView() {
         return this;
     }
 
-    @Override // com.baidu.browser.sailor.BdSailorWebView, d.b.g0.a.p.d.c
+    @Override // com.baidu.browser.sailor.BdSailorWebView, d.b.h0.a.p.d.c
     @DebugTrace
     public void destroy() {
         if (DEBUG) {
@@ -254,13 +254,13 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
         }
     }
 
-    @Override // d.b.g0.a.e0.k.a
+    @Override // d.b.h0.a.e0.k.a
     public String getContainerId() {
         d dVar = this.mWebViewManager;
         return dVar != null ? dVar.c() : "";
     }
 
-    @Override // com.baidu.browser.sailor.BdSailorWebView, d.b.g0.a.p.d.c
+    @Override // com.baidu.browser.sailor.BdSailorWebView, d.b.h0.a.p.d.c
     public /* bridge */ /* synthetic */ AbsoluteLayout getCurrentWebView() {
         return super.getCurrentWebView();
     }
@@ -274,19 +274,19 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
         return null;
     }
 
-    @Override // d.b.g0.a.p.d.c
+    @Override // d.b.h0.a.p.d.c
     public int getWebViewScrollX() {
         return getCurrentWebView().getWebViewScrollX();
     }
 
-    @Override // d.b.g0.a.p.d.c
+    @Override // d.b.h0.a.p.d.c
     public int getWebViewScrollY() {
         return getCurrentWebView().getWebViewScrollY();
     }
 
-    @Override // com.baidu.browser.sailor.BdSailorWebView, d.b.g0.a.p.d.c
+    @Override // com.baidu.browser.sailor.BdSailorWebView, d.b.h0.a.p.d.c
     public void goBack() {
-        d.b.g0.a.e0.k.c cVar = this.mWebViewHookHandler;
+        d.b.h0.a.e0.k.c cVar = this.mWebViewHookHandler;
         if (cVar == null || !cVar.u()) {
             super.goBack();
         }
@@ -304,12 +304,12 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
         return getCurrentWebView().getTouchMode() == 6;
     }
 
-    @Override // d.b.g0.a.e0.k.a
+    @Override // d.b.h0.a.e0.k.a
     public boolean isWebView() {
         return true;
     }
 
-    @Override // d.b.g0.a.e0.k.a
+    @Override // d.b.h0.a.e0.k.a
     public void onJSLoaded() {
         d dVar = this.mWebViewManager;
         if (dVar != null) {
@@ -376,7 +376,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
         webViewImpl.setBackgroundColor(i);
     }
 
-    @Override // d.b.g0.a.p.d.c
+    @Override // d.b.h0.a.p.d.c
     public void setDefaultViewSize(int i, int i2, String str) {
         if (sIsSetWebViewSize) {
             Pair<Integer, Integer> pair = null;
@@ -401,7 +401,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
         this.mCommonEventHandler = bVar;
     }
 
-    public void setOnWebViewHookHandler(d.b.g0.a.e0.k.c cVar) {
+    public void setOnWebViewHookHandler(d.b.h0.a.e0.k.c cVar) {
         this.mWebViewHookHandler = cVar;
     }
 
@@ -442,7 +442,7 @@ public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, S
         getCurrentWebView().scrollBy(i, i2);
     }
 
-    @Override // d.b.g0.a.p.d.c
+    @Override // d.b.h0.a.p.d.c
     public void webViewScrollTo(int i, int i2) {
         getCurrentWebView().scrollTo(i, i2);
     }

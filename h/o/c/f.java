@@ -6,14 +6,14 @@ import java.util.concurrent.ThreadFactory;
 public final class f extends h.g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ThreadFactory f68913a;
+    public final ThreadFactory f69060a;
 
     public f(ThreadFactory threadFactory) {
-        this.f68913a = threadFactory;
+        this.f69060a = threadFactory;
     }
 
     @Override // h.g
     public g.a createWorker() {
-        return new g(this.f68913a);
+        return new g(this.f69060a);
     }
 }

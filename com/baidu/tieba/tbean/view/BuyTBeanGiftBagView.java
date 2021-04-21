@@ -18,41 +18,41 @@ import tbclient.GetIconList.Custom;
 public class BuyTBeanGiftBagView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public LinkedList<d.b.i0.f3.e.a> f21153e;
+    public LinkedList<d.b.j0.f3.e.a> f21161e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f21154f;
+    public b f21162f;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.i0.f3.e.a f21155e;
+        public final /* synthetic */ d.b.j0.f3.e.a f21163e;
 
-        public a(d.b.i0.f3.e.a aVar) {
-            this.f21155e = aVar;
+        public a(d.b.j0.f3.e.a aVar) {
+            this.f21163e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (BuyTBeanGiftBagView.this.f21154f != null) {
-                BuyTBeanGiftBagView.this.f21154f.a(this.f21155e);
+            if (BuyTBeanGiftBagView.this.f21162f != null) {
+                BuyTBeanGiftBagView.this.f21162f.a(this.f21163e);
             }
         }
     }
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(d.b.i0.f3.e.a aVar);
+        void a(d.b.j0.f3.e.a aVar);
     }
 
     public BuyTBeanGiftBagView(Context context) {
         super(context);
-        this.f21153e = new LinkedList<>();
+        this.f21161e = new LinkedList<>();
         c();
     }
 
-    public final void b(d.b.i0.f3.e.a aVar) {
+    public final void b(d.b.j0.f3.e.a aVar) {
         if (aVar == null) {
             return;
         }
@@ -63,9 +63,9 @@ public class BuyTBeanGiftBagView extends LinearLayout {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, getContext().getResources().getDimensionPixelSize(R.dimen.tbds182));
         layoutParams.bottomMargin = getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
         addView(tbImageView, layoutParams);
-        Custom custom = aVar.f56033e;
+        Custom custom = aVar.f56454e;
         if (custom != null && !StringUtils.isNull(custom.package_pic)) {
-            tbImageView.W(aVar.f56033e.package_pic, 10, false);
+            tbImageView.W(aVar.f56454e.package_pic, 10, false);
         }
         tbImageView.setOnClickListener(new a(aVar));
     }
@@ -74,32 +74,32 @@ public class BuyTBeanGiftBagView extends LinearLayout {
         setOrientation(1);
     }
 
-    public void d(List<d.b.i0.f3.e.a> list) {
+    public void d(List<d.b.j0.f3.e.a> list) {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        this.f21153e.clear();
-        this.f21153e.addAll(list);
+        this.f21161e.clear();
+        this.f21161e.addAll(list);
         removeAllViews();
-        Iterator<d.b.i0.f3.e.a> it = this.f21153e.iterator();
+        Iterator<d.b.j0.f3.e.a> it = this.f21161e.iterator();
         while (it.hasNext()) {
             b(it.next());
         }
     }
 
     public void setClickListener(b bVar) {
-        this.f21154f = bVar;
+        this.f21162f = bVar;
     }
 
     public BuyTBeanGiftBagView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21153e = new LinkedList<>();
+        this.f21161e = new LinkedList<>();
         c();
     }
 
     public BuyTBeanGiftBagView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f21153e = new LinkedList<>();
+        this.f21161e = new LinkedList<>();
         c();
     }
 }

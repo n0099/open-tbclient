@@ -1,7 +1,7 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import d.b.i0.f1.b.m;
+import d.b.j0.f1.b.m;
 import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes4.dex */
 public class ReplyMeHttpResponseMessage extends MvcProtobufHttpResponsedMessage<m, ReplyMeResIdl> {

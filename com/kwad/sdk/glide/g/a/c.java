@@ -8,7 +8,7 @@ public abstract class c {
     public static class a extends c {
 
         /* renamed from: a  reason: collision with root package name */
-        public volatile boolean f35499a;
+        public volatile boolean f35594a;
 
         public a() {
             super();
@@ -16,12 +16,12 @@ public abstract class c {
 
         @Override // com.kwad.sdk.glide.g.a.c
         public void a(boolean z) {
-            this.f35499a = z;
+            this.f35594a = z;
         }
 
         @Override // com.kwad.sdk.glide.g.a.c
         public void b() {
-            if (this.f35499a) {
+            if (this.f35594a) {
                 throw new IllegalStateException("Already released");
             }
         }

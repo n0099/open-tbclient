@@ -9,9 +9,9 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import d.b.c.e.p.c;
 import d.b.d.d;
-import d.b.i0.j1.o.h.b;
-import d.b.i0.j1.o.l.i;
-import d.b.i0.s2.c0.b.e;
+import d.b.j0.j1.o.h.b;
+import d.b.j0.j1.o.l.i;
+import d.b.j0.s2.c0.b.e;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.VideoInfo;
@@ -70,8 +70,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, d.b.d.
         b.a aVar = new b.a();
         this.parallelChargeInfo = aVar;
         aVar.a(jSONObject);
-        if (TextUtils.isEmpty(this.operateData.f20396b)) {
-            this.operateData.f20396b = this.userName;
+        if (TextUtils.isEmpty(this.operateData.f20404b)) {
+            this.operateData.f20404b = this.userName;
         }
     }
 
@@ -99,7 +99,7 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, d.b.d.
             jSONObject.put(AdWebVideoActivityConfig.KEY_TAIL_FRAME, this.tailFrame.d());
             jSONObject.put("operate", this.operateData.b());
             if (this.adFacadeData != null && this.adFacadeData.j() != null) {
-                jSONObject.put("extraparams", this.adFacadeData.j().f43083b);
+                jSONObject.put("extraparams", this.adFacadeData.j().f43243b);
             }
         } catch (JSONException e2) {
             e2.printStackTrace();
@@ -123,7 +123,7 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, d.b.d.
         return this.autoPlay;
     }
 
-    @Override // d.b.i0.j1.o.h.b
+    @Override // d.b.j0.j1.o.h.b
     public b.a getParallelCharge() {
         return this.parallelChargeInfo;
     }
@@ -142,12 +142,12 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, d.b.d.
         this.adFacadeData = dVar;
     }
 
-    @Override // d.b.i0.j1.o.l.i
+    @Override // d.b.j0.j1.o.l.i
     public void setAutoPlay(boolean z) {
         this.autoPlay = z;
     }
 
-    @Override // d.b.i0.j1.o.l.i
+    @Override // d.b.j0.j1.o.l.i
     public void setWaitConfirm(boolean z) {
         this.waitConfirm = z;
     }

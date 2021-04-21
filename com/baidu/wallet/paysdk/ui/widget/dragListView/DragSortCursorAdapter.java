@@ -13,33 +13,33 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
     public static final int REMOVED = -1;
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseIntArray f26144a;
+    public SparseIntArray f26152a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<Integer> f26145b;
+    public ArrayList<Integer> f26153b;
 
     public DragSortCursorAdapter(Context context, Cursor cursor) {
         super(context, cursor);
-        this.f26144a = new SparseIntArray();
-        this.f26145b = new ArrayList<>();
+        this.f26152a = new SparseIntArray();
+        this.f26153b = new ArrayList<>();
     }
 
     private void a() {
-        this.f26144a.clear();
-        this.f26145b.clear();
+        this.f26152a.clear();
+        this.f26153b.clear();
     }
 
     private void b() {
         ArrayList arrayList = new ArrayList();
-        int size = this.f26144a.size();
+        int size = this.f26152a.size();
         for (int i = 0; i < size; i++) {
-            if (this.f26144a.keyAt(i) == this.f26144a.valueAt(i)) {
-                arrayList.add(Integer.valueOf(this.f26144a.keyAt(i)));
+            if (this.f26152a.keyAt(i) == this.f26152a.valueAt(i)) {
+                arrayList.add(Integer.valueOf(this.f26152a.keyAt(i)));
             }
         }
         int size2 = arrayList.size();
         for (int i2 = 0; i2 < size2; i2++) {
-            this.f26144a.delete(((Integer) arrayList.get(i2)).intValue());
+            this.f26152a.delete(((Integer) arrayList.get(i2)).intValue());
         }
     }
 
@@ -56,23 +56,23 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
     @Override // com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.h
     public void drop(int i, int i2) {
         if (i != i2) {
-            int i3 = this.f26144a.get(i, i);
+            int i3 = this.f26152a.get(i, i);
             if (i > i2) {
                 while (i > i2) {
-                    SparseIntArray sparseIntArray = this.f26144a;
+                    SparseIntArray sparseIntArray = this.f26152a;
                     int i4 = i - 1;
                     sparseIntArray.put(i, sparseIntArray.get(i4, i4));
                     i--;
                 }
             } else {
                 while (i < i2) {
-                    SparseIntArray sparseIntArray2 = this.f26144a;
+                    SparseIntArray sparseIntArray2 = this.f26152a;
                     int i5 = i + 1;
                     sparseIntArray2.put(i, sparseIntArray2.get(i5, i5));
                     i = i5;
                 }
             }
-            this.f26144a.put(i2, i3);
+            this.f26152a.put(i2, i3);
             b();
             notifyDataSetChanged();
         }
@@ -80,63 +80,63 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
 
     @Override // androidx.cursoradapter.widget.CursorAdapter, android.widget.Adapter
     public int getCount() {
-        return super.getCount() - this.f26145b.size();
+        return super.getCount() - this.f26153b.size();
     }
 
     public int getCursorPosition(int i) {
-        return this.f26144a.get(i, i);
+        return this.f26152a.get(i, i);
     }
 
     public ArrayList<Integer> getCursorPositions() {
         ArrayList<Integer> arrayList = new ArrayList<>();
         for (int i = 0; i < getCount(); i++) {
-            arrayList.add(Integer.valueOf(this.f26144a.get(i, i)));
+            arrayList.add(Integer.valueOf(this.f26152a.get(i, i)));
         }
         return arrayList;
     }
 
     @Override // androidx.cursoradapter.widget.CursorAdapter, android.widget.BaseAdapter, android.widget.SpinnerAdapter
     public View getDropDownView(int i, View view, ViewGroup viewGroup) {
-        return super.getDropDownView(this.f26144a.get(i, i), view, viewGroup);
+        return super.getDropDownView(this.f26152a.get(i, i), view, viewGroup);
     }
 
     @Override // androidx.cursoradapter.widget.CursorAdapter, android.widget.Adapter
     public Object getItem(int i) {
-        return super.getItem(this.f26144a.get(i, i));
+        return super.getItem(this.f26152a.get(i, i));
     }
 
     @Override // androidx.cursoradapter.widget.CursorAdapter, android.widget.Adapter
     public long getItemId(int i) {
-        return super.getItemId(this.f26144a.get(i, i));
+        return super.getItemId(this.f26152a.get(i, i));
     }
 
     public int getListPosition(int i) {
-        if (this.f26145b.contains(Integer.valueOf(i))) {
+        if (this.f26153b.contains(Integer.valueOf(i))) {
             return -1;
         }
-        int indexOfValue = this.f26144a.indexOfValue(i);
-        return indexOfValue < 0 ? i : this.f26144a.keyAt(indexOfValue);
+        int indexOfValue = this.f26152a.indexOfValue(i);
+        return indexOfValue < 0 ? i : this.f26152a.keyAt(indexOfValue);
     }
 
     @Override // androidx.cursoradapter.widget.CursorAdapter, android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return super.getView(this.f26144a.get(i, i), view, viewGroup);
+        return super.getView(this.f26152a.get(i, i), view, viewGroup);
     }
 
     @Override // com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.m
     public void remove(int i) {
-        int i2 = this.f26144a.get(i, i);
-        if (!this.f26145b.contains(Integer.valueOf(i2))) {
-            this.f26145b.add(Integer.valueOf(i2));
+        int i2 = this.f26152a.get(i, i);
+        if (!this.f26153b.contains(Integer.valueOf(i2))) {
+            this.f26153b.add(Integer.valueOf(i2));
         }
         int count = getCount();
         while (i < count) {
-            SparseIntArray sparseIntArray = this.f26144a;
+            SparseIntArray sparseIntArray = this.f26152a;
             int i3 = i + 1;
             sparseIntArray.put(i, sparseIntArray.get(i3, i3));
             i = i3;
         }
-        this.f26144a.delete(count);
+        this.f26152a.delete(count);
         b();
         notifyDataSetChanged();
     }
@@ -155,13 +155,13 @@ public abstract class DragSortCursorAdapter extends CursorAdapter implements Dra
 
     public DragSortCursorAdapter(Context context, Cursor cursor, boolean z) {
         super(context, cursor, z);
-        this.f26144a = new SparseIntArray();
-        this.f26145b = new ArrayList<>();
+        this.f26152a = new SparseIntArray();
+        this.f26153b = new ArrayList<>();
     }
 
     public DragSortCursorAdapter(Context context, Cursor cursor, int i) {
         super(context, cursor, i);
-        this.f26144a = new SparseIntArray();
-        this.f26145b = new ArrayList<>();
+        this.f26152a = new SparseIntArray();
+        this.f26153b = new ArrayList<>();
     }
 }

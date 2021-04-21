@@ -1,12 +1,12 @@
 package com.google.common.collect;
 
 import com.google.common.primitives.Ints;
-import d.g.c.a.n;
-import d.g.c.c.d;
-import d.g.c.c.i0;
-import d.g.c.c.k0;
-import d.g.c.c.m;
-import d.g.c.c.r0;
+import d.h.c.a.n;
+import d.h.c.c.d;
+import d.h.c.c.i0;
+import d.h.c.c.k0;
+import d.h.c.c.m;
+import d.h.c.c.r0;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -50,21 +50,21 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
     public abstract class c<T> implements Iterator<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f30699e;
+        public int f30794e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f30700f = -1;
+        public int f30795f = -1;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f30701g;
+        public int f30796g;
 
         public c() {
-            this.f30699e = AbstractMapBasedMultiset.this.backingMap.e();
-            this.f30701g = AbstractMapBasedMultiset.this.backingMap.f66992d;
+            this.f30794e = AbstractMapBasedMultiset.this.backingMap.e();
+            this.f30796g = AbstractMapBasedMultiset.this.backingMap.f67139d;
         }
 
         public final void a() {
-            if (AbstractMapBasedMultiset.this.backingMap.f66992d != this.f30701g) {
+            if (AbstractMapBasedMultiset.this.backingMap.f67139d != this.f30796g) {
                 throw new ConcurrentModificationException();
             }
         }
@@ -74,16 +74,16 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
         @Override // java.util.Iterator
         public boolean hasNext() {
             a();
-            return this.f30699e >= 0;
+            return this.f30794e >= 0;
         }
 
         @Override // java.util.Iterator
         public T next() {
             if (hasNext()) {
-                T b2 = b(this.f30699e);
-                int i = this.f30699e;
-                this.f30700f = i;
-                this.f30699e = AbstractMapBasedMultiset.this.backingMap.s(i);
+                T b2 = b(this.f30794e);
+                int i = this.f30794e;
+                this.f30795f = i;
+                this.f30794e = AbstractMapBasedMultiset.this.backingMap.s(i);
                 return b2;
             }
             throw new NoSuchElementException();
@@ -93,11 +93,11 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
         public void remove() {
             AbstractMapBasedMultiset abstractMapBasedMultiset;
             a();
-            m.e(this.f30700f != -1);
-            AbstractMapBasedMultiset.this.size -= abstractMapBasedMultiset.backingMap.x(this.f30700f);
-            this.f30699e = AbstractMapBasedMultiset.this.backingMap.t(this.f30699e, this.f30700f);
-            this.f30700f = -1;
-            this.f30701g = AbstractMapBasedMultiset.this.backingMap.f66992d;
+            m.e(this.f30795f != -1);
+            AbstractMapBasedMultiset.this.size -= abstractMapBasedMultiset.backingMap.x(this.f30795f);
+            this.f30794e = AbstractMapBasedMultiset.this.backingMap.t(this.f30794e, this.f30795f);
+            this.f30795f = -1;
+            this.f30796g = AbstractMapBasedMultiset.this.backingMap.f67139d;
         }
     }
 
@@ -117,7 +117,7 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
         r0.k(this, objectOutputStream);
     }
 
-    @Override // d.g.c.c.d, d.g.c.c.i0
+    @Override // d.h.c.c.d, d.h.c.c.i0
     public final int add(E e2, int i) {
         if (i == 0) {
             return count(e2);
@@ -148,40 +148,40 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
         }
     }
 
-    @Override // d.g.c.c.d, java.util.AbstractCollection, java.util.Collection
+    @Override // d.h.c.c.d, java.util.AbstractCollection, java.util.Collection
     public final void clear() {
         this.backingMap.a();
         this.size = 0L;
     }
 
-    @Override // d.g.c.c.i0
+    @Override // d.h.c.c.i0
     public final int count(Object obj) {
         return this.backingMap.f(obj);
     }
 
-    @Override // d.g.c.c.d
+    @Override // d.h.c.c.d
     public final int distinctElements() {
         return this.backingMap.C();
     }
 
-    @Override // d.g.c.c.d
+    @Override // d.h.c.c.d
     public final Iterator<E> elementIterator() {
         return new a();
     }
 
-    @Override // d.g.c.c.d
+    @Override // d.h.c.c.d
     public final Iterator<i0.a<E>> entryIterator() {
         return new b();
     }
 
     public abstract void init(int i);
 
-    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, d.g.c.c.i0
+    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, d.h.c.c.i0
     public final Iterator<E> iterator() {
         return Multisets.i(this);
     }
 
-    @Override // d.g.c.c.d, d.g.c.c.i0
+    @Override // d.h.c.c.d, d.h.c.c.i0
     public final int remove(Object obj, int i) {
         if (i == 0) {
             return count(obj);
@@ -202,7 +202,7 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
         return k;
     }
 
-    @Override // d.g.c.c.d, d.g.c.c.i0
+    @Override // d.h.c.c.d, d.h.c.c.i0
     public final int setCount(E e2, int i) {
         m.b(i, "count");
         k0<E> k0Var = this.backingMap;
@@ -211,12 +211,12 @@ public abstract class AbstractMapBasedMultiset<E> extends d<E> implements Serial
         return v;
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, d.g.c.c.i0
+    @Override // java.util.AbstractCollection, java.util.Collection, d.h.c.c.i0
     public final int size() {
         return Ints.j(this.size);
     }
 
-    @Override // d.g.c.c.d, d.g.c.c.i0
+    @Override // d.h.c.c.d, d.h.c.c.i0
     public final boolean setCount(E e2, int i, int i2) {
         m.b(i, "oldCount");
         m.b(i2, "newCount");

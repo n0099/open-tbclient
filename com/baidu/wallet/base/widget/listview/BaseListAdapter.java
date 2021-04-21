@@ -11,13 +11,13 @@ import java.util.List;
 public abstract class BaseListAdapter<T> extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f23758a;
+    public Context f23766a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<T> f23759b = new ArrayList();
+    public List<T> f23767b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public InnerAdapter<T> f23760c;
+    public InnerAdapter<T> f23768c;
     public ViewGroup mParent;
 
     /* loaded from: classes5.dex */
@@ -30,32 +30,32 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
     }
 
     public BaseListAdapter(Context context) {
-        this.f23758a = context;
-        this.f23760c = new InnerAdapter<>(context, this);
+        this.f23766a = context;
+        this.f23768c = new InnerAdapter<>(context, this);
     }
 
     public void addList(List<T> list) {
-        this.f23759b.addAll(list);
+        this.f23767b.addAll(list);
         notifyDataSetChanged();
     }
 
     public void clearList() {
-        this.f23759b.clear();
+        this.f23767b.clear();
         notifyDataSetChanged();
     }
 
     public Context getContext() {
-        return this.f23758a;
+        return this.f23766a;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.f23759b.size();
+        return this.f23767b.size();
     }
 
     @Override // android.widget.Adapter
     public T getItem(int i) {
-        return this.f23759b.get(i);
+        return this.f23767b.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -73,25 +73,25 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
     }
 
     public List<T> getList() {
-        return this.f23759b;
+        return this.f23767b;
     }
 
     @Override // android.widget.Adapter
     public final View getView(int i, View view, ViewGroup viewGroup) {
         this.mParent = viewGroup;
-        return this.f23760c.getView(i, view, viewGroup);
+        return this.f23768c.getView(i, view, viewGroup);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        return this.f23760c.getViewBundles().size();
+        return this.f23768c.getViewBundles().size();
     }
 
     public void initList(List<T> list) {
-        if (this.f23759b.size() > 0) {
-            this.f23759b.clear();
+        if (this.f23767b.size() > 0) {
+            this.f23767b.clear();
         }
-        this.f23759b.addAll(list);
+        this.f23767b.addAll(list);
         notifyDataSetChanged();
     }
 

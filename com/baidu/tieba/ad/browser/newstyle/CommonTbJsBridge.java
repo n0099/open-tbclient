@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tbadk.xiuba.JSResultData;
 import d.b.c.e.p.q;
-import d.b.i0.d3.l0.b;
-import d.b.i0.d3.l0.d.c;
+import d.b.j0.d3.l0.b;
+import d.b.j0.d3.l0.d.c;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -38,7 +38,7 @@ public class CommonTbJsBridge implements b {
         return OrmObject.jsonStrWithObject(jSResultData);
     }
 
-    @Override // d.b.i0.d3.l0.b
+    @Override // d.b.j0.d3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if ("CommonJSBridge".equals(str)) {
             if ("startLoginModule".equals(str2)) {

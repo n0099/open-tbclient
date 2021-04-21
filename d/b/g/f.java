@@ -13,7 +13,7 @@ import java.util.Map;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile f f43467a;
+    public static volatile f f43476a;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -24,21 +24,21 @@ public final class f {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f43468e;
+        public String f43477e;
 
         /* renamed from: f  reason: collision with root package name */
-        public a f43469f;
+        public a f43478f;
 
         public b(String str, a aVar) {
-            this.f43468e = str;
-            this.f43469f = aVar;
+            this.f43477e = str;
+            this.f43478f = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             ArrayList<String> arrayList;
             ArrayList<String> arrayList2;
-            Map e2 = f.this.e(this.f43468e);
+            Map e2 = f.this.e(this.f43477e);
             if (e2 != null) {
                 arrayList2 = (ArrayList) e2.get(HttpDnsCacheForHost.JSON_KEY_IPV6);
                 arrayList = (ArrayList) e2.get("ipv4");
@@ -46,19 +46,19 @@ public final class f {
                 arrayList = null;
                 arrayList2 = null;
             }
-            this.f43469f.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.f43468e);
+            this.f43478f.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.f43477e);
         }
     }
 
     public static f b() {
-        if (f43467a == null) {
+        if (f43476a == null) {
             synchronized (f.class) {
-                if (f43467a == null) {
-                    f43467a = new f();
+                if (f43476a == null) {
+                    f43476a = new f();
                 }
             }
         }
-        return f43467a;
+        return f43476a;
     }
 
     public BDHttpDnsResult a(String str) {

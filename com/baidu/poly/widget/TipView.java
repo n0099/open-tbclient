@@ -9,10 +9,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import d.b.z.b;
-import d.b.z.d;
-import d.b.z.f;
-import d.b.z.g;
+import d.b.a0.b;
+import d.b.a0.d;
+import d.b.a0.f;
+import d.b.a0.g;
 /* loaded from: classes2.dex */
 public class TipView extends LinearLayout {
 
@@ -53,7 +53,7 @@ public class TipView extends LinearLayout {
             layoutParams.width = dimensionPixelOffset;
             layoutParams.height = dimensionPixelOffset;
         }
-        d.b.z.k.d.b.c().b(this.f10004e, str);
+        d.b.a0.k.d.b.c().b(this.f10004e, str);
         this.f10005f.setText(str2);
     }
 

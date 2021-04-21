@@ -11,19 +11,19 @@ public class b implements com.baidu.wallet.paysdk.presenter.b.a {
     public static class a implements ILoginBackListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public ILoginBackListener f25438a;
+        public ILoginBackListener f25446a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Context f25439b;
+        public Context f25447b;
 
         public a(Context context, ILoginBackListener iLoginBackListener) {
-            this.f25439b = context;
-            this.f25438a = iLoginBackListener;
+            this.f25447b = context;
+            this.f25446a = iLoginBackListener;
         }
 
         @Override // com.baidu.wallet.api.ILoginBackListener
         public void onFail(int i, String str) {
-            ILoginBackListener iLoginBackListener = this.f25438a;
+            ILoginBackListener iLoginBackListener = this.f25446a;
             if (iLoginBackListener != null) {
                 iLoginBackListener.onFail(i, str);
             }
@@ -31,11 +31,11 @@ public class b implements com.baidu.wallet.paysdk.presenter.b.a {
 
         @Override // com.baidu.wallet.api.ILoginBackListener
         public void onSuccess(int i, String str) {
-            if (this.f25438a != null) {
+            if (this.f25446a != null) {
                 if (TextUtils.isEmpty(str)) {
-                    this.f25438a.onSuccess(i, str);
+                    this.f25446a.onSuccess(i, str);
                 } else {
-                    this.f25438a.onSuccess(i, str);
+                    this.f25446a.onSuccess(i, str);
                 }
             }
         }

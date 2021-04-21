@@ -2,8 +2,8 @@ package com.google.gson;
 
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.MalformedJsonException;
-import d.g.d.b.h;
-import d.g.d.d.a;
+import d.h.d.b.h;
+import d.h.d.d.a;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.Reader;

@@ -6,22 +6,22 @@ import com.kwad.sdk.glide.request.b.b;
 public class a<R> implements b<R> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a<?> f36086a = new a<>();
+    public static final a<?> f36181a = new a<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c<?> f36087b = new C0436a();
+    public static final c<?> f36182b = new C0439a();
 
     /* renamed from: com.kwad.sdk.glide.request.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0436a<R> implements c<R> {
+    public static class C0439a<R> implements c<R> {
         @Override // com.kwad.sdk.glide.request.b.c
         public b<R> a(DataSource dataSource, boolean z) {
-            return a.f36086a;
+            return a.f36181a;
         }
     }
 
     public static <R> c<R> a() {
-        return (c<R>) f36087b;
+        return (c<R>) f36182b;
     }
 
     @Override // com.kwad.sdk.glide.request.b.b

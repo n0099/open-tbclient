@@ -3,7 +3,7 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import d.b.i0.a;
+import d.b.j0.a;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */

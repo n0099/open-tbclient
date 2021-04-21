@@ -27,7 +27,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.android.pushservice.PushManager;
-import d.b.q.a;
+import d.b.r.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
@@ -144,7 +144,7 @@ public class AccountManagerImpl {
                 Utility.writeLoginFlag(context, "5N", "startLoginServiceRunnable begin, loginType = " + i + "，needLogout :" + z);
                 if (!z) {
                     LogUtils.d(TAG, "need logout before login");
-                    if (a.f65246e) {
+                    if (a.f65510e) {
                         BIMManager.imLogoutByLcp(mContext);
                         startLoginService(i, str, str2, str3, str4, iLoginListener);
                         return;
@@ -224,7 +224,7 @@ public class AccountManagerImpl {
             Utility.clearCache(mContext);
             this.mToken = null;
         }
-        if (!a.f65246e) {
+        if (!a.f65510e) {
             clearLoginParam(mContext);
             clearUid(mContext);
             disconnect(str);
@@ -527,7 +527,7 @@ public class AccountManagerImpl {
             ConversationStudioManImpl.getInstance(mContext).clearAckCastList();
             noticeStateChanged(3);
             BIMManager.connectStatusNotify(0);
-            if (!a.f65246e) {
+            if (!a.f65510e) {
                 Utility.sendConnectionStateBroadCast(mContext, 0);
             }
         } else {

@@ -24,7 +24,7 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFourmActivity> {
     public static final int LIMIT_COUNT = 20;
-    public d.b.i0.v3.p.a mAdapter;
+    public d.b.j0.v3.p.a mAdapter;
     public List<HotTopicBussinessData> mList;
     public NavigationBar mNavigationBar;
     public BdListView mListView = null;
@@ -52,7 +52,7 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         SkinManager.setViewTextColor(this.mNavigationBar.setTitleText(TbadkCoreApplication.getInst().getString(R.string.change_fourm)), R.color.CAM_X0106);
         this.mListView = (BdListView) findViewById(R.id.hot_topic_listview);
-        this.mAdapter = new d.b.i0.v3.p.a(this);
+        this.mAdapter = new d.b.j0.v3.p.a(this);
         if (!this.mUseOriginList) {
             int size = this.mList.size();
             ArrayList arrayList = null;

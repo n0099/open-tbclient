@@ -8,48 +8,48 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import d.b.h0.z0.f0;
-import d.b.h0.z0.h0;
-import d.b.h0.z0.n;
+import d.b.i0.z0.f0;
+import d.b.i0.z0.h0;
+import d.b.i0.z0.n;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f14301g;
+    public static final String f14309g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static TbHttpMessageTask f14302h;
+    public static TbHttpMessageTask f14310h;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f14303e;
+    public b f14311e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f14304f;
+    public final HttpMessageListener f14312f;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
 
         /* renamed from: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0182a extends f0<Void> {
+        public class C0184a extends f0<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ List f14306a;
+            public final /* synthetic */ List f14314a;
 
-            public C0182a(a aVar, List list) {
-                this.f14306a = list;
+            public C0184a(a aVar, List list) {
+                this.f14314a = list;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.h0.z0.f0
+            @Override // d.b.i0.z0.f0
             /* renamed from: a */
             public Void doInBackground() {
-                List list = this.f14306a;
+                List list = this.f14314a;
                 if (list == null || list.size() <= 0) {
                     return null;
                 }
-                d.b.i0.q.e.a.b.f().m(this.f14306a);
+                d.b.j0.q.e.a.b.f().m(this.f14314a);
                 return null;
             }
         }
@@ -58,17 +58,17 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
         public class b implements n<Void> {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f14307a;
+            public final /* synthetic */ String f14315a;
 
             public b(String str) {
-                this.f14307a = str;
+                this.f14315a = str;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.h0.z0.n
+            @Override // d.b.i0.z0.n
             /* renamed from: a */
             public void onReturnDataInUI(Void r2) {
-                RecommendFriendModel.this.f14303e.a(this.f14307a);
+                RecommendFriendModel.this.f14311e.a(this.f14315a);
             }
         }
 
@@ -83,8 +83,8 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                 return;
             }
             if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof RecommendFriendResponseMessage)) {
-                if (RecommendFriendModel.this.f14303e != null) {
-                    RecommendFriendModel.this.f14303e.onLoadFailed(null);
+                if (RecommendFriendModel.this.f14311e != null) {
+                    RecommendFriendModel.this.f14311e.onLoadFailed(null);
                     return;
                 }
                 return;
@@ -92,13 +92,13 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
             RecommendFriendResponseMessage recommendFriendResponseMessage = (RecommendFriendResponseMessage) httpResponsedMessage;
             String errMsg = recommendFriendResponseMessage.getErrMsg();
             if (recommendFriendResponseMessage.getError() != 0) {
-                if (RecommendFriendModel.this.f14303e != null) {
-                    RecommendFriendModel.this.f14303e.onLoadFailed(errMsg);
+                if (RecommendFriendModel.this.f14311e != null) {
+                    RecommendFriendModel.this.f14311e.onLoadFailed(errMsg);
                     return;
                 }
                 return;
             }
-            h0.c(new C0182a(this, recommendFriendResponseMessage.getDatas()), new b(errMsg));
+            h0.c(new C0184a(this, recommendFriendResponseMessage.getDatas()), new b(errMsg));
         }
     }
 
@@ -111,18 +111,18 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
 
     static {
         String str = TbConfig.SERVER_ADDRESS + "c/r/friend/getRecommendList";
-        f14301g = str;
+        f14309g = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.RECOMMOEND_FRIEND_CMD, str);
-        f14302h = tbHttpMessageTask;
+        f14310h = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(RecommendFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(f14302h);
+        MessageManager.getInstance().registerTask(f14310h);
     }
 
     public RecommendFriendModel(NewFriendsActivity newFriendsActivity, b bVar) {
         super(newFriendsActivity.getPageContext());
-        this.f14303e = null;
-        this.f14304f = new a(CmdConfigHttp.RECOMMOEND_FRIEND_CMD);
-        this.f14303e = bVar;
+        this.f14311e = null;
+        this.f14312f = new a(CmdConfigHttp.RECOMMOEND_FRIEND_CMD);
+        this.f14311e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -136,7 +136,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
     }
 
     public void registerListener() {
-        registerListener(this.f14304f);
+        registerListener(this.f14312f);
     }
 
     public void t() {

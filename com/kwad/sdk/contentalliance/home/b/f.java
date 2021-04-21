@@ -11,36 +11,36 @@ import com.kwad.sdk.utils.v;
 public class f extends com.kwad.sdk.contentalliance.home.e {
 
     /* renamed from: b  reason: collision with root package name */
-    public KSPageLoadingView f32966b;
+    public KSPageLoadingView f33061b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.home.a.i f32967c;
+    public com.kwad.sdk.contentalliance.home.a.i f33062c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SlidePlayViewPager f32968d;
+    public SlidePlayViewPager f33063d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f32969e;
+    public boolean f33064e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f32970f;
+    public com.kwad.sdk.core.i.a f33065f;
 
     /* renamed from: g  reason: collision with root package name */
-    public KSPageLoadingView.a f32971g = new KSPageLoadingView.a() { // from class: com.kwad.sdk.contentalliance.home.b.f.1
+    public KSPageLoadingView.a f33066g = new KSPageLoadingView.a() { // from class: com.kwad.sdk.contentalliance.home.b.f.1
         @Override // com.kwad.sdk.contentalliance.widget.KSPageLoadingView.a
         public void a() {
-            if (f.this.f32967c != null) {
-                f.this.f32967c.a(0);
+            if (f.this.f33062c != null) {
+                f.this.f33062c.a(0);
                 f.this.e();
             }
         }
     };
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewPager.OnPageChangeListener f32972h = new ViewPager.SimpleOnPageChangeListener() { // from class: com.kwad.sdk.contentalliance.home.b.f.2
+    public ViewPager.OnPageChangeListener f33067h = new ViewPager.SimpleOnPageChangeListener() { // from class: com.kwad.sdk.contentalliance.home.b.f.2
         @Override // androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener, androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            f.this.f32969e = false;
+            f.this.f33064e = false;
         }
     };
     public SlidePlayTouchViewPager.a i = new SlidePlayTouchViewPager.a() { // from class: com.kwad.sdk.contentalliance.home.b.f.3
@@ -50,27 +50,27 @@ public class f extends com.kwad.sdk.contentalliance.home.e {
 
         @Override // com.kwad.sdk.contentalliance.home.viewpager.SlidePlayTouchViewPager.a
         public void b() {
-            f.this.f32969e = true;
+            f.this.f33064e = true;
         }
     };
     public com.kwad.sdk.contentalliance.home.a.d j = new com.kwad.sdk.contentalliance.home.a.d() { // from class: com.kwad.sdk.contentalliance.home.b.f.4
         @Override // com.kwad.sdk.contentalliance.home.a.d
         public void a(int i, String str) {
-            f.this.f32966b.a();
-            if (f.this.f32968d.j()) {
-                if (com.kwad.sdk.core.network.f.f34164g.k == i) {
-                    f.this.f32966b.c();
-                } else if (!v.a(f.this.f32966b.getContext())) {
-                    f.this.f32966b.a(f.this.f32970f.e());
+            f.this.f33061b.a();
+            if (f.this.f33063d.j()) {
+                if (com.kwad.sdk.core.network.f.f34259g.k == i) {
+                    f.this.f33061b.c();
+                } else if (!v.a(f.this.f33061b.getContext())) {
+                    f.this.f33061b.a(f.this.f33065f.e());
                 } else if (com.kwad.sdk.core.network.f.j.k == i) {
-                    f.this.f32966b.d();
+                    f.this.f33061b.d();
                 } else {
-                    f.this.f32966b.b(f.this.f32970f.e());
+                    f.this.f33061b.b(f.this.f33065f.e());
                 }
-            } else if (f.this.f32969e) {
-                if (com.kwad.sdk.core.network.f.f34158a.k == i) {
+            } else if (f.this.f33064e) {
+                if (com.kwad.sdk.core.network.f.f34253a.k == i) {
                     p.a(f.this.o());
-                } else if (com.kwad.sdk.core.network.f.f34164g.k != i) {
+                } else if (com.kwad.sdk.core.network.f.f34259g.k != i) {
                     p.b(f.this.o());
                 } else if (com.kwad.sdk.core.config.c.X()) {
                     p.c(f.this.o());
@@ -80,11 +80,11 @@ public class f extends com.kwad.sdk.contentalliance.home.e {
 
         @Override // com.kwad.sdk.contentalliance.home.a.d
         public void a(boolean z, int i) {
-            f.this.f32966b.a();
+            f.this.f33061b.a();
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:13:0x0015, code lost:
-            if (r0.f32976a.f32969e != false) goto L18;
+            if (r0.f33071a.f33064e != false) goto L18;
          */
         @Override // com.kwad.sdk.contentalliance.home.a.d
         /*
@@ -94,16 +94,16 @@ public class f extends com.kwad.sdk.contentalliance.home.e {
             if (i != 0) {
                 if (i != 1) {
                     if (i == 2 || i == 3) {
-                        f.this.f32966b.e();
+                        f.this.f33061b.e();
                         return;
                     } else if (i != 4) {
                         return;
                     }
                 }
-                f.this.f32966b.a();
+                f.this.f33061b.a();
                 return;
             }
-            f.this.f32966b.b();
+            f.this.f33061b.b();
         }
     };
 
@@ -114,7 +114,7 @@ public class f extends com.kwad.sdk.contentalliance.home.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        for (a aVar : ((com.kwad.sdk.contentalliance.home.e) this).f33058a.p) {
+        for (a aVar : ((com.kwad.sdk.contentalliance.home.e) this).f33153a.p) {
             aVar.a();
         }
     }
@@ -122,30 +122,30 @@ public class f extends com.kwad.sdk.contentalliance.home.e {
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.contentalliance.home.f fVar = ((com.kwad.sdk.contentalliance.home.e) this).f33058a;
-        com.kwad.sdk.contentalliance.home.a.i iVar = fVar.f33060b;
-        this.f32967c = iVar;
-        this.f32970f = fVar.f33064f.f33078a;
+        com.kwad.sdk.contentalliance.home.f fVar = ((com.kwad.sdk.contentalliance.home.e) this).f33153a;
+        com.kwad.sdk.contentalliance.home.a.i iVar = fVar.f33155b;
+        this.f33062c = iVar;
+        this.f33065f = fVar.f33159f.f33173a;
         iVar.a(this.j);
-        this.f32968d.a(this.i);
-        this.f32968d.a(this.f32972h);
-        this.f32966b.setRetryClickListener(this.f32971g);
+        this.f33063d.a(this.i);
+        this.f33063d.a(this.f33067h);
+        this.f33061b.setRetryClickListener(this.f33066g);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f32969e = false;
-        this.f32967c.b(this.j);
-        this.f32966b.setRetryClickListener(null);
-        this.f32968d.b(this.i);
-        this.f32968d.b(this.f32972h);
+        this.f33064e = false;
+        this.f33062c.b(this.j);
+        this.f33061b.setRetryClickListener(null);
+        this.f33063d.b(this.i);
+        this.f33063d.b(this.f33067h);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f32968d = (SlidePlayViewPager) b(R.id.ksad_slide_play_view_pager);
-        this.f32966b = (KSPageLoadingView) b(R.id.ksad_page_loading);
+        this.f33063d = (SlidePlayViewPager) b(R.id.ksad_slide_play_view_pager);
+        this.f33061b = (KSPageLoadingView) b(R.id.ksad_page_loading);
     }
 }

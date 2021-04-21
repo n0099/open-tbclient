@@ -7,17 +7,17 @@ import com.baidu.tieba.view.AlaPlayAnimationView;
 public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f14399h;
+    public boolean f14407h;
 
     public NoActiveStopAlaPlayAnimationView(Context context) {
         super(context);
-        this.f14399h = false;
+        this.f14407h = false;
     }
 
     @Override // com.baidu.tieba.view.AlaPlayAnimationView, android.widget.ImageView, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.f14399h) {
+        if (this.f14407h) {
             return;
         }
         b();
@@ -29,11 +29,11 @@ public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
     }
 
     public void setFromSpecialForum(boolean z) {
-        this.f14399h = z;
+        this.f14407h = z;
     }
 
     public NoActiveStopAlaPlayAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f14399h = false;
+        this.f14407h = false;
     }
 }

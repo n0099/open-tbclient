@@ -8,32 +8,32 @@ import java.util.concurrent.Executors;
 public class I1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap f39976a;
+    public static HashMap f40071a;
 
     static {
         Executors.newFixedThreadPool(1);
-        f39976a = new HashMap();
+        f40071a = new HashMap();
     }
 
     public static synchronized void a(String str) {
         synchronized (I1.class) {
-            f39976a.remove(str);
+            f40071a.remove(str);
         }
     }
 
     public static synchronized void a(String str, H1 h1) {
         synchronized (I1.class) {
-            HashSet hashSet = (HashSet) f39976a.get(str);
+            HashSet hashSet = (HashSet) f40071a.get(str);
             if (hashSet == null) {
                 hashSet = new HashSet();
-                f39976a.put(str, hashSet);
+                f40071a.put(str, hashSet);
             }
             hashSet.add(h1);
         }
     }
 
     public static void a(String str, String str2, Object obj) {
-        HashSet hashSet = (HashSet) f39976a.get(str);
+        HashSet hashSet = (HashSet) f40071a.get(str);
         if (hashSet == null || hashSet.size() <= 0) {
             return;
         }

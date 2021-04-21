@@ -3,7 +3,7 @@ package com.baidu.tieba.personPolymeric.tab.data;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.squareup.wire.Wire;
-import d.b.h0.r.q.a2;
+import d.b.i0.r.q.a2;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetShoubaiThreadList.DataRes;

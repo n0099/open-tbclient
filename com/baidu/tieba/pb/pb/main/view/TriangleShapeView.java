@@ -12,26 +12,26 @@ import com.baidu.tieba.R;
 public class TriangleShapeView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f19555e;
+    public Paint f19563e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f19556f;
+    public Path f19564f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19557g;
+    public int f19565g;
 
     public TriangleShapeView(Context context) {
         super(context);
-        this.f19557g = R.color.CAM_X0205;
+        this.f19565g = R.color.CAM_X0205;
     }
 
     public final void a() {
-        if (this.f19555e == null) {
-            this.f19555e = new Paint();
+        if (this.f19563e == null) {
+            this.f19563e = new Paint();
         }
-        this.f19555e.setAntiAlias(true);
-        this.f19555e.setStyle(Paint.Style.FILL);
-        this.f19555e.setColor(SkinManager.getColor(this.f19557g));
+        this.f19563e.setAntiAlias(true);
+        this.f19563e.setStyle(Paint.Style.FILL);
+        this.f19563e.setColor(SkinManager.getColor(this.f19565g));
     }
 
     @Override // android.view.View
@@ -43,29 +43,29 @@ public class TriangleShapeView extends View {
             return;
         }
         a();
-        if (this.f19556f == null) {
-            this.f19556f = new Path();
+        if (this.f19564f == null) {
+            this.f19564f = new Path();
         }
         float f2 = height;
-        this.f19556f.moveTo(0.0f, f2);
+        this.f19564f.moveTo(0.0f, f2);
         float f3 = width;
-        this.f19556f.lineTo(f3 / 2.0f, 0.0f);
-        this.f19556f.lineTo(f3, f2);
-        this.f19556f.close();
-        canvas.drawPath(this.f19556f, this.f19555e);
+        this.f19564f.lineTo(f3 / 2.0f, 0.0f);
+        this.f19564f.lineTo(f3, f2);
+        this.f19564f.close();
+        canvas.drawPath(this.f19564f, this.f19563e);
     }
 
     public void setColorId(int i) {
-        this.f19557g = i;
+        this.f19565g = i;
     }
 
     public TriangleShapeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f19557g = R.color.CAM_X0205;
+        this.f19565g = R.color.CAM_X0205;
     }
 
     public TriangleShapeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f19557g = R.color.CAM_X0205;
+        this.f19565g = R.color.CAM_X0205;
     }
 }

@@ -15,42 +15,42 @@ public class a {
 
     /* renamed from: com.kwad.sdk.core.download.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0393a {
+    public interface InterfaceC0396a {
         void a();
     }
 
-    public static void a(@NonNull Context context, @NonNull AdTemplate adTemplate, @NonNull InterfaceC0393a interfaceC0393a, @Nullable b bVar) {
+    public static void a(@NonNull Context context, @NonNull AdTemplate adTemplate, @NonNull InterfaceC0396a interfaceC0396a, @Nullable b bVar) {
         AdInfo j = com.kwad.sdk.core.response.b.c.j(adTemplate);
         com.kwad.sdk.home.download.a.a().a(true);
         if (d.a(context, adTemplate, 1) == 1) {
-            interfaceC0393a.a();
+            interfaceC0396a.a();
         } else if (!com.kwad.sdk.core.response.b.a.y(j)) {
             AdWebViewActivityProxy.launch(context, adTemplate);
-            interfaceC0393a.a();
+            interfaceC0396a.a();
         } else if (bVar != null) {
             bVar.a(context);
             DOWNLOADSTAUS downloadstaus = j.status;
             if (downloadstaus == DOWNLOADSTAUS.DOWNLOADING || downloadstaus == DOWNLOADSTAUS.PROGRESS) {
                 return;
             }
-            interfaceC0393a.a();
+            interfaceC0396a.a();
         }
     }
 
-    public static void b(@NonNull Context context, @NonNull AdTemplate adTemplate, @NonNull InterfaceC0393a interfaceC0393a, @Nullable b bVar) {
+    public static void b(@NonNull Context context, @NonNull AdTemplate adTemplate, @NonNull InterfaceC0396a interfaceC0396a, @Nullable b bVar) {
         AdInfo j = com.kwad.sdk.core.response.b.c.j(adTemplate);
         if (ao.a()) {
             return;
         }
         if (d.a(context, adTemplate, 1) == 1) {
-            interfaceC0393a.a();
+            interfaceC0396a.a();
         } else if (!com.kwad.sdk.core.response.b.a.y(j)) {
             if (com.kwad.sdk.core.response.b.a.P(j)) {
                 AdWebViewVideoActivityProxy.launch(context, adTemplate);
             } else {
                 AdWebViewActivityProxy.launch(context, adTemplate);
             }
-            interfaceC0393a.a();
+            interfaceC0396a.a();
         } else if (bVar != null) {
             if (!com.kwad.sdk.core.response.b.a.P(j) || TextUtils.isEmpty(com.kwad.sdk.core.response.b.a.B(j))) {
                 bVar.a(context);
@@ -61,7 +61,7 @@ public class a {
             if (downloadstaus == DOWNLOADSTAUS.DOWNLOADING || downloadstaus == DOWNLOADSTAUS.PROGRESS) {
                 return;
             }
-            interfaceC0393a.a();
+            interfaceC0396a.a();
         }
     }
 }

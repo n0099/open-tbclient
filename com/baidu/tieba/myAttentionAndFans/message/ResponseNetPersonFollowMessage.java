@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
 import d.b.c.e.d.l;
-import d.b.h0.r.q.g1;
-import d.b.h0.r.r.a;
+import d.b.i0.r.q.g1;
+import d.b.i0.r.r.a;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {

@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import d.b.c.e.m.b;
 import d.b.c.j.d.a;
-import d.b.h0.a0.c;
+import d.b.i0.a0.c;
 /* loaded from: classes3.dex */
 public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
     public int procType;

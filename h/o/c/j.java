@@ -9,37 +9,37 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class j extends h.g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final j f68921a = new j();
+    public static final j f69068a = new j();
 
     /* loaded from: classes7.dex */
     public static final class a extends g.a implements k {
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicInteger f68922e = new AtomicInteger();
+        public final AtomicInteger f69069e = new AtomicInteger();
 
         /* renamed from: f  reason: collision with root package name */
-        public final PriorityBlockingQueue<b> f68923f = new PriorityBlockingQueue<>();
+        public final PriorityBlockingQueue<b> f69070f = new PriorityBlockingQueue<>();
 
         /* renamed from: g  reason: collision with root package name */
-        public final h.u.a f68924g = new h.u.a();
+        public final h.u.a f69071g = new h.u.a();
 
         /* renamed from: h  reason: collision with root package name */
-        public final AtomicInteger f68925h = new AtomicInteger();
+        public final AtomicInteger f69072h = new AtomicInteger();
 
         /* renamed from: h.o.c.j$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C1918a implements h.n.a {
+        public class C1922a implements h.n.a {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f68926e;
+            public final /* synthetic */ b f69073e;
 
-            public C1918a(b bVar) {
-                this.f68926e = bVar;
+            public C1922a(b bVar) {
+                this.f69073e = bVar;
             }
 
             @Override // h.n.a
             public void call() {
-                a.this.f68923f.remove(this.f68926e);
+                a.this.f69070f.remove(this.f69073e);
             }
         }
 
@@ -55,31 +55,31 @@ public final class j extends h.g {
         }
 
         public final k d(h.n.a aVar, long j) {
-            if (this.f68924g.isUnsubscribed()) {
+            if (this.f69071g.isUnsubscribed()) {
                 return h.u.e.c();
             }
-            b bVar = new b(aVar, Long.valueOf(j), this.f68922e.incrementAndGet());
-            this.f68923f.add(bVar);
-            if (this.f68925h.getAndIncrement() == 0) {
+            b bVar = new b(aVar, Long.valueOf(j), this.f69069e.incrementAndGet());
+            this.f69070f.add(bVar);
+            if (this.f69072h.getAndIncrement() == 0) {
                 do {
-                    b poll = this.f68923f.poll();
+                    b poll = this.f69070f.poll();
                     if (poll != null) {
-                        poll.f68928e.call();
+                        poll.f69075e.call();
                     }
-                } while (this.f68925h.decrementAndGet() > 0);
+                } while (this.f69072h.decrementAndGet() > 0);
                 return h.u.e.c();
             }
-            return h.u.e.a(new C1918a(bVar));
+            return h.u.e.a(new C1922a(bVar));
         }
 
         @Override // h.k
         public boolean isUnsubscribed() {
-            return this.f68924g.isUnsubscribed();
+            return this.f69071g.isUnsubscribed();
         }
 
         @Override // h.k
         public void unsubscribe() {
-            this.f68924g.unsubscribe();
+            this.f69071g.unsubscribe();
         }
     }
 
@@ -87,26 +87,26 @@ public final class j extends h.g {
     public static final class b implements Comparable<b> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.n.a f68928e;
+        public final h.n.a f69075e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final Long f68929f;
+        public final Long f69076f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f68930g;
+        public final int f69077g;
 
         public b(h.n.a aVar, Long l, int i) {
-            this.f68928e = aVar;
-            this.f68929f = l;
-            this.f68930g = i;
+            this.f69075e = aVar;
+            this.f69076f = l;
+            this.f69077g = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.Comparable
         /* renamed from: a */
         public int compareTo(b bVar) {
-            int compareTo = this.f68929f.compareTo(bVar.f68929f);
-            return compareTo == 0 ? j.a(this.f68930g, bVar.f68930g) : compareTo;
+            int compareTo = this.f69076f.compareTo(bVar.f69076f);
+            return compareTo == 0 ? j.a(this.f69077g, bVar.f69077g) : compareTo;
         }
     }
 

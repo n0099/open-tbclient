@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.FollowUserButton;
-import d.b.h0.r.q.a2;
+import d.b.i0.r.q.a2;
 /* loaded from: classes.dex */
 public class j extends c implements p<a2>, q {
     public FollowUserDecorView i;
@@ -23,7 +23,7 @@ public class j extends c implements p<a2>, q {
         m(z);
     }
 
-    public void k(d.b.h0.r.q.a aVar, boolean z) {
+    public void k(d.b.i0.r.q.a aVar, boolean z) {
         this.j = z;
         s(0);
         o(true);

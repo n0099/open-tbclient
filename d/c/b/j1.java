@@ -8,17 +8,17 @@ import androidx.annotation.WorkerThread;
 public final class j1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final SharedPreferences f65873a;
+    public final SharedPreferences f65968a;
 
     @WorkerThread
     public j1(Context context) {
-        this.f65873a = context.getSharedPreferences("device_register_oaid_refine", 0);
+        this.f65968a = context.getSharedPreferences("device_register_oaid_refine", 0);
     }
 
     @Nullable
     @WorkerThread
     public i1 a() {
-        return i1.a(this.f65873a.getString("oaid", ""));
+        return i1.a(this.f65968a.getString("oaid", ""));
     }
 
     @WorkerThread
@@ -26,6 +26,6 @@ public final class j1 {
         if (i1Var == null) {
             return;
         }
-        this.f65873a.edit().putString("oaid", i1Var.c().toString()).apply();
+        this.f65968a.edit().putString("oaid", i1Var.c().toString()).apply();
     }
 }

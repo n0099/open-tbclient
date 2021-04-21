@@ -11,7 +11,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.b.i0.d3.c;
+import d.b.j0.d3.c;
 /* loaded from: classes3.dex */
 public class WebPManager {
 

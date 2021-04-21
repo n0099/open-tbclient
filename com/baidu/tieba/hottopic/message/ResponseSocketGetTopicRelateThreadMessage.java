@@ -2,7 +2,7 @@ package com.baidu.tieba.hottopic.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.c1.c.d;
+import d.b.j0.c1.c.d;
 import java.util.List;
 import tbclient.GetTopicRelateThread.DataRes;
 import tbclient.GetTopicRelateThread.GetTopicRelateThreadResIdl;

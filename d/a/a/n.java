@@ -8,13 +8,13 @@ import java.util.Set;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f41503a = false;
+    public boolean f41598a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<a> f41504b = new ArraySet();
+    public final Set<a> f41599b = new ArraySet();
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, d.a.a.x.f> f41505c = new HashMap();
+    public final Map<String, d.a.a.x.f> f41600c = new HashMap();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -22,15 +22,15 @@ public class n {
     }
 
     public void a(String str, float f2) {
-        if (this.f41503a) {
-            d.a.a.x.f fVar = this.f41505c.get(str);
+        if (this.f41598a) {
+            d.a.a.x.f fVar = this.f41600c.get(str);
             if (fVar == null) {
                 fVar = new d.a.a.x.f();
-                this.f41505c.put(str, fVar);
+                this.f41600c.put(str, fVar);
             }
             fVar.a(f2);
             if (str.equals("__container")) {
-                for (a aVar : this.f41504b) {
+                for (a aVar : this.f41599b) {
                     aVar.a(f2);
                 }
             }
@@ -38,6 +38,6 @@ public class n {
     }
 
     public void b(boolean z) {
-        this.f41503a = z;
+        this.f41598a = z;
     }
 }

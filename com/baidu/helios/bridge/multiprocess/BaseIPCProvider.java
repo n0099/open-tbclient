@@ -10,9 +10,9 @@ import android.os.RemoteException;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.helios.bridge.multiprocess.e;
-import d.b.p.d.a;
-import d.b.p.d.d.c;
-import d.b.p.d.d.d;
+import d.b.q.d.a;
+import d.b.q.d.d.c;
+import d.b.q.d.d.d;
 /* loaded from: classes2.dex */
 public abstract class BaseIPCProvider extends ContentProvider {
 
@@ -56,7 +56,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
                         this.f6232a = fVar;
                     }
 
-                    @Override // d.b.p.d.a.c
+                    @Override // d.b.q.d.a.c
                     public void b(int i, Exception exc, Bundle bundle) {
                         try {
                             this.f6232a.a(i, bundle);
@@ -65,7 +65,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // d.b.p.d.a.c
+                    @Override // d.b.q.d.a.c
                     /* renamed from: c */
                     public void a(String str, Bundle bundle) {
                         try {

@@ -4,9 +4,9 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import d.b.c.e.p.l;
-import d.b.h0.r.k;
-import d.b.h0.z0.w;
-import d.b.i0.f2.b;
+import d.b.i0.r.k;
+import d.b.i0.z0.w;
+import d.b.j0.f2.b;
 import tbclient.Profile.DataReq;
 import tbclient.Profile.ProfileReqIdl;
 /* loaded from: classes3.dex */

@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.personcenter.messages;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.i0.t.j.d.c;
+import d.b.j0.t.j.d.c;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class AlaPersonCenterResponseMessage extends JsonHttpResponsedMessage {

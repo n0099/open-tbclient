@@ -17,7 +17,7 @@ public class p<K, A> extends a<K, A> {
 
     @Override // d.a.a.s.c.a
     public A h() {
-        d.a.a.y.c<A> cVar = this.f41599e;
+        d.a.a.y.c<A> cVar = this.f41694e;
         A a2 = this.i;
         return cVar.b(0.0f, 0.0f, a2, a2, f(), f(), f());
     }
@@ -29,14 +29,14 @@ public class p<K, A> extends a<K, A> {
 
     @Override // d.a.a.s.c.a
     public void j() {
-        if (this.f41599e != null) {
+        if (this.f41694e != null) {
             super.j();
         }
     }
 
     @Override // d.a.a.s.c.a
     public void l(float f2) {
-        this.f41598d = f2;
+        this.f41693d = f2;
     }
 
     public p(d.a.a.y.c<A> cVar, @Nullable A a2) {

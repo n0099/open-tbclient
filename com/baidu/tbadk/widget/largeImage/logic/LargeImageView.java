@@ -6,7 +6,7 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import com.baidu.tbadk.widget.DragImageView;
-import d.b.h0.b1.i.b.b;
+import d.b.i0.b1.i.b.b;
 /* loaded from: classes3.dex */
 public class LargeImageView extends DragImageView {
     public b s0;

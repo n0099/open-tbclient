@@ -16,22 +16,22 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public a f33425b;
+    public a f33520b;
 
     /* renamed from: c  reason: collision with root package name */
-    public i<com.kwad.sdk.contentalliance.tube.b.a, AdResultData> f33426c;
+    public i<com.kwad.sdk.contentalliance.tube.b.a, AdResultData> f33521c;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f33428e;
+    public long f33523e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SceneImpl f33429f;
+    public SceneImpl f33524f;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicBoolean f33427d = new AtomicBoolean(false);
+    public AtomicBoolean f33522d = new AtomicBoolean(false);
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f33424a = new Handler(Looper.getMainLooper());
+    public Handler f33519a = new Handler(Looper.getMainLooper());
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -49,13 +49,13 @@ public class b {
     }
 
     public b(SceneImpl sceneImpl, long j, a aVar) {
-        this.f33429f = sceneImpl;
-        this.f33428e = j;
-        this.f33425b = aVar;
+        this.f33524f = sceneImpl;
+        this.f33523e = j;
+        this.f33520b = aVar;
     }
 
     private void a(boolean z) {
-        a aVar = this.f33425b;
+        a aVar = this.f33520b;
         if (aVar != null) {
             aVar.a(z);
         }
@@ -63,7 +63,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, int i, String str) {
-        a aVar = this.f33425b;
+        a aVar = this.f33520b;
         if (aVar != null) {
             aVar.a(z, i, str);
         }
@@ -71,7 +71,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, AdResultData adResultData) {
-        a aVar = this.f33425b;
+        a aVar = this.f33520b;
         if (aVar != null) {
             aVar.a(z, adResultData);
         }
@@ -79,32 +79,32 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z) {
-        a aVar = this.f33425b;
+        a aVar = this.f33520b;
         if (aVar != null) {
             aVar.b(z);
         }
     }
 
     public void a() {
-        i<com.kwad.sdk.contentalliance.tube.b.a, AdResultData> iVar = this.f33426c;
+        i<com.kwad.sdk.contentalliance.tube.b.a, AdResultData> iVar = this.f33521c;
         if (iVar != null) {
             iVar.e();
         }
-        this.f33425b = null;
-        this.f33424a.removeCallbacksAndMessages(null);
+        this.f33520b = null;
+        this.f33519a.removeCallbacksAndMessages(null);
     }
 
     public void a(final boolean z, final long j) {
-        if (this.f33427d.getAndSet(true)) {
+        if (this.f33522d.getAndSet(true)) {
             return;
         }
         com.kwad.sdk.core.d.a.a("TubeFeedLoadManager", "loadData startRequest loadMore =" + z + " lastPhotoId=" + j);
         a(z);
-        f fVar = new f(this.f33429f);
-        fVar.f33941b = (long) this.f33429f.getPageScene();
-        fVar.f33942c = 100L;
-        com.kwad.sdk.core.d.a.a("TubeFeedLoadManager", "pageScene=" + fVar.f33941b + " lastPhotoId=" + j);
-        final a.C0385a c0385a = new a.C0385a(fVar, this.f33428e, j, 15);
+        f fVar = new f(this.f33524f);
+        fVar.f34036b = (long) this.f33524f.getPageScene();
+        fVar.f34037c = 100L;
+        com.kwad.sdk.core.d.a.a("TubeFeedLoadManager", "pageScene=" + fVar.f34036b + " lastPhotoId=" + j);
+        final a.C0388a c0388a = new a.C0388a(fVar, this.f33523e, j, 15);
         i<com.kwad.sdk.contentalliance.tube.b.a, AdResultData> iVar = new i<com.kwad.sdk.contentalliance.tube.b.a, AdResultData>() { // from class: com.kwad.sdk.contentalliance.tube.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.i
@@ -112,7 +112,7 @@ public class b {
             /* renamed from: a */
             public AdResultData b(String str) {
                 JSONObject jSONObject = new JSONObject(str);
-                AdResultData adResultData = new AdResultData(b.this.f33429f);
+                AdResultData adResultData = new AdResultData(b.this.f33524f);
                 adResultData.parseJson(jSONObject);
                 return adResultData;
             }
@@ -122,22 +122,22 @@ public class b {
             @NonNull
             /* renamed from: c */
             public com.kwad.sdk.contentalliance.tube.b.a b() {
-                return new com.kwad.sdk.contentalliance.tube.b.a(c0385a);
+                return new com.kwad.sdk.contentalliance.tube.b.a(c0388a);
             }
         };
-        this.f33426c = iVar;
+        this.f33521c = iVar;
         iVar.a(new j<com.kwad.sdk.contentalliance.tube.b.a, AdResultData>() { // from class: com.kwad.sdk.contentalliance.tube.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.contentalliance.tube.b.a aVar, final int i, final String str) {
                 com.kwad.sdk.core.d.a.a("TubeFeedLoadManager", "lastPhotoId=" + j + " errorCode = " + i + " errorMsg=" + str);
-                b.this.f33424a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.tube.b.2.2
+                b.this.f33519a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.tube.b.2.2
                     @Override // java.lang.Runnable
                     public void run() {
                         com.kwad.sdk.core.d.a.c("TubeFeedLoadManager", "onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
                         AnonymousClass2 anonymousClass2 = AnonymousClass2.this;
                         b.this.a(z, i, str);
-                        b.this.f33427d.set(false);
+                        b.this.f33522d.set(false);
                     }
                 });
             }
@@ -145,14 +145,14 @@ public class b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull com.kwad.sdk.contentalliance.tube.b.a aVar, @NonNull final AdResultData adResultData) {
-                b.this.f33424a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.tube.b.2.1
+                b.this.f33519a.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.tube.b.2.1
                     @Override // java.lang.Runnable
                     public void run() {
                         AnonymousClass2 anonymousClass2 = AnonymousClass2.this;
                         b.this.a(z, adResultData);
                         AnonymousClass2 anonymousClass22 = AnonymousClass2.this;
                         b.this.b(z);
-                        b.this.f33427d.set(false);
+                        b.this.f33522d.set(false);
                     }
                 });
             }

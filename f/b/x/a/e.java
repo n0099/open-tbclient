@@ -7,20 +7,20 @@ import io.reactivex.internal.util.NotificationLite;
 public final class e<T> extends c implements f.b.t.b {
 
     /* renamed from: f  reason: collision with root package name */
-    public final o<? super T> f68481f;
+    public final o<? super T> f68628f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final f.b.x.f.a<Object> f68482g;
+    public final f.b.x.f.a<Object> f68629g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile f.b.t.b f68483h = EmptyDisposable.INSTANCE;
+    public volatile f.b.t.b f68630h = EmptyDisposable.INSTANCE;
     public f.b.t.b i;
     public volatile boolean j;
 
     public e(o<? super T> oVar, f.b.t.b bVar, int i) {
-        this.f68481f = oVar;
+        this.f68628f = oVar;
         this.i = bVar;
-        this.f68482g = new f.b.x.f.a<>(i);
+        this.f68629g = new f.b.x.f.a<>(i);
     }
 
     public void a() {
@@ -32,27 +32,27 @@ public final class e<T> extends c implements f.b.t.b {
     }
 
     public void b() {
-        if (this.f68480e.getAndIncrement() != 0) {
+        if (this.f68627e.getAndIncrement() != 0) {
             return;
         }
-        f.b.x.f.a<Object> aVar = this.f68482g;
-        o<? super T> oVar = this.f68481f;
+        f.b.x.f.a<Object> aVar = this.f68629g;
+        o<? super T> oVar = this.f68628f;
         int i = 1;
         while (true) {
             Object poll = aVar.poll();
             if (poll == null) {
-                i = this.f68480e.addAndGet(-i);
+                i = this.f68627e.addAndGet(-i);
                 if (i == 0) {
                     return;
                 }
             } else {
                 Object poll2 = aVar.poll();
-                if (poll == this.f68483h) {
+                if (poll == this.f68630h) {
                     if (NotificationLite.isDisposable(poll2)) {
                         f.b.t.b disposable = NotificationLite.getDisposable(poll2);
-                        this.f68483h.dispose();
+                        this.f68630h.dispose();
                         if (!this.j) {
-                            this.f68483h = disposable;
+                            this.f68630h = disposable;
                         } else {
                             disposable.dispose();
                         }
@@ -82,7 +82,7 @@ public final class e<T> extends c implements f.b.t.b {
     }
 
     public void c(f.b.t.b bVar) {
-        this.f68482g.l(bVar, NotificationLite.complete());
+        this.f68629g.l(bVar, NotificationLite.complete());
         b();
     }
 
@@ -91,7 +91,7 @@ public final class e<T> extends c implements f.b.t.b {
             f.b.a0.a.f(th);
             return;
         }
-        this.f68482g.l(bVar, NotificationLite.error(th));
+        this.f68629g.l(bVar, NotificationLite.error(th));
         b();
     }
 
@@ -108,7 +108,7 @@ public final class e<T> extends c implements f.b.t.b {
         if (this.j) {
             return false;
         }
-        this.f68482g.l(bVar, NotificationLite.next(t));
+        this.f68629g.l(bVar, NotificationLite.next(t));
         b();
         return true;
     }
@@ -117,7 +117,7 @@ public final class e<T> extends c implements f.b.t.b {
         if (this.j) {
             return false;
         }
-        this.f68482g.l(this.f68483h, NotificationLite.disposable(bVar));
+        this.f68629g.l(this.f68630h, NotificationLite.disposable(bVar));
         b();
         return true;
     }

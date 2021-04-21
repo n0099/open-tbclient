@@ -9,7 +9,7 @@ public class b extends n<Float, Float> {
 
     @Override // d.a.a.u.i.m
     public d.a.a.s.c.a<Float, Float> a() {
-        return new d.a.a.s.c.c(this.f41668a);
+        return new d.a.a.s.c.c(this.f41763a);
     }
 
     public b(List<d.a.a.y.a<Float>> list) {

@@ -1,13 +1,27 @@
 package d.b.h0.k;
+
+import android.content.Context;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import java.util.List;
+import okhttp3.Interceptor;
 /* loaded from: classes3.dex */
 public interface a {
-    void a(String str);
+    CookieManager a();
 
-    void b(boolean z, boolean z2, int i);
+    String b();
 
-    void c(boolean z, boolean z2, int i);
+    int c();
 
-    void onAdDismiss();
+    List<Interceptor> d();
 
-    void onLpClosed();
+    void e(String str, HttpRequestBuilder httpRequestBuilder);
+
+    int f();
+
+    Context getAppContext();
+
+    int getReadTimeout();
+
+    boolean isDebug();
 }

@@ -7,14 +7,14 @@ import com.xiaomi.push.cg;
 public class ci implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f40609a;
+    public final /* synthetic */ Context f40704a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ cg.a f184a;
 
     public ci(cg.a aVar, Context context) {
         this.f184a = aVar;
-        this.f40609a = context;
+        this.f40704a = context;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, IGET, INVOKE] complete} */
@@ -26,7 +26,7 @@ public class ci implements Runnable {
                 sQLiteDatabase = this.f184a.a();
                 if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
                     sQLiteDatabase.beginTransaction();
-                    this.f184a.a(this.f40609a, sQLiteDatabase);
+                    this.f184a.a(this.f40704a, sQLiteDatabase);
                     sQLiteDatabase.setTransactionSuccessful();
                 }
                 if (sQLiteDatabase != null) {
@@ -35,7 +35,7 @@ public class ci implements Runnable {
                     } catch (Exception e2) {
                         e = e2;
                         com.xiaomi.channel.commonutils.logger.b.a(e);
-                        this.f184a.a(this.f40609a);
+                        this.f184a.a(this.f40704a);
                     }
                 }
                 if (this.f184a.f175a != null) {
@@ -47,14 +47,14 @@ public class ci implements Runnable {
                         sQLiteDatabase.endTransaction();
                     } catch (Exception e3) {
                         com.xiaomi.channel.commonutils.logger.b.a(e3);
-                        this.f184a.a(this.f40609a);
+                        this.f184a.a(this.f40704a);
                         throw th;
                     }
                 }
                 if (this.f184a.f175a != null) {
                     this.f184a.f175a.close();
                 }
-                this.f184a.a(this.f40609a);
+                this.f184a.a(this.f40704a);
                 throw th;
             }
         } catch (Exception e4) {
@@ -65,13 +65,13 @@ public class ci implements Runnable {
                 } catch (Exception e5) {
                     e = e5;
                     com.xiaomi.channel.commonutils.logger.b.a(e);
-                    this.f184a.a(this.f40609a);
+                    this.f184a.a(this.f40704a);
                 }
             }
             if (this.f184a.f175a != null) {
                 this.f184a.f175a.close();
             }
         }
-        this.f184a.a(this.f40609a);
+        this.f184a.a(this.f40704a);
     }
 }

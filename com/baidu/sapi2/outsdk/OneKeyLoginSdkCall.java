@@ -16,7 +16,7 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.facebook.cache.disk.DefaultDiskStorage;
-import d.b.f0.a;
+import d.b.g0.a;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -86,8 +86,8 @@ public class OneKeyLoginSdkCall {
     }
 
     public void getMobileOauthToken(SapiConfiguration sapiConfiguration, final TokenListener tokenListener) {
-        d.b.f0.a.c().i(sapiConfiguration.context, 15000L, new a.InterfaceC0591a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
-            @Override // d.b.f0.a.InterfaceC0591a
+        d.b.g0.a.c().i(sapiConfiguration.context, 15000L, new a.InterfaceC0610a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
+            @Override // d.b.g0.a.InterfaceC0610a
             public void onFinish(String str) {
                 Log.d(OneKeyLoginSdkCall.TAG, "getMobileOauthToken onFinish result=" + str);
                 OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str);
@@ -146,8 +146,8 @@ public class OneKeyLoginSdkCall {
     }
 
     public void getToken(final SapiConfiguration sapiConfiguration, final TokenListener tokenListener) {
-        d.b.f0.a.c().f(sapiConfiguration.context, 15000L, new a.InterfaceC0591a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
-            @Override // d.b.f0.a.InterfaceC0591a
+        d.b.g0.a.c().f(sapiConfiguration.context, 15000L, new a.InterfaceC0610a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
+            @Override // d.b.g0.a.InterfaceC0610a
             public void onFinish(String str) {
                 Log.d(OneKeyLoginSdkCall.TAG, "SSOManager login onFinish result=" + str);
                 OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str);
@@ -178,8 +178,8 @@ public class OneKeyLoginSdkCall {
     }
 
     public void initOneKeyLoginSdk(SapiConfiguration sapiConfiguration) {
-        d.b.f0.a.c().d(sapiConfiguration.context, oneKeyLoginAppKey, f10847a);
-        d.b.f0.a.c().h(sapiConfiguration.context, sapiConfiguration.isAgreeDangerousProtocol());
+        d.b.g0.a.c().d(sapiConfiguration.context, oneKeyLoginAppKey, f10847a);
+        d.b.g0.a.c().h(sapiConfiguration.context, sapiConfiguration.isAgreeDangerousProtocol());
     }
 
     public boolean isMeetOneKeyLoginGray(String str) {
@@ -241,7 +241,7 @@ public class OneKeyLoginSdkCall {
             }
             return;
         }
-        String b2 = d.b.f0.a.c().b(sapiConfiguration.context);
+        String b2 = d.b.g0.a.c().b(sapiConfiguration.context);
         if (TextUtils.equals(b2, f10848b) || TextUtils.equals(b2, f10849c) || TextUtils.equals(b2, f10850d)) {
             if (!isMeetOneKeyLoginGray(b2)) {
                 Log.d(TAG, "未命中灰度，不请求预取号操作 operator=" + b2);
@@ -254,8 +254,8 @@ public class OneKeyLoginSdkCall {
                 return;
             }
             final String networkClass = SapiUtils.getNetworkClass(sapiConfiguration.context);
-            d.b.f0.a.c().g(sapiConfiguration.context, i, new a.InterfaceC0591a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
-                @Override // d.b.f0.a.InterfaceC0591a
+            d.b.g0.a.c().g(sapiConfiguration.context, i, new a.InterfaceC0610a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
+                @Override // d.b.g0.a.InterfaceC0610a
                 public void onFinish(String str2) {
                     Log.d(OneKeyLoginSdkCall.TAG, "SSOManager preLogin onFinish result=" + str2);
                     final OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str2);

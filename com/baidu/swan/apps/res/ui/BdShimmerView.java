@@ -5,15 +5,15 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.baidu.swan.apps.res.ui.ShimmerFrameLayout;
-import d.b.g0.a.e;
-import d.b.g0.a.q1.b.d.b;
-/* loaded from: classes2.dex */
+import d.b.h0.a.e;
+import d.b.h0.a.q1.b.d.b;
+/* loaded from: classes3.dex */
 public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView> {
     public ImageView w;
     public int x;
 
-    /* loaded from: classes2.dex */
-    public class a implements d.b.g0.a.x1.a {
+    /* loaded from: classes3.dex */
+    public class a implements d.b.h0.a.x1.a {
         public a() {
         }
     }
@@ -23,7 +23,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.g0.a.q1.b.d.b
+    @Override // d.b.h0.a.q1.b.d.b
     public BdShimmerView getLoadingView() {
         return this;
     }
@@ -31,13 +31,13 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
     @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        d.b.g0.a.w0.a.z().f(this, new a());
+        d.b.h0.a.w0.a.z().f(this, new a());
     }
 
     @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        d.b.g0.a.w0.a.z().g(this);
+        d.b.h0.a.w0.a.z().g(this);
     }
 
     public void setPageResources() {
@@ -67,7 +67,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView
         }
         this.w.setImageDrawable(getResources().getDrawable(e.aiapps_black_shimmer_loading));
         ShimmerFrameLayout.MaskShape maskShape = ShimmerFrameLayout.MaskShape.LINEAR;
-        if (d.b.g0.a.w0.a.z().a()) {
+        if (d.b.h0.a.w0.a.z().a()) {
             maskShape = ShimmerFrameLayout.MaskShape.WHITE_LINEAR;
         }
         setMaskShape(maskShape);

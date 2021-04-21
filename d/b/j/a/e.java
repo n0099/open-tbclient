@@ -3,25 +3,25 @@ package d.b.j.a;
 public abstract class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f64331a;
+    public int f52526a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f64332b;
+    public int f52527b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f64333c;
+    public int f52528c;
 
     public int a() {
-        return this.f64332b;
+        return this.f52527b;
     }
 
     public abstract com.baidu.cesium.a.b b(byte[] bArr, int i, int i2);
 
     public int c() {
-        return this.f64331a;
+        return this.f52526a;
     }
 
     public int d() {
-        return this.f64333c;
+        return this.f52528c;
     }
 }

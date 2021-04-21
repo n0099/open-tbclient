@@ -1,5 +1,5 @@
 package com.ut.device;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AidConstants {
     public static final int EVENT_NETWORK_ERROR = 1003;
     public static final int EVENT_REQUEST_FAILED = 1002;

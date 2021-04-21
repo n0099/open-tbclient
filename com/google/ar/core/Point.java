@@ -35,7 +35,7 @@ public class Point extends TrackableBase {
 
     private native int nativeGetOrientationMode(long j, long j2);
 
-    private native d.g.b.a.a nativeGetPose(long j, long j2);
+    private native d.h.b.a.a nativeGetPose(long j, long j2);
 
     public Point() {
         super(0L, null);

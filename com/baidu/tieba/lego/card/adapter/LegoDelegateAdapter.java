@@ -6,9 +6,9 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import d.b.i0.j1.o.b;
-import d.b.i0.j1.o.g.a;
-import d.b.i0.j1.o.l.e;
+import d.b.j0.j1.o.b;
+import d.b.j0.j1.o.g.a;
+import d.b.j0.j1.o.l.e;
 /* loaded from: classes4.dex */
 public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
     public BdUniqueId n;
@@ -61,7 +61,7 @@ public class LegoDelegateAdapter extends a<LegoDelegateViewHolder> {
         return (View) eVar;
     }
 
-    @Override // d.b.i0.j1.f
+    @Override // d.b.j0.j1.f
     public final void setUniqueId(BdUniqueId bdUniqueId) {
         this.n = bdUniqueId;
     }

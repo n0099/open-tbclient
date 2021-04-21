@@ -17,33 +17,33 @@ import java.util.ArrayList;
 public class Static {
 
     /* renamed from: a  reason: collision with root package name */
-    public static CustomMessageTask f18068a = new CustomMessageTask(2017000, new CustomMessageTask.CustomRunnable<TbCDNTachometerService.CustomMsgData>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.1
+    public static CustomMessageTask f18076a = new CustomMessageTask(2017000, new CustomMessageTask.CustomRunnable<TbCDNTachometerService.CustomMsgData>() { // from class: com.baidu.tieba.imageProblem.cdnOptimize.Static.1
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<TbCDNTachometerService.CustomMsgData> customMessage) {
             if (customMessage != null) {
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
                     TbCDNTachometerService.CustomMsgData data = customMessage.getData();
-                    if (data != null && data.f18072a != null && data.f18072a.f18084e != null) {
+                    if (data != null && data.f18080a != null && data.f18080a.f18092e != null) {
                         String str = "";
                         boolean z = false;
-                        if (data.f18079h == null) {
-                            if (data.f18073b < data.f18072a.f18084e.size()) {
-                                ArrayList<String> arrayList = data.f18072a.f18084e.get(data.f18073b);
+                        if (data.f18087h == null) {
+                            if (data.f18081b < data.f18080a.f18092e.size()) {
+                                ArrayList<String> arrayList = data.f18080a.f18092e.get(data.f18081b);
                                 if (arrayList.size() > 0) {
                                     str = arrayList.get(0);
                                 }
                             }
-                        } else if (data.f18079h.length() > 0) {
-                            str = data.f18079h;
+                        } else if (data.f18087h.length() > 0) {
+                            str = data.f18087h;
                             z = true;
                         }
                         if (PermissionUtil.isAgreePrivacyPolicy() && str.length() > 0) {
-                            data.f18074c = data.f18077f.getTestImageData(data.f18072a.f18082c, str, data.f18072a.f18086g, data.f18072a.f18083d, data.f18078g);
-                            data.f18075d = System.currentTimeMillis() - currentTimeMillis;
-                            data.f18076e = str;
+                            data.f18082c = data.f18085f.getTestImageData(data.f18080a.f18090c, str, data.f18080a.f18094g, data.f18080a.f18091d, data.f18086g);
+                            data.f18083d = System.currentTimeMillis() - currentTimeMillis;
+                            data.f18084e = str;
                             if (z) {
-                                data.f18079h = str;
+                                data.f18087h = str;
                             }
                             return new CustomResponsedMessage<>(2017000, data);
                         }
@@ -70,7 +70,7 @@ public class Static {
                 return new CustomResponsedMessage<>(2016102, CDNIPDirectConnect.getInstance());
             }
         }).setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        f18068a.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
-        f18068a.setTaskParallel(new BdAsyncTaskParallel(BdUniqueId.gen(), 10));
+        f18076a.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+        f18076a.setTaskParallel(new BdAsyncTaskParallel(BdUniqueId.gen(), 10));
     }
 }

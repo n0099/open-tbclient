@@ -6,22 +6,22 @@ import java.lang.reflect.InvocationTargetException;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f26833a;
+    public static Context f26841a;
 
     public static Context a() {
         Context context;
         synchronized (b.class) {
-            if (f26833a == null) {
-                f26833a = b();
+            if (f26841a == null) {
+                f26841a = b();
             }
-            context = f26833a;
+            context = f26841a;
         }
         return context;
     }
 
     public static void a(Context context) {
         synchronized (b.class) {
-            f26833a = context;
+            f26841a = context;
         }
     }
 

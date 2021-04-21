@@ -18,22 +18,22 @@ import java.io.InputStream;
 public class f<Data> implements n<File, Data> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final d<Data> f35590a;
+    public final d<Data> f35685a;
 
     /* loaded from: classes6.dex */
     public static class a<Data> implements o<File, Data> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final d<Data> f35591a;
+        public final d<Data> f35686a;
 
         public a(d<Data> dVar) {
-            this.f35591a = dVar;
+            this.f35686a = dVar;
         }
 
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
         public final n<File, Data> a(@NonNull r rVar) {
-            return new f(this.f35591a);
+            return new f(this.f35686a);
         }
     }
 
@@ -66,31 +66,31 @@ public class f<Data> implements n<File, Data> {
     public static final class c<Data> implements com.kwad.sdk.glide.load.a.d<Data> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final File f35592a;
+        public final File f35687a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final d<Data> f35593b;
+        public final d<Data> f35688b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Data f35594c;
+        public Data f35689c;
 
         public c(File file, d<Data> dVar) {
-            this.f35592a = file;
-            this.f35593b = dVar;
+            this.f35687a = file;
+            this.f35688b = dVar;
         }
 
         @Override // com.kwad.sdk.glide.load.a.d
         @NonNull
         public Class<Data> a() {
-            return this.f35593b.a();
+            return this.f35688b.a();
         }
 
         /* JADX WARN: Type inference failed for: r3v3, types: [java.lang.Object, Data] */
         @Override // com.kwad.sdk.glide.load.a.d
         public void a(@NonNull Priority priority, @NonNull d.a<? super Data> aVar) {
             try {
-                Data b2 = this.f35593b.b(this.f35592a);
-                this.f35594c = b2;
+                Data b2 = this.f35688b.b(this.f35687a);
+                this.f35689c = b2;
                 aVar.a((d.a<? super Data>) b2);
             } catch (FileNotFoundException e2) {
                 if (Log.isLoggable(FileLoader.TAG, 3)) {
@@ -102,10 +102,10 @@ public class f<Data> implements n<File, Data> {
 
         @Override // com.kwad.sdk.glide.load.a.d
         public void b() {
-            Data data = this.f35594c;
+            Data data = this.f35689c;
             if (data != null) {
                 try {
-                    this.f35593b.a(data);
+                    this.f35688b.a(data);
                 } catch (IOException unused) {
                 }
             }
@@ -157,13 +157,13 @@ public class f<Data> implements n<File, Data> {
     }
 
     public f(d<Data> dVar) {
-        this.f35590a = dVar;
+        this.f35685a = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.b.n
     public n.a<Data> a(@NonNull File file, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return new n.a<>(new com.kwad.sdk.glide.f.b(file), new c(file, this.f35590a));
+        return new n.a<>(new com.kwad.sdk.glide.f.b(file), new c(file, this.f35685a));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

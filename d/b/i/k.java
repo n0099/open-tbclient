@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class k extends h {
-    public d.b.h0.r.q.a l;
+    public d.b.i0.r.q.a l;
     public ForumEnterLayout m;
     public final View.OnClickListener n;
 
@@ -29,7 +29,7 @@ public class k extends h {
         super(context);
         this.n = new a();
         int g2 = d.b.c.e.p.l.g(context, R.dimen.M_H_X003);
-        int g3 = d.b.c.e.p.l.g(context, d.b.h0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
+        int g3 = d.b.c.e.p.l.g(context, d.b.i0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
         r(g2);
         q(g3);
         ForumEnterLayout forumEnterLayout = new ForumEnterLayout(context);
@@ -48,14 +48,14 @@ public class k extends h {
     }
 
     public void t() {
-        if (d.b.h0.b.d.T()) {
-            int g2 = d.b.c.e.p.l.g(this.f52187f, R.dimen.M_H_X003);
-            int g3 = d.b.c.e.p.l.g(this.f52187f, d.b.h0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
+        if (d.b.i0.b.d.T()) {
+            int g2 = d.b.c.e.p.l.g(this.f50155f, R.dimen.M_H_X003);
+            int g3 = d.b.c.e.p.l.g(this.f50155f, d.b.i0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
             r(g2);
             q(g3);
             return;
         }
-        int g4 = d.b.c.e.p.l.g(this.f52187f, R.dimen.tbds10);
+        int g4 = d.b.c.e.p.l.g(this.f50155f, R.dimen.tbds10);
         r(g4);
         q(0);
         v(this.m, g4, 0);
@@ -64,9 +64,9 @@ public class k extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.i.p
     /* renamed from: u */
-    public void a(d.b.h0.r.q.a aVar) {
+    public void a(d.b.i0.r.q.a aVar) {
         this.l = aVar;
-        this.m.setSourceForPb(this.f52186e.i());
+        this.m.setSourceForPb(this.f50154e.i());
         this.m.setData(aVar);
     }
 

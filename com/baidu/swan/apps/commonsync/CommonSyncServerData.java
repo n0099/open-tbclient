@@ -2,7 +2,7 @@ package com.baidu.swan.apps.commonsync;
 
 import com.alipay.sdk.cons.b;
 import com.baidu.searchbox.NoProGuard;
-import d.g.d.a.c;
+import d.h.d.a.c;
 import java.io.Serializable;
 import java.util.List;
 /* loaded from: classes2.dex */

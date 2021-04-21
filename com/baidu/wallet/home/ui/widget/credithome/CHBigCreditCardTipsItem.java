@@ -16,45 +16,45 @@ import com.baidu.wallet.home.ui.widget.b;
 public class CHBigCreditCardTipsItem extends BaseItemView {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f24328a;
+    public NetImageView f24336a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f24329b;
+    public MaskTextView f24337b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f24330c;
+    public View f24338c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HomeCfgResponse.DataIcon f24331d;
+    public HomeCfgResponse.DataIcon f24339d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f24332e;
+    public b f24340e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f24333f;
+    public int f24341f;
 
     public CHBigCreditCardTipsItem(Context context) {
         super(context);
-        this.f24333f = 24;
+        this.f24341f = 24;
     }
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_credit_card_tips_item"), this);
-        this.f24328a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_tip_item_img"));
-        this.f24329b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_tip_item_text"));
-        this.f24330c = findViewById(ResUtils.id(getContext(), "ch_credit_card_tip_divider"));
-        this.f24329b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(this.f24333f)});
+        this.f24336a = (NetImageView) findViewById(ResUtils.id(getContext(), "ch_credit_card_tip_item_img"));
+        this.f24337b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_credit_card_tip_item_text"));
+        this.f24338c = findViewById(ResUtils.id(getContext(), "ch_credit_card_tip_divider"));
+        this.f24337b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(this.f24341f)});
     }
 
     private void b() {
-        if (!TextUtils.isEmpty(this.f24331d.icon_link)) {
-            this.f24328a.setVisibility(0);
-            NetImageView netImageView = this.f24328a;
-            netImageView.setImageUrl(this.f24332e.getAndroidPrefix() + this.f24331d.icon_link);
+        if (!TextUtils.isEmpty(this.f24339d.icon_link)) {
+            this.f24336a.setVisibility(0);
+            NetImageView netImageView = this.f24336a;
+            netImageView.setImageUrl(this.f24340e.getAndroidPrefix() + this.f24339d.icon_link);
         } else {
-            this.f24328a.setVisibility(8);
+            this.f24336a.setVisibility(8);
         }
-        this.f24329b.setText(this.f24331d.name);
+        this.f24337b.setText(this.f24339d.name);
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
@@ -63,22 +63,22 @@ public class CHBigCreditCardTipsItem extends BaseItemView {
     }
 
     public void setData(HomeCfgResponse.DataIcon dataIcon, b bVar) {
-        this.f24331d = dataIcon;
-        this.f24332e = bVar;
+        this.f24339d = dataIcon;
+        this.f24340e = bVar;
         a();
         b();
     }
 
     public void setMaxLength(int i) {
-        this.f24333f = i;
+        this.f24341f = i;
     }
 
     public void setShowDivider(boolean z) {
-        this.f24330c.setVisibility(z ? 0 : 4);
+        this.f24338c.setVisibility(z ? 0 : 4);
     }
 
     public CHBigCreditCardTipsItem(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24333f = 24;
+        this.f24341f = 24;
     }
 }

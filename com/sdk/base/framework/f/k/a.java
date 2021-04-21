@@ -13,15 +13,15 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38861a;
+    public static final String f38956a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f38862b;
+    public static Boolean f38957b;
 
     static {
         new TreeMap();
-        f38861a = a.class.getSimpleName();
-        f38862b = Boolean.valueOf(f.f38809b);
+        f38956a = a.class.getSimpleName();
+        f38957b = Boolean.valueOf(f.f38904b);
     }
 
     public static String a(Context context, String str) {
@@ -31,8 +31,8 @@ public class a {
             return com.sdk.base.framework.f.i.a.b(jSONObject.optString("data"), a2.substring(0, 16), a2.substring(16));
         } catch (Throwable th) {
             com.sdk.base.framework.f.f.a.a(th.toString());
-            String str2 = f38861a;
-            c.b(str2, "SDK解密异常：" + th.toString(), f38862b);
+            String str2 = f38956a;
+            c.b(str2, "SDK解密异常：" + th.toString(), f38957b);
             return null;
         }
     }
@@ -48,7 +48,7 @@ public class a {
                 dataInfo.putData("msg", str);
                 dataInfo.putData("obj", a2);
                 dataInfo.putData(IAdRequestParam.SEQ, str2);
-                aVar.a(aVar.f38819c, "/st/api/v1.0/ses", dataInfo, aVar.a(), 0, j.f38771b);
+                aVar.a(aVar.f38914c, "/st/api/v1.0/ses", dataInfo, aVar.a(), 0, j.f38866b);
             } catch (Throwable unused) {
             }
         }
@@ -58,8 +58,8 @@ public class a {
         try {
             return new JSONObject(str).optLong("exp") < System.currentTimeMillis();
         } catch (Exception e2) {
-            String str2 = f38861a;
-            c.c(str2, "out data error" + e2, f38862b);
+            String str2 = f38956a;
+            c.c(str2, "out data error" + e2, f38957b);
             return true;
         }
     }

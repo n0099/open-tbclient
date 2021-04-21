@@ -6,10 +6,10 @@ import com.kwad.sdk.R;
 public class a extends com.kwad.sdk.contentalliance.detail.b {
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f32450b;
+    public ViewGroup f32545b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.home.swipe.a f32451c = new com.kwad.sdk.contentalliance.home.swipe.b() { // from class: com.kwad.sdk.contentalliance.detail.photo.a.a.1
+    public com.kwad.sdk.contentalliance.home.swipe.a f32546c = new com.kwad.sdk.contentalliance.home.swipe.b() { // from class: com.kwad.sdk.contentalliance.detail.photo.a.a.1
         @Override // com.kwad.sdk.contentalliance.home.swipe.b, com.kwad.sdk.contentalliance.home.swipe.a
         public void a(float f2) {
             a.this.a(f2);
@@ -18,26 +18,26 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(float f2) {
-        this.f32450b.setAlpha(f2);
-        this.f32450b.setVisibility(f2 == 0.0f ? 8 : 0);
+        this.f32545b.setAlpha(f2);
+        this.f32545b.setVisibility(f2 == 0.0f ? 8 : 0);
     }
 
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        a(((com.kwad.sdk.contentalliance.detail.b) this).f32422a.l.getSourceType() == 0 ? 1.0f : 0.0f);
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32422a.f32445e.add(this.f32451c);
+        a(((com.kwad.sdk.contentalliance.detail.b) this).f32517a.l.getSourceType() == 0 ? 1.0f : 0.0f);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32517a.f32540e.add(this.f32546c);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32422a.f32445e.remove(this.f32451c);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32517a.f32540e.remove(this.f32546c);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f32450b = (ViewGroup) b(R.id.ksad_video_bottom_container);
+        this.f32545b = (ViewGroup) b(R.id.ksad_video_bottom_container);
     }
 }

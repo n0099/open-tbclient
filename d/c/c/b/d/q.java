@@ -9,77 +9,77 @@ import java.util.Locale;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f66592a = "VNetLog";
+    public static String f66687a = "VNetLog";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f66593b = Log.isLoggable("VNetLog", 2);
+    public static boolean f66688b = Log.isLoggable("VNetLog", 2);
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: c  reason: collision with root package name */
-        public static final boolean f66594c = q.f66593b;
+        public static final boolean f66689c = q.f66688b;
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<C1826a> f66595a = new ArrayList();
+        public final List<C1829a> f66690a = new ArrayList();
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f66596b = false;
+        public boolean f66691b = false;
 
         /* renamed from: d.c.c.b.d.q$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C1826a {
+        public static class C1829a {
 
             /* renamed from: a  reason: collision with root package name */
-            public final String f66597a;
+            public final String f66692a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final long f66598b;
+            public final long f66693b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final long f66599c;
+            public final long f66694c;
 
-            public C1826a(String str, long j, long j2) {
-                this.f66597a = str;
-                this.f66598b = j;
-                this.f66599c = j2;
+            public C1829a(String str, long j, long j2) {
+                this.f66692a = str;
+                this.f66693b = j;
+                this.f66694c = j2;
             }
         }
 
         public final long a() {
-            if (this.f66595a.size() == 0) {
+            if (this.f66690a.size() == 0) {
                 return 0L;
             }
-            long j = this.f66595a.get(0).f66599c;
-            List<C1826a> list = this.f66595a;
-            return list.get(list.size() - 1).f66599c - j;
+            long j = this.f66690a.get(0).f66694c;
+            List<C1829a> list = this.f66690a;
+            return list.get(list.size() - 1).f66694c - j;
         }
 
         public synchronized void b(String str) {
-            this.f66596b = true;
+            this.f66691b = true;
             long a2 = a();
             if (a2 <= 0) {
                 return;
             }
-            long j = this.f66595a.get(0).f66599c;
+            long j = this.f66690a.get(0).f66694c;
             q.c("(%-4d ms) %s", Long.valueOf(a2), str);
-            for (C1826a c1826a : this.f66595a) {
-                long j2 = c1826a.f66599c;
-                q.c("(+%-4d) [%2d] %s", Long.valueOf(j2 - j), Long.valueOf(c1826a.f66598b), c1826a.f66597a);
+            for (C1829a c1829a : this.f66690a) {
+                long j2 = c1829a.f66694c;
+                q.c("(+%-4d) [%2d] %s", Long.valueOf(j2 - j), Long.valueOf(c1829a.f66693b), c1829a.f66692a);
                 j = j2;
             }
         }
 
         public synchronized void c(String str, long j) {
-            if (!this.f66596b) {
-                this.f66595a.add(new C1826a(str, j, SystemClock.elapsedRealtime()));
+            if (!this.f66691b) {
+                this.f66690a.add(new C1829a(str, j, SystemClock.elapsedRealtime()));
             } else {
                 throw new IllegalStateException("Marker added to finished log");
             }
         }
 
         public void finalize() throws Throwable {
-            if (this.f66596b) {
+            if (this.f66691b) {
                 return;
             }
             b("Request on the loose");
@@ -88,25 +88,25 @@ public class q {
     }
 
     public static void a(String str, Object... objArr) {
-        if (f66593b) {
-            Log.v(f66592a, f(str, objArr));
+        if (f66688b) {
+            Log.v(f66687a, f(str, objArr));
         }
     }
 
     public static void b(Throwable th, String str, Object... objArr) {
-        Log.e(f66592a, f(str, objArr), th);
+        Log.e(f66687a, f(str, objArr), th);
     }
 
     public static void c(String str, Object... objArr) {
-        Log.d(f66592a, f(str, objArr));
+        Log.d(f66687a, f(str, objArr));
     }
 
     public static void d(String str, Object... objArr) {
-        Log.e(f66592a, f(str, objArr));
+        Log.e(f66687a, f(str, objArr));
     }
 
     public static void e(String str, Object... objArr) {
-        Log.wtf(f66592a, f(str, objArr));
+        Log.wtf(f66687a, f(str, objArr));
     }
 
     public static String f(String str, Object... objArr) {

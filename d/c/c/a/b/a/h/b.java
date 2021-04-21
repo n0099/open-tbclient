@@ -19,37 +19,37 @@ import java.util.Map;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d.c.c.a.b.a.h.a[] f66123a = {new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.i, ""), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66117f, "GET"), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66117f, "POST"), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66118g, "/"), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66118g, "/index.html"), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66119h, "http"), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66119h, "https"), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66116e, BasicPushStatus.SUCCESS_CODE), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66116e, HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE204), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66116e, HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE206), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66116e, "304"), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66116e, FontParser.sFontWeightDefault), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66116e, XAdRemoteSDKCountly.COUNTLY_TYPE_4_CRASH), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66116e, "500"), new d.c.c.a.b.a.h.a("accept-charset", ""), new d.c.c.a.b.a.h.a("accept-encoding", "gzip, deflate"), new d.c.c.a.b.a.h.a("accept-language", ""), new d.c.c.a.b.a.h.a(Headers.ACCEPT_RANGES, ""), new d.c.c.a.b.a.h.a(BOSTokenRequest.ACCEPT, ""), new d.c.c.a.b.a.h.a("access-control-allow-origin", ""), new d.c.c.a.b.a.h.a("age", ""), new d.c.c.a.b.a.h.a("allow", ""), new d.c.c.a.b.a.h.a("authorization", ""), new d.c.c.a.b.a.h.a(Headers.CACHE_CONTROL, ""), new d.c.c.a.b.a.h.a(Headers.CONTENT_DISPOSITION, ""), new d.c.c.a.b.a.h.a(Headers.CONTENT_ENCODING, ""), new d.c.c.a.b.a.h.a("content-language", ""), new d.c.c.a.b.a.h.a(Headers.CONTENT_LEN, ""), new d.c.c.a.b.a.h.a("content-location", ""), new d.c.c.a.b.a.h.a("content-range", ""), new d.c.c.a.b.a.h.a("content-type", ""), new d.c.c.a.b.a.h.a("cookie", ""), new d.c.c.a.b.a.h.a("date", ""), new d.c.c.a.b.a.h.a("etag", ""), new d.c.c.a.b.a.h.a("expect", ""), new d.c.c.a.b.a.h.a("expires", ""), new d.c.c.a.b.a.h.a("from", ""), new d.c.c.a.b.a.h.a("host", ""), new d.c.c.a.b.a.h.a("if-match", ""), new d.c.c.a.b.a.h.a("if-modified-since", ""), new d.c.c.a.b.a.h.a("if-none-match", ""), new d.c.c.a.b.a.h.a("if-range", ""), new d.c.c.a.b.a.h.a("if-unmodified-since", ""), new d.c.c.a.b.a.h.a(Headers.LAST_MODIFIED, ""), new d.c.c.a.b.a.h.a("link", ""), new d.c.c.a.b.a.h.a("location", ""), new d.c.c.a.b.a.h.a("max-forwards", ""), new d.c.c.a.b.a.h.a(Headers.PROXY_AUTHENTICATE, ""), new d.c.c.a.b.a.h.a("proxy-authorization", ""), new d.c.c.a.b.a.h.a("range", ""), new d.c.c.a.b.a.h.a(Config.LAUNCH_REFERER, ""), new d.c.c.a.b.a.h.a("refresh", ""), new d.c.c.a.b.a.h.a("retry-after", ""), new d.c.c.a.b.a.h.a("server", ""), new d.c.c.a.b.a.h.a(Headers.SET_COOKIE, ""), new d.c.c.a.b.a.h.a("strict-transport-security", ""), new d.c.c.a.b.a.h.a(Headers.TRANSFER_ENCODING, ""), new d.c.c.a.b.a.h.a("user-agent", ""), new d.c.c.a.b.a.h.a("vary", ""), new d.c.c.a.b.a.h.a("via", ""), new d.c.c.a.b.a.h.a(Headers.WWW_AUTHENTICATE, "")};
+    public static final d.c.c.a.b.a.h.a[] f66218a = {new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.i, ""), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66212f, "GET"), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66212f, "POST"), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66213g, "/"), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66213g, "/index.html"), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66214h, "http"), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66214h, "https"), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66211e, BasicPushStatus.SUCCESS_CODE), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66211e, HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE204), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66211e, HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE206), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66211e, "304"), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66211e, FontParser.sFontWeightDefault), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66211e, XAdRemoteSDKCountly.COUNTLY_TYPE_4_CRASH), new d.c.c.a.b.a.h.a(d.c.c.a.b.a.h.a.f66211e, "500"), new d.c.c.a.b.a.h.a("accept-charset", ""), new d.c.c.a.b.a.h.a("accept-encoding", "gzip, deflate"), new d.c.c.a.b.a.h.a("accept-language", ""), new d.c.c.a.b.a.h.a(Headers.ACCEPT_RANGES, ""), new d.c.c.a.b.a.h.a(BOSTokenRequest.ACCEPT, ""), new d.c.c.a.b.a.h.a("access-control-allow-origin", ""), new d.c.c.a.b.a.h.a("age", ""), new d.c.c.a.b.a.h.a("allow", ""), new d.c.c.a.b.a.h.a("authorization", ""), new d.c.c.a.b.a.h.a(Headers.CACHE_CONTROL, ""), new d.c.c.a.b.a.h.a(Headers.CONTENT_DISPOSITION, ""), new d.c.c.a.b.a.h.a(Headers.CONTENT_ENCODING, ""), new d.c.c.a.b.a.h.a("content-language", ""), new d.c.c.a.b.a.h.a(Headers.CONTENT_LEN, ""), new d.c.c.a.b.a.h.a("content-location", ""), new d.c.c.a.b.a.h.a("content-range", ""), new d.c.c.a.b.a.h.a("content-type", ""), new d.c.c.a.b.a.h.a("cookie", ""), new d.c.c.a.b.a.h.a("date", ""), new d.c.c.a.b.a.h.a("etag", ""), new d.c.c.a.b.a.h.a("expect", ""), new d.c.c.a.b.a.h.a("expires", ""), new d.c.c.a.b.a.h.a("from", ""), new d.c.c.a.b.a.h.a("host", ""), new d.c.c.a.b.a.h.a("if-match", ""), new d.c.c.a.b.a.h.a("if-modified-since", ""), new d.c.c.a.b.a.h.a("if-none-match", ""), new d.c.c.a.b.a.h.a("if-range", ""), new d.c.c.a.b.a.h.a("if-unmodified-since", ""), new d.c.c.a.b.a.h.a(Headers.LAST_MODIFIED, ""), new d.c.c.a.b.a.h.a("link", ""), new d.c.c.a.b.a.h.a("location", ""), new d.c.c.a.b.a.h.a("max-forwards", ""), new d.c.c.a.b.a.h.a(Headers.PROXY_AUTHENTICATE, ""), new d.c.c.a.b.a.h.a("proxy-authorization", ""), new d.c.c.a.b.a.h.a("range", ""), new d.c.c.a.b.a.h.a(Config.LAUNCH_REFERER, ""), new d.c.c.a.b.a.h.a("refresh", ""), new d.c.c.a.b.a.h.a("retry-after", ""), new d.c.c.a.b.a.h.a("server", ""), new d.c.c.a.b.a.h.a(Headers.SET_COOKIE, ""), new d.c.c.a.b.a.h.a("strict-transport-security", ""), new d.c.c.a.b.a.h.a(Headers.TRANSFER_ENCODING, ""), new d.c.c.a.b.a.h.a("user-agent", ""), new d.c.c.a.b.a.h.a("vary", ""), new d.c.c.a.b.a.h.a("via", ""), new d.c.c.a.b.a.h.a(Headers.WWW_AUTHENTICATE, "")};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Map<com.bytedance.sdk.a.a.f, Integer> f66124b = b();
+    public static final Map<com.bytedance.sdk.a.a.f, Integer> f66219b = b();
 
     /* loaded from: classes5.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<d.c.c.a.b.a.h.a> f66125a;
+        public final List<d.c.c.a.b.a.h.a> f66220a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final d.c.c.a.a.e f66126b;
+        public final d.c.c.a.a.e f66221b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f66127c;
+        public final int f66222c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f66128d;
+        public int f66223d;
 
         /* renamed from: e  reason: collision with root package name */
-        public d.c.c.a.b.a.h.a[] f66129e;
+        public d.c.c.a.b.a.h.a[] f66224e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f66130f;
+        public int f66225f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f66131g;
+        public int f66226g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f66132h;
+        public int f66227h;
 
         public a(int i, q qVar) {
             this(i, i, qVar);
@@ -58,22 +58,22 @@ public final class b {
         public final int a(int i) {
             int i2 = 0;
             if (i > 0) {
-                int length = this.f66129e.length;
+                int length = this.f66224e.length;
                 while (true) {
                     length--;
-                    if (length < this.f66130f || i <= 0) {
+                    if (length < this.f66225f || i <= 0) {
                         break;
                     }
-                    d.c.c.a.b.a.h.a[] aVarArr = this.f66129e;
-                    i -= aVarArr[length].f66122c;
-                    this.f66132h -= aVarArr[length].f66122c;
-                    this.f66131g--;
+                    d.c.c.a.b.a.h.a[] aVarArr = this.f66224e;
+                    i -= aVarArr[length].f66217c;
+                    this.f66227h -= aVarArr[length].f66217c;
+                    this.f66226g--;
                     i2++;
                 }
-                d.c.c.a.b.a.h.a[] aVarArr2 = this.f66129e;
-                int i3 = this.f66130f;
-                System.arraycopy(aVarArr2, i3 + 1, aVarArr2, i3 + 1 + i2, this.f66131g);
-                this.f66130f += i2;
+                d.c.c.a.b.a.h.a[] aVarArr2 = this.f66224e;
+                int i3 = this.f66225f;
+                System.arraycopy(aVarArr2, i3 + 1, aVarArr2, i3 + 1 + i2, this.f66226g);
+                this.f66225f += i2;
             }
             return i2;
         }
@@ -95,8 +95,8 @@ public final class b {
         }
 
         public void c() throws IOException {
-            while (!this.f66126b.e()) {
-                int h2 = this.f66126b.h() & 255;
+            while (!this.f66221b.e()) {
+                int h2 = this.f66221b.h() & 255;
                 if (h2 == 128) {
                     throw new IOException("index == 0");
                 }
@@ -108,11 +108,11 @@ public final class b {
                     l(b(h2, 63) - 1);
                 } else if ((h2 & 32) == 32) {
                     int b2 = b(h2, 31);
-                    this.f66128d = b2;
-                    if (b2 >= 0 && b2 <= this.f66127c) {
+                    this.f66223d = b2;
+                    if (b2 >= 0 && b2 <= this.f66222c) {
                         i();
                     } else {
-                        throw new IOException("Invalid dynamic table size update " + this.f66128d);
+                        throw new IOException("Invalid dynamic table size update " + this.f66223d);
                     }
                 } else if (h2 != 16 && h2 != 0) {
                     j(b(h2, 15) - 1);
@@ -123,52 +123,52 @@ public final class b {
         }
 
         public final void d(int i, d.c.c.a.b.a.h.a aVar) {
-            this.f66125a.add(aVar);
-            int i2 = aVar.f66122c;
+            this.f66220a.add(aVar);
+            int i2 = aVar.f66217c;
             if (i != -1) {
-                i2 -= this.f66129e[g(i)].f66122c;
+                i2 -= this.f66224e[g(i)].f66217c;
             }
-            int i3 = this.f66128d;
+            int i3 = this.f66223d;
             if (i2 > i3) {
                 k();
                 return;
             }
-            int a2 = a((this.f66132h + i2) - i3);
+            int a2 = a((this.f66227h + i2) - i3);
             if (i == -1) {
-                int i4 = this.f66131g + 1;
-                d.c.c.a.b.a.h.a[] aVarArr = this.f66129e;
+                int i4 = this.f66226g + 1;
+                d.c.c.a.b.a.h.a[] aVarArr = this.f66224e;
                 if (i4 > aVarArr.length) {
                     d.c.c.a.b.a.h.a[] aVarArr2 = new d.c.c.a.b.a.h.a[aVarArr.length * 2];
                     System.arraycopy(aVarArr, 0, aVarArr2, aVarArr.length, aVarArr.length);
-                    this.f66130f = this.f66129e.length - 1;
-                    this.f66129e = aVarArr2;
+                    this.f66225f = this.f66224e.length - 1;
+                    this.f66224e = aVarArr2;
                 }
-                int i5 = this.f66130f;
-                this.f66130f = i5 - 1;
-                this.f66129e[i5] = aVar;
-                this.f66131g++;
+                int i5 = this.f66225f;
+                this.f66225f = i5 - 1;
+                this.f66224e[i5] = aVar;
+                this.f66226g++;
             } else {
-                this.f66129e[i + g(i) + a2] = aVar;
+                this.f66224e[i + g(i) + a2] = aVar;
             }
-            this.f66132h += i2;
+            this.f66227h += i2;
         }
 
         public List<d.c.c.a.b.a.h.a> e() {
-            ArrayList arrayList = new ArrayList(this.f66125a);
-            this.f66125a.clear();
+            ArrayList arrayList = new ArrayList(this.f66220a);
+            this.f66220a.clear();
             return arrayList;
         }
 
         public final void f(int i) throws IOException {
             if (p(i)) {
-                this.f66125a.add(b.f66123a[i]);
+                this.f66220a.add(b.f66218a[i]);
                 return;
             }
-            int g2 = g(i - b.f66123a.length);
+            int g2 = g(i - b.f66218a.length);
             if (g2 >= 0) {
-                d.c.c.a.b.a.h.a[] aVarArr = this.f66129e;
+                d.c.c.a.b.a.h.a[] aVarArr = this.f66224e;
                 if (g2 <= aVarArr.length - 1) {
-                    this.f66125a.add(aVarArr[g2]);
+                    this.f66220a.add(aVarArr[g2]);
                     return;
                 }
             }
@@ -176,7 +176,7 @@ public final class b {
         }
 
         public final int g(int i) {
-            return this.f66130f + 1 + i;
+            return this.f66225f + 1 + i;
         }
 
         public com.bytedance.sdk.a.a.f h() throws IOException {
@@ -184,14 +184,14 @@ public final class b {
             boolean z = (q & 128) == 128;
             int b2 = b(q, 127);
             if (z) {
-                return com.bytedance.sdk.a.a.f.a(i.b().e(this.f66126b.f(b2)));
+                return com.bytedance.sdk.a.a.f.a(i.b().e(this.f66221b.f(b2)));
             }
-            return this.f66126b.c(b2);
+            return this.f66221b.c(b2);
         }
 
         public final void i() {
-            int i = this.f66128d;
-            int i2 = this.f66132h;
+            int i = this.f66223d;
+            int i2 = this.f66227h;
             if (i < i2) {
                 if (i == 0) {
                     k();
@@ -202,14 +202,14 @@ public final class b {
         }
 
         public final void j(int i) throws IOException {
-            this.f66125a.add(new d.c.c.a.b.a.h.a(m(i), h()));
+            this.f66220a.add(new d.c.c.a.b.a.h.a(m(i), h()));
         }
 
         public final void k() {
-            Arrays.fill(this.f66129e, (Object) null);
-            this.f66130f = this.f66129e.length - 1;
-            this.f66131g = 0;
-            this.f66132h = 0;
+            Arrays.fill(this.f66224e, (Object) null);
+            this.f66225f = this.f66224e.length - 1;
+            this.f66226g = 0;
+            this.f66227h = 0;
         }
 
         public final void l(int i) throws IOException {
@@ -218,15 +218,15 @@ public final class b {
 
         public final com.bytedance.sdk.a.a.f m(int i) {
             if (p(i)) {
-                return b.f66123a[i].f66120a;
+                return b.f66218a[i].f66215a;
             }
-            return this.f66129e[g(i - b.f66123a.length)].f66120a;
+            return this.f66224e[g(i - b.f66218a.length)].f66215a;
         }
 
         public final void n() throws IOException {
             com.bytedance.sdk.a.a.f h2 = h();
             b.a(h2);
-            this.f66125a.add(new d.c.c.a.b.a.h.a(h2, h()));
+            this.f66220a.add(new d.c.c.a.b.a.h.a(h2, h()));
         }
 
         public final void o() throws IOException {
@@ -236,154 +236,154 @@ public final class b {
         }
 
         public final boolean p(int i) {
-            return i >= 0 && i <= b.f66123a.length - 1;
+            return i >= 0 && i <= b.f66218a.length - 1;
         }
 
         public final int q() throws IOException {
-            return this.f66126b.h() & 255;
+            return this.f66221b.h() & 255;
         }
 
         public a(int i, int i2, q qVar) {
-            this.f66125a = new ArrayList();
+            this.f66220a = new ArrayList();
             d.c.c.a.b.a.h.a[] aVarArr = new d.c.c.a.b.a.h.a[8];
-            this.f66129e = aVarArr;
-            this.f66130f = aVarArr.length - 1;
-            this.f66131g = 0;
-            this.f66132h = 0;
-            this.f66127c = i;
-            this.f66128d = i2;
-            this.f66126b = d.c.c.a.a.k.b(qVar);
+            this.f66224e = aVarArr;
+            this.f66225f = aVarArr.length - 1;
+            this.f66226g = 0;
+            this.f66227h = 0;
+            this.f66222c = i;
+            this.f66223d = i2;
+            this.f66221b = d.c.c.a.a.k.b(qVar);
         }
     }
 
     /* renamed from: d.c.c.a.b.a.h.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C1817b {
+    public static final class C1820b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final d.c.c.a.a.c f66133a;
+        public final d.c.c.a.a.c f66228a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f66134b;
+        public final boolean f66229b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f66135c;
+        public int f66230c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f66136d;
+        public boolean f66231d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f66137e;
+        public int f66232e;
 
         /* renamed from: f  reason: collision with root package name */
-        public d.c.c.a.b.a.h.a[] f66138f;
+        public d.c.c.a.b.a.h.a[] f66233f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f66139g;
+        public int f66234g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f66140h;
+        public int f66235h;
         public int i;
 
-        public C1817b(d.c.c.a.a.c cVar) {
+        public C1820b(d.c.c.a.a.c cVar) {
             this(4096, true, cVar);
         }
 
         public final void a() {
-            Arrays.fill(this.f66138f, (Object) null);
-            this.f66139g = this.f66138f.length - 1;
-            this.f66140h = 0;
+            Arrays.fill(this.f66233f, (Object) null);
+            this.f66234g = this.f66233f.length - 1;
+            this.f66235h = 0;
             this.i = 0;
         }
 
         public void b(int i) {
             int min = Math.min(i, 16384);
-            int i2 = this.f66137e;
+            int i2 = this.f66232e;
             if (i2 == min) {
                 return;
             }
             if (min < i2) {
-                this.f66135c = Math.min(this.f66135c, min);
+                this.f66230c = Math.min(this.f66230c, min);
             }
-            this.f66136d = true;
-            this.f66137e = min;
+            this.f66231d = true;
+            this.f66232e = min;
             h();
         }
 
         public void c(int i, int i2, int i3) {
             if (i < i2) {
-                this.f66133a.w(i | i3);
+                this.f66228a.w(i | i3);
                 return;
             }
-            this.f66133a.w(i3 | i2);
+            this.f66228a.w(i3 | i2);
             int i4 = i - i2;
             while (i4 >= 128) {
-                this.f66133a.w(128 | (i4 & 127));
+                this.f66228a.w(128 | (i4 & 127));
                 i4 >>>= 7;
             }
-            this.f66133a.w(i4);
+            this.f66228a.w(i4);
         }
 
         public void d(com.bytedance.sdk.a.a.f fVar) throws IOException {
-            if (this.f66134b && i.b().a(fVar) < fVar.g()) {
+            if (this.f66229b && i.b().a(fVar) < fVar.g()) {
                 d.c.c.a.a.c cVar = new d.c.c.a.a.c();
                 i.b().d(fVar, cVar);
                 com.bytedance.sdk.a.a.f I = cVar.I();
                 c(I.g(), 127, 128);
-                this.f66133a.o(I);
+                this.f66228a.o(I);
                 return;
             }
             c(fVar.g(), 127, 0);
-            this.f66133a.o(fVar);
+            this.f66228a.o(fVar);
         }
 
         public final void e(d.c.c.a.b.a.h.a aVar) {
-            int i = aVar.f66122c;
-            int i2 = this.f66137e;
+            int i = aVar.f66217c;
+            int i2 = this.f66232e;
             if (i > i2) {
                 a();
                 return;
             }
             g((this.i + i) - i2);
-            int i3 = this.f66140h + 1;
-            d.c.c.a.b.a.h.a[] aVarArr = this.f66138f;
+            int i3 = this.f66235h + 1;
+            d.c.c.a.b.a.h.a[] aVarArr = this.f66233f;
             if (i3 > aVarArr.length) {
                 d.c.c.a.b.a.h.a[] aVarArr2 = new d.c.c.a.b.a.h.a[aVarArr.length * 2];
                 System.arraycopy(aVarArr, 0, aVarArr2, aVarArr.length, aVarArr.length);
-                this.f66139g = this.f66138f.length - 1;
-                this.f66138f = aVarArr2;
+                this.f66234g = this.f66233f.length - 1;
+                this.f66233f = aVarArr2;
             }
-            int i4 = this.f66139g;
-            this.f66139g = i4 - 1;
-            this.f66138f[i4] = aVar;
-            this.f66140h++;
+            int i4 = this.f66234g;
+            this.f66234g = i4 - 1;
+            this.f66233f[i4] = aVar;
+            this.f66235h++;
             this.i += i;
         }
 
         public void f(List<d.c.c.a.b.a.h.a> list) throws IOException {
             int i;
             int i2;
-            if (this.f66136d) {
-                int i3 = this.f66135c;
-                if (i3 < this.f66137e) {
+            if (this.f66231d) {
+                int i3 = this.f66230c;
+                if (i3 < this.f66232e) {
                     c(i3, 31, 32);
                 }
-                this.f66136d = false;
-                this.f66135c = Integer.MAX_VALUE;
-                c(this.f66137e, 31, 32);
+                this.f66231d = false;
+                this.f66230c = Integer.MAX_VALUE;
+                c(this.f66232e, 31, 32);
             }
             int size = list.size();
             for (int i4 = 0; i4 < size; i4++) {
                 d.c.c.a.b.a.h.a aVar = list.get(i4);
-                com.bytedance.sdk.a.a.f f2 = aVar.f66120a.f();
-                com.bytedance.sdk.a.a.f fVar = aVar.f66121b;
-                Integer num = b.f66124b.get(f2);
+                com.bytedance.sdk.a.a.f f2 = aVar.f66215a.f();
+                com.bytedance.sdk.a.a.f fVar = aVar.f66216b;
+                Integer num = b.f66219b.get(f2);
                 if (num != null) {
                     i = num.intValue() + 1;
                     if (i > 1 && i < 8) {
-                        if (d.c.c.a.b.a.e.u(b.f66123a[i - 1].f66121b, fVar)) {
+                        if (d.c.c.a.b.a.e.u(b.f66218a[i - 1].f66216b, fVar)) {
                             i2 = i;
-                        } else if (d.c.c.a.b.a.e.u(b.f66123a[i].f66121b, fVar)) {
+                        } else if (d.c.c.a.b.a.e.u(b.f66218a[i].f66216b, fVar)) {
                             i2 = i;
                             i++;
                         }
@@ -395,18 +395,18 @@ public final class b {
                     i2 = -1;
                 }
                 if (i == -1) {
-                    int i5 = this.f66139g + 1;
-                    int length = this.f66138f.length;
+                    int i5 = this.f66234g + 1;
+                    int length = this.f66233f.length;
                     while (true) {
                         if (i5 >= length) {
                             break;
                         }
-                        if (d.c.c.a.b.a.e.u(this.f66138f[i5].f66120a, f2)) {
-                            if (d.c.c.a.b.a.e.u(this.f66138f[i5].f66121b, fVar)) {
-                                i = b.f66123a.length + (i5 - this.f66139g);
+                        if (d.c.c.a.b.a.e.u(this.f66233f[i5].f66215a, f2)) {
+                            if (d.c.c.a.b.a.e.u(this.f66233f[i5].f66216b, fVar)) {
+                                i = b.f66218a.length + (i5 - this.f66234g);
                                 break;
                             } else if (i2 == -1) {
-                                i2 = (i5 - this.f66139g) + b.f66123a.length;
+                                i2 = (i5 - this.f66234g) + b.f66218a.length;
                             }
                         }
                         i5++;
@@ -415,11 +415,11 @@ public final class b {
                 if (i != -1) {
                     c(i, 127, 128);
                 } else if (i2 == -1) {
-                    this.f66133a.w(64);
+                    this.f66228a.w(64);
                     d(f2);
                     d(fVar);
                     e(aVar);
-                } else if (f2.a(d.c.c.a.b.a.h.a.f66115d) && !d.c.c.a.b.a.h.a.i.equals(f2)) {
+                } else if (f2.a(d.c.c.a.b.a.h.a.f66210d) && !d.c.c.a.b.a.h.a.i.equals(f2)) {
                     c(i2, 15, 0);
                     d(fVar);
                 } else {
@@ -433,31 +433,31 @@ public final class b {
         public final int g(int i) {
             int i2 = 0;
             if (i > 0) {
-                int length = this.f66138f.length;
+                int length = this.f66233f.length;
                 while (true) {
                     length--;
-                    if (length < this.f66139g || i <= 0) {
+                    if (length < this.f66234g || i <= 0) {
                         break;
                     }
-                    d.c.c.a.b.a.h.a[] aVarArr = this.f66138f;
-                    i -= aVarArr[length].f66122c;
-                    this.i -= aVarArr[length].f66122c;
-                    this.f66140h--;
+                    d.c.c.a.b.a.h.a[] aVarArr = this.f66233f;
+                    i -= aVarArr[length].f66217c;
+                    this.i -= aVarArr[length].f66217c;
+                    this.f66235h--;
                     i2++;
                 }
-                d.c.c.a.b.a.h.a[] aVarArr2 = this.f66138f;
-                int i3 = this.f66139g;
-                System.arraycopy(aVarArr2, i3 + 1, aVarArr2, i3 + 1 + i2, this.f66140h);
-                d.c.c.a.b.a.h.a[] aVarArr3 = this.f66138f;
-                int i4 = this.f66139g;
+                d.c.c.a.b.a.h.a[] aVarArr2 = this.f66233f;
+                int i3 = this.f66234g;
+                System.arraycopy(aVarArr2, i3 + 1, aVarArr2, i3 + 1 + i2, this.f66235h);
+                d.c.c.a.b.a.h.a[] aVarArr3 = this.f66233f;
+                int i4 = this.f66234g;
                 Arrays.fill(aVarArr3, i4 + 1, i4 + 1 + i2, (Object) null);
-                this.f66139g += i2;
+                this.f66234g += i2;
             }
             return i2;
         }
 
         public final void h() {
-            int i = this.f66137e;
+            int i = this.f66232e;
             int i2 = this.i;
             if (i < i2) {
                 if (i == 0) {
@@ -468,16 +468,16 @@ public final class b {
             }
         }
 
-        public C1817b(int i, boolean z, d.c.c.a.a.c cVar) {
-            this.f66135c = Integer.MAX_VALUE;
+        public C1820b(int i, boolean z, d.c.c.a.a.c cVar) {
+            this.f66230c = Integer.MAX_VALUE;
             d.c.c.a.b.a.h.a[] aVarArr = new d.c.c.a.b.a.h.a[8];
-            this.f66138f = aVarArr;
-            this.f66139g = aVarArr.length - 1;
-            this.f66140h = 0;
+            this.f66233f = aVarArr;
+            this.f66234g = aVarArr.length - 1;
+            this.f66235h = 0;
             this.i = 0;
-            this.f66137e = i;
-            this.f66134b = z;
-            this.f66133a = cVar;
+            this.f66232e = i;
+            this.f66229b = z;
+            this.f66228a = cVar;
         }
     }
 
@@ -493,13 +493,13 @@ public final class b {
     }
 
     public static Map<com.bytedance.sdk.a.a.f, Integer> b() {
-        LinkedHashMap linkedHashMap = new LinkedHashMap(f66123a.length);
+        LinkedHashMap linkedHashMap = new LinkedHashMap(f66218a.length);
         int i = 0;
         while (true) {
-            d.c.c.a.b.a.h.a[] aVarArr = f66123a;
+            d.c.c.a.b.a.h.a[] aVarArr = f66218a;
             if (i < aVarArr.length) {
-                if (!linkedHashMap.containsKey(aVarArr[i].f66120a)) {
-                    linkedHashMap.put(f66123a[i].f66120a, Integer.valueOf(i));
+                if (!linkedHashMap.containsKey(aVarArr[i].f66215a)) {
+                    linkedHashMap.put(f66218a[i].f66215a, Integer.valueOf(i));
                 }
                 i++;
             } else {

@@ -16,57 +16,57 @@ import java.util.zip.GZIPOutputStream;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f66749a = "AAA" + System.currentTimeMillis() + "AAA";
+    public final String f66844a = "AAA" + System.currentTimeMillis() + "AAA";
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpURLConnection f66750b;
+    public HttpURLConnection f66845b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f66751c;
+    public String f66846c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f66752d;
+    public boolean f66847d;
 
     /* renamed from: e  reason: collision with root package name */
-    public DataOutputStream f66753e;
+    public DataOutputStream f66848e;
 
     /* renamed from: f  reason: collision with root package name */
-    public GZIPOutputStream f66754f;
+    public GZIPOutputStream f66849f;
 
     public d(String str, String str2, boolean z) throws IOException {
-        this.f66751c = str2;
-        this.f66752d = z;
+        this.f66846c = str2;
+        this.f66847d = z;
         HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-        this.f66750b = httpURLConnection;
+        this.f66845b = httpURLConnection;
         httpURLConnection.setUseCaches(false);
-        this.f66750b.setDoOutput(true);
-        this.f66750b.setDoInput(true);
-        this.f66750b.setRequestMethod("POST");
-        HttpURLConnection httpURLConnection2 = this.f66750b;
-        httpURLConnection2.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + this.f66749a);
+        this.f66845b.setDoOutput(true);
+        this.f66845b.setDoInput(true);
+        this.f66845b.setRequestMethod("POST");
+        HttpURLConnection httpURLConnection2 = this.f66845b;
+        httpURLConnection2.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + this.f66844a);
         if (z) {
-            this.f66750b.setRequestProperty("Content-Encoding", AsyncHttpClient.ENCODING_GZIP);
-            this.f66754f = new GZIPOutputStream(this.f66750b.getOutputStream());
+            this.f66845b.setRequestProperty("Content-Encoding", AsyncHttpClient.ENCODING_GZIP);
+            this.f66849f = new GZIPOutputStream(this.f66845b.getOutputStream());
             return;
         }
-        this.f66753e = new DataOutputStream(this.f66750b.getOutputStream());
+        this.f66848e = new DataOutputStream(this.f66845b.getOutputStream());
     }
 
     public String a() throws IOException {
         ArrayList<String> arrayList = new ArrayList();
-        byte[] bytes = ("\r\n--" + this.f66749a + "--" + Part.CRLF).getBytes();
-        if (this.f66752d) {
-            this.f66754f.write(bytes);
-            this.f66754f.finish();
-            this.f66754f.close();
+        byte[] bytes = ("\r\n--" + this.f66844a + "--" + Part.CRLF).getBytes();
+        if (this.f66847d) {
+            this.f66849f.write(bytes);
+            this.f66849f.finish();
+            this.f66849f.close();
         } else {
-            this.f66753e.write(bytes);
-            this.f66753e.flush();
-            this.f66753e.close();
+            this.f66848e.write(bytes);
+            this.f66848e.flush();
+            this.f66848e.close();
         }
-        int responseCode = this.f66750b.getResponseCode();
+        int responseCode = this.f66845b.getResponseCode();
         if (responseCode == 200) {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f66750b.getInputStream()));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f66845b.getInputStream()));
             while (true) {
                 String readLine = bufferedReader.readLine();
                 if (readLine == null) {
@@ -75,7 +75,7 @@ public class d {
                 arrayList.add(readLine);
             }
             bufferedReader.close();
-            this.f66750b.disconnect();
+            this.f66845b.disconnect();
             StringBuilder sb = new StringBuilder();
             for (String str : arrayList) {
                 sb.append(str);
@@ -89,7 +89,7 @@ public class d {
         String name = file.getName();
         StringBuilder sb = new StringBuilder();
         sb.append("--");
-        sb.append(this.f66749a);
+        sb.append(this.f66844a);
         sb.append(Part.CRLF);
         sb.append("Content-Disposition: form-data; name=\"");
         sb.append(str);
@@ -100,10 +100,10 @@ public class d {
         sb.append("Content-Transfer-Encoding: binary");
         sb.append(Part.CRLF);
         sb.append(Part.CRLF);
-        if (this.f66752d) {
-            this.f66754f.write(sb.toString().getBytes());
+        if (this.f66847d) {
+            this.f66849f.write(sb.toString().getBytes());
         } else {
-            this.f66753e.write(sb.toString().getBytes());
+            this.f66848e.write(sb.toString().getBytes());
         }
         FileInputStream fileInputStream = new FileInputStream(file);
         byte[] bArr = new byte[8192];
@@ -111,41 +111,41 @@ public class d {
             int read = fileInputStream.read(bArr);
             if (read == -1) {
                 break;
-            } else if (this.f66752d) {
-                this.f66754f.write(bArr, 0, read);
+            } else if (this.f66847d) {
+                this.f66849f.write(bArr, 0, read);
             } else {
-                this.f66753e.write(bArr, 0, read);
+                this.f66848e.write(bArr, 0, read);
             }
         }
         fileInputStream.close();
-        if (this.f66752d) {
-            this.f66754f.write(Part.CRLF.getBytes());
+        if (this.f66847d) {
+            this.f66849f.write(Part.CRLF.getBytes());
             return;
         }
-        this.f66753e.write(sb.toString().getBytes());
-        this.f66753e.flush();
+        this.f66848e.write(sb.toString().getBytes());
+        this.f66848e.flush();
     }
 
     public void c(String str, String str2) {
         StringBuilder sb = new StringBuilder();
         sb.append("--");
-        sb.append(this.f66749a);
+        sb.append(this.f66844a);
         sb.append(Part.CRLF);
         sb.append("Content-Disposition: form-data; name=\"");
         sb.append(str);
         sb.append("\"");
         sb.append(Part.CRLF);
         sb.append("Content-Type: text/plain; charset=");
-        sb.append(this.f66751c);
+        sb.append(this.f66846c);
         sb.append(Part.CRLF);
         sb.append(Part.CRLF);
         sb.append(str2);
         sb.append(Part.CRLF);
         try {
-            if (this.f66752d) {
-                this.f66754f.write(sb.toString().getBytes());
+            if (this.f66847d) {
+                this.f66849f.write(sb.toString().getBytes());
             } else {
-                this.f66753e.write(sb.toString().getBytes());
+                this.f66848e.write(sb.toString().getBytes());
             }
         } catch (IOException e2) {
             e2.printStackTrace();

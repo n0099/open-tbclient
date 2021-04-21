@@ -10,8 +10,8 @@ import java.nio.ByteBuffer;
 import kotlin.jvm.internal.ByteCompanionObject;
 /* loaded from: classes6.dex */
 public class TfxdBox extends AbstractFullBox {
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
     public long fragmentAbsoluteDuration;
     public long fragmentAbsoluteTime;
 

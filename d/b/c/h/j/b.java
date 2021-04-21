@@ -19,16 +19,16 @@ import java.util.Map;
 public class b {
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile b f42761d;
+    public static volatile b f43001d;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, String> f42762a = new HashMap<>();
+    public HashMap<String, String> f43002a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public a f42763b = null;
+    public a f43003b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f42764c = false;
+    public boolean f43004c = false;
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Void, Integer, Boolean> {
@@ -79,7 +79,7 @@ public class b {
             StringBuilder sb2 = new StringBuilder();
             StringBuilder sb3 = new StringBuilder();
             try {
-                for (Map.Entry entry : b.this.f42762a.entrySet()) {
+                for (Map.Entry entry : b.this.f43002a.entrySet()) {
                     if (sb.length() > 0) {
                         sb.append("-");
                     }
@@ -139,7 +139,7 @@ public class b {
                                                         } else {
                                                             i4 = length3;
                                                         }
-                                                        HashMap hashMap = b.this.f42762a;
+                                                        HashMap hashMap = b.this.f43002a;
                                                         if (hashMap.get(name3 + ".apk") == null) {
                                                             arrayList.add(file3);
                                                             if (sb3.length() < 10000) {
@@ -165,7 +165,7 @@ public class b {
                                                 if (name4.endsWith(".apk.cur.prof")) {
                                                     name4 = name4.substring(0, name4.length() - 13);
                                                 }
-                                                HashMap hashMap2 = b.this.f42762a;
+                                                HashMap hashMap2 = b.this.f43002a;
                                                 if (hashMap2.get(name4 + ".apk") == null) {
                                                     arrayList.add(file2);
                                                     if (sb3.length() < 10000) {
@@ -191,7 +191,7 @@ public class b {
                                     str = c2;
                                     i = length;
                                     if (!name.endsWith(".apk")) {
-                                        HashMap hashMap3 = b.this.f42762a;
+                                        HashMap hashMap3 = b.this.f43002a;
                                         if (hashMap3.get(name + ".apk") == null) {
                                             arrayList.add(file);
                                             if (sb3.length() < 10000) {
@@ -215,7 +215,7 @@ public class b {
                                 str = c2;
                                 i = length;
                                 if (name.endsWith(".apk")) {
-                                    if (b.this.f42762a.get(name) == null) {
+                                    if (b.this.f43002a.get(name) == null) {
                                         arrayList.add(file);
                                         if (sb3.length() < 10000) {
                                             if (sb3.length() > 0) {
@@ -232,7 +232,7 @@ public class b {
                                         sb2.append(absolutePath);
                                     }
                                 } else if (System.currentTimeMillis() - file.lastModified() > 259200000) {
-                                    if (name.contains(".apk_") && b.this.f42762a.get(name) != null) {
+                                    if (name.contains(".apk_") && b.this.f43002a.get(name) != null) {
                                         if (sb2.length() < 10000) {
                                             if (sb2.length() > 0) {
                                                 sb2.append("-");
@@ -341,33 +341,33 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            b.this.f42763b = null;
+            b.this.f43003b = null;
         }
     }
 
     public static b d() {
-        if (f42761d == null) {
+        if (f43001d == null) {
             synchronized (b.class) {
-                if (f42761d == null) {
-                    f42761d = new b();
+                if (f43001d == null) {
+                    f43001d = new b();
                 }
             }
         }
-        return f42761d;
+        return f43001d;
     }
 
     public void c(boolean z) {
-        if (z && !this.f42764c && this.f42763b == null && e()) {
+        if (z && !this.f43004c && this.f43003b == null && e()) {
             a aVar = new a();
-            this.f42763b = aVar;
+            this.f43003b = aVar;
             aVar.execute(new Void[0]);
-            this.f42764c = true;
+            this.f43004c = true;
         }
     }
 
     public final boolean e() {
         String[] split;
-        this.f42762a.clear();
+        this.f43002a.clear();
         PluginSettings l = d.b.c.h.j.g.d.k().l();
         if (l == null) {
             return false;
@@ -379,26 +379,26 @@ public class b {
         for (Map.Entry<String, PluginSetting> entry : plugins.entrySet()) {
             PluginSetting value = entry.getValue();
             if (!TextUtils.isEmpty(value.apkPath)) {
-                this.f42762a.put(new File(value.apkPath).getName(), "");
+                this.f43002a.put(new File(value.apkPath).getName(), "");
             }
             if (!TextUtils.isEmpty(value.getAbandon_apk_path()) && (split = value.getAbandon_apk_path().split(",")) != null && split.length > 0) {
                 for (String str : split) {
                     if (!TextUtils.isEmpty(str)) {
-                        this.f42762a.put(new File(str).getName(), "");
+                        this.f43002a.put(new File(str).getName(), "");
                     }
                 }
             }
             try {
                 if (value.tempVersionCode > 0 && value.installStatus > 0) {
-                    if (value.installStatus == d.b.c.h.j.g.b.f42781a) {
+                    if (value.installStatus == d.b.c.h.j.g.b.f43021a) {
                         String l2 = Util.l(value);
                         if (!TextUtils.isEmpty(l2) && new File(l2).exists()) {
-                            this.f42762a.put(new File(l2).getName(), "");
+                            this.f43002a.put(new File(l2).getName(), "");
                         }
-                    } else if (value.installStatus == d.b.c.h.j.g.b.f42784d || value.installStatus == d.b.c.h.j.g.b.f42783c) {
+                    } else if (value.installStatus == d.b.c.h.j.g.b.f43024d || value.installStatus == d.b.c.h.j.g.b.f43023c) {
                         String str2 = Util.l(value) + ".tmp";
                         if (!TextUtils.isEmpty(str2) && new File(str2).exists()) {
-                            this.f42762a.put(new File(str2).getName(), "");
+                            this.f43002a.put(new File(str2).getName(), "");
                         }
                     }
                 }

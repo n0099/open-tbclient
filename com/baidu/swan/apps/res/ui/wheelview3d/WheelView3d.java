@@ -17,10 +17,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
 import com.baidu.tbadk.core.util.StringHelper;
-import d.b.g0.a.j;
-import d.b.g0.a.q1.a.f.a.c;
-import d.b.g0.a.q1.a.f.c.b;
-import d.b.g0.a.r1.e;
+import d.b.h0.a.j;
+import d.b.h0.a.q1.a.f.a.c;
+import d.b.h0.a.q1.a.f.c.b;
+import d.b.h0.a.r1.e;
 import java.util.Locale;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -58,16 +58,16 @@ public class WheelView3d extends View {
     public int d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public DividerType f12251e;
+    public DividerType f12259e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f12252f;
+    public Context f12260f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f12253g;
+    public Handler f12261g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GestureDetector f12254h;
+    public GestureDetector f12262h;
     public b i;
     public boolean j;
     public boolean k;
@@ -135,8 +135,8 @@ public class WheelView3d extends View {
         if (obj == null) {
             return "";
         }
-        if (obj instanceof d.b.g0.a.q1.a.f.b.a) {
-            return ((d.b.g0.a.q1.a.f.b.a) obj).a();
+        if (obj instanceof d.b.h0.a.q1.a.f.b.a) {
+            return ((d.b.h0.a.q1.a.f.b.a) obj).a();
         }
         return obj instanceof Integer ? String.format(Locale.getDefault(), "%02d", Integer.valueOf(((Integer) obj).intValue())) : obj.toString();
     }
@@ -163,10 +163,10 @@ public class WheelView3d extends View {
     }
 
     public final void g(Context context) {
-        this.f12252f = context;
-        this.f12253g = new d.b.g0.a.q1.a.f.d.b(this);
-        GestureDetector gestureDetector = new GestureDetector(context, new d.b.g0.a.q1.a.f.c.a(this));
-        this.f12254h = gestureDetector;
+        this.f12260f = context;
+        this.f12261g = new d.b.h0.a.q1.a.f.d.b(this);
+        GestureDetector gestureDetector = new GestureDetector(context, new d.b.h0.a.q1.a.f.c.a(this));
+        this.f12262h = gestureDetector;
         gestureDetector.setIsLongpressEnabled(false);
         this.C = true;
         this.G = 0.0f;
@@ -198,7 +198,7 @@ public class WheelView3d extends View {
 
     @Override // android.view.View
     public Handler getHandler() {
-        return this.f12253g;
+        return this.f12261g;
     }
 
     public int getInitPosition() {
@@ -380,7 +380,7 @@ public class WheelView3d extends View {
             }
             i3++;
         }
-        if (this.f12251e == DividerType.WRAP) {
+        if (this.f12259e == DividerType.WRAP) {
             if (TextUtils.isEmpty(this.r)) {
                 i = (this.N - this.t) / 2;
             } else {
@@ -476,7 +476,7 @@ public class WheelView3d extends View {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        boolean onTouchEvent = this.f12254h.onTouchEvent(motionEvent);
+        boolean onTouchEvent = this.f12262h.onTouchEvent(motionEvent);
         float f2 = (-this.H) * this.w;
         float a2 = ((this.q.a() - 1) - this.H) * this.w;
         int action = motionEvent.getAction();
@@ -538,7 +538,7 @@ public class WheelView3d extends View {
 
     public final void q(float f2) {
         b();
-        this.m = this.l.scheduleWithFixedDelay(new d.b.g0.a.q1.a.f.d.a(this, f2), 0L, 5L, TimeUnit.MILLISECONDS);
+        this.m = this.l.scheduleWithFixedDelay(new d.b.h0.a.q1.a.f.d.a(this, f2), 0L, 5L, TimeUnit.MILLISECONDS);
     }
 
     public void r(ACTION action) {
@@ -554,7 +554,7 @@ public class WheelView3d extends View {
                 this.P = -i;
             }
         }
-        this.m = this.l.scheduleWithFixedDelay(new d.b.g0.a.q1.a.f.d.c(this, this.P), 0L, 10L, TimeUnit.MILLISECONDS);
+        this.m = this.l.scheduleWithFixedDelay(new d.b.h0.a.q1.a.f.d.c(this, this.P), 0L, 10L, TimeUnit.MILLISECONDS);
     }
 
     public final void setAdapter(c cVar) {
@@ -588,7 +588,7 @@ public class WheelView3d extends View {
     }
 
     public void setDividerType(DividerType dividerType) {
-        this.f12251e = dividerType;
+        this.f12259e = dividerType;
     }
 
     public void setGravity(int i) {

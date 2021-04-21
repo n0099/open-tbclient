@@ -3,7 +3,7 @@ package com.baidu.swan.game.ad.downloader.model;
 import android.text.TextUtils;
 import com.baidu.swan.apps.adlanding.download.model.SwanAdDownloadState;
 import com.baidu.swan.game.ad.downloader.exception.DownloadException;
-import d.b.g0.e.a.l.i.b;
+import d.b.h0.e.a.l.i.b;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class DownloadInfo implements Serializable {
@@ -22,36 +22,36 @@ public class DownloadInfo implements Serializable {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f12452a;
+        public String f12460a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f12453b = -1;
+        public long f12461b = -1;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f12454c;
+        public String f12462c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f12455d;
+        public String f12463d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f12456e;
+        public String f12464e;
 
         public DownloadInfo a() {
             DownloadInfo downloadInfo = new DownloadInfo();
-            if (!TextUtils.isEmpty(this.f12454c)) {
-                downloadInfo.setUri(this.f12454c);
-                if (!TextUtils.isEmpty(this.f12456e)) {
-                    downloadInfo.setPath(this.f12456e);
-                    if (TextUtils.isEmpty(this.f12455d)) {
-                        downloadInfo.setPackageName(this.f12455d);
+            if (!TextUtils.isEmpty(this.f12462c)) {
+                downloadInfo.setUri(this.f12462c);
+                if (!TextUtils.isEmpty(this.f12464e)) {
+                    downloadInfo.setPath(this.f12464e);
+                    if (TextUtils.isEmpty(this.f12463d)) {
+                        downloadInfo.setPackageName(this.f12463d);
                     }
-                    if (this.f12453b == -1) {
+                    if (this.f12461b == -1) {
                         b(System.currentTimeMillis());
                     }
-                    if (TextUtils.isEmpty(this.f12452a)) {
-                        downloadInfo.setId(this.f12454c);
+                    if (TextUtils.isEmpty(this.f12460a)) {
+                        downloadInfo.setId(this.f12462c);
                     } else {
-                        downloadInfo.setId(this.f12452a);
+                        downloadInfo.setId(this.f12460a);
                     }
                     return downloadInfo;
                 }
@@ -61,22 +61,22 @@ public class DownloadInfo implements Serializable {
         }
 
         public a b(long j) {
-            this.f12453b = j;
+            this.f12461b = j;
             return this;
         }
 
         public a c(String str) {
-            this.f12455d = str;
+            this.f12463d = str;
             return this;
         }
 
         public a d(String str) {
-            this.f12456e = str;
+            this.f12464e = str;
             return this;
         }
 
         public a e(String str) {
-            this.f12454c = str;
+            this.f12462c = str;
             return this;
         }
     }

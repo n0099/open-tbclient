@@ -9,33 +9,33 @@ import java.io.IOException;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static JsonReader.a f41740a = JsonReader.a.a("a", "p", "s", "rz", com.baidu.mapsdkplatform.comapi.map.r.f7699a, Config.OS, "so", "eo", ContentUtil.RESULT_KEY_SK, "sa");
+    public static JsonReader.a f41835a = JsonReader.a.a("a", "p", "s", "rz", com.baidu.mapsdkplatform.comapi.map.r.f7699a, Config.OS, "so", "eo", ContentUtil.RESULT_KEY_SK, "sa");
 
     /* renamed from: b  reason: collision with root package name */
-    public static JsonReader.a f41741b = JsonReader.a.a(Config.APP_KEY);
+    public static JsonReader.a f41836b = JsonReader.a.a(Config.APP_KEY);
 
     public static boolean a(d.a.a.u.i.e eVar) {
-        return eVar == null || (eVar.c() && eVar.b().get(0).f41801b.equals(0.0f, 0.0f));
+        return eVar == null || (eVar.c() && eVar.b().get(0).f41896b.equals(0.0f, 0.0f));
     }
 
     public static boolean b(d.a.a.u.i.m<PointF, PointF> mVar) {
-        return mVar == null || (!(mVar instanceof d.a.a.u.i.i) && mVar.c() && mVar.b().get(0).f41801b.equals(0.0f, 0.0f));
+        return mVar == null || (!(mVar instanceof d.a.a.u.i.i) && mVar.c() && mVar.b().get(0).f41896b.equals(0.0f, 0.0f));
     }
 
     public static boolean c(d.a.a.u.i.b bVar) {
-        return bVar == null || (bVar.c() && bVar.b().get(0).f41801b.floatValue() == 0.0f);
+        return bVar == null || (bVar.c() && bVar.b().get(0).f41896b.floatValue() == 0.0f);
     }
 
     public static boolean d(d.a.a.u.i.g gVar) {
-        return gVar == null || (gVar.c() && gVar.b().get(0).f41801b.a(1.0f, 1.0f));
+        return gVar == null || (gVar.c() && gVar.b().get(0).f41896b.a(1.0f, 1.0f));
     }
 
     public static boolean e(d.a.a.u.i.b bVar) {
-        return bVar == null || (bVar.c() && bVar.b().get(0).f41801b.floatValue() == 0.0f);
+        return bVar == null || (bVar.c() && bVar.b().get(0).f41896b.floatValue() == 0.0f);
     }
 
     public static boolean f(d.a.a.u.i.b bVar) {
-        return bVar == null || (bVar.c() && bVar.b().get(0).f41801b.floatValue() == 0.0f);
+        return bVar == null || (bVar.c() && bVar.b().get(0).f41896b.floatValue() == 0.0f);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:22:0x0068  */
@@ -60,11 +60,11 @@ public class c {
         d.a.a.u.i.b bVar4 = null;
         d.a.a.u.i.b bVar5 = null;
         while (jsonReader.t()) {
-            switch (jsonReader.D(f41740a)) {
+            switch (jsonReader.D(f41835a)) {
                 case 0:
                     jsonReader.o();
                     while (jsonReader.t()) {
-                        if (jsonReader.D(f41741b) != 0) {
+                        if (jsonReader.D(f41836b) != 0) {
                             jsonReader.E();
                             jsonReader.F();
                         } else {
@@ -84,7 +84,7 @@ public class c {
                     f2 = d.f(jsonReader, dVar, z);
                     if (!f2.b().isEmpty()) {
                         f2.b().add(new d.a.a.y.a<>(dVar, Float.valueOf(0.0f), Float.valueOf(0.0f), null, 0.0f, Float.valueOf(dVar.f())));
-                    } else if (f2.b().get(0).f41801b == null) {
+                    } else if (f2.b().get(0).f41896b == null) {
                         f2.b().set(0, new d.a.a.y.a<>(dVar, Float.valueOf(0.0f), Float.valueOf(0.0f), null, 0.0f, Float.valueOf(dVar.f())));
                         bVar = f2;
                         break;

@@ -15,9 +15,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.adapter.SelectForumItemAdapter;
 import com.baidu.tieba.enterForum.data.RecentlyVisitedForumData;
 import d.b.c.e.p.j;
-import d.b.h0.d0.g;
-import d.b.h0.d0.h;
-import d.b.i0.d;
+import d.b.i0.d0.g;
+import d.b.i0.d0.h;
+import d.b.j0.d;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -25,16 +25,16 @@ import java.util.LinkedList;
 public class LatelyView extends FrameLayout implements d<String> {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18201e;
+    public int f18209e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f18202f;
+    public RecyclerView f18210f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SelectForumItemAdapter f18203g;
+    public SelectForumItemAdapter f18211g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayoutManager f18204h;
+    public LinearLayoutManager f18212h;
     public g i;
     public h j;
 
@@ -55,13 +55,13 @@ public class LatelyView extends FrameLayout implements d<String> {
         this(context, null);
     }
 
-    @Override // d.b.i0.d
+    @Override // d.b.j0.d
     public void a() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == this.f18201e) {
+        if (skinType == this.f18209e) {
             return;
         }
-        this.f18201e = skinType;
+        this.f18209e = skinType;
         g gVar = this.i;
         if (gVar != null) {
             gVar.onChangeSkinType();
@@ -70,10 +70,10 @@ public class LatelyView extends FrameLayout implements d<String> {
         if (hVar != null) {
             hVar.onChangeSkinType();
         }
-        this.f18203g.notifyDataSetChanged();
+        this.f18211g.notifyDataSetChanged();
     }
 
-    @Override // d.b.i0.d
+    @Override // d.b.j0.d
     public void b(String str) {
     }
 
@@ -83,19 +83,19 @@ public class LatelyView extends FrameLayout implements d<String> {
             hVar.dettachView(this);
             this.j = null;
         }
-        this.f18202f.setVisibility(0);
+        this.f18210f.setVisibility(0);
     }
 
     public final void e() {
         LayoutInflater.from(getContext()).inflate(R.layout.select_forum_lately_layout, (ViewGroup) this, true);
-        this.f18202f = (RecyclerView) findViewById(R.id.select_forum_list);
+        this.f18210f = (RecyclerView) findViewById(R.id.select_forum_list);
         SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
-        this.f18203g = selectForumItemAdapter;
+        this.f18211g = selectForumItemAdapter;
         selectForumItemAdapter.h(1);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        this.f18204h = linearLayoutManager;
-        this.f18202f.setLayoutManager(linearLayoutManager);
-        this.f18202f.setAdapter(this.f18203g);
+        this.f18212h = linearLayoutManager;
+        this.f18210f.setLayoutManager(linearLayoutManager);
+        this.f18210f.setAdapter(this.f18211g);
     }
 
     public boolean f() {
@@ -107,10 +107,10 @@ public class LatelyView extends FrameLayout implements d<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.i0.d
+    @Override // d.b.j0.d
     /* renamed from: g */
     public void c(String str) {
-        RecentlyVisitedForumData j = d.b.i0.i0.g.a.l().j();
+        RecentlyVisitedForumData j = d.b.j0.i0.g.a.l().j();
         if (j == null) {
             h(false, false);
             return;
@@ -127,17 +127,17 @@ public class LatelyView extends FrameLayout implements d<String> {
         while (it.hasNext()) {
             VisitedForumData next = it.next();
             if (next != null) {
-                d.b.h0.t.j jVar = new d.b.h0.t.j();
-                jVar.f51889a = next.getForumId();
-                jVar.f51890b = next.u();
-                jVar.f51891c = next.getForumName();
-                jVar.f51892d = next.getLevel();
-                jVar.f51893e = next.D();
-                jVar.f51894f = next.C();
-                jVar.f51895g = next.s();
-                jVar.f51896h = next.y();
+                d.b.i0.t.j jVar = new d.b.i0.t.j();
+                jVar.f52225a = next.getForumId();
+                jVar.f52226b = next.u();
+                jVar.f52227c = next.getForumName();
+                jVar.f52228d = next.getLevel();
+                jVar.f52229e = next.D();
+                jVar.f52230f = next.C();
+                jVar.f52231g = next.s();
+                jVar.f52232h = next.y();
                 jVar.i = next.w();
-                if (jVar.f51893e) {
+                if (jVar.f52229e) {
                     arrayList2.add(jVar);
                 } else {
                     arrayList.add(jVar);
@@ -146,11 +146,11 @@ public class LatelyView extends FrameLayout implements d<String> {
             }
         }
         arrayList2.addAll(arrayList);
-        this.f18203g.g(arrayList2);
-        this.f18203g.notifyDataSetChanged();
+        this.f18211g.g(arrayList2);
+        this.f18211g.notifyDataSetChanged();
     }
 
-    @Override // d.b.i0.d
+    @Override // d.b.j0.d
     public String getTitle() {
         return getContext().getString(R.string.activity_select_forum_tab_recently);
     }
@@ -171,10 +171,10 @@ public class LatelyView extends FrameLayout implements d<String> {
             this.j.e();
         }
         this.j.n(getContext().getString(R.string.activity_select_forum_empty));
-        this.f18202f.setVisibility(8);
+        this.f18210f.setVisibility(8);
     }
 
-    @Override // d.b.i0.d
+    @Override // d.b.j0.d
     public void onDestroy() {
     }
 
@@ -184,7 +184,7 @@ public class LatelyView extends FrameLayout implements d<String> {
 
     public LatelyView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f18201e = 3;
+        this.f18209e = 3;
         e();
     }
 }

@@ -1,0 +1,76 @@
+package d.b.h0.a.e0.r;
+
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import d.b.h0.a.k;
+import d.b.h0.a.n1.c.f.c;
+/* loaded from: classes2.dex */
+public final class a {
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final boolean f44978a = k.f45772a;
+
+    /* renamed from: d.b.h0.a.e0.r.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public static class C0712a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static int f44979a = -1;
+
+        public static String a() {
+            return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_sub_pkg_launch_switch", "debug_ab");
+        }
+
+        public static boolean b() {
+            if (a.f44978a) {
+                Log.d("AppLaunchMessenger", "isOnAppLaunchEnable getAppLaunchDebugSwitch : " + a());
+                String a2 = a();
+                char c2 = 65535;
+                int hashCode = a2.hashCode();
+                if (hashCode != 251117829) {
+                    if (hashCode != 547804557) {
+                        if (hashCode == 569516856 && a2.equals("debug_on_activity_create")) {
+                            c2 = 1;
+                        }
+                    } else if (a2.equals("debug_ab")) {
+                        c2 = 2;
+                    }
+                } else if (a2.equals("debug_on_app_launch")) {
+                    c2 = 0;
+                }
+                if (c2 == 0) {
+                    return true;
+                }
+                if (c2 == 1) {
+                    return false;
+                }
+            }
+            if (f44979a < 0) {
+                d.b.h0.a.w0.a.N().getSwitch("swan_sub_pkg_launch_switch", 0);
+                f44979a = 0;
+            }
+            if (a.f44978a) {
+                Log.d("AppLaunchMessenger", "isOnAppLaunchEnable sLaunchABSwitcher : " + f44979a);
+            }
+            return f44979a == 1;
+        }
+    }
+
+    public static void b(c cVar, Bundle bundle) {
+        if (f44978a) {
+            Log.d("AppLaunchMessenger", "sendAppLaunchEvent event start.");
+        }
+        Bundle bundle2 = new Bundle();
+        bundle2.putBundle("swan_app_on_launch_event", bundle);
+        d.b.h0.a.n1.c.a e2 = d.b.h0.a.n1.c.a.e();
+        d.b.h0.a.n1.c.c cVar2 = new d.b.h0.a.n1.c.c(122, bundle2);
+        cVar2.b(cVar.f46112f);
+        cVar2.p(true);
+        e2.h(cVar2);
+        if (f44978a) {
+            Log.d("AppLaunchMessenger", "sendAppLaunchEvent event end.");
+        }
+    }
+}

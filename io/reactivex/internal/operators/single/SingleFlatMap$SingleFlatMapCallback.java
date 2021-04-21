@@ -16,29 +16,29 @@ public final class SingleFlatMap$SingleFlatMapCallback<T, R> extends AtomicRefer
     public static final class a<R> implements r<R> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final AtomicReference<b> f69092e;
+        public final AtomicReference<b> f69239e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final r<? super R> f69093f;
+        public final r<? super R> f69240f;
 
         public a(AtomicReference<b> atomicReference, r<? super R> rVar) {
-            this.f69092e = atomicReference;
-            this.f69093f = rVar;
+            this.f69239e = atomicReference;
+            this.f69240f = rVar;
         }
 
         @Override // f.b.r
         public void onError(Throwable th) {
-            this.f69093f.onError(th);
+            this.f69240f.onError(th);
         }
 
         @Override // f.b.r
         public void onSubscribe(b bVar) {
-            DisposableHelper.replace(this.f69092e, bVar);
+            DisposableHelper.replace(this.f69239e, bVar);
         }
 
         @Override // f.b.r
         public void onSuccess(R r) {
-            this.f69093f.onSuccess(r);
+            this.f69240f.onSuccess(r);
         }
     }
 

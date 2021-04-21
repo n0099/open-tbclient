@@ -36,7 +36,7 @@ public class Plane extends TrackableBase {
 
     private native long nativeAcquireSubsumedBy(long j, long j2);
 
-    private native d.g.b.a.a nativeGetCenterPose(long j, long j2);
+    private native d.h.b.a.a nativeGetCenterPose(long j, long j2);
 
     private native float nativeGetExtentX(long j, long j2);
 
@@ -46,9 +46,9 @@ public class Plane extends TrackableBase {
 
     private native int nativeGetType(long j, long j2);
 
-    private native boolean nativeIsPoseInExtents(long j, long j2, d.g.b.a.a aVar);
+    private native boolean nativeIsPoseInExtents(long j, long j2, d.h.b.a.a aVar);
 
-    private native boolean nativeIsPoseInPolygon(long j, long j2, d.g.b.a.a aVar);
+    private native boolean nativeIsPoseInPolygon(long j, long j2, d.h.b.a.a aVar);
 
     public Plane() {
         super(0L, null);

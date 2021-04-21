@@ -9,51 +9,51 @@ import android.widget.TextView;
 public class ScrollTextView extends TextView implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public Scroller f13759e;
+    public Scroller f13767e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f13760f;
+    public float f13768f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13761g;
+    public boolean f13769g;
 
     public ScrollTextView(Context context) {
         super(context);
-        this.f13760f = 15.0f;
-        this.f13761g = true;
+        this.f13768f = 15.0f;
+        this.f13769g = true;
         setup(context);
     }
 
     private void setup(Context context) {
         Scroller scroller = new Scroller(context, new LinearInterpolator());
-        this.f13759e = scroller;
+        this.f13767e = scroller;
         setScroller(scroller);
     }
 
     public final void a() {
         int height = (getHeight() - getPaddingBottom()) - getPaddingTop();
         int lineCount = height + ((getLineCount() - 1) * getLineHeight());
-        this.f13759e.startScroll(0, height * (-1), 0, lineCount, (int) (lineCount * this.f13760f));
-        if (this.f13761g) {
+        this.f13767e.startScroll(0, height * (-1), 0, lineCount, (int) (lineCount * this.f13768f));
+        if (this.f13769g) {
             post(this);
         }
     }
 
     public float getSpeed() {
-        return this.f13760f;
+        return this.f13768f;
     }
 
     @Override // android.widget.TextView, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.f13759e.isFinished()) {
+        if (this.f13767e.isFinished()) {
             a();
         }
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.f13759e.isFinished()) {
+        if (this.f13767e.isFinished()) {
             a();
         } else {
             post(this);
@@ -61,17 +61,17 @@ public class ScrollTextView extends TextView implements Runnable {
     }
 
     public void setContinuousScrolling(boolean z) {
-        this.f13761g = z;
+        this.f13769g = z;
     }
 
     public void setSpeed(float f2) {
-        this.f13760f = f2;
+        this.f13768f = f2;
     }
 
     public ScrollTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13760f = 15.0f;
-        this.f13761g = true;
+        this.f13768f = 15.0f;
+        this.f13769g = true;
         setup(context);
     }
 }

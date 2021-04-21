@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
-import d.b.i0.d2.k.e.a1.e.a;
+import d.b.j0.d2.k.e.a1.e.a;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;

@@ -11,16 +11,16 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-import d.b.h0.i0.c;
-import d.b.i0.m.e;
-import d.b.i0.m.f;
-import d.b.i0.x.b0;
-import d.b.i0.x.e0.j;
+import d.b.i0.i0.c;
+import d.b.j0.m.e;
+import d.b.j0.m.f;
+import d.b.j0.x.b0;
+import d.b.j0.x.e0.j;
 /* loaded from: classes4.dex */
 public class HomePageAlaFriendRoomAdapter extends d.b.c.j.e.a<j, HomePageAlaLiveThreadViewHolder> implements f {
     public BdUniqueId m;
     public TbPageContext<?> n;
-    public d.b.i0.x.j o;
+    public d.b.j0.x.j o;
     public NEGFeedBackView.b p;
     public String q;
     public b0<j> r;
@@ -29,11 +29,11 @@ public class HomePageAlaFriendRoomAdapter extends d.b.c.j.e.a<j, HomePageAlaLive
     public static class HomePageAlaLiveThreadViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.i0.x.j f16932a;
+        public d.b.j0.x.j f16940a;
 
-        public HomePageAlaLiveThreadViewHolder(d.b.i0.x.j jVar) {
+        public HomePageAlaLiveThreadViewHolder(d.b.j0.x.j jVar) {
             super(jVar.m());
-            this.f16932a = jVar;
+            this.f16940a = jVar;
         }
     }
 
@@ -44,12 +44,12 @@ public class HomePageAlaFriendRoomAdapter extends d.b.c.j.e.a<j, HomePageAlaLive
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Code restructure failed: missing block: B:14:0x0054, code lost:
-            if (r4.getId() == r3.f16933b.o.O().getId()) goto L4;
+            if (r4.getId() == r3.f16941b.o.O().getId()) goto L4;
          */
         /* JADX WARN: Code restructure failed: missing block: B:19:0x0075, code lost:
-            if (r4.getId() == r3.f16933b.o.P().getId()) goto L4;
+            if (r4.getId() == r3.f16941b.o.P().getId()) goto L4;
          */
-        @Override // d.b.i0.x.b0
+        @Override // d.b.j0.x.b0
         /* renamed from: d */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -73,7 +73,7 @@ public class HomePageAlaFriendRoomAdapter extends d.b.c.j.e.a<j, HomePageAlaLive
                 i = 0;
             }
             if (i != 0) {
-                d.b.i0.a1.g.m.a.a(jVar.f63772e, HomePageAlaFriendRoomAdapter.this.m, jVar.E(), i);
+                d.b.j0.a1.g.m.a.a(jVar.f64193e, HomePageAlaFriendRoomAdapter.this.m, jVar.E(), i);
             }
         }
     }
@@ -114,7 +114,7 @@ public class HomePageAlaFriendRoomAdapter extends d.b.c.j.e.a<j, HomePageAlaLive
     @Override // d.b.c.j.e.a
     /* renamed from: l0 */
     public HomePageAlaLiveThreadViewHolder R(ViewGroup viewGroup) {
-        d.b.i0.x.j jVar = new d.b.i0.x.j(this.n, this.m);
+        d.b.j0.x.j jVar = new d.b.j0.x.j(this.n, this.m);
         this.o = jVar;
         jVar.E(2);
         BdUniqueId bdUniqueId = this.m;
@@ -129,15 +129,15 @@ public class HomePageAlaFriendRoomAdapter extends d.b.c.j.e.a<j, HomePageAlaLive
     /* renamed from: m0 */
     public View X(int i, View view, ViewGroup viewGroup, j jVar, HomePageAlaLiveThreadViewHolder homePageAlaLiveThreadViewHolder) {
         jVar.U(jVar.position + 1);
-        d.b.i0.x.j jVar2 = homePageAlaLiveThreadViewHolder.f16932a;
+        d.b.j0.x.j jVar2 = homePageAlaLiveThreadViewHolder.f16940a;
         if (jVar2 instanceof e) {
             jVar2.setPage(this.q);
         }
-        homePageAlaLiveThreadViewHolder.f16932a.X(i + 1);
-        homePageAlaLiveThreadViewHolder.f16932a.n(jVar);
-        homePageAlaLiveThreadViewHolder.f16932a.q(this.r);
-        homePageAlaLiveThreadViewHolder.f16932a.B(this.p);
-        d.b.i0.a1.g.m.a.c(jVar.f63772e, this.m, jVar.E());
+        homePageAlaLiveThreadViewHolder.f16940a.X(i + 1);
+        homePageAlaLiveThreadViewHolder.f16940a.n(jVar);
+        homePageAlaLiveThreadViewHolder.f16940a.q(this.r);
+        homePageAlaLiveThreadViewHolder.f16940a.B(this.p);
+        d.b.j0.a1.g.m.a.c(jVar.f64193e, this.m, jVar.E());
         if (jVar.n() != null && jVar.n().q1() != null) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.ALA_FRIEND_ROOM_CARD_SHOW);
             statisticItem.param("obj_locate", 1);
@@ -152,7 +152,7 @@ public class HomePageAlaFriendRoomAdapter extends d.b.c.j.e.a<j, HomePageAlaLive
         this.p = bVar;
     }
 
-    @Override // d.b.i0.m.f
+    @Override // d.b.j0.m.f
     public void o(String str) {
         this.q = str;
     }

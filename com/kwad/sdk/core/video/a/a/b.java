@@ -28,7 +28,7 @@ public class b extends com.kwad.sdk.core.network.b {
         a("SDKVersionCode", 3030900);
         b("sdkApiVersion", KsAdSDKImpl.get().getApiVersion());
         a("sdkApiVersionCode", KsAdSDKImpl.get().getApiVersionCode());
-        a("sdkType", d.f34801a);
+        a("sdkType", d.f34896a);
         a(DI.APP_INFO_NAME, com.kwad.sdk.core.g.a.b.a());
         a("deviceInfo", com.kwad.sdk.core.g.a.d.a(false));
         a("networkInfo", i.a());

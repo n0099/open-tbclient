@@ -8,12 +8,12 @@ import java.util.Map;
 public class bw extends fm {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f41306a;
+    public final /* synthetic */ XMPushService f41401a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bw(XMPushService xMPushService, Map map, int i, String str, fp fpVar) {
         super(map, i, str, fpVar);
-        this.f41306a = xMPushService;
+        this.f41401a = xMPushService;
     }
 
     @Override // com.xiaomi.push.fm

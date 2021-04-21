@@ -57,7 +57,7 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     public ExecutorService o = null;
     public AudioRecord p = null;
     public final Object q = new Object();
-    public d.b.v.d.a r = new d.b.v.d.a();
+    public d.b.w.d.a r = new d.b.w.d.a();
     public Map<String, String> s = new HashMap();
     public Map<String, Long> t = new HashMap();
 

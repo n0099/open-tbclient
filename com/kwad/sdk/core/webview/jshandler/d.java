@@ -14,28 +14,28 @@ public class d implements com.kwad.sdk.core.webview.a.a {
     public static final class a implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f34614a;
+        public String f34709a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f34615b;
+        public String f34710b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f34616c;
+        public String f34711c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f34617d;
+        public String f34712d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f34618e;
+        public String f34713e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f34619f;
+        public String f34714f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f34620g;
+        public String f34715g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f34621h;
+        public String f34716h;
         public int i;
         public int j;
         public String k;
@@ -47,14 +47,14 @@ public class d implements com.kwad.sdk.core.webview.a.a {
 
         public static a a() {
             a aVar = new a();
-            aVar.f34614a = ah.l(KsAdSDKImpl.get().getContext());
-            aVar.f34615b = "";
-            aVar.f34616c = String.valueOf(v.d(KsAdSDKImpl.get().getContext()));
-            aVar.f34617d = ah.g();
-            aVar.f34618e = ah.e();
-            aVar.f34619f = ah.i();
-            aVar.f34620g = ah.d();
-            aVar.f34621h = ah.m();
+            aVar.f34709a = ah.l(KsAdSDKImpl.get().getContext());
+            aVar.f34710b = "";
+            aVar.f34711c = String.valueOf(v.d(KsAdSDKImpl.get().getContext()));
+            aVar.f34712d = ah.g();
+            aVar.f34713e = ah.e();
+            aVar.f34714f = ah.i();
+            aVar.f34715g = ah.d();
+            aVar.f34716h = ah.m();
             aVar.i = ao.c(KsAdSDKImpl.get().getContext());
             aVar.j = ao.b(KsAdSDKImpl.get().getContext());
             aVar.k = ah.d(KsAdSDKImpl.get().getContext());
@@ -69,14 +69,14 @@ public class d implements com.kwad.sdk.core.webview.a.a {
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "appVersion", this.f34614a);
-            com.kwad.sdk.utils.o.a(jSONObject, "globalId", this.f34615b);
-            com.kwad.sdk.utils.o.a(jSONObject, "networkType", this.f34616c);
-            com.kwad.sdk.utils.o.a(jSONObject, "manufacturer", this.f34617d);
-            com.kwad.sdk.utils.o.a(jSONObject, "model", this.f34618e);
-            com.kwad.sdk.utils.o.a(jSONObject, "systemVersion", this.f34619f);
-            com.kwad.sdk.utils.o.a(jSONObject, "locale", this.f34620g);
-            com.kwad.sdk.utils.o.a(jSONObject, "uuid", this.f34621h);
+            com.kwad.sdk.utils.o.a(jSONObject, "appVersion", this.f34709a);
+            com.kwad.sdk.utils.o.a(jSONObject, "globalId", this.f34710b);
+            com.kwad.sdk.utils.o.a(jSONObject, "networkType", this.f34711c);
+            com.kwad.sdk.utils.o.a(jSONObject, "manufacturer", this.f34712d);
+            com.kwad.sdk.utils.o.a(jSONObject, "model", this.f34713e);
+            com.kwad.sdk.utils.o.a(jSONObject, "systemVersion", this.f34714f);
+            com.kwad.sdk.utils.o.a(jSONObject, "locale", this.f34715g);
+            com.kwad.sdk.utils.o.a(jSONObject, "uuid", this.f34716h);
             com.kwad.sdk.utils.o.a(jSONObject, "screenWidth", this.i);
             com.kwad.sdk.utils.o.a(jSONObject, "screenHeight", this.j);
             com.kwad.sdk.utils.o.a(jSONObject, "imei", this.k);

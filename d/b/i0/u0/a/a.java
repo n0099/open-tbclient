@@ -1,122 +1,148 @@
 package d.b.i0.u0.a;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.widget.LinearLayout;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gift.buyGift.GiftCommonList;
-import java.util.List;
-/* loaded from: classes4.dex */
+import d.b.c.e.p.l;
+import java.util.ArrayList;
+/* loaded from: classes3.dex */
 public class a extends BaseAdapter {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f62672e;
+    public ArrayList<d.b.i0.u0.a.b> f52257e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<GiftCommonList.GiftItem> f62673f;
+    public TbPageContext<?> f52258f;
+    public int j;
+    public int k;
+    public int l;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f62674g = -1;
+    public int f52259g = -1;
+    public int m = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout.LayoutParams f62675h;
+    public int f52260h = SkinManager.getColor(R.color.common_color_10043);
+    public int i = SkinManager.getColor(R.color.CAM_X0302);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public TbImageView f62676a;
+        public LinearLayout f52261a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f62677b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public TextView f62678c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public TextView f62679d;
+        public TbImageView f52262b;
 
         public b(a aVar) {
         }
     }
 
-    public a(Context context) {
-        this.f62672e = context;
-        this.f62675h = new RelativeLayout.LayoutParams(-1, (context.getResources().getDimensionPixelSize(R.dimen.ds450) - 8) / 2);
+    public a(TbPageContext<?> tbPageContext) {
+        this.f52257e = null;
+        this.f52258f = null;
+        this.l = 0;
+        this.f52258f = tbPageContext;
+        this.f52257e = new ArrayList<>();
+        this.j = l.g(tbPageContext.getPageActivity(), R.dimen.ds1);
+        this.k = l.g(this.f52258f.getPageActivity(), R.dimen.ds4);
+        this.l = l.g(this.f52258f.getPageActivity(), R.dimen.ds36);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public GiftCommonList.GiftItem getItem(int i) {
-        if (i < 0 || i >= getCount()) {
-            return null;
+    public int a(int i) {
+        int i2 = i / 4;
+        if (i2 == 0) {
+            return 1;
         }
-        return this.f62673f.get(i);
+        return i2 == this.m - 1 ? 2 : 3;
     }
 
-    public int b() {
-        return this.f62674g;
+    public void b(int i) {
+        this.f52259g = i;
     }
 
-    public void c(List<GiftCommonList.GiftItem> list) {
-        this.f62673f = list;
-        notifyDataSetChanged();
-    }
-
-    public void d(int i) {
-        this.f62674g = i;
+    public void c(ArrayList<d.b.i0.u0.a.b> arrayList) {
+        this.f52257e = arrayList;
+        if (arrayList != null) {
+            if (arrayList.size() % 4 == 0) {
+                this.m = arrayList.size() / 4;
+            } else {
+                this.m = (arrayList.size() / 4) + 1;
+            }
+        }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        List<GiftCommonList.GiftItem> list = this.f62673f;
-        if (list == null) {
-            return 0;
+        ArrayList<d.b.i0.u0.a.b> arrayList = this.f52257e;
+        if (arrayList != null) {
+            return arrayList.size();
         }
-        return list.size();
+        return 0;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        ArrayList<d.b.i0.u0.a.b> arrayList = this.f52257e;
+        if (arrayList == null || i >= arrayList.size()) {
+            return null;
+        }
+        return this.f52257e.get(i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        return i;
+        return 0L;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        return i == this.f52259g ? 1 : 0;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         b bVar;
-        if (view != null && view.getTag() != null) {
-            bVar = (b) view.getTag();
-        } else {
-            view = LayoutInflater.from(this.f62672e).inflate(R.layout.gift_list_item, (ViewGroup) null);
+        int itemViewType = getItemViewType(i);
+        if (view == null) {
+            view = LayoutInflater.from(this.f52258f.getPageActivity()).inflate(R.layout.recommend_system_photo_item, viewGroup, false);
             bVar = new b();
-            bVar.f62676a = (TbImageView) view.findViewById(R.id.image);
-            bVar.f62677b = view.findViewById(R.id.mask);
-            bVar.f62678c = (TextView) view.findViewById(R.id.name);
-            bVar.f62679d = (TextView) view.findViewById(R.id.price);
-            view.setTag(bVar);
-        }
-        bVar.f62677b.setLayoutParams(this.f62675h);
-        SkinManager.setBackgroundResource(view, R.color.CAM_X0201);
-        SkinManager.setViewTextColor(bVar.f62678c, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(bVar.f62679d, R.color.CAM_X0301, 1);
-        if (i == this.f62674g) {
-            SkinManager.setBackgroundResource(bVar.f62677b, R.drawable.chx_box_gift_s);
+            bVar.f52261a = (LinearLayout) view.findViewById(R.id.photo_container);
+            bVar.f52262b = (TbImageView) view.findViewById(R.id.photo);
         } else {
-            bVar.f62677b.setBackgroundResource(R.color.common_color_10022);
+            bVar = (b) view.getTag();
         }
-        GiftCommonList.GiftItem item = getItem(i);
-        if (item != null) {
-            bVar.f62678c.setText(item.getName());
-            bVar.f62679d.setText(String.format(this.f62672e.getString(R.string.tdou_price_format), Integer.valueOf(item.getPrice())));
-            bVar.f62676a.W(item.getThumbnailUrl(), 10, false);
+        if (a(i) == 1) {
+            bVar.f52261a.setPadding(0, this.l, 0, 0);
+        } else if (a(i) == 2) {
+            bVar.f52261a.setPadding(0, 0, 0, this.l);
+        } else {
+            bVar.f52261a.setPadding(0, 0, 0, 0);
         }
+        bVar.f52262b.setDrawerType(0);
+        bVar.f52262b.setBorderSurroundContent(true);
+        bVar.f52262b.setDrawBorder(true);
+        if (itemViewType == 0) {
+            bVar.f52262b.setBorderColor(this.f52260h);
+            bVar.f52262b.setBorderWidth(this.j);
+        } else {
+            bVar.f52262b.setBorderColor(this.i);
+            bVar.f52262b.setBorderWidth(this.k);
+        }
+        bVar.f52262b.setDefaultResource(R.drawable.transparent_bg);
+        bVar.f52262b.W(this.f52257e.get(i).a(), 10, false);
+        view.setTag(bVar);
         return view;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        return 2;
     }
 }

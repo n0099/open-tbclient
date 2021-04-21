@@ -20,8 +20,8 @@ public class d implements com.kwad.sdk.plugin.b {
         if (com.kwad.sdk.core.config.c.m()) {
             ArrayList arrayList = new ArrayList();
             for (com.kwad.sdk.core.response.model.b bVar : list) {
-                if (bVar != null && bVar.f34364c) {
-                    arrayList.add(new KsScene.Builder(bVar.f34362a).build());
+                if (bVar != null && bVar.f34459c) {
+                    arrayList.add(new KsScene.Builder(bVar.f34457a).build());
                 }
             }
             com.kwad.sdk.contentalliance.home.b.a(arrayList);
@@ -30,13 +30,13 @@ public class d implements com.kwad.sdk.plugin.b {
 
     private void b(final Context context) {
         com.kwad.sdk.core.d.a.b("ContentPluginImpl", "初次获取Gid: initGId");
-        d.q.a.a.b.c().g(context, true, new d.q.a.a.d() { // from class: com.kwad.sdk.contentalliance.d.1
-            @Override // d.q.a.a.d
+        d.r.a.a.b.c().g(context, true, new d.r.a.a.d() { // from class: com.kwad.sdk.contentalliance.d.1
+            @Override // d.r.a.a.d
             public void a(int i, String str) {
                 com.kwad.sdk.core.d.a.d("ContentPluginImpl", "初次获取Gid: initGId onFailed errorCode:" + i + "errorMessage :" + str);
             }
 
-            @Override // d.q.a.a.d
+            @Override // d.r.a.a.d
             public void a(String str, String str2) {
                 com.kwad.sdk.core.b.e.a(context, str2);
                 d.this.a(context, str);
@@ -79,7 +79,7 @@ public class d implements com.kwad.sdk.plugin.b {
         }
         ae.d(context, str);
         try {
-            d.q.a.a.b.c().k(context, str);
+            d.r.a.a.b.c().k(context, str);
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.d("ContentPluginImpl", "ContentPluginImpl KWEGIDDFP setEGid error : " + th);
         }

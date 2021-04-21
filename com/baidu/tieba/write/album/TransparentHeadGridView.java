@@ -13,16 +13,16 @@ import d.b.c.e.p.l;
 public class TransparentHeadGridView extends GridView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21952e;
+    public int f21960e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f21953f;
+    public float f21961f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f21954g;
+    public boolean f21962g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f21955h;
+    public int f21963h;
     public View i;
     public Interpolator j;
     public f k;
@@ -67,11 +67,11 @@ public class TransparentHeadGridView extends GridView {
                 }
             } else {
                 View childAt = absListView.getChildAt(0);
-                if (TransparentHeadGridView.this.f21955h < 0) {
-                    TransparentHeadGridView.this.f21955h = childAt.getTop();
+                if (TransparentHeadGridView.this.f21963h < 0) {
+                    TransparentHeadGridView.this.f21963h = childAt.getTop();
                 }
-                int i4 = -(childAt.getTop() - TransparentHeadGridView.this.f21955h);
-                TransparentHeadGridView.this.f21954g = i4 == 0;
+                int i4 = -(childAt.getTop() - TransparentHeadGridView.this.f21963h);
+                TransparentHeadGridView.this.f21962g = i4 == 0;
                 if (TransparentHeadGridView.this.i != null) {
                     TransparentHeadGridView.this.i.scrollTo(0, i4);
                 }
@@ -114,26 +114,26 @@ public class TransparentHeadGridView extends GridView {
     public class f implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Interpolator f21958e;
+        public final Interpolator f21966e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final int f21959f;
+        public final int f21967f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f21960g;
+        public final int f21968g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final long f21961h;
+        public final long f21969h;
         public e i;
         public boolean j = true;
         public long k = -1;
         public int l = -1;
 
         public f(int i, int i2, long j, e eVar) {
-            this.f21960g = i;
-            this.f21959f = i2;
-            this.f21958e = TransparentHeadGridView.this.j;
-            this.f21961h = j;
+            this.f21968g = i;
+            this.f21967f = i2;
+            this.f21966e = TransparentHeadGridView.this.j;
+            this.f21969h = j;
             this.i = eVar;
         }
 
@@ -147,14 +147,14 @@ public class TransparentHeadGridView extends GridView {
             if (this.k == -1) {
                 this.k = System.currentTimeMillis();
             } else {
-                int round = this.f21960g - Math.round((this.f21960g - this.f21959f) * this.f21958e.getInterpolation(((float) Math.max(Math.min(((System.currentTimeMillis() - this.k) * 1000) / this.f21961h, 1000L), 0L)) / 1000.0f));
+                int round = this.f21968g - Math.round((this.f21968g - this.f21967f) * this.f21966e.getInterpolation(((float) Math.max(Math.min(((System.currentTimeMillis() - this.k) * 1000) / this.f21969h, 1000L), 0L)) / 1000.0f));
                 this.l = round;
                 TransparentHeadGridView.this.setPadding(0, round, 0, 0);
                 if (TransparentHeadGridView.this.n != null && this.l >= 0 && TransparentHeadGridView.this.l > 0 && this.l <= TransparentHeadGridView.this.l) {
                     TransparentHeadGridView.this.n.b((this.l * 100) / TransparentHeadGridView.this.l);
                 }
             }
-            if (this.j && this.f21959f != this.l) {
+            if (this.j && this.f21967f != this.l) {
                 TransparentHeadGridView.this.postDelayed(this, 16L);
                 return;
             }
@@ -167,10 +167,10 @@ public class TransparentHeadGridView extends GridView {
 
     public TransparentHeadGridView(Context context) {
         super(context);
-        this.f21952e = 0;
-        this.f21953f = 0.0f;
-        this.f21954g = true;
-        this.f21955h = -1;
+        this.f21960e = 0;
+        this.f21961f = 0.0f;
+        this.f21962g = true;
+        this.f21963h = -1;
         this.q = -1;
         this.r = false;
         this.s = new a();
@@ -185,9 +185,9 @@ public class TransparentHeadGridView extends GridView {
     }
 
     public void n() {
-        setPadding(0, (int) ((10.0f - this.f21953f) / 2.0f), 0, 0);
-        this.f21952e = 0;
-        this.f21953f = 0.0f;
+        setPadding(0, (int) ((10.0f - this.f21961f) / 2.0f), 0, 0);
+        this.f21960e = 0;
+        this.f21961f = 0.0f;
         if (this.r && getPaddingTop() > this.l) {
             o(getHeight(), 200L, 0L, this.s);
         } else {
@@ -220,23 +220,23 @@ public class TransparentHeadGridView extends GridView {
         int i;
         int action = motionEvent.getAction();
         if (action == 1) {
-            this.f21952e = 0;
-            this.f21953f = 0.0f;
+            this.f21960e = 0;
+            this.f21961f = 0.0f;
             if (this.r && getPaddingTop() > this.l) {
                 o(getHeight(), 200L, 0L, this.s);
             } else {
                 o(0, 200L, 0L, null);
             }
         } else if (action == 2) {
-            if (this.f21953f == 0.0f) {
-                this.f21953f = motionEvent.getY();
+            if (this.f21961f == 0.0f) {
+                this.f21961f = motionEvent.getY();
             }
             float y = motionEvent.getY();
-            if (y > this.f21953f && getPaddingTop() == 0 && this.f21954g) {
-                this.f21952e = 1;
+            if (y > this.f21961f && getPaddingTop() == 0 && this.f21962g) {
+                this.f21960e = 1;
             }
-            if (this.f21952e == 1) {
-                int i2 = (int) ((y - this.f21953f) / 2.0f);
+            if (this.f21960e == 1) {
+                int i2 = (int) ((y - this.f21961f) / 2.0f);
                 d dVar = this.n;
                 if (dVar != null && i2 >= 0 && (i = this.l) > 0 && i2 <= i) {
                     dVar.b((i2 * 100) / i);
@@ -264,10 +264,10 @@ public class TransparentHeadGridView extends GridView {
 
     public TransparentHeadGridView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21952e = 0;
-        this.f21953f = 0.0f;
-        this.f21954g = true;
-        this.f21955h = -1;
+        this.f21960e = 0;
+        this.f21961f = 0.0f;
+        this.f21962g = true;
+        this.f21963h = -1;
         this.q = -1;
         this.r = false;
         this.s = new a();
@@ -277,10 +277,10 @@ public class TransparentHeadGridView extends GridView {
 
     public TransparentHeadGridView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f21952e = 0;
-        this.f21953f = 0.0f;
-        this.f21954g = true;
-        this.f21955h = -1;
+        this.f21960e = 0;
+        this.f21961f = 0.0f;
+        this.f21962g = true;
+        this.f21963h = -1;
         this.q = -1;
         this.r = false;
         this.s = new a();

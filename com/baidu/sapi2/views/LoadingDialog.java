@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.sapi2.NoProguard;
-import d.b.x.a.e;
-import d.b.x.a.f;
-import d.b.x.a.h;
+import d.b.y.a.e;
+import d.b.y.a.f;
+import d.b.y.a.h;
 /* loaded from: classes2.dex */
 public class LoadingDialog extends Dialog implements NoProguard {
 

@@ -32,22 +32,22 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: f  reason: collision with root package name */
-    public static b f42439f;
+    public static b f42679f;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.c.e.n.c f42440a;
+    public d.b.c.e.n.c f42680a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42441b;
+    public String f42681b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f42442c;
+    public String f42682c;
 
     /* renamed from: d  reason: collision with root package name */
-    public C0559b f42443d;
+    public C0578b f42683d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f42444e = new a(2000994);
+    public CustomMessageListener f42684e = new a(2000994);
 
     /* loaded from: classes.dex */
     public class a extends CustomMessageListener {
@@ -66,8 +66,8 @@ public class b {
 
     /* renamed from: d.b.c.e.n.l.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0559b extends BroadcastReceiver {
-        public C0559b() {
+    public class C0578b extends BroadcastReceiver {
+        public C0578b() {
         }
 
         @Override // android.content.BroadcastReceiver
@@ -78,7 +78,7 @@ public class b {
             b.this.o(intent.getStringExtra("intent_data_userid"), intent.getStringExtra("intent_data_username"), intent.getStringExtra("intent_data_bduss"));
         }
 
-        public /* synthetic */ C0559b(b bVar, a aVar) {
+        public /* synthetic */ C0578b(b bVar, a aVar) {
             this();
         }
     }
@@ -87,18 +87,18 @@ public class b {
     public class c extends BdAsyncTask<Object, Integer, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.c.e.n.h.a f42446a;
+        public d.b.c.e.n.h.a f42686a;
 
         public c(@NonNull d.b.c.e.n.h.a aVar) {
-            this.f42446a = null;
-            this.f42446a = aVar;
+            this.f42686a = null;
+            this.f42686a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public Void doInBackground(Object... objArr) {
-            d(this.f42446a);
+            d(this.f42686a);
             return null;
         }
 
@@ -106,7 +106,7 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(Void r2) {
-            this.f42446a.J(false);
+            this.f42686a.J(false);
         }
 
         public final void d(d.b.c.e.n.h.a aVar) {
@@ -132,28 +132,28 @@ public class b {
     public class d extends BdAsyncTask<Object, Integer, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.c.e.n.h.a f42448a;
+        public d.b.c.e.n.h.a f42688a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42449b;
+        public String f42689b;
 
         public d(d.b.c.e.n.h.a aVar, String str) {
-            this.f42448a = aVar;
-            this.f42449b = str;
+            this.f42688a = aVar;
+            this.f42689b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public Void doInBackground(Object... objArr) {
-            String e2 = d.b.c.e.n.l.d.e(this.f42448a, b.this.f42440a);
-            String str = this.f42449b;
+            String e2 = d.b.c.e.n.l.d.e(this.f42688a, b.this.f42680a);
+            String str = this.f42689b;
             ArrayList arrayList = new ArrayList();
             arrayList.add(str);
             BdLog.i("commonHeader = " + e2);
             BdLog.i("cache = " + str);
-            this.f42448a.d();
-            b.this.h(this.f42448a, e2, arrayList, null, true);
+            this.f42688a.d();
+            b.this.h(this.f42688a, e2, arrayList, null, true);
             return null;
         }
     }
@@ -162,25 +162,25 @@ public class b {
     public class e extends BdAsyncTask<Object, Integer, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.c.e.n.h.a f42451a;
+        public d.b.c.e.n.h.a f42691a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42452b;
+        public String f42692b;
 
         public e(d.b.c.e.n.h.a aVar, String str) {
-            this.f42451a = aVar;
-            this.f42452b = str;
+            this.f42691a = aVar;
+            this.f42692b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public Void doInBackground(Object... objArr) {
-            String str = this.f42452b;
+            String str = this.f42692b;
             ArrayList arrayList = new ArrayList();
             arrayList.add(str);
-            this.f42451a.f();
-            b.this.i(this.f42451a, arrayList, null);
+            this.f42691a.f();
+            b.this.i(this.f42691a, arrayList, null);
             return null;
         }
     }
@@ -189,38 +189,38 @@ public class b {
     public class f extends BdAsyncTask<Object, Integer, Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public d.b.c.e.n.h.a f42454a;
+        public d.b.c.e.n.h.a f42694a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ArrayList<String> f42455b;
+        public ArrayList<String> f42695b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f42456c;
+        public boolean f42696c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f42457d;
+        public boolean f42697d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f42458e;
+        public boolean f42698e;
 
         public f(d.b.c.e.n.h.a aVar, ArrayList<String> arrayList, boolean z, boolean z2, boolean z3) {
-            this.f42454a = null;
-            this.f42455b = null;
-            this.f42456c = false;
-            this.f42457d = false;
-            this.f42458e = false;
-            this.f42454a = aVar;
-            this.f42455b = arrayList;
-            this.f42456c = z;
-            this.f42457d = z2;
-            this.f42458e = z3;
+            this.f42694a = null;
+            this.f42695b = null;
+            this.f42696c = false;
+            this.f42697d = false;
+            this.f42698e = false;
+            this.f42694a = aVar;
+            this.f42695b = arrayList;
+            this.f42696c = z;
+            this.f42697d = z2;
+            this.f42698e = z3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public Void doInBackground(Object... objArr) {
-            d(this.f42454a, this.f42456c, this.f42457d, this.f42458e);
+            d(this.f42694a, this.f42696c, this.f42697d, this.f42698e);
             return null;
         }
 
@@ -228,13 +228,13 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onPostExecute(Void r2) {
-            this.f42454a.K(false);
+            this.f42694a.K(false);
         }
 
         public final void d(d.b.c.e.n.h.a aVar, boolean z, boolean z2, boolean z3) {
             int i;
             try {
-                String e2 = d.b.c.e.n.l.d.e(aVar, b.this.f42440a);
+                String e2 = d.b.c.e.n.l.d.e(aVar, b.this.f42680a);
                 BdUploadingLogInfo b2 = d.b.c.e.n.l.a.b(aVar, z2);
                 int size = b2.size();
                 if (b2 == null || size <= 0) {
@@ -243,7 +243,7 @@ public class b {
                 if (!z) {
                     int i2 = 0;
                     while (i2 < size) {
-                        ArrayList<String> logStringByIndex = b2.getLogStringByIndex(i2, this.f42455b);
+                        ArrayList<String> logStringByIndex = b2.getLogStringByIndex(i2, this.f42695b);
                         if (logStringByIndex != null && logStringByIndex.size() != 0) {
                             if (!z2) {
                                 i = i2;
@@ -251,8 +251,8 @@ public class b {
                             } else {
                                 ArrayList<d.b.c.e.n.h.d> arrayList = b2.get(i2);
                                 for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                                    if (arrayList.get(i3).f42424b.contains("notUpload/")) {
-                                        arrayList.get(i3).f42424b = arrayList.get(i3).f42424b.replace("notUpload/", "");
+                                    if (arrayList.get(i3).f42664b.contains("notUpload/")) {
+                                        arrayList.get(i3).f42664b = arrayList.get(i3).f42664b.replace("notUpload/", "");
                                     }
                                 }
                                 i = i2;
@@ -267,7 +267,7 @@ public class b {
                 }
                 int i4 = 0;
                 for (int i5 = size - 1; i5 >= 0; i5--) {
-                    ArrayList<String> logStringByIndex2 = b2.getLogStringByIndex(i5, this.f42455b);
+                    ArrayList<String> logStringByIndex2 = b2.getLogStringByIndex(i5, this.f42695b);
                     if (logStringByIndex2 != null && logStringByIndex2.size() != 0) {
                         if (!j.H() && (i4 = i4 + logStringByIndex2.toString().length()) > 102400) {
                             return;
@@ -278,8 +278,8 @@ public class b {
                         } else {
                             ArrayList<d.b.c.e.n.h.d> arrayList2 = b2.get(i5);
                             for (int i7 = 0; i7 < arrayList2.size(); i7++) {
-                                if (arrayList2.get(i7).f42424b.contains("notUpload/")) {
-                                    arrayList2.get(i7).f42424b = arrayList2.get(i7).f42424b.replace("notUpload/", "");
+                                if (arrayList2.get(i7).f42664b.contains("notUpload/")) {
+                                    arrayList2.get(i7).f42664b = arrayList2.get(i7).f42664b.replace("notUpload/", "");
                                 }
                             }
                             b.this.h(aVar, e2, logStringByIndex2, arrayList2, z3);
@@ -294,14 +294,14 @@ public class b {
     }
 
     public static b m() {
-        if (f42439f == null) {
+        if (f42679f == null) {
             synchronized (b.class) {
-                if (f42439f == null) {
-                    f42439f = new b();
+                if (f42679f == null) {
+                    f42679f = new b();
                 }
             }
         }
-        return f42439f;
+        return f42679f;
     }
 
     public final void e(ArrayList<String> arrayList, String str) {
@@ -318,8 +318,8 @@ public class b {
     }
 
     public final void f() {
-        this.f42440a.o = d.b.c.e.n.d.a(BdBaseApplication.getInst());
-        this.f42440a.p = String.valueOf(j.I());
+        this.f42680a.o = d.b.c.e.n.d.a(BdBaseApplication.getInst());
+        this.f42680a.p = String.valueOf(j.I());
     }
 
     /* JADX WARN: Removed duplicated region for block: B:23:0x0041 A[RETURN] */
@@ -374,14 +374,14 @@ public class b {
                     if (aVar.o().equals("pfmonitor") && BdStatisticsSwitchStatic.isOn()) {
                         try {
                             d.b.c.e.j.a.e eVar = new d.b.c.e.j.a.e();
-                            String str4 = this.f42441b;
+                            String str4 = this.f42681b;
                             if (z2 && str4.contains("c.tieba.baidu.com")) {
                                 str4 = str4.replace("c.tieba.baidu.com", "123.125.115.120");
                                 eVar.b().a("Host", "c.tieba.baidu.com");
                             }
                             eVar.b().s(str4);
                             eVar.b().q(HttpMessageTask.HTTP_METHOD.POST);
-                            HashMap<String, Object> f2 = d.b.c.e.n.l.d.f(this.f42440a, z);
+                            HashMap<String, Object> f2 = d.b.c.e.n.l.d.f(this.f42680a, z);
                             if (f2 != null) {
                                 eVar.b().r(new ArrayList(f2.entrySet()));
                             }
@@ -414,15 +414,15 @@ public class b {
             }
             eVar2.b().s(str3);
             eVar2.b().q(HttpMessageTask.HTTP_METHOD.POST);
-            HashMap<String, Object> f3 = d.b.c.e.n.l.d.f(this.f42440a, z);
+            HashMap<String, Object> f3 = d.b.c.e.n.l.d.f(this.f42680a, z);
             if (f3 != null) {
                 eVar2.b().r(new ArrayList(f3.entrySet()));
             }
             eVar2.b().r(arrayList3);
             try {
                 new d.b.c.e.j.a.c(eVar2).n(3, -1, -1);
-                int i = eVar2.c().f42295b;
-                byte[] bArr2 = eVar2.c().f42301h;
+                int i = eVar2.c().f42535b;
+                byte[] bArr2 = eVar2.c().f42541h;
                 if (bArr2 != null && i == 200) {
                     try {
                         if (new JSONObject(new String(bArr2, "utf-8")).optInt("error_code", -1) == 0) {
@@ -439,11 +439,11 @@ public class b {
                     StringBuilder sb = new StringBuilder();
                     for (int i2 = 0; i2 < d2.size(); i2++) {
                         d.b.c.e.j.a.d dVar = d2.get(i2);
-                        if (dVar != null && !TextUtils.isEmpty(dVar.f42282h)) {
+                        if (dVar != null && !TextUtils.isEmpty(dVar.f42522h)) {
                             if (sb.length() > 0) {
                                 sb.append(",");
                             }
-                            sb.append(dVar.f42282h);
+                            sb.append(dVar.f42522h);
                         }
                     }
                     if (sb.length() > 0) {
@@ -459,8 +459,8 @@ public class b {
     }
 
     public final void h(d.b.c.e.n.h.a aVar, String str, ArrayList<String> arrayList, ArrayList<d.b.c.e.n.h.d> arrayList2, boolean z) {
-        if (g(this.f42441b, aVar, str, arrayList, arrayList2, z, false) != null && j.z()) {
-            String g2 = g(this.f42441b, aVar, str, arrayList, arrayList2, z, true);
+        if (g(this.f42681b, aVar, str, arrayList, arrayList2, z, false) != null && j.z()) {
+            String g2 = g(this.f42681b, aVar, str, arrayList, arrayList2, z, true);
             if (g2 == null) {
                 d.b.c.e.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.b("issuc", "true");
@@ -523,22 +523,22 @@ public class b {
         ArrayList arrayList3 = new ArrayList(hashMap.entrySet());
         d.b.c.e.j.a.e eVar = new d.b.c.e.j.a.e();
         eVar.b().a("Host", "c.tieba.baidu.com");
-        eVar.b().s(this.f42442c);
+        eVar.b().s(this.f42682c);
         eVar.b().q(HttpMessageTask.HTTP_METHOD.POST);
-        HashMap<String, Object> f2 = d.b.c.e.n.l.d.f(this.f42440a, false);
+        HashMap<String, Object> f2 = d.b.c.e.n.l.d.f(this.f42680a, false);
         if (f2 != null) {
             eVar.b().r(new ArrayList(f2.entrySet()));
         }
         eVar.b().r(arrayList3);
         try {
             new d.b.c.e.j.a.c(eVar).n(3, -1, -1);
-            if (eVar.c().f42295b == 200) {
+            if (eVar.c().f42535b == 200) {
                 try {
-                    if (new JSONObject(new String(eVar.c().f42301h, "utf-8")).optString("error_code").equals("0")) {
+                    if (new JSONObject(new String(eVar.c().f42541h, "utf-8")).optString("error_code").equals("0")) {
                         ArrayList arrayList4 = new ArrayList();
                         Iterator<d.b.c.e.n.h.d> it = arrayList2.iterator();
                         while (it.hasNext()) {
-                            arrayList4.add(it.next().f42424b);
+                            arrayList4.add(it.next().f42664b);
                         }
                         if (arrayList4.size() > 0) {
                             d.b.c.e.n.h.c.a(arrayList4, aVar.C());
@@ -566,7 +566,7 @@ public class b {
         ArrayList arrayList2 = new ArrayList();
         Iterator<d.b.c.e.n.h.d> it = arrayList.iterator();
         while (it.hasNext()) {
-            arrayList2.add(it.next().f42424b);
+            arrayList2.add(it.next().f42664b);
         }
         if (arrayList2.size() > 0) {
             d.b.c.e.n.h.b.a(arrayList2, z);
@@ -617,35 +617,35 @@ public class b {
     }
 
     public void n(d.b.c.e.n.c cVar, String str, String str2) {
-        this.f42441b = str;
-        this.f42442c = str2;
-        this.f42440a = cVar;
+        this.f42681b = str;
+        this.f42682c = str2;
+        this.f42680a = cVar;
         if (cVar != null) {
             cVar.k = Build.MODEL;
             cVar.q = Build.VERSION.RELEASE;
             cVar.o = d.b.c.e.n.d.a(BdBaseApplication.getInst());
-            this.f42440a.p = String.valueOf(j.I());
+            this.f42680a.p = String.valueOf(j.I());
         }
         try {
-            MessageManager.getInstance().registerListener(this.f42444e);
+            MessageManager.getInstance().registerListener(this.f42684e);
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
-        if (this.f42443d == null) {
-            this.f42443d = new C0559b(this, null);
+        if (this.f42683d == null) {
+            this.f42683d = new C0578b(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("adp.bdstatisticsmanager.account_changed");
-            BdBaseApplication.getInst().registerReceiver(this.f42443d, intentFilter);
+            BdBaseApplication.getInst().registerReceiver(this.f42683d, intentFilter);
         }
     }
 
     public void o(String str, String str2, String str3) {
-        if (this.f42440a.l == null && str == null) {
+        if (this.f42680a.l == null && str == null) {
             return;
         }
-        String str4 = this.f42440a.l;
+        String str4 = this.f42680a.l;
         if (str4 == null || !str4.equals(str)) {
-            d.b.c.e.n.c cVar = this.f42440a;
+            d.b.c.e.n.c cVar = this.f42680a;
             cVar.l = str;
             cVar.m = str2;
             cVar.n = str3;

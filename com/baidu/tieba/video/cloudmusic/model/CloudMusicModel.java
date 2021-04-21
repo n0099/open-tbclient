@@ -17,10 +17,10 @@ import org.json.JSONObject;
 public class CloudMusicModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.q3.i.i.a<CloudMusicData> f21410e;
+    public d.b.j0.q3.i.i.a<CloudMusicData> f21418e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f21411f;
+    public final HttpMessageListener f21419f;
 
     /* loaded from: classes5.dex */
     public static class VideoCloudMusicWithTagResponseMessage extends JsonHttpResponsedMessage {
@@ -49,20 +49,20 @@ public class CloudMusicModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003371 || !(httpResponsedMessage instanceof VideoCloudMusicWithTagResponseMessage) || CloudMusicModel.this.f21410e == null) {
+            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003371 || !(httpResponsedMessage instanceof VideoCloudMusicWithTagResponseMessage) || CloudMusicModel.this.f21418e == null) {
                 return;
             }
-            CloudMusicModel.this.f21410e.a(((VideoCloudMusicWithTagResponseMessage) httpResponsedMessage).mCloudMusicData);
+            CloudMusicModel.this.f21418e.a(((VideoCloudMusicWithTagResponseMessage) httpResponsedMessage).mCloudMusicData);
         }
     }
 
     public CloudMusicModel(f fVar) {
         super(fVar);
-        this.f21411f = new a(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_WITH_TAGS);
+        this.f21419f = new a(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_WITH_TAGS);
         u();
-        this.f21411f.setTag(getUniqueId());
-        this.f21411f.setSelfListener(true);
-        registerListener(this.f21411f);
+        this.f21419f.setTag(getUniqueId());
+        this.f21419f.setSelfListener(true);
+        registerListener(this.f21419f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -76,12 +76,12 @@ public class CloudMusicModel extends BdBaseModel {
         return false;
     }
 
-    public void t(d.b.i0.q3.i.i.a<CloudMusicData> aVar) {
+    public void t(d.b.j0.q3.i.i.a<CloudMusicData> aVar) {
         if (aVar == null) {
             return;
         }
         sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_WITH_TAGS));
-        this.f21410e = aVar;
+        this.f21418e = aVar;
     }
 
     public final void u() {

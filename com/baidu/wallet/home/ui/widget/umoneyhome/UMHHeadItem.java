@@ -14,7 +14,7 @@ import com.baidu.wallet.home.ui.widget.b;
 public class UMHHeadItem extends BaseItemView {
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f24492a;
+    public NetImageView f24500a;
 
     public UMHHeadItem(Context context) {
         super(context);
@@ -27,17 +27,17 @@ public class UMHHeadItem extends BaseItemView {
 
     public void initView() {
         NetImageView netImageView = new NetImageView(getContext());
-        this.f24492a = netImageView;
+        this.f24500a = netImageView;
         netImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.f24492a.setImageDrawable(new ColorDrawable(ResUtils.getColor(getContext(), "wallet_home_umh_background")));
-        addView(this.f24492a, new RelativeLayout.LayoutParams(-1, -1));
+        this.f24500a.setImageDrawable(new ColorDrawable(ResUtils.getColor(getContext(), "wallet_home_umh_background")));
+        addView(this.f24500a, new RelativeLayout.LayoutParams(-1, -1));
     }
 
     public void refresh() {
         if (getData() == null) {
             return;
         }
-        setNetImageViewUrl(this.f24492a, getData().logo);
+        setNetImageViewUrl(this.f24500a, getData().logo);
         handlePoint();
     }
 

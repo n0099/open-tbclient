@@ -6,42 +6,42 @@ import com.ksad.lottie.a.b.a;
 import com.ksad.lottie.model.content.ShapeTrimPath;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class p implements l, a.InterfaceC0366a {
+public class p implements l, a.InterfaceC0369a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Path f31561a = new Path();
+    public final Path f31656a = new Path();
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f31562b;
+    public final String f31657b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.ksad.lottie.f f31563c;
+    public final com.ksad.lottie.f f31658c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.ksad.lottie.a.b.a<?, Path> f31564d;
+    public final com.ksad.lottie.a.b.a<?, Path> f31659d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f31565e;
+    public boolean f31660e;
     @Nullable
 
     /* renamed from: f  reason: collision with root package name */
-    public r f31566f;
+    public r f31661f;
 
     public p(com.ksad.lottie.f fVar, com.ksad.lottie.model.layer.a aVar, com.ksad.lottie.model.content.k kVar) {
-        this.f31562b = kVar.a();
-        this.f31563c = fVar;
+        this.f31657b = kVar.a();
+        this.f31658c = fVar;
         com.ksad.lottie.a.b.a<com.ksad.lottie.model.content.h, Path> a2 = kVar.b().a();
-        this.f31564d = a2;
+        this.f31659d = a2;
         aVar.a(a2);
-        this.f31564d.a(this);
+        this.f31659d.a(this);
     }
 
     private void b() {
-        this.f31565e = false;
-        this.f31563c.invalidateSelf();
+        this.f31660e = false;
+        this.f31658c.invalidateSelf();
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC0366a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC0369a
     public void a() {
         b();
     }
@@ -53,7 +53,7 @@ public class p implements l, a.InterfaceC0366a {
             if (bVar instanceof r) {
                 r rVar = (r) bVar;
                 if (rVar.b() == ShapeTrimPath.Type.Simultaneously) {
-                    this.f31566f = rVar;
+                    this.f31661f = rVar;
                     rVar.a(this);
                 }
             }
@@ -62,14 +62,14 @@ public class p implements l, a.InterfaceC0366a {
 
     @Override // com.ksad.lottie.a.a.l
     public Path d() {
-        if (this.f31565e) {
-            return this.f31561a;
+        if (this.f31660e) {
+            return this.f31656a;
         }
-        this.f31561a.reset();
-        this.f31561a.set(this.f31564d.e());
-        this.f31561a.setFillType(Path.FillType.EVEN_ODD);
-        com.ksad.lottie.d.f.a(this.f31561a, this.f31566f);
-        this.f31565e = true;
-        return this.f31561a;
+        this.f31656a.reset();
+        this.f31656a.set(this.f31659d.e());
+        this.f31656a.setFillType(Path.FillType.EVEN_ODD);
+        com.ksad.lottie.d.f.a(this.f31656a, this.f31661f);
+        this.f31660e = true;
+        return this.f31656a;
     }
 }

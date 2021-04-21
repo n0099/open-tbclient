@@ -14,7 +14,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import d.b.h0.r.q.a2;
+import d.b.i0.r.q.a2;
 /* loaded from: classes.dex */
 public class d0 extends c implements p<a2>, q {
     public static final int s = d.b.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds62);
@@ -97,7 +97,7 @@ public class d0 extends c implements p<a2>, q {
         this.q = align;
     }
 
-    public void n(d.b.h0.r.q.a aVar) {
+    public void n(d.b.i0.r.q.a aVar) {
         m(Align.ALIGN_RIGHT_TOP);
     }
 

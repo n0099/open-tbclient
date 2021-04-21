@@ -13,23 +13,23 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
 import com.baidu.tieba.R;
 import d.b.c.a.i;
-import d.b.h0.r.f0.p.a;
-import d.b.h0.r.q.v;
+import d.b.i0.r.f0.p.a;
+import d.b.i0.r.q.v;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SpanGroupEditText extends AppCompatEditText {
 
     /* renamed from: e  reason: collision with root package name */
-    public EDIT_TEXT_TYPE f13279e;
+    public EDIT_TEXT_TYPE f13287e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SpanGroupManager f13280f;
+    public SpanGroupManager f13288f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnKeyListener f13281g;
+    public View.OnKeyListener f13289g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f13282h;
+    public long f13290h;
 
     /* loaded from: classes3.dex */
     public enum EDIT_TEXT_TYPE {
@@ -53,7 +53,7 @@ public class SpanGroupEditText extends AppCompatEditText {
 
         @Override // android.view.inputmethod.InputConnectionWrapper, android.view.inputmethod.InputConnection
         public boolean sendKeyEvent(KeyEvent keyEvent) {
-            if (SpanGroupEditText.this.f13281g == null || !SpanGroupEditText.this.f13281g.onKey(SpanGroupEditText.this, keyEvent.getKeyCode(), keyEvent)) {
+            if (SpanGroupEditText.this.f13289g == null || !SpanGroupEditText.this.f13289g.onKey(SpanGroupEditText.this, keyEvent.getKeyCode(), keyEvent)) {
                 return super.sendKeyEvent(keyEvent);
             }
             return true;
@@ -65,18 +65,18 @@ public class SpanGroupEditText extends AppCompatEditText {
     }
 
     public void b() {
-        SpanGroupManager spanGroupManager = this.f13280f;
+        SpanGroupManager spanGroupManager = this.f13288f;
         if (spanGroupManager != null) {
             spanGroupManager.g();
         }
     }
 
     public void c(int i) {
-        d.b.h0.r.f0.p.a r = this.f13280f.r(i);
+        d.b.i0.r.f0.p.a r = this.f13288f.r(i);
         if (r == null || getText() == null) {
             return;
         }
-        this.f13280f.l(r.f(), r.c());
+        this.f13288f.l(r.f(), r.c());
     }
 
     public void d(CharSequence charSequence) {
@@ -86,42 +86,42 @@ public class SpanGroupEditText extends AppCompatEditText {
         getText().insert(getSelectionEnd(), charSequence);
     }
 
-    public void e(List<d.b.i0.w0.a> list, List<String> list2) {
+    public void e(List<d.b.j0.w0.a> list, List<String> list2) {
         if (ListUtils.isEmpty(list)) {
             return;
         }
         for (int i = 0; i < list.size(); i++) {
-            d.b.i0.w0.a aVar = list.get(i);
+            d.b.j0.w0.a aVar = list.get(i);
             String str = list2.get(i);
-            if (!this.f13280f.i(aVar.a())) {
+            if (!this.f13288f.i(aVar.a())) {
                 TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
                 tbLinkSpanGroup.a(getText(), getSelectionEnd(), getSelectionEnd(), (int) getTextSize());
                 v b2 = v.b(tbLinkSpanGroup, aVar);
                 b2.l = str;
-                tbLinkSpanGroup.z(b2.f51307h);
+                tbLinkSpanGroup.z(b2.f51643h);
                 tbLinkSpanGroup.r();
-                this.f13280f.v(tbLinkSpanGroup);
+                this.f13288f.v(tbLinkSpanGroup);
             }
         }
     }
 
     public void f() {
-        SpanGroupManager spanGroupManager = this.f13280f;
+        SpanGroupManager spanGroupManager = this.f13288f;
         if (spanGroupManager != null) {
             spanGroupManager.B();
         }
     }
 
     public long getForumId() {
-        return this.f13282h;
+        return this.f13290h;
     }
 
     public SpanGroupManager getSpanGroupManager() {
-        return this.f13280f;
+        return this.f13288f;
     }
 
     public EDIT_TEXT_TYPE getType() {
-        return this.f13279e;
+        return this.f13287e;
     }
 
     @Override // androidx.appcompat.widget.AppCompatEditText, android.widget.TextView, android.view.View
@@ -130,20 +130,20 @@ public class SpanGroupEditText extends AppCompatEditText {
     }
 
     public void setForumId(long j) {
-        this.f13282h = j;
+        this.f13290h = j;
     }
 
-    public void setOnSpanGroupChangedListener(a.InterfaceC1090a interfaceC1090a) {
-        this.f13280f.F(interfaceC1090a);
+    public void setOnSpanGroupChangedListener(a.InterfaceC1112a interfaceC1112a) {
+        this.f13288f.F(interfaceC1112a);
     }
 
     public void setSoftKeyListener(View.OnKeyListener onKeyListener) {
-        this.f13281g = onKeyListener;
+        this.f13289g = onKeyListener;
     }
 
     @Override // android.widget.EditText, android.widget.TextView
     public void setText(CharSequence charSequence, TextView.BufferType bufferType) {
-        SpanGroupManager spanGroupManager = this.f13280f;
+        SpanGroupManager spanGroupManager = this.f13288f;
         if (spanGroupManager != null) {
             spanGroupManager.k();
         }
@@ -151,11 +151,11 @@ public class SpanGroupEditText extends AppCompatEditText {
     }
 
     public void setTransLink(boolean z) {
-        this.f13280f.G(z);
+        this.f13288f.G(z);
     }
 
     public void setType(EDIT_TEXT_TYPE edit_text_type) {
-        this.f13279e = edit_text_type;
+        this.f13287e = edit_text_type;
     }
 
     public SpanGroupEditText(Context context, AttributeSet attributeSet) {
@@ -164,8 +164,8 @@ public class SpanGroupEditText extends AppCompatEditText {
 
     public SpanGroupEditText(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f13279e = EDIT_TEXT_TYPE.TYPE_DEFAULT;
-        this.f13282h = 0L;
-        this.f13280f = new SpanGroupManager(this, context instanceof i ? ((i) context).getUniqueId() : null);
+        this.f13287e = EDIT_TEXT_TYPE.TYPE_DEFAULT;
+        this.f13290h = 0L;
+        this.f13288f = new SpanGroupManager(this, context instanceof i ? ((i) context).getUniqueId() : null);
     }
 }

@@ -10,13 +10,13 @@ import java.util.List;
 public abstract class BaseItemLayout extends RelativeLayout {
 
     /* renamed from: d  reason: collision with root package name */
-    public int f24235d;
+    public int f24243d;
     public HomeCfgResponse.ConfigData mConfigData;
     public b mWalletHomeInterface;
 
     public BaseItemLayout(Context context) {
         super(context);
-        this.f24235d = -1;
+        this.f24243d = -1;
     }
 
     public void dispatchShowPoint(String str) {
@@ -65,11 +65,11 @@ public abstract class BaseItemLayout extends RelativeLayout {
     public abstract void refreshData();
 
     public void setConfigData(HomeCfgResponse.ConfigData configData, b bVar) {
-        if (this.mConfigData == null || ((bVar instanceof WalletNewHomeActivity.r) && ((WalletNewHomeActivity.r) bVar).f24189a.f24170a > this.f24235d)) {
+        if (this.mConfigData == null || ((bVar instanceof WalletNewHomeActivity.r) && ((WalletNewHomeActivity.r) bVar).f24197a.f24178a > this.f24243d)) {
             this.mConfigData = configData;
             this.mWalletHomeInterface = bVar;
             if (bVar instanceof WalletNewHomeActivity.r) {
-                this.f24235d = ((WalletNewHomeActivity.r) bVar).f24189a.f24170a;
+                this.f24243d = ((WalletNewHomeActivity.r) bVar).f24197a.f24178a;
             }
             if (!isDataValid() || this.mWalletHomeInterface == null) {
                 return;
@@ -82,6 +82,6 @@ public abstract class BaseItemLayout extends RelativeLayout {
 
     public BaseItemLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f24235d = -1;
+        this.f24243d = -1;
     }
 }

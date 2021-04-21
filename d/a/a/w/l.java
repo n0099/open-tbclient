@@ -11,14 +11,14 @@ import java.util.List;
 public class l implements j0<d.a.a.u.j.c> {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f41760a;
+    public int f41855a;
 
     public l(int i) {
-        this.f41760a = i;
+        this.f41855a = i;
     }
 
     public final void b(d.a.a.u.j.c cVar, List<Float> list) {
-        int i = this.f41760a * 4;
+        int i = this.f41855a * 4;
         if (list.size() <= i) {
             return;
         }
@@ -78,15 +78,15 @@ public class l implements j0<d.a.a.u.j.c> {
         if (z) {
             jsonReader.q();
         }
-        if (this.f41760a == -1) {
-            this.f41760a = arrayList.size() / 4;
+        if (this.f41855a == -1) {
+            this.f41855a = arrayList.size() / 4;
         }
-        int i = this.f41760a;
+        int i = this.f41855a;
         float[] fArr = new float[i];
         int[] iArr = new int[i];
         int i2 = 0;
         int i3 = 0;
-        for (int i4 = 0; i4 < this.f41760a * 4; i4++) {
+        for (int i4 = 0; i4 < this.f41855a * 4; i4++) {
             int i5 = i4 / 4;
             double floatValue = arrayList.get(i4).floatValue();
             int i6 = i4 % 4;

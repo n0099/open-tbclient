@@ -10,27 +10,27 @@ import java.util.Set;
 public class b extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f33158a;
+    public c f33253a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SceneImpl f33159b;
+    public SceneImpl f33254b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewPager f33160c;
+    public ViewPager f33255c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ProfileHomeParam f33161d;
+    public ProfileHomeParam f33256d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f33162e;
+    public com.kwad.sdk.core.i.a f33257e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Set<com.kwad.sdk.contentalliance.profile.home.a.a> f33163f = new LinkedHashSet();
+    public Set<com.kwad.sdk.contentalliance.profile.home.a.a> f33258f = new LinkedHashSet();
 
     @Override // com.kwad.sdk.core.e.b
     public void a() {
-        this.f33163f.clear();
-        com.kwad.sdk.core.i.a aVar = this.f33162e;
+        this.f33258f.clear();
+        com.kwad.sdk.core.i.a aVar = this.f33257e;
         if (aVar != null) {
             aVar.f();
         }

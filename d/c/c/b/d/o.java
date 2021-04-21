@@ -9,28 +9,28 @@ import java.util.Map;
 public class o<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final T f66584a;
+    public final T f66679a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final b.a f66585b;
+    public final b.a f66680b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final VAdError f66586c;
+    public final VAdError f66681c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f66587d;
+    public boolean f66682d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f66588e;
+    public long f66683e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f66589f;
+    public long f66684f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Map<String, Object> f66590g;
+    public Map<String, Object> f66685g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f66591h;
+    public long f66686h;
 
     /* loaded from: classes5.dex */
     public interface a<T> {
@@ -40,15 +40,15 @@ public class o<T> {
     }
 
     public o(T t, b.a aVar) {
-        this.f66587d = false;
-        this.f66588e = 0L;
-        this.f66589f = 0L;
-        this.f66591h = 0L;
-        this.f66584a = t;
-        this.f66585b = aVar;
-        this.f66586c = null;
+        this.f66682d = false;
+        this.f66683e = 0L;
+        this.f66684f = 0L;
+        this.f66686h = 0L;
+        this.f66679a = t;
+        this.f66680b = aVar;
+        this.f66681c = null;
         if (aVar != null) {
-            this.f66591h = aVar.f66608a;
+            this.f66686h = aVar.f66703a;
         }
     }
 
@@ -61,14 +61,14 @@ public class o<T> {
     }
 
     public o a(long j) {
-        this.f66588e = j;
+        this.f66683e = j;
         return this;
     }
 
     @Nullable
     public Object d(String str) {
         Map<String, Object> map;
-        if (TextUtils.isEmpty(str) || (map = this.f66590g) == null) {
+        if (TextUtils.isEmpty(str) || (map = this.f66685g) == null) {
             return null;
         }
         return map.get(str);
@@ -77,36 +77,36 @@ public class o<T> {
     public String e(String str, @Nullable String str2) {
         Map<String, String> map;
         String str3;
-        b.a aVar = this.f66585b;
-        return (aVar == null || (map = aVar.f66615h) == null || (str3 = map.get(str)) == null) ? str2 : str3;
+        b.a aVar = this.f66680b;
+        return (aVar == null || (map = aVar.f66710h) == null || (str3 = map.get(str)) == null) ? str2 : str3;
     }
 
     public boolean f() {
-        return this.f66586c == null;
+        return this.f66681c == null;
     }
 
     public o g(long j) {
-        this.f66589f = j;
+        this.f66684f = j;
         return this;
     }
 
     public o(VAdError vAdError) {
-        this.f66587d = false;
-        this.f66588e = 0L;
-        this.f66589f = 0L;
-        this.f66591h = 0L;
-        this.f66584a = null;
-        this.f66585b = null;
-        this.f66586c = vAdError;
+        this.f66682d = false;
+        this.f66683e = 0L;
+        this.f66684f = 0L;
+        this.f66686h = 0L;
+        this.f66679a = null;
+        this.f66680b = null;
+        this.f66681c = vAdError;
         if (0 != 0 || vAdError == null) {
             return;
         }
         k kVar = vAdError.networkResponse;
         if (kVar != null) {
-            this.f66591h = kVar.f66568a;
+            this.f66686h = kVar.f66663a;
         } else {
-            this.f66591h = vAdError.getErrorCode();
+            this.f66686h = vAdError.getErrorCode();
         }
-        com.bytedance.sdk.adnet.d.d.c("Response", "Response error code = " + this.f66591h);
+        com.bytedance.sdk.adnet.d.d.c("Response", "Response error code = " + this.f66686h);
     }
 }

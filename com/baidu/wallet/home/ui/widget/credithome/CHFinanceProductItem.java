@@ -21,28 +21,28 @@ public class CHFinanceProductItem extends BaseItemView {
     public static final float TAG_PADDING_DP = 7.5f;
 
     /* renamed from: a  reason: collision with root package name */
-    public MaskTextView f24345a;
+    public MaskTextView f24353a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f24346b;
+    public MaskTextView f24354b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f24347c;
+    public MaskTextView f24355c;
 
     /* renamed from: d  reason: collision with root package name */
-    public MaskTextView f24348d;
+    public MaskTextView f24356d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MaskTextView f24349e;
+    public MaskTextView f24357e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MaskTextView f24350f;
+    public MaskTextView f24358f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MaskTextView f24351g;
+    public MaskTextView f24359g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MaskTextView f24352h;
+    public MaskTextView f24360h;
     public LinearLayout i;
 
     public CHFinanceProductItem(Context context) {
@@ -92,14 +92,14 @@ public class CHFinanceProductItem extends BaseItemView {
 
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_ch_finance_product_item"), this);
-        this.f24345a = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_title"));
-        this.f24346b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_rate"));
-        this.f24347c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_percent"));
-        this.f24348d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_desc"));
-        this.f24349e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_date"));
-        this.f24350f = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_date_unit"));
-        this.f24351g = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_amount"));
-        this.f24352h = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_amount_unit"));
+        this.f24353a = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_title"));
+        this.f24354b = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_rate"));
+        this.f24355c = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_percent"));
+        this.f24356d = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_desc"));
+        this.f24357e = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_date"));
+        this.f24358f = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_date_unit"));
+        this.f24359g = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_amount"));
+        this.f24360h = (MaskTextView) findViewById(ResUtils.id(getContext(), "ch_fp_amount_unit"));
         this.i = (LinearLayout) findViewById(ResUtils.id(getContext(), "ch_fp_tags"));
     }
 
@@ -107,14 +107,14 @@ public class CHFinanceProductItem extends BaseItemView {
         if (getData() == null) {
             return;
         }
-        this.f24345a.setMaskText(getData().name);
-        this.f24346b.setMaskText(getData().value1);
-        this.f24347c.setVisibility(TextUtils.isEmpty(getData().value1) ? 8 : 0);
-        this.f24348d.setMaskText(getData().desc);
-        this.f24349e.setMaskText(getData().value2);
-        this.f24350f.setMaskText(getData().unit);
-        this.f24351g.setMaskText(getData().value3);
-        this.f24352h.setMaskText(getData().detail);
+        this.f24353a.setMaskText(getData().name);
+        this.f24354b.setMaskText(getData().value1);
+        this.f24355c.setVisibility(TextUtils.isEmpty(getData().value1) ? 8 : 0);
+        this.f24356d.setMaskText(getData().desc);
+        this.f24357e.setMaskText(getData().value2);
+        this.f24358f.setMaskText(getData().unit);
+        this.f24359g.setMaskText(getData().value3);
+        this.f24360h.setMaskText(getData().detail);
         addTags();
         handlePoint();
     }

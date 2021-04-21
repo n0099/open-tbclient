@@ -22,7 +22,7 @@ public class a extends c {
     public a(c.a aVar) {
         super(aVar);
         this.u = a.class.getSimpleName();
-        com.meizu.cloud.pushsdk.c.d.a aVar2 = new com.meizu.cloud.pushsdk.c.d.a(this.f37987d, this.o);
+        com.meizu.cloud.pushsdk.c.d.a aVar2 = new com.meizu.cloud.pushsdk.c.d.a(this.f38082d, this.o);
         this.v = aVar2;
         if (aVar2.a()) {
             return;
@@ -113,7 +113,7 @@ public class a extends c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        if (com.meizu.cloud.pushsdk.c.f.e.a(this.f37987d)) {
+        if (com.meizu.cloud.pushsdk.c.f.e.a(this.f38082d)) {
             if (this.v.c() > 0) {
                 this.w = 0;
                 LinkedList<g> a2 = a(a(this.v.d()));
@@ -138,7 +138,7 @@ public class a extends c {
                 b(linkedList);
                 com.meizu.cloud.pushsdk.c.f.c.b(this.u, "Success Count: %s", Integer.valueOf(i));
                 com.meizu.cloud.pushsdk.c.f.c.b(this.u, "Failure Count: %s", Integer.valueOf(i2));
-                f fVar = this.f37989f;
+                f fVar = this.f38084f;
                 if (fVar != null) {
                     if (i2 != 0) {
                         fVar.a(i, i2);
@@ -147,7 +147,7 @@ public class a extends c {
                     }
                 }
                 if (i2 > 0 && i == 0) {
-                    if (com.meizu.cloud.pushsdk.c.f.e.a(this.f37987d)) {
+                    if (com.meizu.cloud.pushsdk.c.f.e.a(this.f38082d)) {
                         com.meizu.cloud.pushsdk.c.f.c.a(this.u, "Ensure collector path is valid: %s", b());
                     }
                     com.meizu.cloud.pushsdk.c.f.c.a(this.u, "Emitter loop stopping: failures.", new Object[0]);
@@ -157,7 +157,7 @@ public class a extends c {
                 if (i3 >= this.n) {
                     com.meizu.cloud.pushsdk.c.f.c.a(this.u, "Emitter loop stopping: empty limit reached.", new Object[0]);
                     this.t.compareAndSet(true, false);
-                    f fVar2 = this.f37989f;
+                    f fVar2 = this.f38084f;
                     if (fVar2 != null) {
                         fVar2.a(true);
                         return;

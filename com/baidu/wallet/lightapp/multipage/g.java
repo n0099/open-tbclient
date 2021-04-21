@@ -11,72 +11,72 @@ import java.util.concurrent.ConcurrentHashMap;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Set<String> f24971a;
+    public static final Set<String> f24979a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, Map<String, String>> f24972b;
+    public Map<String, Map<String, String>> f24980b;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static g f24973a = new g();
+        public static g f24981a = new g();
     }
 
     static {
         HashSet hashSet = new HashSet();
-        f24971a = hashSet;
+        f24979a = hashSet;
         hashSet.add("getItem");
-        f24971a.add("setItem");
-        f24971a.add("clear");
-        f24971a.add("key");
-        f24971a.add("length");
-        f24971a.add("removeItem");
+        f24979a.add("setItem");
+        f24979a.add("clear");
+        f24979a.add("key");
+        f24979a.add("length");
+        f24979a.add("removeItem");
     }
 
     public static boolean a(String str) {
-        return f24971a.contains(str);
+        return f24979a.contains(str);
     }
 
     private void b() {
     }
 
     public void b(String str) {
-        this.f24972b.remove(str);
+        this.f24980b.remove(str);
     }
 
     public void c(String str) {
-        for (Map.Entry<String, Map<String, String>> entry : this.f24972b.entrySet()) {
+        for (Map.Entry<String, Map<String, String>> entry : this.f24980b.entrySet()) {
             if (entry.getKey().startsWith(str)) {
-                this.f24972b.remove(entry.getKey());
+                this.f24980b.remove(entry.getKey());
             }
         }
     }
 
     public int d(String str) {
-        if (this.f24972b.containsKey(str)) {
-            return this.f24972b.get(str).size();
+        if (this.f24980b.containsKey(str)) {
+            return this.f24980b.get(str).size();
         }
         return 0;
     }
 
     public g() {
-        this.f24972b = new ConcurrentHashMap();
+        this.f24980b = new ConcurrentHashMap();
     }
 
     public static g a() {
-        return a.f24973a;
+        return a.f24981a;
     }
 
     public void b(String str, String str2) {
-        if (this.f24972b.containsKey(str2) && this.f24972b.get(str2).containsKey(str)) {
-            this.f24972b.get(str2).remove(str);
+        if (this.f24980b.containsKey(str2) && this.f24980b.get(str2).containsKey(str)) {
+            this.f24980b.get(str2).remove(str);
         }
     }
 
     public String a(String str, String str2) {
-        if (this.f24972b.containsKey(str2) && this.f24972b.get(str2).containsKey(str)) {
-            return this.f24972b.get(str2).get(str);
+        if (this.f24980b.containsKey(str2) && this.f24980b.get(str2).containsKey(str)) {
+            return this.f24980b.get(str2).get(str);
         }
         return null;
     }
@@ -87,41 +87,41 @@ public class g {
     public void d(String str, String str2) {
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
         ConcurrentHashMap concurrentHashMap2 = new ConcurrentHashMap();
-        for (String str3 : this.f24972b.keySet()) {
+        for (String str3 : this.f24980b.keySet()) {
             if (!TextUtils.isEmpty(str3) && str3.startsWith(str)) {
-                concurrentHashMap2.put(str3, this.f24972b.get(str3));
-                concurrentHashMap.put(str2 + str3.substring(str3.indexOf("+") + 1, str3.length()), this.f24972b.get(str3));
+                concurrentHashMap2.put(str3, this.f24980b.get(str3));
+                concurrentHashMap.put(str2 + str3.substring(str3.indexOf("+") + 1, str3.length()), this.f24980b.get(str3));
             }
         }
         for (String str4 : concurrentHashMap2.keySet()) {
-            this.f24972b.remove(str4);
+            this.f24980b.remove(str4);
         }
         Iterator it = concurrentHashMap.keySet().iterator();
         while (it.hasNext()) {
             String str5 = (String) it.next();
-            if (this.f24972b.containsKey(str5)) {
+            if (this.f24980b.containsKey(str5)) {
                 Map map = (Map) concurrentHashMap.get(str5);
                 Iterator it2 = map.keySet().iterator();
                 while (it.hasNext()) {
                     String str6 = (String) it2.next();
-                    if (!this.f24972b.get(str5).containsKey(str6)) {
-                        this.f24972b.get(str5).put(str6, map.get(str6));
+                    if (!this.f24980b.get(str5).containsKey(str6)) {
+                        this.f24980b.get(str5).put(str6, map.get(str6));
                     }
                 }
             } else {
-                this.f24972b.put(str5, concurrentHashMap.get(str5));
+                this.f24980b.put(str5, concurrentHashMap.get(str5));
             }
         }
     }
 
     public void a(String str, String str2, String str3) {
-        if (this.f24972b.containsKey(str3)) {
-            this.f24972b.get(str3).put(str, str2);
+        if (this.f24980b.containsKey(str3)) {
+            this.f24980b.get(str3).put(str, str2);
             return;
         }
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
         concurrentHashMap.put(str, str2);
-        this.f24972b.put(str3, concurrentHashMap);
+        this.f24980b.put(str3, concurrentHashMap);
     }
 
     public String c(String str, String str2) {
@@ -131,8 +131,8 @@ public class g {
         } catch (Exception unused) {
             i = -1;
         }
-        if (this.f24972b.containsKey(str2)) {
-            Map<String, String> map = this.f24972b.get(str2);
+        if (this.f24980b.containsKey(str2)) {
+            Map<String, String> map = this.f24980b.get(str2);
             String[] strArr = (String[]) map.keySet().toArray(new String[map.keySet().size()]);
             if (i < 0 || i >= strArr.length) {
                 return null;

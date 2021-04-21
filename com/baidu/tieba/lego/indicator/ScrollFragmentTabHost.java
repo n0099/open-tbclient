@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
 import d.b.c.a.j;
-import d.b.i0.j1.d;
-import d.b.i0.j1.p.e;
-import d.b.i0.j1.q.c;
+import d.b.j0.j1.d;
+import d.b.j0.j1.p.e;
+import d.b.j0.j1.q.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Lego.DataRes;
@@ -24,23 +24,23 @@ import tbclient.Lego.DataRes;
 public class ScrollFragmentTabHost extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18383e;
+    public Context f18391e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomViewPager f18384f;
+    public CustomViewPager f18392f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.i0.j1.q.a f18385g;
+    public d.b.j0.j1.q.a f18393g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NoNetworkView f18386h;
+    public NoNetworkView f18394h;
     public ScrollFragmentAdapter i;
     public List<e> j;
     public FrameLayout k;
     public c l;
     public BdUniqueId m;
     public View.OnClickListener n;
-    public c.InterfaceC1362c o;
+    public c.InterfaceC1385c o;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -58,14 +58,14 @@ public class ScrollFragmentTabHost extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements c.InterfaceC1362c {
+    public class b implements c.InterfaceC1385c {
         public b() {
         }
 
-        @Override // d.b.i0.j1.q.c.InterfaceC1362c
+        @Override // d.b.j0.j1.q.c.InterfaceC1385c
         public void a() {
-            if (ScrollFragmentTabHost.this.f18385g != null) {
-                ScrollFragmentTabHost.this.f18385g.d();
+            if (ScrollFragmentTabHost.this.f18393g != null) {
+                ScrollFragmentTabHost.this.f18393g.d();
             }
             if (ScrollFragmentTabHost.this.l != null) {
                 ScrollFragmentTabHost.this.l.l(null);
@@ -88,16 +88,16 @@ public class ScrollFragmentTabHost extends LinearLayout {
         ArrayList arrayList = new ArrayList();
         for (e eVar : list) {
             if (eVar != null) {
-                arrayList.add(new d.b.i0.j1.p.c(eVar));
+                arrayList.add(new d.b.j0.j1.p.c(eVar));
             }
         }
         this.j = list;
         ScrollFragmentAdapter scrollFragmentAdapter = this.i;
         if (scrollFragmentAdapter != null) {
             scrollFragmentAdapter.p(arrayList);
-            d.b.i0.j1.q.a aVar = this.f18385g;
+            d.b.j0.j1.q.a aVar = this.f18393g;
             if (aVar != null) {
-                aVar.i(this.f18384f, i);
+                aVar.i(this.f18392f, i);
             }
         }
     }
@@ -105,7 +105,7 @@ public class ScrollFragmentTabHost extends LinearLayout {
     public void e() {
         c cVar = this.l;
         if (cVar != null) {
-            cVar.f(this.f18383e);
+            cVar.f(this.f18391e);
         }
     }
 
@@ -115,20 +115,20 @@ public class ScrollFragmentTabHost extends LinearLayout {
     }
 
     public final void g(Context context) {
-        this.f18383e = context;
+        this.f18391e = context;
         LayoutInflater.from(context).inflate(R.layout.lego_scroll_fragment_tabhost, (ViewGroup) this, true);
-        this.f18386h = (NoNetworkView) findViewById(R.id.view_no_network);
-        d.b.i0.j1.q.a aVar = new d.b.i0.j1.q.a(context, findViewById(R.id.tab_container));
-        this.f18385g = aVar;
+        this.f18394h = (NoNetworkView) findViewById(R.id.view_no_network);
+        d.b.j0.j1.q.a aVar = new d.b.j0.j1.q.a(context, findViewById(R.id.tab_container));
+        this.f18393g = aVar;
         aVar.h(this.n);
         this.k = (FrameLayout) findViewById(R.id.tab_widget_content_container);
     }
 
-    public void h(d dVar, d.b.i0.j1.c cVar) {
-        this.f18384f = (CustomViewPager) findViewById(R.id.tab_widget_view_pager);
-        ScrollFragmentAdapter scrollFragmentAdapter = new ScrollFragmentAdapter(this.f18383e, dVar, cVar, this.m);
+    public void h(d dVar, d.b.j0.j1.c cVar) {
+        this.f18392f = (CustomViewPager) findViewById(R.id.tab_widget_view_pager);
+        ScrollFragmentAdapter scrollFragmentAdapter = new ScrollFragmentAdapter(this.f18391e, dVar, cVar, this.m);
         this.i = scrollFragmentAdapter;
-        this.f18384f.setAdapter(scrollFragmentAdapter);
+        this.f18392f.setAdapter(scrollFragmentAdapter);
     }
 
     public boolean i() {
@@ -141,7 +141,7 @@ public class ScrollFragmentTabHost extends LinearLayout {
     }
 
     public void k(int i) {
-        d.b.i0.j1.q.a aVar = this.f18385g;
+        d.b.j0.j1.q.a aVar = this.f18393g;
         if (aVar != null) {
             aVar.g(i);
         }
@@ -150,8 +150,8 @@ public class ScrollFragmentTabHost extends LinearLayout {
         if (scrollFragmentAdapter != null) {
             scrollFragmentAdapter.i(i);
         }
-        if (this.f18386h != null) {
-            this.f18386h.c(j.a(getContext()), i);
+        if (this.f18394h != null) {
+            this.f18394h.c(j.a(getContext()), i);
         }
         c cVar = this.l;
         if (cVar != null) {
@@ -168,8 +168,8 @@ public class ScrollFragmentTabHost extends LinearLayout {
         if (this.l.j()) {
             return;
         }
-        this.l.m(this.f18383e, this.j, this.f18384f.getCurrentItem());
-        d.b.i0.j1.q.a aVar = this.f18385g;
+        this.l.m(this.f18391e, this.j, this.f18392f.getCurrentItem());
+        d.b.j0.j1.q.a aVar = this.f18393g;
         if (aVar != null) {
             aVar.j();
         }
@@ -191,7 +191,7 @@ public class ScrollFragmentTabHost extends LinearLayout {
     }
 
     public void o(long j, String str, String str2, int i) {
-        if (this.f18384f == null) {
+        if (this.f18392f == null) {
             return;
         }
         this.i.m(j, str, str2, i);
@@ -208,7 +208,7 @@ public class ScrollFragmentTabHost extends LinearLayout {
         if (i < 0 || i >= this.i.getCount()) {
             return;
         }
-        this.f18384f.setCurrentItem(i, false);
+        this.f18392f.setCurrentItem(i, false);
     }
 
     public void setFirstPosition(int i) {

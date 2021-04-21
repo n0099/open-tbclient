@@ -6,23 +6,23 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.i0.j3.c;
+import d.b.j0.j3.c;
 import tbclient.T;
 /* loaded from: classes5.dex */
 public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
     public static final int TYPE_SET_USE = 1;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f21274e;
+    public long f21282e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21275f;
+    public int f21283f;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f21277h;
+    public b f21285h;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f21276g = false;
+    public boolean f21284g = false;
     public d.b.c.c.g.a i = new a(CmdConfigHttp.CMD_SET_PENDANT, 309412);
 
     /* loaded from: classes5.dex */
@@ -46,18 +46,18 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
                 if (z) {
                     SetPendantHttpResponse setPendantHttpResponse = (SetPendantHttpResponse) responsedMessage;
                     SetAvatarPendantModel.this.y(setPendantHttpResponse.getPendantId());
-                    SetAvatarPendantModel.this.f21275f = setPendantHttpResponse.getFreeUseLevel();
+                    SetAvatarPendantModel.this.f21283f = setPendantHttpResponse.getFreeUseLevel();
                 } else if (responsedMessage instanceof SetPendantSocketResponse) {
                     SetPendantSocketResponse setPendantSocketResponse = (SetPendantSocketResponse) responsedMessage;
                     SetAvatarPendantModel.this.y(setPendantSocketResponse.getPendantId());
-                    SetAvatarPendantModel.this.f21275f = setPendantSocketResponse.getFreeUseLevel();
+                    SetAvatarPendantModel.this.f21283f = setPendantSocketResponse.getFreeUseLevel();
                 }
-                if (SetAvatarPendantModel.this.f21277h != null) {
-                    int i = c.f57667b;
-                    if (responsedMessage.getError() == c.f57668c) {
-                        i = c.f57666a;
+                if (SetAvatarPendantModel.this.f21285h != null) {
+                    int i = c.f58088b;
+                    if (responsedMessage.getError() == c.f58089c) {
+                        i = c.f58087a;
                     }
-                    SetAvatarPendantModel.this.f21277h.onSetPendantCallback(SetAvatarPendantModel.this.f21276g, SetAvatarPendantModel.this.f21274e, SetAvatarPendantModel.this.f21275f, responsedMessage.getErrorString(), i);
+                    SetAvatarPendantModel.this.f21285h.onSetPendantCallback(SetAvatarPendantModel.this.f21284g, SetAvatarPendantModel.this.f21282e, SetAvatarPendantModel.this.f21283f, responsedMessage.getErrorString(), i);
                 }
             }
         }
@@ -69,13 +69,13 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
     }
 
     public SetAvatarPendantModel() {
-        d.b.i0.d3.d0.a.h(309412, SetPendantSocketResponse.class, false, false);
-        d.b.i0.d3.d0.a.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
+        d.b.j0.d3.d0.a.h(309412, SetPendantSocketResponse.class, false, false);
+        d.b.j0.d3.d0.a.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
         registerListener(this.i);
     }
 
     public void A(boolean z) {
-        this.f21276g = z;
+        this.f21284g = z;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -101,10 +101,10 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<T>> {
     }
 
     public void y(long j) {
-        this.f21274e = j;
+        this.f21282e = j;
     }
 
     public void z(b bVar) {
-        this.f21277h = bVar;
+        this.f21285h = bVar;
     }
 }

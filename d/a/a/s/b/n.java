@@ -11,25 +11,25 @@ import java.util.List;
 public class n implements m, a.b, k {
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f41557b;
+    public final String f41652b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.a.a.f f41558c;
+    public final d.a.a.f f41653c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final PolystarShape.Type f41559d;
+    public final PolystarShape.Type f41654d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f41560e;
+    public final boolean f41655e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.a.a.s.c.a<?, Float> f41561f;
+    public final d.a.a.s.c.a<?, Float> f41656f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.a.a.s.c.a<?, PointF> f41562g;
+    public final d.a.a.s.c.a<?, PointF> f41657g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final d.a.a.s.c.a<?, Float> f41563h;
+    public final d.a.a.s.c.a<?, Float> f41658h;
     @Nullable
     public final d.a.a.s.c.a<?, Float> i;
     public final d.a.a.s.c.a<?, Float> j;
@@ -39,61 +39,61 @@ public class n implements m, a.b, k {
     public boolean n;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Path f41556a = new Path();
+    public final Path f41651a = new Path();
     public b m = new b();
 
     /* loaded from: classes.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f41564a;
+        public static final /* synthetic */ int[] f41659a;
 
         static {
             int[] iArr = new int[PolystarShape.Type.values().length];
-            f41564a = iArr;
+            f41659a = iArr;
             try {
                 iArr[PolystarShape.Type.STAR.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f41564a[PolystarShape.Type.POLYGON.ordinal()] = 2;
+                f41659a[PolystarShape.Type.POLYGON.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
     }
 
     public n(d.a.a.f fVar, d.a.a.u.k.a aVar, PolystarShape polystarShape) {
-        this.f41558c = fVar;
-        this.f41557b = polystarShape.d();
-        this.f41559d = polystarShape.j();
-        this.f41560e = polystarShape.k();
-        this.f41561f = polystarShape.g().a();
-        this.f41562g = polystarShape.h().a();
-        this.f41563h = polystarShape.i().a();
+        this.f41653c = fVar;
+        this.f41652b = polystarShape.d();
+        this.f41654d = polystarShape.j();
+        this.f41655e = polystarShape.k();
+        this.f41656f = polystarShape.g().a();
+        this.f41657g = polystarShape.h().a();
+        this.f41658h = polystarShape.i().a();
         this.j = polystarShape.e().a();
         this.l = polystarShape.f().a();
-        if (this.f41559d == PolystarShape.Type.STAR) {
+        if (this.f41654d == PolystarShape.Type.STAR) {
             this.i = polystarShape.b().a();
             this.k = polystarShape.c().a();
         } else {
             this.i = null;
             this.k = null;
         }
-        aVar.i(this.f41561f);
-        aVar.i(this.f41562g);
-        aVar.i(this.f41563h);
+        aVar.i(this.f41656f);
+        aVar.i(this.f41657g);
+        aVar.i(this.f41658h);
         aVar.i(this.j);
         aVar.i(this.l);
-        if (this.f41559d == PolystarShape.Type.STAR) {
+        if (this.f41654d == PolystarShape.Type.STAR) {
             aVar.i(this.i);
             aVar.i(this.k);
         }
-        this.f41561f.a(this);
-        this.f41562g.a(this);
-        this.f41563h.a(this);
+        this.f41656f.a(this);
+        this.f41657g.a(this);
+        this.f41658h.a(this);
         this.j.a(this);
         this.l.a(this);
-        if (this.f41559d == PolystarShape.Type.STAR) {
+        if (this.f41654d == PolystarShape.Type.STAR) {
             this.i.a(this);
             this.k.a(this);
         }
@@ -123,11 +123,11 @@ public class n implements m, a.b, k {
         d.a.a.s.c.a<?, Float> aVar;
         d.a.a.s.c.a<?, Float> aVar2;
         if (t == d.a.a.k.s) {
-            this.f41561f.m(cVar);
+            this.f41656f.m(cVar);
         } else if (t == d.a.a.k.t) {
-            this.f41563h.m(cVar);
+            this.f41658h.m(cVar);
         } else if (t == d.a.a.k.j) {
-            this.f41562g.m(cVar);
+            this.f41657g.m(cVar);
         } else if (t == d.a.a.k.u && (aVar2 = this.i) != null) {
             aVar2.m(cVar);
         } else if (t == d.a.a.k.v) {
@@ -150,15 +150,15 @@ public class n implements m, a.b, k {
         double d3;
         double d4;
         int i;
-        int floor = (int) Math.floor(this.f41561f.h().floatValue());
-        double radians = Math.toRadians((this.f41563h == null ? 0.0d : aVar.h().floatValue()) - 90.0d);
+        int floor = (int) Math.floor(this.f41656f.h().floatValue());
+        double radians = Math.toRadians((this.f41658h == null ? 0.0d : aVar.h().floatValue()) - 90.0d);
         double d5 = floor;
         float floatValue = this.l.h().floatValue() / 100.0f;
         float floatValue2 = this.j.h().floatValue();
         double d6 = floatValue2;
         float cos = (float) (Math.cos(radians) * d6);
         float sin = (float) (Math.sin(radians) * d6);
-        this.f41556a.moveTo(cos, sin);
+        this.f41651a.moveTo(cos, sin);
         double d7 = (float) (6.283185307179586d / d5);
         double d8 = radians + d7;
         double ceil = Math.ceil(d5);
@@ -176,13 +176,13 @@ public class n implements m, a.b, k {
                 d4 = d7;
                 double atan22 = (float) (Math.atan2(sin2, cos2) - 1.5707963267948966d);
                 float f2 = floatValue2 * floatValue * 0.25f;
-                this.f41556a.cubicTo(cos - (cos3 * f2), sin - (((float) Math.sin(atan2)) * f2), cos2 + (((float) Math.cos(atan22)) * f2), sin2 + (f2 * ((float) Math.sin(atan22))), cos2, sin2);
+                this.f41651a.cubicTo(cos - (cos3 * f2), sin - (((float) Math.sin(atan2)) * f2), cos2 + (((float) Math.cos(atan22)) * f2), sin2 + (f2 * ((float) Math.sin(atan22))), cos2, sin2);
             } else {
                 d2 = d8;
                 d3 = d6;
                 d4 = d7;
                 i = i2;
-                this.f41556a.lineTo(cos2, sin2);
+                this.f41651a.lineTo(cos2, sin2);
             }
             d8 = d2 + d4;
             i2 = i + 1;
@@ -192,36 +192,36 @@ public class n implements m, a.b, k {
             d6 = d3;
             d7 = d4;
         }
-        PointF h2 = this.f41562g.h();
-        this.f41556a.offset(h2.x, h2.y);
-        this.f41556a.close();
+        PointF h2 = this.f41657g.h();
+        this.f41651a.offset(h2.x, h2.y);
+        this.f41651a.close();
     }
 
     @Override // d.a.a.s.b.c
     public String getName() {
-        return this.f41557b;
+        return this.f41652b;
     }
 
     @Override // d.a.a.s.b.m
     public Path getPath() {
         if (this.n) {
-            return this.f41556a;
+            return this.f41651a;
         }
-        this.f41556a.reset();
-        if (this.f41560e) {
+        this.f41651a.reset();
+        if (this.f41655e) {
             this.n = true;
-            return this.f41556a;
+            return this.f41651a;
         }
-        int i = a.f41564a[this.f41559d.ordinal()];
+        int i = a.f41659a[this.f41654d.ordinal()];
         if (i == 1) {
             h();
         } else if (i == 2) {
             f();
         }
-        this.f41556a.close();
-        this.m.b(this.f41556a);
+        this.f41651a.close();
+        this.m.b(this.f41651a);
         this.n = true;
-        return this.f41556a;
+        return this.f41651a;
     }
 
     public final void h() {
@@ -239,8 +239,8 @@ public class n implements m, a.b, k {
         float f8;
         float f9;
         float f10;
-        float floatValue = this.f41561f.h().floatValue();
-        double radians = Math.toRadians((this.f41563h == null ? 0.0d : aVar.h().floatValue()) - 90.0d);
+        float floatValue = this.f41656f.h().floatValue();
+        double radians = Math.toRadians((this.f41658h == null ? 0.0d : aVar.h().floatValue()) - 90.0d);
         double d5 = floatValue;
         float f11 = (float) (6.283185307179586d / d5);
         float f12 = f11 / 2.0f;
@@ -262,7 +262,7 @@ public class n implements m, a.b, k {
             d2 = d5;
             f2 = (float) (d6 * Math.cos(radians));
             f3 = (float) (d6 * Math.sin(radians));
-            this.f41556a.moveTo(f2, f3);
+            this.f41651a.moveTo(f2, f3);
             d3 = radians + ((f11 * f13) / 2.0f);
         } else {
             d2 = d5;
@@ -270,7 +270,7 @@ public class n implements m, a.b, k {
             double d7 = floatValue2;
             float cos = (float) (Math.cos(radians) * d7);
             float sin = (float) (d7 * Math.sin(radians));
-            this.f41556a.moveTo(cos, sin);
+            this.f41651a.moveTo(cos, sin);
             d3 = radians + f12;
             f2 = cos;
             f3 = sin;
@@ -305,7 +305,7 @@ public class n implements m, a.b, k {
                 float cos2 = (float) (d9 * Math.cos(d3));
                 float sin2 = (float) (d9 * Math.sin(d3));
                 if (floatValue4 == 0.0f && floatValue5 == 0.0f) {
-                    this.f41556a.lineTo(cos2, sin2);
+                    this.f41651a.lineTo(cos2, sin2);
                     f9 = floatValue4;
                     f10 = f4;
                 } else {
@@ -334,7 +334,7 @@ public class n implements m, a.b, k {
                             f22 *= f13;
                         }
                     }
-                    this.f41556a.cubicTo(f2 - f18, f3 - f19, cos2 + f21, sin2 + f22, cos2, sin2);
+                    this.f41651a.cubicTo(f2 - f18, f3 - f19, cos2 + f21, sin2 + f22, cos2, sin2);
                 }
                 d3 += f6;
                 z = !z;
@@ -347,9 +347,9 @@ public class n implements m, a.b, k {
                 f11 = f5;
                 ceil = d10;
             } else {
-                PointF h2 = this.f41562g.h();
-                this.f41556a.offset(h2.x, h2.y);
-                this.f41556a.close();
+                PointF h2 = this.f41657g.h();
+                this.f41651a.offset(h2.x, h2.y);
+                this.f41651a.close();
                 return;
             }
         }
@@ -357,6 +357,6 @@ public class n implements m, a.b, k {
 
     public final void i() {
         this.n = false;
-        this.f41558c.invalidateSelf();
+        this.f41653c.invalidateSelf();
     }
 }

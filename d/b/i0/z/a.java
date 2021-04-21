@@ -1,26 +1,23 @@
 package d.b.i0.z;
 
-import com.baidu.browser.core.util.BdLog;
-/* loaded from: classes4.dex */
-public interface a {
+import com.baidu.tbadk.data.UserData;
+import tbclient.GetUserInfo.DataRes;
+/* loaded from: classes3.dex */
+public class a {
 
-    /* renamed from: d.b.i0.z.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1730a {
-        public void a(int i, int i2) {
-            if (i != 1 && i != 2 && i != 3 && BdLog.e()) {
-                throw new IllegalArgumentException("invalid source code");
-            }
-        }
+    /* renamed from: a  reason: collision with root package name */
+    public UserData f52403a;
 
-        public void b(int i) {
-            if (i != 1 && i != 2 && i != 3 && BdLog.e()) {
-                throw new IllegalArgumentException("invalid source code");
-            }
-        }
+    public UserData a() {
+        return this.f52403a;
     }
 
-    void a(int i, C1730a c1730a);
-
-    void b(int i, String str, C1730a c1730a);
+    public void b(DataRes dataRes) {
+        if (dataRes == null) {
+            return;
+        }
+        UserData userData = new UserData();
+        this.f52403a = userData;
+        userData.parserProtobuf(dataRes.user);
+    }
 }

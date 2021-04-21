@@ -20,30 +20,30 @@ import java.io.InputStream;
 public class c implements com.kwad.sdk.glide.load.a.d<InputStream> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Uri f35522a;
+    public final Uri f35617a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f35523b;
+    public final e f35618b;
 
     /* renamed from: c  reason: collision with root package name */
-    public InputStream f35524c;
+    public InputStream f35619c;
 
     /* loaded from: classes6.dex */
     public static class a implements d {
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String[] f35525b = {"_data"};
+        public static final String[] f35620b = {"_data"};
 
         /* renamed from: a  reason: collision with root package name */
-        public final ContentResolver f35526a;
+        public final ContentResolver f35621a;
 
         public a(ContentResolver contentResolver) {
-            this.f35526a = contentResolver;
+            this.f35621a = contentResolver;
         }
 
         @Override // com.kwad.sdk.glide.load.a.a.d
         public Cursor a(Uri uri) {
-            return this.f35526a.query(MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI, f35525b, ThumbFetcher.ImageThumbnailQuery.PATH_SELECTION, new String[]{uri.getLastPathSegment()}, null);
+            return this.f35621a.query(MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI, f35620b, ThumbFetcher.ImageThumbnailQuery.PATH_SELECTION, new String[]{uri.getLastPathSegment()}, null);
         }
     }
 
@@ -51,25 +51,25 @@ public class c implements com.kwad.sdk.glide.load.a.d<InputStream> {
     public static class b implements d {
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String[] f35527b = {"_data"};
+        public static final String[] f35622b = {"_data"};
 
         /* renamed from: a  reason: collision with root package name */
-        public final ContentResolver f35528a;
+        public final ContentResolver f35623a;
 
         public b(ContentResolver contentResolver) {
-            this.f35528a = contentResolver;
+            this.f35623a = contentResolver;
         }
 
         @Override // com.kwad.sdk.glide.load.a.a.d
         public Cursor a(Uri uri) {
-            return this.f35528a.query(MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, f35527b, ThumbFetcher.VideoThumbnailQuery.PATH_SELECTION, new String[]{uri.getLastPathSegment()}, null);
+            return this.f35623a.query(MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, f35622b, ThumbFetcher.VideoThumbnailQuery.PATH_SELECTION, new String[]{uri.getLastPathSegment()}, null);
         }
     }
 
     @VisibleForTesting
     public c(Uri uri, e eVar) {
-        this.f35522a = uri;
-        this.f35523b = eVar;
+        this.f35617a = uri;
+        this.f35618b = eVar;
     }
 
     public static c a(Context context, Uri uri) {
@@ -85,8 +85,8 @@ public class c implements com.kwad.sdk.glide.load.a.d<InputStream> {
     }
 
     private InputStream e() {
-        InputStream b2 = this.f35523b.b(this.f35522a);
-        int a2 = b2 != null ? this.f35523b.a(this.f35522a) : -1;
+        InputStream b2 = this.f35618b.b(this.f35617a);
+        int a2 = b2 != null ? this.f35618b.a(this.f35617a) : -1;
         return a2 != -1 ? new g(b2, a2) : b2;
     }
 
@@ -100,7 +100,7 @@ public class c implements com.kwad.sdk.glide.load.a.d<InputStream> {
     public void a(@NonNull Priority priority, @NonNull d.a<? super InputStream> aVar) {
         try {
             InputStream e2 = e();
-            this.f35524c = e2;
+            this.f35619c = e2;
             aVar.a((d.a<? super InputStream>) e2);
         } catch (FileNotFoundException e3) {
             if (Log.isLoggable(ThumbFetcher.TAG, 3)) {
@@ -112,7 +112,7 @@ public class c implements com.kwad.sdk.glide.load.a.d<InputStream> {
 
     @Override // com.kwad.sdk.glide.load.a.d
     public void b() {
-        InputStream inputStream = this.f35524c;
+        InputStream inputStream = this.f35619c;
         if (inputStream != null) {
             try {
                 inputStream.close();

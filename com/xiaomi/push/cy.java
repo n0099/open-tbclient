@@ -18,7 +18,7 @@ public class cy {
 
     public static int a(iq iqVar, hf hfVar) {
         int a2;
-        switch (cz.f40633a[hfVar.ordinal()]) {
+        switch (cz.f40728a[hfVar.ordinal()]) {
             case 1:
             case 2:
             case 3:

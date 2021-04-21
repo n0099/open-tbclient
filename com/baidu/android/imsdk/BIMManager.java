@@ -64,8 +64,8 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
-import d.b.r.a.b.a;
-import d.b.r.a.g.b;
+import d.b.s.a.b.a;
+import d.b.s.a.g.b;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -201,7 +201,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
             return false;
         }
         try {
-            b.f65359a = z;
+            b.f65623a = z;
         } catch (Throwable unused) {
             LogUtils.e(BaseManager.TAG, "LCPConstants.LOG_DEBUG not found");
         }
@@ -395,7 +395,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
 
     public static void imLogoutByLcp(Context context) {
         try {
-            d.b.q.a.c(context);
+            d.b.r.a.c(context);
             LoginManager.getInstance(context).onLogoutResultInternal(0, "lcp unconnected");
         } catch (Exception e2) {
             LogUtils.e(BaseManager.TAG, "imLogoutByLcp exception ", e2);
@@ -417,8 +417,8 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
         Context applicationContext = context.getApplicationContext();
         sContext = applicationContext;
-        d.b.q.a.f65246e = a.d(applicationContext);
-        if (d.b.q.a.f65246e) {
+        d.b.r.a.f65510e = a.d(applicationContext);
+        if (d.b.r.a.f65510e) {
             try {
                 b.c(applicationContext, i != 0);
                 b.d(applicationContext, i);
@@ -442,7 +442,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                 }
                 try {
                     BIMManager.initIMServiceImpl(context2);
-                    d.b.q.a.f65244c.removeCallbacks(BIMManager.checkIMLoginState);
+                    d.b.r.a.f65508c.removeCallbacks(BIMManager.checkIMLoginState);
                     if (z) {
                         BIMManager.postCheckRunnable();
                     }
@@ -468,7 +468,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
         TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.BIMManager.2
             @Override // java.lang.Runnable
             public void run() {
-                d.b.q.a.e(context);
+                d.b.r.a.e(context);
             }
         });
     }
@@ -696,7 +696,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     public static void postCheckRunnable() {
         try {
             LogUtils.i("BIMManager", "postCheckRunnable after 30s");
-            d.b.q.a.f65244c.postDelayed(checkIMLoginState, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
+            d.b.r.a.f65508c.postDelayed(checkIMLoginState, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
         } catch (Exception e2) {
             LogUtils.e(BaseManager.TAG, "postCheckRunnable exception ", e2);
         }
@@ -848,7 +848,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static void tryConnection(Context context) {
-        if (d.b.q.a.f65246e) {
+        if (d.b.r.a.f65510e) {
             return;
         }
         AccountManagerImpl.getInstance(context);

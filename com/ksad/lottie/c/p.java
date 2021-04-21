@@ -15,21 +15,21 @@ public class p {
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f31631a;
+        public static final /* synthetic */ int[] f31726a;
 
         static {
             int[] iArr = new int[JsonToken.values().length];
-            f31631a = iArr;
+            f31726a = iArr;
             try {
                 iArr[JsonToken.NUMBER.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f31631a[JsonToken.BEGIN_ARRAY.ordinal()] = 2;
+                f31726a[JsonToken.BEGIN_ARRAY.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f31631a[JsonToken.BEGIN_OBJECT.ordinal()] = 3;
+                f31726a[JsonToken.BEGIN_OBJECT.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -62,7 +62,7 @@ public class p {
 
     public static float b(JsonReader jsonReader) {
         JsonToken peek = jsonReader.peek();
-        int i = AnonymousClass1.f31631a[peek.ordinal()];
+        int i = AnonymousClass1.f31726a[peek.ordinal()];
         if (i != 1) {
             if (i != 2) {
                 throw new IllegalArgumentException("Unknown value for token of type " + peek);
@@ -79,7 +79,7 @@ public class p {
     }
 
     public static PointF b(JsonReader jsonReader, float f2) {
-        int i = AnonymousClass1.f31631a[jsonReader.peek().ordinal()];
+        int i = AnonymousClass1.f31726a[jsonReader.peek().ordinal()];
         if (i != 1) {
             if (i != 2) {
                 if (i == 3) {

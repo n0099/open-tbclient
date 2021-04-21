@@ -21,7 +21,7 @@ public final class ObservableRetryWhen$RepeatWhenObserver<T> extends AtomicInteg
     public final ObservableRetryWhen$RepeatWhenObserver<T>.InnerRepeatObserver inner = new InnerRepeatObserver();
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicReference<b> f69078d = new AtomicReference<>();
+    public final AtomicReference<b> f69225d = new AtomicReference<>();
 
     /* loaded from: classes7.dex */
     public final class InnerRepeatObserver extends AtomicReference<b> implements o<Object> {
@@ -59,17 +59,17 @@ public final class ObservableRetryWhen$RepeatWhenObserver<T> extends AtomicInteg
 
     @Override // f.b.t.b
     public void dispose() {
-        DisposableHelper.dispose(this.f69078d);
+        DisposableHelper.dispose(this.f69225d);
         DisposableHelper.dispose(this.inner);
     }
 
     public void innerComplete() {
-        DisposableHelper.dispose(this.f69078d);
+        DisposableHelper.dispose(this.f69225d);
         e.a(this.actual, this, this.error);
     }
 
     public void innerError(Throwable th) {
-        DisposableHelper.dispose(this.f69078d);
+        DisposableHelper.dispose(this.f69225d);
         e.c(this.actual, th, this, this.error);
     }
 
@@ -79,7 +79,7 @@ public final class ObservableRetryWhen$RepeatWhenObserver<T> extends AtomicInteg
 
     @Override // f.b.t.b
     public boolean isDisposed() {
-        return DisposableHelper.isDisposed(this.f69078d.get());
+        return DisposableHelper.isDisposed(this.f69225d.get());
     }
 
     @Override // f.b.o
@@ -101,7 +101,7 @@ public final class ObservableRetryWhen$RepeatWhenObserver<T> extends AtomicInteg
 
     @Override // f.b.o
     public void onSubscribe(b bVar) {
-        DisposableHelper.replace(this.f69078d, bVar);
+        DisposableHelper.replace(this.f69225d, bVar);
     }
 
     public void subscribeNext() {

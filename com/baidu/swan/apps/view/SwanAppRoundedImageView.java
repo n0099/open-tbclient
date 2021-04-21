@@ -6,23 +6,23 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import d.b.g0.a.j;
-import d.b.g0.a.q1.a.c;
+import d.b.h0.a.j;
+import d.b.h0.a.q1.a.c;
 /* loaded from: classes3.dex */
 public class SwanAppRoundedImageView extends ImageView {
     public static final ImageView.ScaleType[] l = {ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12356e;
+    public int f12364e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12357f;
+    public int f12365f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12358g;
+    public int f12366g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f12359h;
+    public boolean f12367h;
     public Drawable i;
     public Drawable j;
     public ImageView.ScaleType k;
@@ -31,37 +31,37 @@ public class SwanAppRoundedImageView extends ImageView {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f12360a;
+        public static final /* synthetic */ int[] f12368a;
 
         static {
             int[] iArr = new int[ImageView.ScaleType.values().length];
-            f12360a = iArr;
+            f12368a = iArr;
             try {
                 iArr[ImageView.ScaleType.CENTER.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f12360a[ImageView.ScaleType.CENTER_CROP.ordinal()] = 2;
+                f12368a[ImageView.ScaleType.CENTER_CROP.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f12360a[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 3;
+                f12368a[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f12360a[ImageView.ScaleType.FIT_CENTER.ordinal()] = 4;
+                f12368a[ImageView.ScaleType.FIT_CENTER.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f12360a[ImageView.ScaleType.FIT_START.ordinal()] = 5;
+                f12368a[ImageView.ScaleType.FIT_START.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f12360a[ImageView.ScaleType.FIT_END.ordinal()] = 6;
+                f12368a[ImageView.ScaleType.FIT_END.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f12360a[ImageView.ScaleType.FIT_XY.ordinal()] = 7;
+                f12368a[ImageView.ScaleType.FIT_XY.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
         }
@@ -69,21 +69,21 @@ public class SwanAppRoundedImageView extends ImageView {
 
     public SwanAppRoundedImageView(Context context) {
         super(context);
-        this.f12356e = 20;
-        this.f12357f = 2;
-        this.f12358g = -16777216;
+        this.f12364e = 20;
+        this.f12365f = 2;
+        this.f12366g = -16777216;
     }
 
     public int getBorder() {
-        return this.f12357f;
+        return this.f12365f;
     }
 
     public int getBorderColor() {
-        return this.f12358g;
+        return this.f12366g;
     }
 
     public int getCornerRadius() {
-        return this.f12356e;
+        return this.f12364e;
     }
 
     @Override // android.widget.ImageView
@@ -99,8 +99,8 @@ public class SwanAppRoundedImageView extends ImageView {
     @Override // android.view.View
     @Deprecated
     public void setBackgroundDrawable(Drawable drawable) {
-        if (this.f12359h && drawable != null) {
-            this.j = c.b(drawable, this.k, this.f12356e, this.f12357f, this.f12358g);
+        if (this.f12367h && drawable != null) {
+            this.j = c.b(drawable, this.k, this.f12364e, this.f12365f, this.f12366g);
         } else {
             this.j = drawable;
         }
@@ -108,35 +108,35 @@ public class SwanAppRoundedImageView extends ImageView {
     }
 
     public void setBorderColor(int i) {
-        if (this.f12358g == i) {
+        if (this.f12366g == i) {
             return;
         }
-        this.f12358g = i;
+        this.f12366g = i;
         Drawable drawable = this.i;
         if (drawable instanceof c) {
             ((c) drawable).d(i);
         }
-        if (this.f12359h) {
+        if (this.f12367h) {
             Drawable drawable2 = this.j;
             if (drawable2 instanceof c) {
                 ((c) drawable2).d(i);
             }
         }
-        if (this.f12357f > 0) {
+        if (this.f12365f > 0) {
             invalidate();
         }
     }
 
     public void setBorderWidth(int i) {
-        if (this.f12357f == i) {
+        if (this.f12365f == i) {
             return;
         }
-        this.f12357f = i;
+        this.f12365f = i;
         Drawable drawable = this.i;
         if (drawable instanceof c) {
             ((c) drawable).e(i);
         }
-        if (this.f12359h) {
+        if (this.f12367h) {
             Drawable drawable2 = this.j;
             if (drawable2 instanceof c) {
                 ((c) drawable2).e(i);
@@ -146,15 +146,15 @@ public class SwanAppRoundedImageView extends ImageView {
     }
 
     public void setCornerRadius(int i) {
-        if (this.f12356e == i) {
+        if (this.f12364e == i) {
             return;
         }
-        this.f12356e = i;
+        this.f12364e = i;
         Drawable drawable = this.i;
         if (drawable instanceof c) {
             ((c) drawable).f(i);
         }
-        if (this.f12359h) {
+        if (this.f12367h) {
             Drawable drawable2 = this.j;
             if (drawable2 instanceof c) {
                 ((c) drawable2).f(i);
@@ -165,7 +165,7 @@ public class SwanAppRoundedImageView extends ImageView {
     @Override // android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
         if (bitmap != null) {
-            c cVar = new c(bitmap, this.f12356e, this.f12357f, this.f12358g);
+            c cVar = new c(bitmap, this.f12364e, this.f12365f, this.f12366g);
             this.i = cVar;
             ImageView.ScaleType scaleType = this.k;
             if (scaleType != null) {
@@ -180,7 +180,7 @@ public class SwanAppRoundedImageView extends ImageView {
     @Override // android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
         if (drawable != null) {
-            this.i = c.b(drawable, this.k, this.f12356e, this.f12357f, this.f12358g);
+            this.i = c.b(drawable, this.k, this.f12364e, this.f12365f, this.f12366g);
         } else {
             this.i = null;
         }
@@ -188,17 +188,17 @@ public class SwanAppRoundedImageView extends ImageView {
     }
 
     public void setRoundBackground(boolean z) {
-        if (this.f12359h == z) {
+        if (this.f12367h == z) {
             return;
         }
-        this.f12359h = z;
+        this.f12367h = z;
         if (z) {
             Drawable drawable = this.j;
             if (drawable instanceof c) {
                 ((c) drawable).h(this.k);
-                ((c) this.j).f(this.f12356e);
-                ((c) this.j).e(this.f12357f);
-                ((c) this.j).d(this.f12358g);
+                ((c) this.j).f(this.f12364e);
+                ((c) this.j).e(this.f12365f);
+                ((c) this.j).d(this.f12366g);
             } else {
                 setBackgroundDrawable(drawable);
             }
@@ -217,7 +217,7 @@ public class SwanAppRoundedImageView extends ImageView {
         if (scaleType != null) {
             if (this.k != scaleType) {
                 this.k = scaleType;
-                switch (a.f12360a[scaleType.ordinal()]) {
+                switch (a.f12368a[scaleType.ordinal()]) {
                     case 1:
                     case 2:
                     case 3:
@@ -260,16 +260,16 @@ public class SwanAppRoundedImageView extends ImageView {
         if (i2 >= 0) {
             setScaleType(l[i2]);
         }
-        this.f12356e = obtainStyledAttributes.getDimensionPixelSize(j.RoundedImageView_corner_radius, -1);
-        this.f12357f = obtainStyledAttributes.getDimensionPixelSize(j.RoundedImageView_border_width, -1);
-        if (this.f12356e < 0) {
-            this.f12356e = 20;
+        this.f12364e = obtainStyledAttributes.getDimensionPixelSize(j.RoundedImageView_corner_radius, -1);
+        this.f12365f = obtainStyledAttributes.getDimensionPixelSize(j.RoundedImageView_border_width, -1);
+        if (this.f12364e < 0) {
+            this.f12364e = 20;
         }
-        if (this.f12357f < 0) {
-            this.f12357f = 2;
+        if (this.f12365f < 0) {
+            this.f12365f = 2;
         }
-        this.f12358g = obtainStyledAttributes.getColor(j.RoundedImageView_border_color, -16777216);
-        this.f12359h = obtainStyledAttributes.getBoolean(j.RoundedImageView_round_background, false);
+        this.f12366g = obtainStyledAttributes.getColor(j.RoundedImageView_border_color, -16777216);
+        this.f12367h = obtainStyledAttributes.getBoolean(j.RoundedImageView_round_background, false);
         obtainStyledAttributes.recycle();
     }
 }

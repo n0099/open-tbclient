@@ -15,16 +15,16 @@ public interface g extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.g$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0503a implements g {
+        public static class C0506a implements g {
 
             /* renamed from: a  reason: collision with root package name */
-            public static g f39108a;
+            public static g f39203a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f39109b;
+            public IBinder f39204b;
 
-            public C0503a(IBinder iBinder) {
-                this.f39109b = iBinder;
+            public C0506a(IBinder iBinder) {
+                this.f39204b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.g
@@ -35,7 +35,7 @@ public interface g extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlFileProvider");
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    if (!this.f39109b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f39204b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(str, str2);
                     }
                     obtain2.readException();
@@ -48,7 +48,7 @@ public interface g extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f39109b;
+                return this.f39204b;
             }
         }
 
@@ -64,7 +64,7 @@ public interface g extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof g)) {
                 return (g) queryLocalInterface;
             }
-            return new C0503a(iBinder);
+            return new C0506a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -94,7 +94,7 @@ public interface g extends IInterface {
         }
 
         public static g a() {
-            return C0503a.f39108a;
+            return C0506a.f39203a;
         }
     }
 }

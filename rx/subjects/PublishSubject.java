@@ -15,7 +15,7 @@ import rx.exceptions.MissingBackpressureException;
 public final class PublishSubject<T> extends d<T, T> {
 
     /* renamed from: f  reason: collision with root package name */
-    public final PublishSubjectState<T> f69295f;
+    public final PublishSubjectState<T> f69442f;
 
     /* loaded from: classes7.dex */
     public static final class PublishSubjectProducer<T> extends AtomicLong implements f, k, e<T> {
@@ -204,7 +204,7 @@ public final class PublishSubject<T> extends d<T, T> {
 
     public PublishSubject(PublishSubjectState<T> publishSubjectState) {
         super(publishSubjectState);
-        this.f69295f = publishSubjectState;
+        this.f69442f = publishSubjectState;
     }
 
     public static <T> PublishSubject<T> N() {
@@ -213,16 +213,16 @@ public final class PublishSubject<T> extends d<T, T> {
 
     @Override // h.e
     public void onCompleted() {
-        this.f69295f.onCompleted();
+        this.f69442f.onCompleted();
     }
 
     @Override // h.e
     public void onError(Throwable th) {
-        this.f69295f.onError(th);
+        this.f69442f.onError(th);
     }
 
     @Override // h.e
     public void onNext(T t) {
-        this.f69295f.onNext(t);
+        this.f69442f.onNext(t);
     }
 }

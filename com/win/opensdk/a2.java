@@ -18,7 +18,7 @@ import org.json.JSONException;
 public class a2 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40155a;
+    public static String f40250a;
 
     public static boolean a(Context context, Uri uri) {
         try {

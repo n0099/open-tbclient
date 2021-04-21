@@ -16,7 +16,7 @@ import java.util.List;
 public class ConcernVideoImageView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f16726e;
+    public TbImageView f16734e;
 
     public ConcernVideoImageView(Context context) {
         super(context);
@@ -26,10 +26,10 @@ public class ConcernVideoImageView extends RelativeLayout {
     public final void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.concern_video_img_layout, (ViewGroup) this, true);
         TbImageView tbImageView = (TbImageView) findViewById(R.id.concern_video_img);
-        this.f16726e = tbImageView;
+        this.f16734e = tbImageView;
         tbImageView.setDefaultBgResource(R.color.CAM_X0205);
         int k = l.k(getContext()) - l.g(getContext(), R.dimen.ds68);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f16726e.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f16734e.getLayoutParams();
         layoutParams.height = (k * 9) / 16;
         layoutParams.width = k;
     }
@@ -38,7 +38,7 @@ public class ConcernVideoImageView extends RelativeLayout {
         if (ListUtils.isEmpty(list) || StringUtils.isNull(list.get(0).getPicUrl())) {
             return;
         }
-        this.f16726e.W(list.get(0).getPicUrl(), 10, false);
+        this.f16734e.W(list.get(0).getPicUrl(), 10, false);
     }
 
     public ConcernVideoImageView(Context context, AttributeSet attributeSet, int i) {

@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import d.b.c.a.j;
-import d.b.h0.m.c;
-import d.b.h0.r.q.l;
-import d.b.h0.r.q.m;
-import d.b.h0.r.w.b.d;
-import d.b.h0.r.w.b.e;
 import d.b.i.p;
 import d.b.i.q;
+import d.b.i0.m.c;
+import d.b.i0.r.q.l;
+import d.b.i0.r.q.m;
+import d.b.i0.r.w.b.d;
+import d.b.i0.r.w.b.e;
 import java.util.List;
 /* loaded from: classes.dex */
 public class AutoBannerLayout extends RelativeLayout implements q, p<m> {
@@ -37,13 +37,13 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<m> {
     public d<l> i;
 
     /* loaded from: classes.dex */
-    public class a extends d.b.h0.r.w.b.b {
+    public class a extends d.b.i0.r.w.b.b {
         public a() {
         }
 
-        @Override // d.b.h0.r.w.b.b, d.b.h0.r.w.a
-        public d.b.h0.r.w.b.c a() {
-            d.b.h0.r.w.b.c cVar = new d.b.h0.r.w.b.c();
+        @Override // d.b.i0.r.w.b.b, d.b.i0.r.w.a
+        public d.b.i0.r.w.b.c a() {
+            d.b.i0.r.w.b.c cVar = new d.b.i0.r.w.b.c();
             cVar.c(R.drawable.icon_banner_gray_n);
             cVar.g(R.drawable.icon_banner_s);
             cVar.d(81);
@@ -52,7 +52,7 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<m> {
             return cVar;
         }
 
-        @Override // d.b.h0.r.w.b.b, d.b.h0.r.w.a
+        @Override // d.b.i0.r.w.b.b, d.b.i0.r.w.a
         public TbImageView c(Context context) {
             TbImageView tbImageView = new TbImageView(context);
             tbImageView.setPlaceHolder(2);
@@ -64,7 +64,7 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<m> {
             return tbImageView;
         }
 
-        @Override // d.b.h0.r.w.b.b, d.b.h0.r.w.a
+        @Override // d.b.i0.r.w.b.b, d.b.i0.r.w.a
         public e d() {
             e eVar = new e();
             eVar.a(d.b.c.e.p.l.g(AutoBannerLayout.this.getContext(), R.dimen.tbds209));
@@ -77,7 +77,7 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<m> {
         public b() {
         }
 
-        @Override // d.b.h0.r.w.b.d
+        @Override // d.b.i0.r.w.b.d
         public void b(int i, String str) {
             AutoBannerLayout.this.e(str);
             int count = ListUtils.getCount(AutoBannerLayout.this.f4411f);
@@ -88,7 +88,7 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<m> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.h0.r.w.b.d
+        @Override // d.b.i0.r.w.b.d
         /* renamed from: c */
         public void a(int i, l lVar) {
             int count = ListUtils.getCount(AutoBannerLayout.this.f4411f);
@@ -138,8 +138,8 @@ public class AutoBannerLayout extends RelativeLayout implements q, p<m> {
     @Override // d.b.i.p
     /* renamed from: g */
     public void a(m mVar) {
-        if (mVar != null && !ListUtils.isEmpty(mVar.f51253e)) {
-            h(mVar.f51253e);
+        if (mVar != null && !ListUtils.isEmpty(mVar.f51589e)) {
+            h(mVar.f51589e);
         } else {
             setVisibility(8);
         }

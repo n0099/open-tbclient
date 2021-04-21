@@ -18,7 +18,7 @@ import java.util.Arrays;
 public class HttpsCertVerifyUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23974a = ",";
+    public static final String f23982a = ",";
 
     public static boolean a(int i) {
         return 3 == i || 4 == i || 5 == i;

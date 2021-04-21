@@ -12,21 +12,21 @@ import org.json.JSONException;
 public class g2 implements DownloadListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ h2 f40227a;
+    public final /* synthetic */ h2 f40322a;
 
     public g2(h2 h2Var) {
-        this.f40227a = h2Var;
+        this.f40322a = h2Var;
     }
 
     @Override // android.webkit.DownloadListener
     public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
-        Info info = this.f40227a.f40233c;
+        Info info = this.f40322a.f40328c;
         if (info == null || info.getOpent() != 1 || j <= 10) {
             return;
         }
-        h2 h2Var = this.f40227a;
-        Context context = h2Var.f40231a;
-        Info info2 = h2Var.f40233c;
+        h2 h2Var = this.f40322a;
+        Context context = h2Var.f40326a;
+        Info info2 = h2Var.f40328c;
         if (!G.g(context)) {
             Toast.makeText(context, context.getString(R.string.wdownload_no_netwrok) + info2.getDl_name(), 0).show();
             a1.a(context).b(new b1(info2), 1).a();
@@ -38,7 +38,7 @@ public class g2 implements DownloadListener {
                 b1 b1Var = new b1(info2);
                 String open = info2.getOpen();
                 try {
-                    a2.f40139b = a1.a("wii", b1Var);
+                    a2.f40234b = a1.a("wii", b1Var);
                     a2.a("msg", a1.a(open));
                 } catch (JSONException unused) {
                 }

@@ -22,9 +22,9 @@ import com.baidu.tieba.im.model.CommonGroupMsglistModel;
 import com.baidu.tieba.im.model.GroupMsglistModel;
 import com.baidu.tieba.im.model.MsglistModel;
 import d.b.c.e.p.k;
-import d.b.h0.z0.f0;
-import d.b.h0.z0.h0;
-import d.b.h0.z0.n;
+import d.b.i0.z0.f0;
+import d.b.i0.z0.h0;
+import d.b.i0.z0.n;
 /* loaded from: classes4.dex */
 public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity> {
 
@@ -32,17 +32,17 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
     public class a extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GroupData f17426a;
+        public final /* synthetic */ GroupData f17434a;
 
         public a(GroupData groupData) {
-            this.f17426a = groupData;
+            this.f17434a = groupData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // d.b.h0.z0.f0
+        @Override // d.b.i0.z0.f0
         public Boolean doInBackground() {
-            return Boolean.valueOf(d.b.i0.e1.t.b.k().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f17426a.getGroupId())));
+            return Boolean.valueOf(d.b.j0.e1.t.b.k().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f17434a.getGroupId())));
         }
     }
 
@@ -50,14 +50,14 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
     public class b implements n<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ GroupData f17428a;
+        public final /* synthetic */ GroupData f17436a;
 
         public b(GroupData groupData) {
-            this.f17428a = groupData;
+            this.f17436a = groupData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.h0.z0.n
+        @Override // d.b.i0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             GroupData groupData;
@@ -69,7 +69,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
             } else {
                 GroupChatActivity.this.mListView.showNotNotfiy();
             }
-            if (GroupChatActivity.this.mListModel == null || (groupData = this.f17428a) == null) {
+            if (GroupChatActivity.this.mListModel == null || (groupData = this.f17436a) == null) {
                 return;
             }
             String name = groupData.getName();
@@ -130,7 +130,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public boolean first(d.b.i0.e1.f.c cVar) {
+    public boolean first(d.b.j0.e1.f.c cVar) {
         this.mListModel.loadFirst(cVar);
         return true;
     }
@@ -206,7 +206,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         this.mListView.addAt2SendMsg(msg.getUserInfo().getName_show());
     }
 
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, d.b.h0.b1.m.h
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, d.b.i0.b1.m.h
     public void onLinkButtonClicked(Context context, String str) {
     }
 
@@ -236,7 +236,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         super.onResume();
         ChatStatusManager.getInst().setIsOpen(2, true);
         String curId = ChatStatusManager.getInst().getCurId(2);
-        d.b.h0.s.d.b.g0().d(curId);
+        d.b.i0.s.d.b.g0().d(curId);
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(curId, 1)));
     }
 

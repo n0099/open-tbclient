@@ -3,7 +3,7 @@ package com.baidu.tieba.square.message;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.a3.f.d;
+import d.b.j0.a3.f.d;
 import tbclient.Error;
 import tbclient.GetForumSquare.GetForumSquareResIdl;
 /* loaded from: classes4.dex */

@@ -5,19 +5,19 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonSerializer;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
-import d.g.d.b.b;
-import d.g.d.c.a;
+import d.h.d.b.b;
+import d.h.d.c.a;
 /* loaded from: classes6.dex */
 public final class JsonAdapterAnnotationTypeAdapterFactory implements TypeAdapterFactory {
 
     /* renamed from: e  reason: collision with root package name */
-    public final b f31239e;
+    public final b f31334e;
 
     public JsonAdapterAnnotationTypeAdapterFactory(b bVar) {
-        this.f31239e = bVar;
+        this.f31334e = bVar;
     }
 
-    public TypeAdapter<?> a(b bVar, Gson gson, a<?> aVar, d.g.d.a.b bVar2) {
+    public TypeAdapter<?> a(b bVar, Gson gson, a<?> aVar, d.h.d.a.b bVar2) {
         TypeAdapter<?> treeTypeAdapter;
         Object a2 = bVar.a(a.a(bVar2.value())).a();
         if (a2 instanceof TypeAdapter) {
@@ -36,10 +36,10 @@ public final class JsonAdapterAnnotationTypeAdapterFactory implements TypeAdapte
 
     @Override // com.google.gson.TypeAdapterFactory
     public <T> TypeAdapter<T> create(Gson gson, a<T> aVar) {
-        d.g.d.a.b bVar = (d.g.d.a.b) aVar.c().getAnnotation(d.g.d.a.b.class);
+        d.h.d.a.b bVar = (d.h.d.a.b) aVar.c().getAnnotation(d.h.d.a.b.class);
         if (bVar == null) {
             return null;
         }
-        return (TypeAdapter<T>) a(this.f31239e, gson, aVar, bVar);
+        return (TypeAdapter<T>) a(this.f31334e, gson, aVar, bVar);
     }
 }

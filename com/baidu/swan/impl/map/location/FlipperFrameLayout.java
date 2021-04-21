@@ -9,31 +9,31 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ScrollingView;
-import d.b.g0.h.a.j.d;
+import d.b.h0.h.a.j.d;
 /* loaded from: classes3.dex */
 public class FlipperFrameLayout extends FrameLayout implements d.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f12616e;
+    public float f12624e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f12617f;
+    public d f12625f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f12618g;
+    public boolean f12626g;
 
     public FlipperFrameLayout(@NonNull Context context) {
         super(context);
     }
 
-    @Override // d.b.g0.h.a.j.d.b
+    @Override // d.b.h0.h.a.j.d.b
     public void a(boolean z) {
-        this.f12618g = true;
+        this.f12626g = true;
     }
 
-    @Override // d.b.g0.h.a.j.d.b
+    @Override // d.b.h0.h.a.j.d.b
     public void b(boolean z) {
-        this.f12618g = false;
+        this.f12626g = false;
     }
 
     public final boolean c() {
@@ -59,34 +59,34 @@ public class FlipperFrameLayout extends FrameLayout implements d.b {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (!this.f12618g && this.f12617f != null) {
+        if (!this.f12626g && this.f12625f != null) {
             int action = motionEvent.getAction();
             if (action != 0) {
                 if (action != 1) {
                     if (action == 2) {
-                        float rawY = motionEvent.getRawY() - this.f12616e;
+                        float rawY = motionEvent.getRawY() - this.f12624e;
                         boolean z = rawY <= 0.0f;
-                        if (z && !this.f12617f.d() && d(rawY)) {
-                            this.f12617f.e(true);
+                        if (z && !this.f12625f.d() && d(rawY)) {
+                            this.f12625f.e(true);
                             return true;
-                        } else if (!z && c() && this.f12617f.d() && d(rawY)) {
-                            this.f12617f.e(false);
+                        } else if (!z && c() && this.f12625f.d() && d(rawY)) {
+                            this.f12625f.e(false);
                             return true;
                         }
                     }
                 }
-                this.f12616e = motionEvent.getRawY();
+                this.f12624e = motionEvent.getRawY();
             } else {
-                this.f12616e = motionEvent.getRawY();
+                this.f12624e = motionEvent.getRawY();
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
-        this.f12616e = motionEvent.getRawY();
+        this.f12624e = motionEvent.getRawY();
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     public void setViewFlipper(d dVar) {
-        this.f12617f = dVar;
+        this.f12625f = dVar;
     }
 
     public FlipperFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {

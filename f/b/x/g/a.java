@@ -12,10 +12,10 @@ import java.util.concurrent.TimeUnit;
 public class a extends p.c implements f.b.t.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public final ScheduledExecutorService f68534e;
+    public final ScheduledExecutorService f68681e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f68535f;
+    public volatile boolean f68682f;
 
     @Override // f.b.p.c
     public f.b.t.b b(Runnable runnable) {
@@ -24,7 +24,7 @@ public class a extends p.c implements f.b.t.b {
 
     @Override // f.b.p.c
     public f.b.t.b c(Runnable runnable, long j, TimeUnit timeUnit) {
-        if (this.f68535f) {
+        if (this.f68682f) {
             return EmptyDisposable.INSTANCE;
         }
         return e(runnable, j, timeUnit, null);
@@ -32,11 +32,11 @@ public class a extends p.c implements f.b.t.b {
 
     @Override // f.b.t.b
     public void dispose() {
-        if (this.f68535f) {
+        if (this.f68682f) {
             return;
         }
-        this.f68535f = true;
-        this.f68534e.shutdownNow();
+        this.f68682f = true;
+        this.f68681e.shutdownNow();
     }
 
     public ScheduledRunnable e(Runnable runnable, long j, TimeUnit timeUnit, f.b.x.a.a aVar) {
@@ -45,9 +45,9 @@ public class a extends p.c implements f.b.t.b {
         if (aVar == null || aVar.b(scheduledRunnable)) {
             try {
                 if (j <= 0) {
-                    schedule = this.f68534e.submit((Callable) scheduledRunnable);
+                    schedule = this.f68681e.submit((Callable) scheduledRunnable);
                 } else {
-                    schedule = this.f68534e.schedule((Callable) scheduledRunnable, j, timeUnit);
+                    schedule = this.f68681e.schedule((Callable) scheduledRunnable, j, timeUnit);
                 }
                 scheduledRunnable.setFuture(schedule);
             } catch (RejectedExecutionException e2) {
@@ -62,15 +62,15 @@ public class a extends p.c implements f.b.t.b {
     }
 
     public void f() {
-        if (this.f68535f) {
+        if (this.f68682f) {
             return;
         }
-        this.f68535f = true;
-        this.f68534e.shutdown();
+        this.f68682f = true;
+        this.f68681e.shutdown();
     }
 
     @Override // f.b.t.b
     public boolean isDisposed() {
-        return this.f68535f;
+        return this.f68682f;
     }
 }

@@ -8,13 +8,13 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
-import d.b.g0.a.i2.c0;
-import d.b.g0.a.i2.k0;
-import d.b.g0.a.i2.v;
-import d.b.g0.f.b;
-import d.b.g0.f.d;
-import d.b.g0.f.e;
-import d.b.g0.f.f.h.c;
+import d.b.h0.a.i2.c0;
+import d.b.h0.a.i2.k0;
+import d.b.h0.a.i2.v;
+import d.b.h0.f.b;
+import d.b.h0.f.d;
+import d.b.h0.f.e;
+import d.b.h0.f.f.h.c;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class InstallAntiBlockingActivity extends Activity {
@@ -32,7 +32,7 @@ public class InstallAntiBlockingActivity extends Activity {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.a(InstallAntiBlockingActivity.this.mPackageName, TextUtils.equals(InstallAntiBlockingActivity.this.mType, "authorize") ? "authorizeClick" : "continueClick", "success", null, new d.b.g0.f.f.h.a(InstallAntiBlockingActivity.this.mUbcParams));
+            c.a(InstallAntiBlockingActivity.this.mPackageName, TextUtils.equals(InstallAntiBlockingActivity.this.mType, "authorize") ? "authorizeClick" : "continueClick", "success", null, new d.b.h0.f.f.h.a(InstallAntiBlockingActivity.this.mUbcParams));
             InstallAntiBlockingActivity.this.finish();
         }
     }
@@ -42,7 +42,7 @@ public class InstallAntiBlockingActivity extends Activity {
         int V = k0.V(this);
         super.onCreate(bundle);
         k0.h(this, V);
-        d.b.g0.f.f.e.a.s();
+        d.b.h0.f.f.e.a.s();
         setContentView(e.aiapps_install_guide_layout);
         Intent intent = getIntent();
         if (intent != null) {
@@ -57,27 +57,27 @@ public class InstallAntiBlockingActivity extends Activity {
             layoutParams.gravity = 80;
             imageView.setLayoutParams(layoutParams);
             findViewById(d.install_guide_image_mask).setVisibility(0);
-            imageView.setImageResource(d.b.g0.f.c.aiapps_install_guide_request);
-            findViewById(d.install_guide_bg_mask).setBackgroundResource(d.b.g0.f.a.aiapps_install_guide_mask);
-            d.b.g0.f.f.e.a.o();
+            imageView.setImageResource(d.b.h0.f.c.aiapps_install_guide_request);
+            findViewById(d.install_guide_bg_mask).setBackgroundResource(d.b.h0.f.a.aiapps_install_guide_mask);
+            d.b.h0.f.f.e.a.o();
         } else {
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(b.aiapps_install_guide_image_height));
             layoutParams2.gravity = 80;
             imageView.setLayoutParams(layoutParams2);
             findViewById(d.install_guide_image_mask).setVisibility(8);
             if (c0.j()) {
-                imageView.setImageResource(d.b.g0.f.c.aiapps_install_guide_emui);
+                imageView.setImageResource(d.b.h0.f.c.aiapps_install_guide_emui);
             } else if (c0.k()) {
-                imageView.setImageResource(d.b.g0.f.c.aiapps_install_guide_miui);
+                imageView.setImageResource(d.b.h0.f.c.aiapps_install_guide_miui);
             } else if (c0.m()) {
-                imageView.setImageResource(d.b.g0.f.c.aiapps_install_guide_vivo);
+                imageView.setImageResource(d.b.h0.f.c.aiapps_install_guide_vivo);
             } else {
-                imageView.setImageResource(d.b.g0.f.c.aiapps_install_guide_default);
+                imageView.setImageResource(d.b.h0.f.c.aiapps_install_guide_default);
             }
-            findViewById(d.install_guide_bg_mask).setBackgroundResource(d.b.g0.f.a.aiapps_anti_block_mask);
-            d.b.g0.f.f.e.a.p();
+            findViewById(d.install_guide_bg_mask).setBackgroundResource(d.b.h0.f.a.aiapps_anti_block_mask);
+            d.b.h0.f.f.e.a.p();
         }
         findViewById.setOnClickListener(new a());
-        c.a(this.mPackageName, this.mType, "success", null, new d.b.g0.f.f.h.a(this.mUbcParams));
+        c.a(this.mPackageName, this.mType, "success", null, new d.b.h0.f.f.h.a(this.mUbcParams));
     }
 }

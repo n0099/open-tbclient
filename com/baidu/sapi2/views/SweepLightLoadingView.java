@@ -14,11 +14,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
-import d.b.x.a.a;
-import d.b.x.a.b;
-import d.b.x.a.d;
-import d.b.x.a.e;
-import d.b.x.a.f;
+import d.b.y.a.a;
+import d.b.y.a.b;
+import d.b.y.a.d;
+import d.b.y.a.e;
+import d.b.y.a.f;
 /* loaded from: classes2.dex */
 public class SweepLightLoadingView extends FrameLayout implements NoProguard {
 

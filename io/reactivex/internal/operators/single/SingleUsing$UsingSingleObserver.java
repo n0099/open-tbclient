@@ -13,7 +13,7 @@ public final class SingleUsing$UsingSingleObserver<T, U> extends AtomicReference
     public final r<? super T> actual;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f69098d;
+    public b f69245d;
     public final g<? super U> disposer;
     public final boolean eager;
 
@@ -26,8 +26,8 @@ public final class SingleUsing$UsingSingleObserver<T, U> extends AtomicReference
 
     @Override // f.b.t.b
     public void dispose() {
-        this.f69098d.dispose();
-        this.f69098d = DisposableHelper.DISPOSED;
+        this.f69245d.dispose();
+        this.f69245d = DisposableHelper.DISPOSED;
         disposeAfter();
     }
 
@@ -45,12 +45,12 @@ public final class SingleUsing$UsingSingleObserver<T, U> extends AtomicReference
 
     @Override // f.b.t.b
     public boolean isDisposed() {
-        return this.f69098d.isDisposed();
+        return this.f69245d.isDisposed();
     }
 
     @Override // f.b.r
     public void onError(Throwable th) {
-        this.f69098d = DisposableHelper.DISPOSED;
+        this.f69245d = DisposableHelper.DISPOSED;
         if (this.eager) {
             Object andSet = getAndSet(this);
             if (andSet == this) {
@@ -72,15 +72,15 @@ public final class SingleUsing$UsingSingleObserver<T, U> extends AtomicReference
 
     @Override // f.b.r
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f69098d, bVar)) {
-            this.f69098d = bVar;
+        if (DisposableHelper.validate(this.f69245d, bVar)) {
+            this.f69245d = bVar;
             this.actual.onSubscribe(this);
         }
     }
 
     @Override // f.b.r
     public void onSuccess(T t) {
-        this.f69098d = DisposableHelper.DISPOSED;
+        this.f69245d = DisposableHelper.DISPOSED;
         if (this.eager) {
             Object andSet = getAndSet(this);
             if (andSet == this) {

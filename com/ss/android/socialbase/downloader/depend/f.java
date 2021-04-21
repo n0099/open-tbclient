@@ -16,16 +16,16 @@ public interface f extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0502a implements f {
+        public static class C0505a implements f {
 
             /* renamed from: a  reason: collision with root package name */
-            public static f f39106a;
+            public static f f39201a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f39107b;
+            public IBinder f39202b;
 
-            public C0502a(IBinder iBinder) {
-                this.f39107b = iBinder;
+            public C0505a(IBinder iBinder) {
+                this.f39202b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.f
@@ -47,7 +47,7 @@ public interface f extends IInterface {
                         obtain.writeInt(0);
                     }
                     obtain.writeInt(i);
-                    if (!this.f39107b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f39202b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         a.a().a(downloadInfo, baseException, i);
                     } else {
                         obtain2.readException();
@@ -60,7 +60,7 @@ public interface f extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f39107b;
+                return this.f39202b;
             }
         }
 
@@ -76,7 +76,7 @@ public interface f extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof f)) {
                 return (f) queryLocalInterface;
             }
-            return new C0502a(iBinder);
+            return new C0505a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -100,7 +100,7 @@ public interface f extends IInterface {
         }
 
         public static f a() {
-            return C0502a.f39106a;
+            return C0505a.f39201a;
         }
     }
 }

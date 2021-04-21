@@ -14,20 +14,20 @@ public abstract class a extends com.kwad.sdk.contentalliance.b<c> implements com
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public SlidePlayViewPager f32212d;
+    public SlidePlayViewPager f32307d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public h f32213e;
+    public h f32308e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f32214f;
+    public boolean f32309f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f32215g;
+    public boolean f32310g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f32216h;
+    public boolean f32311h;
 
     @Override // com.kwad.sdk.contentalliance.b
     public void a() {
@@ -35,40 +35,40 @@ public abstract class a extends com.kwad.sdk.contentalliance.b<c> implements com
     }
 
     public void a(h hVar) {
-        this.f32213e = hVar;
+        this.f32308e = hVar;
     }
 
     public final void e() {
-        if (o() && !this.f32214f) {
-            this.f32214f = true;
+        if (o() && !this.f32309f) {
+            this.f32309f = true;
             j();
         }
     }
 
     public final void f() {
-        if (o() && this.f32214f) {
-            this.f32214f = false;
+        if (o() && this.f32309f) {
+            this.f32309f = false;
             k();
         }
     }
 
     public final void g() {
-        if (o() && !this.f32215g) {
-            this.f32215g = true;
+        if (o() && !this.f32310g) {
+            this.f32310g = true;
             l();
         }
     }
 
     public final void h() {
-        if (o() && this.f32215g) {
-            this.f32215g = false;
+        if (o() && this.f32310g) {
+            this.f32310g = false;
             m();
         }
     }
 
     public final void i() {
         int i = getArguments() != null ? getArguments().getInt("KEY_INDEX_IN_VIEW_PAGER") : -1;
-        SlidePlayViewPager slidePlayViewPager = this.f32212d;
+        SlidePlayViewPager slidePlayViewPager = this.f32307d;
         if (slidePlayViewPager == null || i != slidePlayViewPager.getRealPosition()) {
             return;
         }
@@ -78,50 +78,50 @@ public abstract class a extends com.kwad.sdk.contentalliance.b<c> implements com
 
     @Override // com.kwad.sdk.contentalliance.a.a
     public void j() {
-        T t = this.f32174b;
-        if (t == 0 || ((c) t).f32442b == null) {
+        T t = this.f32269b;
+        if (t == 0 || ((c) t).f32537b == null) {
             return;
         }
-        for (com.kwad.sdk.contentalliance.a.a aVar : ((c) t).f32442b) {
+        for (com.kwad.sdk.contentalliance.a.a aVar : ((c) t).f32537b) {
             aVar.j();
         }
     }
 
     @Override // com.kwad.sdk.contentalliance.a.a
     public void k() {
-        T t = this.f32174b;
-        if (t == 0 || ((c) t).f32442b == null) {
+        T t = this.f32269b;
+        if (t == 0 || ((c) t).f32537b == null) {
             return;
         }
-        for (com.kwad.sdk.contentalliance.a.a aVar : ((c) t).f32442b) {
+        for (com.kwad.sdk.contentalliance.a.a aVar : ((c) t).f32537b) {
             aVar.k();
         }
     }
 
     @Override // com.kwad.sdk.contentalliance.a.a
     public void l() {
-        T t = this.f32174b;
-        if (t == 0 || ((c) t).f32442b == null) {
+        T t = this.f32269b;
+        if (t == 0 || ((c) t).f32537b == null) {
             return;
         }
-        for (com.kwad.sdk.contentalliance.a.a aVar : ((c) t).f32442b) {
+        for (com.kwad.sdk.contentalliance.a.a aVar : ((c) t).f32537b) {
             aVar.l();
         }
     }
 
     @Override // com.kwad.sdk.contentalliance.a.a
     public void m() {
-        T t = this.f32174b;
-        if (t == 0 || ((c) t).f32442b == null) {
+        T t = this.f32269b;
+        if (t == 0 || ((c) t).f32537b == null) {
             return;
         }
-        for (com.kwad.sdk.contentalliance.a.a aVar : ((c) t).f32442b) {
+        for (com.kwad.sdk.contentalliance.a.a aVar : ((c) t).f32537b) {
             aVar.m();
         }
     }
 
     public boolean n() {
-        return this.f32216h;
+        return this.f32311h;
     }
 
     public boolean o() {
@@ -131,13 +131,13 @@ public abstract class a extends com.kwad.sdk.contentalliance.b<c> implements com
     @Override // com.kwad.sdk.contentalliance.b, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onActivityCreated(@Nullable Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.f32216h = true;
+        this.f32311h = true;
         i();
-        T t = this.f32174b;
-        if (t == 0 || ((c) t).f32443c == null) {
+        T t = this.f32269b;
+        if (t == 0 || ((c) t).f32538c == null) {
             return;
         }
-        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) t).f32443c) {
+        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) t).f32538c) {
             cVar.e();
         }
     }
@@ -145,11 +145,11 @@ public abstract class a extends com.kwad.sdk.contentalliance.b<c> implements com
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        T t = this.f32174b;
-        if (t == 0 || ((c) t).f32443c == null) {
+        T t = this.f32269b;
+        if (t == 0 || ((c) t).f32538c == null) {
             return;
         }
-        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) t).f32443c) {
+        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) t).f32538c) {
             cVar.a(i, i2, intent);
         }
     }
@@ -158,7 +158,7 @@ public abstract class a extends com.kwad.sdk.contentalliance.b<c> implements com
     @Nullable
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         if (viewGroup instanceof SlidePlayViewPager) {
-            this.f32212d = (SlidePlayViewPager) viewGroup;
+            this.f32307d = (SlidePlayViewPager) viewGroup;
         }
         return super.onCreateView(layoutInflater, viewGroup, bundle);
     }
@@ -166,29 +166,29 @@ public abstract class a extends com.kwad.sdk.contentalliance.b<c> implements com
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDestroy() {
         super.onDestroy();
-        T t = this.f32174b;
-        if (t == 0 || ((c) t).f32443c == null) {
+        T t = this.f32269b;
+        if (t == 0 || ((c) t).f32538c == null) {
             return;
         }
-        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) t).f32443c) {
+        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) t).f32538c) {
             cVar.g();
         }
     }
 
     @Override // com.kwad.sdk.contentalliance.b, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDestroyView() {
-        T t = this.f32174b;
+        T t = this.f32269b;
         if (t != 0) {
             ((c) t).a();
         }
-        this.f32216h = false;
+        this.f32311h = false;
         f();
         h();
-        T t2 = this.f32174b;
-        if (t2 == 0 || ((c) t2).f32443c == null) {
+        T t2 = this.f32269b;
+        if (t2 == 0 || ((c) t2).f32538c == null) {
             return;
         }
-        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) t2).f32443c) {
+        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) t2).f32538c) {
             cVar.f();
         }
     }
@@ -196,11 +196,11 @@ public abstract class a extends com.kwad.sdk.contentalliance.b<c> implements com
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onPause() {
         super.onPause();
-        T t = this.f32174b;
-        if (t == 0 || ((c) t).f32443c == null) {
+        T t = this.f32269b;
+        if (t == 0 || ((c) t).f32538c == null) {
             return;
         }
-        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) t).f32443c) {
+        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) t).f32538c) {
             cVar.d();
         }
     }
@@ -208,11 +208,11 @@ public abstract class a extends com.kwad.sdk.contentalliance.b<c> implements com
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onResume() {
         super.onResume();
-        T t = this.f32174b;
-        if (t == 0 || ((c) t).f32443c == null) {
+        T t = this.f32269b;
+        if (t == 0 || ((c) t).f32538c == null) {
             return;
         }
-        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) t).f32443c) {
+        for (com.kwad.sdk.contentalliance.a.c cVar : ((c) t).f32538c) {
             cVar.c();
         }
     }

@@ -1,117 +1,65 @@
 package d.b.h0.b;
-
-import android.content.SharedPreferences;
-import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.compatible.EditorHelper;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class b {
-
-    /* renamed from: b  reason: collision with root package name */
-    public static b f50082b;
-
-    /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, a> f50083a = new HashMap<>();
-
-    public b() {
-        HashMap<String, a> d2 = d();
-        this.f50083a.clear();
-        this.f50083a.putAll(d2);
-    }
-
-    public static b e() {
-        if (f50082b == null) {
-            synchronized (b.class) {
-                if (f50082b == null) {
-                    f50082b = new b();
-                }
-            }
-        }
-        return f50082b;
-    }
-
-    public static String f() {
-        return "pref_name_abtest_" + TbadkCoreApplication.getCurrentAccount();
-    }
-
-    public static SharedPreferences g() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(f(), 0);
-    }
-
-    public static boolean h(String str) {
-        return "a".equalsIgnoreCase(e().b(str, ""));
-    }
-
-    public final void a() {
-        try {
-            synchronized (this.f50083a) {
-                this.f50083a.clear();
-            }
-            SharedPreferences.Editor edit = g().edit();
-            edit.clear();
-            if (Build.VERSION.SDK_INT >= 9) {
-                edit.apply();
-            } else {
-                edit.commit();
-            }
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-    }
-
-    public final String b(String str, String str2) {
-        a c2 = c(str);
-        return (c2 == null || TextUtils.isEmpty(c2.f50081a)) ? str2 : c2.f50081a;
-    }
-
-    public synchronized a c(String str) {
-        return this.f50083a.get(str);
-    }
-
-    public final HashMap<String, a> d() {
-        HashMap<String, a> hashMap = new HashMap<>();
-        try {
-            JSONArray jSONArray = new JSONArray(g().getString("pref_key_abtest_switchs", "[]"));
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject jSONObject = jSONArray.getJSONObject(i);
-                if (jSONObject != null) {
-                    String optString = jSONObject.optString("name");
-                    hashMap.put(optString, new a(optString, jSONObject.optString("branch"), jSONObject.optString(TbConfig.TMP_LOG_DIR_NAME)));
-                }
-            }
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-        return hashMap;
-    }
-
-    public void i(JSONArray jSONArray) {
-        try {
-            if (jSONArray == null) {
-                a();
-                return;
-            }
-            HashMap hashMap = new HashMap();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject jSONObject = jSONArray.getJSONObject(i);
-                if (jSONObject != null) {
-                    String optString = jSONObject.optString("name");
-                    hashMap.put(optString, new a(optString, jSONObject.optString("branch"), jSONObject.optString(TbConfig.TMP_LOG_DIR_NAME)));
-                }
-            }
-            synchronized (this.f50083a) {
-                this.f50083a.clear();
-                this.f50083a.putAll(hashMap);
-            }
-            EditorHelper.putString(g(), "pref_key_abtest_switchs", jSONArray.toString());
-            d.b.h0.r.d0.b.j().v("perf_start_open", h("performance_start_small_flow") ? 1 : 0);
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-    }
+public final class b {
+    public static final int abc_fade_in = 2130771968;
+    public static final int abc_fade_out = 2130771969;
+    public static final int abc_grow_fade_in_from_bottom = 2130771970;
+    public static final int abc_popup_enter = 2130771971;
+    public static final int abc_popup_exit = 2130771972;
+    public static final int abc_shrink_fade_out_from_bottom = 2130771973;
+    public static final int abc_slide_in_bottom = 2130771974;
+    public static final int abc_slide_in_top = 2130771975;
+    public static final int abc_slide_out_bottom = 2130771976;
+    public static final int abc_slide_out_top = 2130771977;
+    public static final int abc_tooltip_enter = 2130771978;
+    public static final int abc_tooltip_exit = 2130771979;
+    public static final int aiapp_menu_popupwindow_grow_fade_in = 2130771986;
+    public static final int aiapp_menu_popupwindow_grow_fade_in_from_bottom = 2130771987;
+    public static final int aiapp_menu_popupwindow_shrink_fade_out = 2130771988;
+    public static final int aiapp_menu_popupwindow_shrink_fade_out_from_bottom = 2130771989;
+    public static final int aiapps_accelerate_quad = 2130771990;
+    public static final int aiapps_action_sheet_enter = 2130771991;
+    public static final int aiapps_action_sheet_exit = 2130771992;
+    public static final int aiapps_big_pic_toast_enter = 2130771993;
+    public static final int aiapps_big_pic_toast_exit = 2130771994;
+    public static final int aiapps_brower_menu_close = 2130771995;
+    public static final int aiapps_brower_menu_open = 2130771996;
+    public static final int aiapps_highlight_toast_show = 2130771997;
+    public static final int aiapps_hold = 2130771998;
+    public static final int aiapps_loading_progress = 2130771999;
+    public static final int aiapps_pop_window_dismiss_anim = 2130772000;
+    public static final int aiapps_pop_window_show_anim = 2130772001;
+    public static final int aiapps_rotate_progressbar = 2130772002;
+    public static final int aiapps_slide_in_from_bottom = 2130772003;
+    public static final int aiapps_slide_in_from_right = 2130772004;
+    public static final int aiapps_slide_out_to_bottom = 2130772005;
+    public static final int aiapps_slide_out_to_bottom_zadjustment_top = 2130772006;
+    public static final int aiapps_slide_out_to_right = 2130772007;
+    public static final int aiapps_slide_out_to_right_zadjustment_top = 2130772008;
+    public static final int aiapps_toast_enter = 2130772009;
+    public static final int aiapps_toast_exit = 2130772010;
+    public static final int aiapps_update_loading_progressbar_anim = 2130772011;
+    public static final int aiapps_wx_pay_loading_anim = 2130772012;
+    public static final int bd_loading_progress = 2130772032;
+    public static final int loading_rotate = 2130772099;
+    public static final int login_get_mobile_act_enter = 2130772100;
+    public static final int login_get_mobile_act_exit = 2130772101;
+    public static final int ng_game_ad_close = 2130772104;
+    public static final int ng_game_ad_open = 2130772105;
+    public static final int popupwindow_grow_fade_in = 2130772129;
+    public static final int popupwindow_grow_fade_in_from_bottom = 2130772130;
+    public static final int popupwindow_shrink_fade_out = 2130772131;
+    public static final int popupwindow_shrink_fade_out_from_bottom = 2130772132;
+    public static final int slide_in_bottom = 2130772221;
+    public static final int slide_out_bottom = 2130772222;
+    public static final int swanapp_album_checkshake = 2130772236;
+    public static final int swanapp_album_floating_layer_in_animation = 2130772237;
+    public static final int swanapp_album_floating_layer_out_animation = 2130772238;
+    public static final int swanapp_album_preview_enter = 2130772239;
+    public static final int swanapp_album_preview_img_enter = 2130772240;
+    public static final int swanapp_album_preview_img_exit = 2130772241;
+    public static final int swanapp_album_rotate_loading = 2130772242;
+    public static final int swanapp_album_slide_bottom_in = 2130772243;
+    public static final int swanapp_album_slide_bottom_out = 2130772244;
+    public static final int swangame_webview_loading = 2130772245;
 }

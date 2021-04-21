@@ -13,30 +13,30 @@ import rx.internal.util.ScalarSynchronousObservable;
 public final class e<T, R> implements d.a<R> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final h.d<? extends T> f68723e;
+    public final h.d<? extends T> f68870e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final h.n.f<? super T, ? extends h.d<? extends R>> f68724f;
+    public final h.n.f<? super T, ? extends h.d<? extends R>> f68871f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f68725g;
+    public final int f68872g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f68726h;
+    public final int f68873h;
 
     /* loaded from: classes7.dex */
     public class a implements h.f {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d f68727e;
+        public final /* synthetic */ d f68874e;
 
         public a(e eVar, d dVar) {
-            this.f68727e = dVar;
+            this.f68874e = dVar;
         }
 
         @Override // h.f
         public void request(long j) {
-            this.f68727e.h(j);
+            this.f68874e.h(j);
         }
     }
 
@@ -44,27 +44,27 @@ public final class e<T, R> implements d.a<R> {
     public static final class b<T, R> implements h.f {
 
         /* renamed from: e  reason: collision with root package name */
-        public final R f68728e;
+        public final R f68875e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final d<T, R> f68729f;
+        public final d<T, R> f68876f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f68730g;
+        public boolean f68877g;
 
         public b(R r, d<T, R> dVar) {
-            this.f68728e = r;
-            this.f68729f = dVar;
+            this.f68875e = r;
+            this.f68876f = dVar;
         }
 
         @Override // h.f
         public void request(long j) {
-            if (this.f68730g || j <= 0) {
+            if (this.f68877g || j <= 0) {
                 return;
             }
-            this.f68730g = true;
-            d<T, R> dVar = this.f68729f;
-            dVar.f(this.f68728e);
+            this.f68877g = true;
+            d<T, R> dVar = this.f68876f;
+            dVar.f(this.f68875e);
             dVar.d(1L);
         }
     }
@@ -73,34 +73,34 @@ public final class e<T, R> implements d.a<R> {
     public static final class c<T, R> extends h.j<R> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final d<T, R> f68731e;
+        public final d<T, R> f68878e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f68732f;
+        public long f68879f;
 
         public c(d<T, R> dVar) {
-            this.f68731e = dVar;
+            this.f68878e = dVar;
         }
 
         @Override // h.e
         public void onCompleted() {
-            this.f68731e.d(this.f68732f);
+            this.f68878e.d(this.f68879f);
         }
 
         @Override // h.e
         public void onError(Throwable th) {
-            this.f68731e.e(th, this.f68732f);
+            this.f68878e.e(th, this.f68879f);
         }
 
         @Override // h.e
         public void onNext(R r) {
-            this.f68732f++;
-            this.f68731e.f(r);
+            this.f68879f++;
+            this.f68878e.f(r);
         }
 
         @Override // h.j
         public void setProducer(h.f fVar) {
-            this.f68731e.f68736h.c(fVar);
+            this.f68878e.f68883h.c(fVar);
         }
     }
 
@@ -108,28 +108,28 @@ public final class e<T, R> implements d.a<R> {
     public static final class d<T, R> extends h.j<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final h.j<? super R> f68733e;
+        public final h.j<? super R> f68880e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.n.f<? super T, ? extends h.d<? extends R>> f68734f;
+        public final h.n.f<? super T, ? extends h.d<? extends R>> f68881f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f68735g;
+        public final int f68882g;
         public final Queue<Object> i;
         public final h.u.d l;
         public volatile boolean m;
         public volatile boolean n;
 
         /* renamed from: h  reason: collision with root package name */
-        public final h.o.b.a f68736h = new h.o.b.a();
+        public final h.o.b.a f68883h = new h.o.b.a();
         public final AtomicInteger j = new AtomicInteger();
         public final AtomicReference<Throwable> k = new AtomicReference<>();
 
         public d(h.j<? super R> jVar, h.n.f<? super T, ? extends h.d<? extends R>> fVar, int i, int i2) {
             Queue<Object> cVar;
-            this.f68733e = jVar;
-            this.f68734f = fVar;
-            this.f68735g = i2;
+            this.f68880e = jVar;
+            this.f68881f = fVar;
+            this.f68882g = i2;
             if (f0.b()) {
                 cVar = new h.o.d.k.r<>(i);
             } else {
@@ -144,15 +144,15 @@ public final class e<T, R> implements d.a<R> {
             if (this.j.getAndIncrement() != 0) {
                 return;
             }
-            int i = this.f68735g;
-            while (!this.f68733e.isUnsubscribed()) {
+            int i = this.f68882g;
+            while (!this.f68880e.isUnsubscribed()) {
                 if (!this.n) {
                     if (i == 1 && this.k.get() != null) {
                         Throwable terminate = ExceptionsUtils.terminate(this.k);
                         if (ExceptionsUtils.isTerminated(terminate)) {
                             return;
                         }
-                        this.f68733e.onError(terminate);
+                        this.f68880e.onError(terminate);
                         return;
                     }
                     boolean z = this.m;
@@ -161,24 +161,24 @@ public final class e<T, R> implements d.a<R> {
                     if (z && z2) {
                         Throwable terminate2 = ExceptionsUtils.terminate(this.k);
                         if (terminate2 == null) {
-                            this.f68733e.onCompleted();
+                            this.f68880e.onCompleted();
                             return;
                         } else if (ExceptionsUtils.isTerminated(terminate2)) {
                             return;
                         } else {
-                            this.f68733e.onError(terminate2);
+                            this.f68880e.onError(terminate2);
                             return;
                         }
                     } else if (!z2) {
                         try {
-                            h.d<? extends R> call = this.f68734f.call((Object) NotificationLite.e(poll));
+                            h.d<? extends R> call = this.f68881f.call((Object) NotificationLite.e(poll));
                             if (call == null) {
                                 c(new NullPointerException("The source returned by the mapper was null"));
                                 return;
                             } else if (call != h.d.f()) {
                                 if (call instanceof ScalarSynchronousObservable) {
                                     this.n = true;
-                                    this.f68736h.c(new b(((ScalarSynchronousObservable) call).O(), this));
+                                    this.f68883h.c(new b(((ScalarSynchronousObservable) call).O(), this));
                                 } else {
                                     c cVar = new c(this);
                                     this.l.a(cVar);
@@ -212,7 +212,7 @@ public final class e<T, R> implements d.a<R> {
                 if (ExceptionsUtils.isTerminated(terminate)) {
                     return;
                 }
-                this.f68733e.onError(terminate);
+                this.f68880e.onError(terminate);
                 return;
             }
             g(th);
@@ -220,7 +220,7 @@ public final class e<T, R> implements d.a<R> {
 
         public void d(long j) {
             if (j != 0) {
-                this.f68736h.b(j);
+                this.f68883h.b(j);
             }
             this.n = false;
             b();
@@ -229,15 +229,15 @@ public final class e<T, R> implements d.a<R> {
         public void e(Throwable th, long j) {
             if (!ExceptionsUtils.addThrowable(this.k, th)) {
                 g(th);
-            } else if (this.f68735g == 0) {
+            } else if (this.f68882g == 0) {
                 Throwable terminate = ExceptionsUtils.terminate(this.k);
                 if (!ExceptionsUtils.isTerminated(terminate)) {
-                    this.f68733e.onError(terminate);
+                    this.f68880e.onError(terminate);
                 }
                 unsubscribe();
             } else {
                 if (j != 0) {
-                    this.f68736h.b(j);
+                    this.f68883h.b(j);
                 }
                 this.n = false;
                 b();
@@ -245,7 +245,7 @@ public final class e<T, R> implements d.a<R> {
         }
 
         public void f(R r) {
-            this.f68733e.onNext(r);
+            this.f68880e.onNext(r);
         }
 
         public void g(Throwable th) {
@@ -255,7 +255,7 @@ public final class e<T, R> implements d.a<R> {
         public void h(long j) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i > 0) {
-                this.f68736h.request(j);
+                this.f68883h.request(j);
             } else if (i >= 0) {
             } else {
                 throw new IllegalArgumentException("n >= 0 required but it was " + j);
@@ -272,10 +272,10 @@ public final class e<T, R> implements d.a<R> {
         public void onError(Throwable th) {
             if (ExceptionsUtils.addThrowable(this.k, th)) {
                 this.m = true;
-                if (this.f68735g == 0) {
+                if (this.f68882g == 0) {
                     Throwable terminate = ExceptionsUtils.terminate(this.k);
                     if (!ExceptionsUtils.isTerminated(terminate)) {
-                        this.f68733e.onError(terminate);
+                        this.f68880e.onError(terminate);
                     }
                     this.l.unsubscribe();
                     return;
@@ -298,23 +298,23 @@ public final class e<T, R> implements d.a<R> {
     }
 
     public e(h.d<? extends T> dVar, h.n.f<? super T, ? extends h.d<? extends R>> fVar, int i, int i2) {
-        this.f68723e = dVar;
-        this.f68724f = fVar;
-        this.f68725g = i;
-        this.f68726h = i2;
+        this.f68870e = dVar;
+        this.f68871f = fVar;
+        this.f68872g = i;
+        this.f68873h = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // h.n.b
     /* renamed from: a */
     public void call(h.j<? super R> jVar) {
-        d dVar = new d(this.f68726h == 0 ? new h.q.e<>(jVar) : jVar, this.f68724f, this.f68725g, this.f68726h);
+        d dVar = new d(this.f68873h == 0 ? new h.q.e<>(jVar) : jVar, this.f68871f, this.f68872g, this.f68873h);
         jVar.add(dVar);
         jVar.add(dVar.l);
         jVar.setProducer(new a(this, dVar));
         if (jVar.isUnsubscribed()) {
             return;
         }
-        this.f68723e.L(dVar);
+        this.f68870e.L(dVar);
     }
 }

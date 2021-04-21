@@ -19,16 +19,16 @@ import java.util.Map;
 public class g extends a {
 
     /* renamed from: e  reason: collision with root package name */
-    public final char[] f31883e;
+    public final char[] f31978e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final RectF f31884f;
+    public final RectF f31979f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Matrix f31885g;
+    public final Matrix f31980g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Paint f31886h;
+    public final Paint f31981h;
     public final Paint i;
     public final Map<com.ksad.lottie.model.d, List<com.ksad.lottie.a.a.c>> j;
     public final n k;
@@ -49,10 +49,10 @@ public class g extends a {
         com.ksad.lottie.model.a.b bVar2;
         com.ksad.lottie.model.a.a aVar;
         com.ksad.lottie.model.a.a aVar2;
-        this.f31883e = new char[1];
-        this.f31884f = new RectF();
-        this.f31885g = new Matrix();
-        this.f31886h = new Paint(1) { // from class: com.ksad.lottie.model.layer.g.1
+        this.f31978e = new char[1];
+        this.f31979f = new RectF();
+        this.f31980g = new Matrix();
+        this.f31981h = new Paint(1) { // from class: com.ksad.lottie.model.layer.g.1
             {
                 setStyle(Paint.Style.FILL);
             }
@@ -70,25 +70,25 @@ public class g extends a {
         a2.a(this);
         a(this.k);
         k t = layer.t();
-        if (t != null && (aVar2 = t.f31744a) != null) {
+        if (t != null && (aVar2 = t.f31839a) != null) {
             com.ksad.lottie.a.b.a<Integer, Integer> a3 = aVar2.a();
             this.n = a3;
             a3.a(this);
             a(this.n);
         }
-        if (t != null && (aVar = t.f31745b) != null) {
+        if (t != null && (aVar = t.f31840b) != null) {
             com.ksad.lottie.a.b.a<Integer, Integer> a4 = aVar.a();
             this.o = a4;
             a4.a(this);
             a(this.o);
         }
-        if (t != null && (bVar2 = t.f31746c) != null) {
+        if (t != null && (bVar2 = t.f31841c) != null) {
             com.ksad.lottie.a.b.a<Float, Float> a5 = bVar2.a();
             this.p = a5;
             a5.a(this);
             a(this.p);
         }
-        if (t == null || (bVar = t.f31747d) == null) {
+        if (t == null || (bVar = t.f31842d) == null) {
             return;
         }
         com.ksad.lottie.a.b.a<Float, Float> a6 = bVar.a();
@@ -112,15 +112,15 @@ public class g extends a {
     }
 
     private void a(char c2, com.ksad.lottie.model.b bVar, Canvas canvas) {
-        char[] cArr = this.f31883e;
+        char[] cArr = this.f31978e;
         cArr[0] = c2;
         if (bVar.k) {
-            a(cArr, this.f31886h, canvas);
-            a(this.f31883e, this.i, canvas);
+            a(cArr, this.f31981h, canvas);
+            a(this.f31978e, this.i, canvas);
             return;
         }
         a(cArr, this.i, canvas);
-        a(this.f31883e, this.f31886h, canvas);
+        a(this.f31978e, this.f31981h, canvas);
     }
 
     private void a(Path path, Paint paint, Canvas canvas) {
@@ -134,15 +134,15 @@ public class g extends a {
     }
 
     private void a(com.ksad.lottie.model.b bVar, Matrix matrix, com.ksad.lottie.model.c cVar, Canvas canvas) {
-        float f2 = ((float) bVar.f31758c) / 100.0f;
+        float f2 = ((float) bVar.f31853c) / 100.0f;
         float a2 = com.ksad.lottie.d.f.a(matrix);
-        String str = bVar.f31756a;
+        String str = bVar.f31851a;
         for (int i = 0; i < str.length(); i++) {
             com.ksad.lottie.model.d dVar = this.m.h().get(com.ksad.lottie.model.d.a(str.charAt(i), cVar.a(), cVar.c()));
             if (dVar != null) {
                 a(dVar, matrix, f2, bVar, canvas);
                 float b2 = ((float) dVar.b()) * f2 * com.ksad.lottie.d.f.a() * a2;
-                float f3 = bVar.f31760e / 10.0f;
+                float f3 = bVar.f31855e / 10.0f;
                 com.ksad.lottie.a.b.a<Float, Float> aVar = this.q;
                 if (aVar != null) {
                     f3 += aVar.e().floatValue();
@@ -158,22 +158,22 @@ public class g extends a {
         if (a3 == null) {
             return;
         }
-        String str = bVar.f31756a;
+        String str = bVar.f31851a;
         m o = this.l.o();
         if (o != null) {
             str = o.a(str);
         }
-        this.f31886h.setTypeface(a3);
-        this.f31886h.setTextSize((float) (bVar.f31758c * com.ksad.lottie.d.f.a()));
-        this.i.setTypeface(this.f31886h.getTypeface());
-        this.i.setTextSize(this.f31886h.getTextSize());
+        this.f31981h.setTypeface(a3);
+        this.f31981h.setTextSize((float) (bVar.f31853c * com.ksad.lottie.d.f.a()));
+        this.i.setTypeface(this.f31981h.getTypeface());
+        this.i.setTextSize(this.f31981h.getTextSize());
         for (int i = 0; i < str.length(); i++) {
             char charAt = str.charAt(i);
             a(charAt, bVar, canvas);
-            char[] cArr = this.f31883e;
+            char[] cArr = this.f31978e;
             cArr[0] = charAt;
-            float measureText = this.f31886h.measureText(cArr, 0, 1);
-            float f2 = bVar.f31760e / 10.0f;
+            float measureText = this.f31981h.measureText(cArr, 0, 1);
+            float f2 = bVar.f31855e / 10.0f;
             com.ksad.lottie.a.b.a<Float, Float> aVar = this.q;
             if (aVar != null) {
                 f2 += aVar.e().floatValue();
@@ -187,17 +187,17 @@ public class g extends a {
         List<com.ksad.lottie.a.a.c> a2 = a(dVar);
         for (int i = 0; i < a2.size(); i++) {
             Path d2 = a2.get(i).d();
-            d2.computeBounds(this.f31884f, false);
-            this.f31885g.set(matrix);
-            this.f31885g.preTranslate(0.0f, ((float) (-bVar.f31762g)) * com.ksad.lottie.d.f.a());
-            this.f31885g.preScale(f2, f2);
-            d2.transform(this.f31885g);
+            d2.computeBounds(this.f31979f, false);
+            this.f31980g.set(matrix);
+            this.f31980g.preTranslate(0.0f, ((float) (-bVar.f31857g)) * com.ksad.lottie.d.f.a());
+            this.f31980g.preScale(f2, f2);
+            d2.transform(this.f31980g);
             if (bVar.k) {
-                a(d2, this.f31886h, canvas);
+                a(d2, this.f31981h, canvas);
                 paint = this.i;
             } else {
                 a(d2, this.i, canvas);
-                paint = this.f31886h;
+                paint = this.f31981h;
             }
             a(d2, paint, canvas);
         }
@@ -222,16 +222,16 @@ public class g extends a {
             canvas.setMatrix(matrix);
         }
         com.ksad.lottie.model.b e2 = this.k.e();
-        com.ksad.lottie.model.c cVar = this.m.i().get(e2.f31757b);
+        com.ksad.lottie.model.c cVar = this.m.i().get(e2.f31852b);
         if (cVar == null) {
             canvas.restore();
             return;
         }
         com.ksad.lottie.a.b.a<Integer, Integer> aVar = this.n;
         if (aVar != null) {
-            this.f31886h.setColor(aVar.e().intValue());
+            this.f31981h.setColor(aVar.e().intValue());
         } else {
-            this.f31886h.setColor(e2.f31763h);
+            this.f31981h.setColor(e2.f31858h);
         }
         com.ksad.lottie.a.b.a<Integer, Integer> aVar2 = this.o;
         if (aVar2 != null) {
@@ -239,8 +239,8 @@ public class g extends a {
         } else {
             this.i.setColor(e2.i);
         }
-        int intValue = (this.f31860d.a().e().intValue() * 255) / 100;
-        this.f31886h.setAlpha(intValue);
+        int intValue = (this.f31955d.a().e().intValue() * 255) / 100;
+        this.f31981h.setAlpha(intValue);
         this.i.setAlpha(intValue);
         com.ksad.lottie.a.b.a<Float, Float> aVar3 = this.p;
         if (aVar3 != null) {

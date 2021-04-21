@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.memory;
 import android.util.SparseIntArray;
 import com.facebook.common.internal.Preconditions;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PoolParams {
     public static final int IGNORE_THREADS = -1;
     public String bitmapPoolType;

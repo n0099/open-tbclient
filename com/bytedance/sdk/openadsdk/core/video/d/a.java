@@ -6,35 +6,35 @@ import com.bytedance.sdk.openadsdk.utils.u;
 public abstract class a implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public c.e f28350a;
+    public c.e f28358a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.b f28351b;
+    public c.b f28359b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.a f28352c;
+    public c.a f28360c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.f f28353d;
+    public c.f f28361d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.g f28354e;
+    public c.g f28362e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.InterfaceC0313c f28355f;
+    public c.InterfaceC0315c f28363f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.d f28356g;
+    public c.d f28364g;
 
     @Override // com.bytedance.sdk.openadsdk.core.video.d.c
     public final void a(c.e eVar) {
-        this.f28350a = eVar;
+        this.f28358a = eVar;
     }
 
     public final void b() {
         try {
-            if (this.f28350a != null) {
-                this.f28350a.b(this);
+            if (this.f28358a != null) {
+                this.f28358a.b(this);
             }
         } catch (Throwable th) {
             u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnPrepared error: ", th);
@@ -43,8 +43,8 @@ public abstract class a implements c {
 
     public final void c() {
         try {
-            if (this.f28351b != null) {
-                this.f28351b.a(this);
+            if (this.f28359b != null) {
+                this.f28359b.a(this);
             }
         } catch (Throwable th) {
             u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnCompletion error: ", th);
@@ -53,8 +53,8 @@ public abstract class a implements c {
 
     public final void d() {
         try {
-            if (this.f28353d != null) {
-                this.f28353d.c(this);
+            if (this.f28361d != null) {
+                this.f28361d.c(this);
             }
         } catch (Throwable th) {
             u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnSeekComplete error: ", th);
@@ -63,23 +63,23 @@ public abstract class a implements c {
 
     @Override // com.bytedance.sdk.openadsdk.core.video.d.c
     public final void a(c.b bVar) {
-        this.f28351b = bVar;
+        this.f28359b = bVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.d.c
     public final void a(c.a aVar) {
-        this.f28352c = aVar;
+        this.f28360c = aVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.d.c
     public final void a(c.f fVar) {
-        this.f28353d = fVar;
+        this.f28361d = fVar;
     }
 
     public final boolean b(int i, int i2) {
         try {
-            if (this.f28356g != null) {
-                return this.f28356g.b(this, i, i2);
+            if (this.f28364g != null) {
+                return this.f28364g.b(this, i, i2);
             }
             return false;
         } catch (Throwable th) {
@@ -89,34 +89,34 @@ public abstract class a implements c {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public final void a(c.InterfaceC0313c interfaceC0313c) {
-        this.f28355f = interfaceC0313c;
+    public final void a(c.InterfaceC0315c interfaceC0315c) {
+        this.f28363f = interfaceC0315c;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.d.c
     public final void a(c.d dVar) {
-        this.f28356g = dVar;
+        this.f28364g = dVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.d.c
     public final void a(c.g gVar) {
-        this.f28354e = gVar;
+        this.f28362e = gVar;
     }
 
     public void a() {
-        this.f28350a = null;
-        this.f28352c = null;
-        this.f28351b = null;
-        this.f28353d = null;
-        this.f28354e = null;
-        this.f28355f = null;
-        this.f28356g = null;
+        this.f28358a = null;
+        this.f28360c = null;
+        this.f28359b = null;
+        this.f28361d = null;
+        this.f28362e = null;
+        this.f28363f = null;
+        this.f28364g = null;
     }
 
     public final void a(int i) {
         try {
-            if (this.f28352c != null) {
-                this.f28352c.a(this, i);
+            if (this.f28360c != null) {
+                this.f28360c.a(this, i);
             }
         } catch (Throwable th) {
             u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnBufferingUpdate error: ", th);
@@ -125,8 +125,8 @@ public abstract class a implements c {
 
     public final void a(int i, int i2, int i3, int i4) {
         try {
-            if (this.f28354e != null) {
-                this.f28354e.a(this, i, i2, i3, i4);
+            if (this.f28362e != null) {
+                this.f28362e.a(this, i, i2, i3, i4);
             }
         } catch (Throwable th) {
             u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnVideoSizeChanged error: ", th);
@@ -135,8 +135,8 @@ public abstract class a implements c {
 
     public final boolean a(int i, int i2) {
         try {
-            if (this.f28355f != null) {
-                return this.f28355f.a(this, i, i2);
+            if (this.f28363f != null) {
+                return this.f28363f.a(this, i, i2);
             }
             return false;
         } catch (Throwable th) {

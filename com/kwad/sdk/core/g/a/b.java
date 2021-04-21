@@ -10,25 +10,25 @@ import org.json.JSONObject;
 public class b implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f33922a;
+    public String f34017a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f33923b;
+    public String f34018b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f33924c;
+    public String f34019c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f33925d;
+    public String f34020d;
 
     public static b a() {
         b bVar = new b();
-        bVar.f33922a = KsAdSDKImpl.get().getAppId();
-        bVar.f33923b = KsAdSDKImpl.get().getAppName();
+        bVar.f34017a = KsAdSDKImpl.get().getAppId();
+        bVar.f34018b = KsAdSDKImpl.get().getAppName();
         Context context = KsAdSDKImpl.get().getContext();
         if (context != null) {
-            bVar.f33924c = context.getPackageName();
-            bVar.f33925d = ah.l(context);
+            bVar.f34019c = context.getPackageName();
+            bVar.f34020d = ah.l(context);
         }
         return bVar;
     }
@@ -36,10 +36,10 @@ public class b implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f33922a);
-        o.a(jSONObject, "name", this.f33923b);
-        o.a(jSONObject, "packageName", this.f33924c);
-        o.a(jSONObject, "version", this.f33925d);
+        o.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.f34017a);
+        o.a(jSONObject, "name", this.f34018b);
+        o.a(jSONObject, "packageName", this.f34019c);
+        o.a(jSONObject, "version", this.f34020d);
         return jSONObject;
     }
 }

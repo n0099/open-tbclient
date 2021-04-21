@@ -11,7 +11,7 @@ public class DynamicImageView extends DynamicBaseWidgetImp {
     public DynamicImageView(Context context, @NonNull DynamicRootView dynamicRootView, @NonNull f fVar) {
         super(context, dynamicRootView, fVar);
         if (this.j.l() > 0.0f) {
-            this.n = new RoundImageView(context, (int) this.j.l(), this.f27989e, this.f27990f);
+            this.n = new RoundImageView(context, (int) this.j.l(), this.f27997e, this.f27998f);
         } else {
             this.n = new ImageView(context);
         }

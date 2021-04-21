@@ -10,8 +10,8 @@ public abstract class aa extends PngChunk {
             return true;
         }
         if (obj != null && getClass() == obj.getClass()) {
-            String str = this.f36409a;
-            String str2 = ((aa) obj).f36409a;
+            String str = this.f36504a;
+            String str2 = ((aa) obj).f36504a;
             if (str == null) {
                 if (str2 != null) {
                     return false;
@@ -25,7 +25,7 @@ public abstract class aa extends PngChunk {
     }
 
     public int hashCode() {
-        String str = this.f36409a;
+        String str = this.f36504a;
         return 31 + (str == null ? 0 : str.hashCode());
     }
 }

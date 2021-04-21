@@ -7,9 +7,9 @@ public class c {
     public static void a(com.bytedance.sdk.openadsdk.k.f.b bVar) {
         if (Build.VERSION.SDK_INT >= 23) {
             com.bytedance.sdk.openadsdk.video.b.a aVar = new com.bytedance.sdk.openadsdk.video.b.a();
-            aVar.b(bVar.f29368c);
-            aVar.a(bVar.f29366a);
-            aVar.a(bVar.f29367b);
+            aVar.b(bVar.f29376c);
+            aVar.a(bVar.f29374a);
+            aVar.a(bVar.f29375b);
             com.bytedance.sdk.openadsdk.video.a.b.a.a(p.a(), aVar);
             return;
         }

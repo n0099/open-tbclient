@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
 import d.b.i.u0.a;
 import java.util.List;
 /* loaded from: classes.dex */
-public class m0 extends d.b.i.a<d.b.h0.r.q.a> {
+public class m0 extends d.b.i.a<d.b.i0.r.q.a> {
     public int j;
     public int k;
     public ThreadCommentAndPraiseInfoLayout l;
-    public d.b.h0.r.q.a m;
+    public d.b.i0.r.q.a m;
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
@@ -36,9 +36,9 @@ public class m0 extends d.b.i.a<d.b.h0.r.q.a> {
         }
 
         @Override // d.b.i.u0.a.b
-        public boolean a(a.C1131a c1131a) {
-            if (c1131a.c() instanceof Boolean) {
-                if (!((Boolean) c1131a.c()).booleanValue()) {
+        public boolean a(a.C1072a c1072a) {
+            if (c1072a.c() instanceof Boolean) {
+                if (!((Boolean) c1072a.c()).booleanValue()) {
                     if ((m0.this.j & 128) <= 0) {
                         m0.this.j &= -5;
                         m0.this.j |= 64;
@@ -103,7 +103,7 @@ public class m0 extends d.b.i.a<d.b.h0.r.q.a> {
 
     @Override // d.b.i.a
     public void h() {
-        this.f52186e.m(4, new b());
+        this.f50154e.m(4, new b());
     }
 
     @Override // d.b.i.q
@@ -114,7 +114,7 @@ public class m0 extends d.b.i.a<d.b.h0.r.q.a> {
     public final void t() {
         boolean z = false;
         k(this.l, 0);
-        d.b.i.a f2 = this.f52186e.f();
+        d.b.i.a f2 = this.f50154e.f();
         if (f2 == null) {
             return;
         }
@@ -132,7 +132,7 @@ public class m0 extends d.b.i.a<d.b.h0.r.q.a> {
             }
         }
         if (z) {
-            List<h> h2 = this.f52186e.h();
+            List<h> h2 = this.f50154e.h();
             if (ListUtils.isEmpty(h2)) {
                 return;
             }
@@ -147,13 +147,13 @@ public class m0 extends d.b.i.a<d.b.h0.r.q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.i.p
     /* renamed from: u */
-    public void a(d.b.h0.r.q.a aVar) {
+    public void a(d.b.i0.r.q.a aVar) {
         this.m = aVar;
         this.l.setData(aVar.n());
         t();
     }
 
-    public void v(d.b.h0.r.q.e eVar) {
+    public void v(d.b.i0.r.q.e eVar) {
         this.l.setAgreeStatisticData(eVar);
     }
 

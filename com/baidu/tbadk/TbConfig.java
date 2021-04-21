@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import d.b.c.e.p.l;
-import d.b.h0.a0.c;
+import d.b.i0.a0.c;
 import java.util.HashSet;
 /* loaded from: classes3.dex */
 public class TbConfig {

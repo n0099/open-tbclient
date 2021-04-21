@@ -55,7 +55,7 @@ public class AdvanceSetting implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                d.j.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+                d.k.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -90,7 +90,7 @@ public class AdvanceSetting implements Parcelable {
             return advanceSetting;
         }
         str = "no such tag advance_setting";
-        d.j.a.a.a.b(TAG, str);
+        d.k.a.a.a.b(TAG, str);
         return advanceSetting;
     }
 

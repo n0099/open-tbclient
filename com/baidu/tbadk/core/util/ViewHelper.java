@@ -267,14 +267,14 @@ public class ViewHelper {
 
     public static void skipToLoginActivity(Context context) {
         if (context != null) {
-            d.b.h0.r.z.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+            d.b.i0.r.z.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true)));
         }
     }
 
     public static void skipToLoginActivityFromH5(Context context, String str, String str2) {
         if (context != null) {
-            d.b.h0.r.z.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+            d.b.i0.r.z.a.a("account", -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true, str, str2)));
         }
     }
@@ -282,7 +282,7 @@ public class ViewHelper {
     @Deprecated
     public static void skipToRegisterActivity(Context context) {
         if (context != null) {
-            d.b.h0.r.z.a.a("account", -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
+            d.b.i0.r.z.a.a("account", -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
             skipToLoginActivity(context);
         }
     }

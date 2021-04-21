@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
 import d.b.c.a.f;
-import d.b.h0.r.d0.b;
-import d.b.h0.r.s.a;
-import d.b.h0.s.d.d;
+import d.b.i0.r.d0.b;
+import d.b.i0.r.s.a;
+import d.b.i0.s.d.d;
 import java.util.HashMap;
 import java.util.LinkedList;
 import org.json.JSONObject;
@@ -116,13 +116,13 @@ public class AlaAttentionManager {
             super.onPostExecute((AttentionAsyncTask) str);
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.f13354a = this.mNetwork.getNetContext().getResponse().isRequestSuccess();
-                aVar.f13355b = this.mNetwork.getErrorString();
-                aVar.f13357d = this.isAttention;
-                aVar.f13356c = this.toUid;
-                aVar.f13358e = this.isGod;
+                aVar.f13362a = this.mNetwork.getNetContext().getResponse().isRequestSuccess();
+                aVar.f13363b = this.mNetwork.getErrorString();
+                aVar.f13365d = this.isAttention;
+                aVar.f13364c = this.toUid;
+                aVar.f13366e = this.isGod;
                 aVar.b(str, this.showToastAfterAttentionSuc);
-                aVar.f13359f = this.mNetwork.getNetContext().getResponse();
+                aVar.f13367f = this.mNetwork.getNetContext().getResponse();
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
                 updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
                 MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
@@ -220,15 +220,15 @@ public class AlaAttentionManager {
     }
 
     public boolean checkIsForbidden(UpdateAttentionMessage.a aVar, final f<?> fVar, boolean z) {
-        if (aVar != null && aVar.f13360g != null && aVar.f13359f != null && fVar != null && fVar.getPageActivity() != null) {
-            int i = aVar.f13359f.mServerErrorCode;
+        if (aVar != null && aVar.f13368g != null && aVar.f13367f != null && fVar != null && fVar.getPageActivity() != null) {
+            int i = aVar.f13367f.mServerErrorCode;
             if (!(i == 3250001 || i == 3250002 || i == 3250003 || i == 3250004)) {
                 return false;
             }
-            if (aVar.f13361h) {
+            if (aVar.f13369h) {
                 return true;
             }
-            JSONObject optJSONObject = aVar.f13360g.optJSONObject("info");
+            JSONObject optJSONObject = aVar.f13368g.optJSONObject("info");
             if (optJSONObject == null) {
                 return false;
             }
@@ -237,20 +237,20 @@ public class AlaAttentionManager {
             String optString3 = optJSONObject.optString("block_confirm");
             String optString4 = optJSONObject.optString("block_cancel");
             if (optString != null && optString2 != null && optString3 != null && optString4 != null) {
-                aVar.f13361h = true;
+                aVar.f13369h = true;
                 a aVar2 = new a(fVar.getPageActivity());
                 aVar2.setAutoNight(z);
                 aVar2.setMessage(optString);
                 aVar2.setPositiveButton(optString3, new a.e() { // from class: com.baidu.ala.view.AlaAttentionManager.1
-                    @Override // d.b.h0.r.s.a.e
+                    @Override // d.b.i0.r.s.a.e
                     public void onClick(a aVar3) {
-                        d.b.h0.l.a.l(fVar.getPageActivity(), optString2);
+                        d.b.i0.l.a.l(fVar.getPageActivity(), optString2);
                         aVar3.dismiss();
                         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
                     }
                 });
                 aVar2.setNegativeButton(optString4, new a.e() { // from class: com.baidu.ala.view.AlaAttentionManager.2
-                    @Override // d.b.h0.r.s.a.e
+                    @Override // d.b.i0.r.s.a.e
                     public void onClick(a aVar3) {
                         aVar3.dismiss();
                         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));

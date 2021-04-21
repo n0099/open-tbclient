@@ -20,22 +20,22 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import d.b.c.e.p.l;
-import d.b.h0.r.q.a2;
-import d.b.h0.r.u.c;
+import d.b.i0.r.q.a2;
+import d.b.i0.r.u.c;
 /* loaded from: classes3.dex */
 public class ThreadForumEnterButton extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public a2 f13163e;
+    public a2 f13171e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f13164f;
+    public Context f13172f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f13165g;
+    public View f13173g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13166h;
+    public int f13174h;
     public TextView i;
     public Drawable j;
     public View.OnClickListener k;
@@ -49,13 +49,13 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
 
     public ThreadForumEnterButton(Context context) {
         super(context);
-        this.f13166h = 0;
+        this.f13174h = 0;
         this.l = 3;
         c(context);
     }
 
     public void a(a2 a2Var) {
-        this.f13163e = a2Var;
+        this.f13171e = a2Var;
         if (a2Var != null) {
             String i0 = a2Var.i0();
             if (StringUtils.isNull(i0)) {
@@ -65,7 +65,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
             setVisibility(0);
             e();
             TextView textView = this.i;
-            textView.setText(StringHelper.cutForumNameWithSuffix(i0, 14, StringHelper.STRING_MORE) + this.f13164f.getString(R.string.forum));
+            textView.setText(StringHelper.cutForumNameWithSuffix(i0, 14, StringHelper.STRING_MORE) + this.f13172f.getString(R.string.forum));
             this.i.setVisibility(0);
             d();
             return;
@@ -74,7 +74,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
     }
 
     public void b(a2 a2Var, int i) {
-        this.f13163e = a2Var;
+        this.f13171e = a2Var;
         if (a2Var != null && i > 0) {
             int paddingLeft = this.i.getPaddingLeft();
             String i0 = a2Var.i0();
@@ -94,18 +94,18 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
     }
 
     public final void c(Context context) {
-        this.f13164f = context;
+        this.f13172f = context;
         setOnClickListener(this);
         View inflate = LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_enter_button, (ViewGroup) this, true);
-        this.f13165g = inflate;
+        this.f13173g = inflate;
         TextView textView = (TextView) inflate.findViewById(R.id.forum_name_text);
         this.i = textView;
-        textView.setCompoundDrawablePadding(l.g(this.f13164f, R.dimen.M_W_X002));
+        textView.setCompoundDrawablePadding(l.g(this.f13172f, R.dimen.M_W_X002));
     }
 
     public void d() {
         int skinType;
-        if (this.f13163e == null || this.l == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
+        if (this.f13171e == null || this.l == (skinType = TbadkCoreApplication.getInst().getSkinType())) {
             return;
         }
         this.l = skinType;
@@ -120,7 +120,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_ba12, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL_PRESS);
         this.j = pureDrawable;
         if (pureDrawable != null) {
-            int g2 = l.g(this.f13164f, R.dimen.T_X09);
+            int g2 = l.g(this.f13172f, R.dimen.T_X09);
             this.j.setBounds(0, 0, g2, g2);
         }
         e();
@@ -132,14 +132,14 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f13163e.getType() == a2.x3) {
-            Context context = this.f13164f;
+        if (this.f13171e.getType() == a2.x3) {
+            Context context = this.f13172f;
             BdToast.i(context, context.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).q();
-        } else if (StringUtils.isNull(this.f13163e.i0())) {
+        } else if (StringUtils.isNull(this.f13171e.i0())) {
         } else {
-            view.setTag(this.f13163e);
-            if (this.f13166h == 0) {
-                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.f13164f).createNormalCfg(this.f13163e.i0(), FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
+            view.setTag(this.f13171e);
+            if (this.f13174h == 0) {
+                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.f13172f).createNormalCfg(this.f13171e.i0(), FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
                 createNormalCfg.setCallFrom(14);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
             }
@@ -155,12 +155,12 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
     }
 
     public void setFrom(int i) {
-        this.f13166h = i;
+        this.f13174h = i;
     }
 
     public ThreadForumEnterButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13166h = 0;
+        this.f13174h = 0;
         this.l = 3;
         c(context);
     }

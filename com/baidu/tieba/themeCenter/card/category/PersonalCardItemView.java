@@ -16,22 +16,22 @@ import d.b.c.e.p.l;
 public class PersonalCardItemView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21337e;
+    public Context f21345e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21338f;
+    public View f21346f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f21339g;
+    public TbImageView f21347g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21340h;
+    public TextView f21348h;
     public TbImageView i;
     public TbImageView j;
     public ImageView k;
     public TextView l;
     public View m;
-    public d.b.i0.j3.a n;
+    public d.b.j0.j3.a n;
     public b o;
     public int p;
     public int q;
@@ -52,35 +52,35 @@ public class PersonalCardItemView extends LinearLayout {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(d.b.i0.j3.a aVar);
+        void a(d.b.j0.j3.a aVar);
     }
 
     public PersonalCardItemView(Context context) {
         super(context);
-        this.f21337e = context;
+        this.f21345e = context;
         d();
     }
 
-    public void c(d.b.i0.j3.a aVar) {
+    public void c(d.b.j0.j3.a aVar) {
         if (aVar == null) {
             return;
         }
         this.n = aVar;
-        if (aVar.a() == d.b.i0.j3.a.k) {
-            this.f21339g.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            SkinManager.setBackgroundColor(this.f21339g, R.color.CAM_X0204);
-            SkinManager.setImageResource(this.f21339g, R.drawable.icon_bubble_choose_no);
-            this.f21340h.setVisibility(0);
+        if (aVar.a() == d.b.j0.j3.a.k) {
+            this.f21347g.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            SkinManager.setBackgroundColor(this.f21347g, R.color.CAM_X0204);
+            SkinManager.setImageResource(this.f21347g, R.drawable.icon_bubble_choose_no);
+            this.f21348h.setVisibility(0);
             this.j.setVisibility(8);
             this.i.setVisibility(8);
         } else {
-            this.f21340h.setVisibility(8);
+            this.f21348h.setVisibility(8);
             this.j.setVisibility(0);
             this.i.setVisibility(0);
-            this.f21339g.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f21339g.setImageBitmap(null);
-            this.f21339g.setDefaultResource(R.drawable.img_default_100);
-            this.f21339g.W(aVar.e(), 10, false);
+            this.f21347g.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f21347g.setImageBitmap(null);
+            this.f21347g.setDefaultResource(R.drawable.img_default_100);
+            this.f21347g.W(aVar.e(), 10, false);
         }
         if (aVar.g() == 1) {
             this.k.setVisibility(0);
@@ -96,30 +96,30 @@ public class PersonalCardItemView extends LinearLayout {
 
     public final void d() {
         setOrientation(1);
-        int k = (l.k(this.f21337e) - l.g(this.f21337e, R.dimen.ds88)) / 3;
+        int k = (l.k(this.f21345e) - l.g(this.f21345e, R.dimen.ds88)) / 3;
         this.p = k;
         this.q = (int) (k * 0.57d);
-        View inflate = LayoutInflater.from(this.f21337e).inflate(R.layout.personal_card_item_layout, this);
-        this.f21338f = inflate;
-        this.f21339g = (TbImageView) inflate.findViewById(R.id.image_bg);
-        TbImageView tbImageView = (TbImageView) this.f21338f.findViewById(R.id.permission_icon);
+        View inflate = LayoutInflater.from(this.f21345e).inflate(R.layout.personal_card_item_layout, this);
+        this.f21346f = inflate;
+        this.f21347g = (TbImageView) inflate.findViewById(R.id.image_bg);
+        TbImageView tbImageView = (TbImageView) this.f21346f.findViewById(R.id.permission_icon);
         this.i = tbImageView;
         tbImageView.setDefaultResource(R.drawable.transparent_bg);
         this.i.setDefaultBgResource(R.drawable.transparent_bg);
-        TbImageView tbImageView2 = (TbImageView) this.f21338f.findViewById(R.id.state_icon);
+        TbImageView tbImageView2 = (TbImageView) this.f21346f.findViewById(R.id.state_icon);
         this.j = tbImageView2;
         tbImageView2.setDefaultResource(R.drawable.transparent_bg);
         this.j.setDefaultBgResource(R.drawable.transparent_bg);
-        this.k = (ImageView) this.f21338f.findViewById(R.id.choosed_icon);
-        this.f21340h = (TextView) this.f21338f.findViewById(R.id.txt_default);
-        this.l = (TextView) this.f21338f.findViewById(R.id.view_card_name);
-        this.m = this.f21338f.findViewById(R.id.black_stroke);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f21339g.getLayoutParams();
+        this.k = (ImageView) this.f21346f.findViewById(R.id.choosed_icon);
+        this.f21348h = (TextView) this.f21346f.findViewById(R.id.txt_default);
+        this.l = (TextView) this.f21346f.findViewById(R.id.view_card_name);
+        this.m = this.f21346f.findViewById(R.id.black_stroke);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f21347g.getLayoutParams();
         layoutParams.height = this.q;
         layoutParams.width = this.p;
-        this.f21339g.setLayoutParams(layoutParams);
+        this.f21347g.setLayoutParams(layoutParams);
         this.m.setLayoutParams(layoutParams);
-        this.f21339g.setOnClickListener(new a());
+        this.f21347g.setOnClickListener(new a());
     }
 
     public b getCardViewController() {
@@ -132,13 +132,13 @@ public class PersonalCardItemView extends LinearLayout {
 
     public PersonalCardItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21337e = context;
+        this.f21345e = context;
         d();
     }
 
     public PersonalCardItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f21337e = context;
+        this.f21345e = context;
         d();
     }
 }

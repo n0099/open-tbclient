@@ -1,12 +1,12 @@
 package com.google.common.collect;
 
 import com.google.common.collect.Sets;
-import d.g.c.a.k;
-import d.g.c.c.e0;
-import d.g.c.c.h0;
-import d.g.c.c.i0;
-import d.g.c.c.m;
-import d.g.c.c.n0;
+import d.h.c.a.k;
+import d.h.c.c.e0;
+import d.h.c.c.h0;
+import d.h.c.c.i0;
+import d.h.c.c.m;
+import d.h.c.c.n0;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -86,13 +86,13 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
     public class a implements Iterator<Map.Entry<K, V>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public ValueEntry<K, V> f30863e;
+        public ValueEntry<K, V> f30958e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ValueEntry<K, V> f30864f;
+        public ValueEntry<K, V> f30959f;
 
         public a() {
-            this.f30863e = LinkedHashMultimap.this.multimapHeaderEntry.successorInMultimap;
+            this.f30958e = LinkedHashMultimap.this.multimapHeaderEntry.successorInMultimap;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -100,9 +100,9 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
         /* renamed from: a */
         public Map.Entry<K, V> next() {
             if (hasNext()) {
-                ValueEntry<K, V> valueEntry = this.f30863e;
-                this.f30864f = valueEntry;
-                this.f30863e = valueEntry.successorInMultimap;
+                ValueEntry<K, V> valueEntry = this.f30958e;
+                this.f30959f = valueEntry;
+                this.f30958e = valueEntry.successorInMultimap;
                 return valueEntry;
             }
             throw new NoSuchElementException();
@@ -110,14 +110,14 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f30863e != LinkedHashMultimap.this.multimapHeaderEntry;
+            return this.f30958e != LinkedHashMultimap.this.multimapHeaderEntry;
         }
 
         @Override // java.util.Iterator
         public void remove() {
-            m.e(this.f30864f != null);
-            LinkedHashMultimap.this.remove(this.f30864f.getKey(), this.f30864f.getValue());
-            this.f30864f = null;
+            m.e(this.f30959f != null);
+            LinkedHashMultimap.this.remove(this.f30959f.getKey(), this.f30959f.getValue());
+            this.f30959f = null;
         }
     }
 
@@ -125,16 +125,16 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
     public final class b extends Sets.a<V> implements c<K, V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final K f30866e;
+        public final K f30961e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ValueEntry<K, V>[] f30867f;
+        public ValueEntry<K, V>[] f30962f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f30868g = 0;
+        public int f30963g = 0;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f30869h = 0;
+        public int f30964h = 0;
         public c<K, V> i = this;
         public c<K, V> j = this;
 
@@ -142,21 +142,21 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
         public class a implements Iterator<V> {
 
             /* renamed from: e  reason: collision with root package name */
-            public c<K, V> f30870e;
+            public c<K, V> f30965e;
 
             /* renamed from: f  reason: collision with root package name */
-            public ValueEntry<K, V> f30871f;
+            public ValueEntry<K, V> f30966f;
 
             /* renamed from: g  reason: collision with root package name */
-            public int f30872g;
+            public int f30967g;
 
             public a() {
-                this.f30870e = b.this.i;
-                this.f30872g = b.this.f30869h;
+                this.f30965e = b.this.i;
+                this.f30967g = b.this.f30964h;
             }
 
             public final void a() {
-                if (b.this.f30869h != this.f30872g) {
+                if (b.this.f30964h != this.f30967g) {
                     throw new ConcurrentModificationException();
                 }
             }
@@ -164,16 +164,16 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
             @Override // java.util.Iterator
             public boolean hasNext() {
                 a();
-                return this.f30870e != b.this;
+                return this.f30965e != b.this;
             }
 
             @Override // java.util.Iterator
             public V next() {
                 if (hasNext()) {
-                    ValueEntry<K, V> valueEntry = (ValueEntry) this.f30870e;
+                    ValueEntry<K, V> valueEntry = (ValueEntry) this.f30965e;
                     V value = valueEntry.getValue();
-                    this.f30871f = valueEntry;
-                    this.f30870e = valueEntry.getSuccessorInValueSet();
+                    this.f30966f = valueEntry;
+                    this.f30965e = valueEntry.getSuccessorInValueSet();
                     return value;
                 }
                 throw new NoSuchElementException();
@@ -182,59 +182,59 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
             @Override // java.util.Iterator
             public void remove() {
                 a();
-                m.e(this.f30871f != null);
-                b.this.remove(this.f30871f.getValue());
-                this.f30872g = b.this.f30869h;
-                this.f30871f = null;
+                m.e(this.f30966f != null);
+                b.this.remove(this.f30966f.getValue());
+                this.f30967g = b.this.f30964h;
+                this.f30966f = null;
             }
         }
 
         public b(K k, int i) {
-            this.f30866e = k;
-            this.f30867f = new ValueEntry[e0.a(i, 1.0d)];
+            this.f30961e = k;
+            this.f30962f = new ValueEntry[e0.a(i, 1.0d)];
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean add(V v) {
             int d2 = e0.d(v);
             int c2 = c() & d2;
-            ValueEntry<K, V> valueEntry = this.f30867f[c2];
+            ValueEntry<K, V> valueEntry = this.f30962f[c2];
             for (ValueEntry<K, V> valueEntry2 = valueEntry; valueEntry2 != null; valueEntry2 = valueEntry2.nextInValueBucket) {
                 if (valueEntry2.matchesValue(v, d2)) {
                     return false;
                 }
             }
-            ValueEntry<K, V> valueEntry3 = new ValueEntry<>(this.f30866e, v, d2, valueEntry);
+            ValueEntry<K, V> valueEntry3 = new ValueEntry<>(this.f30961e, v, d2, valueEntry);
             LinkedHashMultimap.succeedsInValueSet(this.j, valueEntry3);
             LinkedHashMultimap.succeedsInValueSet(valueEntry3, this);
             LinkedHashMultimap.succeedsInMultimap(LinkedHashMultimap.this.multimapHeaderEntry.getPredecessorInMultimap(), valueEntry3);
             LinkedHashMultimap.succeedsInMultimap(valueEntry3, LinkedHashMultimap.this.multimapHeaderEntry);
-            this.f30867f[c2] = valueEntry3;
-            this.f30868g++;
-            this.f30869h++;
+            this.f30962f[c2] = valueEntry3;
+            this.f30963g++;
+            this.f30964h++;
             d();
             return true;
         }
 
         public final int c() {
-            return this.f30867f.length - 1;
+            return this.f30962f.length - 1;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public void clear() {
-            Arrays.fill(this.f30867f, (Object) null);
-            this.f30868g = 0;
+            Arrays.fill(this.f30962f, (Object) null);
+            this.f30963g = 0;
             for (c<K, V> cVar = this.i; cVar != this; cVar = cVar.getSuccessorInValueSet()) {
                 LinkedHashMultimap.deleteFromMultimap((ValueEntry) cVar);
             }
             LinkedHashMultimap.succeedsInValueSet(this, this);
-            this.f30869h++;
+            this.f30964h++;
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
             int d2 = e0.d(obj);
-            for (ValueEntry<K, V> valueEntry = this.f30867f[c() & d2]; valueEntry != null; valueEntry = valueEntry.nextInValueBucket) {
+            for (ValueEntry<K, V> valueEntry = this.f30962f[c() & d2]; valueEntry != null; valueEntry = valueEntry.nextInValueBucket) {
                 if (valueEntry.matchesValue(obj, d2)) {
                     return true;
                 }
@@ -245,10 +245,10 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
         /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: com.google.common.collect.LinkedHashMultimap$c<K, V> */
         /* JADX WARN: Multi-variable type inference failed */
         public final void d() {
-            if (e0.b(this.f30868g, this.f30867f.length, 1.0d)) {
-                int length = this.f30867f.length * 2;
+            if (e0.b(this.f30963g, this.f30962f.length, 1.0d)) {
+                int length = this.f30962f.length * 2;
                 ValueEntry<K, V>[] valueEntryArr = new ValueEntry[length];
-                this.f30867f = valueEntryArr;
+                this.f30962f = valueEntryArr;
                 int i = length - 1;
                 for (c cVar = (c<K, V>) this.i; cVar != this; cVar = (c<K, V>) cVar.getSuccessorInValueSet()) {
                     ValueEntry<K, V> valueEntry = (ValueEntry) cVar;
@@ -279,17 +279,17 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
             int d2 = e0.d(obj);
             int c2 = c() & d2;
             ValueEntry<K, V> valueEntry = null;
-            for (ValueEntry<K, V> valueEntry2 = this.f30867f[c2]; valueEntry2 != null; valueEntry2 = valueEntry2.nextInValueBucket) {
+            for (ValueEntry<K, V> valueEntry2 = this.f30962f[c2]; valueEntry2 != null; valueEntry2 = valueEntry2.nextInValueBucket) {
                 if (valueEntry2.matchesValue(obj, d2)) {
                     if (valueEntry == null) {
-                        this.f30867f[c2] = valueEntry2.nextInValueBucket;
+                        this.f30962f[c2] = valueEntry2.nextInValueBucket;
                     } else {
                         valueEntry.nextInValueBucket = valueEntry2.nextInValueBucket;
                     }
                     LinkedHashMultimap.deleteFromValueSet(valueEntry2);
                     LinkedHashMultimap.deleteFromMultimap(valueEntry2);
-                    this.f30868g--;
-                    this.f30869h++;
+                    this.f30963g--;
+                    this.f30964h++;
                     return true;
                 }
                 valueEntry = valueEntry2;
@@ -309,7 +309,7 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
         public int size() {
-            return this.f30868g;
+            return this.f30963g;
         }
     }
 
@@ -392,66 +392,66 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
         }
     }
 
-    @Override // com.google.common.collect.AbstractSetMultimap, d.g.c.c.c, d.g.c.c.h0
+    @Override // com.google.common.collect.AbstractSetMultimap, d.h.c.c.c, d.h.c.c.h0
     public /* bridge */ /* synthetic */ Map asMap() {
         return super.asMap();
     }
 
-    @Override // com.google.common.collect.AbstractMapBasedMultimap, d.g.c.c.h0
+    @Override // com.google.common.collect.AbstractMapBasedMultimap, d.h.c.c.h0
     public void clear() {
         super.clear();
         ValueEntry<K, V> valueEntry = this.multimapHeaderEntry;
         succeedsInMultimap(valueEntry, valueEntry);
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     public /* bridge */ /* synthetic */ boolean containsEntry(Object obj, Object obj2) {
         return super.containsEntry(obj, obj2);
     }
 
-    @Override // com.google.common.collect.AbstractMapBasedMultimap, d.g.c.c.h0
+    @Override // com.google.common.collect.AbstractMapBasedMultimap, d.h.c.c.h0
     public /* bridge */ /* synthetic */ boolean containsKey(Object obj) {
         return super.containsKey(obj);
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     public /* bridge */ /* synthetic */ boolean containsValue(Object obj) {
         return super.containsValue(obj);
     }
 
-    @Override // com.google.common.collect.AbstractMapBasedMultimap, d.g.c.c.c
+    @Override // com.google.common.collect.AbstractMapBasedMultimap, d.h.c.c.c
     public Iterator<Map.Entry<K, V>> entryIterator() {
         return new a();
     }
 
-    @Override // com.google.common.collect.AbstractSetMultimap, d.g.c.c.c, d.g.c.c.h0
+    @Override // com.google.common.collect.AbstractSetMultimap, d.h.c.c.c, d.h.c.c.h0
     public /* bridge */ /* synthetic */ boolean equals(Object obj) {
         return super.equals(obj);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, d.g.c.c.h0, d.g.c.c.g0
+    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, d.h.c.c.h0, d.h.c.c.g0
     public /* bridge */ /* synthetic */ Set get(Object obj) {
         return super.get((LinkedHashMultimap<K, V>) obj);
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     public /* bridge */ /* synthetic */ int hashCode() {
         return super.hashCode();
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     public /* bridge */ /* synthetic */ boolean isEmpty() {
         return super.isEmpty();
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     public Set<K> keySet() {
         return super.keySet();
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     public /* bridge */ /* synthetic */ i0 keys() {
         return super.keys();
     }
@@ -459,49 +459,49 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, d.g.c.c.c, d.g.c.c.h0
+    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, d.h.c.c.c, d.h.c.c.h0
     public /* bridge */ /* synthetic */ boolean put(Object obj, Object obj2) {
         return super.put(obj, obj2);
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     public /* bridge */ /* synthetic */ boolean putAll(h0 h0Var) {
         return super.putAll(h0Var);
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     public /* bridge */ /* synthetic */ boolean remove(Object obj, Object obj2) {
         return super.remove(obj, obj2);
     }
 
-    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, d.g.c.c.h0, d.g.c.c.g0
+    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, d.h.c.c.h0, d.h.c.c.g0
     public /* bridge */ /* synthetic */ Set removeAll(Object obj) {
         return super.removeAll(obj);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, d.g.c.c.c, d.g.c.c.h0, d.g.c.c.g0
+    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, d.h.c.c.c, d.h.c.c.h0, d.h.c.c.g0
     public /* bridge */ /* synthetic */ Collection replaceValues(Object obj, Iterable iterable) {
         return replaceValues((LinkedHashMultimap<K, V>) obj, iterable);
     }
 
-    @Override // com.google.common.collect.AbstractMapBasedMultimap, d.g.c.c.h0
+    @Override // com.google.common.collect.AbstractMapBasedMultimap, d.h.c.c.h0
     public /* bridge */ /* synthetic */ int size() {
         return super.size();
     }
 
-    @Override // d.g.c.c.c
+    @Override // d.h.c.c.c
     public /* bridge */ /* synthetic */ String toString() {
         return super.toString();
     }
 
-    @Override // com.google.common.collect.AbstractMapBasedMultimap, d.g.c.c.c
+    @Override // com.google.common.collect.AbstractMapBasedMultimap, d.h.c.c.c
     public Iterator<V> valueIterator() {
         return Maps.L(entryIterator());
     }
 
-    @Override // com.google.common.collect.AbstractMapBasedMultimap, d.g.c.c.c, d.g.c.c.h0
+    @Override // com.google.common.collect.AbstractMapBasedMultimap, d.h.c.c.c, d.h.c.c.h0
     public Collection<V> values() {
         return super.values();
     }
@@ -517,19 +517,19 @@ public final class LinkedHashMultimap<K, V> extends LinkedHashMultimapGwtSeriali
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, d.g.c.c.c, d.g.c.c.h0
+    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, d.h.c.c.c, d.h.c.c.h0
     public Set<Map.Entry<K, V>> entries() {
         return super.entries();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     public /* bridge */ /* synthetic */ boolean putAll(Object obj, Iterable iterable) {
         return super.putAll(obj, iterable);
     }
 
-    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, d.g.c.c.c, d.g.c.c.h0, d.g.c.c.g0
+    @Override // com.google.common.collect.AbstractSetMultimap, com.google.common.collect.AbstractMapBasedMultimap, d.h.c.c.c, d.h.c.c.h0, d.h.c.c.g0
     public Set<V> replaceValues(K k, Iterable<? extends V> iterable) {
         return super.replaceValues((LinkedHashMultimap<K, V>) k, (Iterable) iterable);
     }

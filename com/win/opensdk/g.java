@@ -5,16 +5,16 @@ import android.content.Context;
 public class g implements r {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PBSplash f40221a;
+    public final /* synthetic */ PBSplash f40316a;
 
     public g(PBSplash pBSplash) {
-        this.f40221a = pBSplash;
+        this.f40316a = pBSplash;
     }
 
     @Override // com.win.opensdk.PBListener
     public void onClicked() {
-        this.f40221a.k = true;
-        PBSplashListener pBSplashListener = this.f40221a.f40053e;
+        this.f40316a.k = true;
+        PBSplashListener pBSplashListener = this.f40316a.f40148e;
         if (pBSplashListener != null) {
             pBSplashListener.onClicked();
         }
@@ -22,7 +22,7 @@ public class g implements r {
 
     @Override // com.win.opensdk.r
     public void onDisplayed() {
-        PBSplashListener pBSplashListener = this.f40221a.f40053e;
+        PBSplashListener pBSplashListener = this.f40316a.f40148e;
         if (pBSplashListener != null) {
             pBSplashListener.onDisplayed();
         }
@@ -31,15 +31,15 @@ public class g implements r {
     @Override // com.win.opensdk.PBListener
     public void onFail(PBError pBError) {
         if (pBError == PBError.PID_INVALID) {
-            PBSplashListener pBSplashListener = this.f40221a.f40053e;
+            PBSplashListener pBSplashListener = this.f40316a.f40148e;
             if (pBSplashListener != null) {
                 pBSplashListener.onFail(PBError.NO_FILL);
                 return;
             }
             return;
         }
-        PBSplash pBSplash = this.f40221a;
-        PBSplashListener pBSplashListener2 = pBSplash.f40053e;
+        PBSplash pBSplash = this.f40316a;
+        PBSplashListener pBSplashListener2 = pBSplash.f40148e;
         if (pBSplashListener2 == null || pBSplash.j) {
             return;
         }
@@ -48,26 +48,26 @@ public class g implements r {
 
     @Override // com.win.opensdk.PBListener
     public void onLoaded() {
-        if (this.f40221a.f40050b.c()) {
-            PBSplash pBSplash = this.f40221a;
-            Context context = pBSplash.f40049a;
-            B1 b1 = pBSplash.f40050b.f40305a;
-            V1.c(context, (b1 == null || !b1.b()) ? 0L : b1.f39916c.getLo_timeout());
+        if (this.f40316a.f40145b.c()) {
+            PBSplash pBSplash = this.f40316a;
+            Context context = pBSplash.f40144a;
+            B1 b1 = pBSplash.f40145b.f40400a;
+            V1.c(context, (b1 == null || !b1.b()) ? 0L : b1.f40011c.getLo_timeout());
             String str = "";
-            if (this.f40221a.f40050b.b().equals("image")) {
-                B1 b12 = this.f40221a.f40050b.f40305a;
+            if (this.f40316a.f40145b.b().equals("image")) {
+                B1 b12 = this.f40316a.f40145b.f40400a;
                 if (b12 != null && b12.b()) {
-                    str = b12.f39916c.getLoad();
+                    str = b12.f40011c.getLoad();
                 }
-                this.f40221a.b(str);
-            } else if (this.f40221a.f40050b.b().equals("gif")) {
-                B1 b13 = this.f40221a.f40050b.f40305a;
+                this.f40316a.b(str);
+            } else if (this.f40316a.f40145b.b().equals("gif")) {
+                B1 b13 = this.f40316a.f40145b.f40400a;
                 if (b13 != null && b13.b()) {
-                    str = b13.f39916c.getLoad();
+                    str = b13.f40011c.getLoad();
                 }
-                this.f40221a.a(str);
+                this.f40316a.a(str);
             } else {
-                PBSplashListener pBSplashListener = this.f40221a.f40053e;
+                PBSplashListener pBSplashListener = this.f40316a.f40148e;
                 if (pBSplashListener != null) {
                     pBSplashListener.onFail(PBError.LOAD_TYPE_ERROR);
                 }

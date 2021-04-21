@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 public final class g<Z> extends h<Z> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Handler f36066a = new Handler(Looper.getMainLooper(), new Handler.Callback() { // from class: com.kwad.sdk.glide.request.a.g.1
+    public static final Handler f36161a = new Handler(Looper.getMainLooper(), new Handler.Callback() { // from class: com.kwad.sdk.glide.request.a.g.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             if (message.what == 1) {
@@ -21,11 +21,11 @@ public final class g<Z> extends h<Z> {
     });
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.glide.g f36067b;
+    public final com.kwad.sdk.glide.g f36162b;
 
     public g(com.kwad.sdk.glide.g gVar, int i, int i2) {
         super(i, i2);
-        this.f36067b = gVar;
+        this.f36162b = gVar;
     }
 
     public static <Z> g<Z> a(com.kwad.sdk.glide.g gVar, int i, int i2) {
@@ -33,11 +33,11 @@ public final class g<Z> extends h<Z> {
     }
 
     public void a() {
-        this.f36067b.a(this);
+        this.f36162b.a(this);
     }
 
     @Override // com.kwad.sdk.glide.request.a.j
     public void a(@NonNull Z z, @Nullable com.kwad.sdk.glide.request.b.b<? super Z> bVar) {
-        f36066a.obtainMessage(1, this).sendToTarget();
+        f36161a.obtainMessage(1, this).sendToTarget();
     }
 }

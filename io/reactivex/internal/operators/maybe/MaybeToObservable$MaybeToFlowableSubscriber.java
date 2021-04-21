@@ -10,7 +10,7 @@ public final class MaybeToObservable$MaybeToFlowableSubscriber<T> extends Deferr
     public static final long serialVersionUID = 7603343402964826922L;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f69063d;
+    public b f69210d;
 
     public MaybeToObservable$MaybeToFlowableSubscriber(o<? super T> oVar) {
         super(oVar);
@@ -19,7 +19,7 @@ public final class MaybeToObservable$MaybeToFlowableSubscriber<T> extends Deferr
     @Override // io.reactivex.internal.observers.DeferredScalarDisposable, io.reactivex.internal.observers.BasicIntQueueDisposable, f.b.t.b
     public void dispose() {
         super.dispose();
-        this.f69063d.dispose();
+        this.f69210d.dispose();
     }
 
     @Override // f.b.i
@@ -34,8 +34,8 @@ public final class MaybeToObservable$MaybeToFlowableSubscriber<T> extends Deferr
 
     @Override // f.b.i
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f69063d, bVar)) {
-            this.f69063d = bVar;
+        if (DisposableHelper.validate(this.f69210d, bVar)) {
+            this.f69210d = bVar;
             this.actual.onSubscribe(this);
         }
     }

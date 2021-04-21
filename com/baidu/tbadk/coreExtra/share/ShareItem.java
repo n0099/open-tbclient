@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import d.b.c.e.p.k;
-import d.b.h0.r.q.a2;
+import d.b.i0.r.q.a2;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -59,28 +59,28 @@ public class ShareItem {
     public Bundle z;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f13373a = false;
+    public boolean f13381a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f13374b = false;
+    public boolean f13382b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f13375c = false;
+    public boolean f13383c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f13376d = false;
+    public boolean f13384d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13377e = false;
+    public boolean f13385e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13378f = false;
+    public boolean f13386f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13379g = false;
+    public boolean f13387g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13380h = false;
+    public boolean f13388h = false;
     public boolean i = false;
     public boolean j = false;
     public boolean k = false;
@@ -285,10 +285,10 @@ public class ShareItem {
                 }
                 forwardInfo.showText = a2Var.r1.c();
                 OriginalThreadInfo originalThreadInfo = a2Var.r1;
-                forwardInfo.showPicUrl = originalThreadInfo.f12874c;
-                forwardInfo.showType = originalThreadInfo.f12872a;
+                forwardInfo.showPicUrl = originalThreadInfo.f12882c;
+                forwardInfo.showType = originalThreadInfo.f12880a;
                 forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
-                forwardInfo.originalTid = originalThreadInfo.f12877f;
+                forwardInfo.originalTid = originalThreadInfo.f12885f;
                 if (i == 1) {
                     if (postData != null && postData.K() != null) {
                         str = postData.K().toString();
@@ -317,8 +317,8 @@ public class ShareItem {
                 OriginalThreadInfo i2 = OriginalThreadInfo.i(a2Var);
                 if (i2 != null) {
                     forwardInfo.showText = i2.c();
-                    forwardInfo.showPicUrl = i2.f12874c;
-                    forwardInfo.showType = i2.f12872a;
+                    forwardInfo.showPicUrl = i2.f12882c;
+                    forwardInfo.showType = i2.f12880a;
                 }
                 forwardInfo.originalTid = a2Var.w1();
             }

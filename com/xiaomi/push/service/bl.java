@@ -6,23 +6,23 @@ import java.util.concurrent.ConcurrentHashMap;
 public class bl implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bk f41296a;
+    public final /* synthetic */ bk f41391a;
 
     public bl(bk bkVar) {
-        this.f41296a = bkVar;
+        this.f41391a = bkVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         ConcurrentHashMap concurrentHashMap;
         try {
-            concurrentHashMap = this.f41296a.f934a;
+            concurrentHashMap = this.f41391a.f934a;
             for (bk.a aVar : concurrentHashMap.values()) {
                 aVar.run();
             }
         } catch (Exception e2) {
             com.xiaomi.channel.commonutils.logger.b.m55a("Sync job exception :" + e2.getMessage());
         }
-        this.f41296a.f935a = false;
+        this.f41391a.f935a = false;
     }
 }

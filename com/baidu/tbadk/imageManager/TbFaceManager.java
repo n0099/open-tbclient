@@ -7,10 +7,10 @@ import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import d.b.h0.a0.a;
-import d.b.h0.a0.c;
-import d.b.h0.b1.d;
-import d.b.h0.r.f0.e;
+import d.b.i0.a0.a;
+import d.b.i0.a0.c;
+import d.b.i0.b1.d;
+import d.b.i0.r.f0.e;
 import java.io.Serializable;
 import java.security.InvalidParameterException;
 import java.util.regex.Matcher;
@@ -19,23 +19,23 @@ import java.util.regex.Pattern;
 public class TbFaceManager {
 
     /* renamed from: c  reason: collision with root package name */
-    public static TbFaceManager f13595c = null;
+    public static TbFaceManager f13603c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f13596d = "#[\\(][\\w?~！]+[\\)]|\\[[\\u4e00-\\u9fa5\\w]+\\]|#[\\(]+[A-Za-z0-9_\\-\\u4e00-\\u9fa5]+[\\)]";
+    public static String f13604d = "#[\\(][\\w?~！]+[\\)]|\\[[\\u4e00-\\u9fa5\\w]+\\]|#[\\(]+[A-Za-z0-9_\\-\\u4e00-\\u9fa5]+[\\)]";
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f13597a = null;
+    public Context f13605a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.b.h0.a0.a f13598b = null;
+    public d.b.i0.a0.a f13606b = null;
 
     /* loaded from: classes3.dex */
     public static class RichUnit extends OrmObject implements Serializable {
         public static final long serialVersionUID = -3736301305777944719L;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f13599c;
+        public String f13607c;
         public String text;
         public Integer type;
     }
@@ -46,10 +46,10 @@ public class TbFaceManager {
     }
 
     public static TbFaceManager e() {
-        if (f13595c == null) {
-            f13595c = new TbFaceManager();
+        if (f13603c == null) {
+            f13603c = new TbFaceManager();
         }
-        return f13595c;
+        return f13603c;
     }
 
     public d.b.c.j.d.a a(String str) {
@@ -57,19 +57,19 @@ public class TbFaceManager {
     }
 
     public int b(String str) {
-        return this.f13598b.c(str);
+        return this.f13606b.c(str);
     }
 
-    public a.C1055a c(String str) {
+    public a.C1077a c(String str) {
         d.b.c.j.d.a a2;
-        a.C1055a a3 = this.f13598b.a(this.f13597a, str);
-        return (a3 != null || (a2 = a(str)) == null) ? a3 : new a.C1055a(a2.r(), a2.m());
+        a.C1077a a3 = this.f13606b.a(this.f13605a, str);
+        return (a3 != null || (a2 = a(str)) == null) ? a3 : new a.C1077a(a2.r(), a2.m());
     }
 
     public final d.b.c.j.d.a d(int i, String str) {
         Bitmap resBitmap;
         d.b.c.j.d.a m = c.k().m(str);
-        if (m != null || (resBitmap = BitmapHelper.getResBitmap(this.f13597a, i)) == null) {
+        if (m != null || (resBitmap = BitmapHelper.getResBitmap(this.f13605a, i)) == null) {
             return m;
         }
         d.b.c.j.d.a aVar = new d.b.c.j.d.a(resBitmap, false, str);
@@ -78,21 +78,21 @@ public class TbFaceManager {
     }
 
     public String f(String str) {
-        return this.f13598b.d(str);
+        return this.f13606b.d(str);
     }
 
     public int g(String str) {
-        return this.f13598b.e(str);
+        return this.f13606b.e(str);
     }
 
     public int h() {
-        return this.f13598b.b();
+        return this.f13606b.b();
     }
 
-    public void i(Context context, d.b.h0.a0.a aVar) {
+    public void i(Context context, d.b.i0.a0.a aVar) {
         if (context != null && aVar != null) {
-            this.f13597a = context;
-            this.f13598b = aVar;
+            this.f13605a = context;
+            this.f13606b = aVar;
             return;
         }
         throw new InvalidParameterException("TbFaceManager initial error");
@@ -104,10 +104,10 @@ public class TbFaceManager {
             return null;
         }
         SpannableString spannableString = new SpannableString(str);
-        Matcher matcher = Pattern.compile(f13596d).matcher(str);
+        Matcher matcher = Pattern.compile(f13604d).matcher(str);
         while (matcher.find()) {
             String group = matcher.group();
-            int e2 = this.f13598b.e(group);
+            int e2 = this.f13606b.e(group);
             if (e2 > 0 && (d2 = d(e2, String.valueOf(e2))) != null) {
                 int length = group.length();
                 int start = matcher.start();
@@ -125,10 +125,10 @@ public class TbFaceManager {
             return null;
         }
         SpannableString spannableString = new SpannableString(str);
-        Matcher matcher = Pattern.compile(f13596d).matcher(str);
+        Matcher matcher = Pattern.compile(f13604d).matcher(str);
         while (matcher.find()) {
             String group = matcher.group();
-            int e2 = this.f13598b.e(group);
+            int e2 = this.f13606b.e(group);
             if (e2 > 0 && (d2 = d(e2, String.valueOf(e2))) != null) {
                 int length = group.length();
                 int start = matcher.start();
@@ -147,10 +147,10 @@ public class TbFaceManager {
             return null;
         }
         SpannableString spannableString = new SpannableString(str);
-        Matcher matcher = Pattern.compile(f13596d).matcher(str);
+        Matcher matcher = Pattern.compile(f13604d).matcher(str);
         while (matcher.find()) {
             String group = matcher.group();
-            int e2 = this.f13598b.e(group);
+            int e2 = this.f13606b.e(group);
             if (e2 > 0) {
                 d.b.c.j.d.a d2 = d(e2, String.valueOf(e2));
                 if (d2 != null) {

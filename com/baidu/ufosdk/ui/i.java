@@ -10,27 +10,27 @@ import android.view.View;
 public final class i extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f22962a;
+    public Paint f22970a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Path f22963b;
+    public Path f22971b;
 
     public i(Context context) {
         super(context);
         Paint paint = new Paint(1);
-        this.f22962a = paint;
+        this.f22970a = paint;
         paint.setColor(-3355444);
-        this.f22962a.setStyle(Paint.Style.STROKE);
-        this.f22962a.setStrokeWidth(3.0f);
-        this.f22963b = new Path();
-        this.f22962a.setPathEffect(new DashPathEffect(new float[]{15.0f, 5.0f}, 0.0f));
+        this.f22970a.setStyle(Paint.Style.STROKE);
+        this.f22970a.setStrokeWidth(3.0f);
+        this.f22971b = new Path();
+        this.f22970a.setPathEffect(new DashPathEffect(new float[]{15.0f, 5.0f}, 0.0f));
     }
 
     @Override // android.view.View
     public final void onDraw(Canvas canvas) {
-        this.f22963b.reset();
-        this.f22963b.moveTo(0.0f, 0.0f);
-        this.f22963b.lineTo(getWidth(), 0.0f);
-        canvas.drawPath(this.f22963b, this.f22962a);
+        this.f22971b.reset();
+        this.f22971b.moveTo(0.0f, 0.0f);
+        this.f22971b.lineTo(getWidth(), 0.0f);
+        canvas.drawPath(this.f22971b, this.f22970a);
     }
 }

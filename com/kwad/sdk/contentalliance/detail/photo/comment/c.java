@@ -6,18 +6,18 @@ import java.util.Set;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Set<String> f32536a = new HashSet();
+    public static Set<String> f32631a = new HashSet();
 
     public static void a(long j, long j2) {
-        f32536a.add(d(j, j2));
+        f32631a.add(d(j, j2));
     }
 
     public static void b(long j, long j2) {
-        f32536a.remove(d(j, j2));
+        f32631a.remove(d(j, j2));
     }
 
     public static boolean c(long j, long j2) {
-        return f32536a.contains(d(j, j2));
+        return f32631a.contains(d(j, j2));
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r1v0 long), (r3v0 long)] */

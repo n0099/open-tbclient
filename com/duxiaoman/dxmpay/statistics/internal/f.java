@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.xiaomi.mipush.sdk.Constants;
-import d.d.a.a.a;
-import d.d.a.a.b.l;
+import d.e.a.a.a;
+import d.e.a.a.b.l;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<String> f30410a = new ArrayList<String>() { // from class: com.duxiaoman.dxmpay.statistics.internal.DataConvertUtils$1
+    public static final List<String> f30505a = new ArrayList<String>() { // from class: com.duxiaoman.dxmpay.statistics.internal.DataConvertUtils$1
         {
             add("HUAWEI");
             add("OPPO");
@@ -30,7 +30,7 @@ public class f {
         String trim = str == null ? RomUtils.UNKNOWN : str.trim();
         try {
             if (!TextUtils.isEmpty(trim)) {
-                for (String str2 : f30410a) {
+                for (String str2 : f30505a) {
                     if (str2.equalsIgnoreCase(trim)) {
                         return str2;
                     }

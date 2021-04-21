@@ -14,13 +14,13 @@ import d.b.c.e.p.j;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f42036a = false;
+    public boolean f42276a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f42037b = 0;
+    public int f42277b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Handler f42038c = new a(Looper.getMainLooper());
+    public final Handler f42278c = new a(Looper.getMainLooper());
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -34,20 +34,20 @@ public class d {
             if (message.what != 1) {
                 return;
             }
-            d.this.f42038c.removeMessages(1);
-            BdLog.i("this is reconn time:" + d.this.f42037b);
+            d.this.f42278c.removeMessages(1);
+            BdLog.i("this is reconn time:" + d.this.f42277b);
             BdSocketLinkService.startService(true, "time to reconnStragety");
             d.c(d.this);
             if (j.z()) {
-                if (d.this.f42037b >= d.b.c.e.n.k.a.o().q("alert_im", 3)) {
+                if (d.this.f42277b >= d.b.c.e.n.k.a.o().q("alert_im", 3)) {
                     BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                    bdStatisticsManager.alert("alert_im", "Socket_Reconnect_" + String.valueOf(d.this.f42037b) + "_times");
+                    bdStatisticsManager.alert("alert_im", "Socket_Reconnect_" + String.valueOf(d.this.f42277b) + "_times");
                 }
             }
             int[] c2 = h.c();
-            if (c2 != null && d.this.f42037b < c2.length) {
-                BdLog.i("Next will be delay:" + c2[d.this.f42037b]);
-                d.this.f42038c.sendMessageDelayed(d.this.f42038c.obtainMessage(1), (long) (c2[d.this.f42037b] * 1000));
+            if (c2 != null && d.this.f42277b < c2.length) {
+                BdLog.i("Next will be delay:" + c2[d.this.f42277b]);
+                d.this.f42278c.sendMessageDelayed(d.this.f42278c.obtainMessage(1), (long) (c2[d.this.f42277b] * 1000));
                 return;
             }
             d.this.f("reconnStragety to the end");
@@ -55,8 +55,8 @@ public class d {
     }
 
     public static /* synthetic */ int c(d dVar) {
-        int i = dVar.f42037b;
-        dVar.f42037b = i + 1;
+        int i = dVar.f42277b;
+        dVar.f42277b = i + 1;
         return i;
     }
 
@@ -66,9 +66,9 @@ public class d {
     public void e(String str) {
         if (!BdSocketLinkService.isAvailable()) {
             f("online failed 5");
-        } else if (!this.f42036a) {
-            this.f42036a = true;
-            this.f42038c.removeMessages(1);
+        } else if (!this.f42276a) {
+            this.f42276a = true;
+            this.f42278c.removeMessages(1);
             if (d.b.c.e.r.h.j().l()) {
                 BdLog.d("启动重连策略失败，  WebSocketClient opened");
                 f("in Opened");
@@ -76,13 +76,13 @@ public class d {
             }
             d();
             BdLog.d("启动重连策略");
-            this.f42037b = 0;
+            this.f42277b = 0;
             int[] c2 = h.c();
             if (c2 != null && c2.length >= 1) {
                 BdLog.i("start reconnStrategy... the first will be delay" + c2[0]);
                 int i = BdSocketLinkService.STOP_RECONN;
-                i.a("reconn", 0, 0, "reconn", i, str + " retryTimes=" + String.valueOf(this.f42037b));
-                Handler handler = this.f42038c;
+                i.a("reconn", 0, 0, "reconn", i, str + " retryTimes=" + String.valueOf(this.f42277b));
+                Handler handler = this.f42278c;
                 handler.sendMessageDelayed(handler.obtainMessage(1), (long) (c2[0] * 1000));
                 return;
             }
@@ -94,12 +94,12 @@ public class d {
     }
 
     public void f(String str) {
-        if (this.f42036a) {
+        if (this.f42276a) {
             i.a("reconn", 0, 0, IntentConfig.STOP, BdSocketLinkService.STOP_RECONN, str);
-            this.f42036a = false;
-            this.f42037b = 0;
+            this.f42276a = false;
+            this.f42277b = 0;
             BdLog.i("stop reconnStrategy");
-            this.f42038c.removeMessages(1);
+            this.f42278c.removeMessages(1);
         }
     }
 }

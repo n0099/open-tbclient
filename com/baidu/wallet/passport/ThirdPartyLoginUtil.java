@@ -26,11 +26,11 @@ public class ThirdPartyLoginUtil implements NoProguard {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static ThirdPartyLoginUtil f25040a = new ThirdPartyLoginUtil();
+        public static ThirdPartyLoginUtil f25048a = new ThirdPartyLoginUtil();
     }
 
     public static ThirdPartyLoginUtil getInstance() {
-        return a.f25040a;
+        return a.f25048a;
     }
 
     public boolean checkThirdPartyLogin(final Activity activity, int i, String str, final WalletApiExtListener.ThirdPartyLoginListener thirdPartyLoginListener) {

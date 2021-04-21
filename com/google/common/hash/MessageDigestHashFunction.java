@@ -1,14 +1,14 @@
 package com.google.common.hash;
 
-import d.g.c.a.n;
-import d.g.c.d.f;
+import d.h.c.a.n;
+import d.h.c.d.f;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 /* loaded from: classes6.dex */
-public final class MessageDigestHashFunction extends d.g.c.d.b implements Serializable {
+public final class MessageDigestHashFunction extends d.h.c.d.b implements Serializable {
     public final int bytes;
     public final MessageDigest prototype;
     public final boolean supportsClone;
@@ -33,52 +33,52 @@ public final class MessageDigestHashFunction extends d.g.c.d.b implements Serial
     }
 
     /* loaded from: classes6.dex */
-    public static final class b extends d.g.c.d.a {
+    public static final class b extends d.h.c.d.a {
 
         /* renamed from: b  reason: collision with root package name */
-        public final MessageDigest f31099b;
+        public final MessageDigest f31194b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f31100c;
+        public final int f31195c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f31101d;
+        public boolean f31196d;
 
-        @Override // d.g.c.d.f
+        @Override // d.h.c.d.f
         public HashCode g() {
             q();
-            this.f31101d = true;
-            if (this.f31100c == this.f31099b.getDigestLength()) {
-                return HashCode.fromBytesNoCopy(this.f31099b.digest());
+            this.f31196d = true;
+            if (this.f31195c == this.f31194b.getDigestLength()) {
+                return HashCode.fromBytesNoCopy(this.f31194b.digest());
             }
-            return HashCode.fromBytesNoCopy(Arrays.copyOf(this.f31099b.digest(), this.f31100c));
+            return HashCode.fromBytesNoCopy(Arrays.copyOf(this.f31194b.digest(), this.f31195c));
         }
 
-        @Override // d.g.c.d.a
+        @Override // d.h.c.d.a
         public void m(byte b2) {
             q();
-            this.f31099b.update(b2);
+            this.f31194b.update(b2);
         }
 
-        @Override // d.g.c.d.a
+        @Override // d.h.c.d.a
         public void n(ByteBuffer byteBuffer) {
             q();
-            this.f31099b.update(byteBuffer);
+            this.f31194b.update(byteBuffer);
         }
 
-        @Override // d.g.c.d.a
+        @Override // d.h.c.d.a
         public void p(byte[] bArr, int i, int i2) {
             q();
-            this.f31099b.update(bArr, i, i2);
+            this.f31194b.update(bArr, i, i2);
         }
 
         public final void q() {
-            n.x(!this.f31101d, "Cannot re-use a Hasher after calling hash() on it");
+            n.x(!this.f31196d, "Cannot re-use a Hasher after calling hash() on it");
         }
 
         public b(MessageDigest messageDigest, int i) {
-            this.f31099b = messageDigest;
-            this.f31100c = i;
+            this.f31194b = messageDigest;
+            this.f31195c = i;
         }
     }
 
@@ -112,7 +112,7 @@ public final class MessageDigestHashFunction extends d.g.c.d.b implements Serial
         return this.bytes * 8;
     }
 
-    @Override // d.g.c.d.e
+    @Override // d.h.c.d.e
     public f newHasher() {
         if (this.supportsClone) {
             try {

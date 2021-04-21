@@ -16,13 +16,13 @@ import java.util.Arrays;
 public class RoundAndShadowLinearLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f21853e;
+    public float f21861e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Shape f21854f;
+    public Shape f21862f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f21855g;
+    public Paint f21863g;
 
     public RoundAndShadowLinearLayout(Context context) {
         this(context, null);
@@ -33,9 +33,9 @@ public class RoundAndShadowLinearLayout extends LinearLayout {
         int saveCount = canvas.getSaveCount();
         canvas.save();
         super.dispatchDraw(canvas);
-        Shape shape = this.f21854f;
+        Shape shape = this.f21862f;
         if (shape != null) {
-            shape.draw(canvas, this.f21855g);
+            shape.draw(canvas, this.f21863g);
         }
         if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
             return;
@@ -47,21 +47,21 @@ public class RoundAndShadowLinearLayout extends LinearLayout {
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            if (this.f21854f == null) {
+            if (this.f21862f == null) {
                 float[] fArr = new float[8];
                 Arrays.fill(fArr, 0.0f);
                 RectF rectF = new RectF(getPaddingLeft() <= 0 ? 0.1f : getPaddingLeft(), getPaddingTop() <= 0 ? 0.1f : getPaddingTop(), getPaddingRight() <= 0 ? 0.1f : getPaddingRight(), getPaddingBottom() > 0 ? getPaddingBottom() : 0.1f);
                 float[] fArr2 = new float[8];
                 Arrays.fill(fArr, 0.0f);
-                Arrays.fill(fArr2, this.f21853e);
-                this.f21854f = new RoundRectShape(fArr, rectF, fArr2);
+                Arrays.fill(fArr2, this.f21861e);
+                this.f21862f = new RoundRectShape(fArr, rectF, fArr2);
             }
-            this.f21854f.resize(getWidth(), getHeight());
+            this.f21862f.resize(getWidth(), getHeight());
         }
     }
 
     public void setRadius(float f2) {
-        this.f21853e = f2;
+        this.f21861e = f2;
     }
 
     public RoundAndShadowLinearLayout(Context context, AttributeSet attributeSet) {
@@ -70,14 +70,14 @@ public class RoundAndShadowLinearLayout extends LinearLayout {
 
     public RoundAndShadowLinearLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f21853e = 0.0f;
+        this.f21861e = 0.0f;
         setLayerType(1, null);
-        this.f21853e = getResources().getDimension(R.dimen.tbds32);
+        this.f21861e = getResources().getDimension(R.dimen.tbds32);
         Paint paint = new Paint();
-        this.f21855g = paint;
+        this.f21863g = paint;
         paint.setAntiAlias(true);
-        this.f21855g.setColor(-7829368);
-        this.f21855g.setStyle(Paint.Style.FILL);
-        this.f21855g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f21863g.setColor(-7829368);
+        this.f21863g.setStyle(Paint.Style.FILL);
+        this.f21863g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
     }
 }

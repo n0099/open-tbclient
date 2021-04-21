@@ -2,12 +2,12 @@ package com.google.common.collect;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Tables;
-import d.g.c.a.j;
-import d.g.c.a.n;
-import d.g.c.c.c1;
-import d.g.c.c.f0;
-import d.g.c.c.i;
-import d.g.c.c.y0;
+import d.h.c.a.j;
+import d.h.c.a.n;
+import d.h.c.c.c1;
+import d.h.c.c.f0;
+import d.h.c.c.i;
+import d.h.c.c.y0;
 import java.io.Serializable;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -63,21 +63,21 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
     public static final class a<R, C, V> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<y0.a<R, C, V>> f30843a = Lists.i();
+        public final List<y0.a<R, C, V>> f30938a = Lists.i();
 
         /* renamed from: b  reason: collision with root package name */
-        public Comparator<? super R> f30844b;
+        public Comparator<? super R> f30939b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Comparator<? super C> f30845c;
+        public Comparator<? super C> f30940c;
 
         public ImmutableTable<R, C, V> a() {
-            int size = this.f30843a.size();
+            int size = this.f30938a.size();
             if (size != 0) {
                 if (size != 1) {
-                    return RegularImmutableTable.forCells(this.f30843a, this.f30844b, this.f30845c);
+                    return RegularImmutableTable.forCells(this.f30938a, this.f30939b, this.f30940c);
                 }
-                return new SingletonImmutableTable((y0.a) f0.h(this.f30843a));
+                return new SingletonImmutableTable((y0.a) f0.h(this.f30938a));
             }
             return ImmutableTable.of();
         }
@@ -87,7 +87,7 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
                 n.q(aVar.getRowKey(), "row");
                 n.q(aVar.getColumnKey(), "column");
                 n.q(aVar.getValue(), "value");
-                this.f30843a.add(aVar);
+                this.f30938a.add(aVar);
             } else {
                 c(aVar.getRowKey(), aVar.getColumnKey(), aVar.getValue());
             }
@@ -95,7 +95,7 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
         }
 
         public a<R, C, V> c(R r, C c2, V v) {
-            this.f30843a.add(ImmutableTable.cellOf(r, c2, v));
+            this.f30938a.add(ImmutableTable.cellOf(r, c2, v));
             return this;
         }
     }
@@ -122,7 +122,7 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
         return (ImmutableTable<R, C, V>) SparseImmutableTable.EMPTY;
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.h.c.c.i, d.h.c.c.y0
     @Deprecated
     public final void clear() {
         throw new UnsupportedOperationException();
@@ -130,78 +130,78 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // d.g.c.c.y0
+    @Override // d.h.c.c.y0
     public /* bridge */ /* synthetic */ Map column(Object obj) {
         return column((ImmutableTable<R, C, V>) obj);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.y0
+    @Override // d.h.c.c.y0
     public abstract ImmutableMap<C, Map<R, V>> columnMap();
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.h.c.c.i, d.h.c.c.y0
     public boolean contains(Object obj, Object obj2) {
         return get(obj, obj2) != null;
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.h.c.c.i, d.h.c.c.y0
     public /* bridge */ /* synthetic */ boolean containsColumn(Object obj) {
         return super.containsColumn(obj);
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.h.c.c.i, d.h.c.c.y0
     public /* bridge */ /* synthetic */ boolean containsRow(Object obj) {
         return super.containsRow(obj);
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.h.c.c.i, d.h.c.c.y0
     public boolean containsValue(Object obj) {
         return values().contains(obj);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.i
+    @Override // d.h.c.c.i
     public abstract ImmutableSet<y0.a<R, C, V>> createCellSet();
 
     public abstract SerializedForm createSerializedForm();
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.i
+    @Override // d.h.c.c.i
     public abstract ImmutableCollection<V> createValues();
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.h.c.c.i, d.h.c.c.y0
     public /* bridge */ /* synthetic */ boolean equals(Object obj) {
         return super.equals(obj);
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.h.c.c.i, d.h.c.c.y0
     public /* bridge */ /* synthetic */ Object get(Object obj, Object obj2) {
         return super.get(obj, obj2);
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.h.c.c.i, d.h.c.c.y0
     public /* bridge */ /* synthetic */ int hashCode() {
         return super.hashCode();
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.h.c.c.i, d.h.c.c.y0
     public /* bridge */ /* synthetic */ boolean isEmpty() {
         return super.isEmpty();
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.h.c.c.i, d.h.c.c.y0
     @Deprecated
     public final V put(R r, C c2, V v) {
         throw new UnsupportedOperationException();
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.h.c.c.i, d.h.c.c.y0
     @Deprecated
     public final void putAll(y0<? extends R, ? extends C, ? extends V> y0Var) {
         throw new UnsupportedOperationException();
     }
 
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.h.c.c.i, d.h.c.c.y0
     @Deprecated
     public final V remove(Object obj, Object obj2) {
         throw new UnsupportedOperationException();
@@ -209,24 +209,24 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // d.g.c.c.y0
+    @Override // d.h.c.c.y0
     public /* bridge */ /* synthetic */ Map row(Object obj) {
         return row((ImmutableTable<R, C, V>) obj);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.y0
+    @Override // d.h.c.c.y0
     public abstract ImmutableMap<R, Map<C, V>> rowMap();
 
-    @Override // d.g.c.c.y0
+    @Override // d.h.c.c.y0
     public abstract /* synthetic */ int size();
 
-    @Override // d.g.c.c.i
+    @Override // d.h.c.c.i
     public /* bridge */ /* synthetic */ String toString() {
         return super.toString();
     }
 
-    @Override // d.g.c.c.i
+    @Override // d.h.c.c.i
     public final Iterator<V> valuesIterator() {
         throw new AssertionError("should never be called");
     }
@@ -240,43 +240,43 @@ public abstract class ImmutableTable<R, C, V> extends i<R, C, V> implements Seri
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.i
+    @Override // d.h.c.c.i
     public final c1<y0.a<R, C, V>> cellIterator() {
         throw new AssertionError("should never be called");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.h.c.c.i, d.h.c.c.y0
     public ImmutableSet<y0.a<R, C, V>> cellSet() {
         return (ImmutableSet) super.cellSet();
     }
 
-    @Override // d.g.c.c.y0
+    @Override // d.h.c.c.y0
     public ImmutableMap<R, V> column(C c2) {
         n.q(c2, "columnKey");
         return (ImmutableMap) j.a((ImmutableMap) columnMap().get(c2), ImmutableMap.of());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.h.c.c.i, d.h.c.c.y0
     public ImmutableSet<C> columnKeySet() {
         return columnMap().keySet();
     }
 
-    @Override // d.g.c.c.y0
+    @Override // d.h.c.c.y0
     public ImmutableMap<C, V> row(R r) {
         n.q(r, "rowKey");
         return (ImmutableMap) j.a((ImmutableMap) rowMap().get(r), ImmutableMap.of());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.h.c.c.i, d.h.c.c.y0
     public ImmutableSet<R> rowKeySet() {
         return rowMap().keySet();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.i, d.g.c.c.y0
+    @Override // d.h.c.c.i, d.h.c.c.y0
     public ImmutableCollection<V> values() {
         return (ImmutableCollection) super.values();
     }

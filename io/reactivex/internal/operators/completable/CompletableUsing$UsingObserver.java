@@ -12,7 +12,7 @@ public final class CompletableUsing$UsingObserver<R> extends AtomicReference<Obj
     public final b actual;
 
     /* renamed from: d  reason: collision with root package name */
-    public f.b.t.b f69035d;
+    public f.b.t.b f69182d;
     public final g<? super R> disposer;
     public final boolean eager;
 
@@ -25,8 +25,8 @@ public final class CompletableUsing$UsingObserver<R> extends AtomicReference<Obj
 
     @Override // f.b.t.b
     public void dispose() {
-        this.f69035d.dispose();
-        this.f69035d = DisposableHelper.DISPOSED;
+        this.f69182d.dispose();
+        this.f69182d = DisposableHelper.DISPOSED;
         disposeResourceAfter();
     }
 
@@ -44,12 +44,12 @@ public final class CompletableUsing$UsingObserver<R> extends AtomicReference<Obj
 
     @Override // f.b.t.b
     public boolean isDisposed() {
-        return this.f69035d.isDisposed();
+        return this.f69182d.isDisposed();
     }
 
     @Override // f.b.b
     public void onComplete() {
-        this.f69035d = DisposableHelper.DISPOSED;
+        this.f69182d = DisposableHelper.DISPOSED;
         if (this.eager) {
             Object andSet = getAndSet(this);
             if (andSet == this) {
@@ -72,7 +72,7 @@ public final class CompletableUsing$UsingObserver<R> extends AtomicReference<Obj
 
     @Override // f.b.b
     public void onError(Throwable th) {
-        this.f69035d = DisposableHelper.DISPOSED;
+        this.f69182d = DisposableHelper.DISPOSED;
         if (this.eager) {
             Object andSet = getAndSet(this);
             if (andSet == this) {
@@ -94,8 +94,8 @@ public final class CompletableUsing$UsingObserver<R> extends AtomicReference<Obj
 
     @Override // f.b.b
     public void onSubscribe(f.b.t.b bVar) {
-        if (DisposableHelper.validate(this.f69035d, bVar)) {
-            this.f69035d = bVar;
+        if (DisposableHelper.validate(this.f69182d, bVar)) {
+            this.f69182d = bVar;
             this.actual.onSubscribe(this);
         }
     }

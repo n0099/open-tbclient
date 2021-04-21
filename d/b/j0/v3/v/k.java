@@ -1,0 +1,389 @@
+package d.b.j0.v3.v;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.R;
+import com.baidu.tieba.frs.ForumWriteData;
+import com.baidu.tieba.write.write.MultiImagePagerAdapter;
+import com.baidu.tieba.write.write.WriteMultiImgsActivity;
+import com.baidu.tieba.write.write.model.StickerModel;
+import com.baidu.tieba.write.write.sticker.view.StickerLayout;
+import com.kwad.sdk.core.imageloader.utils.StorageUtils;
+import d.b.c.e.p.l;
+import d.b.i0.r.s.a;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+/* loaded from: classes5.dex */
+public class k implements d.b.j0.v3.v.l.a, MultiImagePagerAdapter.c {
+
+    /* renamed from: a  reason: collision with root package name */
+    public TbPageContext<WriteMultiImgsActivity> f63981a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public j f63982b;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ForumWriteData f63985e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public d.b.i0.r.s.a f63986f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public StickerModel f63987g;
+    public PermissionJudgePolicy l;
+
+    /* renamed from: c  reason: collision with root package name */
+    public MultiImagePagerAdapter f63983c = null;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f63984d = 0;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f63988h = 0;
+    public WriteImagesInfo i = null;
+    public int j = TbadkCoreApplication.getInst().getSkinType();
+    public HashMap<String, String> k = new HashMap<>();
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (view.getTag() != null) {
+                k.this.f63983c.j(Integer.parseInt(view.getTag().toString()), k.this.b());
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public b() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (k.this.f63981a == null) {
+                return;
+            }
+            Activity pageActivity = k.this.f63981a.getPageActivity();
+            if (k.this.l == null) {
+                k.this.l = new PermissionJudgePolicy();
+            }
+            k.this.l.clearRequestPermissionList();
+            k.this.l.appendRequestPermission(pageActivity, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+            if (k.this.l.startRequestPermission(pageActivity)) {
+                return;
+            }
+            k.this.f63983c.g(false);
+            if (k.this.f63982b == null) {
+                return;
+            }
+            if (k.this.i == null || k.this.i.getChosedFiles() == null || k.this.i.getChosedFiles().size() <= 0 || !k.this.i.isOriginalImg() || k.this.f63988h <= 0 || !k.this.o()) {
+                k.this.f63982b.k(true, k.this.i);
+            } else {
+                k.this.f63982b.q();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements a.e {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ int f63991e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ boolean f63992f;
+
+        public c(int i, boolean z) {
+            this.f63991e = i;
+            this.f63992f = z;
+        }
+
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
+            if (k.this.f63986f != null) {
+                k.this.f63986f.dismiss();
+            }
+            MultiImagePagerAdapter multiImagePagerAdapter = k.this.f63983c;
+            if (multiImagePagerAdapter != null) {
+                multiImagePagerAdapter.j(this.f63991e, this.f63992f);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements a.e {
+        public d() {
+        }
+
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
+            if (k.this.f63986f != null) {
+                k.this.f63986f.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e implements a.e {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Bitmap f63995e;
+
+        public e(Bitmap bitmap) {
+            this.f63995e = bitmap;
+        }
+
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
+            if (k.this.f63986f != null) {
+                k.this.f63986f.dismiss();
+            }
+            k.this.f63982b.i(this.f63995e);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class f implements a.e {
+        public f() {
+        }
+
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
+            if (k.this.f63986f != null) {
+                k.this.f63986f.dismiss();
+            }
+        }
+    }
+
+    public k(TbPageContext<WriteMultiImgsActivity> tbPageContext, j jVar, Bundle bundle) {
+        this.f63981a = tbPageContext;
+        this.f63982b = jVar;
+        x(bundle);
+        y();
+        A();
+    }
+
+    public void A() {
+        if (this.f63981a == null) {
+            return;
+        }
+        if (!d.b.c.e.p.j.z()) {
+            if (this.f63981a.getContext() != null) {
+                l.K(this.f63981a.getContext(), R.string.neterror);
+                return;
+            }
+            return;
+        }
+        if (this.f63987g == null) {
+            this.f63987g = new StickerModel(this.f63981a);
+        }
+        this.f63987g.LoadData();
+        this.f63987g.t(this);
+    }
+
+    @Override // com.baidu.tieba.write.write.MultiImagePagerAdapter.c
+    public void a() {
+        s();
+        r(false);
+    }
+
+    @Override // com.baidu.tieba.write.write.MultiImagePagerAdapter.c
+    public boolean b() {
+        StickerLayout stickerLayout;
+        j jVar = this.f63982b;
+        return (jVar == null || (stickerLayout = jVar.f63973f) == null || ListUtils.isEmpty(stickerLayout.getStickerViews())) ? false : true;
+    }
+
+    @Override // com.baidu.tieba.write.write.MultiImagePagerAdapter.c
+    public void c() {
+    }
+
+    @Override // d.b.j0.v3.v.l.a
+    public void d(List<String> list) {
+        j jVar = this.f63982b;
+        if (jVar != null) {
+            jVar.a(list);
+        }
+    }
+
+    @Override // com.baidu.tieba.write.write.MultiImagePagerAdapter.c
+    public void e(int i, boolean z) {
+        p(i, z);
+    }
+
+    public void n() {
+        this.f63988h++;
+    }
+
+    public final boolean o() {
+        WriteImagesInfo writeImagesInfo = this.i;
+        if (writeImagesInfo != null && writeImagesInfo.isOriginalImg() && this.i.getChosedFiles() != null && this.i.getChosedFiles().size() != 0) {
+            Iterator<ImageFileInfo> it = this.i.getChosedFiles().iterator();
+            while (it.hasNext()) {
+                ImageFileInfo next = it.next();
+                if (next != null && next.hasActionsWithoutResize() && StringUtils.isNull(this.k.get(next.getFilePath()))) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public final void p(int i, boolean z) {
+        TbPageContext<WriteMultiImgsActivity> tbPageContext = this.f63981a;
+        if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
+            return;
+        }
+        if (this.f63986f == null) {
+            d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(this.f63981a.getPageActivity());
+            this.f63986f = aVar;
+            aVar.setMessageId(R.string.orginal_tip);
+            this.f63986f.setPositiveButton(R.string.alert_yes_button, new c(i, z));
+            this.f63986f.setNegativeButton(R.string.cancel, new d());
+            this.f63986f.create(this.f63981a);
+        }
+        this.f63986f.show();
+    }
+
+    public boolean q(Bitmap bitmap) {
+        TbPageContext<WriteMultiImgsActivity> tbPageContext;
+        if (!this.f63983c.m() || (tbPageContext = this.f63981a) == null || tbPageContext.getPageActivity() == null) {
+            return false;
+        }
+        if (this.f63986f == null) {
+            d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(this.f63981a.getPageActivity());
+            this.f63986f = aVar;
+            aVar.setMessageId(R.string.orginal_tip);
+            this.f63986f.setPositiveButton(R.string.alert_yes_button, new e(bitmap));
+            this.f63986f.setNegativeButton(R.string.cancel, new f());
+            this.f63986f.create(this.f63981a);
+        }
+        this.f63986f.show();
+        return true;
+    }
+
+    public void r(boolean z) {
+        if (b()) {
+            this.f63982b.f63972e.setmDisallowSlip(true);
+        } else {
+            this.f63982b.f63972e.setmDisallowSlip(false);
+        }
+    }
+
+    public void s() {
+        this.f63988h--;
+    }
+
+    public void t() {
+        StickerModel stickerModel = this.f63987g;
+        if (stickerModel != null) {
+            stickerModel.destroy();
+        }
+    }
+
+    public int u() {
+        return this.f63984d;
+    }
+
+    public ForumWriteData v() {
+        return this.f63985e;
+    }
+
+    public WriteImagesInfo w() {
+        return this.i;
+    }
+
+    public final void x(Bundle bundle) {
+        String str;
+        int i;
+        Intent intent;
+        int intExtra;
+        if (bundle != null) {
+            str = bundle.getString(WriteMultiImgsActivity.OUTSTATE_KEY_WRITE_IMG_INFO);
+            intExtra = bundle.getInt(WriteMultiImgsActivity.OUTSTATE_KEY_CURRENT_INDEX);
+            this.f63984d = bundle.getInt(WriteMultiImgsActivity.OUTSTATE_KEY_WRITE_ENTRANCE);
+            this.f63985e = (ForumWriteData) bundle.getSerializable(WriteMultiImgsActivity.OUTSTATE_KEY_WRITE_INFO_DATA);
+            this.j = bundle.getInt(WriteMulitImageActivityConfig.SKIN_TYPE, TbadkCoreApplication.getInst().getSkinType());
+        } else {
+            TbPageContext<WriteMultiImgsActivity> tbPageContext = this.f63981a;
+            if (tbPageContext == null || tbPageContext.getPageActivity() == null || (intent = this.f63981a.getPageActivity().getIntent()) == null) {
+                str = null;
+                i = -1;
+                if (str != null || i == -1) {
+                }
+                WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
+                this.i = writeImagesInfo;
+                writeImagesInfo.parseJson(str);
+                z();
+                j jVar = this.f63982b;
+                if (jVar == null || jVar.f63972e == null) {
+                    return;
+                }
+                MultiImagePagerAdapter multiImagePagerAdapter = new MultiImagePagerAdapter(this.f63981a.getOrignalPage(), this.f63982b.f63972e, this.i.getChosedFiles(), i, this, this.f63982b, this.i.mIsFromIm);
+                this.f63983c = multiImagePagerAdapter;
+                this.f63982b.f63972e.setAdapter(multiImagePagerAdapter);
+                int l = this.f63983c.l();
+                this.f63982b.f63972e.setCurrentItem(l, true);
+                if (l == 0) {
+                    this.f63983c.onPageSelected(0);
+                }
+                this.f63982b.p(this.i);
+                return;
+            }
+            str = intent.getStringExtra(WriteMulitImageActivityConfig.EXTRA_WRITE_IMG_INFO_JSON_STR);
+            intExtra = intent.getIntExtra(WriteMulitImageActivityConfig.EXTRA_IMG_CURRENT_INDEX, 0);
+            this.f63984d = intent.getIntExtra(WriteMulitImageActivityConfig.FOURM_WRITE_ENTRANCE, 0);
+            this.f63985e = (ForumWriteData) intent.getSerializableExtra(WriteMulitImageActivityConfig.FOURM_WRITE_DATA);
+            this.j = intent.getIntExtra(WriteMulitImageActivityConfig.SKIN_TYPE, TbadkCoreApplication.getInst().getSkinType());
+        }
+        i = intExtra;
+        if (str != null) {
+        }
+    }
+
+    public final void y() {
+        j jVar = this.f63982b;
+        if (jVar == null) {
+            return;
+        }
+        d.b.j0.v3.u.c.b bVar = jVar.f63971d;
+        if (bVar != null) {
+            bVar.g(new a());
+        }
+        TextView textView = this.f63982b.f63974g;
+        if (textView != null) {
+            textView.setOnClickListener(new b());
+        }
+    }
+
+    public final void z() {
+        WriteImagesInfo writeImagesInfo = this.i;
+        if (writeImagesInfo == null || !writeImagesInfo.isOriginalImg() || this.i.getChosedFiles() == null || this.i.getChosedFiles().size() == 0) {
+            return;
+        }
+        Iterator<ImageFileInfo> it = this.i.getChosedFiles().iterator();
+        while (it.hasNext()) {
+            ImageFileInfo next = it.next();
+            if (next != null && next.hasActionsWithoutResize()) {
+                this.k.put(next.getFilePath(), "1");
+            }
+        }
+    }
+}

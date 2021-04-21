@@ -17,13 +17,13 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class TailFrameBarH5PortraitHorizontal extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f36871a;
+    public TextView f36966a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f36872b;
+    public TextView f36967b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ValueAnimator f36873c;
+    public ValueAnimator f36968c;
 
     public TailFrameBarH5PortraitHorizontal(Context context) {
         this(context, null);
@@ -40,44 +40,44 @@ public class TailFrameBarH5PortraitHorizontal extends LinearLayout {
 
     private void a(Context context) {
         LinearLayout.inflate(context, R.layout.ksad_video_tf_bar_h5_portrait_horizontal, this);
-        this.f36871a = (TextView) findViewById(R.id.ksad_tf_h5_ad_desc);
-        this.f36872b = (TextView) findViewById(R.id.ksad_tf_h5_open_btn);
+        this.f36966a = (TextView) findViewById(R.id.ksad_tf_h5_ad_desc);
+        this.f36967b = (TextView) findViewById(R.id.ksad_tf_h5_open_btn);
     }
 
     private void b() {
-        if (this.f36873c != null) {
+        if (this.f36968c != null) {
             a();
-            this.f36873c.start();
+            this.f36968c.start();
         }
         ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 1.2f, 1.0f);
-        this.f36873c = ofFloat;
+        this.f36968c = ofFloat;
         ofFloat.setDuration(IMLikeRequest.TIME_INTERVAL);
-        this.f36873c.setRepeatCount(-1);
-        this.f36873c.setRepeatMode(1);
-        this.f36873c.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.widget.tailframe.h5bar.TailFrameBarH5PortraitHorizontal.1
+        this.f36968c.setRepeatCount(-1);
+        this.f36968c.setRepeatMode(1);
+        this.f36968c.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.widget.tailframe.h5bar.TailFrameBarH5PortraitHorizontal.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                TailFrameBarH5PortraitHorizontal.this.f36872b.setScaleY(floatValue);
-                TailFrameBarH5PortraitHorizontal.this.f36872b.setScaleX(floatValue);
+                TailFrameBarH5PortraitHorizontal.this.f36967b.setScaleY(floatValue);
+                TailFrameBarH5PortraitHorizontal.this.f36967b.setScaleX(floatValue);
             }
         });
-        this.f36873c.start();
+        this.f36968c.start();
     }
 
     public void a() {
-        ValueAnimator valueAnimator = this.f36873c;
+        ValueAnimator valueAnimator = this.f36968c;
         if (valueAnimator == null || !valueAnimator.isRunning()) {
             return;
         }
-        this.f36873c.cancel();
-        this.f36873c.end();
+        this.f36968c.cancel();
+        this.f36968c.end();
     }
 
     public void setModel(@NonNull AdTemplate adTemplate) {
         AdInfo j = c.j(adTemplate);
-        this.f36871a.setText(a.n(j));
-        this.f36872b.setText(a.w(j));
+        this.f36966a.setText(a.n(j));
+        this.f36967b.setText(a.w(j));
         b();
     }
 }

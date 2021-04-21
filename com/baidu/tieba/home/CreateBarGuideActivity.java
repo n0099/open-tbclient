@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.atomData.CreateBarGuideActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.home.BfbInfoModel;
-import d.b.h0.r.s.a;
+import d.b.i0.r.s.a;
 import tbclient.UserBfbInfo;
 /* loaded from: classes4.dex */
 public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity> {
@@ -19,7 +19,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public String forumName;
     public BfbInfoModel.b mCallback = new a();
     public BfbInfoModel mModel;
-    public d.b.i0.y0.a mView;
+    public d.b.j0.y0.a mView;
 
     /* loaded from: classes4.dex */
     public class a implements BfbInfoModel.b {
@@ -46,15 +46,15 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f16631e;
+        public final /* synthetic */ d.b.i0.r.s.a f16639e;
 
-        public b(d.b.h0.r.s.a aVar) {
-            this.f16631e = aVar;
+        public b(d.b.i0.r.s.a aVar) {
+            this.f16639e = aVar;
         }
 
-        @Override // d.b.h0.r.s.a.e
-        public void onClick(d.b.h0.r.s.a aVar) {
-            this.f16631e.dismiss();
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
+            this.f16639e.dismiss();
             CreateBarGuideActivity.this.sendMessage(new CustomMessage(2002001, new AboutActivityConfig(CreateBarGuideActivity.this.getPageContext().getPageActivity())));
         }
     }
@@ -63,15 +63,15 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f16633e;
+        public final /* synthetic */ d.b.i0.r.s.a f16641e;
 
-        public c(d.b.h0.r.s.a aVar) {
-            this.f16633e = aVar;
+        public c(d.b.i0.r.s.a aVar) {
+            this.f16641e = aVar;
         }
 
-        @Override // d.b.h0.r.s.a.e
-        public void onClick(d.b.h0.r.s.a aVar) {
-            this.f16633e.dismiss();
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
+            this.f16641e.dismiss();
         }
     }
 
@@ -80,7 +80,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         if (StringUtils.isNull(str)) {
             str = getResources().getString(R.string.tips_version_low);
         }
-        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(getActivity());
+        d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(getActivity());
         aVar.setTitle(str);
         aVar.setPositiveButton(R.string.confirm, new b(aVar));
         aVar.setNegativeButton(R.string.cancel, new c(aVar));
@@ -91,7 +91,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     @Override // com.baidu.tbadk.BaseActivity
     public void changeSkinType(int i) {
         super.changeSkinType(i);
-        d.b.i0.y0.a aVar = this.mView;
+        d.b.j0.y0.a aVar = this.mView;
         if (aVar != null) {
             aVar.f();
         }
@@ -108,7 +108,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         BfbInfoModel bfbInfoModel = new BfbInfoModel(this);
         this.mModel = bfbInfoModel;
         bfbInfoModel.w(this.mCallback);
-        d.b.i0.y0.a aVar = new d.b.i0.y0.a(this);
+        d.b.j0.y0.a aVar = new d.b.j0.y0.a(this);
         this.mView = aVar;
         aVar.e();
         showLoadingView(this.mView.d());

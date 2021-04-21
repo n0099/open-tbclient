@@ -3,7 +3,7 @@ package com.baidu.tieba.interestlabel.message;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.h1.b.b;
+import d.b.j0.h1.b.b;
 import tbclient.GetTagList.GetTagListResIdl;
 /* loaded from: classes4.dex */
 public class ResponseHttpGetLabelMessage extends TbHttpResponsedMessage {

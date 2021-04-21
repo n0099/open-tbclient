@@ -26,7 +26,7 @@ public class MiTinyDataClient {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static volatile a f40432a;
+        public static volatile a f40527a;
 
         /* renamed from: a  reason: collision with other field name */
         public Context f45a;
@@ -38,14 +38,14 @@ public class MiTinyDataClient {
         public String f48a;
 
         /* renamed from: a  reason: collision with other field name */
-        public C0535a f46a = new C0535a();
+        public C0538a f46a = new C0538a();
 
         /* renamed from: a  reason: collision with other field name */
         public final ArrayList<hj> f49a = new ArrayList<>();
 
         /* renamed from: com.xiaomi.mipush.sdk.MiTinyDataClient$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0535a {
+        public class C0538a {
 
             /* renamed from: a  reason: collision with other field name */
             public ScheduledFuture<?> f52a;
@@ -59,7 +59,7 @@ public class MiTinyDataClient {
             /* renamed from: a  reason: collision with other field name */
             public final Runnable f50a = new aa(this);
 
-            public C0535a() {
+            public C0538a() {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
@@ -84,14 +84,14 @@ public class MiTinyDataClient {
         }
 
         public static a a() {
-            if (f40432a == null) {
+            if (f40527a == null) {
                 synchronized (a.class) {
-                    if (f40432a == null) {
-                        f40432a = new a();
+                    if (f40527a == null) {
+                        f40527a = new a();
                     }
                 }
             }
-            return f40432a;
+            return f40527a;
         }
 
         private void a(hj hjVar) {

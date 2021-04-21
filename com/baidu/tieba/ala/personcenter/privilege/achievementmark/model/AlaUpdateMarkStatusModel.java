@@ -16,16 +16,16 @@ import com.baidu.tieba.ala.personcenter.privilege.achievementmark.message.AlaUpd
 public class AlaUpdateMarkStatusModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f14719e;
+    public BdUniqueId f14727e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f14720f;
+    public Context f14728f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f14721g;
+    public b f14729g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HttpMessageListener f14722h = new a(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS);
+    public HttpMessageListener f14730h = new a(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS);
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -36,13 +36,13 @@ public class AlaUpdateMarkStatusModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (!(httpResponsedMessage instanceof AlaUpdateMarkStatusResponsedMessage) || httpResponsedMessage.getOrginalMessage() == null || AlaUpdateMarkStatusModel.this.f14719e != httpResponsedMessage.getOrginalMessage().getTag() || AlaUpdateMarkStatusModel.this.f14721g == null) {
+            if (!(httpResponsedMessage instanceof AlaUpdateMarkStatusResponsedMessage) || httpResponsedMessage.getOrginalMessage() == null || AlaUpdateMarkStatusModel.this.f14727e != httpResponsedMessage.getOrginalMessage().getTag() || AlaUpdateMarkStatusModel.this.f14729g == null) {
                 return;
             }
             if (httpResponsedMessage.getError() != 0 || httpResponsedMessage.hasError()) {
-                AlaUpdateMarkStatusModel.this.f14721g.onResult(false, httpResponsedMessage.getErrorString());
+                AlaUpdateMarkStatusModel.this.f14729g.onResult(false, httpResponsedMessage.getErrorString());
             } else {
-                AlaUpdateMarkStatusModel.this.f14721g.onResult(true, httpResponsedMessage.getErrorString());
+                AlaUpdateMarkStatusModel.this.f14729g.onResult(true, httpResponsedMessage.getErrorString());
             }
         }
     }
@@ -53,10 +53,10 @@ public class AlaUpdateMarkStatusModel extends BdBaseModel {
     }
 
     public AlaUpdateMarkStatusModel(Context context) {
-        this.f14720f = context;
+        this.f14728f = context;
         u();
         initListener();
-        this.f14719e = BdUniqueId.gen();
+        this.f14727e = BdUniqueId.gen();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -70,12 +70,12 @@ public class AlaUpdateMarkStatusModel extends BdBaseModel {
     }
 
     public final void initListener() {
-        MessageManager.getInstance().registerListener(this.f14722h);
+        MessageManager.getInstance().registerListener(this.f14730h);
     }
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS);
-        MessageManager.getInstance().unRegisterListener(this.f14722h);
+        MessageManager.getInstance().unRegisterListener(this.f14730h);
     }
 
     public final void u() {
@@ -86,14 +86,14 @@ public class AlaUpdateMarkStatusModel extends BdBaseModel {
     }
 
     public void v(b bVar) {
-        this.f14721g = bVar;
+        this.f14729g = bVar;
     }
 
     public void w(boolean z, int i) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS);
         httpMessage.addParam("action", z ? 1 : 2);
         httpMessage.addParam("mark_id", i);
-        httpMessage.setTag(this.f14719e);
+        httpMessage.setTag(this.f14727e);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 }

@@ -7,25 +7,25 @@ public final class l<V> {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public final V f41494a;
+    public final V f41589a;
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public final Throwable f41495b;
+    public final Throwable f41590b;
 
     public l(V v) {
-        this.f41494a = v;
-        this.f41495b = null;
+        this.f41589a = v;
+        this.f41590b = null;
     }
 
     @Nullable
     public Throwable a() {
-        return this.f41495b;
+        return this.f41590b;
     }
 
     @Nullable
     public V b() {
-        return this.f41494a;
+        return this.f41589a;
     }
 
     public boolean equals(Object obj) {
@@ -50,7 +50,7 @@ public final class l<V> {
     }
 
     public l(Throwable th) {
-        this.f41495b = th;
-        this.f41494a = null;
+        this.f41590b = th;
+        this.f41589a = null;
     }
 }

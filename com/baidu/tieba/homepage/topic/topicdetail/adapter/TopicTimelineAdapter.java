@@ -6,26 +6,26 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.homepage.topic.topicdetail.holder.TopicTimelineHolder;
 import com.baidu.tieba.homepage.topic.topicdetail.view.TopicTimelineCellCardView;
-import d.b.i0.a1.j.a.c.e;
+import d.b.j0.a1.j.a.c.e;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHolder> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f17049a;
+    public Context f17057a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<e> f17050b;
+    public List<e> f17058b;
 
     public TopicTimelineAdapter(Context context) {
-        this.f17049a = context;
+        this.f17057a = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: c */
     public void onBindViewHolder(TopicTimelineHolder topicTimelineHolder, int i) {
-        e eVar = (e) ListUtils.getItem(this.f17050b, i);
+        e eVar = (e) ListUtils.getItem(this.f17058b, i);
         if (eVar == null) {
             return;
         }
@@ -38,18 +38,18 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: d */
     public TopicTimelineHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new TopicTimelineHolder(new TopicTimelineCellCardView(this.f17049a));
+        return new TopicTimelineHolder(new TopicTimelineCellCardView(this.f17057a));
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return ListUtils.getCount(this.f17050b);
+        return ListUtils.getCount(this.f17058b);
     }
 
     public void setData(List<e> list) {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        this.f17050b = list;
+        this.f17058b = list;
     }
 }

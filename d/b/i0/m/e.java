@@ -1,5 +1,7 @@
 package d.b.i0.m;
-/* loaded from: classes4.dex */
-public interface e {
-    void setPage(String str);
+
+import android.view.View;
+/* loaded from: classes3.dex */
+public interface e<T> {
+    void a(View view, T t, int i, long j);
 }

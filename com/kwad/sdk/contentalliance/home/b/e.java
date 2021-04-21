@@ -11,25 +11,25 @@ import com.kwad.sdk.utils.ao;
 public class e extends com.kwad.sdk.contentalliance.home.e implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    public LottieAnimationView f32960b;
+    public LottieAnimationView f33055b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SceneImpl f32961c;
+    public SceneImpl f33056c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f32962d;
+    public com.kwad.sdk.core.i.a f33057d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f32963e;
+    public boolean f33058e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.core.i.c f32964f = new com.kwad.sdk.core.i.d() { // from class: com.kwad.sdk.contentalliance.home.b.e.1
+    public com.kwad.sdk.core.i.c f33059f = new com.kwad.sdk.core.i.d() { // from class: com.kwad.sdk.contentalliance.home.b.e.1
         @Override // com.kwad.sdk.core.i.d, com.kwad.sdk.core.i.c
         public void c_() {
-            if (e.this.f32963e) {
+            if (e.this.f33058e) {
                 return;
             }
-            e.this.f32963e = true;
+            e.this.f33058e = true;
             e.this.f();
             e.this.h();
         }
@@ -40,58 +40,58 @@ public class e extends com.kwad.sdk.contentalliance.home.e implements View.OnCli
         if (m == null || !com.kwad.sdk.utils.d.a(m)) {
             return;
         }
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f32960b.getLayoutParams();
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f33055b.getLayoutParams();
         int i = marginLayoutParams.topMargin;
         marginLayoutParams.topMargin = i + i;
-        this.f32960b.setLayoutParams(marginLayoutParams);
+        this.f33055b.setLayoutParams(marginLayoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        if (this.f32960b.c()) {
+        if (this.f33055b.c()) {
             return;
         }
-        this.f32960b.b();
+        this.f33055b.b();
     }
 
     private void g() {
         com.kwad.sdk.plugin.d dVar = (com.kwad.sdk.plugin.d) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.d.class);
         if (dVar != null) {
-            dVar.a(o(), ((com.kwad.sdk.contentalliance.home.e) this).f33058a.f33063e);
+            dVar.a(o(), ((com.kwad.sdk.contentalliance.home.e) this).f33153a.f33158e);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        com.kwad.sdk.core.report.e.e(this.f32961c);
+        com.kwad.sdk.core.report.e.e(this.f33056c);
     }
 
     private void p() {
-        com.kwad.sdk.core.report.e.f(this.f32961c);
+        com.kwad.sdk.core.report.e.f(this.f33056c);
     }
 
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.contentalliance.home.f fVar = ((com.kwad.sdk.contentalliance.home.e) this).f33058a;
-        this.f32961c = fVar.f33063e;
-        com.kwad.sdk.core.i.a aVar = fVar.f33064f.f33078a;
-        this.f32962d = aVar;
+        com.kwad.sdk.contentalliance.home.f fVar = ((com.kwad.sdk.contentalliance.home.e) this).f33153a;
+        this.f33056c = fVar.f33158e;
+        com.kwad.sdk.core.i.a aVar = fVar.f33159f.f33173a;
+        this.f33057d = aVar;
         if (aVar != null) {
-            aVar.a(this.f32964f);
+            aVar.a(this.f33059f);
         }
-        this.f32960b.setVisibility(0);
-        this.f32960b.setOnClickListener(this);
+        this.f33055b.setVisibility(0);
+        this.f33055b.setOnClickListener(this);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f32963e = false;
-        this.f32960b.d();
-        com.kwad.sdk.core.i.a aVar = this.f32962d;
+        this.f33058e = false;
+        this.f33055b.d();
+        com.kwad.sdk.core.i.a aVar = this.f33057d;
         if (aVar != null) {
-            aVar.b(this.f32964f);
+            aVar.b(this.f33059f);
         }
     }
 
@@ -99,7 +99,7 @@ public class e extends com.kwad.sdk.contentalliance.home.e implements View.OnCli
     public void c() {
         super.c();
         LottieAnimationView lottieAnimationView = (LottieAnimationView) b(R.id.ksad_live_entry_icon);
-        this.f32960b = lottieAnimationView;
+        this.f33055b = lottieAnimationView;
         lottieAnimationView.setAnimation(R.raw.ksad_live_home_entry_icon);
         e();
     }

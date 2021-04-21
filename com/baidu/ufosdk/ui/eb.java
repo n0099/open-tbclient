@@ -7,10 +7,10 @@ import android.widget.EditText;
 public final class eb implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f22890a;
+    public final /* synthetic */ FeedbackReportActivity f22898a;
 
     public eb(FeedbackReportActivity feedbackReportActivity) {
-        this.f22890a = feedbackReportActivity;
+        this.f22898a = feedbackReportActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,21 +20,21 @@ public final class eb implements View.OnClickListener {
         SharedPreferences.Editor editor;
         SharedPreferences.Editor editor2;
         SharedPreferences.Editor editor3;
-        z = this.f22890a.B;
+        z = this.f22898a.B;
         if (z) {
             return;
         }
-        editText = this.f22890a.u;
+        editText = this.f22898a.u;
         String obj = editText.getText().toString();
         if (obj == null || obj.trim().length() <= 0) {
-            editor = this.f22890a.f22717b;
+            editor = this.f22898a.f22725b;
             editor.putString("cryptContactData", "");
         } else {
-            editor3 = this.f22890a.f22717b;
+            editor3 = this.f22898a.f22725b;
             editor3.putString("cryptContactData", com.baidu.ufosdk.f.k.a(obj));
         }
-        editor2 = this.f22890a.f22717b;
+        editor2 = this.f22898a.f22725b;
         editor2.commit();
-        FeedbackReportActivity.o(this.f22890a);
+        FeedbackReportActivity.o(this.f22898a);
     }
 }

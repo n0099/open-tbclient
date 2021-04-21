@@ -5,12 +5,12 @@ import com.xiaomi.push.service.XMPushService;
 public class bt extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f41303a;
+    public final /* synthetic */ XMPushService f41398a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bt(XMPushService xMPushService, int i) {
         super(i);
-        this.f41303a = xMPushService;
+        this.f41398a = xMPushService;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -20,9 +20,9 @@ public class bt extends XMPushService.i {
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
-        if (this.f41303a.f840a != null) {
-            this.f41303a.f840a.b(15, (Exception) null);
-            this.f41303a.f840a = null;
+        if (this.f41398a.f840a != null) {
+            this.f41398a.f840a.b(15, (Exception) null);
+            this.f41398a.f840a = null;
         }
     }
 }

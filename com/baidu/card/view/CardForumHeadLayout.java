@@ -24,9 +24,9 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.SingleLineEllipsizeTextView;
 import com.baidu.tieba.R;
 import d.b.c.e.p.l;
-import d.b.h0.b.g.b;
-import d.b.h0.r.q.a2;
-import d.b.h0.r.q.w1;
+import d.b.i0.b.g.b;
+import d.b.i0.r.q.a2;
+import d.b.i0.r.q.w1;
 /* loaded from: classes.dex */
 public class CardForumHeadLayout extends RelativeLayout implements View.OnClickListener {
 
@@ -221,7 +221,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
                 this.f4420e.setVisibility(0);
                 this.f4420e.W(h0.a(), 10, false);
                 this.f4421f.setVisibility(0);
-                this.l = h0.f51324b;
+                this.l = h0.f51660b;
                 this.f4421f.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.l));
                 b.d(this.f4421f);
                 return;
@@ -256,7 +256,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
                     textView6.setText(str);
                     d();
                 }
-                setData(a2Var.h0().f51324b, a2Var.h0().a(), a2Var.h0().f51330h, a2Var.h0().i);
+                setData(a2Var.h0().f51660b, a2Var.h0().a(), a2Var.h0().f51666h, a2Var.h0().i);
                 return;
             } else {
                 if (a2Var.Y1()) {
@@ -273,7 +273,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
                     this.f4423h.setVisibility(0);
                     this.f4422g.setVisibility(0);
                 }
-                setData(a2Var.h0().f51324b, a2Var.h0().a(), a2Var.h0().f51330h, a2Var.h0().i);
+                setData(a2Var.h0().f51660b, a2Var.h0().a(), a2Var.h0().f51666h, a2Var.h0().i);
                 if (a2Var.y()) {
                     if (a2Var.T() != null && !StringUtils.isNull(a2Var.T().getName_show())) {
                         this.f4422g.setText(a2Var.T().getName_show());

@@ -5,10 +5,10 @@ import android.util.SparseArray;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<c> f42834a = new SparseArray<>();
+    public SparseArray<c> f43074a = new SparseArray<>();
 
     public c a(int i) {
-        return this.f42834a.get(i);
+        return this.f43074a.get(i);
     }
 
     public boolean b(int i) {
@@ -20,7 +20,7 @@ public class a {
         if (i2 <= 0 || i3 <= 0) {
             return false;
         }
-        this.f42834a.put(i, new c(i2, i3));
+        this.f43074a.put(i, new c(i2, i3));
         return true;
     }
 }

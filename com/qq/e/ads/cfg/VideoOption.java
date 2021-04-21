@@ -6,25 +6,25 @@ import org.json.JSONObject;
 public class VideoOption {
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f38346a;
+    public final boolean f38441a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f38347b;
+    public final int f38442b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f38348c;
+    public final boolean f38443c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f38349d;
+    public final boolean f38444d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f38350e;
+    public final boolean f38445e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f38351f;
+    public final boolean f38446f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f38352g;
+    public final boolean f38447g;
 
     /* loaded from: classes6.dex */
     public static final class AutoPlayPolicy {
@@ -37,32 +37,32 @@ public class VideoOption {
     public static final class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f38353a = true;
+        public boolean f38448a = true;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f38354b = 1;
+        public int f38449b = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f38355c = true;
+        public boolean f38450c = true;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f38356d = true;
+        public boolean f38451d = true;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f38357e = true;
+        public boolean f38452e = true;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f38358f = false;
+        public boolean f38453f = false;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f38359g = false;
+        public boolean f38454g = false;
 
         public final VideoOption build() {
             return new VideoOption(this, (byte) 0);
         }
 
         public final Builder setAutoPlayMuted(boolean z) {
-            this.f38353a = z;
+            this.f38448a = z;
             return this;
         }
 
@@ -71,32 +71,32 @@ public class VideoOption {
                 GDTLogger.e("invalid value of autoPlayPolicy, can only be [0, 2], reset to : 1");
                 i = 1;
             }
-            this.f38354b = i;
+            this.f38449b = i;
             return this;
         }
 
         public final Builder setDetailPageMuted(boolean z) {
-            this.f38359g = z;
+            this.f38454g = z;
             return this;
         }
 
         public final Builder setEnableDetailPage(boolean z) {
-            this.f38357e = z;
+            this.f38452e = z;
             return this;
         }
 
         public final Builder setEnableUserControl(boolean z) {
-            this.f38358f = z;
+            this.f38453f = z;
             return this;
         }
 
         public final Builder setNeedCoverImage(boolean z) {
-            this.f38356d = z;
+            this.f38451d = z;
             return this;
         }
 
         public final Builder setNeedProgressBar(boolean z) {
-            this.f38355c = z;
+            this.f38450c = z;
             return this;
         }
     }
@@ -118,13 +118,13 @@ public class VideoOption {
     }
 
     public VideoOption(Builder builder) {
-        this.f38346a = builder.f38353a;
-        this.f38347b = builder.f38354b;
-        this.f38348c = builder.f38355c;
-        this.f38349d = builder.f38356d;
-        this.f38350e = builder.f38357e;
-        this.f38351f = builder.f38358f;
-        this.f38352g = builder.f38359g;
+        this.f38441a = builder.f38448a;
+        this.f38442b = builder.f38449b;
+        this.f38443c = builder.f38450c;
+        this.f38444d = builder.f38451d;
+        this.f38445e = builder.f38452e;
+        this.f38446f = builder.f38453f;
+        this.f38447g = builder.f38454g;
     }
 
     public /* synthetic */ VideoOption(Builder builder, byte b2) {
@@ -132,19 +132,19 @@ public class VideoOption {
     }
 
     public boolean getAutoPlayMuted() {
-        return this.f38346a;
+        return this.f38441a;
     }
 
     public int getAutoPlayPolicy() {
-        return this.f38347b;
+        return this.f38442b;
     }
 
     public JSONObject getOptions() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.putOpt("autoPlayMuted", Boolean.valueOf(this.f38346a));
-            jSONObject.putOpt("autoPlayPolicy", Integer.valueOf(this.f38347b));
-            jSONObject.putOpt("detailPageMuted", Boolean.valueOf(this.f38352g));
+            jSONObject.putOpt("autoPlayMuted", Boolean.valueOf(this.f38441a));
+            jSONObject.putOpt("autoPlayPolicy", Integer.valueOf(this.f38442b));
+            jSONObject.putOpt("detailPageMuted", Boolean.valueOf(this.f38447g));
         } catch (Exception e2) {
             GDTLogger.e("Get video options error: " + e2.getMessage());
         }
@@ -152,22 +152,22 @@ public class VideoOption {
     }
 
     public boolean isDetailPageMuted() {
-        return this.f38352g;
+        return this.f38447g;
     }
 
     public boolean isEnableDetailPage() {
-        return this.f38350e;
+        return this.f38445e;
     }
 
     public boolean isEnableUserControl() {
-        return this.f38351f;
+        return this.f38446f;
     }
 
     public boolean isNeedCoverImage() {
-        return this.f38349d;
+        return this.f38444d;
     }
 
     public boolean isNeedProgressBar() {
-        return this.f38348c;
+        return this.f38443c;
     }
 }

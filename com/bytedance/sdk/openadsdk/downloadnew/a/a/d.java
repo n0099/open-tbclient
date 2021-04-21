@@ -10,25 +10,25 @@ import com.bytedance.sdk.openadsdk.core.i;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.utils.h;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.o.a.a.a.a.h;
-import d.o.a.a.a.a.q;
-import d.o.a.d.n.k;
+import d.p.a.a.a.a.h;
+import d.p.a.a.a.a.q;
+import d.p.a.d.n.k;
 import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
 public class d implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f28875a;
+    public final WeakReference<Context> f28883a;
 
     public d(Context context) {
-        this.f28875a = new WeakReference<>(context);
+        this.f28883a = new WeakReference<>(context);
     }
 
-    @Override // d.o.a.a.a.a.h
+    @Override // d.p.a.a.a.a.h
     public void a(@NonNull Activity activity, int i, @NonNull String[] strArr, @NonNull int[] iArr) {
     }
 
-    @Override // d.o.a.a.a.a.h
+    @Override // d.p.a.a.a.a.h
     public void a(@NonNull Activity activity, @NonNull final String[] strArr, final q qVar) {
         boolean z;
         TTCustomController e2;
@@ -86,7 +86,7 @@ public class d implements h {
         }
     }
 
-    @Override // d.o.a.a.a.a.h
+    @Override // d.p.a.a.a.a.h
     public boolean a(@Nullable Context context, @NonNull String str) {
         TTCustomController e2;
         if (!StorageUtils.EXTERNAL_STORAGE_PERMISSION.equalsIgnoreCase(str) || (e2 = i.d().e()) == null || e2.isCanUseWriteExternal()) {

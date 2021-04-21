@@ -325,7 +325,7 @@ public class MyCouponDetailActivity extends BeanActivity {
             CouponDetailResponse couponDetailResponse = this.mDetail;
             if (couponDetailResponse.is_started) {
                 CouponDetailResponse.AppSceneService appSceneService = couponDetailResponse.app_scene_service;
-                if (appSceneService == null ? !((TextUtils.isEmpty(couponDetailResponse.sdk_para) || !this.mDetail.sdk_para.contains("type:1")) && TextUtils.isEmpty(this.mDetail.scene_service)) : !(appSceneService.f26264android <= 0 && TextUtils.isEmpty(appSceneService.url))) {
+                if (appSceneService == null ? !((TextUtils.isEmpty(couponDetailResponse.sdk_para) || !this.mDetail.sdk_para.contains("type:1")) && TextUtils.isEmpty(this.mDetail.scene_service)) : !(appSceneService.f26272android <= 0 && TextUtils.isEmpty(appSceneService.url))) {
                     this.isShowBtn = true;
                 }
                 if (this.isShowBtn) {
@@ -357,11 +357,11 @@ public class MyCouponDetailActivity extends BeanActivity {
                             DXMSdkSAUtils.onEventWithValues("CouponDetailToUseBtnClick", Arrays.asList(jSONObject.toString()));
                             PayStatisticsUtil.onEventWithValue("CouponDetailToUseBtnClick", jSONObject.toString());
                             if (MyCouponDetailActivity.this.mDetail.app_scene_service != null) {
-                                if (MyCouponDetailActivity.this.mDetail.app_scene_service.f26264android > 0) {
+                                if (MyCouponDetailActivity.this.mDetail.app_scene_service.f26272android > 0) {
                                     MyCouponDetailActivity.this.needRefresh = true;
                                     BaiduWalletServiceController baiduWalletServiceController = BaiduWalletServiceController.getInstance();
                                     MyCouponDetailActivity myCouponDetailActivity = MyCouponDetailActivity.this;
-                                    baiduWalletServiceController.gotoWalletService(myCouponDetailActivity.mAct, myCouponDetailActivity.mDetail.app_scene_service.f26264android, "");
+                                    baiduWalletServiceController.gotoWalletService(myCouponDetailActivity.mAct, myCouponDetailActivity.mDetail.app_scene_service.f26272android, "");
                                     return;
                                 } else if (TextUtils.isEmpty(MyCouponDetailActivity.this.mDetail.app_scene_service.url)) {
                                     return;

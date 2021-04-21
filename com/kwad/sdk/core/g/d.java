@@ -9,16 +9,16 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f33965a = false;
+    public static boolean f34060a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f33966b = false;
+    public static volatile boolean f34061b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f33967c;
+    public static Context f34062c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f33968d;
+    public static a f34063d;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -31,13 +31,13 @@ public class d {
     public static class b implements Runnable {
         @Override // java.lang.Runnable
         public void run() {
-            com.kwad.sdk.core.config.c.a(d.f33967c);
-            if (d.f33968d != null) {
-                d.f33968d.a();
+            com.kwad.sdk.core.config.c.a(d.f34062c);
+            if (d.f34063d != null) {
+                d.f34063d.a();
             }
-            if (!d.f33965a) {
-                com.kwad.sdk.core.report.e.a(d.f33967c);
-                boolean unused = d.f33965a = true;
+            if (!d.f34060a) {
+                com.kwad.sdk.core.report.e.a(d.f34062c);
+                boolean unused = d.f34060a = true;
             }
             d.a();
         }
@@ -91,10 +91,10 @@ public class d {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
             public void a(@NonNull c cVar, @NonNull SdkConfigData sdkConfigData) {
-                com.kwad.sdk.core.config.b.a(d.f33967c);
-                com.kwad.sdk.core.config.c.a(d.f33967c, sdkConfigData);
-                if (d.f33968d != null) {
-                    d.f33968d.a(sdkConfigData);
+                com.kwad.sdk.core.config.b.a(d.f34062c);
+                com.kwad.sdk.core.config.c.a(d.f34062c, sdkConfigData);
+                if (d.f34063d != null) {
+                    d.f34063d.a(sdkConfigData);
                 }
             }
         });
@@ -102,11 +102,11 @@ public class d {
 
     public static synchronized void a(Context context, a aVar) {
         synchronized (d.class) {
-            if (!f33966b) {
-                f33967c = context;
-                f33966b = true;
+            if (!f34061b) {
+                f34062c = context;
+                f34061b = true;
             }
-            f33968d = aVar;
+            f34063d = aVar;
             com.kwad.sdk.utils.f.a(new b());
         }
     }

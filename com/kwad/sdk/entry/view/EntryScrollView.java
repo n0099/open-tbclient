@@ -18,46 +18,46 @@ import java.util.List;
 public class EntryScrollView extends com.kwad.sdk.entry.view.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.lib.widget.b<AdTemplate> f35031c;
+    public com.kwad.sdk.lib.widget.b<AdTemplate> f35126c;
 
     /* renamed from: d  reason: collision with root package name */
-    public EntryViewPager f35032d;
+    public EntryViewPager f35127d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f35033e;
+    public a f35128e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f35034f;
+    public boolean f35129f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f35035g;
+    public View.OnClickListener f35130g;
 
     /* loaded from: classes6.dex */
     public class a extends PagerAdapter implements ViewPager.OnPageChangeListener {
 
         /* renamed from: b  reason: collision with root package name */
-        public List<EntryPhotoView> f35039b;
+        public List<EntryPhotoView> f35134b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<EntryPhotoView> f35040c;
+        public List<EntryPhotoView> f35135c;
 
         public a() {
-            this.f35039b = new ArrayList();
-            this.f35040c = new ArrayList();
+            this.f35134b = new ArrayList();
+            this.f35135c = new ArrayList();
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void destroyItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
             if (obj instanceof View) {
                 viewGroup.removeView((View) obj);
-                this.f35039b.add((EntryPhotoView) obj);
-                this.f35040c.remove(obj);
+                this.f35134b.add((EntryPhotoView) obj);
+                this.f35135c.remove(obj);
             }
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            return EntryScrollView.this.f35031c.size();
+            return EntryScrollView.this.f35126c.size();
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -69,8 +69,8 @@ public class EntryScrollView extends com.kwad.sdk.entry.view.a {
         @NonNull
         public Object instantiateItem(@NonNull ViewGroup viewGroup, int i) {
             EntryPhotoView entryPhotoView;
-            if (this.f35039b.size() > 0) {
-                entryPhotoView = this.f35039b.remove(0);
+            if (this.f35134b.size() > 0) {
+                entryPhotoView = this.f35134b.remove(0);
                 entryPhotoView.l();
             } else {
                 entryPhotoView = (EntryPhotoView) View.inflate(EntryScrollView.this.getContext(), R.layout.ksad_view_entryphoto, null);
@@ -81,17 +81,17 @@ public class EntryScrollView extends com.kwad.sdk.entry.view.a {
             entryPhotoView.setAdShowStyle(EntryScrollView.this.getAdShowStyle());
             viewGroup.addView(entryPhotoView);
             entryPhotoView.a(EntryScrollView.this.getEnableWebp(), true);
-            entryPhotoView.a(i, ((com.kwad.sdk.entry.view.a) EntryScrollView.this).f35070a.f34358e);
-            entryPhotoView.a((AdTemplate) EntryScrollView.this.f35031c.get(i), ((com.kwad.sdk.entry.view.a) EntryScrollView.this).f35070a);
-            entryPhotoView.setLikeViewPos(((com.kwad.sdk.entry.view.a) EntryScrollView.this).f35070a.f34357d);
-            entryPhotoView.setOnClickListener(EntryScrollView.this.f35035g);
-            if (i != getCount() - 1 || EntryScrollView.this.f35034f) {
+            entryPhotoView.a(i, ((com.kwad.sdk.entry.view.a) EntryScrollView.this).f35165a.f34453e);
+            entryPhotoView.a((AdTemplate) EntryScrollView.this.f35126c.get(i), ((com.kwad.sdk.entry.view.a) EntryScrollView.this).f35165a);
+            entryPhotoView.setLikeViewPos(((com.kwad.sdk.entry.view.a) EntryScrollView.this).f35165a.f34452d);
+            entryPhotoView.setOnClickListener(EntryScrollView.this.f35130g);
+            if (i != getCount() - 1 || EntryScrollView.this.f35129f) {
                 entryPhotoView.setLookMoreVisible(false);
             } else {
                 entryPhotoView.setLookMoreVisible(true);
             }
             entryPhotoView.setId(i);
-            this.f35040c.add(entryPhotoView);
+            this.f35135c.add(entryPhotoView);
             return entryPhotoView;
         }
 
@@ -110,11 +110,11 @@ public class EntryScrollView extends com.kwad.sdk.entry.view.a {
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            EntryPhotoView entryPhotoView = (EntryPhotoView) EntryScrollView.this.f35032d.findViewById(i);
+            EntryPhotoView entryPhotoView = (EntryPhotoView) EntryScrollView.this.f35127d.findViewById(i);
             if (entryPhotoView != null) {
                 entryPhotoView.f();
             }
-            for (EntryPhotoView entryPhotoView2 : this.f35040c) {
+            for (EntryPhotoView entryPhotoView2 : this.f35135c) {
                 if (entryPhotoView2 != entryPhotoView) {
                     entryPhotoView2.g();
                 }
@@ -124,8 +124,8 @@ public class EntryScrollView extends com.kwad.sdk.entry.view.a {
 
     public EntryScrollView(@NonNull Context context) {
         super(context);
-        this.f35031c = new com.kwad.sdk.lib.widget.b<>(new ArrayList());
-        this.f35035g = new View.OnClickListener() { // from class: com.kwad.sdk.entry.view.EntryScrollView.2
+        this.f35126c = new com.kwad.sdk.lib.widget.b<>(new ArrayList());
+        this.f35130g = new View.OnClickListener() { // from class: com.kwad.sdk.entry.view.EntryScrollView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 EntryPhotoView entryPhotoView = (EntryPhotoView) view;
@@ -136,8 +136,8 @@ public class EntryScrollView extends com.kwad.sdk.entry.view.a {
 
     public EntryScrollView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f35031c = new com.kwad.sdk.lib.widget.b<>(new ArrayList());
-        this.f35035g = new View.OnClickListener() { // from class: com.kwad.sdk.entry.view.EntryScrollView.2
+        this.f35126c = new com.kwad.sdk.lib.widget.b<>(new ArrayList());
+        this.f35130g = new View.OnClickListener() { // from class: com.kwad.sdk.entry.view.EntryScrollView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 EntryPhotoView entryPhotoView = (EntryPhotoView) view;
@@ -148,9 +148,9 @@ public class EntryScrollView extends com.kwad.sdk.entry.view.a {
 
     private void c() {
         EntryViewPager entryViewPager = (EntryViewPager) findViewById(R.id.ksad_entry_viewpager);
-        this.f35032d = entryViewPager;
+        this.f35127d = entryViewPager;
         entryViewPager.setPageMargin(ao.a(getContext(), 7.0f));
-        this.f35032d.setOffscreenPageLimit(3);
+        this.f35127d.setOffscreenPageLimit(3);
     }
 
     public float a(int i, int i2) {
@@ -164,37 +164,37 @@ public class EntryScrollView extends com.kwad.sdk.entry.view.a {
 
     @Override // com.kwad.sdk.entry.view.a
     public boolean b() {
-        this.f35031c.clear();
-        for (AdTemplate adTemplate : ((com.kwad.sdk.entry.view.a) this).f35070a.k) {
+        this.f35126c.clear();
+        for (AdTemplate adTemplate : ((com.kwad.sdk.entry.view.a) this).f35165a.k) {
             if (!adTemplate.needHide) {
-                this.f35031c.add(adTemplate);
+                this.f35126c.add(adTemplate);
             }
         }
-        if (this.f35031c.size() < 3) {
+        if (this.f35126c.size() < 3) {
             setVisibility(8);
             return false;
         }
         setVisibility(0);
-        this.f35033e = new a();
+        this.f35128e = new a();
         int k = com.kwad.sdk.core.config.c.k();
-        boolean z = this.f35031c.size() >= k && k > 0;
-        this.f35034f = z;
+        boolean z = this.f35126c.size() >= k && k > 0;
+        this.f35129f = z;
         if (z) {
-            this.f35032d.setDragSideEnable(true);
-            this.f35032d.setOnDragOpenListener(new EntryViewPager.c() { // from class: com.kwad.sdk.entry.view.EntryScrollView.1
+            this.f35127d.setDragSideEnable(true);
+            this.f35127d.setOnDragOpenListener(new EntryViewPager.c() { // from class: com.kwad.sdk.entry.view.EntryScrollView.1
                 @Override // com.kwad.sdk.entry.view.EntryViewPager.c
                 public void a() {
-                    int size = EntryScrollView.this.f35031c.size() - 1;
-                    View findViewById = EntryScrollView.this.f35032d.findViewById(size);
+                    int size = EntryScrollView.this.f35126c.size() - 1;
+                    View findViewById = EntryScrollView.this.f35127d.findViewById(size);
                     EntryScrollView entryScrollView = EntryScrollView.this;
-                    entryScrollView.a((AdTemplate) entryScrollView.f35031c.get(size), size, findViewById, 4);
+                    entryScrollView.a((AdTemplate) entryScrollView.f35126c.get(size), size, findViewById, 4);
                 }
             });
         } else {
-            this.f35032d.setDragSideEnable(false);
+            this.f35127d.setDragSideEnable(false);
         }
-        this.f35032d.setAdapter(this.f35033e);
-        this.f35032d.setOnPageChangeListener(this.f35033e);
+        this.f35127d.setAdapter(this.f35128e);
+        this.f35127d.setOnPageChangeListener(this.f35128e);
         return true;
     }
 
@@ -216,7 +216,7 @@ public class EntryScrollView extends com.kwad.sdk.entry.view.a {
 
     @Override // com.kwad.sdk.entry.view.a
     public List<AdTemplate> getRealShowData() {
-        return this.f35031c;
+        return this.f35126c;
     }
 
     @Override // com.kwad.sdk.entry.view.a

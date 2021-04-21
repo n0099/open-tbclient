@@ -24,27 +24,27 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f14198a;
+        public final String f14206a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f14199b;
+        public String f14207b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f14200c;
+        public String f14208c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f14201d;
+        public int f14209d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f14202e;
+        public int f14210e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f14203f;
+        public String f14211f;
 
         public b(@NonNull DownloadCacheKey downloadCacheKey) {
-            this.f14198a = downloadCacheKey.mAdId;
-            this.f14199b = downloadCacheKey.mDownloadUrl;
-            this.f14200c = downloadCacheKey.mPackageName;
+            this.f14206a = downloadCacheKey.mAdId;
+            this.f14207b = downloadCacheKey.mDownloadUrl;
+            this.f14208c = downloadCacheKey.mPackageName;
         }
 
         @NonNull
@@ -156,12 +156,12 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
     }
 
     public AdDownloadData(b bVar) {
-        this.mAdId = bVar.f14198a;
-        this.mPackageName = bVar.f14200c;
-        this.mDownloadUrl = bVar.f14199b;
-        this.mFakeDownloadTime = bVar.f14201d;
-        this.mFakeDownloadPercent = bVar.f14202e;
-        this.mDeeplinkUrl = bVar.f14203f;
+        this.mAdId = bVar.f14206a;
+        this.mPackageName = bVar.f14208c;
+        this.mDownloadUrl = bVar.f14207b;
+        this.mFakeDownloadTime = bVar.f14209d;
+        this.mFakeDownloadPercent = bVar.f14210e;
+        this.mDeeplinkUrl = bVar.f14211f;
         this.mExtra = new AdDownloadExtra(this);
     }
 }

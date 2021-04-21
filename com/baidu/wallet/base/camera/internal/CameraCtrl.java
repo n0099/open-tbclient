@@ -50,7 +50,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static CameraCtrl f23245a = new CameraCtrl();
+        public static CameraCtrl f23253a = new CameraCtrl();
     }
 
     private void doDestroy() {
@@ -90,7 +90,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
     }
 
     public static CameraCtrl getInstance() {
-        return a.f23245a;
+        return a.f23253a;
     }
 
     private Camera.Size getSimilarRatioSize(int i, int i2, List<Camera.Size> list, int i3) {
@@ -169,7 +169,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
             try {
                 this._cameraProxy = b.a();
                 if (-1 != i && isSupportMultiCamera()) {
-                    this._cameraProxy.f23252a = (Camera) this._newVersionMethods[MethodIndex.open.ordinal()].invoke(Camera.class, Integer.valueOf(i));
+                    this._cameraProxy.f23260a = (Camera) this._newVersionMethods[MethodIndex.open.ordinal()].invoke(Camera.class, Integer.valueOf(i));
                     Camera.Parameters d2 = this._cameraProxy.d();
                     focusMode = d2.getFocusMode();
                     if (!focusMode.equals("auto") && !focusMode.equals("macro")) {
@@ -206,7 +206,7 @@ public class CameraCtrl implements Camera.ErrorCallback, NoProguard {
                                 Method method = this._newVersionMethods[MethodIndex.setDisplayOrientation.ordinal()];
                                 if (method != null) {
                                     try {
-                                        method.invoke(this._cameraProxy.f23252a, Integer.valueOf(i4));
+                                        method.invoke(this._cameraProxy.f23260a, Integer.valueOf(i4));
                                         this._rotation = i4;
                                     } catch (Exception e2) {
                                         LogUtil.e(Tag, "", e2);

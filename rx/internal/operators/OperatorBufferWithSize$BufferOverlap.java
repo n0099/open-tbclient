@@ -11,16 +11,16 @@ import java.util.concurrent.atomic.AtomicLong;
 public final class OperatorBufferWithSize$BufferOverlap<T> extends j<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final j<? super List<T>> f69193e;
+    public final j<? super List<T>> f69340e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f69194f;
+    public final int f69341f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f69195g;
+    public final int f69342g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final ArrayDeque<List<T>> f69196h;
+    public final ArrayDeque<List<T>> f69343h;
     public final AtomicLong i;
 
     /* loaded from: classes7.dex */
@@ -33,13 +33,13 @@ public final class OperatorBufferWithSize$BufferOverlap<T> extends j<T> {
         @Override // h.f
         public void request(long j) {
             OperatorBufferWithSize$BufferOverlap operatorBufferWithSize$BufferOverlap = OperatorBufferWithSize$BufferOverlap.this;
-            if (!a.e(operatorBufferWithSize$BufferOverlap.i, j, operatorBufferWithSize$BufferOverlap.f69196h, operatorBufferWithSize$BufferOverlap.f69193e) || j == 0) {
+            if (!a.e(operatorBufferWithSize$BufferOverlap.i, j, operatorBufferWithSize$BufferOverlap.f69343h, operatorBufferWithSize$BufferOverlap.f69340e) || j == 0) {
                 return;
             }
             if (get() || !compareAndSet(false, true)) {
-                operatorBufferWithSize$BufferOverlap.request(a.c(operatorBufferWithSize$BufferOverlap.f69195g, j));
+                operatorBufferWithSize$BufferOverlap.request(a.c(operatorBufferWithSize$BufferOverlap.f69342g, j));
             } else {
-                operatorBufferWithSize$BufferOverlap.request(a.a(a.c(operatorBufferWithSize$BufferOverlap.f69195g, j - 1), operatorBufferWithSize$BufferOverlap.f69194f));
+                operatorBufferWithSize$BufferOverlap.request(a.a(a.c(operatorBufferWithSize$BufferOverlap.f69342g, j - 1), operatorBufferWithSize$BufferOverlap.f69341f));
             }
         }
     }

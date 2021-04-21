@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.FocusListCard;
 import d.b.c.e.p.l;
-import d.b.i0.d3.v;
-import d.b.i0.j1.e;
-import d.b.i0.j1.i;
-import d.b.i0.x.t;
+import d.b.j0.d3.v;
+import d.b.j0.j1.e;
+import d.b.j0.j1.i;
+import d.b.j0.x.t;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -34,28 +34,28 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FocusListCard f18324e;
+        public final /* synthetic */ FocusListCard f18332e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f18325f;
+        public final /* synthetic */ int f18333f;
 
         public a(FocusListCard focusListCard, int i) {
-            this.f18324e = focusListCard;
-            this.f18325f = i;
+            this.f18332e = focusListCard;
+            this.f18333f = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(this.f18324e.getFocusItemList().get(this.f18325f).f18280f)) {
+            if (TextUtils.isEmpty(this.f18332e.getFocusItemList().get(this.f18333f).f18288f)) {
                 return;
             }
             t.b().d(true);
-            e e2 = i.e(this.f18324e);
-            e2.c("obj_locate", this.f18325f + 1);
-            e2.a(TiebaStatic.Params.OBJ_URL, this.f18324e.getFocusItemList().get(this.f18325f).f18280f);
-            e2.d("obj_id", this.f18324e.getFocusItemList().get(this.f18325f).f18281g);
-            e2.b(this.f18324e);
-            v.c(FocusListCardView.this.m, this.f18324e.getFocusItemList().get(this.f18325f).f18280f);
+            e e2 = i.e(this.f18332e);
+            e2.c("obj_locate", this.f18333f + 1);
+            e2.a(TiebaStatic.Params.OBJ_URL, this.f18332e.getFocusItemList().get(this.f18333f).f18288f);
+            e2.d("obj_id", this.f18332e.getFocusItemList().get(this.f18333f).f18289g);
+            e2.b(this.f18332e);
+            v.c(FocusListCardView.this.m, this.f18332e.getFocusItemList().get(this.f18333f).f18288f);
         }
     }
 
@@ -102,14 +102,14 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
         if (textView == null || aVar == null) {
             return;
         }
-        F(textView, aVar.f18278d, aVar.f18279e, R.color.CAM_X0308);
+        F(textView, aVar.f18286d, aVar.f18287e, R.color.CAM_X0308);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     /* renamed from: O */
     public void y(FocusListCard focusListCard, int i) {
-        d.b.h0.s0.a.a(this.m, getRootView());
+        d.b.i0.s0.a.a(this.m, getRootView());
         if (focusListCard != null) {
             K(focusListCard);
         }
@@ -135,10 +135,10 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
                 TextView textView3 = (TextView) o(this.x.get(i), R.id.right);
                 ImageView imageView = (ImageView) o(this.x.get(i), R.id.rightIcon);
                 L(textView, textView2, textView3, focusListCard.getFocusItemList().get(i));
-                textView.setText(focusListCard.getFocusItemList().get(i).f18275a);
-                textView2.setText(focusListCard.getFocusItemList().get(i).f18276b);
-                textView3.setText(focusListCard.getFocusItemList().get(i).f18277c);
-                if (!TextUtils.isEmpty(focusListCard.getFocusItemList().get(i).f18280f)) {
+                textView.setText(focusListCard.getFocusItemList().get(i).f18283a);
+                textView2.setText(focusListCard.getFocusItemList().get(i).f18284b);
+                textView3.setText(focusListCard.getFocusItemList().get(i).f18285c);
+                if (!TextUtils.isEmpty(focusListCard.getFocusItemList().get(i).f18288f)) {
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView3.getLayoutParams();
                     layoutParams.setMargins(0, 0, 0, 0);
                     textView3.setLayoutParams(layoutParams);

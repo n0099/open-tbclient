@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 public class av implements ar {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f40537a;
+    public Context f40632a;
 
     /* renamed from: a  reason: collision with other field name */
     public Class<?> f131a;
@@ -18,16 +18,16 @@ public class av implements ar {
     public Method f133a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public Method f40538b = null;
+    public Method f40633b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f40539c = null;
+    public Method f40634c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f40540d = null;
+    public Method f40635d = null;
 
     public av(Context context) {
-        this.f40537a = context;
+        this.f40632a = context;
         a(context);
     }
 
@@ -54,9 +54,9 @@ public class av implements ar {
             this.f131a = a2;
             this.f132a = a2.newInstance();
             this.f133a = this.f131a.getMethod("getUDID", Context.class);
-            this.f40538b = this.f131a.getMethod("getOAID", Context.class);
-            this.f40539c = this.f131a.getMethod("getVAID", Context.class);
-            this.f40540d = this.f131a.getMethod("getAAID", Context.class);
+            this.f40633b = this.f131a.getMethod("getOAID", Context.class);
+            this.f40634c = this.f131a.getMethod("getVAID", Context.class);
+            this.f40635d = this.f131a.getMethod("getAAID", Context.class);
         } catch (Exception e2) {
             com.xiaomi.channel.commonutils.logger.b.a("miui load class error", e2);
         }
@@ -80,16 +80,16 @@ public class av implements ar {
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
     public String mo134b() {
-        return a(this.f40537a, this.f40538b);
+        return a(this.f40632a, this.f40633b);
     }
 
     @Override // com.xiaomi.push.ar
     public String c() {
-        return a(this.f40537a, this.f40539c);
+        return a(this.f40632a, this.f40634c);
     }
 
     @Override // com.xiaomi.push.ar
     public String d() {
-        return a(this.f40537a, this.f40540d);
+        return a(this.f40632a, this.f40635d);
     }
 }

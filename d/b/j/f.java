@@ -28,10 +28,10 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.j.d.d.d f64450a;
+    public d.b.j.d.d.d f52645a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<e> f64451b;
+    public List<e> f52646b;
 
     /* loaded from: classes.dex */
     public class a implements Comparator<e> {
@@ -42,15 +42,15 @@ public class f {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(e eVar, e eVar2) {
-            int i = eVar2.f64447b - eVar.f64447b;
+            int i = eVar2.f52642b - eVar.f52642b;
             if (i == 0) {
-                if (eVar.f64449d && eVar2.f64449d) {
+                if (eVar.f52644d && eVar2.f52644d) {
                     return 0;
                 }
-                if (eVar.f64449d) {
+                if (eVar.f52644d) {
                     return -1;
                 }
-                if (eVar2.f64449d) {
+                if (eVar2.f52644d) {
                     return 1;
                 }
             }
@@ -62,7 +62,7 @@ public class f {
     public final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final byte[] f64452a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+        public static final byte[] f52647a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
 
         public static String a(byte[] bArr, String str) {
             int length = (bArr.length * 4) / 3;
@@ -72,7 +72,7 @@ public class f {
             int i2 = 0;
             for (int i3 = 0; i3 < length2; i3 += 3) {
                 int i4 = i + 1;
-                byte[] bArr3 = f64452a;
+                byte[] bArr3 = f52647a;
                 bArr2[i] = bArr3[(bArr[i3] & 255) >> 2];
                 int i5 = i4 + 1;
                 int i6 = i3 + 1;
@@ -91,7 +91,7 @@ public class f {
             int length3 = bArr.length % 3;
             if (length3 == 1) {
                 int i9 = i + 1;
-                byte[] bArr4 = f64452a;
+                byte[] bArr4 = f52647a;
                 bArr2[i] = bArr4[(bArr[length2] & 255) >> 2];
                 int i10 = i9 + 1;
                 bArr2[i9] = bArr4[(bArr[length2] & 3) << 4];
@@ -101,7 +101,7 @@ public class f {
                 bArr2[i11] = 61;
             } else if (length3 == 2) {
                 int i12 = i + 1;
-                byte[] bArr5 = f64452a;
+                byte[] bArr5 = f52647a;
                 bArr2[i] = bArr5[(bArr[length2] & 255) >> 2];
                 int i13 = i12 + 1;
                 int i14 = length2 + 1;
@@ -279,10 +279,10 @@ public class f {
                                 byte[] b2 = b.b(string.getBytes("utf-8"));
                                 JSONObject jSONObject = new JSONObject(new String(b2));
                                 e eVar = new e();
-                                eVar.f64447b = jSONObject.getInt("priority");
-                                eVar.f64446a = resolveInfo.activityInfo.applicationInfo;
+                                eVar.f52642b = jSONObject.getInt("priority");
+                                eVar.f52641a = resolveInfo.activityInfo.applicationInfo;
                                 if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                                    eVar.f64449d = true;
+                                    eVar.f52644d = true;
                                 }
                                 if (z) {
                                     String string2 = bundle.getString("galaxy_sf");
@@ -295,9 +295,9 @@ public class f {
                                             strArr[i] = jSONArray.getString(i);
                                         }
                                         if (e(strArr, g(packageInfo.signatures))) {
-                                            byte[] f2 = f(b.b(string2.getBytes()), this.f64450a);
+                                            byte[] f2 = f(b.b(string2.getBytes()), this.f52645a);
                                             if (f2 != null && Arrays.equals(f2, d.a(b2))) {
-                                                eVar.f64448c = true;
+                                                eVar.f52643c = true;
                                             }
                                         }
                                     }
@@ -315,7 +315,7 @@ public class f {
     }
 
     public final void c() {
-        this.f64450a = new d.b.j.d.d.e(h.a(), h.b());
+        this.f52645a = new d.b.j.d.d.e(h.a(), h.b());
     }
 
     public boolean d(Context context) {
@@ -326,7 +326,7 @@ public class f {
             }
             return false;
         }
-        boolean z = b2.get(0).f64448c;
+        boolean z = b2.get(0).f52643c;
         if (!z) {
             for (int i2 = 0; i2 < 3; i2++) {
                 Log.w("CuidBuddyInfoManager", "galaxy config err, In the release version of the signature should be matched");
@@ -360,13 +360,13 @@ public class f {
     }
 
     public List<e> h(Context context) {
-        List<e> list = this.f64451b;
+        List<e> list = this.f52646b;
         if (list != null) {
             return list;
         }
         d(context);
         List<e> b2 = b(context, new Intent("com.baidu.intent.action.GALAXY"), true);
-        this.f64451b = b2;
+        this.f52646b = b2;
         return b2;
     }
 }

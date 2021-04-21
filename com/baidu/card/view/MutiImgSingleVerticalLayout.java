@@ -24,14 +24,14 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import d.b.c.e.p.l;
-import d.b.h0.r.k;
-import d.b.h0.r.q.a2;
 import d.b.i.p;
-import d.b.i0.x.b0;
+import d.b.i0.r.k;
+import d.b.i0.r.q.a2;
+import d.b.j0.x.b0;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MutiImgSingleVerticalLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
+public class MutiImgSingleVerticalLayout extends LinearLayout implements p<d.b.i0.r.q.a> {
     public static final int r = l.k(TbadkCoreApplication.getInst()) - ((l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
 
     /* renamed from: e  reason: collision with root package name */
@@ -47,9 +47,9 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements p<d.b.h
     public TbImageView f4516h;
     public String i;
     public boolean j;
-    public b0<d.b.h0.r.q.a> k;
-    public d.b.h0.r.q.a l;
-    public d.b.h0.b1.j.d m;
+    public b0<d.b.i0.r.q.a> k;
+    public d.b.i0.r.q.a l;
+    public d.b.i0.b1.j.d m;
     public LinkedList<MediaData> n;
     public boolean o;
     public boolean p;
@@ -62,7 +62,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements p<d.b.h
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b0<d.b.h0.r.q.a> subClickListener = MutiImgSingleVerticalLayout.this.getSubClickListener();
+            b0<d.b.i0.r.q.a> subClickListener = MutiImgSingleVerticalLayout.this.getSubClickListener();
             if (subClickListener != null) {
                 view.setTag("2");
                 subClickListener.a(view, MutiImgSingleVerticalLayout.this.l);
@@ -71,17 +71,17 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements p<d.b.h
     }
 
     /* loaded from: classes.dex */
-    public class b implements d.b.h0.b1.j.d {
+    public class b implements d.b.i0.b1.j.d {
         public b() {
         }
 
-        @Override // d.b.h0.b1.j.d
+        @Override // d.b.i0.b1.j.d
         public void a(View view, int i, boolean z) {
-            b0<d.b.h0.r.q.a> subClickListener = MutiImgSingleVerticalLayout.this.getSubClickListener();
+            b0<d.b.i0.r.q.a> subClickListener = MutiImgSingleVerticalLayout.this.getSubClickListener();
             if (subClickListener != null) {
                 view.setTag("1");
                 MutiImgSingleVerticalLayout.this.l.objType = 2;
-                subClickListener.f63759a = Boolean.FALSE;
+                subClickListener.f64180a = Boolean.FALSE;
                 subClickListener.a(view, MutiImgSingleVerticalLayout.this.l);
             }
             if (TbadkCoreApplication.getInst().getAdAdSense() == null || !TbadkCoreApplication.getInst().getAdAdSense().q) {
@@ -119,7 +119,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements p<d.b.h
             if (tbImageView == null || tbImageView.getImageMatrix() == null) {
                 return;
             }
-            d.b.c.j.d.a m = d.b.h0.a0.c.k().m(d.b.c.e.l.d.h().g(tbImageView.getUrl(), MutiImgSingleVerticalLayout.this.j ? 13 : 14));
+            d.b.c.j.d.a m = d.b.i0.a0.c.k().m(d.b.c.e.l.d.h().g(tbImageView.getUrl(), MutiImgSingleVerticalLayout.this.j ? 13 : 14));
             int i2 = 0;
             if (m != null) {
                 i2 = m.r();
@@ -293,7 +293,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements p<d.b.h
         return TextUtils.isEmpty(picUrl) ? mediaData.getSrc_pic() : picUrl;
     }
 
-    public b0<d.b.h0.r.q.a> getSubClickListener() {
+    public b0<d.b.i0.r.q.a> getSubClickListener() {
         return this.k;
     }
 
@@ -320,7 +320,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements p<d.b.h
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.i.p
     /* renamed from: i */
-    public void a(d.b.h0.r.q.a aVar) {
+    public void a(d.b.i0.r.q.a aVar) {
         this.l = aVar;
         a2 n = aVar.n();
         ThreadCardUtils.setTitle(this.f4513e, n, this.p);
@@ -407,7 +407,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements p<d.b.h
     public void setPreloadSizeReadyCallback(d.b.c.j.c.b bVar) {
     }
 
-    public void setSubClickListener(b0<d.b.h0.r.q.a> b0Var) {
+    public void setSubClickListener(b0<d.b.i0.r.q.a> b0Var) {
         this.k = b0Var;
     }
 

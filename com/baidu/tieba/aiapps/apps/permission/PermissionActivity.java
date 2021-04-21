@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.permission;
 import android.app.Activity;
 import android.os.Bundle;
 import com.baidu.tieba.R;
-import d.b.i0.s.b.j.a;
+import d.b.j0.s.b.j.a;
 /* loaded from: classes4.dex */
 public class PermissionActivity extends Activity {
     public static final int PERMISSION_REQUEST_CODE = 999;

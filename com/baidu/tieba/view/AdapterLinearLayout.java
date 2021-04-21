@@ -10,10 +10,10 @@ import android.widget.LinearLayout;
 public class AdapterLinearLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Adapter f21697e;
+    public Adapter f21705e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final DataSetObserver f21698f;
+    public final DataSetObserver f21706f;
 
     /* loaded from: classes5.dex */
     public class a extends DataSetObserver {
@@ -22,14 +22,14 @@ public class AdapterLinearLayout extends LinearLayout {
 
         @Override // android.database.DataSetObserver
         public void onChanged() {
-            if (AdapterLinearLayout.this.f21697e == null) {
+            if (AdapterLinearLayout.this.f21705e == null) {
                 return;
             }
-            int count = AdapterLinearLayout.this.f21697e.getCount();
+            int count = AdapterLinearLayout.this.f21705e.getCount();
             int childCount = AdapterLinearLayout.this.getChildCount() - count;
             for (int i = 0; i < count; i++) {
                 View childAt = AdapterLinearLayout.this.getChildAt(i);
-                View view = AdapterLinearLayout.this.f21697e.getView(i, childAt, AdapterLinearLayout.this);
+                View view = AdapterLinearLayout.this.f21705e.getView(i, childAt, AdapterLinearLayout.this);
                 if (childAt == null && view != null) {
                     AdapterLinearLayout.this.addView(view);
                 }
@@ -47,27 +47,27 @@ public class AdapterLinearLayout extends LinearLayout {
 
     public AdapterLinearLayout(Context context) {
         super(context);
-        this.f21698f = new a();
+        this.f21706f = new a();
     }
 
     public void setAdapter(Adapter adapter) {
-        Adapter adapter2 = this.f21697e;
+        Adapter adapter2 = this.f21705e;
         if (adapter2 != null) {
-            adapter2.unregisterDataSetObserver(this.f21698f);
+            adapter2.unregisterDataSetObserver(this.f21706f);
         }
-        this.f21697e = adapter;
+        this.f21705e = adapter;
         if (adapter != null) {
-            adapter.registerDataSetObserver(this.f21698f);
+            adapter.registerDataSetObserver(this.f21706f);
         }
     }
 
     public AdapterLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21698f = new a();
+        this.f21706f = new a();
     }
 
     public AdapterLinearLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f21698f = new a();
+        this.f21706f = new a();
     }
 }

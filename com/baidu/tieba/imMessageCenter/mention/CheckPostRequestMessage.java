@@ -2,7 +2,7 @@ package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.h0.z0.w;
+import d.b.i0.z0.w;
 import tbclient.CheckPost.CheckPostReqIdl;
 import tbclient.CheckPost.ReqData;
 /* loaded from: classes4.dex */

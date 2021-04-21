@@ -9,24 +9,24 @@ import java.util.Map;
 public final class c implements Runnable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Throwable f64747e;
+    public final /* synthetic */ Throwable f65011e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ Context f64748f;
+    public final /* synthetic */ Context f65012f;
 
     public c(Throwable th, Context context) {
-        this.f64747e = th;
-        this.f64748f = context;
+        this.f65011e = th;
+        this.f65012f = context;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         try {
-            Map<String, Object> d2 = com.baidu.crabsdk.sender.g.d(this.f64747e, this.f64748f);
+            Map<String, Object> d2 = com.baidu.crabsdk.sender.g.d(this.f65011e, this.f65012f);
             com.baidu.crabsdk.sender.g.h(d2);
             d2.put("exceptionThread", s.b(Thread.currentThread()));
-            i.e(this.f64748f, i.h(d2));
-            k.l(this.f64748f);
+            i.e(this.f65012f, i.h(d2));
+            k.l(this.f65012f);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

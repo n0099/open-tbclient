@@ -13,11 +13,11 @@ public class PrecashierBeanFactory implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static PrecashierBeanFactory f25404a = new PrecashierBeanFactory();
+        public static PrecashierBeanFactory f25412a = new PrecashierBeanFactory();
     }
 
     public static PrecashierBeanFactory getInstance() {
-        return a.f25404a;
+        return a.f25412a;
     }
 
     @Override // com.baidu.apollon.beans.IBeanFactory

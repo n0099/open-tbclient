@@ -1106,6 +1106,7 @@ public final class R$styleable {
     public static final int SVGAImageView_fillMode = 3;
     public static final int SVGAImageView_loopCount = 4;
     public static final int SVGAImageView_source = 5;
+    public static final int SVGImageView_svg = 0;
     public static final int SapiSDKInputFormView_SapiSdkHint = 0;
     public static final int SapiSDKInputFormView_SapiSdkInputIcon = 1;
     public static final int SapiSDKInputFormView_SapiSdkInputPhone = 2;
@@ -1836,6 +1837,7 @@ public final class R$styleable {
     public static final int[] RoundedImageView = {16843037, R.attr.border_color, R.attr.border_width, R.attr.corner_radius, R.attr.round_background};
     public static final int[] SVCircleProgressBar = {R.attr.svprogress_max, R.attr.svprogress_roundColor, R.attr.svprogress_roundProgressColor, R.attr.svprogress_roundWidth, R.attr.svprogress_style};
     public static final int[] SVGAImageView = {R.attr.antiAlias, R.attr.autoPlay, R.attr.clearsAfterStop, R.attr.fillMode, R.attr.loopCount, R.attr.source};
+    public static final int[] SVGImageView = {R.attr.svg};
     public static final int[] SapiSDKInputFormView = {R.attr.SapiSdkHint, R.attr.SapiSdkInputIcon, R.attr.SapiSdkInputPhone, R.attr.SapiSdkMaxLength, R.attr.SapiSdkMinLines, R.attr.SapiSdkShowInputBottomLine, R.attr.SapiSdkSingleLine};
     public static final int[] SapiSdkScrollLayout = {R.attr.SapiSdkAllowHorizontalScroll, R.attr.SapiSdkExitOffset, R.attr.SapiSdkHalfOffset, R.attr.SapiSdkIsSupportExit, R.attr.SapiSdkMode, R.attr.SapiSdkOpenedOffset};
     public static final int[] SapiSdkSlidingTabLayout = {R.attr.SapiSdkDividerColor, R.attr.SapiSdkDividerPadding, R.attr.SapiSdkDividerWidth, R.attr.SapiSdkIndicatorColor, R.attr.SapiSdkIndicatorCornerRadius, R.attr.SapiSdkIndicatorGravity, R.attr.SapiSdkIndicatorHeight, R.attr.SapiSdkIndicatorMarginBottom, R.attr.SapiSdkIndicatorMarginLeft, R.attr.SapiSdkIndicatorMarginRight, R.attr.SapiSdkIndicatorMarginTop, R.attr.SapiSdkIndicatorStyle, R.attr.SapiSdkIndicatorWidth, R.attr.SapiSdkIndicatorWidthEqualTitle, R.attr.SapiSdkTabPadding, R.attr.SapiSdkTabSpaceEqual, R.attr.SapiSdkTabTextAllCaps, R.attr.SapiSdkTabTextBold, R.attr.SapiSdkTabTextSelectColor, R.attr.SapiSdkTabTextSize, R.attr.SapiSdkTabTextUnselectColor, R.attr.SapiSdkTabWidth, R.attr.SapiSdkUnderlineColor, R.attr.SapiSdkUnderlineGravity, R.attr.SapiSdkUnderlineHeight};

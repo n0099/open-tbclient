@@ -29,16 +29,16 @@ import org.apache.http.protocol.HTTP;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f33877a = ad.a(KsAdSDKImpl.get().getContext()) + "/downloadFileSync/.temp";
+    public static final String f33972a = ad.a(KsAdSDKImpl.get().getContext()) + "/downloadFileSync/.temp";
 
     /* loaded from: classes6.dex */
     public static class a implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final OutputStream f33878a;
+        public final OutputStream f33973a;
 
         public a(File file, boolean z) {
-            this.f33878a = new FileOutputStream(file, z);
+            this.f33973a = new FileOutputStream(file, z);
         }
 
         @Override // com.kwad.sdk.core.download.e.c
@@ -51,12 +51,12 @@ public class e {
 
         @Override // com.kwad.sdk.core.download.e.c
         public void a(byte[] bArr, int i, int i2) {
-            this.f33878a.write(bArr, i, i2);
+            this.f33973a.write(bArr, i, i2);
         }
 
         @Override // java.io.Closeable, java.lang.AutoCloseable
         public void close() {
-            this.f33878a.close();
+            this.f33973a.close();
         }
     }
 
@@ -250,7 +250,7 @@ public class e {
             if (contentLength <= 0) {
                 try {
                     Random random = new Random(System.currentTimeMillis());
-                    file = new File(f33877a, random.nextInt() + ".tmp");
+                    file = new File(f33972a, random.nextInt() + ".tmp");
                     try {
                         fileOutputStream2 = new FileOutputStream(file);
                     } catch (Throwable th4) {

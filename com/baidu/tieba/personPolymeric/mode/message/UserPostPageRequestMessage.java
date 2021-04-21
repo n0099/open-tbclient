@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.squareup.wire.Message;
 import d.b.c.e.m.b;
-import d.b.h0.z0.w;
+import d.b.i0.z0.w;
 import tbclient.User;
 /* loaded from: classes3.dex */
 public class UserPostPageRequestMessage extends NetMessage {

@@ -29,8 +29,8 @@ import d.b.c.a.g;
 import d.b.c.a.j;
 import d.b.c.e.m.f;
 import d.b.c.h.j.g.d;
-import d.b.h0.f0.h;
-import d.b.h0.i0.c;
+import d.b.i0.f0.h;
+import d.b.i0.i0.c;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -213,7 +213,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         g<?> b2 = j.b(context);
-        d.b.h0.j0.b tbPageInfo = b2 instanceof d.b.h0.j0.a ? ((d.b.h0.j0.a) b2).getTbPageInfo() : null;
+        d.b.i0.j0.b tbPageInfo = b2 instanceof d.b.i0.j0.a ? ((d.b.i0.j0.a) b2).getTbPageInfo() : null;
         if (tbPageInfo != null) {
             this.mIntent.putExtra("tb_page_tag_source_trace", tbPageInfo.a());
         }
@@ -249,7 +249,7 @@ public class IntentConfig extends OrmObject {
     public void addSourceTraceForPageStayDurationStat() {
         if (this.mIntent != null) {
             g<?> b2 = j.b(this.mContext);
-            ArrayList<String> arrayList = b2 instanceof d.b.h0.k0.a ? (ArrayList) ((d.b.h0.k0.a) b2).getNextPageSourceKeyList() : null;
+            ArrayList<String> arrayList = b2 instanceof d.b.i0.k0.a ? (ArrayList) ((d.b.i0.k0.a) b2).getNextPageSourceKeyList() : null;
             if (ListUtils.isEmpty(arrayList)) {
                 return;
             }

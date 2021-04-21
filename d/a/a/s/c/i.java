@@ -29,10 +29,10 @@ public class i extends f<PointF> {
         h hVar = (h) aVar;
         Path j = hVar.j();
         if (j == null) {
-            return aVar.f41801b;
+            return aVar.f41896b;
         }
-        d.a.a.y.c<A> cVar = this.f41599e;
-        if (cVar == 0 || (pointF = (PointF) cVar.b(hVar.f41804e, hVar.f41805f.floatValue(), hVar.f41801b, hVar.f41802c, e(), f2, f())) == null) {
+        d.a.a.y.c<A> cVar = this.f41694e;
+        if (cVar == 0 || (pointF = (PointF) cVar.b(hVar.f41899e, hVar.f41900f.floatValue(), hVar.f41896b, hVar.f41897c, e(), f2, f())) == null) {
             if (this.k != hVar) {
                 this.l.setPath(j, false);
                 this.k = hVar;

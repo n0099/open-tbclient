@@ -16,10 +16,10 @@ import org.xmlpull.v1.XmlPullParserException;
 public class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f39280b = new Object();
+    public static final Object f39375b = new Object();
 
     /* renamed from: a  reason: collision with root package name */
-    public File f39281a;
+    public File f39376a;
 
     /* renamed from: a  reason: collision with other field name */
     public final Object f12a = new Object();
@@ -31,16 +31,16 @@ public class d {
     public static final class a implements b {
 
         /* renamed from: c  reason: collision with root package name */
-        public static final Object f39282c = new Object();
+        public static final Object f39377c = new Object();
 
         /* renamed from: a  reason: collision with root package name */
-        public Map f39283a;
+        public Map f39378a;
 
         /* renamed from: a  reason: collision with other field name */
-        public WeakHashMap<b.InterfaceC0520b, Object> f14a;
+        public WeakHashMap<b.InterfaceC0523b, Object> f14a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f39284b;
+        public final int f39379b;
 
         /* renamed from: b  reason: collision with other field name */
         public final File f15b;
@@ -49,13 +49,13 @@ public class d {
         public final File f16c;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f39285g = false;
+        public boolean f39380g = false;
 
         public a(File file, int i, Map map) {
             this.f15b = file;
             this.f16c = d.a(file);
-            this.f39284b = i;
-            this.f39283a = map == null ? new HashMap() : map;
+            this.f39379b = i;
+            this.f39378a = map == null ? new HashMap() : map;
             this.f14a = new WeakHashMap<>();
         }
 
@@ -75,7 +75,7 @@ public class d {
                 if (a2 == null) {
                     return false;
                 }
-                e.a(this.f39283a, a2);
+                e.a(this.f39378a, a2);
                 a2.close();
                 this.f16c.delete();
                 return true;
@@ -90,7 +90,7 @@ public class d {
         public boolean c() {
             boolean z;
             synchronized (this) {
-                z = this.f39285g;
+                z = this.f39380g;
             }
             return z;
         }
@@ -99,7 +99,7 @@ public class d {
         public Map<String, ?> getAll() {
             HashMap hashMap;
             synchronized (this) {
-                hashMap = new HashMap(this.f39283a);
+                hashMap = new HashMap(this.f39378a);
             }
             return hashMap;
         }
@@ -107,7 +107,7 @@ public class d {
         @Override // com.ta.utdid2.b.a.b
         public long getLong(String str, long j) {
             synchronized (this) {
-                Long l = (Long) this.f39283a.get(str);
+                Long l = (Long) this.f39378a.get(str);
                 if (l != null) {
                     j = l.longValue();
                 }
@@ -118,7 +118,7 @@ public class d {
         @Override // com.ta.utdid2.b.a.b
         public String getString(String str, String str2) {
             synchronized (this) {
-                String str3 = (String) this.f39283a.get(str);
+                String str3 = (String) this.f39378a.get(str);
                 if (str3 != null) {
                     str2 = str3;
                 }
@@ -128,21 +128,21 @@ public class d {
 
         /* renamed from: com.ta.utdid2.b.a.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public final class C0521a implements b.a {
+        public final class C0524a implements b.a {
 
             /* renamed from: b  reason: collision with root package name */
-            public final Map<String, Object> f39287b = new HashMap();
+            public final Map<String, Object> f39382b = new HashMap();
 
             /* renamed from: h  reason: collision with root package name */
-            public boolean f39288h = false;
+            public boolean f39383h = false;
 
-            public C0521a() {
+            public C0524a() {
             }
 
             @Override // com.ta.utdid2.b.a.b.a
             public b.a a(String str, String str2) {
                 synchronized (this) {
-                    this.f39287b.put(str, str2);
+                    this.f39382b.put(str, str2);
                 }
                 return this;
             }
@@ -150,7 +150,7 @@ public class d {
             @Override // com.ta.utdid2.b.a.b.a
             public b.a b() {
                 synchronized (this) {
-                    this.f39288h = true;
+                    this.f39383h = true;
                 }
                 return this;
             }
@@ -159,9 +159,9 @@ public class d {
             public boolean commit() {
                 boolean z;
                 ArrayList arrayList;
-                HashSet<b.InterfaceC0520b> hashSet;
+                HashSet<b.InterfaceC0523b> hashSet;
                 boolean d2;
-                synchronized (d.f39280b) {
+                synchronized (d.f39375b) {
                     z = a.this.f14a.size() > 0;
                     arrayList = null;
                     if (z) {
@@ -171,23 +171,23 @@ public class d {
                         hashSet = null;
                     }
                     synchronized (this) {
-                        if (this.f39288h) {
-                            a.this.f39283a.clear();
-                            this.f39288h = false;
+                        if (this.f39383h) {
+                            a.this.f39378a.clear();
+                            this.f39383h = false;
                         }
-                        for (Map.Entry<String, Object> entry : this.f39287b.entrySet()) {
+                        for (Map.Entry<String, Object> entry : this.f39382b.entrySet()) {
                             String key = entry.getKey();
                             Object value = entry.getValue();
                             if (value == this) {
-                                a.this.f39283a.remove(key);
+                                a.this.f39378a.remove(key);
                             } else {
-                                a.this.f39283a.put(key, value);
+                                a.this.f39378a.put(key, value);
                             }
                             if (z) {
                                 arrayList.add(key);
                             }
                         }
-                        this.f39287b.clear();
+                        this.f39382b.clear();
                     }
                     d2 = a.this.d();
                     if (d2) {
@@ -197,9 +197,9 @@ public class d {
                 if (z) {
                     for (int size = arrayList.size() - 1; size >= 0; size--) {
                         String str = (String) arrayList.get(size);
-                        for (b.InterfaceC0520b interfaceC0520b : hashSet) {
-                            if (interfaceC0520b != null) {
-                                interfaceC0520b.a(a.this, str);
+                        for (b.InterfaceC0523b interfaceC0523b : hashSet) {
+                            if (interfaceC0523b != null) {
+                                interfaceC0523b.a(a.this, str);
                             }
                         }
                     }
@@ -210,7 +210,7 @@ public class d {
             @Override // com.ta.utdid2.b.a.b.a
             public b.a a(String str, int i) {
                 synchronized (this) {
-                    this.f39287b.put(str, Integer.valueOf(i));
+                    this.f39382b.put(str, Integer.valueOf(i));
                 }
                 return this;
             }
@@ -218,7 +218,7 @@ public class d {
             @Override // com.ta.utdid2.b.a.b.a
             public b.a a(String str, long j) {
                 synchronized (this) {
-                    this.f39287b.put(str, Long.valueOf(j));
+                    this.f39382b.put(str, Long.valueOf(j));
                 }
                 return this;
             }
@@ -226,7 +226,7 @@ public class d {
             @Override // com.ta.utdid2.b.a.b.a
             public b.a a(String str, float f2) {
                 synchronized (this) {
-                    this.f39287b.put(str, Float.valueOf(f2));
+                    this.f39382b.put(str, Float.valueOf(f2));
                 }
                 return this;
             }
@@ -234,7 +234,7 @@ public class d {
             @Override // com.ta.utdid2.b.a.b.a
             public b.a a(String str, boolean z) {
                 synchronized (this) {
-                    this.f39287b.put(str, Boolean.valueOf(z));
+                    this.f39382b.put(str, Boolean.valueOf(z));
                 }
                 return this;
             }
@@ -242,7 +242,7 @@ public class d {
             @Override // com.ta.utdid2.b.a.b.a
             public b.a a(String str) {
                 synchronized (this) {
-                    this.f39287b.put(str, this);
+                    this.f39382b.put(str, this);
                 }
                 return this;
             }
@@ -255,21 +255,21 @@ public class d {
 
         public void a(boolean z) {
             synchronized (this) {
-                this.f39285g = z;
+                this.f39380g = z;
             }
         }
 
         public void a(Map map) {
             if (map != null) {
                 synchronized (this) {
-                    this.f39283a = map;
+                    this.f39378a = map;
                 }
             }
         }
 
         @Override // com.ta.utdid2.b.a.b
         public b.a a() {
-            return new C0521a();
+            return new C0524a();
         }
 
         private FileOutputStream a(File file) {
@@ -292,7 +292,7 @@ public class d {
 
     public d(String str) {
         if (str != null && str.length() > 0) {
-            this.f39281a = new File(str);
+            this.f39376a = new File(str);
             return;
         }
         throw new RuntimeException("Directory can not be empty");
@@ -313,7 +313,7 @@ public class d {
     private File a() {
         File file;
         synchronized (this.f12a) {
-            file = this.f39281a;
+            file = this.f39376a;
         }
         return file;
     }
@@ -338,7 +338,7 @@ public class d {
     public b a(String str, int i) {
         FileInputStream fileInputStream;
         File b2 = b(str);
-        synchronized (f39280b) {
+        synchronized (f39375b) {
             a aVar = this.f13a.get(b2);
             if (aVar == null || aVar.c()) {
                 File a2 = a(b2);
@@ -391,7 +391,7 @@ public class d {
                                                 if (fileInputStream != null) {
                                                 }
                                                 hashMap = canRead;
-                                                synchronized (f39280b) {
+                                                synchronized (f39375b) {
                                                 }
                                             } catch (Throwable th) {
                                                 th = th;
@@ -413,7 +413,7 @@ public class d {
                                             canRead = canRead;
                                         }
                                         hashMap = canRead;
-                                        synchronized (f39280b) {
+                                        synchronized (f39375b) {
                                         }
                                     } catch (Exception unused8) {
                                         HashMap hashMap3 = hashMap;
@@ -424,7 +424,7 @@ public class d {
                                             canRead = canRead;
                                         }
                                         hashMap = canRead;
-                                        synchronized (f39280b) {
+                                        synchronized (f39375b) {
                                         }
                                     } catch (Throwable th3) {
                                         th = th3;
@@ -449,7 +449,7 @@ public class d {
                     } catch (Throwable unused12) {
                     }
                 }
-                synchronized (f39280b) {
+                synchronized (f39375b) {
                     if (aVar != null) {
                         aVar.a(hashMap);
                     } else {

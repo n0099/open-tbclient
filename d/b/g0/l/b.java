@@ -1,50 +1,40 @@
 package d.b.g0.l;
 
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public interface b {
-    String A();
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import androidx.core.app.NotificationCompat;
+/* loaded from: classes2.dex */
+public class b {
 
-    d.b.g0.l.l.f B();
+    /* renamed from: a  reason: collision with root package name */
+    public static long f43702a = 60000;
 
-    String C();
+    /* renamed from: b  reason: collision with root package name */
+    public static long f43703b = f43702a * 60;
 
-    CookieManager a();
-
-    String b();
-
-    boolean isDebug();
-
-    String l();
-
-    String m();
-
-    void n(JSONArray jSONArray, String str, String str2);
-
-    String o();
-
-    void p(d.b.g0.l.m.h.a aVar);
-
-    String q();
-
-    String r();
-
-    String s();
-
-    String t();
-
-    String u();
-
-    void v(d.b.g0.l.m.i.f fVar);
-
-    String w();
-
-    void x(PMSAppInfo pMSAppInfo, JSONObject jSONObject, boolean z);
-
-    String y();
-
-    void z(String str, String str2, String str3, int i, JSONObject jSONObject);
+    public static void a(Context context, long j) {
+        if (j <= 0) {
+            return;
+        }
+        try {
+            AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            Intent intent = new Intent("sso_action_t_m");
+            intent.setPackage(context.getPackageName());
+            PendingIntent broadcast = PendingIntent.getBroadcast(context, 101, intent, 134217728);
+            alarmManager.cancel(broadcast);
+            long currentTimeMillis = System.currentTimeMillis() + j;
+            if (Build.VERSION.SDK_INT >= 23) {
+                alarmManager.setExactAndAllowWhileIdle(0, currentTimeMillis, broadcast);
+            } else if (Build.VERSION.SDK_INT >= 19) {
+                alarmManager.setExact(0, currentTimeMillis, broadcast);
+            } else {
+                alarmManager.set(0, currentTimeMillis, broadcast);
+            }
+        } catch (Throwable th) {
+            c.d(th);
+        }
+    }
 }

@@ -7,8 +7,8 @@ public class a {
         return new b.a(str, str2, str3);
     }
 
-    public static b.C0468b a(String str) {
-        return new b.C0468b(str);
+    public static b.C0471b a(String str) {
+        return new b.C0471b(str);
     }
 
     public static void a() {

@@ -85,7 +85,7 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
         super.changeSkinType(i);
         super.changeSkinType(i);
         getLayoutMode().j(this.mRootView);
-        d.b.h0.s0.a.a(getPageContext(), this.mRootView);
+        d.b.i0.s0.a.a(getPageContext(), this.mRootView);
         NoNetworkView noNetworkView = this.mNoNetView;
         if (noNetworkView != null && noNetworkView.getVisibility() == 0) {
             this.mNoNetView.c(getPageContext(), TbadkCoreApplication.getInst().getSkinType());

@@ -6,7 +6,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
-import d.b.i0.i1.b;
+import d.b.j0.i1.b;
+import java.io.Serializable;
 /* loaded from: classes4.dex */
 public class TiebaLcUpdateService extends BdBaseService {
     public b mLcUpdateAsyncTask;
@@ -46,9 +47,16 @@ public class TiebaLcUpdateService extends BdBaseService {
         super.onDestroy();
     }
 
-    @Override // android.app.Service
-    public void onStart(Intent intent, int i) {
-        super.onStart(intent, i);
-        startUpdate((ClientUpdateInfo) intent.getSerializableExtra(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_DATA));
+    @Override // com.baidu.adp.base.BdBaseService, android.app.Service
+    public int onStartCommand(Intent intent, int i, int i2) {
+        if (intent == null) {
+            return super.onStartCommand(intent, i, i2);
+        }
+        Serializable serializableExtra = intent.getSerializableExtra(LcUpdateDialogActivityConfig.KEY_LC_UPDATE_DATA);
+        if (!(serializableExtra instanceof ClientUpdateInfo)) {
+            return super.onStartCommand(intent, i, i2);
+        }
+        startUpdate((ClientUpdateInfo) serializableExtra);
+        return 3;
     }
 }

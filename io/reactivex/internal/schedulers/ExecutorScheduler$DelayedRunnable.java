@@ -27,7 +27,7 @@ public final class ExecutorScheduler$DelayedRunnable extends AtomicReference<Run
 
     public Runnable getWrappedRunnable() {
         Runnable runnable = get();
-        return runnable != null ? runnable : Functions.f69032a;
+        return runnable != null ? runnable : Functions.f69179a;
     }
 
     @Override // f.b.t.b

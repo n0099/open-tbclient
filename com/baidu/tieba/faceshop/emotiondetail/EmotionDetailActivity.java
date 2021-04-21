@@ -54,8 +54,8 @@ import com.baidu.tieba.faceshop.emotiondetail.view.EmotionDetailImageView;
 import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import d.b.c.e.p.l;
-import d.b.i0.l0.u;
-import d.b.i0.l0.v;
+import d.b.j0.l0.u;
+import d.b.j0.l0.v;
 import java.io.File;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -104,20 +104,20 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
     public d.b.c.a.e mLoadDataCallBack = new f();
 
     /* loaded from: classes4.dex */
-    public class a implements d.b.i0.y1.e.b {
+    public class a implements d.b.j0.y1.e.b {
         public a() {
         }
 
-        @Override // d.b.i0.y1.e.b
+        @Override // d.b.j0.y1.e.b
         public void onFail(String str) {
             l.L(EmotionDetailActivity.this.getPageContext().getPageActivity(), str);
         }
 
-        @Override // d.b.i0.y1.e.b
+        @Override // d.b.j0.y1.e.b
         public void onProgress(int i) {
         }
 
-        @Override // d.b.i0.y1.e.b
+        @Override // d.b.j0.y1.e.b
         public void onSuccess(String str) {
             l.K(EmotionDetailActivity.this.getPageContext().getPageActivity(), R.string.save_success);
         }
@@ -170,15 +170,15 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
     public class e implements View.OnTouchListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f15464e;
+        public final /* synthetic */ View f15472e;
 
         public e(View view) {
-            this.f15464e = view;
+            this.f15472e = view;
         }
 
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            int top = this.f15464e.findViewById(R.id.id_pop_layout).getTop();
+            int top = this.f15472e.findViewById(R.id.id_pop_layout).getTop();
             int y = (int) motionEvent.getY();
             if (motionEvent.getAction() == 1 && y < top) {
                 EmotionDetailActivity.this.mManageEmotionPopupWindow.dismiss();
@@ -222,7 +222,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
                         EmotionDetailActivity.this.mForumAndDownloadNum.setText(String.format(EmotionDetailActivity.this.getString(R.string.forum_and_download_num), EmotionDetailActivity.this.mEmotionDetailData.pck_info.owner.user_name, StringHelper.numFormatOverWan(d.b.c.e.m.b.f(EmotionDetailActivity.this.mEmotionDetailData.pck_info.download, 0L))));
                     }
                 }
-                d.b.i0.l0.a c2 = d.b.i0.l0.a.c();
+                d.b.j0.l0.a c2 = d.b.j0.l0.a.c();
                 if (c2.e("" + EmotionDetailActivity.this.pck_id)) {
                     EmotionDetailActivity.this.mEmotionPackageControlTv.setText(R.string.already_downloaded);
                     SkinManager.setViewTextColor(EmotionDetailActivity.this.mEmotionPackageControlTv, R.color.CAM_X0109);
@@ -255,31 +255,31 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
     public class g implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f15467e;
+        public final /* synthetic */ ShareItem f15475e;
 
         public g(ShareItem shareItem) {
-            this.f15467e = shareItem;
+            this.f15475e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.b.c.e.p.a.a(this.f15467e.t);
+            d.b.c.e.p.a.a(this.f15475e.t);
             l.L(EmotionDetailActivity.this.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
         }
     }
 
     /* loaded from: classes4.dex */
-    public class h implements d.b.i0.y1.e.b {
+    public class h implements d.b.j0.y1.e.b {
         public h() {
         }
 
-        @Override // d.b.i0.y1.e.b
+        @Override // d.b.j0.y1.e.b
         public void onFail(String str) {
             l.K(EmotionDetailActivity.this.getActivity(), R.string.download_error);
             EmotionDetailActivity.this.mEmotionPackageControlTv.setEnabled(true);
         }
 
-        @Override // d.b.i0.y1.e.b
+        @Override // d.b.j0.y1.e.b
         public void onProgress(int i) {
             if (i > 0 && i < 100) {
                 l.I(EmotionDetailActivity.this.getActivity(), EmotionDetailActivity.this.getString(R.string.package_downloading_progress));
@@ -288,7 +288,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             }
         }
 
-        @Override // d.b.i0.y1.e.b
+        @Override // d.b.j0.y1.e.b
         public void onSuccess(String str) {
             l.K(EmotionDetailActivity.this.getActivity(), R.string.down_state_success);
             EmotionDetailActivity.this.mEmotionPackageControlTv.setText(R.string.already_downloaded);
@@ -310,7 +310,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             public a() {
             }
 
-            @Override // d.b.i0.l0.u.l
+            @Override // d.b.j0.l0.u.l
             public void onResult(int i, int i2, int i3) {
                 if (i2 > 0 && i == 1) {
                     SkinManager.setImageResource(EmotionDetailActivity.this.mAddImage, R.drawable.icon_bar_collection_emotion);
@@ -329,7 +329,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public List<CollectEmotionData> doInBackground(Void... voidArr) {
-            List<CollectEmotionData> n = d.b.i0.l0.g.k().n(TbadkCoreApplication.getCurrentAccount());
+            List<CollectEmotionData> n = d.b.j0.l0.g.k().n(TbadkCoreApplication.getCurrentAccount());
             if (n == null || n.size() < 1) {
                 return null;
             }
@@ -340,8 +340,8 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
                     break;
                 }
                 CollectEmotionData next = it.next();
-                if (!d.b.h0.a0.d.f50076d.equals(next.sharpText) && !TextUtils.isEmpty(next.pid)) {
-                    String str = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/.collect/" + d.b.h0.a0.d.b() + "/" + next.pid + "_s.jpg";
+                if (!d.b.i0.a0.d.f50412d.equals(next.sharpText) && !TextUtils.isEmpty(next.pid)) {
+                    String str = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/.collect/" + d.b.i0.a0.d.b() + "/" + next.pid + "_s.jpg";
                     ImageFileInfo imageFileInfo = new ImageFileInfo();
                     imageFileInfo.setFilePath(str);
                     File file = new File(str);
@@ -372,7 +372,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
         public j() {
         }
 
-        @Override // d.b.i0.l0.u.l
+        @Override // d.b.j0.l0.u.l
         public void onResult(int i, int i2, int i3) {
             if (i == 4) {
                 if (i2 == 1) {
@@ -405,9 +405,9 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             String str = emotionDetailData.pic_info.pic_url;
             EmotionDetailData.PckInfo pckInfo = emotionDetailData.pck_info;
             int i2 = pckInfo == null ? 0 : pckInfo.pck_id;
-            d.b.h0.b0.c cVar = new d.b.h0.b0.c();
-            cVar.f50170d = str;
-            cVar.f50172f = StringUtils.string(Integer.valueOf(i2));
+            d.b.i0.b0.c cVar = new d.b.i0.b0.c();
+            cVar.f50506d = str;
+            cVar.f50508f = StringUtils.string(Integer.valueOf(i2));
             ArrayList arrayList = new ArrayList();
             arrayList.add(cVar);
             u.s().h(arrayList, true, new j());
@@ -545,7 +545,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        d.b.i0.y1.c.i().d(str, new a());
+        d.b.j0.y1.c.i().d(str, new a());
     }
 
     private void shareEmotion() {

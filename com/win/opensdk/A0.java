@@ -5,10 +5,10 @@ import android.webkit.JsResult;
 public class A0 implements D0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ C0 f39904a;
+    public final /* synthetic */ C0 f39999a;
 
     public A0(C0 c0) {
-        this.f39904a = c0;
+        this.f39999a = c0;
     }
 
     public void a(C0 c0, boolean z) {
@@ -16,8 +16,8 @@ public class A0 implements D0 {
 
     public boolean a(String str) {
         A2 a2;
-        J0 j0 = this.f39904a.o;
-        if (j0 == null || (a2 = ((R0) j0).f40074d) == null) {
+        J0 j0 = this.f39999a.o;
+        if (j0 == null || (a2 = ((R0) j0).f40169d) == null) {
             return false;
         }
         return a2.a(str, "");
@@ -32,7 +32,7 @@ public class A0 implements D0 {
     }
 
     public void a() {
-        J0 j0 = this.f39904a.o;
+        J0 j0 = this.f39999a.o;
         if (j0 != null) {
             ((R0) j0).c();
         }

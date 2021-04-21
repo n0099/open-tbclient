@@ -1,21 +1,17 @@
 package d.b.i0.i0;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
-/* loaded from: classes4.dex */
+import com.baidu.tbadk.core.BaseFragment;
+/* loaded from: classes3.dex */
 public class b {
-    public static void a(TbPageContext<?> tbPageContext, String str) {
-        ForumSquareActivityConfig forumSquareActivityConfig;
-        if (tbPageContext == null) {
-            return;
-        }
-        if (!StringUtils.isNull(str)) {
-            forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity(), str);
-        } else {
-            forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity());
-        }
-        tbPageContext.sendMessage(new CustomMessage(2002001, forumSquareActivityConfig));
+
+    /* renamed from: a  reason: collision with root package name */
+    public BaseFragment f50971a;
+
+    public b(BaseFragment baseFragment) {
+        this.f50971a = baseFragment;
+    }
+
+    public BaseFragment a() {
+        return this.f50971a;
     }
 }

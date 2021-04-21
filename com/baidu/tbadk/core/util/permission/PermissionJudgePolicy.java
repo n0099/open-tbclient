@@ -18,7 +18,7 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import d.b.c.a.f;
 import d.b.c.a.j;
-import d.b.h0.r.s.a;
+import d.b.i0.r.s.a;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -232,7 +232,7 @@ public class PermissionJudgePolicy {
         aVar.setTitle(R.string.request_permission_default_title);
         aVar.setMessageId(getPermissionDescriptionId(str));
         aVar.setPositiveButton(R.string.isopen, new a.e() { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
-            @Override // d.b.h0.r.s.a.e
+            @Override // d.b.i0.r.s.a.e
             public void onClick(a aVar2) {
                 aVar2.dismiss();
                 Intent intent = new Intent();
@@ -245,7 +245,7 @@ public class PermissionJudgePolicy {
                 }
             }
         }).setNegativeButton(R.string.cancel, new a.e() { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.3
-            @Override // d.b.h0.r.s.a.e
+            @Override // d.b.i0.r.s.a.e
             public void onClick(a aVar2) {
                 aVar2.dismiss();
                 if (PermissionJudgePolicy.this.mDialogClickListener != null) {

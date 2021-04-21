@@ -25,30 +25,30 @@ import com.baidubce.auth.NTLMEngineImpl;
 public class ForumTestWebView extends WebView {
 
     /* renamed from: e  reason: collision with root package name */
-    public WebViewClient f15047e;
+    public WebViewClient f15055e;
 
     /* renamed from: f  reason: collision with root package name */
-    public h f15048f;
+    public h f15056f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f15049g;
+    public c f15057g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f15050h;
+    public e f15058h;
     public d i;
     public f j;
     public g k;
-    public d.b.i0.i0.e.a.a l;
-    public d.b.i0.i0.e.a.c m;
+    public d.b.j0.i0.e.a.a l;
+    public d.b.j0.i0.e.a.c m;
 
     /* loaded from: classes4.dex */
-    public class a implements d.b.i0.i0.e.a.c {
+    public class a implements d.b.j0.i0.e.a.c {
         public a() {
         }
 
-        @Override // d.b.i0.i0.e.a.c
+        @Override // d.b.j0.i0.e.a.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
-            d.b.i0.i0.e.a.a aVar = ForumTestWebView.this.l;
+            d.b.j0.i0.e.a.a aVar = ForumTestWebView.this.l;
             if (aVar != null) {
                 return aVar.b(str, jsPromptResult);
             }
@@ -77,8 +77,8 @@ public class ForumTestWebView extends WebView {
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             super.onPageStarted(webView, str, bitmap);
-            if (ForumTestWebView.this.f15050h != null) {
-                ForumTestWebView.this.f15050h.a(webView, str);
+            if (ForumTestWebView.this.f15058h != null) {
+                ForumTestWebView.this.f15058h.a(webView, str);
             }
         }
 
@@ -89,8 +89,8 @@ public class ForumTestWebView extends WebView {
 
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            if (ForumTestWebView.this.f15049g != null) {
-                return ForumTestWebView.this.f15049g.shouldOverrideUrlLoading(webView, str);
+            if (ForumTestWebView.this.f15057g != null) {
+                return ForumTestWebView.this.f15057g.shouldOverrideUrlLoading(webView, str);
             }
             return super.shouldOverrideUrlLoading(webView, str);
         }
@@ -201,10 +201,10 @@ public class ForumTestWebView extends WebView {
     @Override // android.webkit.WebView
     public void destroy() {
         super.destroy();
-        this.f15047e = null;
-        this.f15048f = null;
-        this.f15049g = null;
-        this.f15050h = null;
+        this.f15055e = null;
+        this.f15056f = null;
+        this.f15057g = null;
+        this.f15058h = null;
         this.i = null;
         this.j = null;
         this.k = null;
@@ -212,7 +212,7 @@ public class ForumTestWebView extends WebView {
     }
 
     @SuppressLint({"SetJavaScriptEnabled"})
-    public void g(d.b.i0.i0.e.a.b bVar) {
+    public void g(d.b.j0.i0.e.a.b bVar) {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         getSettings().setAllowFileAccess(true);
@@ -229,15 +229,15 @@ public class ForumTestWebView extends WebView {
         setScrollBarStyle(NTLMEngineImpl.FLAG_REQUEST_VERSION);
         getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion());
         WebViewClient bVar2 = new b();
-        this.f15047e = bVar2;
+        this.f15055e = bVar2;
         setWebViewClient(bVar2);
         h hVar = new h(this, null);
-        this.f15048f = hVar;
+        this.f15056f = hVar;
         setWebChromeClient(hVar);
-        d.b.i0.i0.e.a.a aVar = new d.b.i0.i0.e.a.a();
+        d.b.j0.i0.e.a.a aVar = new d.b.j0.i0.e.a.a();
         this.l = aVar;
         aVar.a(bVar);
-        d.b.h0.l.a.f(getContext());
+        d.b.i0.l.a.f(getContext());
         removeJavascriptInterface("searchBoxJavaBridge_");
         removeJavascriptInterface("accessibility");
         removeJavascriptInterface("accessibilityTraversal");

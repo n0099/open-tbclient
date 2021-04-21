@@ -14,7 +14,7 @@ import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.NormalizeGuestAccountResult;
 import com.baidu.sapi2.utils.c;
 import com.baidu.sapi2.utils.enums.SocialType;
-import d.b.x.a.f;
+import d.b.y.a.f;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class NormalizeGuestAccountActivity extends BaseActivity {

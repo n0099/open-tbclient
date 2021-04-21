@@ -7,20 +7,20 @@ import org.json.JSONObject;
 public final class p extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f65895e;
+    public final Context f65990e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i f65896f;
+    public final i f65991f;
 
     public p(Context context, i iVar) {
         super(true, false);
-        this.f65895e = context;
-        this.f65896f = iVar;
+        this.f65990e = context;
+        this.f65991f = iVar;
     }
 
     @Override // d.c.b.h2
     public boolean b(JSONObject jSONObject) {
-        Map<String, String> c2 = x0.c(this.f65895e, this.f65896f.A());
+        Map<String, String> c2 = x0.c(this.f65990e, this.f65991f.A());
         if (c2 != null) {
             jSONObject.put("oaid", new JSONObject(c2));
             return true;

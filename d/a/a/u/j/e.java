@@ -8,28 +8,28 @@ import java.util.List;
 public class e implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f41684a;
+    public final String f41779a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final GradientType f41685b;
+    public final GradientType f41780b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.a.a.u.i.c f41686c;
+    public final d.a.a.u.i.c f41781c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.a.a.u.i.d f41687d;
+    public final d.a.a.u.i.d f41782d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.a.a.u.i.f f41688e;
+    public final d.a.a.u.i.f f41783e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.a.a.u.i.f f41689f;
+    public final d.a.a.u.i.f f41784f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.a.a.u.i.b f41690g;
+    public final d.a.a.u.i.b f41785g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final ShapeStroke.LineCapType f41691h;
+    public final ShapeStroke.LineCapType f41786h;
     public final ShapeStroke.LineJoinType i;
     public final float j;
     public final List<d.a.a.u.i.b> k;
@@ -38,14 +38,14 @@ public class e implements b {
     public final boolean m;
 
     public e(String str, GradientType gradientType, d.a.a.u.i.c cVar, d.a.a.u.i.d dVar, d.a.a.u.i.f fVar, d.a.a.u.i.f fVar2, d.a.a.u.i.b bVar, ShapeStroke.LineCapType lineCapType, ShapeStroke.LineJoinType lineJoinType, float f2, List<d.a.a.u.i.b> list, @Nullable d.a.a.u.i.b bVar2, boolean z) {
-        this.f41684a = str;
-        this.f41685b = gradientType;
-        this.f41686c = cVar;
-        this.f41687d = dVar;
-        this.f41688e = fVar;
-        this.f41689f = fVar2;
-        this.f41690g = bVar;
-        this.f41691h = lineCapType;
+        this.f41779a = str;
+        this.f41780b = gradientType;
+        this.f41781c = cVar;
+        this.f41782d = dVar;
+        this.f41783e = fVar;
+        this.f41784f = fVar2;
+        this.f41785g = bVar;
+        this.f41786h = lineCapType;
         this.i = lineJoinType;
         this.j = f2;
         this.k = list;
@@ -59,7 +59,7 @@ public class e implements b {
     }
 
     public ShapeStroke.LineCapType b() {
-        return this.f41691h;
+        return this.f41786h;
     }
 
     @Nullable
@@ -68,15 +68,15 @@ public class e implements b {
     }
 
     public d.a.a.u.i.f d() {
-        return this.f41689f;
+        return this.f41784f;
     }
 
     public d.a.a.u.i.c e() {
-        return this.f41686c;
+        return this.f41781c;
     }
 
     public GradientType f() {
-        return this.f41685b;
+        return this.f41780b;
     }
 
     public ShapeStroke.LineJoinType g() {
@@ -92,19 +92,19 @@ public class e implements b {
     }
 
     public String j() {
-        return this.f41684a;
+        return this.f41779a;
     }
 
     public d.a.a.u.i.d k() {
-        return this.f41687d;
+        return this.f41782d;
     }
 
     public d.a.a.u.i.f l() {
-        return this.f41688e;
+        return this.f41783e;
     }
 
     public d.a.a.u.i.b m() {
-        return this.f41690g;
+        return this.f41785g;
     }
 
     public boolean n() {

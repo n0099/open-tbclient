@@ -26,29 +26,29 @@ import org.json.JSONObject;
 public class a implements com.bytedance.sdk.openadsdk.multipro.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f29571a;
+    public Context f29579a;
 
     /* renamed from: com.bytedance.sdk.openadsdk.multipro.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0332a implements com.bytedance.sdk.openadsdk.h.a.a {
+    public static class C0334a implements com.bytedance.sdk.openadsdk.h.a.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public JSONObject f29572a;
+        public JSONObject f29580a;
 
-        public C0332a(String str) {
+        public C0334a(String str) {
             try {
-                this.f29572a = new JSONObject(str);
+                this.f29580a = new JSONObject(str);
             } catch (Throwable unused) {
             }
         }
 
-        public static C0332a b(String str) {
-            return new C0332a(str);
+        public static C0334a b(String str) {
+            return new C0334a(str);
         }
 
         @Override // com.bytedance.sdk.openadsdk.h.a.a
         public JSONObject a() {
-            return this.f29572a;
+            return this.f29580a;
         }
     }
 
@@ -56,17 +56,17 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static volatile com.bytedance.sdk.openadsdk.h.c.c f29576a;
+        public static volatile com.bytedance.sdk.openadsdk.h.c.c f29584a;
 
         public static com.bytedance.sdk.openadsdk.h.c.c a() {
-            if (f29576a == null) {
+            if (f29584a == null) {
                 synchronized (com.bytedance.sdk.openadsdk.h.c.c.class) {
-                    if (f29576a == null) {
-                        f29576a = new com.bytedance.sdk.openadsdk.h.c.c();
+                    if (f29584a == null) {
+                        f29584a = new com.bytedance.sdk.openadsdk.h.c.c();
                     }
                 }
             }
-            return f29576a;
+            return f29584a;
         }
     }
 
@@ -74,17 +74,17 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static volatile com.bytedance.sdk.openadsdk.m.a f29577a;
+        public static volatile com.bytedance.sdk.openadsdk.m.a f29585a;
 
         public static com.bytedance.sdk.openadsdk.m.a a() {
-            if (f29577a == null) {
+            if (f29585a == null) {
                 synchronized (com.bytedance.sdk.openadsdk.m.a.class) {
-                    if (f29577a == null) {
-                        f29577a = new com.bytedance.sdk.openadsdk.m.b(p.a(), new g(p.a()));
+                    if (f29585a == null) {
+                        f29585a = new com.bytedance.sdk.openadsdk.m.b(p.a(), new g(p.a()));
                     }
                 }
             }
-            return f29577a;
+            return f29585a;
         }
     }
 
@@ -149,7 +149,7 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
     }
 
     public static String f() {
-        return e.f29583b + "/t_event_ad_event/";
+        return e.f29591b + "/t_event_ad_event/";
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
@@ -216,45 +216,45 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static volatile com.bytedance.sdk.openadsdk.c.b<com.bytedance.sdk.openadsdk.c.a> f29573a;
+        public static volatile com.bytedance.sdk.openadsdk.c.b<com.bytedance.sdk.openadsdk.c.a> f29581a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static volatile com.bytedance.sdk.openadsdk.c.b<c.a> f29574b;
+        public static volatile com.bytedance.sdk.openadsdk.c.b<c.a> f29582b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static volatile com.bytedance.sdk.openadsdk.c.b<c.a> f29575c;
+        public static volatile com.bytedance.sdk.openadsdk.c.b<c.a> f29583c;
 
         public static com.bytedance.sdk.openadsdk.c.b<com.bytedance.sdk.openadsdk.c.a> a() {
-            if (f29573a == null) {
+            if (f29581a == null) {
                 synchronized (p.class) {
-                    if (f29573a == null) {
-                        f29573a = new com.bytedance.sdk.openadsdk.c.b<>(new f(p.a()), p.f(), g.b.a(), d());
+                    if (f29581a == null) {
+                        f29581a = new com.bytedance.sdk.openadsdk.c.b<>(new f(p.a()), p.f(), g.b.a(), d());
                     }
                 }
             }
-            return f29573a;
+            return f29581a;
         }
 
         public static com.bytedance.sdk.openadsdk.c.b<c.a> b() {
-            if (f29575c == null) {
+            if (f29583c == null) {
                 synchronized (p.class) {
-                    if (f29575c == null) {
-                        f29575c = a("ttad_bk_batch_stats", "AdStatsEventBatchThread", false);
+                    if (f29583c == null) {
+                        f29583c = a("ttad_bk_batch_stats", "AdStatsEventBatchThread", false);
                     }
                 }
             }
-            return f29575c;
+            return f29583c;
         }
 
         public static com.bytedance.sdk.openadsdk.c.b<c.a> c() {
-            if (f29574b == null) {
+            if (f29582b == null) {
                 synchronized (p.class) {
-                    if (f29574b == null) {
-                        f29574b = a("ttad_bk_stats", "AdStatsEventThread", true);
+                    if (f29582b == null) {
+                        f29582b = a("ttad_bk_stats", "AdStatsEventThread", true);
                     }
                 }
             }
-            return f29574b;
+            return f29582b;
         }
 
         public static g.a d() {
@@ -316,7 +316,7 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public void a(Context context) {
-        this.f29571a = context;
+        this.f29579a = context;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
@@ -375,7 +375,7 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
         } else if ("logStatusUpload".equals(str)) {
             String b3 = com.bytedance.sdk.openadsdk.multipro.c.b(uri.getQueryParameter("event"));
             if (!TextUtils.isEmpty(b3)) {
-                c.a().a(C0332a.b(b3));
+                c.a().a(C0334a.b(b3));
             }
         }
         return null;

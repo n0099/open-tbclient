@@ -21,33 +21,33 @@ import java.util.List;
 public class a implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f36936a;
+    public String f37031a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.a f36937b;
+    public com.kwad.sdk.contentalliance.detail.video.a f37032b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KsVideoPlayConfig f36938c;
+    public KsVideoPlayConfig f37033c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f36939d;
+    public long f37034d;
 
     /* renamed from: e  reason: collision with root package name */
-    public VideoPlayerStatus f36940e;
+    public VideoPlayerStatus f37035e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f36941f;
+    public boolean f37036f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f36942g;
+    public boolean f37037g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<g.a> f36943h = new ArrayList();
+    public final List<g.a> f37038h = new ArrayList();
     public g.a i = new g.a() { // from class: com.kwad.sdk.splashscreen.b.a.1
         @Override // com.kwad.sdk.utils.g.a
         public void a() {
-            synchronized (a.this.f36943h) {
-                for (g.a aVar : a.this.f36943h) {
+            synchronized (a.this.f37038h) {
+                for (g.a aVar : a.this.f37038h) {
                     aVar.a();
                 }
             }
@@ -55,8 +55,8 @@ public class a implements c {
 
         @Override // com.kwad.sdk.utils.g.a
         public void b() {
-            synchronized (a.this.f36943h) {
-                for (g.a aVar : a.this.f36943h) {
+            synchronized (a.this.f37038h) {
+                for (g.a aVar : a.this.f37038h) {
                     aVar.b();
                 }
             }
@@ -66,23 +66,23 @@ public class a implements c {
 
     public a(@NonNull AdTemplate adTemplate, @NonNull final DetailVideoView detailVideoView, KsVideoPlayConfig ksVideoPlayConfig) {
         this.j = -1L;
-        this.f36938c = ksVideoPlayConfig;
+        this.f37033c = ksVideoPlayConfig;
         String H = com.kwad.sdk.core.response.b.a.H(com.kwad.sdk.core.response.b.c.j(adTemplate));
-        this.f36940e = adTemplate.mVideoPlayerStatus;
+        this.f37035e = adTemplate.mVideoPlayerStatus;
         File b2 = com.kwad.sdk.core.diskcache.b.a.a().b(H);
         if (b2 != null && b2.exists()) {
-            this.f36936a = b2.getAbsolutePath();
+            this.f37031a = b2.getAbsolutePath();
         }
-        this.f36937b = new com.kwad.sdk.contentalliance.detail.video.a(detailVideoView);
-        this.f36939d = com.kwad.sdk.core.response.b.a.k(com.kwad.sdk.core.response.b.c.j(adTemplate));
+        this.f37032b = new com.kwad.sdk.contentalliance.detail.video.a(detailVideoView);
+        this.f37034d = com.kwad.sdk.core.response.b.a.k(com.kwad.sdk.core.response.b.c.j(adTemplate));
         this.j = adTemplate.mKsPlayerClickTimeParam;
-        this.f36937b.a(new c.e() { // from class: com.kwad.sdk.splashscreen.b.a.2
+        this.f37032b.a(new c.e() { // from class: com.kwad.sdk.splashscreen.b.a.2
             @Override // com.kwad.sdk.core.video.a.c.e
             public void a(com.kwad.sdk.core.video.a.c cVar) {
                 boolean a2 = ao.a((View) detailVideoView, 50, true);
                 com.kwad.sdk.core.d.a.a("SplashPlayModule", " onPrepared" + a2);
                 if (a2) {
-                    a.this.f36937b.f();
+                    a.this.f37032b.f();
                 }
             }
         });
@@ -90,12 +90,12 @@ public class a implements c {
     }
 
     private void h() {
-        this.f36937b.a(new d.a().a(this.f36940e).a(this.f36936a).a(new com.kwad.sdk.contentalliance.detail.video.c(this.f36939d, this.j)).a());
-        KsVideoPlayConfig ksVideoPlayConfig = this.f36938c;
+        this.f37032b.a(new d.a().a(this.f37035e).a(this.f37031a).a(new com.kwad.sdk.contentalliance.detail.video.c(this.f37034d, this.j)).a());
+        KsVideoPlayConfig ksVideoPlayConfig = this.f37033c;
         if (ksVideoPlayConfig != null) {
             a(ksVideoPlayConfig.isVideoSoundEnable(), false);
         }
-        this.f36937b.e();
+        this.f37032b.e();
     }
 
     @MainThread
@@ -103,24 +103,24 @@ public class a implements c {
         if (eVar == null) {
             return;
         }
-        this.f36937b.a(eVar);
+        this.f37032b.a(eVar);
     }
 
     public void a(g.a aVar) {
-        this.f36943h.add(aVar);
+        this.f37038h.add(aVar);
     }
 
     public void a(boolean z) {
-        this.f36942g = z;
+        this.f37037g = z;
     }
 
     public void a(boolean z, boolean z2) {
-        this.f36941f = z;
+        this.f37036f = z;
         if (!z) {
-            this.f36937b.a(0.0f, 0.0f);
+            this.f37032b.a(0.0f, 0.0f);
             return;
         }
-        this.f36937b.a(1.0f, 1.0f);
+        this.f37032b.a(1.0f, 1.0f);
         if (z2) {
             b.a().a(true);
         }
@@ -136,15 +136,15 @@ public class a implements c {
         if (eVar == null) {
             return;
         }
-        this.f36937b.b(eVar);
+        this.f37032b.b(eVar);
     }
 
     public void b(g.a aVar) {
-        this.f36943h.remove(aVar);
+        this.f37038h.remove(aVar);
     }
 
     public long c() {
-        return this.f36937b.o();
+        return this.f37032b.o();
     }
 
     @Override // com.kwad.sdk.core.i.c
@@ -153,34 +153,34 @@ public class a implements c {
     }
 
     public void d() {
-        this.f36937b.h();
-        if (this.f36941f && this.f36942g) {
+        this.f37032b.h();
+        if (this.f37036f && this.f37037g) {
             b.a().a(false);
             if (b.a().b()) {
-                this.f36941f = false;
+                this.f37036f = false;
                 a(false, false);
             }
         }
     }
 
     public void e() {
-        this.f36937b.j();
+        this.f37032b.j();
     }
 
     @MainThread
     public void f() {
-        com.kwad.sdk.contentalliance.detail.video.a aVar = this.f36937b;
+        com.kwad.sdk.contentalliance.detail.video.a aVar = this.f37032b;
         if (aVar != null) {
             aVar.p();
-            this.f36937b.k();
+            this.f37032b.k();
         }
         b.a().b(this.i);
     }
 
     public void g() {
-        if (this.f36937b.a() == null) {
+        if (this.f37032b.a() == null) {
             h();
         }
-        this.f36937b.f();
+        this.f37032b.f();
     }
 }

@@ -7,7 +7,7 @@ import java.io.IOException;
 public class y implements j0<PointF> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final y f41783a = new y();
+    public static final y f41878a = new y();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.a.w.j0

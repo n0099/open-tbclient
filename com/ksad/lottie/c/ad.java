@@ -11,7 +11,7 @@ import java.util.List;
 public class ad implements aj<com.ksad.lottie.model.content.h> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ad f31625a = new ad();
+    public static final ad f31720a = new ad();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.ksad.lottie.c.aj

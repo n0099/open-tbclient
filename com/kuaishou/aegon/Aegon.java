@@ -84,38 +84,38 @@ public class Aegon {
     }
 
     public static String getEffectiveConfig() {
-        a.InterfaceC0367a interfaceC0367a;
+        a.InterfaceC0370a interfaceC0370a;
         if (sInitialized.get()) {
-            interfaceC0367a = Aegon$$Lambda$3.instance;
-            return (String) com.kuaishou.aegon.a.a.a(interfaceC0367a);
+            interfaceC0370a = Aegon$$Lambda$3.instance;
+            return (String) com.kuaishou.aegon.a.a.a(interfaceC0370a);
         }
         return "";
     }
 
     public static long getHttpCacheUsedBytes() {
-        a.InterfaceC0367a interfaceC0367a;
+        a.InterfaceC0370a interfaceC0370a;
         if (sInitialized.get()) {
-            interfaceC0367a = Aegon$$Lambda$6.instance;
-            return ((Long) com.kuaishou.aegon.a.a.a(interfaceC0367a)).longValue();
+            interfaceC0370a = Aegon$$Lambda$6.instance;
+            return ((Long) com.kuaishou.aegon.a.a.a(interfaceC0370a)).longValue();
         }
         return 0L;
     }
 
     public static String getPublicIP() {
-        a.InterfaceC0367a interfaceC0367a;
+        a.InterfaceC0370a interfaceC0370a;
         if (sInitialized.get()) {
-            interfaceC0367a = Aegon$$Lambda$17.instance;
-            return (String) com.kuaishou.aegon.a.a.a(interfaceC0367a);
+            interfaceC0370a = Aegon$$Lambda$17.instance;
+            return (String) com.kuaishou.aegon.a.a.a(interfaceC0370a);
         }
         return "";
     }
 
     @Nullable
     public static String getVersionString() {
-        a.InterfaceC0367a interfaceC0367a;
+        a.InterfaceC0370a interfaceC0370a;
         if (sInitialized.get()) {
-            interfaceC0367a = Aegon$$Lambda$12.instance;
-            return (String) com.kuaishou.aegon.a.a.a(interfaceC0367a);
+            interfaceC0370a = Aegon$$Lambda$12.instance;
+            return (String) com.kuaishou.aegon.a.a.a(interfaceC0370a);
         }
         return null;
     }
@@ -206,7 +206,7 @@ public class Aegon {
     }
 
     public static void setLoggingCallback(d dVar, boolean z) {
-        AegonLoggingDispatcher.f31897a = dVar;
+        AegonLoggingDispatcher.f31992a = dVar;
         if (sInitialized.get()) {
             com.kuaishou.aegon.a.a.b(Aegon$$Lambda$14.lambdaFactory$(z));
         }

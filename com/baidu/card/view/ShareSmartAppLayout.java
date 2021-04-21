@@ -8,10 +8,10 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.view.AppletsCellView;
 import com.baidu.tieba.R;
-import d.b.h0.r.q.a;
-import d.b.h0.r.q.a2;
 import d.b.i.p;
-import d.b.i0.x.b0;
+import d.b.i0.r.q.a;
+import d.b.i0.r.q.a2;
+import d.b.j0.x.b0;
 /* loaded from: classes.dex */
 public class ShareSmartAppLayout extends LinearLayout implements p<a> {
 

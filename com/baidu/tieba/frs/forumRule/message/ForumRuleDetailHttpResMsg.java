@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.forumRule.message;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
-import d.b.i0.q0.q1.c.b;
+import d.b.j0.q0.q1.c.b;
 import tbclient.Error;
 import tbclient.ForumRuleDetail.ForumRuleDetailResIdl;
 /* loaded from: classes4.dex */

@@ -6,42 +6,42 @@ public interface a {
 
     /* renamed from: d.b.c.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0551a implements a {
+    public static class C0570a implements a {
 
         /* renamed from: c  reason: collision with root package name */
-        public static a f42072c;
+        public static a f42312c;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f42073a;
+        public int f42313a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final d f42074b = new d();
+        public final d f42314b = new d();
 
-        public C0551a() {
-            this.f42073a = 0;
+        public C0570a() {
+            this.f42313a = 0;
             if (NSGif.f2170f) {
-                this.f42073a = 0;
+                this.f42313a = 0;
             } else {
-                this.f42073a = 1;
+                this.f42313a = 1;
             }
         }
 
         public static synchronized a b() {
             a aVar;
-            synchronized (C0551a.class) {
-                if (f42072c == null) {
-                    f42072c = new C0551a();
+            synchronized (C0570a.class) {
+                if (f42312c == null) {
+                    f42312c = new C0570a();
                 }
-                aVar = f42072c;
+                aVar = f42312c;
             }
             return aVar;
         }
 
         @Override // d.b.c.d.a
         public d.b.c.j.d.a a(byte[] bArr, int i, int i2) {
-            if (this.f42073a == 0) {
+            if (this.f42313a == 0) {
                 try {
-                    return this.f42074b.a(bArr, i, i2);
+                    return this.f42314b.a(bArr, i, i2);
                 } catch (Exception unused) {
                 }
             }
@@ -50,9 +50,9 @@ public interface a {
 
         @Override // d.b.c.d.a
         public d.b.c.j.d.a get(String str) {
-            if (this.f42073a == 0) {
+            if (this.f42313a == 0) {
                 try {
-                    return this.f42074b.get(str);
+                    return this.f42314b.get(str);
                 } catch (Exception unused) {
                 }
             }

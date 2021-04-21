@@ -20,10 +20,10 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
     public static final jg f595a = new jg("XmPushActionCheckClientInfo");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f41020a = new iy("", (byte) 8, 1);
+    public static final iy f41115a = new iy("", (byte) 8, 1);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f41021b = new iy("", (byte) 8, 2);
+    public static final iy f41116b = new iy("", (byte) 8, 2);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
@@ -65,7 +65,7 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
         jbVar.m509a();
         while (true) {
             iy m505a = jbVar.m505a();
-            byte b2 = m505a.f41156a;
+            byte b2 = m505a.f41251a;
             if (b2 == 0) {
                 break;
             }
@@ -122,10 +122,10 @@ public class hx implements iq<hx, Object>, Serializable, Cloneable {
     public void b(jb jbVar) {
         a();
         jbVar.a(f595a);
-        jbVar.a(f41020a);
+        jbVar.a(f41115a);
         jbVar.a(this.f596a);
         jbVar.b();
-        jbVar.a(f41021b);
+        jbVar.a(f41116b);
         jbVar.a(this.f598b);
         jbVar.b();
         jbVar.c();

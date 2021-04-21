@@ -20,25 +20,25 @@ public class j implements d<InputStream> {
     @VisibleForTesting
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f35550a = new a();
+    public static final b f35645a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.kwad.sdk.glide.load.b.g f35551b;
+    public final com.kwad.sdk.glide.load.b.g f35646b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f35552c;
+    public final int f35647c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final b f35553d;
+    public final b f35648d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HttpURLConnection f35554e;
+    public HttpURLConnection f35649e;
 
     /* renamed from: f  reason: collision with root package name */
-    public InputStream f35555f;
+    public InputStream f35650f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f35556g;
+    public volatile boolean f35651g;
 
     /* loaded from: classes6.dex */
     public static class a implements b {
@@ -54,14 +54,14 @@ public class j implements d<InputStream> {
     }
 
     public j(com.kwad.sdk.glide.load.b.g gVar, int i) {
-        this(gVar, i, f35550a);
+        this(gVar, i, f35645a);
     }
 
     @VisibleForTesting
     public j(com.kwad.sdk.glide.load.b.g gVar, int i, b bVar) {
-        this.f35551b = gVar;
-        this.f35552c = i;
-        this.f35553d = bVar;
+        this.f35646b = gVar;
+        this.f35647c = i;
+        this.f35648d = bVar;
     }
 
     private InputStream a(HttpURLConnection httpURLConnection) {
@@ -74,8 +74,8 @@ public class j implements d<InputStream> {
             }
             inputStream = httpURLConnection.getInputStream();
         }
-        this.f35555f = inputStream;
-        return this.f35555f;
+        this.f35650f = inputStream;
+        return this.f35650f;
     }
 
     private InputStream a(URL url, int i, URL url2, Map<String, String> map) {
@@ -88,31 +88,31 @@ public class j implements d<InputStream> {
                 } catch (URISyntaxException unused) {
                 }
             }
-            this.f35554e = this.f35553d.a(url);
+            this.f35649e = this.f35648d.a(url);
             for (Map.Entry<String, String> entry : map.entrySet()) {
-                this.f35554e.addRequestProperty(entry.getKey(), entry.getValue());
+                this.f35649e.addRequestProperty(entry.getKey(), entry.getValue());
             }
-            this.f35554e.setConnectTimeout(this.f35552c);
-            this.f35554e.setReadTimeout(this.f35552c);
-            this.f35554e.setUseCaches(false);
-            this.f35554e.setDoInput(true);
-            this.f35554e.setInstanceFollowRedirects(false);
-            this.f35554e.connect();
-            this.f35555f = this.f35554e.getInputStream();
-            if (this.f35556g) {
+            this.f35649e.setConnectTimeout(this.f35647c);
+            this.f35649e.setReadTimeout(this.f35647c);
+            this.f35649e.setUseCaches(false);
+            this.f35649e.setDoInput(true);
+            this.f35649e.setInstanceFollowRedirects(false);
+            this.f35649e.connect();
+            this.f35650f = this.f35649e.getInputStream();
+            if (this.f35651g) {
                 return null;
             }
-            int responseCode = this.f35554e.getResponseCode();
+            int responseCode = this.f35649e.getResponseCode();
             if (a(responseCode)) {
-                return a(this.f35554e);
+                return a(this.f35649e);
             }
             if (!b(responseCode)) {
                 if (responseCode == -1) {
                     throw new HttpException(responseCode);
                 }
-                throw new HttpException(this.f35554e.getResponseMessage(), responseCode);
+                throw new HttpException(this.f35649e.getResponseMessage(), responseCode);
             }
-            String headerField = this.f35554e.getHeaderField("Location");
+            String headerField = this.f35649e.getHeaderField("Location");
             if (TextUtils.isEmpty(headerField)) {
                 throw new HttpException("Received empty or null redirect url");
             }
@@ -143,7 +143,7 @@ public class j implements d<InputStream> {
         long a2 = com.kwad.sdk.glide.g.f.a();
         try {
             try {
-                aVar.a((d.a<? super InputStream>) a(this.f35551b.a(), 0, null, this.f35551b.b()));
+                aVar.a((d.a<? super InputStream>) a(this.f35646b.a(), 0, null, this.f35646b.b()));
             } catch (IOException e2) {
                 if (Log.isLoggable(HttpUrlFetcher.TAG, 3)) {
                     Log.d(HttpUrlFetcher.TAG, "Failed to load data for url", e2);
@@ -170,23 +170,23 @@ public class j implements d<InputStream> {
 
     @Override // com.kwad.sdk.glide.load.a.d
     public void b() {
-        InputStream inputStream = this.f35555f;
+        InputStream inputStream = this.f35650f;
         if (inputStream != null) {
             try {
                 inputStream.close();
             } catch (IOException unused) {
             }
         }
-        HttpURLConnection httpURLConnection = this.f35554e;
+        HttpURLConnection httpURLConnection = this.f35649e;
         if (httpURLConnection != null) {
             httpURLConnection.disconnect();
         }
-        this.f35554e = null;
+        this.f35649e = null;
     }
 
     @Override // com.kwad.sdk.glide.load.a.d
     public void c() {
-        this.f35556g = true;
+        this.f35651g = true;
     }
 
     @Override // com.kwad.sdk.glide.load.a.d

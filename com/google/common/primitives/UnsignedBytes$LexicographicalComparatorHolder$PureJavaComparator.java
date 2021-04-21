@@ -1,6 +1,6 @@
 package com.google.common.primitives;
 
-import d.g.c.g.b;
+import d.h.c.g.b;
 import java.util.Comparator;
 /* loaded from: classes6.dex */
 public enum UnsignedBytes$LexicographicalComparatorHolder$PureJavaComparator implements Comparator<byte[]> {

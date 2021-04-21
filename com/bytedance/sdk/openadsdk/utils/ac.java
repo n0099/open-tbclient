@@ -5,18 +5,18 @@ import java.lang.reflect.Method;
 public class ac {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f30045a;
+    public static Object f30053a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Method f30046b;
+    public static Method f30054b;
 
     static {
         try {
             Method declaredMethod = Class.class.getDeclaredMethod("forName", String.class);
             Method declaredMethod2 = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
             Class cls = (Class) declaredMethod.invoke(null, "dalvik.system.VMRuntime");
-            f30046b = (Method) declaredMethod2.invoke(cls, "setHiddenApiExemptions", new Class[]{String[].class});
-            f30045a = ((Method) declaredMethod2.invoke(cls, "getRuntime", null)).invoke(null, new Object[0]);
+            f30054b = (Method) declaredMethod2.invoke(cls, "setHiddenApiExemptions", new Class[]{String[].class});
+            f30053a = ((Method) declaredMethod2.invoke(cls, "getRuntime", null)).invoke(null, new Object[0]);
         } catch (Throwable th) {
             u.b("Reflection", "reflect bootstrap failed:", th);
         }
@@ -24,8 +24,8 @@ public class ac {
 
     public static boolean a(String... strArr) {
         Method method;
-        Object obj = f30045a;
-        if (obj != null && (method = f30046b) != null) {
+        Object obj = f30053a;
+        if (obj != null && (method = f30054b) != null) {
             try {
                 method.invoke(obj, strArr);
                 return true;

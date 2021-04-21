@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import d.b.c.e.m.e;
-import d.b.i0.i0.i.c.d;
-import d.b.i0.i0.i.d.a;
+import d.b.j0.i0.i.c.d;
+import d.b.j0.i0.i.d.a;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -24,7 +24,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     public long mForumId;
     public HotUserRankView mHotUserRankView;
     public String mInputCategory;
-    public d.b.i0.i0.i.d.a mModel;
+    public d.b.j0.i0.i.d.a mModel;
     public String mRuleUrl;
     public List<d> mTabDataList = new ArrayList();
     public int mJumpPosition = 0;
@@ -59,21 +59,21 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         public c() {
         }
 
-        @Override // d.b.i0.i0.i.d.a.b
-        public void a(d.b.i0.i0.i.c.c cVar) {
+        @Override // d.b.j0.i0.i.d.a.b
+        public void a(d.b.j0.i0.i.c.c cVar) {
             HotUserRankActivity hotUserRankActivity = HotUserRankActivity.this;
             hotUserRankActivity.hideLoadingView(hotUserRankActivity.mHotUserRankView.i());
-            if (cVar == null || cVar.f56731a == null) {
+            if (cVar == null || cVar.f57152a == null) {
                 return;
             }
-            HotUserRankActivity.this.mRuleUrl = cVar.f56734d;
+            HotUserRankActivity.this.mRuleUrl = cVar.f57155d;
             if (HotUserRankActivity.this.mForumId > 0) {
                 e.a().post(HotUserRankActivity.this.mLoadDataRunnable);
                 return;
             }
-            TiebaFieldsInfo tiebaFieldsInfo = cVar.f56731a.f56722f;
+            TiebaFieldsInfo tiebaFieldsInfo = cVar.f57152a.f57143f;
             if (tiebaFieldsInfo != null && !ListUtils.isEmpty(tiebaFieldsInfo.tieba_fields)) {
-                List<String> list = cVar.f56731a.f56722f.tieba_fields;
+                List<String> list = cVar.f57152a.f57143f.tieba_fields;
                 HotUserRankActivity.this.mTabDataList.clear();
                 for (int i = 0; i < list.size(); i++) {
                     String str = list.get(i);
@@ -81,8 +81,8 @@ public class HotUserRankActivity extends BaseFragmentActivity {
                         HotUserRankActivity.this.mJumpPosition = i;
                     }
                     d dVar = new d();
-                    dVar.f56739b = str;
-                    dVar.f56738a = str;
+                    dVar.f57160b = str;
+                    dVar.f57159a = str;
                     HotUserRankActivity.this.mTabDataList.add(dVar);
                 }
                 e.a().post(HotUserRankActivity.this.mLoadDataRunnable);
@@ -92,7 +92,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.mHotUserRankView.i(), HotUserRankActivity.this.getString(R.string.neterror), true);
         }
 
-        @Override // d.b.i0.i0.i.d.a.b
+        @Override // d.b.j0.i0.i.d.a.b
         public void onError(int i, String str) {
             HotUserRankActivity hotUserRankActivity = HotUserRankActivity.this;
             hotUserRankActivity.hideLoadingView(hotUserRankActivity.mHotUserRankView.i());
@@ -102,7 +102,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     }
 
     private void checkShowUpdateTip() {
-        long l = d.b.h0.r.d0.b.j().l("key_hot_user_rank_last_update_time", 0L);
+        long l = d.b.i0.r.d0.b.j().l("key_hot_user_rank_last_update_time", 0L);
         Calendar calendar = Calendar.getInstance();
         calendar.set(11, 6);
         calendar.set(13, 0);
@@ -117,7 +117,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         if (z) {
             this.mHotUserRankView.o(0);
             e.a().postDelayed(this.mHideUpdateTipRunnable, 5000L);
-            d.b.h0.r.d0.b.j().w("key_hot_user_rank_last_update_time", currentTimeMillis);
+            d.b.i0.r.d0.b.j().w("key_hot_user_rank_last_update_time", currentTimeMillis);
         }
     }
 
@@ -137,7 +137,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.b.h0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.b.i0.k0.a
     public String getCurrentPageKey() {
         return "a074";
     }
@@ -153,7 +153,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         HotUserRankView hotUserRankView = new HotUserRankView(this);
         this.mHotUserRankView = hotUserRankView;
         setContentView(hotUserRankView.i());
-        d.b.i0.i0.i.d.a aVar = new d.b.i0.i0.i.d.a(getUniqueId());
+        d.b.j0.i0.i.d.a aVar = new d.b.j0.i0.i.d.a(getUniqueId());
         this.mModel = aVar;
         aVar.n(this.mOnDataResListener);
         parseIntent();

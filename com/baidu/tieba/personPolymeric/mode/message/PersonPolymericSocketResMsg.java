@@ -2,7 +2,7 @@ package com.baidu.tieba.personPolymeric.mode.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.f2.b;
+import d.b.j0.f2.b;
 import tbclient.Personal.PersonalResIdl;
 /* loaded from: classes3.dex */
 public class PersonPolymericSocketResMsg extends SocketResponsedMessage {

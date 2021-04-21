@@ -20,15 +20,15 @@ import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import d.b.c.e.p.l;
-import d.b.h0.b1.j.d;
-import d.b.h0.r.k;
-import d.b.h0.r.q.a2;
 import d.b.i.p;
-import d.b.i0.x.b0;
+import d.b.i0.b1.j.d;
+import d.b.i0.r.k;
+import d.b.i0.r.q.a2;
+import d.b.j0.x.b0;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MultiImgLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
+public class MultiImgLayout extends LinearLayout implements p<d.b.i0.r.q.a> {
     public static final int n;
 
     /* renamed from: e  reason: collision with root package name */
@@ -44,8 +44,8 @@ public class MultiImgLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
     public ConstrainImageGroup f4463h;
     public String i;
     public boolean j;
-    public b0<d.b.h0.r.q.a> k;
-    public d.b.h0.r.q.a l;
+    public b0<d.b.i0.r.q.a> k;
+    public d.b.i0.r.q.a l;
     public boolean m;
 
     /* loaded from: classes.dex */
@@ -55,7 +55,7 @@ public class MultiImgLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b0<d.b.h0.r.q.a> subClickListener = MultiImgLayout.this.getSubClickListener();
+            b0<d.b.i0.r.q.a> subClickListener = MultiImgLayout.this.getSubClickListener();
             if (subClickListener != null) {
                 view.setTag("2");
                 subClickListener.a(view, MultiImgLayout.this.l);
@@ -73,14 +73,14 @@ public class MultiImgLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
             this.f4465a = linkedList;
         }
 
-        @Override // d.b.h0.b1.j.d
+        @Override // d.b.i0.b1.j.d
         public void a(View view, int i, boolean z) {
             if (MultiImgLayout.this.k == null || !MultiImgLayout.this.k.c(view, MultiImgLayout.this.l, "")) {
-                b0<d.b.h0.r.q.a> subClickListener = MultiImgLayout.this.getSubClickListener();
+                b0<d.b.i0.r.q.a> subClickListener = MultiImgLayout.this.getSubClickListener();
                 if (subClickListener != null) {
                     view.setTag("1");
                     MultiImgLayout.this.l.objType = 2;
-                    subClickListener.f63759a = Boolean.valueOf(z);
+                    subClickListener.f64180a = Boolean.valueOf(z);
                     subClickListener.a(view, MultiImgLayout.this.l);
                     MultiImgLayout.this.l.objType = 1;
                 }
@@ -161,7 +161,7 @@ public class MultiImgLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
         playVoiceBntNew.setAfterClickListener(new a());
         this.f4463h = (ConstrainImageGroup) findViewById(R.id.thread_card_img_group);
         this.f4463h.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002));
-        d.b.h0.b1.j.a aVar = new d.b.h0.b1.j.a(3);
+        d.b.i0.b1.j.a aVar = new d.b.i0.b1.j.a(3);
         aVar.d(1.0d);
         this.f4463h.setImageProcessor(aVar);
     }
@@ -169,7 +169,7 @@ public class MultiImgLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.i.p
     /* renamed from: g */
-    public void a(d.b.h0.r.q.a aVar) {
+    public void a(d.b.i0.r.q.a aVar) {
         this.l = aVar;
         a2 n2 = aVar.n();
         ThreadCardUtils.setTitle(this.f4460e, n2, this.m);
@@ -188,7 +188,7 @@ public class MultiImgLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
         setVoiceData(n2);
     }
 
-    public b0<d.b.h0.r.q.a> getSubClickListener() {
+    public b0<d.b.i0.r.q.a> getSubClickListener() {
         return this.k;
     }
 
@@ -239,7 +239,7 @@ public class MultiImgLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
         }
     }
 
-    public void setSubClickListener(b0<d.b.h0.r.q.a> b0Var) {
+    public void setSubClickListener(b0<d.b.i0.r.q.a> b0Var) {
         this.k = b0Var;
     }
 

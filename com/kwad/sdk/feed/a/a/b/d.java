@@ -8,11 +8,11 @@ import com.kwad.sdk.widget.a;
 public class d extends com.kwad.sdk.feed.a.a.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public RCPVFrameLayout f35136b;
+    public RCPVFrameLayout f35231b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a.InterfaceC0453a f35137c = new a.InterfaceC0453a() { // from class: com.kwad.sdk.feed.a.a.b.d.1
-        @Override // com.kwad.sdk.widget.a.InterfaceC0453a
+    public a.InterfaceC0456a f35232c = new a.InterfaceC0456a() { // from class: com.kwad.sdk.feed.a.a.b.d.1
+        @Override // com.kwad.sdk.widget.a.InterfaceC0456a
         public void a() {
             d.this.e();
         }
@@ -20,24 +20,24 @@ public class d extends com.kwad.sdk.feed.a.a.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        com.kwad.sdk.core.report.e.a((AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36297a).i);
+        com.kwad.sdk.core.report.e.a((AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36392a).i);
     }
 
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f35136b.setVisibleListener(this.f35137c);
+        this.f35231b.setVisibleListener(this.f35232c);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f35136b.setVisibleListener(null);
+        this.f35231b.setVisibleListener(null);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f35136b = (RCPVFrameLayout) b(R.id.ksad_feed_item_root);
+        this.f35231b = (RCPVFrameLayout) b(R.id.ksad_feed_item_root);
     }
 }

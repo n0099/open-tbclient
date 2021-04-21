@@ -7,10 +7,10 @@ import java.util.ArrayList;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final JsonReader.a f41757a = JsonReader.a.a("ch", "size", "w", "style", "fFamily", "data");
+    public static final JsonReader.a f41852a = JsonReader.a.a("ch", "size", "w", "style", "fFamily", "data");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final JsonReader.a f41758b = JsonReader.a.a("shapes");
+    public static final JsonReader.a f41853b = JsonReader.a.a("shapes");
 
     public static d.a.a.u.c a(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
         ArrayList arrayList = new ArrayList();
@@ -21,7 +21,7 @@ public class j {
         double d3 = 0.0d;
         char c2 = 0;
         while (jsonReader.t()) {
-            int D = jsonReader.D(f41757a);
+            int D = jsonReader.D(f41852a);
             if (D == 0) {
                 c2 = jsonReader.z().charAt(0);
             } else if (D == 1) {
@@ -38,7 +38,7 @@ public class j {
             } else {
                 jsonReader.o();
                 while (jsonReader.t()) {
-                    if (jsonReader.D(f41758b) != 0) {
+                    if (jsonReader.D(f41853b) != 0) {
                         jsonReader.E();
                         jsonReader.F();
                     } else {

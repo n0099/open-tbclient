@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.platform;
 import android.os.Build;
 import androidx.core.util.Pools;
 import com.facebook.imagepipeline.memory.PoolFactory;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PlatformDecoderFactory {
     public static PlatformDecoder buildPlatformDecoder(PoolFactory poolFactory, boolean z) {
         int i = Build.VERSION.SDK_INT;

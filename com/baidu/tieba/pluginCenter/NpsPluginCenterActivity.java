@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
 import d.b.c.g.c;
-import d.b.h0.g0.f.a;
-import d.b.h0.g0.f.b;
+import d.b.i0.g0.f.a;
+import d.b.i0.g0.f.b;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class NpsPluginCenterActivity extends BaseActivity {
@@ -18,7 +18,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     public int mFromType;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
-    public b<Object, d.b.h0.g0.d.b, a<Object, d.b.h0.g0.d.b>> mPluginCenterAdapter;
+    public b<Object, d.b.i0.g0.d.b, a<Object, d.b.i0.g0.d.b>> mPluginCenterAdapter;
     public View mRootView;
     public List<Object> mShowList;
 

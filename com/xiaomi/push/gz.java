@@ -8,17 +8,17 @@ import java.util.Hashtable;
 public class gz {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f40909a = ew.PING_RTT.a();
+    public static final int f41004a = ew.PING_RTT.a();
 
     /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static Hashtable<Integer, Long> f40910a = new Hashtable<>();
+        public static Hashtable<Integer, Long> f41005a = new Hashtable<>();
     }
 
     public static void a() {
-        a(0, f40909a);
+        a(0, f41004a);
     }
 
     public static void a(int i) {
@@ -31,7 +31,7 @@ public class gz {
     public static synchronized void a(int i, int i2) {
         synchronized (gz.class) {
             if (i2 < 16777215) {
-                a.f40910a.put(Integer.valueOf((i << 24) | i2), Long.valueOf(System.currentTimeMillis()));
+                a.f41005a.put(Integer.valueOf((i << 24) | i2), Long.valueOf(System.currentTimeMillis()));
             } else {
                 com.xiaomi.channel.commonutils.logger.b.d("stats key should less than 16777215");
             }
@@ -52,16 +52,16 @@ public class gz {
         synchronized (gz.class) {
             long currentTimeMillis = System.currentTimeMillis();
             int i4 = (i << 24) | i2;
-            if (a.f40910a.containsKey(Integer.valueOf(i4))) {
+            if (a.f41005a.containsKey(Integer.valueOf(i4))) {
                 ex m350a = gx.m348a().m350a();
                 m350a.a(i2);
-                m350a.b((int) (currentTimeMillis - a.f40910a.get(Integer.valueOf(i4)).longValue()));
+                m350a.b((int) (currentTimeMillis - a.f41005a.get(Integer.valueOf(i4)).longValue()));
                 m350a.b(str);
                 if (i3 > -1) {
                     m350a.c(i3);
                 }
                 gx.m348a().a(m350a);
-                a.f40910a.remove(Integer.valueOf(i2));
+                a.f41005a.remove(Integer.valueOf(i2));
             } else {
                 com.xiaomi.channel.commonutils.logger.b.d("stats key not found");
             }
@@ -83,7 +83,7 @@ public class gz {
         }
         try {
             gv.a a2 = gv.a(exc);
-            m350a.a(a2.f40899a.a());
+            m350a.a(a2.f40994a.a());
             m350a.c(a2.f452a);
             m350a.b(str);
             gx.m348a().a(m350a);
@@ -95,7 +95,7 @@ public class gz {
         try {
             gv.a b2 = gv.b(exc);
             ex m350a = gx.m348a().m350a();
-            m350a.a(b2.f40899a.a());
+            m350a.a(b2.f40994a.a());
             m350a.c(b2.f452a);
             m350a.b(str);
             gx.m348a().a(m350a);
@@ -113,14 +113,14 @@ public class gz {
     }
 
     public static void b() {
-        a(0, f40909a, null, -1);
+        a(0, f41004a, null, -1);
     }
 
     public static void b(String str, Exception exc) {
         try {
             gv.a d2 = gv.d(exc);
             ex m350a = gx.m348a().m350a();
-            m350a.a(d2.f40899a.a());
+            m350a.a(d2.f40994a.a());
             m350a.c(d2.f452a);
             m350a.b(str);
             gx.m348a().a(m350a);

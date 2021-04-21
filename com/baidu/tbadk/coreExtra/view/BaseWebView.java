@@ -25,12 +25,12 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import java.util.LinkedHashMap;
 /* loaded from: classes3.dex */
 public class BaseWebView extends WebView {
-    public d.b.i0.d3.l0.c jsCallback;
+    public d.b.j0.d3.l0.c jsCallback;
     public CommonTbJsBridge mCommonJsBridge;
     public Context mContext;
     public d mDownloadListener;
     public boolean mIsLoaded;
-    public d.b.i0.d3.l0.a mJsBridge;
+    public d.b.j0.d3.l0.a mJsBridge;
     public d mOnLoadUrlListener;
     public e mOnPageFinishedListener;
     public f mOnPageStartedListener;
@@ -41,14 +41,14 @@ public class BaseWebView extends WebView {
     public WebViewClient mWebViewClient;
 
     /* loaded from: classes3.dex */
-    public class a implements d.b.i0.d3.l0.c {
+    public class a implements d.b.j0.d3.l0.c {
         public a() {
         }
 
-        @Override // d.b.i0.d3.l0.c
+        @Override // d.b.j0.d3.l0.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             BaseWebView baseWebView = BaseWebView.this;
-            d.b.i0.d3.l0.a aVar = baseWebView.mJsBridge;
+            d.b.j0.d3.l0.a aVar = baseWebView.mJsBridge;
             if (aVar != null) {
                 return aVar.b(baseWebView.getWebView(), str, jsPromptResult);
             }
@@ -67,7 +67,7 @@ public class BaseWebView extends WebView {
                 return true;
             }
             try {
-                d.b.h0.l.a.j(BaseWebView.this.mContext, str);
+                d.b.i0.l.a.j(BaseWebView.this.mContext, str);
             } catch (Exception e2) {
                 BdLog.e(e2.toString());
             }
@@ -242,10 +242,10 @@ public class BaseWebView extends WebView {
         getSettings().setCacheMode(2);
         getSettings().setUseWideViewPort(true);
         getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + SkinManager.getCurrentSkinTypeString());
-        d.b.h0.l.a.a(getSettings());
+        d.b.i0.l.a.a(getSettings());
         this.mWebViewClient = new c();
         this.mWebChromeClient = new j(this, null);
-        this.mJsBridge = new d.b.i0.d3.l0.a();
+        this.mJsBridge = new d.b.j0.d3.l0.a();
         setWebViewClient(this.mWebViewClient);
         setWebChromeClient(this.mWebChromeClient);
         if (Build.VERSION.SDK_INT >= 11) {
@@ -253,7 +253,7 @@ public class BaseWebView extends WebView {
             removeJavascriptInterface("accessibility");
             removeJavascriptInterface("accessibilityTraversal");
         }
-        d.b.h0.l.a.f(getContext());
+        d.b.i0.l.a.f(getContext());
         if (Build.VERSION.SDK_INT >= 21) {
             setAcceptThirdPartyCookies(true);
             getSettings().setMixedContentMode(0);
@@ -332,7 +332,7 @@ public class BaseWebView extends WebView {
         setOnLoadUrlListener(null);
     }
 
-    public void setOnJsPromptCallback(d.b.i0.d3.l0.c cVar) {
+    public void setOnJsPromptCallback(d.b.j0.d3.l0.c cVar) {
         this.jsCallback = cVar;
     }
 

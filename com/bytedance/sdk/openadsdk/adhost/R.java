@@ -30,7 +30,7 @@ public final class R {
         public static final int layout_insetEdge = 0x7f0402c5;
         public static final int layout_keyline = 0x7f0402c8;
         public static final int statusBarBackground = 0x7f04044d;
-        public static final int ttcIndex = 0x7f04050d;
+        public static final int ttcIndex = 0x7f04050e;
     }
 
     /* loaded from: classes5.dex */

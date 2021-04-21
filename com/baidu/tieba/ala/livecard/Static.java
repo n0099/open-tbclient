@@ -13,14 +13,14 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.livecard.adapters.FrsAlaShareItemAdapter;
 import com.baidu.tieba.ala.livecard.adapters.FrsSplitAlaShareItemAdapter;
 import com.baidu.tieba.frs.AbsDelegateAdapterList;
-import d.b.h0.r.q.a2;
-import d.b.i0.d3.g;
-import d.b.i0.d3.h;
-import d.b.i0.q0.f0;
-import d.b.i0.q0.g0;
-import d.b.i0.t.i.a.d;
-import d.b.i0.t.i.a.e;
-import d.b.i0.t.i.a.f;
+import d.b.i0.r.q.a2;
+import d.b.j0.d3.g;
+import d.b.j0.d3.h;
+import d.b.j0.q0.f0;
+import d.b.j0.q0.g0;
+import d.b.j0.t.i.a.d;
+import d.b.j0.t.i.a.e;
+import d.b.j0.t.i.a.f;
 /* loaded from: classes4.dex */
 public class Static {
 
@@ -36,11 +36,11 @@ public class Static {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                 CustomMessage customMessage = (CustomMessage) customResponsedMessage.getOrginalMessage();
-                absDelegateAdapterList.add(new d.b.i0.t.i.a.c(null, a2.g3, null));
+                absDelegateAdapterList.add(new d.b.j0.t.i.a.c(null, a2.g3, null));
                 absDelegateAdapterList.add(new f(null, a2.f3, null));
                 absDelegateAdapterList.add(new FrsSplitAlaShareItemAdapter(null, a2.h3, null));
-                absDelegateAdapterList.add(new d.b.i0.t.i.a.a(null, g.f54794g, null));
-                absDelegateAdapterList.add(new d(null, h.f54806f, null));
+                absDelegateAdapterList.add(new d.b.j0.t.i.a.a(null, g.f55215g, null));
+                absDelegateAdapterList.add(new d(null, h.f55227f, null));
             }
         }
     }
@@ -56,10 +56,10 @@ public class Static {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003022 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new d.b.i0.t.i.a.c(null, a2.g3, null));
+                absDelegateAdapterList.add(new d.b.j0.t.i.a.c(null, a2.g3, null));
                 absDelegateAdapterList.add(new e(null, a2.f3, null));
                 absDelegateAdapterList.add(new FrsAlaShareItemAdapter(null, a2.h3, null));
-                absDelegateAdapterList.add(new e(null, h.f54806f, null));
+                absDelegateAdapterList.add(new e(null, h.f55227f, null));
             }
         }
     }
@@ -75,8 +75,8 @@ public class Static {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof f0)) {
                 f0 f0Var = (f0) customResponsedMessage.getData();
-                d.b.i0.t.i.c.a aVar = new d.b.i0.t.i.c.a();
-                aVar.h(f0Var.f59193e);
+                d.b.j0.t.i.c.a aVar = new d.b.j0.t.i.c.a();
+                aVar.h(f0Var.f59614e);
                 f0Var.a(49, aVar);
             }
         }

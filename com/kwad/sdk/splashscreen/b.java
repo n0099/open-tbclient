@@ -23,19 +23,19 @@ import org.json.JSONObject;
 public class b extends com.kwad.sdk.contentalliance.c<c> {
 
     /* renamed from: d  reason: collision with root package name */
-    public KsSplashScreenAd.SplashScreenAdInteractionListener f36929d;
+    public KsSplashScreenAd.SplashScreenAdInteractionListener f37024d;
 
     /* renamed from: e  reason: collision with root package name */
-    public KsVideoPlayConfig f36930e;
+    public KsVideoPlayConfig f37025e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdBaseFrameLayout f36931f;
+    public AdBaseFrameLayout f37026f;
 
     /* renamed from: g  reason: collision with root package name */
-    public DetailVideoView f36932g;
+    public DetailVideoView f37027g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f36933h;
+    public com.kwad.sdk.core.download.b.b f37028h;
     public g i;
     public AdTemplate j;
     public KsScene k;
@@ -66,37 +66,37 @@ public class b extends com.kwad.sdk.contentalliance.c<c> {
     private void e() {
         this.l = com.kwad.sdk.core.response.b.c.j(this.j);
         KsVideoPlayConfig build = new KsVideoPlayConfig.Builder().videoSoundEnable(this.l.adSplashInfo.mute != 1).skipThirtySecond(true).build();
-        this.f36930e = build;
+        this.f37025e = build;
         this.j.mInitVoiceStatus = build.isVideoSoundEnable() ? 2 : 1;
-        this.f36933h = new com.kwad.sdk.core.download.b.b(this.j);
+        this.f37028h = new com.kwad.sdk.core.download.b.b(this.j);
     }
 
     private void f() {
-        this.f36931f = (AdBaseFrameLayout) this.f32208c.findViewById(R.id.ksad_splash_root_container);
-        DetailVideoView detailVideoView = (DetailVideoView) this.f32208c.findViewById(R.id.ksad_splash_video_player);
-        this.f36932g = detailVideoView;
+        this.f37026f = (AdBaseFrameLayout) this.f32303c.findViewById(R.id.ksad_splash_root_container);
+        DetailVideoView detailVideoView = (DetailVideoView) this.f32303c.findViewById(R.id.ksad_splash_video_player);
+        this.f37027g = detailVideoView;
         detailVideoView.setAd(true);
-        this.f36932g.setVisibility(8);
-        this.f36931f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.b.1
+        this.f37027g.setVisibility(8);
+        this.f37026f.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.kwad.sdk.core.download.b.a.a(view.getContext(), b.this.j, new a.InterfaceC0393a() { // from class: com.kwad.sdk.splashscreen.b.1.1
-                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC0393a
+                com.kwad.sdk.core.download.b.a.a(view.getContext(), b.this.j, new a.InterfaceC0396a() { // from class: com.kwad.sdk.splashscreen.b.1.1
+                    @Override // com.kwad.sdk.core.download.b.a.InterfaceC0396a
                     public void a() {
-                        if (b.this.f36929d != null) {
-                            b.this.f36929d.onAdClicked();
+                        if (b.this.f37024d != null) {
+                            b.this.f37024d.onAdClicked();
                         }
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            if (b.this.f32207b != null && ((c) b.this.f32207b).f36951e != null) {
-                                jSONObject.put("duration", ((c) b.this.f32207b).f36951e.c());
+                            if (b.this.f32302b != null && ((c) b.this.f32302b).f37046e != null) {
+                                jSONObject.put("duration", ((c) b.this.f32302b).f37046e.c());
                             }
                         } catch (JSONException e2) {
                             com.kwad.sdk.core.d.a.a(e2);
                         }
-                        com.kwad.sdk.core.report.b.a(b.this.j, jSONObject, b.this.f36931f.getTouchCoords(), (String) null);
+                        com.kwad.sdk.core.report.b.a(b.this.j, jSONObject, b.this.f37026f.getTouchCoords(), (String) null);
                     }
-                }, b.this.f36933h);
+                }, b.this.f37028h);
             }
         });
     }
@@ -129,24 +129,24 @@ public class b extends com.kwad.sdk.contentalliance.c<c> {
     @Override // com.kwad.sdk.contentalliance.c
     /* renamed from: d */
     public c b() {
-        g gVar = new g(this.f32208c, 70);
+        g gVar = new g(this.f32303c, 70);
         this.i = gVar;
         gVar.a();
-        if (this.f36930e == null) {
-            this.f36930e = new KsVideoPlayConfig.Builder().videoSoundEnable(this.l.adSplashInfo.mute != 1).skipThirtySecond(true).build();
+        if (this.f37025e == null) {
+            this.f37025e = new KsVideoPlayConfig.Builder().videoSoundEnable(this.l.adSplashInfo.mute != 1).skipThirtySecond(true).build();
         }
         c cVar = new c();
-        cVar.f36947a = this.f36929d;
-        cVar.f36950d = this.f36931f;
-        cVar.f36949c = this.j;
-        cVar.f36953g = this.k;
-        cVar.f36948b = this.f36930e;
-        cVar.f36954h = this.i;
-        cVar.f36952f = this.f36933h;
+        cVar.f37042a = this.f37024d;
+        cVar.f37045d = this.f37026f;
+        cVar.f37044c = this.j;
+        cVar.f37048g = this.k;
+        cVar.f37043b = this.f37025e;
+        cVar.f37049h = this.i;
+        cVar.f37047f = this.f37028h;
         if (com.kwad.sdk.core.response.b.a.J(this.l)) {
-            com.kwad.sdk.splashscreen.b.a aVar = new com.kwad.sdk.splashscreen.b.a(this.j, this.f36932g, this.f36930e);
-            cVar.f36951e = aVar;
-            cVar.f36954h.a(aVar);
+            com.kwad.sdk.splashscreen.b.a aVar = new com.kwad.sdk.splashscreen.b.a(this.j, this.f37027g, this.f37025e);
+            cVar.f37046e = aVar;
+            cVar.f37049h.a(aVar);
         }
         return cVar;
     }
@@ -159,9 +159,9 @@ public class b extends com.kwad.sdk.contentalliance.c<c> {
     @Override // com.kwad.sdk.contentalliance.c, android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        T t = this.f32207b;
-        if (((c) t).f36951e != null) {
-            ((c) t).f36951e.g();
+        T t = this.f32302b;
+        if (((c) t).f37046e != null) {
+            ((c) t).f37046e.g();
         }
     }
 
@@ -169,9 +169,9 @@ public class b extends com.kwad.sdk.contentalliance.c<c> {
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.i.b();
-        T t = this.f32207b;
-        if (((c) t).f36951e != null) {
-            ((c) t).f36951e.f();
+        T t = this.f32302b;
+        if (((c) t).f37046e != null) {
+            ((c) t).f37046e.f();
         }
         g();
     }
@@ -182,10 +182,10 @@ public class b extends com.kwad.sdk.contentalliance.c<c> {
     }
 
     public void setSplashScreenAdListener(KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener) {
-        this.f36929d = splashScreenAdInteractionListener;
-        T t = this.f32207b;
+        this.f37024d = splashScreenAdInteractionListener;
+        T t = this.f32302b;
         if (t != 0) {
-            ((c) t).f36947a = splashScreenAdInteractionListener;
+            ((c) t).f37042a = splashScreenAdInteractionListener;
         }
     }
 }

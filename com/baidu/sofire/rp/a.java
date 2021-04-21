@@ -14,9 +14,9 @@ public final class a {
         String str = "";
         try {
             eVar = new e(context);
-            if (!TextUtils.isEmpty(eVar.f11391b.getString("rpiiem", ""))) {
-                eVar.f11393d.putString("rpiiem", "");
-                eVar.f11393d.commit();
+            if (!TextUtils.isEmpty(eVar.f11399b.getString("rpiiem", ""))) {
+                eVar.f11401d.putString("rpiiem", "");
+                eVar.f11401d.commit();
             }
             o = eVar.o();
         } catch (Throwable unused) {
@@ -26,11 +26,11 @@ public final class a {
                 o = r.h(context);
                 if (!TextUtils.isEmpty(o)) {
                     if (TextUtils.isEmpty(o)) {
-                        eVar.f11393d.putString("rpiiemn", "");
-                        eVar.f11393d.commit();
+                        eVar.f11401d.putString("rpiiemn", "");
+                        eVar.f11401d.commit();
                     } else {
-                        eVar.f11393d.putString("rpiiemn", new String(Base64.encode(com.baidu.sofire.g.a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), o.getBytes("UTF-8")), 10), "UTF-8"));
-                        eVar.f11393d.commit();
+                        eVar.f11401d.putString("rpiiemn", new String(Base64.encode(com.baidu.sofire.g.a.a("MzAyMTIxMDJkaWN1ZGlhYg==".getBytes(), o.getBytes("UTF-8")), 10), "UTF-8"));
+                        eVar.f11401d.commit();
                     }
                 }
             }
@@ -46,12 +46,12 @@ public final class a {
         String str = "";
         try {
             e eVar = new e(context);
-            str = eVar.f11391b.getString("rpandid", "");
+            str = eVar.f11399b.getString("rpandid", "");
             if (TextUtils.isEmpty(str)) {
                 str = r.i(context);
                 if (!TextUtils.isEmpty(str)) {
-                    eVar.f11393d.putString("rpandid", str);
-                    eVar.f11393d.commit();
+                    eVar.f11401d.putString("rpandid", str);
+                    eVar.f11401d.commit();
                 }
             }
         } catch (Throwable unused) {

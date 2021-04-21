@@ -6,11 +6,11 @@ import java.util.Map;
 public class StatisticDecorate implements IStatistic {
 
     /* renamed from: a  reason: collision with root package name */
-    public IStatistic f26492a;
+    public IStatistic f26500a;
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
     public void onEvent(String str) {
-        IStatistic iStatistic = this.f26492a;
+        IStatistic iStatistic = this.f26500a;
         if (iStatistic != null) {
             iStatistic.onEvent(str);
         }
@@ -18,7 +18,7 @@ public class StatisticDecorate implements IStatistic {
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
     public void onEventEnd(String str, int i) {
-        IStatistic iStatistic = this.f26492a;
+        IStatistic iStatistic = this.f26500a;
         if (iStatistic != null) {
             iStatistic.onEventEnd(str, i);
         }
@@ -26,7 +26,7 @@ public class StatisticDecorate implements IStatistic {
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
     public void onEventEndWithValue(String str, int i, String str2) {
-        IStatistic iStatistic = this.f26492a;
+        IStatistic iStatistic = this.f26500a;
         if (iStatistic != null) {
             iStatistic.onEventEndWithValue(str, i, str2);
         }
@@ -34,7 +34,7 @@ public class StatisticDecorate implements IStatistic {
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
     public void onEventEndWithValues(String str, int i, Collection<String> collection) {
-        IStatistic iStatistic = this.f26492a;
+        IStatistic iStatistic = this.f26500a;
         if (iStatistic != null) {
             iStatistic.onEventEndWithValues(str, i, collection);
         }
@@ -42,7 +42,7 @@ public class StatisticDecorate implements IStatistic {
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
     public void onEventStart(String str) {
-        IStatistic iStatistic = this.f26492a;
+        IStatistic iStatistic = this.f26500a;
         if (iStatistic != null) {
             iStatistic.onEventStart(str);
         }
@@ -50,7 +50,7 @@ public class StatisticDecorate implements IStatistic {
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
     public void onEventWithValue(String str, String str2) {
-        IStatistic iStatistic = this.f26492a;
+        IStatistic iStatistic = this.f26500a;
         if (iStatistic != null) {
             iStatistic.onEventWithValue(str, str2);
         }
@@ -58,19 +58,19 @@ public class StatisticDecorate implements IStatistic {
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
     public void onEventWithValues(String str, Collection<String> collection) {
-        IStatistic iStatistic = this.f26492a;
+        IStatistic iStatistic = this.f26500a;
         if (iStatistic != null) {
             iStatistic.onEventWithValues(str, collection);
         }
     }
 
     public void setStatistic(IStatistic iStatistic) {
-        this.f26492a = iStatistic;
+        this.f26500a = iStatistic;
     }
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
     public void triggerSending() {
-        IStatistic iStatistic = this.f26492a;
+        IStatistic iStatistic = this.f26500a;
         if (iStatistic != null) {
             iStatistic.triggerSending();
         }
@@ -78,7 +78,7 @@ public class StatisticDecorate implements IStatistic {
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
     public void onEvent(String str, String str2) {
-        IStatistic iStatistic = this.f26492a;
+        IStatistic iStatistic = this.f26500a;
         if (iStatistic != null) {
             iStatistic.onEvent(str, str2);
         }
@@ -86,7 +86,7 @@ public class StatisticDecorate implements IStatistic {
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
     public void onEventEnd(String str, int i, String str2) {
-        IStatistic iStatistic = this.f26492a;
+        IStatistic iStatistic = this.f26500a;
         if (iStatistic != null) {
             iStatistic.onEventEnd(str, i, str2);
         }
@@ -94,7 +94,7 @@ public class StatisticDecorate implements IStatistic {
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
     public void onEventEndWithValue(String str, int i, String str2, String str3) {
-        IStatistic iStatistic = this.f26492a;
+        IStatistic iStatistic = this.f26500a;
         if (iStatistic != null) {
             iStatistic.onEventEndWithValue(str, i, str2, str3);
         }
@@ -102,7 +102,7 @@ public class StatisticDecorate implements IStatistic {
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
     public void onEventEndWithValues(String str, int i, Collection<String> collection, Map<String, Object> map) {
-        IStatistic iStatistic = this.f26492a;
+        IStatistic iStatistic = this.f26500a;
         if (iStatistic != null) {
             iStatistic.onEventEndWithValues(str, i, collection, map);
         }
@@ -110,7 +110,7 @@ public class StatisticDecorate implements IStatistic {
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
     public void onEventWithValue(String str, String str2, String str3) {
-        IStatistic iStatistic = this.f26492a;
+        IStatistic iStatistic = this.f26500a;
         if (iStatistic != null) {
             iStatistic.onEventWithValue(str, str2, str3);
         }
@@ -118,7 +118,7 @@ public class StatisticDecorate implements IStatistic {
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
     public void onEventWithValues(String str, Collection<String> collection, Map<String, Object> map) {
-        IStatistic iStatistic = this.f26492a;
+        IStatistic iStatistic = this.f26500a;
         if (iStatistic != null) {
             iStatistic.onEventWithValues(str, collection, map);
         }
@@ -126,7 +126,7 @@ public class StatisticDecorate implements IStatistic {
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
     public void onEventEndWithValues(String str, int i, Collection<String> collection, String str2) {
-        IStatistic iStatistic = this.f26492a;
+        IStatistic iStatistic = this.f26500a;
         if (iStatistic != null) {
             iStatistic.onEventEndWithValues(str, i, collection, str2);
         }
@@ -134,7 +134,7 @@ public class StatisticDecorate implements IStatistic {
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
     public void onEventWithValues(String str, Collection<String> collection, String str2) {
-        IStatistic iStatistic = this.f26492a;
+        IStatistic iStatistic = this.f26500a;
         if (iStatistic != null) {
             iStatistic.onEventWithValues(str, collection, str2);
         }
@@ -142,7 +142,7 @@ public class StatisticDecorate implements IStatistic {
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
     public void onEventEndWithValues(String str, int i, Collection<String> collection, Map<String, Object> map, String str2) {
-        IStatistic iStatistic = this.f26492a;
+        IStatistic iStatistic = this.f26500a;
         if (iStatistic != null) {
             iStatistic.onEventEndWithValues(str, i, collection, map, str2);
         }
@@ -150,7 +150,7 @@ public class StatisticDecorate implements IStatistic {
 
     @Override // com.baidu.wallet.statistics.api.IStatistic
     public void onEventWithValues(String str, Collection<String> collection, Map<String, Object> map, String str2) {
-        IStatistic iStatistic = this.f26492a;
+        IStatistic iStatistic = this.f26500a;
         if (iStatistic != null) {
             iStatistic.onEventWithValues(str, collection, map, str2);
         }

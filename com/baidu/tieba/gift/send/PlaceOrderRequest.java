@@ -2,7 +2,7 @@ package com.baidu.tieba.gift.send;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.h0.z0.w;
+import d.b.i0.z0.w;
 import tbclient.PlaceOrder.DataReq;
 import tbclient.PlaceOrder.PlaceOrderReqIdl;
 /* loaded from: classes4.dex */

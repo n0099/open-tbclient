@@ -5,16 +5,16 @@ import d.b.c.e.p.j;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public int[] f42071a;
+    public int[] f42311a;
 
     public e(int i, int i2, int i3) {
-        this.f42071a = null;
-        this.f42071a = r0;
+        this.f42311a = null;
+        this.f42311a = r0;
         int[] iArr = {i, i2, i3};
     }
 
     public int a() {
-        int[] iArr = this.f42071a;
+        int[] iArr = this.f42311a;
         if (iArr == null || iArr.length != 1) {
             return 0;
         }
@@ -22,7 +22,7 @@ public class e {
     }
 
     public int b() {
-        int[] iArr = this.f42071a;
+        int[] iArr = this.f42311a;
         if (iArr == null || iArr.length != 3) {
             return 0;
         }
@@ -30,12 +30,12 @@ public class e {
         if (I != 1) {
             if (I != 2) {
                 if (I != 3) {
-                    return this.f42071a[2];
+                    return this.f42311a[2];
                 }
-                return this.f42071a[1];
+                return this.f42311a[1];
             }
-            return this.f42071a[0];
+            return this.f42311a[0];
         }
-        return this.f42071a[2];
+        return this.f42311a[2];
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.game.strategy.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.h0.z0.w;
+import d.b.i0.z0.w;
 import tbclient.GameForumGuideTab.DataReq;
 import tbclient.GameForumGuideTab.GameForumGuideTabReqIdl;
 /* loaded from: classes4.dex */

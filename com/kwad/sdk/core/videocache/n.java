@@ -3,21 +3,21 @@ package com.kwad.sdk.core.videocache;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f34509a;
+    public final String f34604a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f34510b;
+    public final long f34605b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f34511c;
+    public final String f34606c;
 
     public n(String str, long j, String str2) {
-        this.f34509a = str;
-        this.f34510b = j;
-        this.f34511c = str2;
+        this.f34604a = str;
+        this.f34605b = j;
+        this.f34606c = str2;
     }
 
     public String toString() {
-        return "SourceInfo{url='" + this.f34509a + "', length=" + this.f34510b + ", mime='" + this.f34511c + "'}";
+        return "SourceInfo{url='" + this.f34604a + "', length=" + this.f34605b + ", mime='" + this.f34606c + "'}";
     }
 }

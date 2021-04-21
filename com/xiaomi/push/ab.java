@@ -3,7 +3,7 @@ package com.xiaomi.push;
 public class ab {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f40504a;
+    public static int f40599a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final String f100a;
@@ -12,22 +12,22 @@ public class ab {
     public static final boolean f101a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f40505b;
+    public static final boolean f40600b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final boolean f40506c;
+    public static final boolean f40601c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final boolean f40507d;
+    public static final boolean f40602d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f40508e;
+    public static boolean f40603e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final boolean f40509f;
+    public static final boolean f40604f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f40510g;
+    public static final boolean f40605g;
 
     static {
         int i;
@@ -36,42 +36,42 @@ public class ab {
         boolean contains = str.contains("2A2FE0D7");
         f101a = contains;
         boolean z = false;
-        f40505b = contains || "DEBUG".equalsIgnoreCase(f100a);
-        f40506c = "LOGABLE".equalsIgnoreCase(f100a);
-        f40507d = f100a.contains("YY");
-        f40508e = f100a.equalsIgnoreCase("TEST");
-        f40509f = "BETA".equalsIgnoreCase(f100a);
+        f40600b = contains || "DEBUG".equalsIgnoreCase(f100a);
+        f40601c = "LOGABLE".equalsIgnoreCase(f100a);
+        f40602d = f100a.contains("YY");
+        f40603e = f100a.equalsIgnoreCase("TEST");
+        f40604f = "BETA".equalsIgnoreCase(f100a);
         String str2 = f100a;
         if (str2 != null && str2.startsWith("RC")) {
             z = true;
         }
-        f40510g = z;
-        f40504a = 1;
+        f40605g = z;
+        f40599a = 1;
         if (f100a.equalsIgnoreCase("SANDBOX")) {
             i = 2;
         } else if (!f100a.equalsIgnoreCase("ONEBOX")) {
-            f40504a = 1;
+            f40599a = 1;
             return;
         } else {
             i = 3;
         }
-        f40504a = i;
+        f40599a = i;
     }
 
     public static int a() {
-        return f40504a;
+        return f40599a;
     }
 
     public static void a(int i) {
-        f40504a = i;
+        f40599a = i;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public static boolean m124a() {
-        return f40504a == 2;
+        return f40599a == 2;
     }
 
     public static boolean b() {
-        return f40504a == 3;
+        return f40599a == 3;
     }
 }

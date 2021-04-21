@@ -5,7 +5,7 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaCmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import d.b.c.e.p.l;
-import d.b.h0.z0.w;
+import d.b.i0.z0.w;
 import tbclient.LiveTabliveSubTab.DataReq;
 import tbclient.LiveTabliveSubTab.LiveTabliveSubTabReqIdl;
 /* loaded from: classes4.dex */

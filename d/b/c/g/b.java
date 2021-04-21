@@ -9,10 +9,10 @@ import java.util.List;
 public class b implements DownloadCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public IPackageDownloadCallback f42672a;
+    public IPackageDownloadCallback f42912a;
 
     public b(IPackageDownloadCallback iPackageDownloadCallback) {
-        this.f42672a = iPackageDownloadCallback;
+        this.f42912a = iPackageDownloadCallback;
     }
 
     @Override // com.baidu.searchbox.pms.callback.DownloadCallback
@@ -25,7 +25,7 @@ public class b implements DownloadCallback {
 
     @Override // com.baidu.searchbox.pms.callback.DownloadCallback
     public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
-        this.f42672a.onPackageDownloadFail(packageInfo.packageName, errorInfo.code, errorInfo.errorMsg);
+        this.f42912a.onPackageDownloadFail(packageInfo.packageName, errorInfo.code, errorInfo.errorMsg);
         d.b.c.g.h.b.b(packageInfo.packageName, 1, packageInfo.version);
     }
 
@@ -35,7 +35,7 @@ public class b implements DownloadCallback {
 
     @Override // com.baidu.searchbox.pms.callback.DownloadCallback
     public void onDownloadProgress(PackageInfo packageInfo, long j, long j2) {
-        this.f42672a.onProgress(j, j2);
+        this.f42912a.onProgress(j, j2);
     }
 
     @Override // com.baidu.searchbox.pms.callback.DownloadCallback
@@ -48,7 +48,7 @@ public class b implements DownloadCallback {
 
     @Override // com.baidu.searchbox.pms.callback.DownloadCallback
     public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
-        this.f42672a.onPackageDownloadSuccess(packageInfo.packageName, packageInfo.filePath);
+        this.f42912a.onPackageDownloadSuccess(packageInfo.packageName, packageInfo.filePath);
         d.b.c.g.h.b.b(packageInfo.packageName, 0, packageInfo.version);
     }
 }

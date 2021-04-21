@@ -30,8 +30,8 @@ public class i {
             public AdResultData b(String str) {
                 JSONObject jSONObject = new JSONObject(str);
                 ArrayList arrayList = new ArrayList();
-                for (com.kwad.sdk.core.g.a.f fVar : h.a.this.f34074a) {
-                    arrayList.add(fVar.f33940a);
+                for (com.kwad.sdk.core.g.a.f fVar : h.a.this.f34169a) {
+                    arrayList.add(fVar.f34035a);
                 }
                 AdResultData adResultData = new AdResultData(arrayList);
                 adResultData.parseJson(jSONObject);

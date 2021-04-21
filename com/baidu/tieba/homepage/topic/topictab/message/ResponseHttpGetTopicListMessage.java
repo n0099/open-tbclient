@@ -7,8 +7,8 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.R;
 import com.squareup.wire.Wire;
 import d.b.c.j.e.n;
-import d.b.i0.a1.j.b.c.a;
-import d.b.i0.a1.j.b.c.c;
+import d.b.j0.a1.j.b.c.a;
+import d.b.j0.a1.j.b.c.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.NewTopicList.DataRes;
@@ -48,13 +48,13 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
                 aVar.a0(newTopicList);
                 this.mTopicDataList.add(aVar);
                 c cVar = new c();
-                cVar.f52986e = R.dimen.tbds1;
-                cVar.f52987f = R.color.CAM_X0203;
+                cVar.f53407e = R.dimen.tbds1;
+                cVar.f53408f = R.color.CAM_X0203;
                 this.mTopicDataList.add(cVar);
                 i2++;
             }
         }
         List<n> list = this.mTopicDataList;
-        ((c) ListUtils.getItem(list, list.size() - 1)).f52986e = 0;
+        ((c) ListUtils.getItem(list, list.size() - 1)).f53407e = 0;
     }
 }

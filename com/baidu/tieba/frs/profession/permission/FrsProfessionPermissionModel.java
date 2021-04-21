@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-import d.b.i0.q0.f2.a.a;
-import d.b.i0.q0.f2.a.b;
+import d.b.j0.q0.f2.a.a;
+import d.b.j0.q0.f2.a.b;
 /* loaded from: classes4.dex */
 public class FrsProfessionPermissionModel<T> extends NetAutoModel<a, b, T> {
     public FrsProfessionPermissionModel(TbPageContext<T> tbPageContext, a aVar) {

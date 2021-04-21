@@ -14,7 +14,7 @@ import com.baidu.wallet.base.widget.dialog.model.ContentDialogModel;
 public class NoTitleContentDialogBinding extends BaseBinding<BaseDialogModel> {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f23737a;
+    public TextView f23745a;
     public View btnLayouts;
     public View btnLine;
     public Button negativeButton;
@@ -25,7 +25,7 @@ public class NoTitleContentDialogBinding extends BaseBinding<BaseDialogModel> {
         this.rootView = view;
         Context context = view.getContext();
         this.context = context;
-        this.f23737a = (TextView) view.findViewById(ResUtils.id(context, "dialog_text_content"));
+        this.f23745a = (TextView) view.findViewById(ResUtils.id(context, "dialog_text_content"));
         this.negativeButton = (Button) view.findViewById(ResUtils.id(this.context, "negative_btn"));
         this.positiveButton = (Button) view.findViewById(ResUtils.id(this.context, "positive_btn"));
         this.btnLayouts = view.findViewById(ResUtils.id(this.context, "dialog_btns"));
@@ -37,27 +37,27 @@ public class NoTitleContentDialogBinding extends BaseBinding<BaseDialogModel> {
         ContentDialogModel contentDialogModel = (ContentDialogModel) getViewModel();
         int i = 8;
         if (contentDialogModel.hideMessage) {
-            this.f23737a.setVisibility(8);
+            this.f23745a.setVisibility(8);
             return;
         }
         int i2 = contentDialogModel.messageId;
         if (i2 != 0) {
-            this.f23737a.setText(i2);
+            this.f23745a.setText(i2);
         } else if (!TextUtils.isEmpty(contentDialogModel.message)) {
-            this.f23737a.setText(contentDialogModel.message);
+            this.f23745a.setText(contentDialogModel.message);
         }
-        this.f23737a.setMovementMethod(LinkMovementMethod.getInstance());
+        this.f23745a.setMovementMethod(LinkMovementMethod.getInstance());
         int i3 = contentDialogModel.messageColor;
         if (i3 != 0) {
-            this.f23737a.setTextColor(i3);
+            this.f23745a.setTextColor(i3);
         }
         int i4 = contentDialogModel.backgroundColor;
         if (i4 != 0) {
-            this.f23737a.setBackgroundColor(i4);
+            this.f23745a.setBackgroundColor(i4);
         }
         int i5 = contentDialogModel.messageSize;
         if (i5 != 0) {
-            this.f23737a.setTextSize(i5);
+            this.f23745a.setTextSize(i5);
         }
         int i6 = contentDialogModel.dialogBackgound;
         if (i6 != 0) {

@@ -6,38 +6,38 @@ import com.airbnb.lottie.model.content.GradientType;
 public class d implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final GradientType f41676a;
+    public final GradientType f41771a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Path.FillType f41677b;
+    public final Path.FillType f41772b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.a.a.u.i.c f41678c;
+    public final d.a.a.u.i.c f41773c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.a.a.u.i.d f41679d;
+    public final d.a.a.u.i.d f41774d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.a.a.u.i.f f41680e;
+    public final d.a.a.u.i.f f41775e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.a.a.u.i.f f41681f;
+    public final d.a.a.u.i.f f41776f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f41682g;
+    public final String f41777g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final boolean f41683h;
+    public final boolean f41778h;
 
     public d(String str, GradientType gradientType, Path.FillType fillType, d.a.a.u.i.c cVar, d.a.a.u.i.d dVar, d.a.a.u.i.f fVar, d.a.a.u.i.f fVar2, d.a.a.u.i.b bVar, d.a.a.u.i.b bVar2, boolean z) {
-        this.f41676a = gradientType;
-        this.f41677b = fillType;
-        this.f41678c = cVar;
-        this.f41679d = dVar;
-        this.f41680e = fVar;
-        this.f41681f = fVar2;
-        this.f41682g = str;
-        this.f41683h = z;
+        this.f41771a = gradientType;
+        this.f41772b = fillType;
+        this.f41773c = cVar;
+        this.f41774d = dVar;
+        this.f41775e = fVar;
+        this.f41776f = fVar2;
+        this.f41777g = str;
+        this.f41778h = z;
     }
 
     @Override // d.a.a.u.j.b
@@ -46,34 +46,34 @@ public class d implements b {
     }
 
     public d.a.a.u.i.f b() {
-        return this.f41681f;
+        return this.f41776f;
     }
 
     public Path.FillType c() {
-        return this.f41677b;
+        return this.f41772b;
     }
 
     public d.a.a.u.i.c d() {
-        return this.f41678c;
+        return this.f41773c;
     }
 
     public GradientType e() {
-        return this.f41676a;
+        return this.f41771a;
     }
 
     public String f() {
-        return this.f41682g;
+        return this.f41777g;
     }
 
     public d.a.a.u.i.d g() {
-        return this.f41679d;
+        return this.f41774d;
     }
 
     public d.a.a.u.i.f h() {
-        return this.f41680e;
+        return this.f41775e;
     }
 
     public boolean i() {
-        return this.f41683h;
+        return this.f41778h;
     }
 }

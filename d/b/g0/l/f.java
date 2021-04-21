@@ -1,29 +1,62 @@
 package d.b.g0.l;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-@Autowired
-/* loaded from: classes3.dex */
-public class f {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f49281a = b().isDebug();
-
-    /* loaded from: classes3.dex */
-    public static class a implements d.b.g0.l.a {
-        @Override // d.b.g0.l.a
-        public String a() {
-            return "";
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
+/* loaded from: classes2.dex */
+public abstract class f {
+    public static void a(InputStream inputStream, OutputStream outputStream) {
+        GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
+        byte[] bArr = new byte[2048];
+        while (true) {
+            int read = inputStream.read(bArr, 0, 2048);
+            if (read != -1) {
+                gZIPOutputStream.write(bArr, 0, read);
+            } else {
+                gZIPOutputStream.flush();
+                gZIPOutputStream.finish();
+                gZIPOutputStream.close();
+                return;
+            }
         }
     }
 
-    @Inject(force = false)
-    public static d.b.g0.l.a a() {
-        return new a();
+    public static byte[] b(byte[] bArr) {
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        a(byteArrayInputStream, byteArrayOutputStream);
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
+        byteArrayOutputStream.flush();
+        byteArrayOutputStream.close();
+        byteArrayInputStream.close();
+        return byteArray;
     }
 
-    @Inject
-    public static b b() {
-        return d.b.g0.a.w0.b.b.a();
+    public static void c(InputStream inputStream, OutputStream outputStream) {
+        GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
+        byte[] bArr = new byte[2048];
+        while (true) {
+            int read = gZIPInputStream.read(bArr, 0, 2048);
+            if (read != -1) {
+                outputStream.write(bArr, 0, read);
+            } else {
+                gZIPInputStream.close();
+                return;
+            }
+        }
+    }
+
+    public static byte[] d(byte[] bArr) {
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        c(byteArrayInputStream, byteArrayOutputStream);
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
+        byteArrayOutputStream.flush();
+        byteArrayOutputStream.close();
+        byteArrayInputStream.close();
+        return byteArray;
     }
 }

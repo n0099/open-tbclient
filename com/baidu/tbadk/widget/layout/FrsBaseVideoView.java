@@ -19,24 +19,24 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
-import d.b.h0.r.k;
-import d.b.h0.r.q.a2;
-import d.b.i0.j2.m;
+import d.b.i0.r.k;
+import d.b.i0.r.q.a2;
+import d.b.j0.j2.m;
 import tbclient.VideoInfo;
 /* loaded from: classes3.dex */
 public class FrsBaseVideoView extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameLayout f13871e;
+    public FrameLayout f13879e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f13872f;
+    public TextView f13880f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f13873g;
+    public TbImageView f13881g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f13874h;
+    public ImageView f13882h;
     public TbCyberVideoView i;
     public TextView j;
     public View k;
@@ -62,7 +62,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
 
         @Override // android.view.View.OnAttachStateChangeListener
         public void onViewAttachedToWindow(View view) {
-            FrameLayout frameLayout = FrsBaseVideoView.this.f13871e;
+            FrameLayout frameLayout = FrsBaseVideoView.this.f13879e;
             if (frameLayout != null) {
                 frameLayout.getViewTreeObserver().addOnGlobalLayoutListener(FrsBaseVideoView.this.v);
             }
@@ -70,7 +70,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
 
         @Override // android.view.View.OnAttachStateChangeListener
         public void onViewDetachedFromWindow(View view) {
-            FrameLayout frameLayout = FrsBaseVideoView.this.f13871e;
+            FrameLayout frameLayout = FrsBaseVideoView.this.f13879e;
             if (frameLayout != null) {
                 frameLayout.getViewTreeObserver().removeGlobalOnLayoutListener(FrsBaseVideoView.this.v);
             }
@@ -84,10 +84,10 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
 
         @Override // com.baidu.tbadk.widget.TbImageView.f
         public void a(String str, boolean z) {
-            if (!z || FrsBaseVideoView.this.f13873g == null) {
+            if (!z || FrsBaseVideoView.this.f13881g == null) {
                 return;
             }
-            FrsBaseVideoView.this.f13873g.setDefaultBgResource(0);
+            FrsBaseVideoView.this.f13881g.setDefaultBgResource(0);
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.f
@@ -114,17 +114,17 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
-            FrameLayout frameLayout = FrsBaseVideoView.this.f13871e;
-            if (frameLayout == null || frameLayout.getLayoutParams() == null || FrsBaseVideoView.this.f13871e.getVisibility() == 8) {
+            FrameLayout frameLayout = FrsBaseVideoView.this.f13879e;
+            if (frameLayout == null || frameLayout.getLayoutParams() == null || FrsBaseVideoView.this.f13879e.getVisibility() == 8) {
                 return;
             }
-            FrsBaseVideoView.this.f13871e.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-            ViewGroup.LayoutParams layoutParams = FrsBaseVideoView.this.f13871e.getLayoutParams();
-            if (FrsBaseVideoView.this.f13871e.getWidth() <= 0) {
+            FrsBaseVideoView.this.f13879e.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+            ViewGroup.LayoutParams layoutParams = FrsBaseVideoView.this.f13879e.getLayoutParams();
+            if (FrsBaseVideoView.this.f13879e.getWidth() <= 0) {
                 return;
             }
-            layoutParams.height = (int) (FrsBaseVideoView.this.f13871e.getWidth() * 0.5625d);
-            FrsBaseVideoView.this.f13871e.setLayoutParams(layoutParams);
+            layoutParams.height = (int) (FrsBaseVideoView.this.f13879e.getWidth() * 0.5625d);
+            FrsBaseVideoView.this.f13879e.setLayoutParams(layoutParams);
         }
     }
 
@@ -170,40 +170,40 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
 
     public final void e(VideoInfo videoInfo) {
         j();
-        if (this.f13873g == null || this.f13871e == null || this.i == null) {
+        if (this.f13881g == null || this.f13879e == null || this.i == null) {
             return;
         }
         if (k.c().g() && this.m != null && videoInfo != null) {
-            this.f13871e.setVisibility(0);
-            this.f13873g.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-            this.f13873g.W(videoInfo.thumbnail_url, 10, false);
+            this.f13879e.setVisibility(0);
+            this.f13881g.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+            this.f13881g.W(videoInfo.thumbnail_url, 10, false);
             stopPlay();
             String str = videoInfo.video_url;
             this.r = str;
             if (StringUtils.isNull(str)) {
                 l(true, 4);
             }
-            this.f13872f.setText(StringHelper.stringForVideoTime(videoInfo.video_duration.intValue() * 1000));
+            this.f13880f.setText(StringHelper.stringForVideoTime(videoInfo.video_duration.intValue() * 1000));
             this.o.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.play_count), StringHelper.numFormatOverWan(videoInfo.play_count.intValue())));
             return;
         }
-        this.f13871e.setVisibility(8);
+        this.f13879e.setVisibility(8);
     }
 
     public final void f() {
         LayoutInflater.from(getContext()).inflate(R.layout.base_video_view, this);
         setOrientation(1);
         FrameLayout frameLayout = (FrameLayout) findViewById(R.id.frame_video);
-        this.f13871e = frameLayout;
+        this.f13879e = frameLayout;
         frameLayout.setOnClickListener(this);
-        this.f13871e.addOnAttachStateChangeListener(new a());
+        this.f13879e.addOnAttachStateChangeListener(new a());
         TbImageView tbImageView = (TbImageView) findViewById(R.id.image_video);
-        this.f13873g = tbImageView;
+        this.f13881g = tbImageView;
         tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-        this.f13873g.setEvent(this.t);
-        this.f13873g.setGifIconSupport(false);
+        this.f13881g.setEvent(this.t);
+        this.f13881g.setGifIconSupport(false);
         this.l = new m((ViewGroup) findViewById(R.id.auto_video_loading_container));
-        this.f13874h = (ImageView) findViewById(R.id.image_video_play);
+        this.f13882h = (ImageView) findViewById(R.id.image_video_play);
         TbCyberVideoView tbCyberVideoView = new TbCyberVideoView(getContext());
         this.i = tbCyberVideoView;
         tbCyberVideoView.setStageType("2003");
@@ -213,7 +213,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
         this.n = findViewById(R.id.auto_video_black_mask);
         this.j = (TextView) findViewById(R.id.auto_video_error_tips);
         this.k = findViewById(R.id.auto_video_error_background);
-        this.f13872f = (TextView) findViewById(R.id.text_video_duration);
+        this.f13880f = (TextView) findViewById(R.id.text_video_duration);
         this.o = (TextView) findViewById(R.id.text_video_play_count);
     }
 
@@ -238,15 +238,15 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
     }
 
     public View getVideoContainer() {
-        return this.f13871e;
+        return this.f13879e;
     }
 
     public void h(int i) {
         if (this.p != i) {
             SkinManager.setBackgroundResource(this, R.drawable.addresslist_item_bg);
-            SkinManager.setImageResource(this.f13874h, R.drawable.btn_icon_play_video_n);
+            SkinManager.setImageResource(this.f13882h, R.drawable.btn_icon_play_video_n);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.f13872f, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f13880f, R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.o, R.color.CAM_X0101);
             SkinManager.setBackgroundColor(this.k, R.color.common_color_10014);
             if (this.j != null) {
@@ -279,21 +279,21 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         layoutParams.gravity = 17;
-        this.f13871e.addView(this.i.getView(), 0);
+        this.f13879e.addView(this.i.getView(), 0);
         this.i.getView().setLayoutParams(layoutParams);
     }
 
     public final void l(boolean z, int i) {
-        if (this.f13874h == null || this.f13873g == null || this.n == null || this.l == null || this.k == null || this.j == null) {
+        if (this.f13882h == null || this.f13881g == null || this.n == null || this.l == null || this.k == null || this.j == null) {
             return;
         }
         if (z || this.q != i) {
             this.q = i;
             d.b.c.e.m.e.a().removeCallbacks(this.x);
             d.b.c.e.m.e.a().removeCallbacks(this.w);
-            this.f13874h.setVisibility(0);
-            this.f13873g.clearAnimation();
-            this.f13873g.setVisibility(0);
+            this.f13882h.setVisibility(0);
+            this.f13881g.clearAnimation();
+            this.f13881g.setVisibility(0);
             this.n.setVisibility(0);
             this.l.b();
             this.k.setVisibility(8);

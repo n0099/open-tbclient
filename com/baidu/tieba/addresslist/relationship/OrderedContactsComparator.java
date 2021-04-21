@@ -1,7 +1,7 @@
 package com.baidu.tieba.addresslist.relationship;
 
 import android.text.TextUtils;
-import d.b.i0.q.f.e;
+import d.b.j0.q.f.e;
 import java.io.Serializable;
 import java.util.Comparator;
 /* loaded from: classes4.dex */

@@ -13,11 +13,11 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import d.b.h0.r.s.a;
-import d.b.i0.t.j.g.a;
-import d.b.i0.t.j.g.b;
-import d.b.i0.t.j.g.d.e.a;
-import d.b.i0.t.j.g.d.e.b;
+import d.b.i0.r.s.a;
+import d.b.j0.t.j.g.a;
+import d.b.j0.t.j.g.b;
+import d.b.j0.t.j.g.d.e.a;
+import d.b.j0.t.j.g.d.e.b;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
 public class AlaEnterEffectDetailActivity extends BaseActivity {
@@ -25,27 +25,27 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
     public static final String KEY_SELECTED_EFFECT_ID = "key_selected_effect_id";
     public static final String KEY_STATUS_IS_SELECTED = "key_status_is_selected";
     public static final int REQUEST_CODE_EFFECT_DETAIL = 1001;
-    public d.b.i0.t.j.g.a mBuyPropModel;
+    public d.b.j0.t.j.g.a mBuyPropModel;
     public AlaEnterEffectData mData;
-    public d.b.i0.t.j.g.d.e.a mMainView;
-    public d.b.i0.t.j.g.d.e.b mModel;
-    public d.b.i0.t.j.g.d.b mPreViewController;
+    public d.b.j0.t.j.g.d.e.a mMainView;
+    public d.b.j0.t.j.g.d.e.b mModel;
+    public d.b.j0.t.j.g.d.b mPreViewController;
     public String mSelectedEffectId;
-    public d.b.i0.t.j.g.b mTDouBuyController;
-    public b.InterfaceC1631b mModelCallback = new a();
+    public d.b.j0.t.j.g.b mTDouBuyController;
+    public b.InterfaceC1654b mModelCallback = new a();
     public a.b mViewClickListener = new e();
 
     /* loaded from: classes4.dex */
-    public class a implements b.InterfaceC1631b {
+    public class a implements b.InterfaceC1654b {
         public a() {
         }
 
-        @Override // d.b.i0.t.j.g.d.e.b.InterfaceC1631b
+        @Override // d.b.j0.t.j.g.d.e.b.InterfaceC1654b
         public void a(String str) {
             AlaEnterEffectDetailActivity.this.showToast(str);
         }
 
-        @Override // d.b.i0.t.j.g.d.e.b.InterfaceC1631b
+        @Override // d.b.j0.t.j.g.d.e.b.InterfaceC1654b
         public void b(boolean z) {
             if (AlaEnterEffectDetailActivity.this.mData != null) {
                 AlaEnterEffectDetailActivity.this.showToast(R.string.operation_success);
@@ -77,7 +77,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
         public c() {
         }
 
-        @Override // d.b.i0.t.j.g.b.c
+        @Override // d.b.j0.t.j.g.b.c
         public void a(boolean z) {
             if (!z || AlaEnterEffectDetailActivity.this.mData == null) {
                 return;
@@ -95,7 +95,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
         public d() {
         }
 
-        @Override // d.b.i0.t.j.g.a.b
+        @Override // d.b.j0.t.j.g.a.b
         public void a(boolean z, String str) {
             if (z) {
                 if (AlaEnterEffectDetailActivity.this.mData == null || AlaEnterEffectDetailActivity.this.mMainView == null) {
@@ -121,8 +121,8 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             public a() {
             }
 
-            @Override // d.b.h0.r.s.a.e
-            public void onClick(d.b.h0.r.s.a aVar) {
+            @Override // d.b.i0.r.s.a.e
+            public void onClick(d.b.i0.r.s.a aVar) {
                 aVar.dismiss();
                 if (AlaEnterEffectDetailActivity.this.mData != null) {
                     AlaEnterEffectDetailActivity.this.mModel.b(AlaEnterEffectDetailActivity.this.mData.id, AlaEnterEffectDetailActivity.this.mData.use_status != 1);
@@ -135,8 +135,8 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             public b(e eVar) {
             }
 
-            @Override // d.b.h0.r.s.a.e
-            public void onClick(d.b.h0.r.s.a aVar) {
+            @Override // d.b.i0.r.s.a.e
+            public void onClick(d.b.i0.r.s.a aVar) {
                 aVar.dismiss();
             }
         }
@@ -144,7 +144,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
         public e() {
         }
 
-        @Override // d.b.i0.t.j.g.d.e.a.b
+        @Override // d.b.j0.t.j.g.d.e.a.b
         public void a() {
             if (AlaEnterEffectDetailActivity.this.mData == null) {
                 return;
@@ -173,7 +173,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                 }
                 return;
             }
-            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(AlaEnterEffectDetailActivity.this.getActivity());
+            d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(AlaEnterEffectDetailActivity.this.getActivity());
             aVar.setCanceledOnTouchOutside(false);
             aVar.setAutoNight(false);
             aVar.setMessageId(R.string.ala_effect_replace_tip);
@@ -209,7 +209,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
-        this.mModel = new d.b.i0.t.j.g.d.e.b(this.mModelCallback);
+        this.mModel = new d.b.j0.t.j.g.d.e.b(this.mModelCallback);
         Serializable serializableExtra = getIntent().getSerializableExtra(KEY_EFFECT_DATA);
         if (!(serializableExtra instanceof AlaEnterEffectData)) {
             showToast(R.string.tb_err_unknown);
@@ -219,26 +219,26 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
         }
         this.mData = (AlaEnterEffectData) serializableExtra;
         this.mSelectedEffectId = getIntent().getStringExtra(KEY_SELECTED_EFFECT_ID);
-        d.b.i0.t.j.g.d.e.a aVar = new d.b.i0.t.j.g.d.e.a(getActivity(), this.mData);
+        d.b.j0.t.j.g.d.e.a aVar = new d.b.j0.t.j.g.d.e.a(getActivity(), this.mData);
         this.mMainView = aVar;
         aVar.e(this.mViewClickListener);
         this.mMainView.b().setOnClickListener(new b());
         setContentView(this.mMainView.b());
-        this.mPreViewController = new d.b.i0.t.j.g.d.b(getActivity(), this.mMainView.b());
-        d.b.i0.t.j.g.b bVar = new d.b.i0.t.j.g.b(getPageContext());
+        this.mPreViewController = new d.b.j0.t.j.g.d.b(getActivity(), this.mMainView.b());
+        d.b.j0.t.j.g.b bVar = new d.b.j0.t.j.g.b(getPageContext());
         this.mTDouBuyController = bVar;
         bVar.e(new c());
-        this.mBuyPropModel = new d.b.i0.t.j.g.a(getPageContext(), new d());
+        this.mBuyPropModel = new d.b.j0.t.j.g.a(getPageContext(), new d());
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d.b.i0.t.j.g.d.e.b bVar = this.mModel;
+        d.b.j0.t.j.g.d.e.b bVar = this.mModel;
         if (bVar != null) {
             bVar.c();
         }
-        d.b.i0.t.j.g.d.b bVar2 = this.mPreViewController;
+        d.b.j0.t.j.g.d.b bVar2 = this.mPreViewController;
         if (bVar2 != null) {
             bVar2.d();
         }
@@ -246,7 +246,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
-        d.b.i0.t.j.g.d.b bVar;
+        d.b.j0.t.j.g.d.b bVar;
         super.onResume();
         AlaEnterEffectData alaEnterEffectData = this.mData;
         if (alaEnterEffectData == null || (bVar = this.mPreViewController) == null) {

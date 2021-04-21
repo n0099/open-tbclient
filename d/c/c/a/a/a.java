@@ -8,28 +8,28 @@ import java.util.concurrent.TimeUnit;
 public class a extends r {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final long f65964h = TimeUnit.SECONDS.toMillis(60);
-    public static final long i = TimeUnit.MILLISECONDS.toNanos(f65964h);
+    public static final long f66059h = TimeUnit.SECONDS.toMillis(60);
+    public static final long i = TimeUnit.MILLISECONDS.toNanos(f66059h);
     public static a j;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f65965e;
+    public boolean f66060e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f65966f;
+    public a f66061f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f65967g;
+    public long f66062g;
 
     /* renamed from: d.c.c.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1813a implements p {
+    public class C1816a implements p {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ p f65968e;
+        public final /* synthetic */ p f66063e;
 
-        public C1813a(p pVar) {
-            this.f65968e = pVar;
+        public C1816a(p pVar) {
+            this.f66063e = pVar;
         }
 
         @Override // d.c.c.a.a.p
@@ -39,28 +39,28 @@ public class a extends r {
 
         @Override // d.c.c.a.a.p
         public void b(d.c.c.a.a.c cVar, long j) throws IOException {
-            s.c(cVar.f65975f, 0L, j);
+            s.c(cVar.f66070f, 0L, j);
             while (true) {
                 long j2 = 0;
                 if (j <= 0) {
                     return;
                 }
-                n nVar = cVar.f65974e;
+                n nVar = cVar.f66069e;
                 while (true) {
                     if (j2 >= 65536) {
                         break;
                     }
-                    j2 += nVar.f66002c - nVar.f66001b;
+                    j2 += nVar.f66097c - nVar.f66096b;
                     if (j2 >= j) {
                         j2 = j;
                         break;
                     }
-                    nVar = nVar.f66005f;
+                    nVar = nVar.f66100f;
                 }
                 a.this.l();
                 try {
                     try {
-                        this.f65968e.b(cVar, j2);
+                        this.f66063e.b(cVar, j2);
                         j -= j2;
                         a.this.n(true);
                     } catch (IOException e2) {
@@ -78,7 +78,7 @@ public class a extends r {
             a.this.l();
             try {
                 try {
-                    this.f65968e.close();
+                    this.f66063e.close();
                     a.this.n(true);
                 } catch (IOException e2) {
                     throw a.this.k(e2);
@@ -94,7 +94,7 @@ public class a extends r {
             a.this.l();
             try {
                 try {
-                    this.f65968e.flush();
+                    this.f66063e.flush();
                     a.this.n(true);
                 } catch (IOException e2) {
                     throw a.this.k(e2);
@@ -106,7 +106,7 @@ public class a extends r {
         }
 
         public String toString() {
-            return "AsyncTimeout.sink(" + this.f65968e + SmallTailInfo.EMOTION_SUFFIX;
+            return "AsyncTimeout.sink(" + this.f66063e + SmallTailInfo.EMOTION_SUFFIX;
         }
     }
 
@@ -150,21 +150,21 @@ public class a extends r {
             long nanoTime = System.nanoTime();
             int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
             if (i2 != 0 && z) {
-                aVar.f65967g = Math.min(j2, aVar.e() - nanoTime) + nanoTime;
+                aVar.f66062g = Math.min(j2, aVar.e() - nanoTime) + nanoTime;
             } else if (i2 != 0) {
-                aVar.f65967g = j2 + nanoTime;
+                aVar.f66062g = j2 + nanoTime;
             } else if (z) {
-                aVar.f65967g = aVar.e();
+                aVar.f66062g = aVar.e();
             } else {
                 throw new AssertionError();
             }
             long q = aVar.q(nanoTime);
             a aVar2 = j;
-            while (aVar2.f65966f != null && q >= aVar2.f65966f.q(nanoTime)) {
-                aVar2 = aVar2.f65966f;
+            while (aVar2.f66061f != null && q >= aVar2.f66061f.q(nanoTime)) {
+                aVar2 = aVar2.f66061f;
             }
-            aVar.f65966f = aVar2.f65966f;
-            aVar2.f65966f = aVar;
+            aVar.f66061f = aVar2.f66061f;
+            aVar2.f66061f = aVar;
             if (aVar2 == j) {
                 a.class.notify();
             }
@@ -173,10 +173,10 @@ public class a extends r {
 
     public static synchronized boolean o(a aVar) {
         synchronized (a.class) {
-            for (a aVar2 = j; aVar2 != null; aVar2 = aVar2.f65966f) {
-                if (aVar2.f65966f == aVar) {
-                    aVar2.f65966f = aVar.f65966f;
-                    aVar.f65966f = null;
+            for (a aVar2 = j; aVar2 != null; aVar2 = aVar2.f66061f) {
+                if (aVar2.f66061f == aVar) {
+                    aVar2.f66061f = aVar.f66061f;
+                    aVar.f66061f = null;
                     return false;
                 }
             }
@@ -185,11 +185,11 @@ public class a extends r {
     }
 
     public static a t() throws InterruptedException {
-        a aVar = j.f65966f;
+        a aVar = j.f66061f;
         if (aVar == null) {
             long nanoTime = System.nanoTime();
-            a.class.wait(f65964h);
-            if (j.f65966f != null || System.nanoTime() - nanoTime < i) {
+            a.class.wait(f66059h);
+            if (j.f66061f != null || System.nanoTime() - nanoTime < i) {
                 return null;
             }
             return j;
@@ -200,13 +200,13 @@ public class a extends r {
             a.class.wait(j2, (int) (q - (1000000 * j2)));
             return null;
         }
-        j.f65966f = aVar.f65966f;
-        aVar.f65966f = null;
+        j.f66061f = aVar.f66061f;
+        aVar.f66061f = null;
         return aVar;
     }
 
     public final p i(p pVar) {
-        return new C1813a(pVar);
+        return new C1816a(pVar);
     }
 
     public final q j(q qVar) {
@@ -218,11 +218,11 @@ public class a extends r {
     }
 
     public final void l() {
-        if (!this.f65965e) {
+        if (!this.f66060e) {
             long c2 = c();
             boolean d2 = d();
             if (c2 != 0 || d2) {
-                this.f65965e = true;
+                this.f66060e = true;
                 m(this, c2, d2);
                 return;
             }
@@ -241,7 +241,7 @@ public class a extends r {
     }
 
     public final long q(long j2) {
-        return this.f65967g - j2;
+        return this.f66062g - j2;
     }
 
     public IOException r(IOException iOException) {
@@ -253,8 +253,8 @@ public class a extends r {
     }
 
     public final boolean s() {
-        if (this.f65965e) {
-            this.f65965e = false;
+        if (this.f66060e) {
+            this.f66060e = false;
             return o(this);
         }
         return false;
@@ -264,10 +264,10 @@ public class a extends r {
     public class b implements q {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ q f65970e;
+        public final /* synthetic */ q f66065e;
 
         public b(q qVar) {
-            this.f65970e = qVar;
+            this.f66065e = qVar;
         }
 
         @Override // d.c.c.a.a.q
@@ -275,7 +275,7 @@ public class a extends r {
             a.this.l();
             try {
                 try {
-                    long a2 = this.f65970e.a(cVar, j);
+                    long a2 = this.f66065e.a(cVar, j);
                     a.this.n(true);
                     return a2;
                 } catch (IOException e2) {
@@ -292,7 +292,7 @@ public class a extends r {
             a.this.l();
             try {
                 try {
-                    this.f65970e.close();
+                    this.f66065e.close();
                     a.this.n(true);
                 } catch (IOException e2) {
                     throw a.this.k(e2);
@@ -304,7 +304,7 @@ public class a extends r {
         }
 
         public String toString() {
-            return "AsyncTimeout.source(" + this.f65970e + SmallTailInfo.EMOTION_SUFFIX;
+            return "AsyncTimeout.source(" + this.f66065e + SmallTailInfo.EMOTION_SUFFIX;
         }
 
         @Override // d.c.c.a.a.q

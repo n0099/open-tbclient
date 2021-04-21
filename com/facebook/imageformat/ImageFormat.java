@@ -2,14 +2,14 @@ package com.facebook.imageformat;
 
 import com.baidu.android.util.devices.RomUtils;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class ImageFormat {
     public static final ImageFormat UNKNOWN = new ImageFormat(RomUtils.UNKNOWN, null);
     @Nullable
     public final String mFileExtension;
     public final String mName;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes2.dex */
     public interface FormatChecker {
         @Nullable
         ImageFormat determineFormat(byte[] bArr, int i);

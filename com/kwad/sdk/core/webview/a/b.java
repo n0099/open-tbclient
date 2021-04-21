@@ -7,29 +7,29 @@ import org.json.JSONObject;
 public class b implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f34581a;
+    public String f34676a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34582b;
+    public String f34677b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34583c;
+    public String f34678c;
 
     public void a(@Nullable JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f34581a = jSONObject.optString("action");
-        this.f34582b = jSONObject.optString("data");
-        this.f34583c = jSONObject.optString("callback");
+        this.f34676a = jSONObject.optString("action");
+        this.f34677b = jSONObject.optString("data");
+        this.f34678c = jSONObject.optString("callback");
     }
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "action", this.f34581a);
-        o.a(jSONObject, "data", this.f34582b);
-        o.a(jSONObject, "callback", this.f34583c);
+        o.a(jSONObject, "action", this.f34676a);
+        o.a(jSONObject, "data", this.f34677b);
+        o.a(jSONObject, "callback", this.f34678c);
         return jSONObject;
     }
 }

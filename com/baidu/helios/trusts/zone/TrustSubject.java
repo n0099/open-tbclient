@@ -6,8 +6,8 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.android.imsdk.db.TableDefine;
-import d.b.p.g.c.a.e;
-import d.b.p.g.d.a;
+import d.b.q.g.c.a.e;
+import d.b.q.g.d.a;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.Comparator;
@@ -32,13 +32,13 @@ public class TrustSubject {
     public Context f6312d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a.C1765a f6313e;
+    public a.C1784a f6313e;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.b.p.j.a.c.a f6310b = new d.b.p.j.a.c.a();
+    public final d.b.q.j.a.c.a f6310b = new d.b.q.j.a.c.a();
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.b.p.j.a.b.a f6311c = new d.b.p.j.a.b.a();
+    public final d.b.q.j.a.b.a f6311c = new d.b.q.j.a.b.a();
 
     /* renamed from: f  reason: collision with root package name */
     public c f6314f = new c();
@@ -272,10 +272,10 @@ public class TrustSubject {
         }
     }
 
-    public TrustSubject(String str, Context context, a.C1765a c1765a) {
+    public TrustSubject(String str, Context context, a.C1784a c1784a) {
         this.f6312d = context;
         this.f6309a = str;
-        this.f6313e = c1765a.f(c(str));
+        this.f6313e = c1784a.f(c(str));
         x();
     }
 
@@ -298,7 +298,7 @@ public class TrustSubject {
         return this.f6314f;
     }
 
-    public void d(d.b.p.g.b.e.a aVar) {
+    public void d(d.b.q.g.b.e.a aVar) {
         this.f6310b.b(aVar, true);
         this.f6314f.f(this.f6310b.d());
         this.f6314f.j(this.f6310b.i());

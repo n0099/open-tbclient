@@ -645,7 +645,7 @@ public class b extends com.baidu.platform.comapi.wnplatform.n.a {
                 }
                 this.i = b3.a(b2).d(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f9393f, R.drawable.res_0x7f080000_avd_hide_password__0)).b().b(new g(this)).c(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.f9393f, R.drawable.res_0x7f080005_avd_show_password__2)).a(new f(this));
                 if (z) {
-                    a aVar = new a(PassLoginUtil.f25013c, 1000L, this.f9393f, this.i);
+                    a aVar = new a(PassLoginUtil.f25021c, 1000L, this.f9393f, this.i);
                     this.v = aVar;
                     aVar.start();
                 }

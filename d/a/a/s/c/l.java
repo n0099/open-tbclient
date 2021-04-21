@@ -17,7 +17,7 @@ public class l extends a<d.a.a.u.j.h, Path> {
     @Override // d.a.a.s.c.a
     /* renamed from: o */
     public Path i(d.a.a.y.a<d.a.a.u.j.h> aVar, float f2) {
-        this.i.c(aVar.f41801b, aVar.f41802c, f2);
+        this.i.c(aVar.f41896b, aVar.f41897c, f2);
         d.a.a.x.g.i(this.i, this.j);
         return this.j;
     }

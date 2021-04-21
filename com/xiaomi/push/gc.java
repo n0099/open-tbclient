@@ -21,13 +21,13 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public abstract class gc {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f40845a;
+    public static long f40940a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final DateFormat f424a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f40847c;
+    public static String f40942c;
 
     /* renamed from: a  reason: collision with other field name */
     public gg f425a;
@@ -39,41 +39,41 @@ public abstract class gc {
     public final Map<String, Object> f427a;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40848d;
+    public String f40943d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f40849e;
+    public String f40944e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f40850f;
+    public String f40945f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f40851g;
+    public String f40946g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f40852h;
+    public String f40947h;
     public String i;
 
     /* renamed from: a  reason: collision with other field name */
     public static final String f423a = Locale.getDefault().getLanguage().toLowerCase();
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40846b = null;
+    public static String f40941b = null;
 
     static {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         f424a = simpleDateFormat;
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        f40847c = gn.a(5) + "-";
-        f40845a = 0L;
+        f40942c = gn.a(5) + "-";
+        f40940a = 0L;
     }
 
     public gc() {
-        this.f40848d = f40846b;
-        this.f40849e = null;
-        this.f40850f = null;
-        this.f40851g = null;
-        this.f40852h = null;
+        this.f40943d = f40941b;
+        this.f40944e = null;
+        this.f40945f = null;
+        this.f40946g = null;
+        this.f40947h = null;
         this.i = null;
         this.f426a = new CopyOnWriteArrayList();
         this.f427a = new HashMap();
@@ -81,19 +81,19 @@ public abstract class gc {
     }
 
     public gc(Bundle bundle) {
-        this.f40848d = f40846b;
-        this.f40849e = null;
-        this.f40850f = null;
-        this.f40851g = null;
-        this.f40852h = null;
+        this.f40943d = f40941b;
+        this.f40944e = null;
+        this.f40945f = null;
+        this.f40946g = null;
+        this.f40947h = null;
         this.i = null;
         this.f426a = new CopyOnWriteArrayList();
         this.f427a = new HashMap();
         this.f425a = null;
-        this.f40850f = bundle.getString("ext_to");
-        this.f40851g = bundle.getString("ext_from");
-        this.f40852h = bundle.getString("ext_chid");
-        this.f40849e = bundle.getString("ext_pkt_id");
+        this.f40945f = bundle.getString("ext_to");
+        this.f40946g = bundle.getString("ext_from");
+        this.f40947h = bundle.getString("ext_chid");
+        this.f40944e = bundle.getString("ext_pkt_id");
         Parcelable[] parcelableArray = bundle.getParcelableArray("ext_exts");
         if (parcelableArray != null) {
             this.f426a = new ArrayList(parcelableArray.length);
@@ -114,9 +114,9 @@ public abstract class gc {
         String sb;
         synchronized (gc.class) {
             StringBuilder sb2 = new StringBuilder();
-            sb2.append(f40847c);
-            long j = f40845a;
-            f40845a = 1 + j;
+            sb2.append(f40942c);
+            long j = f40940a;
+            f40940a = 1 + j;
             sb2.append(Long.toString(j));
             sb = sb2.toString();
         }
@@ -129,20 +129,20 @@ public abstract class gc {
 
     public Bundle a() {
         Bundle bundle = new Bundle();
-        if (!TextUtils.isEmpty(this.f40848d)) {
-            bundle.putString("ext_ns", this.f40848d);
+        if (!TextUtils.isEmpty(this.f40943d)) {
+            bundle.putString("ext_ns", this.f40943d);
         }
-        if (!TextUtils.isEmpty(this.f40851g)) {
-            bundle.putString("ext_from", this.f40851g);
+        if (!TextUtils.isEmpty(this.f40946g)) {
+            bundle.putString("ext_from", this.f40946g);
         }
-        if (!TextUtils.isEmpty(this.f40850f)) {
-            bundle.putString("ext_to", this.f40850f);
+        if (!TextUtils.isEmpty(this.f40945f)) {
+            bundle.putString("ext_to", this.f40945f);
         }
-        if (!TextUtils.isEmpty(this.f40849e)) {
-            bundle.putString("ext_pkt_id", this.f40849e);
+        if (!TextUtils.isEmpty(this.f40944e)) {
+            bundle.putString("ext_pkt_id", this.f40944e);
         }
-        if (!TextUtils.isEmpty(this.f40852h)) {
-            bundle.putString("ext_chid", this.f40852h);
+        if (!TextUtils.isEmpty(this.f40947h)) {
+            bundle.putString("ext_chid", this.f40947h);
         }
         gg ggVar = this.f425a;
         if (ggVar != null) {
@@ -228,19 +228,19 @@ public abstract class gc {
         gc gcVar = (gc) obj;
         gg ggVar = this.f425a;
         if (ggVar == null ? gcVar.f425a == null : ggVar.equals(gcVar.f425a)) {
-            String str = this.f40851g;
-            if (str == null ? gcVar.f40851g == null : str.equals(gcVar.f40851g)) {
+            String str = this.f40946g;
+            if (str == null ? gcVar.f40946g == null : str.equals(gcVar.f40946g)) {
                 if (this.f426a.equals(gcVar.f426a)) {
-                    String str2 = this.f40849e;
-                    if (str2 == null ? gcVar.f40849e == null : str2.equals(gcVar.f40849e)) {
-                        String str3 = this.f40852h;
-                        if (str3 == null ? gcVar.f40852h == null : str3.equals(gcVar.f40852h)) {
+                    String str2 = this.f40944e;
+                    if (str2 == null ? gcVar.f40944e == null : str2.equals(gcVar.f40944e)) {
+                        String str3 = this.f40947h;
+                        if (str3 == null ? gcVar.f40947h == null : str3.equals(gcVar.f40947h)) {
                             Map<String, Object> map = this.f427a;
                             if (map == null ? gcVar.f427a == null : map.equals(gcVar.f427a)) {
-                                String str4 = this.f40850f;
-                                if (str4 == null ? gcVar.f40850f == null : str4.equals(gcVar.f40850f)) {
-                                    String str5 = this.f40848d;
-                                    String str6 = gcVar.f40848d;
+                                String str4 = this.f40945f;
+                                if (str4 == null ? gcVar.f40945f == null : str4.equals(gcVar.f40945f)) {
+                                    String str5 = this.f40943d;
+                                    String str6 = gcVar.f40943d;
                                     if (str5 != null) {
                                         if (str5.equals(str6)) {
                                             return true;
@@ -266,52 +266,52 @@ public abstract class gc {
     }
 
     public int hashCode() {
-        String str = this.f40848d;
+        String str = this.f40943d;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
-        String str2 = this.f40849e;
+        String str2 = this.f40944e;
         int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-        String str3 = this.f40850f;
+        String str3 = this.f40945f;
         int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
-        String str4 = this.f40851g;
+        String str4 = this.f40946g;
         int hashCode4 = (hashCode3 + (str4 != null ? str4.hashCode() : 0)) * 31;
-        String str5 = this.f40852h;
+        String str5 = this.f40947h;
         int hashCode5 = (((((hashCode4 + (str5 != null ? str5.hashCode() : 0)) * 31) + this.f426a.hashCode()) * 31) + this.f427a.hashCode()) * 31;
         gg ggVar = this.f425a;
         return hashCode5 + (ggVar != null ? ggVar.hashCode() : 0);
     }
 
     public String j() {
-        if ("ID_NOT_AVAILABLE".equals(this.f40849e)) {
+        if ("ID_NOT_AVAILABLE".equals(this.f40944e)) {
             return null;
         }
-        if (this.f40849e == null) {
-            this.f40849e = i();
+        if (this.f40944e == null) {
+            this.f40944e = i();
         }
-        return this.f40849e;
+        return this.f40944e;
     }
 
     public String k() {
-        return this.f40852h;
+        return this.f40947h;
     }
 
     public void k(String str) {
-        this.f40849e = str;
+        this.f40944e = str;
     }
 
     public String l() {
-        return this.f40850f;
+        return this.f40945f;
     }
 
     public void l(String str) {
-        this.f40852h = str;
+        this.f40947h = str;
     }
 
     public String m() {
-        return this.f40851g;
+        return this.f40946g;
     }
 
     public void m(String str) {
-        this.f40850f = str;
+        this.f40945f = str;
     }
 
     public String n() {
@@ -319,7 +319,7 @@ public abstract class gc {
     }
 
     public void n(String str) {
-        this.f40851g = str;
+        this.f40946g = str;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:100:0x010f A[SYNTHETIC] */
@@ -456,6 +456,6 @@ public abstract class gc {
     }
 
     public String p() {
-        return this.f40848d;
+        return this.f40943d;
     }
 }

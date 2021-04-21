@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.faceshop.CollectEmotionData;
 import d.b.c.e.p.q;
-import d.b.h0.a0.d;
+import d.b.i0.a0.d;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -67,7 +67,7 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
                     collectEmotionData.thumbnail = jSONObject.optString("thumbnail");
                     collectEmotionData.uid = TbadkCoreApplication.getCurrentAccount();
                     collectEmotionData.pkgId = jSONObject.optString("pck_id");
-                    StringBuilder sb = new StringBuilder(d.f50078f);
+                    StringBuilder sb = new StringBuilder(d.f50414f);
                     if (TextUtils.isEmpty(collectEmotionData.pkgId)) {
                         sb.append(collectEmotionData.pkgId);
                         sb.append(",");
@@ -96,11 +96,11 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
             return;
         }
         this.mCollectUpdateTime = jSONObject.optLong("pic_update_time");
-        if (d.b.i0.y1.d.k() < this.mCollectUpdateTime) {
+        if (d.b.j0.y1.d.k() < this.mCollectUpdateTime) {
             parseCollectData(jSONObject.optJSONArray("pic_ids"));
         }
         this.mFaceGroupUpdateTime = jSONObject.optLong("pkg_update_time");
-        if (d.b.i0.y1.d.l() < this.mFaceGroupUpdateTime) {
+        if (d.b.j0.y1.d.l() < this.mFaceGroupUpdateTime) {
             parseFaceGroupData(jSONObject.optString("package_ids"));
         }
     }

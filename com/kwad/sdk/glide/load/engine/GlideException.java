@@ -29,13 +29,13 @@ public final class GlideException extends Exception {
     public static final class a implements Appendable {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Appendable f35692a;
+        public final Appendable f35787a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f35693b = true;
+        public boolean f35788b = true;
 
         public a(Appendable appendable) {
-            this.f35692a = appendable;
+            this.f35787a = appendable;
         }
 
         @NonNull
@@ -45,12 +45,12 @@ public final class GlideException extends Exception {
 
         @Override // java.lang.Appendable
         public Appendable append(char c2) {
-            if (this.f35693b) {
-                this.f35693b = false;
-                this.f35692a.append(GlideException.IndentedAppendable.INDENT);
+            if (this.f35788b) {
+                this.f35788b = false;
+                this.f35787a.append(GlideException.IndentedAppendable.INDENT);
             }
-            this.f35693b = c2 == '\n';
-            this.f35692a.append(c2);
+            this.f35788b = c2 == '\n';
+            this.f35787a.append(c2);
             return this;
         }
 
@@ -64,15 +64,15 @@ public final class GlideException extends Exception {
         public Appendable append(@Nullable CharSequence charSequence, int i, int i2) {
             CharSequence a2 = a(charSequence);
             boolean z = false;
-            if (this.f35693b) {
-                this.f35693b = false;
-                this.f35692a.append(GlideException.IndentedAppendable.INDENT);
+            if (this.f35788b) {
+                this.f35788b = false;
+                this.f35787a.append(GlideException.IndentedAppendable.INDENT);
             }
             if (a2.length() > 0 && a2.charAt(i2 - 1) == '\n') {
                 z = true;
             }
-            this.f35693b = z;
-            this.f35692a.append(a2, i, i2);
+            this.f35788b = z;
+            this.f35787a.append(a2, i, i2);
             return this;
         }
     }

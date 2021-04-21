@@ -796,7 +796,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
             public final boolean test(Object obj) {
                 return AccessibilityBridge.a(AccessibilityBridge.SemanticsNode.this, (AccessibilityBridge.SemanticsNode) obj);
             }
-        }) || !SemanticsNode.nullableHasAncestor(this.accessibilityFocusedSemanticsNode, b.f68450a));
+        }) || !SemanticsNode.nullableHasAncestor(this.accessibilityFocusedSemanticsNode, b.f68597a));
     }
 
     private void willRemoveSemanticsNode(SemanticsNode semanticsNode) {

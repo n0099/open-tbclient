@@ -7,8 +7,8 @@ public class w implements com.kwad.sdk.core.c<com.kwad.sdk.core.g.a.g> {
     @Override // com.kwad.sdk.core.c
     public JSONObject a(com.kwad.sdk.core.g.a.g gVar) {
         JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "feedAdH5Version", gVar.f33943a);
-        com.kwad.sdk.utils.o.a(jSONObject, "feedAdH5Url", gVar.f33944b);
+        com.kwad.sdk.utils.o.a(jSONObject, "feedAdH5Version", gVar.f34038a);
+        com.kwad.sdk.utils.o.a(jSONObject, "feedAdH5Url", gVar.f34039b);
         return jSONObject;
     }
 
@@ -18,7 +18,7 @@ public class w implements com.kwad.sdk.core.c<com.kwad.sdk.core.g.a.g> {
         if (jSONObject == null) {
             return;
         }
-        gVar.f33943a = jSONObject.optString("feedAdH5Version");
-        gVar.f33944b = jSONObject.optString("feedAdH5Url");
+        gVar.f34038a = jSONObject.optString("feedAdH5Version");
+        gVar.f34039b = jSONObject.optString("feedAdH5Url");
     }
 }

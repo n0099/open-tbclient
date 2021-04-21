@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.tabfeed.message;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.a1.i.e.a;
+import d.b.j0.a1.i.e.a;
 import tbclient.ActivityPage.ActivityPageResIdl;
 import tbclient.Error;
 /* loaded from: classes4.dex */

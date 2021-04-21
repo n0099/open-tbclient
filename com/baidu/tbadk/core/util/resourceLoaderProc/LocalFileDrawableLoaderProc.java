@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import d.b.c.e.l.b;
 import d.b.c.j.d.a;
-import d.b.h0.a0.c;
+import d.b.i0.a0.c;
 /* loaded from: classes3.dex */
 public class LocalFileDrawableLoaderProc extends AbstractImageLoaderProc {
     public int procType;

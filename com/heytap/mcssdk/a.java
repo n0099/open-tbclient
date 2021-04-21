@@ -3,20 +3,20 @@ package com.heytap.mcssdk;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f31368a = false;
+    public static final boolean f31463a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f31369b = "com.heytap.mcssdk";
+    public static final String f31464b = "com.heytap.mcssdk";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f31370c = "release";
+    public static final String f31465c = "release";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f31371d = "";
+    public static final String f31466d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f31372e = 2002;
+    public static final int f31467e = 2002;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f31373f = "2.0.2";
+    public static final String f31468f = "2.0.2";
 }

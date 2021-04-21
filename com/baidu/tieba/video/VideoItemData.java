@@ -16,7 +16,7 @@ import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import d.b.c.e.m.b;
-import d.b.h0.r.q.a2;
+import d.b.i0.r.q.a2;
 import java.io.Serializable;
 import java.util.Map;
 import org.json.JSONObject;
@@ -159,7 +159,7 @@ public class VideoItemData implements Serializable, Parcelable {
 
     public VideoItemData buildWithOriginThreadData(OriginalThreadInfo originalThreadInfo) {
         if (originalThreadInfo != null) {
-            this.thread_id = originalThreadInfo.f12877f;
+            this.thread_id = originalThreadInfo.f12885f;
             this.post_id = originalThreadInfo.n;
             VideoInfo videoInfo = originalThreadInfo.r;
             if (videoInfo != null) {
@@ -176,14 +176,14 @@ public class VideoItemData implements Serializable, Parcelable {
             this.comment_num = String.valueOf(originalThreadInfo.x);
             this.agree_num = String.valueOf(originalThreadInfo.w.agree_num);
             this.share_num = String.valueOf(originalThreadInfo.y);
-            String str = originalThreadInfo.f12878g;
+            String str = originalThreadInfo.f12886g;
             this.title = str;
             if (TextUtils.isEmpty(str)) {
-                this.title = originalThreadInfo.f12873b;
+                this.title = originalThreadInfo.f12881b;
             }
-            this.forum_id = String.valueOf(originalThreadInfo.f12876e);
+            this.forum_id = String.valueOf(originalThreadInfo.f12884e);
             this.baijiahaoData = originalThreadInfo.p;
-            this.forum_name = originalThreadInfo.f12875d;
+            this.forum_name = originalThreadInfo.f12883d;
             this.is_agreed = String.valueOf(originalThreadInfo.w.has_agree);
             if (originalThreadInfo.v != null) {
                 UserItemData userItemData = new UserItemData();

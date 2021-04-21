@@ -6,7 +6,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import d.b.h0.a.f;
+import d.b.i0.a.f;
 /* loaded from: classes3.dex */
 public class AlaSchemeEmptyActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -20,7 +20,7 @@ public class AlaSchemeEmptyActivity extends BaseActivity {
             if (!"video".equals(host) || path == null || !path.startsWith("/live") || (uri = data.toString()) == null) {
                 return;
             }
-            String replace = uri.replace(f.f49967a + "://", UrlSchemaHelper.SCHEMA_LIVE_SDK);
+            String replace = uri.replace(f.f50303a + "://", UrlSchemaHelper.SCHEMA_LIVE_SDK);
             if (StringUtils.isNull(replace)) {
                 return;
             }

@@ -25,28 +25,28 @@ public final class PayDataCache {
     public static final String PAY_TYPE_EASYPAY = "easypay";
 
     /* renamed from: a  reason: collision with root package name */
-    public PayResultContent f25527a;
+    public PayResultContent f25535a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DirectPayContentResponse f25528b;
+    public DirectPayContentResponse f25536b;
 
     /* renamed from: c  reason: collision with root package name */
-    public H5ResultParams f25529c;
+    public H5ResultParams f25537c;
 
     /* renamed from: d  reason: collision with root package name */
-    public DirectPayContentResponse f25530d;
+    public DirectPayContentResponse f25538d;
 
     /* renamed from: e  reason: collision with root package name */
-    public DirectPayContentResponse f25531e;
+    public DirectPayContentResponse f25539e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DirectPayContentResponse f25532f;
+    public DirectPayContentResponse f25540f;
 
     /* renamed from: g  reason: collision with root package name */
-    public DirectPayContentResponse f25533g;
+    public DirectPayContentResponse f25541g;
 
     /* renamed from: h  reason: collision with root package name */
-    public DirectPayContentResponse f25534h;
+    public DirectPayContentResponse f25542h;
     public boolean i;
     public String j;
     public String k;
@@ -63,17 +63,17 @@ public final class PayDataCache {
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f25535a;
+        public static final /* synthetic */ int[] f25543a;
 
         static {
             int[] iArr = new int[PayRequestCache.BindCategory.values().length];
-            f25535a = iArr;
+            f25543a = iArr;
             try {
                 iArr[PayRequestCache.BindCategory.Initiative.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f25535a[PayRequestCache.BindCategory.Pwd.ordinal()] = 2;
+                f25543a[PayRequestCache.BindCategory.Pwd.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -83,21 +83,21 @@ public final class PayDataCache {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static PayDataCache f25536a = new PayDataCache(null);
+        public static PayDataCache f25544a = new PayDataCache(null);
     }
 
     /* loaded from: classes5.dex */
     public static class b<A, B> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final A f25537a;
+        public final A f25545a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final B f25538b;
+        public final B f25546b;
 
         public b(A a2, B b2) {
-            this.f25537a = a2;
-            this.f25538b = b2;
+            this.f25545a = a2;
+            this.f25546b = b2;
         }
     }
 
@@ -106,20 +106,20 @@ public final class PayDataCache {
     }
 
     public static PayDataCache getInstance() {
-        return a.f25536a;
+        return a.f25544a;
     }
 
     public b<Boolean, String> canUseBalance() {
         UserData.UserModel userModel;
         PayData.DirectPayPay directPayPay;
         PayData.DirectPayBalance directPayBalance;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         if (directPayContentResponse != null && (directPayPay = directPayContentResponse.pay) != null && (directPayBalance = directPayPay.balance) != null) {
-            return new b<>(Boolean.valueOf(directPayBalance.enough == 1), this.f25528b.pay.balance.disabled_msg);
+            return new b<>(Boolean.valueOf(directPayBalance.enough == 1), this.f25536b.pay.balance.disabled_msg);
         }
-        DirectPayContentResponse directPayContentResponse2 = this.f25528b;
+        DirectPayContentResponse directPayContentResponse2 = this.f25536b;
         if (directPayContentResponse2 != null && (userModel = directPayContentResponse2.user) != null) {
-            return new b<>(Boolean.valueOf("1".equals(userModel.balance_support_status)), this.f25528b.user.balance_unsupport_reason);
+            return new b<>(Boolean.valueOf("1".equals(userModel.balance_support_status)), this.f25536b.user.balance_unsupport_reason);
         }
         return new b<>(Boolean.FALSE, "");
     }
@@ -127,23 +127,23 @@ public final class PayDataCache {
     public b<Boolean, String> canUseCredit() {
         PayData.DirectPayPay directPayPay;
         PayData.CreditPay creditPay;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         if (directPayContentResponse != null && (directPayPay = directPayContentResponse.pay) != null && (creditPay = directPayPay.credit_pay) != null) {
-            return new b<>(Boolean.valueOf("1".equals(creditPay.status)), this.f25528b.pay.credit_pay.disable_msg);
+            return new b<>(Boolean.valueOf("1".equals(creditPay.status)), this.f25536b.pay.credit_pay.disable_msg);
         }
         return new b<>(Boolean.FALSE, "");
     }
 
     public boolean canUseEasypay() {
         PayData.DirectPayPay directPayPay;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || directPayPay.easypay == null) ? false : true;
     }
 
     public void cleanDetainmentDesc() {
         PayData.DirectPayPay directPayPay;
         PayData.Detainment detainment;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         if (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (detainment = directPayPay.detainment) == null) {
             return;
         }
@@ -151,14 +151,14 @@ public final class PayDataCache {
     }
 
     public boolean enableAddBondCards() {
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         return directPayContentResponse != null && "1".equals(directPayContentResponse.can_bind_card_flag);
     }
 
     public boolean enableAddBondCardsVerify() {
         PayData.DirectPayPay directPayPay;
         PayData.EasyPay easyPay;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (easyPay = directPayPay.easypay) == null || !"1".equals(easyPay.can_bind_card_flag)) ? false : true;
     }
 
@@ -170,14 +170,14 @@ public final class PayDataCache {
         PayData.DirectPayPay directPayPay;
         PayData.CreditPay creditPay;
         PayData.CreditInfo creditInfo;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
-        return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (creditPay = directPayPay.credit_pay) == null || (creditInfo = creditPay.credit_info) == null || TextUtils.isEmpty(creditInfo.available_credit)) ? "0" : this.f25528b.pay.credit_pay.credit_info.available_credit;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
+        return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (creditPay = directPayPay.credit_pay) == null || (creditInfo = creditPay.credit_info) == null || TextUtils.isEmpty(creditInfo.available_credit)) ? "0" : this.f25536b.pay.credit_pay.credit_info.available_credit;
     }
 
     public PayData.DirectPayBalance getBalance() {
         PayData.DirectPayPay directPayPay;
         PayData.DirectPayBalance directPayBalance;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         if (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (directPayBalance = directPayPay.balance) == null) {
             return null;
         }
@@ -187,7 +187,7 @@ public final class PayDataCache {
     public String getBalanceJumpUrl() {
         PayData.DirectPayPay directPayPay;
         PayData.DirectPayBalance directPayBalance;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (directPayBalance = directPayPay.balance) == null) ? "" : directPayBalance.balance_jump_url;
     }
 
@@ -196,7 +196,7 @@ public final class PayDataCache {
         PayData.DirectPayBalance directPayBalance;
         Map<String, String> map;
         ArrayList arrayList = new ArrayList();
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         if (directPayContentResponse != null && (directPayPay = directPayContentResponse.pay) != null && (directPayBalance = directPayPay.balance) != null && (map = directPayBalance.post_info) != null) {
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 arrayList.add(new RestNameValuePair(entry.getKey(), entry.getValue()));
@@ -207,12 +207,12 @@ public final class PayDataCache {
 
     public String getBalanceUnSupportReason() {
         UserData.UserModel userModel;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
-        return (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null || !"0".equals(userModel.balance_support_status)) ? "" : this.f25528b.user.balance_unsupport_reason;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
+        return (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null || !"0".equals(userModel.balance_support_status)) ? "" : this.f25536b.user.balance_unsupport_reason;
     }
 
     public CardData.BondCard[] getBondCards() {
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         if (directPayContentResponse != null) {
             return directPayContentResponse.getBondCards();
         }
@@ -220,21 +220,21 @@ public final class PayDataCache {
     }
 
     public String getCanAmount() {
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
-        return (directPayContentResponse == null || directPayContentResponse.user == null || !hasCanAmount()) ? "" : this.f25528b.user.getCanAmount();
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
+        return (directPayContentResponse == null || directPayContentResponse.user == null || !hasCanAmount()) ? "" : this.f25536b.user.getCanAmount();
     }
 
     public String getCertificateType() {
         UserData.UserModel userModel;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         return (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null) ? "" : userModel.certificate_type;
     }
 
     public String getCreditPayDispayName() {
         PayData.DirectPayPay directPayPay;
         PayData.CreditPay creditPay;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
-        return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (creditPay = directPayPay.credit_pay) == null || TextUtils.isEmpty(creditPay.display_name)) ? "" : this.f25528b.pay.credit_pay.display_name;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
+        return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (creditPay = directPayPay.credit_pay) == null || TextUtils.isEmpty(creditPay.display_name)) ? "" : this.f25536b.pay.credit_pay.display_name;
     }
 
     public List<RestNameValuePair> getCreditPayPostInfo() {
@@ -242,7 +242,7 @@ public final class PayDataCache {
         PayData.CreditPay creditPay;
         Map<String, String> map;
         ArrayList arrayList = new ArrayList();
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         if (directPayContentResponse != null && (directPayPay = directPayContentResponse.pay) != null && (creditPay = directPayPay.credit_pay) != null && (map = creditPay.post_info) != null) {
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 arrayList.add(new RestNameValuePair(entry.getKey(), entry.getValue()));
@@ -253,7 +253,7 @@ public final class PayDataCache {
 
     public String getDefaultPayType() {
         PayData.DirectPayPay directPayPay;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         if (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null) {
             return null;
         }
@@ -263,17 +263,17 @@ public final class PayDataCache {
     public String getDetainmentDesc() {
         PayData.DirectPayPay directPayPay;
         PayData.Detainment detainment;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (detainment = directPayPay.detainment) == null) ? "" : detainment.desc;
     }
 
     public UserData.UserModel.FingerprintMsg getFingerprintMsg() {
         UserData.UserModel userModel;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         if (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null || userModel.getFingerprintMsg() == null) {
             return null;
         }
-        return this.f25528b.user.getFingerprintMsg();
+        return this.f25536b.user.getFingerprintMsg();
     }
 
     public String getFormatUserName() {
@@ -285,12 +285,12 @@ public final class PayDataCache {
     }
 
     public H5ResultParams getH5ResultParams() {
-        return this.f25529c;
+        return this.f25537c;
     }
 
     public String getInsideTransOrder() {
         UserData.Misc misc;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         return (directPayContentResponse == null || (misc = directPayContentResponse.misc) == null) ? "" : misc.getInsideTransOrder();
     }
 
@@ -303,7 +303,7 @@ public final class PayDataCache {
         PayData.EasyPay easyPay;
         Map<String, String> map;
         ArrayList arrayList = new ArrayList();
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         if (directPayContentResponse != null && (directPayPay = directPayContentResponse.pay) != null && (easyPay = directPayPay.easypay) != null && (map = easyPay.post_info) != null) {
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 arrayList.add(new RestNameValuePair(entry.getKey(), entry.getValue()));
@@ -313,17 +313,17 @@ public final class PayDataCache {
     }
 
     public DirectPayContentResponse getPayResponse() {
-        return this.f25528b;
+        return this.f25536b;
     }
 
     public String getPaySessionInfo() {
         PayData.DirectPayPay directPayPay;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
-        return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || TextUtils.isEmpty(directPayPay.session_info)) ? "" : this.f25528b.pay.session_info;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
+        return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || TextUtils.isEmpty(directPayPay.session_info)) ? "" : this.f25536b.pay.session_info;
     }
 
     public PayResultContent getPayStateContent() {
-        return this.f25527a;
+        return this.f25535a;
     }
 
     public List<RestNameValuePair> getPrePayRequestParams() {
@@ -332,8 +332,8 @@ public final class PayDataCache {
 
     public String getPureSign() {
         Authorize authorize;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
-        return (directPayContentResponse == null || (authorize = directPayContentResponse.authorize) == null || TextUtils.isEmpty(authorize.pure_sign)) ? "" : this.f25528b.authorize.pure_sign;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
+        return (directPayContentResponse == null || (authorize = directPayContentResponse.authorize) == null || TextUtils.isEmpty(authorize.pure_sign)) ? "" : this.f25536b.authorize.pure_sign;
     }
 
     public String getRemotePayHostName() {
@@ -350,20 +350,20 @@ public final class PayDataCache {
 
     public String getSelectedCardNo() {
         PayData.DirectPayPay directPayPay;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
-        return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || TextUtils.isEmpty(directPayPay.selected_card_no)) ? "" : this.f25528b.pay.selected_card_no;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
+        return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || TextUtils.isEmpty(directPayPay.selected_card_no)) ? "" : this.f25536b.pay.selected_card_no;
     }
 
     public String getSellerUserId() {
         UserData.SP sp;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         return (directPayContentResponse == null || (sp = directPayContentResponse.sp) == null) ? "" : sp.getSellerUserId();
     }
 
     public List<RestNameValuePair> getSessionData() {
         Map<String, String> map;
         ArrayList arrayList = new ArrayList();
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         if (directPayContentResponse != null && (map = directPayContentResponse.cashdesk) != null && map != null) {
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 arrayList.add(new RestNameValuePair(entry.getKey(), entry.getValue()));
@@ -377,18 +377,18 @@ public final class PayDataCache {
     }
 
     public String getSpGoodsName() {
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         return directPayContentResponse != null ? directPayContentResponse.getSpGoodsName() : "";
     }
 
     public String getSpName() {
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         return directPayContentResponse != null ? directPayContentResponse.getSpName() : "";
     }
 
     public String getTotalBalance() {
         UserData.UserModel userModel;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         return (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null) ? "0" : userModel.getCanAmount();
     }
 
@@ -398,13 +398,13 @@ public final class PayDataCache {
 
     public String getUserId() {
         UserData.UserModel userModel;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         return (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null) ? "" : userModel.certificate_code;
     }
 
     public UserData.UserModel getUserInfo() {
         UserData.UserModel userModel;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         if (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null) {
             return null;
         }
@@ -413,12 +413,12 @@ public final class PayDataCache {
 
     public String getUserName() {
         UserData.UserModel userModel;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         return (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null) ? "" : userModel.true_name;
     }
 
     public boolean hasBondCards() {
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         if (directPayContentResponse != null) {
             return directPayContentResponse.hasBindCards();
         }
@@ -427,7 +427,7 @@ public final class PayDataCache {
 
     public boolean hasCanAmount() {
         UserData.UserModel userModel;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         if (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null) {
             return false;
         }
@@ -436,19 +436,19 @@ public final class PayDataCache {
 
     public boolean hasCreditPay() {
         PayData.DirectPayPay directPayPay;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || directPayPay.credit_pay == null) ? false : true;
     }
 
     public boolean hasEnableCardsForFindPWD() {
         CardData.BondCard[] enableCardsForFindPWD;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         return (directPayContentResponse == null || (enableCardsForFindPWD = directPayContentResponse.getEnableCardsForFindPWD()) == null || enableCardsForFindPWD.length <= 0) ? false : true;
     }
 
     public boolean hasMobilePwd() {
         UserData.UserModel userModel;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         if (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null) {
             return false;
         }
@@ -458,13 +458,13 @@ public final class PayDataCache {
     public boolean isBalanceEnough() {
         PayData.DirectPayPay directPayPay;
         PayData.DirectPayBalance directPayBalance;
-        DirectPayContentResponse directPayContentResponse = this.f25534h;
+        DirectPayContentResponse directPayContentResponse = this.f25542h;
         return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (directPayBalance = directPayPay.balance) == null || directPayBalance.enough != 1) ? false : true;
     }
 
     public boolean isBalanceSupport() {
         UserData.UserModel userModel;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         if (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null) {
             return false;
         }
@@ -477,7 +477,7 @@ public final class PayDataCache {
 
     public boolean isPassFree() {
         UserData.UserModel userModel;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         if (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null) {
             return false;
         }
@@ -490,13 +490,13 @@ public final class PayDataCache {
 
     public boolean isShowCreditPay() {
         PayData.DirectPayPay directPayPay;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         return (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || directPayPay.credit_pay == null) ? false : true;
     }
 
     public boolean isShowDetection() {
         if (LocalRouter.getInstance(BaiduWalletDelegate.getInstance().getAppContext()).isProviderExisted("bankdetection")) {
-            DirectPayContentResponse directPayContentResponse = this.f25528b;
+            DirectPayContentResponse directPayContentResponse = this.f25536b;
             return directPayContentResponse == null || !"0".equals(directPayContentResponse.bank_card_detect_enabled);
         }
         return false;
@@ -504,7 +504,7 @@ public final class PayDataCache {
 
     public boolean needCalcPayment() {
         UserData.SP sp;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         if (directPayContentResponse == null || (sp = directPayContentResponse.sp) == null) {
             return false;
         }
@@ -514,7 +514,7 @@ public final class PayDataCache {
     public boolean oneKeyPayForCredit() {
         PayData.DirectPayPay directPayPay;
         PayData.CreditPay creditPay;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         if (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || (creditPay = directPayPay.credit_pay) == null) {
             return false;
         }
@@ -530,13 +530,13 @@ public final class PayDataCache {
     }
 
     public void setCurrentPayRequest(PayRequestCache.BindCategory bindCategory) {
-        int i = AnonymousClass1.f25535a[bindCategory.ordinal()];
+        int i = AnonymousClass1.f25543a[bindCategory.ordinal()];
         if (i == 1) {
-            this.f25528b = this.f25531e;
+            this.f25536b = this.f25539e;
         } else if (i != 2) {
-            this.f25528b = this.f25533g;
+            this.f25536b = this.f25541g;
         } else {
-            this.f25528b = this.f25530d;
+            this.f25536b = this.f25538d;
         }
     }
 
@@ -545,12 +545,12 @@ public final class PayDataCache {
     }
 
     public void setH5ResultParams(H5ResultParams h5ResultParams) {
-        this.f25529c = h5ResultParams;
+        this.f25537c = h5ResultParams;
     }
 
     public void setHasPwd() {
         UserData.UserModel userModel;
-        DirectPayContentResponse directPayContentResponse = this.f25528b;
+        DirectPayContentResponse directPayContentResponse = this.f25536b;
         if (directPayContentResponse == null || (userModel = directPayContentResponse.user) == null) {
             return;
         }
@@ -566,7 +566,7 @@ public final class PayDataCache {
     }
 
     public void setPayReslutContent(PayResultContent payResultContent) {
-        this.f25527a = payResultContent;
+        this.f25535a = payResultContent;
     }
 
     public void setPayResponse(DirectPayContentResponse directPayContentResponse) {
@@ -574,22 +574,22 @@ public final class PayDataCache {
         if (directPayContentResponse instanceof CardAddResponse) {
             int i = ((CardAddResponse) directPayContentResponse).request_type;
             if (4 == i) {
-                this.f25530d = directPayContentResponse;
+                this.f25538d = directPayContentResponse;
             } else if (11 == i) {
-                this.f25531e = directPayContentResponse;
+                this.f25539e = directPayContentResponse;
             } else if (12 == i) {
-                this.f25532f = directPayContentResponse;
+                this.f25540f = directPayContentResponse;
             } else {
-                this.f25533g = directPayContentResponse;
+                this.f25541g = directPayContentResponse;
             }
         } else {
-            this.f25533g = directPayContentResponse;
+            this.f25541g = directPayContentResponse;
         }
-        this.f25528b = directPayContentResponse;
+        this.f25536b = directPayContentResponse;
         if (directPayContentResponse == null || (directPayPay = directPayContentResponse.pay) == null || directPayPay.balance == null) {
             return;
         }
-        this.f25534h = directPayContentResponse;
+        this.f25542h = directPayContentResponse;
     }
 
     public void setPrePayRequestParams(List<RestNameValuePair> list) {
@@ -610,10 +610,10 @@ public final class PayDataCache {
     }
 
     public void setSessionData(Map<String, String> map) {
-        if (this.f25528b == null || map == null || map.size() <= 0) {
+        if (this.f25536b == null || map == null || map.size() <= 0) {
             return;
         }
-        this.f25528b.cashdesk = map;
+        this.f25536b.cashdesk = map;
     }
 
     public void setSignSuccessTips(String str) {

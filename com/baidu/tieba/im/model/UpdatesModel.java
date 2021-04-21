@@ -5,10 +5,10 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.im.data.UpdatesItemData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import d.b.h0.z0.f0;
-import d.b.h0.z0.h0;
-import d.b.h0.z0.n;
-import d.b.i0.e1.h.d;
+import d.b.i0.z0.f0;
+import d.b.i0.z0.h0;
+import d.b.i0.z0.n;
+import d.b.j0.e1.h.d;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -74,7 +74,7 @@ public class UpdatesModel {
         h0.c(new f0<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.b.h0.z0.f0
+            @Override // d.b.i0.z0.f0
             public Boolean doInBackground() {
                 return Boolean.valueOf(d.f().a(UpdatesItemData.this.getNotice_id()));
             }
@@ -84,7 +84,7 @@ public class UpdatesModel {
     public static void requestUpdatesDataFromDB(n<LinkedList<GroupNewsPojo>> nVar) {
         h0.c(new f0<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.h0.z0.f0
+            @Override // d.b.i0.z0.f0
             public LinkedList<GroupNewsPojo> doInBackground() {
                 return d.f().c(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
             }
@@ -102,7 +102,7 @@ public class UpdatesModel {
         h0.c(new f0<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.b.h0.z0.f0
+            @Override // d.b.i0.z0.f0
             public Boolean doInBackground() {
                 return d.f().n(linkedList);
             }
@@ -136,7 +136,7 @@ public class UpdatesModel {
         h0.c(new f0<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.b.h0.z0.f0
+            @Override // d.b.i0.z0.f0
             public Boolean doInBackground() {
                 return Boolean.valueOf(d.f().b(UpdatesModel.this.dataToDelete));
             }

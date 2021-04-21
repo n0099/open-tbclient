@@ -9,32 +9,32 @@ public final class a {
 
     /* renamed from: com.tencent.mm.sdk.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0527a {
+    public static class C0530a {
         public String j;
         public Bundle k;
         public String l;
         public String m;
     }
 
-    public static boolean a(Context context, C0527a c0527a) {
+    public static boolean a(Context context, C0530a c0530a) {
         String str;
-        if (context == null || c0527a == null) {
+        if (context == null || c0530a == null) {
             str = "send fail, invalid argument";
-        } else if (!c.a(c0527a.m)) {
+        } else if (!c.a(c0530a.m)) {
             String str2 = null;
-            if (!c.a(c0527a.l)) {
-                str2 = c0527a.l + ".permission.MM_MESSAGE";
+            if (!c.a(c0530a.l)) {
+                str2 = c0530a.l + ".permission.MM_MESSAGE";
             }
-            Intent intent = new Intent(c0527a.m);
-            Bundle bundle = c0527a.k;
+            Intent intent = new Intent(c0530a.m);
+            Bundle bundle = c0530a.k;
             if (bundle != null) {
                 intent.putExtras(bundle);
             }
             String packageName = context.getPackageName();
             intent.putExtra("_mmessage_sdkVersion", 570490883);
             intent.putExtra("_mmessage_appPackage", packageName);
-            intent.putExtra("_mmessage_content", c0527a.j);
-            intent.putExtra("_mmessage_checksum", b.a(c0527a.j, 570490883, packageName));
+            intent.putExtra("_mmessage_content", c0530a.j);
+            intent.putExtra("_mmessage_checksum", b.a(c0530a.j, 570490883, packageName));
             context.sendBroadcast(intent, str2);
             com.tencent.mm.sdk.b.a.c("MicroMsg.SDK.MMessage", "send mm message, intent=" + intent + ", perm=" + str2);
             return true;

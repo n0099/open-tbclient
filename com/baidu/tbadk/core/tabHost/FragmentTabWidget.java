@@ -22,16 +22,16 @@ public class FragmentTabWidget extends LinearLayout {
     public View E;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Rect f12983e;
+    public final Rect f12991e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Rect f12984f;
+    public final Rect f12992f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Rect f12985g;
+    public final Rect f12993g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12986h;
+    public int f12994h;
     public int i;
     public int j;
     public b k;
@@ -60,15 +60,15 @@ public class FragmentTabWidget extends LinearLayout {
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f12987e;
+        public final int f12995e;
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            FragmentTabWidget.this.k.onTabSelectionChanged(this.f12987e, true);
+            FragmentTabWidget.this.k.onTabSelectionChanged(this.f12995e, true);
         }
 
         public c(int i) {
-            this.f12987e = i;
+            this.f12995e = i;
         }
     }
 
@@ -79,10 +79,10 @@ public class FragmentTabWidget extends LinearLayout {
 
     public FragmentTabWidget(Context context) {
         super(context);
-        this.f12983e = new Rect();
-        this.f12984f = new Rect();
-        this.f12985g = new Rect();
-        this.f12986h = 0;
+        this.f12991e = new Rect();
+        this.f12992f = new Rect();
+        this.f12993g = new Rect();
+        this.f12994h = 0;
         this.j = -1;
         this.n = new Paint();
         this.r = 0;
@@ -126,25 +126,25 @@ public class FragmentTabWidget extends LinearLayout {
             if (childAt != null && (childAt instanceof TbFragmentTabIndicator)) {
                 View contentTv = ((TbFragmentTabIndicator) childAt).getContentTv();
                 if (contentTv != null) {
-                    this.f12983e.set(childAt.getLeft() + contentTv.getLeft(), i7, childAt.getLeft() + contentTv.getRight(), this.w);
+                    this.f12991e.set(childAt.getLeft() + contentTv.getLeft(), i7, childAt.getLeft() + contentTv.getRight(), this.w);
                 } else {
-                    Rect rect = this.f12983e;
+                    Rect rect = this.f12991e;
                     int i9 = this.m;
                     int i10 = this.x;
                     int i11 = this.r;
                     rect.set(((i10 / 2) + i9) - (i11 / 2), i7, i9 + (i10 / 2) + (i11 / 2), this.w);
                 }
             } else {
-                Rect rect2 = this.f12983e;
+                Rect rect2 = this.f12991e;
                 int i12 = this.m;
                 int i13 = this.x;
                 int i14 = this.r;
                 rect2.set(((i13 / 2) + i12) - (i14 / 2), i7, i12 + (i13 / 2) + (i14 / 2), this.w);
             }
         } else if (i8 != 0) {
-            this.f12983e.set(((i2 / 2) + i5) - (i8 / 2), i7, i5 + (i2 / 2) + (i8 / 2), i6);
+            this.f12991e.set(((i2 / 2) + i5) - (i8 / 2), i7, i5 + (i2 / 2) + (i8 / 2), i6);
         } else {
-            this.f12983e.set(i5 + i3, i7, i5 + i3 + dimensionPixelSize, i6);
+            this.f12991e.set(i5 + i3, i7, i5 + i3 + dimensionPixelSize, i6);
         }
         postInvalidateDelayed(16L);
     }
@@ -170,14 +170,14 @@ public class FragmentTabWidget extends LinearLayout {
         super.draw(canvas);
         this.n.setColor(this.s);
         if (this.D) {
-            canvas.drawRect(this.f12984f, this.n);
+            canvas.drawRect(this.f12992f, this.n);
         }
         if (this.z) {
-            canvas.drawRect(this.f12985g, this.n);
+            canvas.drawRect(this.f12993g, this.n);
         }
         if (this.y) {
             this.n.setColor(this.t);
-            canvas.drawRoundRect(new RectF(this.f12983e), 10.0f, 10.0f, this.n);
+            canvas.drawRoundRect(new RectF(this.f12991e), 10.0f, 10.0f, this.n);
         }
     }
 
@@ -212,7 +212,7 @@ public class FragmentTabWidget extends LinearLayout {
 
     public void g(int i) {
         int i2 = this.i;
-        if (i2 != 0 && this.f12986h == 0) {
+        if (i2 != 0 && this.f12994h == 0) {
             SkinManager.setBackgroundColor(this, i2);
         }
         this.t = SkinManager.getColor(R.color.CAM_X0105);
@@ -255,8 +255,8 @@ public class FragmentTabWidget extends LinearLayout {
         int i7 = this.w;
         int i8 = this.o;
         int i9 = i7 - i8;
-        this.f12984f.set(0, i9, this.v, i8 + i9);
-        this.f12985g.set(0, 0, this.v, this.p);
+        this.f12992f.set(0, i9, this.v, i8 + i9);
+        this.f12993g.set(0, 0, this.v, this.p);
     }
 
     @Override // android.view.View
@@ -277,7 +277,7 @@ public class FragmentTabWidget extends LinearLayout {
     }
 
     public void setBackGroundStyle(int i) {
-        this.f12986h = i;
+        this.f12994h = i;
     }
 
     public void setCurrentTab(int i, boolean z, boolean z2) {
@@ -348,10 +348,10 @@ public class FragmentTabWidget extends LinearLayout {
 
     public FragmentTabWidget(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12983e = new Rect();
-        this.f12984f = new Rect();
-        this.f12985g = new Rect();
-        this.f12986h = 0;
+        this.f12991e = new Rect();
+        this.f12992f = new Rect();
+        this.f12993g = new Rect();
+        this.f12994h = 0;
         this.j = -1;
         this.n = new Paint();
         this.r = 0;

@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.forbidden.fans.MyForbiddenFansActivity;
 import d.b.c.e.p.l;
-import d.b.h0.d.b;
-import d.b.h0.d.c;
-import d.b.h0.d.d;
+import d.b.i0.d.b;
+import d.b.i0.d.c;
+import d.b.i0.d.d;
 /* loaded from: classes3.dex */
 public class PersonListActivityStatic {
 
     /* loaded from: classes3.dex */
     public static class a implements d {
-        @Override // d.b.h0.d.d
+        @Override // d.b.i0.d.d
         public View a(Context context) {
             TextView a2 = c.a(context);
             if (a2 != null) {

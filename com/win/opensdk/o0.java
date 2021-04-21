@@ -9,39 +9,39 @@ import java.util.HashMap;
 public class o0 implements View.OnClickListener, View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40283a;
+    public int f40378a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40284b;
+    public int f40379b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f40285c;
+    public long f40380c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f40286d;
+    public int f40381d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40287e;
+    public int f40382e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f40288f;
+    public long f40383f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ p0 f40289g;
+    public final /* synthetic */ p0 f40384g;
 
     public o0(p0 p0Var) {
-        this.f40289g = p0Var;
+        this.f40384g = p0Var;
     }
 
     public HashMap a() {
         HashMap hashMap = new HashMap();
-        hashMap.put("dx", Integer.valueOf(this.f40283a));
-        hashMap.put("dy", Integer.valueOf(this.f40284b));
-        hashMap.put("dts", Long.valueOf(this.f40285c));
-        hashMap.put("ux", Integer.valueOf(this.f40286d));
-        hashMap.put("uy", Integer.valueOf(this.f40287e));
-        hashMap.put("uts", Long.valueOf(this.f40288f));
-        p0 p0Var = this.f40289g;
+        hashMap.put("dx", Integer.valueOf(this.f40378a));
+        hashMap.put("dy", Integer.valueOf(this.f40379b));
+        hashMap.put("dts", Long.valueOf(this.f40380c));
+        hashMap.put("ux", Integer.valueOf(this.f40381d));
+        hashMap.put("uy", Integer.valueOf(this.f40382e));
+        hashMap.put("uts", Long.valueOf(this.f40383f));
+        p0 p0Var = this.f40384g;
         G.a(hashMap, p0Var.p, p0Var.q, p0Var.r, p0Var.s, p0Var.t, p0Var.u);
         return hashMap;
     }
@@ -54,35 +54,35 @@ public class o0 implements View.OnClickListener, View.OnTouchListener {
     public boolean onTouch(View view, MotionEvent motionEvent) {
         int action = motionEvent.getAction();
         if (action == 0) {
-            this.f40283a = (int) motionEvent.getRawX();
-            this.f40284b = (int) motionEvent.getRawY();
-            this.f40285c = System.currentTimeMillis();
-            this.f40289g.p = (int) motionEvent.getX();
-            this.f40289g.q = (int) motionEvent.getY();
-            p0.a(this.f40289g, view);
+            this.f40378a = (int) motionEvent.getRawX();
+            this.f40379b = (int) motionEvent.getRawY();
+            this.f40380c = System.currentTimeMillis();
+            this.f40384g.p = (int) motionEvent.getX();
+            this.f40384g.q = (int) motionEvent.getY();
+            p0.a(this.f40384g, view);
             return false;
         } else if (action != 1) {
             return false;
         } else {
-            this.f40286d = (int) motionEvent.getRawX();
-            this.f40287e = (int) motionEvent.getRawY();
-            this.f40288f = System.currentTimeMillis();
-            this.f40289g.r = (int) motionEvent.getX();
-            this.f40289g.s = (int) motionEvent.getY();
-            p0 p0Var = this.f40289g;
-            Info info = p0Var.f40296c;
-            if (info == null || !R1.a(info, p0Var.f40301h)) {
+            this.f40381d = (int) motionEvent.getRawX();
+            this.f40382e = (int) motionEvent.getRawY();
+            this.f40383f = System.currentTimeMillis();
+            this.f40384g.r = (int) motionEvent.getX();
+            this.f40384g.s = (int) motionEvent.getY();
+            p0 p0Var = this.f40384g;
+            Info info = p0Var.f40391c;
+            if (info == null || !R1.a(info, p0Var.f40396h)) {
                 return false;
             }
-            this.f40289g.f40301h = System.currentTimeMillis();
-            p0 p0Var2 = this.f40289g;
-            Context context = p0Var2.f40294a;
-            String open = p0Var2.f40296c.getOpen();
-            p0 p0Var3 = this.f40289g;
-            R1.a(context, open, p0Var3.f40296c, p0Var3.f40300g, a().toString());
-            a1.a(this.f40289g.f40294a).a(new b1(this.f40289g.f40296c), (String) null).a("desc", a().toString()).a();
-            G.a(this.f40289g.f40296c, a().toString());
-            PBNativeListener pBNativeListener = this.f40289g.f40299f;
+            this.f40384g.f40396h = System.currentTimeMillis();
+            p0 p0Var2 = this.f40384g;
+            Context context = p0Var2.f40389a;
+            String open = p0Var2.f40391c.getOpen();
+            p0 p0Var3 = this.f40384g;
+            R1.a(context, open, p0Var3.f40391c, p0Var3.f40395g, a().toString());
+            a1.a(this.f40384g.f40389a).a(new b1(this.f40384g.f40391c), (String) null).a("desc", a().toString()).a();
+            G.a(this.f40384g.f40391c, a().toString());
+            PBNativeListener pBNativeListener = this.f40384g.f40394f;
             if (pBNativeListener != null) {
                 pBNativeListener.onClicked();
                 return false;

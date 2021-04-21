@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import d.b.c.e.p.k;
-import d.b.h0.w.p.b;
+import d.b.i0.w.p.b;
 import java.util.List;
 import tbclient.PbContent;
 import tbclient.RecommendForumInfo;
@@ -22,7 +22,7 @@ import tbclient.RecommendForumInfo;
 public class ItemInfoView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f17663e;
+    public TextView f17671e;
 
     public ItemInfoView(Context context) {
         super(context);
@@ -33,11 +33,11 @@ public class ItemInfoView extends LinearLayout {
         setOrientation(1);
         LayoutInflater.from(context).inflate(R.layout.forum_detail_info, (ViewGroup) this, true);
         setVisibility(8);
-        this.f17663e = (TextView) findViewById(R.id.info_brief_content);
+        this.f17671e = (TextView) findViewById(R.id.info_brief_content);
     }
 
     public void b(ForumDetailActivity forumDetailActivity, int i) {
-        SkinManager.setViewTextColor(this.f17663e, R.color.common_color_10177, 1);
+        SkinManager.setViewTextColor(this.f17671e, R.color.common_color_10177, 1);
         forumDetailActivity.getLayoutMode().k(i == 1);
         forumDetailActivity.getLayoutMode().j(this);
     }
@@ -69,9 +69,9 @@ public class ItemInfoView extends LinearLayout {
     public void setData(RecommendForumInfo recommendForumInfo) {
         List<PbContent> list;
         if ((recommendForumInfo != null && (list = recommendForumInfo.content) != null && list.size() > 0) || (recommendForumInfo != null && !k.isEmpty(recommendForumInfo.slogan))) {
-            this.f17663e.setText(c(recommendForumInfo.content, recommendForumInfo.slogan));
+            this.f17671e.setText(c(recommendForumInfo.content, recommendForumInfo.slogan));
         } else {
-            this.f17663e.setText(getResources().getString(R.string.forum_detail_info_no_brief));
+            this.f17671e.setText(getResources().getString(R.string.forum_detail_info_no_brief));
         }
         setVisibility(0);
     }

@@ -10,21 +10,21 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import d.b.h0.r.q.a2;
+import d.b.i0.r.q.a2;
 /* loaded from: classes3.dex */
 public class ThreadViewAndCommentInfoLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f13208e;
+    public TextView f13216e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f13209f;
+    public TextView f13217f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f13210g;
+    public Context f13218g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f13211h;
+    public boolean f13219h;
     public boolean i;
     public boolean j;
     public boolean k;
@@ -33,7 +33,7 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
 
     public ThreadViewAndCommentInfoLayout(Context context) {
         super(context);
-        this.f13211h = false;
+        this.f13219h = false;
         this.i = false;
         this.j = false;
         this.k = false;
@@ -43,62 +43,62 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
 
     public final void a(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.thread_comment_and_view_info_layout, (ViewGroup) this, true);
-        this.f13208e = (TextView) inflate.findViewById(R.id.thread_view_num);
-        this.f13209f = (TextView) inflate.findViewById(R.id.thread_comment_num);
-        this.f13210g = context;
+        this.f13216e = (TextView) inflate.findViewById(R.id.thread_view_num);
+        this.f13217f = (TextView) inflate.findViewById(R.id.thread_comment_num);
+        this.f13218g = context;
     }
 
     public void b() {
-        SkinManager.setViewTextColor(this.f13208e, R.color.CAM_X0109);
-        SkinManager.setViewTextColor(this.f13209f, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f13216e, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f13217f, R.color.CAM_X0109);
     }
 
     public final void c(a2 a2Var) {
-        if (this.f13209f == null || a2Var == null || !this.i) {
+        if (this.f13217f == null || a2Var == null || !this.i) {
             return;
         }
         if (a2Var.Z0() >= 0) {
-            this.f13209f.setVisibility(0);
-            this.f13209f.setText(String.format(this.f13210g.getString(R.string.comment_num_tip), StringHelper.numberUniformFormat(a2Var.Z0())));
+            this.f13217f.setVisibility(0);
+            this.f13217f.setText(String.format(this.f13218g.getString(R.string.comment_num_tip), StringHelper.numberUniformFormat(a2Var.Z0())));
             return;
         }
-        this.f13209f.setVisibility(8);
+        this.f13217f.setVisibility(8);
     }
 
     public final void d(a2 a2Var) {
-        if (this.f13209f == null || a2Var == null || !this.l || !a2Var.q2()) {
+        if (this.f13217f == null || a2Var == null || !this.l || !a2Var.q2()) {
             return;
         }
-        this.f13209f.setVisibility(0);
-        this.f13209f.setText(String.format(this.f13210g.getString(R.string.person_view_item_live_share_num), StringHelper.numberUniformFormat((a2Var.q1() == null || a2Var.q1().share_info == null) ? 0 : a2Var.q1().share_info.share_count)));
+        this.f13217f.setVisibility(0);
+        this.f13217f.setText(String.format(this.f13218g.getString(R.string.person_view_item_live_share_num), StringHelper.numberUniformFormat((a2Var.q1() == null || a2Var.q1().share_info == null) ? 0 : a2Var.q1().share_info.share_count)));
     }
 
     public final void e(a2 a2Var) {
-        if (this.f13208e == null || a2Var == null || !this.f13211h) {
+        if (this.f13216e == null || a2Var == null || !this.f13219h) {
             return;
         }
         if (a2Var.G1() >= 0) {
-            this.f13208e.setVisibility(0);
-            this.f13208e.setText(String.format(this.f13210g.getString(R.string.person_view_num), StringHelper.numberUniformFormat(a2Var.G1())));
+            this.f13216e.setVisibility(0);
+            this.f13216e.setText(String.format(this.f13218g.getString(R.string.person_view_num), StringHelper.numberUniformFormat(a2Var.G1())));
             return;
         }
-        this.f13208e.setVisibility(8);
+        this.f13216e.setVisibility(8);
     }
 
     public final void f(a2 a2Var) {
-        if (this.f13208e == null || a2Var == null || !this.j || a2Var.q1() == null || !a2Var.q2()) {
+        if (this.f13216e == null || a2Var == null || !this.j || a2Var.q1() == null || !a2Var.q2()) {
             return;
         }
-        this.f13208e.setVisibility(0);
-        this.f13208e.setText(String.format(this.f13210g.getString(R.string.person_view_item_live_watch_num), StringHelper.numberUniformFormat(a2Var.q1().audience_count)));
+        this.f13216e.setVisibility(0);
+        this.f13216e.setText(String.format(this.f13218g.getString(R.string.person_view_item_live_watch_num), StringHelper.numberUniformFormat(a2Var.q1().audience_count)));
     }
 
     public final void g(a2 a2Var) {
-        if (this.f13209f == null || a2Var == null || !this.k || !a2Var.q2()) {
+        if (this.f13217f == null || a2Var == null || !this.k || !a2Var.q2()) {
             return;
         }
-        this.f13209f.setVisibility(0);
-        this.f13209f.setText(String.format(this.f13210g.getString(R.string.person_view_item_live_zan_num), StringHelper.numberUniformFormat(a2Var.M())));
+        this.f13217f.setVisibility(0);
+        this.f13217f.setText(String.format(this.f13218g.getString(R.string.person_view_item_live_zan_num), StringHelper.numberUniformFormat(a2Var.M())));
     }
 
     public void setData(a2 a2Var) {
@@ -119,7 +119,7 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
     }
 
     public void setIsShowReadNum(boolean z) {
-        this.f13211h = z;
+        this.f13219h = z;
     }
 
     public void setIsShowReplayNum(boolean z) {
@@ -136,7 +136,7 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
 
     public ThreadViewAndCommentInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13211h = false;
+        this.f13219h = false;
         this.i = false;
         this.j = false;
         this.k = false;

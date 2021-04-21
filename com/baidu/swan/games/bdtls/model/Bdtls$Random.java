@@ -41,13 +41,13 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
     public static final class b extends GeneratedMessageLite.Builder<Bdtls$Random, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f12488e;
+        public int f12496e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f12489f;
+        public int f12497f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ByteString f12490g = ByteString.EMPTY;
+        public ByteString f12498g = ByteString.EMPTY;
 
         public b() {
             maybeForceBuilderInitialization();
@@ -93,24 +93,24 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         /* renamed from: n */
         public Bdtls$Random buildPartial() {
             Bdtls$Random bdtls$Random = new Bdtls$Random(this);
-            int i = this.f12488e;
+            int i = this.f12496e;
             int i2 = (i & 1) != 1 ? 0 : 1;
-            bdtls$Random.gMTUnixTime_ = this.f12489f;
+            bdtls$Random.gMTUnixTime_ = this.f12497f;
             if ((i & 2) == 2) {
                 i2 |= 2;
             }
-            bdtls$Random.randomBytes_ = this.f12490g;
+            bdtls$Random.randomBytes_ = this.f12498g;
             bdtls$Random.bitField0_ = i2;
             return bdtls$Random;
         }
 
         public b o() {
             super.clear();
-            this.f12489f = 0;
-            int i = this.f12488e & (-2);
-            this.f12488e = i;
-            this.f12490g = ByteString.EMPTY;
-            this.f12488e = i & (-3);
+            this.f12497f = 0;
+            int i = this.f12496e & (-2);
+            this.f12496e = i;
+            this.f12498g = ByteString.EMPTY;
+            this.f12496e = i & (-3);
             return this;
         }
 
@@ -131,11 +131,11 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         }
 
         public boolean s() {
-            return (this.f12488e & 1) == 1;
+            return (this.f12496e & 1) == 1;
         }
 
         public boolean t() {
-            return (this.f12488e & 2) == 2;
+            return (this.f12496e & 2) == 2;
         }
 
         public b u(Bdtls$Random bdtls$Random) {
@@ -186,15 +186,15 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         }
 
         public b w(int i) {
-            this.f12488e |= 1;
-            this.f12489f = i;
+            this.f12496e |= 1;
+            this.f12497f = i;
             return this;
         }
 
         public b x(ByteString byteString) {
             if (byteString != null) {
-                this.f12488e |= 2;
-                this.f12490g = byteString;
+                this.f12496e |= 2;
+                this.f12498g = byteString;
                 return this;
             }
             throw null;

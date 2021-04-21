@@ -15,22 +15,22 @@ import java.util.Date;
 public class e {
 
     /* renamed from: d  reason: collision with root package name */
-    public BufferedWriter f37952d;
+    public BufferedWriter f38047d;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f37949a = "EncryptionWriter";
+    public String f38044a = "EncryptionWriter";
 
     /* renamed from: b  reason: collision with root package name */
-    public SimpleDateFormat f37950b = new SimpleDateFormat("yyyy-MM-dd");
+    public SimpleDateFormat f38045b = new SimpleDateFormat("yyyy-MM-dd");
 
     /* renamed from: e  reason: collision with root package name */
-    public int f37953e = 7;
+    public int f38048e = 7;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f37954f = ".log.txt";
+    public String f38049f = ".log.txt";
 
     /* renamed from: c  reason: collision with root package name */
-    public d f37951c = new d("lo");
+    public d f38046c = new d("lo");
 
     /* loaded from: classes6.dex */
     public class a implements Comparator<File> {
@@ -50,11 +50,11 @@ public class e {
     }
 
     public void a() throws IOException {
-        BufferedWriter bufferedWriter = this.f37952d;
+        BufferedWriter bufferedWriter = this.f38047d;
         if (bufferedWriter != null) {
             bufferedWriter.flush();
-            this.f37952d.close();
-            this.f37952d = null;
+            this.f38047d.close();
+            this.f38047d = null;
         }
     }
 
@@ -62,12 +62,12 @@ public class e {
         File[] listFiles = file.listFiles(new FileFilter() { // from class: com.meizu.cloud.pushsdk.base.e.1
             @Override // java.io.FileFilter
             public boolean accept(File file2) {
-                return file2.getName().endsWith(e.this.f37954f);
+                return file2.getName().endsWith(e.this.f38049f);
             }
         });
-        if (listFiles != null || listFiles.length > this.f37953e) {
+        if (listFiles != null || listFiles.length > this.f38048e) {
             Arrays.sort(listFiles, new a());
-            for (int i = this.f37953e; i < listFiles.length; i++) {
+            for (int i = this.f38048e; i < listFiles.length; i++) {
                 listFiles[i].delete();
             }
         }
@@ -78,27 +78,27 @@ public class e {
         if (!file.exists() && !file.mkdirs()) {
             throw new IOException("create " + str + " dir failed!!!");
         }
-        String format = this.f37950b.format(new Date());
-        File file2 = new File(str, format + this.f37954f);
+        String format = this.f38045b.format(new Date());
+        File file2 = new File(str, format + this.f38049f);
         if (!file2.exists()) {
             if (file2.createNewFile()) {
                 a(file);
             } else {
-                String str2 = this.f37949a;
+                String str2 = this.f38044a;
                 Log.e(str2, "create new file " + format + " failed !!!");
             }
         }
-        this.f37952d = new BufferedWriter(new FileWriter(file2, true));
+        this.f38047d = new BufferedWriter(new FileWriter(file2, true));
     }
 
     public void a(String str, String str2, String str3) throws IOException {
-        if (this.f37952d != null) {
+        if (this.f38047d != null) {
             StringBuffer stringBuffer = new StringBuffer(str);
             stringBuffer.append(str2);
             stringBuffer.append(" ");
             stringBuffer.append(str3);
-            this.f37952d.write(this.f37951c.a(stringBuffer.toString().getBytes()));
-            this.f37952d.write(Part.CRLF);
+            this.f38047d.write(this.f38046c.a(stringBuffer.toString().getBytes()));
+            this.f38047d.write(Part.CRLF);
         }
     }
 }

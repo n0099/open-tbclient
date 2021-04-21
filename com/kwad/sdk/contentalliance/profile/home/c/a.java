@@ -13,49 +13,49 @@ import java.util.Set;
 public class a extends com.kwad.sdk.contentalliance.profile.home.b.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public View f33164b;
+    public View f33259b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KSProfilePageLoadingView f33165c;
+    public KSProfilePageLoadingView f33260c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.profile.home.b f33166d;
+    public com.kwad.sdk.contentalliance.profile.home.b f33261d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Set<com.kwad.sdk.contentalliance.profile.home.a.a> f33167e;
+    public Set<com.kwad.sdk.contentalliance.profile.home.a.a> f33262e;
 
     /* renamed from: f  reason: collision with root package name */
-    public KSPageLoadingView.a f33168f = new KSPageLoadingView.a() { // from class: com.kwad.sdk.contentalliance.profile.home.c.a.1
+    public KSPageLoadingView.a f33263f = new KSPageLoadingView.a() { // from class: com.kwad.sdk.contentalliance.profile.home.c.a.1
         @Override // com.kwad.sdk.contentalliance.widget.KSPageLoadingView.a
         public void a() {
-            if (a.this.f33166d != null) {
-                a.this.f33166d.a();
+            if (a.this.f33261d != null) {
+                a.this.f33261d.a();
             }
         }
     };
 
     /* renamed from: g  reason: collision with root package name */
-    public b.a f33169g = new b.a() { // from class: com.kwad.sdk.contentalliance.profile.home.c.a.2
+    public b.a f33264g = new b.a() { // from class: com.kwad.sdk.contentalliance.profile.home.c.a.2
         @Override // com.kwad.sdk.contentalliance.profile.home.b.a
         public void a() {
-            a.this.f33165c.b();
+            a.this.f33260c.b();
         }
 
         @Override // com.kwad.sdk.contentalliance.profile.home.b.a
         public void a(int i, String str) {
-            a.this.f33165c.a();
-            if (com.kwad.sdk.core.network.f.f34158a.k == i) {
-                a.this.f33165c.c();
+            a.this.f33260c.a();
+            if (com.kwad.sdk.core.network.f.f34253a.k == i) {
+                a.this.f33260c.c();
             } else {
-                a.this.f33165c.d();
+                a.this.f33260c.d();
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.profile.home.b.a
         public void a(UserProfile userProfile) {
-            a.this.f33165c.a();
-            a.this.f33164b.setVisibility(0);
-            for (com.kwad.sdk.contentalliance.profile.home.a.a aVar : a.this.f33167e) {
+            a.this.f33260c.a();
+            a.this.f33259b.setVisibility(0);
+            for (com.kwad.sdk.contentalliance.profile.home.a.a aVar : a.this.f33262e) {
                 aVar.a(userProfile);
             }
         }
@@ -66,34 +66,34 @@ public class a extends com.kwad.sdk.contentalliance.profile.home.b.a {
     };
 
     private void e() {
-        this.f33166d.a();
+        this.f33261d.a();
     }
 
     @Override // com.kwad.sdk.contentalliance.profile.home.b.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.contentalliance.profile.home.b.b bVar = ((com.kwad.sdk.contentalliance.profile.home.b.a) this).f33157a;
-        this.f33167e = bVar.f33163f;
-        ProfileHomeParam profileHomeParam = bVar.f33161d;
-        SceneImpl sceneImpl = bVar.f33159b;
+        com.kwad.sdk.contentalliance.profile.home.b.b bVar = ((com.kwad.sdk.contentalliance.profile.home.b.a) this).f33252a;
+        this.f33262e = bVar.f33258f;
+        ProfileHomeParam profileHomeParam = bVar.f33256d;
+        SceneImpl sceneImpl = bVar.f33254b;
         com.kwad.sdk.core.g.a.f fVar = new com.kwad.sdk.core.g.a.f(sceneImpl);
-        fVar.f33941b = sceneImpl.getPageScene();
-        this.f33166d = new com.kwad.sdk.contentalliance.profile.home.b(fVar, profileHomeParam.mAuthorId, this.f33169g);
+        fVar.f34036b = sceneImpl.getPageScene();
+        this.f33261d = new com.kwad.sdk.contentalliance.profile.home.b(fVar, profileHomeParam.mAuthorId, this.f33264g);
         e();
-        this.f33165c.setRetryClickListener(this.f33168f);
+        this.f33260c.setRetryClickListener(this.f33263f);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f33166d.b();
-        this.f33165c.setRetryClickListener(null);
+        this.f33261d.b();
+        this.f33260c.setRetryClickListener(null);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f33164b = b(R.id.ksad_profile_view_pager);
-        this.f33165c = (KSProfilePageLoadingView) b(R.id.ksad_page_loading);
+        this.f33259b = b(R.id.ksad_profile_view_pager);
+        this.f33260c = (KSProfilePageLoadingView) b(R.id.ksad_page_loading);
     }
 }

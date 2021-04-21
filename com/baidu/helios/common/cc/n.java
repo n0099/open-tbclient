@@ -1,6 +1,6 @@
 package com.baidu.helios.common.cc;
 
-import d.b.p.g.b.b;
+import d.b.q.g.b.b;
 import java.lang.reflect.Method;
 /* loaded from: classes2.dex */
 public class n {

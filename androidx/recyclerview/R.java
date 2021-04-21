@@ -33,7 +33,7 @@ public final class R {
         public static final int spanCount = 0x7f04043d;
         public static final int stackFromEnd = 0x7f040446;
         public static final int statusBarBackground = 0x7f04044d;
-        public static final int ttcIndex = 0x7f04050d;
+        public static final int ttcIndex = 0x7f04050e;
     }
 
     /* loaded from: classes.dex */

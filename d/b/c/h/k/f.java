@@ -3,16 +3,16 @@ package d.b.c.h.k;
 public class f implements Comparable<f> {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42816e;
+    public int f43056e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42817f;
+    public int f43057f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42818g;
+    public int f43058g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f42819h;
+    public int f43059h;
     public int i;
     public int j;
 
@@ -20,32 +20,32 @@ public class f implements Comparable<f> {
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(f fVar) {
-        int i = this.f42816e;
-        int i2 = fVar.f42816e;
+        int i = this.f43056e;
+        int i2 = fVar.f43056e;
         if (i - i2 > 0) {
             return 1;
         }
         if (i - i2 < 0) {
             return -1;
         }
-        int i3 = this.f42817f;
-        int i4 = fVar.f42817f;
+        int i3 = this.f43057f;
+        int i4 = fVar.f43057f;
         if (i3 - i4 > 0) {
             return 1;
         }
         if (i3 - i4 < 0) {
             return -1;
         }
-        int i5 = this.f42818g;
-        int i6 = fVar.f42818g;
+        int i5 = this.f43058g;
+        int i6 = fVar.f43058g;
         if (i5 - i6 > 0) {
             return 1;
         }
         if (i5 - i6 < 0) {
             return -1;
         }
-        int i7 = this.f42819h;
-        int i8 = fVar.f42819h;
+        int i7 = this.f43059h;
+        int i8 = fVar.f43059h;
         if (i7 - i8 > 0) {
             return 1;
         }
@@ -69,10 +69,10 @@ public class f implements Comparable<f> {
     }
 
     public final void b(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.f42816e = i;
-        this.f42817f = i2;
-        this.f42818g = i3;
-        this.f42819h = i4;
+        this.f43056e = i;
+        this.f43057f = i2;
+        this.f43058g = i3;
+        this.f43059h = i4;
         this.i = i5;
         this.j = i6;
     }
@@ -82,6 +82,6 @@ public class f implements Comparable<f> {
     }
 
     public String toString() {
-        return this.f42816e + "-" + this.f42817f + "-" + this.f42818g + " " + this.f42819h + ":" + this.i + ":" + this.j;
+        return this.f43056e + "-" + this.f43057f + "-" + this.f43058g + " " + this.f43059h + ":" + this.i + ":" + this.j;
     }
 }

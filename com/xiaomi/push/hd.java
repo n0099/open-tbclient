@@ -8,7 +8,7 @@ import java.util.Map;
 public class hd {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile hd f40916a;
+    public static volatile hd f41011a;
 
     /* renamed from: a  reason: collision with other field name */
     public final Context f466a;
@@ -25,14 +25,14 @@ public class hd {
             com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]:mContext is null, TinyDataManager.getInstance(Context) failed.");
             return null;
         }
-        if (f40916a == null) {
+        if (f41011a == null) {
             synchronized (hd.class) {
-                if (f40916a == null) {
-                    f40916a = new hd(context);
+                if (f41011a == null) {
+                    f41011a = new hd(context);
                 }
             }
         }
-        return f40916a;
+        return f41011a;
     }
 
     private boolean a(String str, String str2, String str3, String str4, long j, String str5) {

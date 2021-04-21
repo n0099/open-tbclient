@@ -55,13 +55,13 @@ import org.apache.http.protocol.HTTP;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f66063a;
+    public static final byte[] f66158a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final d.c.c.a.b.d f66065c;
+    public static final d.c.c.a.b.d f66160c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final b0 f66066d;
+    public static final b0 f66161d;
     public static final Charset k;
     public static final Charset l;
     public static final Charset m;
@@ -71,19 +71,19 @@ public final class e {
     public static final Pattern q;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f66064b = new String[0];
+    public static final String[] f66159b = new String[0];
 
     /* renamed from: e  reason: collision with root package name */
-    public static final com.bytedance.sdk.a.a.f f66067e = com.bytedance.sdk.a.a.f.b("efbbbf");
+    public static final com.bytedance.sdk.a.a.f f66162e = com.bytedance.sdk.a.a.f.b("efbbbf");
 
     /* renamed from: f  reason: collision with root package name */
-    public static final com.bytedance.sdk.a.a.f f66068f = com.bytedance.sdk.a.a.f.b("feff");
+    public static final com.bytedance.sdk.a.a.f f66163f = com.bytedance.sdk.a.a.f.b("feff");
 
     /* renamed from: g  reason: collision with root package name */
-    public static final com.bytedance.sdk.a.a.f f66069g = com.bytedance.sdk.a.a.f.b("fffe");
+    public static final com.bytedance.sdk.a.a.f f66164g = com.bytedance.sdk.a.a.f.b("fffe");
 
     /* renamed from: h  reason: collision with root package name */
-    public static final com.bytedance.sdk.a.a.f f66070h = com.bytedance.sdk.a.a.f.b("0000ffff");
+    public static final com.bytedance.sdk.a.a.f f66165h = com.bytedance.sdk.a.a.f.b("0000ffff");
     public static final com.bytedance.sdk.a.a.f i = com.bytedance.sdk.a.a.f.b("ffff0000");
     public static final Charset j = Charset.forName("UTF-8");
 
@@ -101,20 +101,20 @@ public final class e {
     public static class b implements ThreadFactory {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f66071e;
+        public final /* synthetic */ String f66166e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f66072f;
+        public final /* synthetic */ boolean f66167f;
 
         public b(String str, boolean z) {
-            this.f66071e = str;
-            this.f66072f = z;
+            this.f66166e = str;
+            this.f66167f = z;
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            Thread thread = new Thread(runnable, "tt_pangle_thread_" + this.f66071e);
-            thread.setDaemon(this.f66072f);
+            Thread thread = new Thread(runnable, "tt_pangle_thread_" + this.f66166e);
+            thread.setDaemon(this.f66167f);
             return thread;
         }
     }
@@ -123,10 +123,10 @@ public final class e {
     public final class c implements w {
 
         /* renamed from: a  reason: collision with root package name */
-        public final q f66073a;
+        public final q f66168a;
 
         public c(q qVar) {
-            this.f66073a = qVar;
+            this.f66168a = qVar;
         }
 
         @Override // d.c.c.a.b.w
@@ -159,7 +159,7 @@ public final class e {
                 z = true;
                 f2.g("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
             }
-            List<p> b2 = this.f66073a.b(a2.a());
+            List<p> b2 = this.f66168a.b(a2.a());
             if (!b2.isEmpty()) {
                 f2.g("Cookie", b(b2));
             }
@@ -167,7 +167,7 @@ public final class e {
                 f2.g("User-Agent", d.c.c.a.b.a.g.a());
             }
             d.c.c.a.b.c a4 = aVar.a(f2.p());
-            g.f(this.f66073a, a2.a(), a4.w());
+            g.f(this.f66168a, a2.a(), a4.w());
             c.a y = a4.y();
             y.h(a2);
             if (z && AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(a4.o("Content-Encoding")) && g.h(a4)) {
@@ -201,13 +201,13 @@ public final class e {
     public final class d implements w {
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f66074a;
+        public final boolean f66169a;
 
         /* loaded from: classes5.dex */
         public static final class a extends d.c.c.a.a.f {
 
             /* renamed from: f  reason: collision with root package name */
-            public long f66075f;
+            public long f66170f;
 
             public a(d.c.c.a.a.p pVar) {
                 super(pVar);
@@ -216,19 +216,19 @@ public final class e {
             @Override // d.c.c.a.a.f, d.c.c.a.a.p
             public void b(d.c.c.a.a.c cVar, long j) throws IOException {
                 super.b(cVar, j);
-                this.f66075f += j;
+                this.f66170f += j;
             }
         }
 
         public d(boolean z) {
-            this.f66074a = z;
+            this.f66169a = z;
         }
 
         @Override // d.c.c.a.b.w
         public d.c.c.a.b.c a(w.a aVar) throws IOException {
             d.c.c.a.b.c k;
             i iVar = (i) aVar;
-            InterfaceC1815e g2 = iVar.g();
+            InterfaceC1818e g2 = iVar.g();
             d.c.c.a.b.a.c.f f2 = iVar.f();
             d.c.c.a.b.a.c.c cVar = (d.c.c.a.b.a.c.c) iVar.e();
             a0 a2 = iVar.a();
@@ -249,7 +249,7 @@ public final class e {
                     d.c.c.a.a.d a3 = d.c.c.a.a.k.a(aVar3);
                     a2.e().e(a3);
                     a3.close();
-                    iVar.i().c(iVar.h(), aVar3.f66075f);
+                    iVar.i().c(iVar.h(), aVar3.f66170f);
                 } else if (!cVar.o()) {
                     f2.m();
                 }
@@ -266,9 +266,9 @@ public final class e {
             d.c.c.a.b.c k2 = aVar2.k();
             iVar.i().d(iVar.h(), k2);
             int r = k2.r();
-            if (this.f66074a && r == 101) {
+            if (this.f66169a && r == 101) {
                 c.a y = k2.y();
-                y.d(e.f66065c);
+                y.d(e.f66160c);
                 k = y.k();
             } else {
                 c.a y2 = k2.y();
@@ -287,7 +287,7 @@ public final class e {
 
     /* renamed from: d.c.c.a.b.a.e$e  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1815e {
+    public interface InterfaceC1818e {
         c.a a(boolean z) throws IOException;
 
         void a() throws IOException;
@@ -305,13 +305,13 @@ public final class e {
     public final class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final ThreadLocal<DateFormat> f66076a = new a();
+        public static final ThreadLocal<DateFormat> f66171a = new a();
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String[] f66077b;
+        public static final String[] f66172b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final DateFormat[] f66078c;
+        public static final DateFormat[] f66173c;
 
         /* loaded from: classes5.dex */
         public static class a extends ThreadLocal<DateFormat> {
@@ -328,12 +328,12 @@ public final class e {
 
         static {
             String[] strArr = {"EEE, dd MMM yyyy HH:mm:ss zzz", DateUtils.PATTERN_RFC1036, DateUtils.PATTERN_ASCTIME, NetscapeDraftSpec.EXPIRES_PATTERN, "EEE, dd-MMM-yyyy HH-mm-ss z", "EEE, dd MMM yy HH:mm:ss z", "EEE dd-MMM-yyyy HH:mm:ss z", "EEE dd MMM yyyy HH:mm:ss z", "EEE dd-MMM-yyyy HH-mm-ss z", "EEE dd-MMM-yy HH:mm:ss z", "EEE dd MMM yy HH:mm:ss z", "EEE,dd-MMM-yy HH:mm:ss z", "EEE,dd-MMM-yyyy HH:mm:ss z", "EEE, dd-MM-yyyy HH:mm:ss z", "EEE MMM d yyyy HH:mm:ss z"};
-            f66077b = strArr;
-            f66078c = new DateFormat[strArr.length];
+            f66172b = strArr;
+            f66173c = new DateFormat[strArr.length];
         }
 
         public static String a(Date date) {
-            return f66076a.get().format(date);
+            return f66171a.get().format(date);
         }
 
         public static Date b(String str) {
@@ -341,18 +341,18 @@ public final class e {
                 return null;
             }
             ParsePosition parsePosition = new ParsePosition(0);
-            Date parse = f66076a.get().parse(str, parsePosition);
+            Date parse = f66171a.get().parse(str, parsePosition);
             if (parsePosition.getIndex() == str.length()) {
                 return parse;
             }
-            synchronized (f66077b) {
-                int length = f66077b.length;
+            synchronized (f66172b) {
+                int length = f66172b.length;
                 for (int i = 0; i < length; i++) {
-                    DateFormat dateFormat = f66078c[i];
+                    DateFormat dateFormat = f66173c[i];
                     if (dateFormat == null) {
-                        dateFormat = new SimpleDateFormat(f66077b[i], Locale.US);
+                        dateFormat = new SimpleDateFormat(f66172b[i], Locale.US);
                         dateFormat.setTimeZone(e.o);
-                        f66078c[i] = dateFormat;
+                        f66173c[i] = dateFormat;
                     }
                     parsePosition.setIndex(0);
                     Date parse2 = dateFormat.parse(str, parsePosition);
@@ -406,7 +406,7 @@ public final class e {
         }
 
         public static void f(q qVar, s sVar, v vVar) {
-            if (qVar == q.f66385a) {
+            if (qVar == q.f66480a) {
                 return;
             }
             List<p> h2 = p.h(sVar, vVar);
@@ -467,42 +467,42 @@ public final class e {
     public final class i implements w.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<w> f66079a;
+        public final List<w> f66174a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final d.c.c.a.b.a.c.f f66080b;
+        public final d.c.c.a.b.a.c.f f66175b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final InterfaceC1815e f66081c;
+        public final InterfaceC1818e f66176c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final d.c.c.a.b.a.c.c f66082d;
+        public final d.c.c.a.b.a.c.c f66177d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f66083e;
+        public final int f66178e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final a0 f66084f;
+        public final a0 f66179f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final d.c.c.a.b.i f66085g;
+        public final d.c.c.a.b.i f66180g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final t f66086h;
+        public final t f66181h;
         public final int i;
         public final int j;
         public final int k;
         public int l;
 
-        public i(List<w> list, d.c.c.a.b.a.c.f fVar, InterfaceC1815e interfaceC1815e, d.c.c.a.b.a.c.c cVar, int i, a0 a0Var, d.c.c.a.b.i iVar, t tVar, int i2, int i3, int i4) {
-            this.f66079a = list;
-            this.f66082d = cVar;
-            this.f66080b = fVar;
-            this.f66081c = interfaceC1815e;
-            this.f66083e = i;
-            this.f66084f = a0Var;
-            this.f66085g = iVar;
-            this.f66086h = tVar;
+        public i(List<w> list, d.c.c.a.b.a.c.f fVar, InterfaceC1818e interfaceC1818e, d.c.c.a.b.a.c.c cVar, int i, a0 a0Var, d.c.c.a.b.i iVar, t tVar, int i2, int i3, int i4) {
+            this.f66174a = list;
+            this.f66177d = cVar;
+            this.f66175b = fVar;
+            this.f66176c = interfaceC1818e;
+            this.f66178e = i;
+            this.f66179f = a0Var;
+            this.f66180g = iVar;
+            this.f66181h = tVar;
             this.i = i2;
             this.j = i3;
             this.k = i4;
@@ -510,7 +510,7 @@ public final class e {
 
         @Override // d.c.c.a.b.w.a
         public a0 a() {
-            return this.f66084f;
+            return this.f66179f;
         }
 
         @Override // d.c.c.a.b.w.a
@@ -529,42 +529,42 @@ public final class e {
         }
 
         public d.c.c.a.b.m e() {
-            return this.f66082d;
+            return this.f66177d;
         }
 
         public d.c.c.a.b.a.c.f f() {
-            return this.f66080b;
+            return this.f66175b;
         }
 
-        public InterfaceC1815e g() {
-            return this.f66081c;
+        public InterfaceC1818e g() {
+            return this.f66176c;
         }
 
         public d.c.c.a.b.i h() {
-            return this.f66085g;
+            return this.f66180g;
         }
 
         public t i() {
-            return this.f66086h;
+            return this.f66181h;
         }
 
         @Override // d.c.c.a.b.w.a
         public d.c.c.a.b.c a(a0 a0Var) throws IOException {
-            return b(a0Var, this.f66080b, this.f66081c, this.f66082d);
+            return b(a0Var, this.f66175b, this.f66176c, this.f66177d);
         }
 
-        public d.c.c.a.b.c b(a0 a0Var, d.c.c.a.b.a.c.f fVar, InterfaceC1815e interfaceC1815e, d.c.c.a.b.a.c.c cVar) throws IOException {
-            if (this.f66083e < this.f66079a.size()) {
+        public d.c.c.a.b.c b(a0 a0Var, d.c.c.a.b.a.c.f fVar, InterfaceC1818e interfaceC1818e, d.c.c.a.b.a.c.c cVar) throws IOException {
+            if (this.f66178e < this.f66174a.size()) {
                 this.l++;
-                if (this.f66081c != null && !this.f66082d.k(a0Var.a())) {
-                    throw new IllegalStateException("network interceptor " + this.f66079a.get(this.f66083e - 1) + " must retain the same host and port");
-                } else if (this.f66081c != null && this.l > 1) {
-                    throw new IllegalStateException("network interceptor " + this.f66079a.get(this.f66083e - 1) + " must call proceed() exactly once");
+                if (this.f66176c != null && !this.f66177d.k(a0Var.a())) {
+                    throw new IllegalStateException("network interceptor " + this.f66174a.get(this.f66178e - 1) + " must retain the same host and port");
+                } else if (this.f66176c != null && this.l > 1) {
+                    throw new IllegalStateException("network interceptor " + this.f66174a.get(this.f66178e - 1) + " must call proceed() exactly once");
                 } else {
-                    i iVar = new i(this.f66079a, fVar, interfaceC1815e, cVar, this.f66083e + 1, a0Var, this.f66085g, this.f66086h, this.i, this.j, this.k);
-                    w wVar = this.f66079a.get(this.f66083e);
+                    i iVar = new i(this.f66174a, fVar, interfaceC1818e, cVar, this.f66178e + 1, a0Var, this.f66180g, this.f66181h, this.i, this.j, this.k);
+                    w wVar = this.f66174a.get(this.f66178e);
                     d.c.c.a.b.c a2 = wVar.a(iVar);
-                    if (interfaceC1815e != null && this.f66083e + 1 < this.f66079a.size() && iVar.l != 1) {
+                    if (interfaceC1818e != null && this.f66178e + 1 < this.f66174a.size() && iVar.l != 1) {
                         throw new IllegalStateException("network interceptor " + wVar + " must call proceed() exactly once");
                     } else if (a2 != null) {
                         if (a2.x() != null) {
@@ -584,23 +584,23 @@ public final class e {
     public final class j extends d.c.c.a.b.d {
 
         /* renamed from: e  reason: collision with root package name */
-        public final String f66087e;
+        public final String f66182e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final long f66088f;
+        public final long f66183f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final d.c.c.a.a.e f66089g;
+        public final d.c.c.a.a.e f66184g;
 
         public j(String str, long j, d.c.c.a.a.e eVar) {
-            this.f66087e = str;
-            this.f66088f = j;
-            this.f66089g = eVar;
+            this.f66182e = str;
+            this.f66183f = j;
+            this.f66184g = eVar;
         }
 
         @Override // d.c.c.a.b.d
         public x n() {
-            String str = this.f66087e;
+            String str = this.f66182e;
             if (str != null) {
                 return x.a(str);
             }
@@ -609,12 +609,12 @@ public final class e {
 
         @Override // d.c.c.a.b.d
         public long o() {
-            return this.f66088f;
+            return this.f66183f;
         }
 
         @Override // d.c.c.a.b.d
         public d.c.c.a.a.e r() {
-            return this.f66089g;
+            return this.f66184g;
         }
     }
 
@@ -651,23 +651,23 @@ public final class e {
     public final class l implements w {
 
         /* renamed from: a  reason: collision with root package name */
-        public final y f66090a;
+        public final y f66185a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final boolean f66091b;
+        public final boolean f66186b;
 
         /* renamed from: c  reason: collision with root package name */
-        public d.c.c.a.b.a.c.f f66092c;
+        public d.c.c.a.b.a.c.f f66187c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Object f66093d;
+        public Object f66188d;
 
         /* renamed from: e  reason: collision with root package name */
-        public volatile boolean f66094e;
+        public volatile boolean f66189e;
 
         public l(y yVar, boolean z) {
-            this.f66090a = yVar;
-            this.f66091b = z;
+            this.f66185a = yVar;
+            this.f66186b = z;
         }
 
         @Override // d.c.c.a.b.w
@@ -678,13 +678,13 @@ public final class e {
             i iVar = (i) aVar;
             d.c.c.a.b.i h2 = iVar.h();
             t i = iVar.i();
-            this.f66092c = new d.c.c.a.b.a.c.f(this.f66090a.r(), b(a2.a()), h2, i, this.f66093d);
+            this.f66187c = new d.c.c.a.b.a.c.f(this.f66185a.r(), b(a2.a()), h2, i, this.f66188d);
             d.c.c.a.b.c cVar = null;
             int i2 = 0;
-            while (!this.f66094e) {
+            while (!this.f66189e) {
                 try {
                     try {
-                        b2 = iVar.b(a2, this.f66092c, null, null);
+                        b2 = iVar.b(a2, this.f66187c, null, null);
                         if (cVar != null) {
                             c.a y = b2.y();
                             c.a y2 = cVar.y();
@@ -703,8 +703,8 @@ public final class e {
                         }
                     }
                     if (c2 == null) {
-                        if (!this.f66091b) {
-                            this.f66092c.l();
+                        if (!this.f66186b) {
+                            this.f66187c.l();
                         }
                         return b2;
                     }
@@ -713,25 +713,25 @@ public final class e {
                     if (i3 <= 20) {
                         c2.e();
                         if (!f(b2, c2.a())) {
-                            this.f66092c.l();
-                            this.f66092c = new d.c.c.a.b.a.c.f(this.f66090a.r(), b(c2.a()), h2, i, this.f66093d);
-                        } else if (this.f66092c.c() != null) {
+                            this.f66187c.l();
+                            this.f66187c = new d.c.c.a.b.a.c.f(this.f66185a.r(), b(c2.a()), h2, i, this.f66188d);
+                        } else if (this.f66187c.c() != null) {
                             throw new IllegalStateException("Closing the body of " + b2 + " didn't close its backing stream. Bad interceptor?");
                         }
                         cVar = b2;
                         a2 = c2;
                         i2 = i3;
                     } else {
-                        this.f66092c.l();
+                        this.f66187c.l();
                         throw new ProtocolException("Too many follow-up requests: " + i3);
                     }
                 } catch (Throwable th) {
-                    this.f66092c.h(null);
-                    this.f66092c.l();
+                    this.f66187c.h(null);
+                    this.f66187c.l();
                     throw th;
                 }
             }
-            this.f66092c.l();
+            this.f66187c.l();
             throw new IOException(ResponseException.CANCELED);
         }
 
@@ -740,16 +740,16 @@ public final class e {
             HostnameVerifier hostnameVerifier;
             d.c.c.a.b.k kVar;
             if (sVar.q()) {
-                SSLSocketFactory m = this.f66090a.m();
-                hostnameVerifier = this.f66090a.n();
+                SSLSocketFactory m = this.f66185a.m();
+                hostnameVerifier = this.f66185a.n();
                 sSLSocketFactory = m;
-                kVar = this.f66090a.o();
+                kVar = this.f66185a.o();
             } else {
                 sSLSocketFactory = null;
                 hostnameVerifier = null;
                 kVar = null;
             }
-            return new d.c.c.a.b.b(sVar.v(), sVar.w(), this.f66090a.k(), this.f66090a.l(), sSLSocketFactory, hostnameVerifier, kVar, this.f66090a.q(), this.f66090a.g(), this.f66090a.w(), this.f66090a.x(), this.f66090a.h());
+            return new d.c.c.a.b.b(sVar.v(), sVar.w(), this.f66185a.k(), this.f66185a.l(), sSLSocketFactory, hostnameVerifier, kVar, this.f66185a.q(), this.f66185a.g(), this.f66185a.w(), this.f66185a.x(), this.f66185a.h());
         }
 
         public final a0 c(d.c.c.a.b.c cVar) throws IOException {
@@ -757,7 +757,7 @@ public final class e {
             s p;
             Proxy g2;
             if (cVar != null) {
-                d.c.c.a.b.a.c.c j = this.f66092c.j();
+                d.c.c.a.b.a.c.c j = this.f66187c.j();
                 d.c.c.a.b.e a2 = j != null ? j.a() : null;
                 int r = cVar.r();
                 String c2 = cVar.n().c();
@@ -770,14 +770,14 @@ public final class e {
                         if (a2 != null) {
                             g2 = a2.b();
                         } else {
-                            g2 = this.f66090a.g();
+                            g2 = this.f66185a.g();
                         }
                         if (g2.type() == Proxy.Type.HTTP) {
-                            return this.f66090a.q().a(a2, cVar);
+                            return this.f66185a.q().a(a2, cVar);
                         }
                         throw new ProtocolException("Received HTTP_PROXY_AUTH (407) code while not using proxy");
                     } else if (r == 408) {
-                        if (this.f66090a.u()) {
+                        if (this.f66185a.u()) {
                             cVar.n().e();
                             if (cVar.z() == null || cVar.z().r() != 408) {
                                 return cVar.n();
@@ -797,12 +797,12 @@ public final class e {
                         }
                     }
                 } else {
-                    return this.f66090a.p().a(a2, cVar);
+                    return this.f66185a.p().a(a2, cVar);
                 }
-                if (!this.f66090a.t() || (o = cVar.o("Location")) == null || (p = cVar.n().a().p(o)) == null) {
+                if (!this.f66185a.t() || (o = cVar.o("Location")) == null || (p = cVar.n().a().p(o)) == null) {
                     return null;
                 }
-                if (p.m().equals(cVar.n().a().m()) || this.f66090a.s()) {
+                if (p.m().equals(cVar.n().a().m()) || this.f66185a.s()) {
                     a0.a f2 = cVar.n().f();
                     if (h.c(c2)) {
                         boolean d2 = h.d(c2);
@@ -829,11 +829,11 @@ public final class e {
         }
 
         public void d(Object obj) {
-            this.f66093d = obj;
+            this.f66188d = obj;
         }
 
         public boolean e() {
-            return this.f66094e;
+            return this.f66189e;
         }
 
         public final boolean f(d.c.c.a.b.c cVar, s sVar) {
@@ -849,12 +849,12 @@ public final class e {
         }
 
         public final boolean h(IOException iOException, boolean z, a0 a0Var) {
-            this.f66092c.h(iOException);
-            if (this.f66090a.u()) {
+            this.f66187c.h(iOException);
+            if (this.f66185a.u()) {
                 if (z) {
                     a0Var.e();
                 }
-                return g(iOException, z) && this.f66092c.n();
+                return g(iOException, z) && this.f66187c.n();
             }
             return false;
         }
@@ -864,18 +864,18 @@ public final class e {
     public final class m {
 
         /* renamed from: a  reason: collision with root package name */
-        public final com.bytedance.sdk.a.b.w f66095a;
+        public final com.bytedance.sdk.a.b.w f66190a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f66096b;
+        public final int f66191b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f66097c;
+        public final String f66192c;
 
         public m(com.bytedance.sdk.a.b.w wVar, int i, String str) {
-            this.f66095a = wVar;
-            this.f66096b = i;
-            this.f66097c = str;
+            this.f66190a = wVar;
+            this.f66191b = i;
+            this.f66192c = str;
         }
 
         public static m a(d.c.c.a.b.c cVar) {
@@ -926,12 +926,12 @@ public final class e {
 
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f66095a == com.bytedance.sdk.a.b.w.HTTP_1_0 ? "HTTP/1.0" : "HTTP/1.1");
+            sb.append(this.f66190a == com.bytedance.sdk.a.b.w.HTTP_1_0 ? "HTTP/1.0" : "HTTP/1.1");
             sb.append(' ');
-            sb.append(this.f66096b);
-            if (this.f66097c != null) {
+            sb.append(this.f66191b);
+            if (this.f66192c != null) {
                 sb.append(' ');
-                sb.append(this.f66097c);
+                sb.append(this.f66192c);
             }
             return sb.toString();
         }
@@ -939,9 +939,9 @@ public final class e {
 
     static {
         byte[] bArr = new byte[0];
-        f66063a = bArr;
-        f66065c = d.c.c.a.b.d.d(null, bArr);
-        f66066d = b0.c(null, f66063a);
+        f66158a = bArr;
+        f66160c = d.c.c.a.b.d.d(null, bArr);
+        f66161d = b0.c(null, f66158a);
         Charset.forName("ISO-8859-1");
         k = Charset.forName(CharEncoding.UTF_16BE);
         l = Charset.forName(CharEncoding.UTF_16LE);
@@ -1266,17 +1266,17 @@ public final class e {
     }
 
     public static Charset l(d.c.c.a.a.e eVar, Charset charset) throws IOException {
-        if (eVar.j(0L, f66067e)) {
-            eVar.g(f66067e.g());
+        if (eVar.j(0L, f66162e)) {
+            eVar.g(f66162e.g());
             return j;
-        } else if (eVar.j(0L, f66068f)) {
-            eVar.g(f66068f.g());
+        } else if (eVar.j(0L, f66163f)) {
+            eVar.g(f66163f.g());
             return k;
-        } else if (eVar.j(0L, f66069g)) {
-            eVar.g(f66069g.g());
+        } else if (eVar.j(0L, f66164g)) {
+            eVar.g(f66164g.g());
             return l;
-        } else if (eVar.j(0L, f66070h)) {
-            eVar.g(f66070h.g());
+        } else if (eVar.j(0L, f66165h)) {
+            eVar.g(f66165h.g());
             return m;
         } else if (eVar.j(0L, i)) {
             eVar.g(i.g());

@@ -1,16 +1,67 @@
 package d.b.z;
+
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public final class c {
-    public static final int black = 2131100244;
-    public static final int channel_bg = 2131100302;
-    public static final int coupon_description = 2131100777;
-    public static final int duxiaomancolor = 2131100981;
-    public static final int ksw_md_back_color = 2131101203;
-    public static final int ksw_md_ripple_checked = 2131101204;
-    public static final int ksw_md_ripple_normal = 2131101205;
-    public static final int ksw_md_solid_checked = 2131101206;
-    public static final int ksw_md_solid_checked_disable = 2131101207;
-    public static final int ksw_md_solid_disable = 2131101208;
-    public static final int ksw_md_solid_normal = 2131101209;
-    public static final int ksw_md_solid_shadow = 2131101210;
+public class c {
+
+    /* renamed from: a  reason: collision with root package name */
+    public static volatile c f65869a;
+
+    public static synchronized c f() {
+        c cVar;
+        synchronized (c.class) {
+            if (f65869a == null) {
+                synchronized (c.class) {
+                    if (f65869a == null) {
+                        f65869a = new c();
+                    }
+                }
+            }
+            cVar = f65869a;
+        }
+        return cVar;
+    }
+
+    public boolean a(Activity activity, String str, d.b.z.e.a aVar) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        b.a().d(activity, str, aVar);
+        return true;
+    }
+
+    public boolean b(Activity activity, String str, d.b.z.e.a aVar) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        b.a().c(activity, str, aVar);
+        return true;
+    }
+
+    public boolean c(Activity activity, JSONObject jSONObject, d.b.z.e.a aVar) {
+        if (jSONObject == null) {
+            return false;
+        }
+        b.a().g(activity, jSONObject, aVar);
+        return true;
+    }
+
+    public boolean d(Context context, JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return false;
+        }
+        b.a().f(context, jSONObject);
+        return true;
+    }
+
+    public boolean e(Context context, JSONObject jSONObject, d.b.z.e.a aVar) {
+        if (jSONObject == null) {
+            return false;
+        }
+        b.a().a(context, jSONObject, aVar);
+        return true;
+    }
 }

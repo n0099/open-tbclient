@@ -3,7 +3,7 @@ package com.baidu.tieba.imMessageCenter.mention.agree.message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.squareup.wire.Wire;
-import d.b.i0.f1.b.p.a;
+import d.b.j0.f1.b.p.a;
 import java.util.ArrayList;
 import tbclient.AgreeList;
 import tbclient.AgreeMe.AgreeMeResIdl;
@@ -23,7 +23,7 @@ public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && (getOrginalMessage().getExtra() instanceof AgreeMeRequestMessage) && ((AgreeMeRequestMessage) getOrginalMessage().getExtra()).id == 0) {
-            d.b.h0.r.r.a.f().e("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).a("agree_me_cache_key", bArr);
+            d.b.i0.r.r.a.f().e("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).a("agree_me_cache_key", bArr);
         }
     }
 

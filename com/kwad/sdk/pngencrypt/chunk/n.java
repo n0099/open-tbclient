@@ -5,7 +5,7 @@ import com.kwad.sdk.pngencrypt.PngjException;
 public class n extends aa {
 
     /* renamed from: h  reason: collision with root package name */
-    public String f36450h;
+    public String f36545h;
     public byte[] i;
 
     public n(com.kwad.sdk.pngencrypt.k kVar) {
@@ -14,9 +14,9 @@ public class n extends aa {
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
-        int c2 = b.c(dVar.f36432d);
-        this.f36450h = b.a(dVar.f36432d, 0, c2);
-        byte[] bArr = dVar.f36432d;
+        int c2 = b.c(dVar.f36527d);
+        this.f36545h = b.a(dVar.f36527d, 0, c2);
+        byte[] bArr = dVar.f36527d;
         if ((bArr[c2 + 1] & 255) != 0) {
             throw new PngjException("bad compression for ChunkTypeICCP");
         }

@@ -6,14 +6,14 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f43082a = false;
+    public boolean f43242a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f43083b;
+    public String f43243b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ICardInfo f43084c;
+    public ICardInfo f43244c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ParseError f43085d;
+    public ParseError f43245d;
 }

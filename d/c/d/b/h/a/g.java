@@ -15,12 +15,12 @@ public class g extends c {
         a2.k("app_count", 1);
         a2.k("magic_tag", "ss_app_log");
         e(a2);
-        d.c.d.b.e.b a3 = d.c.d.b.e.b.a(this.f66683b);
+        d.c.d.b.e.b a3 = d.c.d.b.e.b.a(this.f66778b);
         a3.d(m.a().a());
         a3.c(m.d().a());
-        a3.g(this.f66684c.c());
+        a3.g(this.f66779c.c());
         a2.d(a3);
-        l.C1831l.b(a2, a3, this.f66682a);
+        l.C1834l.b(a2, a3, this.f66777a);
         return a2;
     }
 }

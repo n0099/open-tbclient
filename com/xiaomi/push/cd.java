@@ -9,12 +9,12 @@ import com.xiaomi.push.cg;
 public class cd extends cg.e {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40596a;
+    public String f40691a;
 
     public cd(String str, ContentValues contentValues, String str2) {
         super(str, contentValues);
-        this.f40596a = "MessageInsertJob";
-        this.f40596a = str2;
+        this.f40691a = "MessageInsertJob";
+        this.f40691a = str2;
     }
 
     public static cd a(Context context, String str, hj hjVar) {

@@ -2,55 +2,54 @@ package d.b.g0.q;
 
 import android.content.Context;
 import android.text.TextUtils;
-import d.b.g0.q.c.c;
-import d.b.g0.q.c.d;
-import d.b.g0.q.c.e;
-import d.b.g0.q.c.f;
-import d.b.g0.q.c.g;
-/* loaded from: classes3.dex */
-public class b {
-
-    /* renamed from: c  reason: collision with root package name */
-    public static b f49732c;
+import android.util.Log;
+import d.b.g0.m.c;
+/* loaded from: classes2.dex */
+public final class b implements d.b.g0.m.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final a<String> f49733a;
+    public Context f43750a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f49734b;
+    public a f43751b;
 
-    public b(Context context) {
-        a<String> aVar = new a<>();
-        this.f49733a = aVar;
-        aVar.a(new c(context));
-        this.f49733a.a(new e(context));
-        this.f49733a.a(new d(context));
-        this.f49733a.a(new g(context));
-        this.f49733a.a(new d.b.g0.q.c.a(context));
-        this.f49733a.a(new f(context));
+    @Override // d.b.g0.m.b
+    public final String a() {
+        a aVar = this.f43751b;
+        Context context = this.f43750a;
+        if (TextUtils.isEmpty(aVar.f43749d)) {
+            aVar.f43749d = aVar.a(context, aVar.f43748c);
+        }
+        return aVar.f43749d;
     }
 
-    public static b b(Context context) {
-        if (f49732c == null) {
-            synchronized (b.class) {
-                if (f49732c == null) {
-                    f49732c = new b(context);
-                }
-            }
+    @Override // d.b.g0.m.b
+    public final void a(Context context, c cVar) {
+        this.f43750a = context;
+        a aVar = new a();
+        this.f43751b = aVar;
+        aVar.f43748c = null;
+        try {
+            Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
+            aVar.f43747b = cls;
+            aVar.f43746a = cls.newInstance();
+        } catch (Exception e2) {
+            Log.d("IdentifierManager", "reflect exception!", e2);
         }
-        return f49732c;
-    }
-
-    public String a() {
-        if (TextUtils.isEmpty(this.f49734b)) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(this.f49734b)) {
-                    String b2 = this.f49733a.b();
-                    this.f49734b = b2;
-                    this.f49733a.d(b2);
-                }
-            }
+        try {
+            aVar.f43748c = aVar.f43747b.getMethod("getOAID", Context.class);
+        } catch (Exception e3) {
+            Log.d("IdentifierManager", "reflect exception!", e3);
         }
-        return this.f49734b;
+        try {
+            aVar.f43747b.getMethod("getVAID", Context.class);
+        } catch (Exception e4) {
+            Log.d("IdentifierManager", "reflect exception!", e4);
+        }
+        try {
+            aVar.f43747b.getMethod("getAAID", Context.class);
+        } catch (Exception e5) {
+            Log.d("IdentifierManager", "reflect exception!", e5);
+        }
     }
 }

@@ -11,15 +11,15 @@ import java.util.List;
 public class a extends PayBaseBean {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25324a;
+    public String f25332a;
 
     public a(Context context) {
         super(context);
-        this.f25324a = null;
+        this.f25332a = null;
     }
 
     public void a(String str) {
-        this.f25324a = str;
+        this.f25332a = str;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -30,8 +30,8 @@ public class a extends PayBaseBean {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        if (this.f25324a != null) {
-            arrayList.add(new RestNameValuePair("serial_num", SafePay.getInstance().encryptProxy(this.f25324a)));
+        if (this.f25332a != null) {
+            arrayList.add(new RestNameValuePair("serial_num", SafePay.getInstance().encryptProxy(this.f25332a)));
         }
         arrayList.add(new RestNameValuePair("pay_type", "1"));
         return arrayList;

@@ -11,7 +11,7 @@ public class z<E> extends b0<E> {
     public static final Object p = new Object();
 
     static {
-        int b2 = f0.f68982a.b(Object[].class);
+        int b2 = f0.f69129a.b(Object[].class);
         if (4 == b2) {
             o = 2;
         } else if (8 == b2) {
@@ -19,11 +19,11 @@ public class z<E> extends b0<E> {
         } else {
             throw new IllegalStateException("Unknown pointer size");
         }
-        n = f0.f68982a.a(Object[].class);
+        n = f0.f69129a.a(Object[].class);
         try {
-            l = f0.f68982a.g(e0.class.getDeclaredField("producerIndex"));
+            l = f0.f69129a.g(e0.class.getDeclaredField("producerIndex"));
             try {
-                m = f0.f68982a.g(b0.class.getDeclaredField("consumerIndex"));
+                m = f0.f69129a.g(b0.class.getDeclaredField("consumerIndex"));
             } catch (NoSuchFieldException e2) {
                 InternalError internalError = new InternalError();
                 internalError.initCause(e2);
@@ -40,12 +40,12 @@ public class z<E> extends b0<E> {
         int b2 = i.b(i);
         long j = b2 - 1;
         E[] eArr = (E[]) new Object[b2 + 1];
-        this.f68976h = eArr;
-        this.f68975g = j;
+        this.f69123h = eArr;
+        this.f69122g = j;
         a(b2);
         this.j = eArr;
         this.i = j;
-        this.f68974f = j - 1;
+        this.f69121f = j - 1;
         n(0L);
     }
 
@@ -58,19 +58,19 @@ public class z<E> extends b0<E> {
     }
 
     public static <E> Object e(E[] eArr, long j) {
-        return f0.f68982a.f(eArr, j);
+        return f0.f69129a.f(eArr, j);
     }
 
     public static void l(Object[] objArr, long j, Object obj) {
-        f0.f68982a.j(objArr, j, obj);
+        f0.f69129a.j(objArr, j, obj);
     }
 
     public final void a(int i) {
-        this.f68973e = Math.min(i / 4, k);
+        this.f69120e = Math.min(i / 4, k);
     }
 
     public final long d() {
-        return f0.f68982a.d(this, m);
+        return f0.f69129a.d(this, m);
     }
 
     public final E[] f(E[] eArr) {
@@ -78,7 +78,7 @@ public class z<E> extends b0<E> {
     }
 
     public final long g() {
-        return f0.f68982a.d(this, l);
+        return f0.f69129a.d(this, l);
     }
 
     public final E h(E[] eArr, long j, long j2) {
@@ -105,8 +105,8 @@ public class z<E> extends b0<E> {
 
     public final void j(E[] eArr, long j, long j2, E e2, long j3) {
         E[] eArr2 = (E[]) new Object[eArr.length];
-        this.f68976h = eArr2;
-        this.f68974f = (j3 + j) - 1;
+        this.f69123h = eArr2;
+        this.f69121f = (j3 + j) - 1;
         l(eArr2, j2, e2);
         m(eArr, eArr2);
         l(eArr, j2, p);
@@ -114,7 +114,7 @@ public class z<E> extends b0<E> {
     }
 
     public final void k(long j) {
-        f0.f68982a.i(this, m, j);
+        f0.f69129a.i(this, m, j);
     }
 
     public final void m(E[] eArr, E[] eArr2) {
@@ -122,7 +122,7 @@ public class z<E> extends b0<E> {
     }
 
     public final void n(long j) {
-        f0.f68982a.i(this, l, j);
+        f0.f69129a.i(this, l, j);
     }
 
     public final boolean o(E[] eArr, E e2, long j, long j2) {
@@ -134,16 +134,16 @@ public class z<E> extends b0<E> {
     @Override // java.util.Queue
     public final boolean offer(E e2) {
         if (e2 != null) {
-            E[] eArr = this.f68976h;
+            E[] eArr = this.f69123h;
             long j = this.producerIndex;
-            long j2 = this.f68975g;
+            long j2 = this.f69122g;
             long c2 = c(j, j2);
-            if (j < this.f68974f) {
+            if (j < this.f69121f) {
                 return o(eArr, e2, j, c2);
             }
-            long j3 = this.f68973e + j;
+            long j3 = this.f69120e + j;
             if (e(eArr, c(j3, j2)) == null) {
-                this.f68974f = j3 - 1;
+                this.f69121f = j3 - 1;
                 return o(eArr, e2, j, c2);
             } else if (e(eArr, c(1 + j, j2)) != null) {
                 return o(eArr, e2, j, c2);

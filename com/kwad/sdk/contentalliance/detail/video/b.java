@@ -26,28 +26,28 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
     public static boolean o = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public ap f32815a;
+    public ap f32910a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f32816b;
+    public ViewGroup f32911b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f32817c;
+    public boolean f32912c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f32818d;
+    public String f32913d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f32819e;
+    public long f32914e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.a f32820f;
+    public com.kwad.sdk.contentalliance.detail.video.a f32915f;
 
     /* renamed from: g  reason: collision with root package name */
-    public KsFragment f32821g;
+    public KsFragment f32916g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f32822h;
+    public Context f32917h;
     public SlidePlayViewPager i;
     public g j;
     public AdTemplate m;
@@ -71,18 +71,18 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
         public void f() {
             com.kwad.sdk.core.d.a.a("DetailPlayModule", "onDestroyView mCurrentPosition" + b.this.n);
             b.this.q();
-            b.this.f32820f.b(b.this.q);
-            b.this.f32820f.k();
+            b.this.f32915f.b(b.this.q);
+            b.this.f32915f.k();
         }
 
         @Override // com.kwad.sdk.contentalliance.a.d, com.kwad.sdk.contentalliance.a.c
         public void g() {
             com.kwad.sdk.core.d.a.a("DetailPlayModule", "onDestroy mCurrentPosition=" + b.this.n);
             b.this.q();
-            b.this.f32820f.b(b.this.q);
-            b.this.f32820f.b(b.this.p);
+            b.this.f32915f.b(b.this.q);
+            b.this.f32915f.b(b.this.p);
             b.this.v();
-            b.this.f32820f.k();
+            b.this.f32915f.k();
         }
     };
     public List<a> t = new ArrayList();
@@ -95,31 +95,31 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
 
     public b(KsFragment ksFragment, SlidePlayViewPager slidePlayViewPager, DetailVideoView detailVideoView, final AdTemplate adTemplate, int i) {
         long k;
-        this.f32821g = ksFragment;
-        this.f32822h = ksFragment.getContext();
+        this.f32916g = ksFragment;
+        this.f32917h = ksFragment.getContext();
         this.i = slidePlayViewPager;
         this.m = adTemplate;
         this.n = i;
         if (com.kwad.sdk.core.response.b.c.c(adTemplate)) {
             AdInfo j = com.kwad.sdk.core.response.b.c.j(adTemplate);
-            this.f32818d = com.kwad.sdk.core.response.b.a.a(j);
+            this.f32913d = com.kwad.sdk.core.response.b.a.a(j);
             k = com.kwad.sdk.core.response.b.a.k(j);
         } else {
             PhotoInfo k2 = com.kwad.sdk.core.response.b.c.k(adTemplate);
-            this.f32818d = com.kwad.sdk.core.response.b.d.b(k2);
+            this.f32913d = com.kwad.sdk.core.response.b.d.b(k2);
             k = com.kwad.sdk.core.response.b.d.k(k2);
         }
-        this.f32819e = k;
+        this.f32914e = k;
         this.j = new g(ksFragment.getContext());
-        this.f32820f = new com.kwad.sdk.contentalliance.detail.video.a(detailVideoView);
+        this.f32915f = new com.kwad.sdk.contentalliance.detail.video.a(detailVideoView);
         n();
         this.j = new g(ksFragment.getContext());
-        this.f32820f.a(new c.e() { // from class: com.kwad.sdk.contentalliance.detail.video.b.1
+        this.f32915f.a(new c.e() { // from class: com.kwad.sdk.contentalliance.detail.video.b.1
             @Override // com.kwad.sdk.core.video.a.c.e
             public void a(com.kwad.sdk.core.video.a.c cVar) {
                 al.a().b(b.this.m);
-                if (b.this.f32817c && b.this.f32821g.isResumed() && ao.a(b.this.f32816b, 70)) {
-                    b.this.f32820f.f();
+                if (b.this.f32912c && b.this.f32916g.isResumed() && ao.a(b.this.f32911b, 70)) {
+                    b.this.f32915f.f();
                 }
             }
         });
@@ -137,9 +137,9 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
             }
         };
         this.p = fVar;
-        this.f32820f.a(fVar);
-        this.f32820f.a(t());
-        this.f32816b = (ViewGroup) detailVideoView.getParent().getParent();
+        this.f32915f.a(fVar);
+        this.f32915f.a(t());
+        this.f32911b = (ViewGroup) detailVideoView.getParent().getParent();
     }
 
     @Nullable
@@ -172,31 +172,31 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
 
     private void n() {
         com.kwad.sdk.core.d.a.a("DetailPlayModule", "createPlayerAndPrepare()");
-        this.f32820f.a(new d.a().a(o()).a(this.m.mVideoPlayerStatus).a(new c(this.f32819e)).a());
+        this.f32915f.a(new d.a().a(o()).a(this.m.mVideoPlayerStatus).a(new c(this.f32914e)).a());
         al.a().a(this.m);
-        this.f32820f.e();
+        this.f32915f.e();
         al.a().d(this.m);
     }
 
     private String o() {
-        return com.kwad.sdk.core.config.c.l() ? com.kwad.sdk.core.videocache.c.a.a(this.f32822h.getApplicationContext()).a(this.f32818d) : this.f32818d;
+        return com.kwad.sdk.core.config.c.l() ? com.kwad.sdk.core.videocache.c.a.a(this.f32917h.getApplicationContext()).a(this.f32913d) : this.f32913d;
     }
 
     private void p() {
-        if (this.f32815a == null) {
-            this.f32815a = new ap(this);
+        if (this.f32910a == null) {
+            this.f32910a = new ap(this);
         }
-        this.f32815a.sendEmptyMessage(1);
+        this.f32910a.sendEmptyMessage(1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void q() {
-        ap apVar = this.f32815a;
+        ap apVar = this.f32910a;
         if (apVar == null) {
             return;
         }
         apVar.removeCallbacksAndMessages(null);
-        this.f32815a = null;
+        this.f32910a = null;
     }
 
     private void r() {
@@ -217,7 +217,7 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
             this.q = new c.d() { // from class: com.kwad.sdk.contentalliance.detail.video.b.4
                 @Override // com.kwad.sdk.core.video.a.c.d
                 public boolean a(com.kwad.sdk.core.video.a.c cVar, int i, int i2) {
-                    if (b.this.f32817c && i == 10209 && com.kwad.sdk.core.config.c.ag() && 2 == cVar.o()) {
+                    if (b.this.f32912c && i == 10209 && com.kwad.sdk.core.config.c.ag() && 2 == cVar.o()) {
                         b.this.u();
                         return false;
                     }
@@ -246,7 +246,7 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void v() {
-        com.kwad.sdk.core.video.a.c a2 = this.f32820f.a();
+        com.kwad.sdk.core.video.a.c a2 = this.f32915f.a();
         if (a2 == null || a2.o() != 2) {
             return;
         }
@@ -254,14 +254,14 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
     }
 
     public void a(float f2) {
-        com.kwad.sdk.contentalliance.detail.video.a aVar = this.f32820f;
+        com.kwad.sdk.contentalliance.detail.video.a aVar = this.f32915f;
         if (aVar != null) {
             aVar.a(f2);
         }
     }
 
     public void a(long j) {
-        this.f32820f.a(j);
+        this.f32915f.a(j);
     }
 
     @Override // com.kwad.sdk.utils.ap.a
@@ -275,38 +275,38 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
             }
             return;
         }
-        KsFragment ksFragment = this.f32821g;
+        KsFragment ksFragment = this.f32916g;
         if (ksFragment == null) {
             return;
         }
-        boolean z = (ksFragment.isResumed() && !this.f32821g.isAllFragmentIsHidden() && this.f32821g.isVisible()) ? false : true;
-        if (!ao.a((View) this.f32816b, 50, false) || z) {
+        boolean z = (ksFragment.isResumed() && !this.f32916g.isAllFragmentIsHidden() && this.f32916g.isVisible()) ? false : true;
+        if (!ao.a((View) this.f32911b, 50, false) || z) {
             if (!o) {
                 com.kwad.sdk.core.d.a.a("DetailPlayModule", "sendEmptyMessageDelayed(MSG_UPDATE_SESSION_ID)");
-                this.f32815a.sendEmptyMessageDelayed(2, 300000L);
+                this.f32910a.sendEmptyMessageDelayed(2, 300000L);
                 o = true;
             }
             a(false);
-            if (this.f32820f.i()) {
+            if (this.f32915f.i()) {
                 g();
             }
         } else {
             if (o) {
                 com.kwad.sdk.core.d.a.a("DetailPlayModule", "removeMessages(MSG_UPDATE_SESSION_ID)");
-                this.f32815a.removeMessages(2);
+                this.f32910a.removeMessages(2);
                 o = false;
             }
             if (this.k == null) {
-                c cVar = new c(this.f32819e, System.currentTimeMillis());
+                c cVar = new c(this.f32914e, System.currentTimeMillis());
                 this.k = cVar;
-                this.f32820f.a(cVar);
+                this.f32915f.a(cVar);
             }
             a(true);
-            if (!this.f32820f.i()) {
+            if (!this.f32915f.i()) {
                 e();
             }
         }
-        this.f32815a.sendEmptyMessageDelayed(1, 500L);
+        this.f32910a.sendEmptyMessageDelayed(1, 500L);
     }
 
     public void a(a aVar) {
@@ -314,7 +314,7 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
     }
 
     public void a(e eVar) {
-        this.f32820f.a(eVar);
+        this.f32915f.a(eVar);
     }
 
     public void a(com.kwad.sdk.core.i.c cVar) {
@@ -322,7 +322,7 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
     }
 
     public boolean a() {
-        return this.f32820f.i();
+        return this.f32915f.i();
     }
 
     public void b(a aVar) {
@@ -330,7 +330,7 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
     }
 
     public void b(e eVar) {
-        this.f32820f.b(eVar);
+        this.f32915f.b(eVar);
     }
 
     public void b(com.kwad.sdk.core.i.c cVar) {
@@ -338,11 +338,11 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
     }
 
     public boolean b() {
-        return this.f32820f.d();
+        return this.f32915f.d();
     }
 
     public int c() {
-        return this.f32820f.b();
+        return this.f32915f.b();
     }
 
     public com.kwad.sdk.contentalliance.a.c d() {
@@ -351,7 +351,7 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
 
     public void e() {
         boolean z;
-        if (this.f32817c && this.f32821g.isResumed()) {
+        if (this.f32912c && this.f32916g.isResumed()) {
             loop0: while (true) {
                 for (a aVar : this.t) {
                     z = z || aVar.a();
@@ -360,30 +360,30 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
             if (z) {
                 return;
             }
-            this.f32820f.h();
+            this.f32915f.h();
         }
     }
 
     public void f() {
-        this.f32820f.c(new d.a().a(o()).a(this.m.mVideoPlayerStatus).a(new c(this.f32819e)).a());
+        this.f32915f.c(new d.a().a(o()).a(this.m.mVideoPlayerStatus).a(new c(this.f32914e)).a());
     }
 
     public void g() {
-        if (this.f32817c) {
-            this.f32820f.j();
+        if (this.f32912c) {
+            this.f32915f.j();
         }
     }
 
     public void h() {
-        this.f32820f.g();
+        this.f32915f.g();
     }
 
     public void i() {
         q();
-        com.kwad.sdk.contentalliance.detail.video.a aVar = this.f32820f;
+        com.kwad.sdk.contentalliance.detail.video.a aVar = this.f32915f;
         if (aVar != null) {
             aVar.p();
-            this.f32820f.k();
+            this.f32915f.k();
         }
         this.l = false;
     }
@@ -392,11 +392,11 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
     public void j() {
         com.kwad.sdk.core.d.a.a("DetailPlayModule", "becomesAttachedOnPageSelected mCurrentPosition=" + this.n);
         p();
-        this.f32817c = true;
-        if (this.f32820f.a() == null) {
+        this.f32912c = true;
+        if (this.f32915f.a() == null) {
             n();
         }
-        this.f32820f.f();
+        this.f32915f.f();
         r();
     }
 
@@ -404,9 +404,9 @@ public class b implements com.kwad.sdk.contentalliance.a.a, ap.a {
     public void k() {
         com.kwad.sdk.core.d.a.a("DetailPlayModule", "becomesDetachedOnPageSelected mCurrentPosition=" + this.n);
         q();
-        this.f32817c = false;
+        this.f32912c = false;
         this.k = null;
-        this.f32820f.k();
+        this.f32915f.k();
         s();
         v();
     }

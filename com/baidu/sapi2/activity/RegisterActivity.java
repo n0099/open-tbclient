@@ -10,8 +10,8 @@ import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.enums.AccountType;
-import d.b.x.a.f;
-import d.b.x.a.g;
+import d.b.y.a.f;
+import d.b.y.a.g;
 /* loaded from: classes2.dex */
 public class RegisterActivity extends BaseActivity {
     public WebAuthResult p = new WebAuthResult() { // from class: com.baidu.sapi2.activity.RegisterActivity.1

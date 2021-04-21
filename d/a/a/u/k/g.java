@@ -75,21 +75,21 @@ public class g extends d.a.a.u.k.a {
     public static /* synthetic */ class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f41730a;
+        public static final /* synthetic */ int[] f41825a;
 
         static {
             int[] iArr = new int[DocumentData.Justification.values().length];
-            f41730a = iArr;
+            f41825a = iArr;
             try {
                 iArr[DocumentData.Justification.LEFT_ALIGN.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f41730a[DocumentData.Justification.RIGHT_ALIGN.ordinal()] = 2;
+                f41825a[DocumentData.Justification.RIGHT_ALIGN.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f41730a[DocumentData.Justification.CENTER.ordinal()] = 3;
+                f41825a[DocumentData.Justification.CENTER.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -115,25 +115,25 @@ public class g extends d.a.a.u.k.a {
         a2.a(this);
         i(this.E);
         k r = layer.r();
-        if (r != null && (aVar2 = r.f41656a) != null) {
+        if (r != null && (aVar2 = r.f41751a) != null) {
             d.a.a.s.c.a<Integer, Integer> a3 = aVar2.a();
             this.H = a3;
             a3.a(this);
             i(this.H);
         }
-        if (r != null && (aVar = r.f41657b) != null) {
+        if (r != null && (aVar = r.f41752b) != null) {
             d.a.a.s.c.a<Integer, Integer> a4 = aVar.a();
             this.J = a4;
             a4.a(this);
             i(this.J);
         }
-        if (r != null && (bVar2 = r.f41658c) != null) {
+        if (r != null && (bVar2 = r.f41753c) != null) {
             d.a.a.s.c.a<Float, Float> a5 = bVar2.a();
             this.L = a5;
             a5.a(this);
             i(this.L);
         }
-        if (r == null || (bVar = r.f41659d) == null) {
+        if (r == null || (bVar = r.f41754d) == null) {
             return;
         }
         d.a.a.s.c.a<Float, Float> a6 = bVar.a();
@@ -143,7 +143,7 @@ public class g extends d.a.a.u.k.a {
     }
 
     public final void J(DocumentData.Justification justification, Canvas canvas, float f2) {
-        int i = c.f41730a[justification.ordinal()];
+        int i = c.f41825a[justification.ordinal()];
         if (i == 2) {
             canvas.translate(-f2, 0.0f);
         } else if (i != 3) {
@@ -395,7 +395,7 @@ public class g extends d.a.a.u.k.a {
     @Override // d.a.a.u.k.a, d.a.a.u.e
     public <T> void c(T t, @Nullable d.a.a.y.c<T> cVar) {
         super.c(t, cVar);
-        if (t == d.a.a.k.f41486a) {
+        if (t == d.a.a.k.f41581a) {
             d.a.a.s.c.a<Integer, Integer> aVar = this.I;
             if (aVar != null) {
                 C(aVar);
@@ -408,7 +408,7 @@ public class g extends d.a.a.u.k.a {
             this.I = pVar;
             pVar.a(this);
             i(this.I);
-        } else if (t == d.a.a.k.f41487b) {
+        } else if (t == d.a.a.k.f41582b) {
             d.a.a.s.c.a<Integer, Integer> aVar2 = this.K;
             if (aVar2 != null) {
                 C(aVar2);

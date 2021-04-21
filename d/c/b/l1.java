@@ -16,10 +16,10 @@ import java.security.MessageDigest;
 public final class l1 implements g1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final g1 f65879a;
+    public final g1 f65974a;
 
     /* renamed from: b  reason: collision with root package name */
-    public t0<Boolean> f65880b;
+    public t0<Boolean> f65975b;
 
     /* loaded from: classes5.dex */
     public class a extends t0<Boolean> {
@@ -53,10 +53,10 @@ public final class l1 implements g1 {
     public class b implements n1.b<bo, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f65881a;
+        public final /* synthetic */ Context f65976a;
 
         public b(Context context) {
-            this.f65881a = context;
+            this.f65976a = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,11 +73,11 @@ public final class l1 implements g1 {
             if (boVar == null) {
                 return null;
             }
-            String c2 = l1.this.c(this.f65881a);
+            String c2 = l1.this.c(this.f65976a);
             if (TextUtils.isEmpty(c2)) {
                 return null;
             }
-            return boVar.a(this.f65881a.getPackageName(), c2, "OUID");
+            return boVar.a(this.f65976a.getPackageName(), c2, "OUID");
         }
     }
 
@@ -87,14 +87,14 @@ public final class l1 implements g1 {
 
     @Override // d.c.b.g1
     public g1.a b(Context context) {
-        if (this.f65879a != null && !this.f65880b.b(new Object[0]).booleanValue()) {
-            return this.f65879a.b(context);
+        if (this.f65974a != null && !this.f65975b.b(new Object[0]).booleanValue()) {
+            return this.f65974a.b(context);
         }
         Intent intent = new Intent();
         intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
         intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
         g1.a aVar = new g1.a();
-        aVar.f65841a = (String) new n1(context, intent, new b(context)).a();
+        aVar.f65936a = (String) new n1(context, intent, new b(context)).a();
         return aVar;
     }
 
@@ -142,8 +142,8 @@ public final class l1 implements g1 {
     }
 
     public l1(g1 g1Var) {
-        this.f65880b = new a(this);
-        this.f65879a = g1Var;
+        this.f65975b = new a(this);
+        this.f65974a = g1Var;
     }
 
     @Override // d.c.b.g1
@@ -151,9 +151,9 @@ public final class l1 implements g1 {
         if (context == null) {
             return false;
         }
-        Boolean b2 = this.f65880b.b(context);
-        if (this.f65879a != null && !b2.booleanValue()) {
-            return this.f65879a.a(context);
+        Boolean b2 = this.f65975b.b(context);
+        if (this.f65974a != null && !b2.booleanValue()) {
+            return this.f65974a.a(context);
         }
         return b2.booleanValue();
     }

@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static SimpleDateFormat f34800a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public static SimpleDateFormat f34895a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public static String a(long j) {
         String valueOf;

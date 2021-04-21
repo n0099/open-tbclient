@@ -15,26 +15,37 @@ public class GifFrame implements AnimatedImageFrame {
         this.mNativeContext = j;
     }
 
+    @DoNotStrip
     private native void nativeDispose();
 
+    @DoNotStrip
     private native void nativeFinalize();
 
+    @DoNotStrip
     private native int nativeGetDisposalMode();
 
+    @DoNotStrip
     private native int nativeGetDurationMs();
 
+    @DoNotStrip
     private native int nativeGetHeight();
 
+    @DoNotStrip
     private native int nativeGetTransparentPixelColor();
 
+    @DoNotStrip
     private native int nativeGetWidth();
 
+    @DoNotStrip
     private native int nativeGetXOffset();
 
+    @DoNotStrip
     private native int nativeGetYOffset();
 
+    @DoNotStrip
     private native boolean nativeHasTransparency();
 
+    @DoNotStrip
     private native void nativeRenderFrame(int i, int i2, Bitmap bitmap);
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame

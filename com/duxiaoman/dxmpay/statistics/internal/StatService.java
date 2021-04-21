@@ -1,7 +1,7 @@
 package com.duxiaoman.dxmpay.statistics.internal;
 
 import android.text.TextUtils;
-import d.d.a.a.b.i;
+import d.e.a.a.b.i;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class StatService {
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap<String, Long> f30408a;
+    public ConcurrentHashMap<String, Long> f30503a;
 
     /* loaded from: classes5.dex */
     public enum ETag {
@@ -25,15 +25,15 @@ public class StatService {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static StatService f30409a = new StatService();
+        public static StatService f30504a = new StatService();
     }
 
     public static StatService a() {
-        return a.f30409a;
+        return a.f30504a;
     }
 
     public static void b(String str) {
-        a().f30408a.put(str, Long.valueOf(System.currentTimeMillis()));
+        a().f30503a.put(str, Long.valueOf(System.currentTimeMillis()));
     }
 
     public static void c(String str, String str2, String str3) {
@@ -67,12 +67,12 @@ public class StatService {
     }
 
     public static long f(String str) {
-        Long l = a().f30408a.get(str);
+        Long l = a().f30503a.get(str);
         if (l == null) {
             return -1L;
         }
         Long valueOf = Long.valueOf(System.currentTimeMillis() - l.longValue());
-        a().f30408a.remove(str);
+        a().f30503a.remove(str);
         return valueOf.longValue();
     }
 
@@ -95,6 +95,6 @@ public class StatService {
     }
 
     public StatService() {
-        this.f30408a = new ConcurrentHashMap<>();
+        this.f30503a = new ConcurrentHashMap<>();
     }
 }

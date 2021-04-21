@@ -11,38 +11,38 @@ public class b extends com.kwad.sdk.core.e.b {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public KsDrawAd.AdInteractionListener f34812a;
+    public KsDrawAd.AdInteractionListener f34907a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public AdBaseFrameLayout f34813b;
+    public AdBaseFrameLayout f34908b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f34814c;
+    public AdTemplate f34909c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f34815d;
+    public com.kwad.sdk.core.download.b.b f34910d;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.draw.c.a f34816e;
+    public com.kwad.sdk.draw.c.a f34911e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.draw.b.b.a f34817f;
+    public com.kwad.sdk.draw.b.b.a f34912f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public c f34818g;
+    public c f34913g;
 
     @Override // com.kwad.sdk.core.e.b
     public void a() {
-        com.kwad.sdk.core.download.b.b bVar = this.f34815d;
+        com.kwad.sdk.core.download.b.b bVar = this.f34910d;
         if (bVar != null) {
             bVar.f();
         }
-        this.f34816e.e();
+        this.f34911e.e();
     }
 }

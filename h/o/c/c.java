@@ -13,38 +13,38 @@ import rx.internal.schedulers.ScheduledAction;
 public final class c extends h.g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Executor f68895a;
+    public final Executor f69042a;
 
     /* loaded from: classes7.dex */
     public static final class a extends g.a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Executor f68896e;
+        public final Executor f69043e;
 
         /* renamed from: g  reason: collision with root package name */
-        public final ConcurrentLinkedQueue<ScheduledAction> f68898g = new ConcurrentLinkedQueue<>();
+        public final ConcurrentLinkedQueue<ScheduledAction> f69045g = new ConcurrentLinkedQueue<>();
 
         /* renamed from: h  reason: collision with root package name */
-        public final AtomicInteger f68899h = new AtomicInteger();
+        public final AtomicInteger f69046h = new AtomicInteger();
 
         /* renamed from: f  reason: collision with root package name */
-        public final h.u.b f68897f = new h.u.b();
+        public final h.u.b f69044f = new h.u.b();
         public final ScheduledExecutorService i = d.a();
 
         /* renamed from: h.o.c.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C1917a implements h.n.a {
+        public class C1921a implements h.n.a {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ h.u.c f68900e;
+            public final /* synthetic */ h.u.c f69047e;
 
-            public C1917a(h.u.c cVar) {
-                this.f68900e = cVar;
+            public C1921a(h.u.c cVar) {
+                this.f69047e = cVar;
             }
 
             @Override // h.n.a
             public void call() {
-                a.this.f68897f.b(this.f68900e);
+                a.this.f69044f.b(this.f69047e);
             }
         }
 
@@ -52,35 +52,35 @@ public final class c extends h.g {
         public class b implements h.n.a {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ h.u.c f68902e;
+            public final /* synthetic */ h.u.c f69049e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ h.n.a f68903f;
+            public final /* synthetic */ h.n.a f69050f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ k f68904g;
+            public final /* synthetic */ k f69051g;
 
             public b(h.u.c cVar, h.n.a aVar, k kVar) {
-                this.f68902e = cVar;
-                this.f68903f = aVar;
-                this.f68904g = kVar;
+                this.f69049e = cVar;
+                this.f69050f = aVar;
+                this.f69051g = kVar;
             }
 
             @Override // h.n.a
             public void call() {
-                if (this.f68902e.isUnsubscribed()) {
+                if (this.f69049e.isUnsubscribed()) {
                     return;
                 }
-                k b2 = a.this.b(this.f68903f);
-                this.f68902e.a(b2);
+                k b2 = a.this.b(this.f69050f);
+                this.f69049e.a(b2);
                 if (b2.getClass() == ScheduledAction.class) {
-                    ((ScheduledAction) b2).add(this.f68904g);
+                    ((ScheduledAction) b2).add(this.f69051g);
                 }
             }
         }
 
         public a(Executor executor) {
-            this.f68896e = executor;
+            this.f69043e = executor;
         }
 
         @Override // h.g.a
@@ -88,15 +88,15 @@ public final class c extends h.g {
             if (isUnsubscribed()) {
                 return h.u.e.c();
             }
-            ScheduledAction scheduledAction = new ScheduledAction(h.r.c.q(aVar), this.f68897f);
-            this.f68897f.a(scheduledAction);
-            this.f68898g.offer(scheduledAction);
-            if (this.f68899h.getAndIncrement() == 0) {
+            ScheduledAction scheduledAction = new ScheduledAction(h.r.c.q(aVar), this.f69044f);
+            this.f69044f.a(scheduledAction);
+            this.f69045g.offer(scheduledAction);
+            if (this.f69046h.getAndIncrement() == 0) {
                 try {
-                    this.f68896e.execute(this);
+                    this.f69043e.execute(this);
                 } catch (RejectedExecutionException e2) {
-                    this.f68897f.b(scheduledAction);
-                    this.f68899h.decrementAndGet();
+                    this.f69044f.b(scheduledAction);
+                    this.f69046h.decrementAndGet();
                     h.r.c.j(e2);
                     throw e2;
                 }
@@ -116,8 +116,8 @@ public final class c extends h.g {
             h.u.c cVar = new h.u.c();
             h.u.c cVar2 = new h.u.c();
             cVar2.a(cVar);
-            this.f68897f.a(cVar2);
-            k a2 = h.u.e.a(new C1917a(cVar2));
+            this.f69044f.a(cVar2);
+            k a2 = h.u.e.a(new C1921a(cVar2));
             ScheduledAction scheduledAction = new ScheduledAction(new b(cVar2, q, a2));
             cVar.a(scheduledAction);
             try {
@@ -131,44 +131,44 @@ public final class c extends h.g {
 
         @Override // h.k
         public boolean isUnsubscribed() {
-            return this.f68897f.isUnsubscribed();
+            return this.f69044f.isUnsubscribed();
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            while (!this.f68897f.isUnsubscribed()) {
-                ScheduledAction poll = this.f68898g.poll();
+            while (!this.f69044f.isUnsubscribed()) {
+                ScheduledAction poll = this.f69045g.poll();
                 if (poll == null) {
                     return;
                 }
                 if (!poll.isUnsubscribed()) {
-                    if (!this.f68897f.isUnsubscribed()) {
+                    if (!this.f69044f.isUnsubscribed()) {
                         poll.run();
                     } else {
-                        this.f68898g.clear();
+                        this.f69045g.clear();
                         return;
                     }
                 }
-                if (this.f68899h.decrementAndGet() == 0) {
+                if (this.f69046h.decrementAndGet() == 0) {
                     return;
                 }
             }
-            this.f68898g.clear();
+            this.f69045g.clear();
         }
 
         @Override // h.k
         public void unsubscribe() {
-            this.f68897f.unsubscribe();
-            this.f68898g.clear();
+            this.f69044f.unsubscribe();
+            this.f69045g.clear();
         }
     }
 
     public c(Executor executor) {
-        this.f68895a = executor;
+        this.f69042a = executor;
     }
 
     @Override // h.g
     public g.a createWorker() {
-        return new a(this.f68895a);
+        return new a(this.f69042a);
     }
 }

@@ -5,15 +5,15 @@ import java.math.BigDecimal;
 public final class g extends Number {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f29732a;
+    public final String f29740a;
 
     public g(String str) {
-        this.f29732a = str;
+        this.f29740a = str;
     }
 
     @Override // java.lang.Number
     public double doubleValue() {
-        return Double.parseDouble(this.f29732a);
+        return Double.parseDouble(this.f29740a);
     }
 
     public boolean equals(Object obj) {
@@ -21,8 +21,8 @@ public final class g extends Number {
             return true;
         }
         if (obj instanceof g) {
-            String str = this.f29732a;
-            String str2 = ((g) obj).f29732a;
+            String str = this.f29740a;
+            String str2 = ((g) obj).f29740a;
             return str == str2 || str.equals(str2);
         }
         return false;
@@ -30,36 +30,36 @@ public final class g extends Number {
 
     @Override // java.lang.Number
     public float floatValue() {
-        return Float.parseFloat(this.f29732a);
+        return Float.parseFloat(this.f29740a);
     }
 
     public int hashCode() {
-        return this.f29732a.hashCode();
+        return this.f29740a.hashCode();
     }
 
     @Override // java.lang.Number
     public int intValue() {
         try {
             try {
-                return Integer.parseInt(this.f29732a);
+                return Integer.parseInt(this.f29740a);
             } catch (NumberFormatException unused) {
-                return (int) Long.parseLong(this.f29732a);
+                return (int) Long.parseLong(this.f29740a);
             }
         } catch (NumberFormatException unused2) {
-            return new BigDecimal(this.f29732a).intValue();
+            return new BigDecimal(this.f29740a).intValue();
         }
     }
 
     @Override // java.lang.Number
     public long longValue() {
         try {
-            return Long.parseLong(this.f29732a);
+            return Long.parseLong(this.f29740a);
         } catch (NumberFormatException unused) {
-            return new BigDecimal(this.f29732a).longValue();
+            return new BigDecimal(this.f29740a).longValue();
         }
     }
 
     public String toString() {
-        return this.f29732a;
+        return this.f29740a;
     }
 }

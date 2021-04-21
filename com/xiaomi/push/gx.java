@@ -11,7 +11,7 @@ import java.util.NoSuchElementException;
 public class gx {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40906a;
+    public int f41001a;
 
     /* renamed from: a  reason: collision with other field name */
     public long f458a;
@@ -32,7 +32,7 @@ public class gx {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final gx f40907a = new gx();
+        public static final gx f41002a = new gx();
     }
 
     private ex a(bi.a aVar) {
@@ -84,20 +84,20 @@ public class gx {
 
     public static gw a() {
         gw gwVar;
-        synchronized (a.f40907a) {
-            gwVar = a.f40907a.f460a;
+        synchronized (a.f41002a) {
+            gwVar = a.f41002a.f460a;
         }
         return gwVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public static gx m348a() {
-        return a.f40907a;
+        return a.f41002a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     private void m349a() {
-        if (!this.f462a || System.currentTimeMillis() - this.f458a <= this.f40906a) {
+        if (!this.f462a || System.currentTimeMillis() - this.f458a <= this.f41001a) {
             return;
         }
         this.f462a = false;
@@ -132,12 +132,12 @@ public class gx {
             if (i2 > 604800000) {
                 i2 = 604800000;
             }
-            if (this.f40906a == i2 && this.f462a) {
+            if (this.f41001a == i2 && this.f462a) {
                 return;
             }
             this.f462a = true;
             this.f458a = System.currentTimeMillis();
-            this.f40906a = i2;
+            this.f41001a = i2;
             com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i2 + " start = " + this.f458a);
         }
     }

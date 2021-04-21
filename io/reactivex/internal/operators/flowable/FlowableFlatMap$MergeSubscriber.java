@@ -93,7 +93,7 @@ public final class FlowableFlatMap$MergeSubscriber<T, U> extends AtomicInteger i
         } else {
             clearScalarQueue();
             Throwable terminate = this.errs.terminate();
-            if (terminate != ExceptionHelper.f69103a) {
+            if (terminate != ExceptionHelper.f69250a) {
                 this.actual.onError(terminate);
             }
             return true;
@@ -118,7 +118,7 @@ public final class FlowableFlatMap$MergeSubscriber<T, U> extends AtomicInteger i
             flowableFlatMap$InnerSubscriber.dispose();
         }
         Throwable terminate = this.errs.terminate();
-        if (terminate == null || terminate == ExceptionHelper.f69103a) {
+        if (terminate == null || terminate == ExceptionHelper.f69250a) {
             return;
         }
         a.f(terminate);
@@ -190,7 +190,7 @@ public final class FlowableFlatMap$MergeSubscriber<T, U> extends AtomicInteger i
             int length = flowableFlatMap$InnerSubscriberArr2.length;
             if (z3 && ((eVar2 == null || eVar2.isEmpty()) && length == 0)) {
                 Throwable terminate = this.errs.terminate();
-                if (terminate != ExceptionHelper.f69103a) {
+                if (terminate != ExceptionHelper.f69250a) {
                     if (terminate == null) {
                         cVar.onComplete();
                         return;

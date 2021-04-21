@@ -2,9 +2,9 @@ package com.baidu.tieba.ala.alasquare.special_forum.message;
 
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.h0.r.q.a2;
-import d.b.i0.t.d.f.c.b;
-import d.b.i0.t.d.f.c.c;
+import d.b.i0.r.q.a2;
+import d.b.j0.t.d.f.c.b;
+import d.b.j0.t.d.f.c.c;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -47,8 +47,8 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("activity_info_detail");
             c cVar = this.mSpecialActivityListData;
-            if (cVar != null && cVar.f62099e == null) {
-                cVar.f62099e = new ArrayList();
+            if (cVar != null && cVar.f62520e == null) {
+                cVar.f62520e = new ArrayList();
             }
             if (optJSONArray2 != null) {
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
@@ -56,7 +56,7 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                     if (optJSONObject3 != null) {
                         b bVar = new b();
                         bVar.g(optJSONObject3);
-                        this.mSpecialActivityListData.f62099e.add(bVar);
+                        this.mSpecialActivityListData.f62520e.add(bVar);
                     }
                 }
             }

@@ -7,51 +7,51 @@ import androidx.annotation.RestrictTo;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f31756a;
+    public final String f31851a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f31757b;
+    public final String f31852b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final double f31758c;
+    public final double f31853c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f31759d;
+    public final int f31854d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f31760e;
+    public final int f31855e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final double f31761f;
+    public final double f31856f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final double f31762g;
+    public final double f31857g;
     @ColorInt
 
     /* renamed from: h  reason: collision with root package name */
-    public final int f31763h;
+    public final int f31858h;
     @ColorInt
     public final int i;
     public final double j;
     public final boolean k;
 
     public b(String str, String str2, double d2, int i, int i2, double d3, double d4, @ColorInt int i3, @ColorInt int i4, double d5, boolean z) {
-        this.f31756a = str;
-        this.f31757b = str2;
-        this.f31758c = d2;
-        this.f31759d = i;
-        this.f31760e = i2;
-        this.f31761f = d3;
-        this.f31762g = d4;
-        this.f31763h = i3;
+        this.f31851a = str;
+        this.f31852b = str2;
+        this.f31853c = d2;
+        this.f31854d = i;
+        this.f31855e = i2;
+        this.f31856f = d3;
+        this.f31857g = d4;
+        this.f31858h = i3;
         this.i = i4;
         this.j = d5;
         this.k = z;
     }
 
     public int hashCode() {
-        int hashCode = (((((int) ((((this.f31756a.hashCode() * 31) + this.f31757b.hashCode()) * 31) + this.f31758c)) * 31) + this.f31759d) * 31) + this.f31760e;
-        long doubleToLongBits = Double.doubleToLongBits(this.f31761f);
-        return (((hashCode * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.f31763h;
+        int hashCode = (((((int) ((((this.f31851a.hashCode() * 31) + this.f31852b.hashCode()) * 31) + this.f31853c)) * 31) + this.f31854d) * 31) + this.f31855e;
+        long doubleToLongBits = Double.doubleToLongBits(this.f31856f);
+        return (((hashCode * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.f31858h;
     }
 }

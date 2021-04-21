@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.VersionData;
-import d.b.i0.l;
+import d.b.j0.l;
 /* loaded from: classes4.dex */
 public class AsInstallService extends BdBaseService {
     public static final int AS_INSTALL_RECEIVING_DURATION_MILLS = 120000;

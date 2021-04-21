@@ -14,13 +14,13 @@ import d.b.c.e.p.j;
 public class RecommendModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.i0.k.a f15154e;
+    public d.b.j0.i0.k.a f15162e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.c.c.g.a f15155f;
+    public d.b.c.c.g.a f15163f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f15156g;
+    public boolean f15164g;
 
     /* loaded from: classes4.dex */
     public class a extends d.b.c.c.g.a {
@@ -30,21 +30,21 @@ public class RecommendModel extends BdBaseModel {
 
         @Override // d.b.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            RecommendModel.this.f15156g = false;
-            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || RecommendModel.this.unique_id != responsedMessage.getOrginalMessage().getTag() || RecommendModel.this.f15154e == null) {
+            RecommendModel.this.f15164g = false;
+            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || RecommendModel.this.unique_id != responsedMessage.getOrginalMessage().getTag() || RecommendModel.this.f15162e == null) {
                 return;
             }
-            d.b.i0.i0.k.c.a recommendData = responsedMessage instanceof ResponseHttpRecommendMessage ? ((ResponseHttpRecommendMessage) responsedMessage).getRecommendData() : null;
+            d.b.j0.i0.k.c.a recommendData = responsedMessage instanceof ResponseHttpRecommendMessage ? ((ResponseHttpRecommendMessage) responsedMessage).getRecommendData() : null;
             if (responsedMessage instanceof ResponseSocketRecommendMessage) {
                 recommendData = ((ResponseSocketRecommendMessage) responsedMessage).getRecommendData();
             }
-            RecommendModel.this.f15154e.v(responsedMessage.getError(), recommendData);
+            RecommendModel.this.f15162e.v(responsedMessage.getError(), recommendData);
         }
     }
 
     public RecommendModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.f15155f = new a(CmdConfigHttp.CMD_RECOMMEND_FORUM, 309630);
+        this.f15163f = new a(CmdConfigHttp.CMD_RECOMMEND_FORUM, 309630);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -59,35 +59,35 @@ public class RecommendModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.f15155f);
-        this.f15156g = false;
+        MessageManager.getInstance().unRegisterListener(this.f15163f);
+        this.f15164g = false;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void setUniqueId(BdUniqueId bdUniqueId) {
         super.setUniqueId(bdUniqueId);
-        this.f15155f.setTag(bdUniqueId);
-        registerListener(this.f15155f);
+        this.f15163f.setTag(bdUniqueId);
+        registerListener(this.f15163f);
     }
 
     public void v() {
         if (!j.A()) {
-            d.b.i0.i0.k.a aVar = this.f15154e;
+            d.b.j0.i0.k.a aVar = this.f15162e;
             if (aVar != null) {
                 aVar.v(-1, null);
             }
-        } else if (this.f15156g) {
+        } else if (this.f15164g) {
         } else {
             cancelLoadData();
             RequestRecommendMessage requestRecommendMessage = new RequestRecommendMessage();
             requestRecommendMessage.setTag(this.unique_id);
             if (MessageManager.getInstance().sendMessage(requestRecommendMessage)) {
-                this.f15156g = true;
+                this.f15164g = true;
             }
         }
     }
 
-    public void w(d.b.i0.i0.k.a aVar) {
-        this.f15154e = aVar;
+    public void w(d.b.j0.i0.k.a aVar) {
+        this.f15162e = aVar;
     }
 }

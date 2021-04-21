@@ -13,17 +13,17 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.Parcel;
 import android.text.TextUtils;
-import d.b.p.g.d.a;
-import d.b.p.h.a;
+import d.b.q.g.d.a;
+import d.b.q.h.a;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class GaidProvider extends d.b.p.h.a {
+public class GaidProvider extends d.b.q.h.a {
 
     /* renamed from: d  reason: collision with root package name */
-    public a.C1765a f6281d;
+    public a.C1784a f6281d;
 
     /* renamed from: e  reason: collision with root package name */
     public c f6282e;
@@ -81,7 +81,7 @@ public class GaidProvider extends d.b.p.h.a {
         public boolean f6290b = true;
 
         /* renamed from: c  reason: collision with root package name */
-        public d.b.p.g.c.a.e f6291c = new d.b.p.g.c.a.e();
+        public d.b.q.g.c.a.e f6291c = new d.b.q.g.c.a.e();
 
         /* renamed from: e  reason: collision with root package name */
         public ArrayList<String> f6293e = new ArrayList<>();
@@ -198,7 +198,7 @@ public class GaidProvider extends d.b.p.h.a {
         public d(IBinder iBinder) {
             this.f6295a = iBinder;
             try {
-                this.f6296b = com.baidu.helios.ids.gaid.c.a(d.b.p.h.d.a.c());
+                this.f6296b = com.baidu.helios.ids.gaid.c.a(d.b.q.h.d.a.c());
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -272,7 +272,7 @@ public class GaidProvider extends d.b.p.h.a {
                     GaidProvider.this.f6282e.b(this.f6301f ? 1L : 2L, 3L);
                     if (!TextUtils.isEmpty(this.f6300e)) {
                         try {
-                            String b2 = d.b.p.h.a.b("A20", new d.b.p.g.c.a.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(this.f6300e.getBytes("UTF-8")));
+                            String b2 = d.b.q.h.a.b("A20", new d.b.q.g.c.a.b("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(this.f6300e.getBytes("UTF-8")));
                             GaidProvider.this.f6282e.c(b2);
                             GaidProvider.this.f6282e.f(b2);
                         } catch (Exception unused) {
@@ -295,8 +295,8 @@ public class GaidProvider extends d.b.p.h.a {
                     if (GaidProvider.this.i != null) {
                         GaidProvider.this.i.removeMessages(0);
                     }
-                    GaidProvider.this.f65155b.f65162d.submit(new RunnableC0087a(a2, a3));
-                    GaidProvider.this.f65155b.f65159a.unbindService(e.this);
+                    GaidProvider.this.f65419b.f65426d.submit(new RunnableC0087a(a2, a3));
+                    GaidProvider.this.f65419b.f65423a.unbindService(e.this);
                 } catch (Exception unused) {
                 }
             }
@@ -307,7 +307,7 @@ public class GaidProvider extends d.b.p.h.a {
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            GaidProvider.this.f65155b.f65163e.submit(new a(iBinder));
+            GaidProvider.this.f65419b.f65427e.submit(new a(iBinder));
         }
 
         @Override // android.content.ServiceConnection
@@ -326,8 +326,8 @@ public class GaidProvider extends d.b.p.h.a {
 
         public f() {
             try {
-                this.f6303a = com.baidu.helios.ids.gaid.c.a(d.b.p.h.d.a.a());
-                this.f6304b = com.baidu.helios.ids.gaid.c.a(d.b.p.h.d.a.b());
+                this.f6303a = com.baidu.helios.ids.gaid.c.a(d.b.q.h.d.a.a());
+                this.f6304b = com.baidu.helios.ids.gaid.c.a(d.b.q.h.d.a.b());
             } catch (Exception unused) {
             }
         }
@@ -372,7 +372,7 @@ public class GaidProvider extends d.b.p.h.a {
             if (message.what != 0) {
                 return;
             }
-            GaidProvider.this.f65155b.f65162d.submit(new a());
+            GaidProvider.this.f65419b.f65426d.submit(new a());
         }
     }
 
@@ -382,18 +382,18 @@ public class GaidProvider extends d.b.p.h.a {
         this.f6285h = new ArrayList();
     }
 
-    @Override // d.b.p.h.a
+    @Override // d.b.q.h.a
     public String c() {
         return this.f6282e.a();
     }
 
-    @Override // d.b.p.h.a
+    @Override // d.b.q.h.a
     public void f(a.c cVar) {
         String a2;
         b bVar = new b(this);
         this.f6284g = bVar;
-        this.f6281d = this.f65154a.f("gaid");
-        Context context = this.f65155b.f65159a;
+        this.f6281d = this.f65418a.f("gaid");
+        Context context = this.f65419b.f65423a;
         this.f6283f = new f(null);
         PackageManager packageManager = context.getPackageManager();
         try {
@@ -432,9 +432,9 @@ public class GaidProvider extends d.b.p.h.a {
         bVar.f6288a.set(true);
     }
 
-    @Override // d.b.p.h.a
+    @Override // d.b.q.h.a
     public void g(a.d<String> dVar) {
-        this.f65155b.f65162d.submit(new a(dVar));
+        this.f65419b.f65426d.submit(new a(dVar));
     }
 
     public void i() {

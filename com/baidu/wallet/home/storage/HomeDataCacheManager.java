@@ -22,19 +22,19 @@ import org.json.JSONException;
 public class HomeDataCacheManager {
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f24223c;
+    public static String f24231c;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f24224a;
+    public final String f24232a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f24225b;
+    public final String f24233b;
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static HomeDataCacheManager f24226a = new HomeDataCacheManager();
+        public static HomeDataCacheManager f24234a = new HomeDataCacheManager();
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:49:0x008d */
@@ -122,14 +122,14 @@ public class HomeDataCacheManager {
     }
 
     public static HomeDataCacheManager getInstance() {
-        return a.f24226a;
+        return a.f24234a;
     }
 
     public synchronized String getPpKey(Context context) {
-        if (TextUtils.isEmpty(f24223c)) {
-            f24223c = PayPreferenceManager.getNewPpKey(context);
+        if (TextUtils.isEmpty(f24231c)) {
+            f24231c = PayPreferenceManager.getNewPpKey(context);
         }
-        return f24223c;
+        return f24231c;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x00a6 */
@@ -355,11 +355,11 @@ public class HomeDataCacheManager {
     }
 
     public synchronized void synPPkey(Context context) {
-        f24223c = PayPreferenceManager.getNewPpKey(context);
+        f24231c = PayPreferenceManager.getNewPpKey(context);
     }
 
     public HomeDataCacheManager() {
-        this.f24224a = "wallet_home_";
-        this.f24225b = StringUtil.NULL_STRING;
+        this.f24232a = "wallet_home_";
+        this.f24233b = StringUtil.NULL_STRING;
     }
 }

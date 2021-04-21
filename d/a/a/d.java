@@ -14,22 +14,22 @@ import java.util.Map;
 public class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, List<Layer>> f41417c;
+    public Map<String, List<Layer>> f41512c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, g> f41418d;
+    public Map<String, g> f41513d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, d.a.a.u.b> f41419e;
+    public Map<String, d.a.a.u.b> f41514e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<d.a.a.u.g> f41420f;
+    public List<d.a.a.u.g> f41515f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SparseArrayCompat<d.a.a.u.c> f41421g;
+    public SparseArrayCompat<d.a.a.u.c> f41516g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LongSparseArray<Layer> f41422h;
+    public LongSparseArray<Layer> f41517h;
     public List<Layer> i;
     public Rect j;
     public float k;
@@ -38,16 +38,16 @@ public class d {
     public boolean n;
 
     /* renamed from: a  reason: collision with root package name */
-    public final n f41415a = new n();
+    public final n f41510a = new n();
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashSet<String> f41416b = new HashSet<>();
+    public final HashSet<String> f41511b = new HashSet<>();
     public int o = 0;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void a(String str) {
         d.a.a.x.d.c(str);
-        this.f41416b.add(str);
+        this.f41511b.add(str);
     }
 
     public Rect b() {
@@ -55,7 +55,7 @@ public class d {
     }
 
     public SparseArrayCompat<d.a.a.u.c> c() {
-        return this.f41421g;
+        return this.f41516g;
     }
 
     public float d() {
@@ -72,7 +72,7 @@ public class d {
     }
 
     public Map<String, d.a.a.u.b> g() {
-        return this.f41419e;
+        return this.f41514e;
     }
 
     public float h() {
@@ -80,7 +80,7 @@ public class d {
     }
 
     public Map<String, g> i() {
-        return this.f41418d;
+        return this.f41513d;
     }
 
     public List<Layer> j() {
@@ -89,9 +89,9 @@ public class d {
 
     @Nullable
     public d.a.a.u.g k(String str) {
-        this.f41420f.size();
-        for (int i = 0; i < this.f41420f.size(); i++) {
-            d.a.a.u.g gVar = this.f41420f.get(i);
+        this.f41515f.size();
+        for (int i = 0; i < this.f41515f.size(); i++) {
+            d.a.a.u.g gVar = this.f41515f.get(i);
             if (gVar.a(str)) {
                 return gVar;
             }
@@ -105,13 +105,13 @@ public class d {
     }
 
     public n m() {
-        return this.f41415a;
+        return this.f41510a;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public List<Layer> n(String str) {
-        return this.f41417c.get(str);
+        return this.f41512c.get(str);
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
@@ -136,17 +136,17 @@ public class d {
         this.l = f3;
         this.m = f4;
         this.i = list;
-        this.f41422h = longSparseArray;
-        this.f41417c = map;
-        this.f41418d = map2;
-        this.f41421g = sparseArrayCompat;
-        this.f41419e = map3;
-        this.f41420f = list2;
+        this.f41517h = longSparseArray;
+        this.f41512c = map;
+        this.f41513d = map2;
+        this.f41516g = sparseArrayCompat;
+        this.f41514e = map3;
+        this.f41515f = list2;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public Layer s(long j) {
-        return this.f41422h.get(j);
+        return this.f41517h.get(j);
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -163,6 +163,6 @@ public class d {
     }
 
     public void u(boolean z) {
-        this.f41415a.b(z);
+        this.f41510a.b(z);
     }
 }

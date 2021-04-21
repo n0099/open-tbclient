@@ -31,7 +31,7 @@ public class EmotionLoader {
         public SpannableString ss;
 
         /* renamed from: tv  reason: collision with root package name */
-        public TextView f11521tv;
+        public TextView f11529tv;
 
         public SpannableBeanHolder() {
         }
@@ -123,7 +123,7 @@ public class EmotionLoader {
                 @Override // android.os.Handler
                 public void handleMessage(Message message) {
                     SpannableBeanHolder spannableBeanHolder = (SpannableBeanHolder) message.obj;
-                    TextView textView2 = spannableBeanHolder.f11521tv;
+                    TextView textView2 = spannableBeanHolder.f11529tv;
                     SpannableString spannableString = spannableBeanHolder.ss;
                     String str2 = spannableBeanHolder.content;
                     if (EmotionLoader.DEBUG) {
@@ -144,7 +144,7 @@ public class EmotionLoader {
                 SpannableString parseEmotion = EmotionLoader.this.parseEmotion(emotionType, context, str, textView);
                 SpannableBeanHolder spannableBeanHolder = new SpannableBeanHolder();
                 spannableBeanHolder.ss = parseEmotion;
-                spannableBeanHolder.f11521tv = textView;
+                spannableBeanHolder.f11529tv = textView;
                 spannableBeanHolder.content = str;
                 Message obtain = Message.obtain();
                 obtain.obj = spannableBeanHolder;

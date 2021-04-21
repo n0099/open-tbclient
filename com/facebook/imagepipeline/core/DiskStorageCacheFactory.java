@@ -6,7 +6,7 @@ import com.facebook.cache.disk.DiskStorageCache;
 import com.facebook.cache.disk.FileCache;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DiskStorageCacheFactory implements FileCacheFactory {
     public DiskStorageFactory mDiskStorageFactory;
 

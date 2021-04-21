@@ -8,34 +8,34 @@ import com.baidu.wallet.paysdk.ui.widget.AuthorizeInfoView;
 public class c extends a {
     public c(AuthorizeSignActivity authorizeSignActivity) {
         super(authorizeSignActivity);
-        this.f25427b = 3;
+        this.f25435b = 3;
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.a, com.baidu.wallet.paysdk.presenter.e
     public void a(boolean z) {
         super.a(z);
         if (z) {
-            this.f25427b = 3;
+            this.f25435b = 3;
         } else {
-            this.f25427b = 4;
+            this.f25435b = 4;
         }
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.a, com.baidu.wallet.paysdk.presenter.e
     public void b() {
         super.b();
-        AuthorizeSignActivity authorizeSignActivity = this.f25426a;
+        AuthorizeSignActivity authorizeSignActivity = this.f25434a;
         if (authorizeSignActivity == null) {
             return;
         }
         AuthorizeInfoView.b authInfoViewAdapter = authorizeSignActivity.getAuthInfoViewAdapter(1);
-        DirectPayContentResponse payResponse = this.f25426a.getPayResponse();
+        DirectPayContentResponse payResponse = this.f25434a.getPayResponse();
         if (payResponse != null) {
             authInfoViewAdapter.a(payResponse.authorize);
             authInfoViewAdapter.a(payResponse.user);
             Authorize authorize = payResponse.authorize;
             if (authorize != null) {
-                this.f25426a.initActionBarByString(authorize.top_title);
+                this.f25434a.initActionBarByString(authorize.top_title);
             }
         }
     }

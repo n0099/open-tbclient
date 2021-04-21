@@ -30,17 +30,17 @@ public class b extends d.a.a.u.k.a {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f41729a;
+        public static final /* synthetic */ int[] f41824a;
 
         static {
             int[] iArr = new int[Layer.MatteType.values().length];
-            f41729a = iArr;
+            f41824a = iArr;
             try {
                 iArr[Layer.MatteType.ADD.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f41729a[Layer.MatteType.INVERT.ordinal()] = 2;
+                f41824a[Layer.MatteType.INVERT.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -79,7 +79,7 @@ public class b extends d.a.a.u.k.a {
                     aVar2 = null;
                 } else {
                     this.y.add(0, u);
-                    int i2 = a.f41729a[layer2.f().ordinal()];
+                    int i2 = a.f41824a[layer2.f().ordinal()];
                     if (i2 == 1 || i2 == 2) {
                         aVar2 = u;
                     }

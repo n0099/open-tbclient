@@ -11,11 +11,11 @@ import android.util.DisplayMetrics;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.references.CloseableReference;
 import javax.annotation.Nullable;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class PlatformBitmapFactory {
 
     /* renamed from: com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
 

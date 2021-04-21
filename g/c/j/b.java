@@ -3,11 +3,11 @@ package g.c.j;
 public class b implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f68653a;
+    public final String f68800a;
 
     public b(String str) {
         if (str != null) {
-            this.f68653a = str;
+            this.f68800a = str;
             return;
         }
         throw new IllegalArgumentException();
@@ -21,7 +21,7 @@ public class b implements a {
     @Override // g.c.j.a
     public boolean b(String str) {
         for (String str2 : str.replaceAll(" ", "").split(",")) {
-            if (this.f68653a.equals(str2)) {
+            if (this.f68800a.equals(str2)) {
                 return true;
             }
         }
@@ -30,7 +30,7 @@ public class b implements a {
 
     @Override // g.c.j.a
     public String c() {
-        return this.f68653a;
+        return this.f68800a;
     }
 
     public boolean equals(Object obj) {
@@ -40,11 +40,11 @@ public class b implements a {
         if (obj == null || b.class != obj.getClass()) {
             return false;
         }
-        return this.f68653a.equals(((b) obj).f68653a);
+        return this.f68800a.equals(((b) obj).f68800a);
     }
 
     public int hashCode() {
-        return this.f68653a.hashCode();
+        return this.f68800a.hashCode();
     }
 
     @Override // g.c.j.a

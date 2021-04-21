@@ -184,7 +184,7 @@ public final class FlowableOnBackpressureBufferStrategy$OnBackpressureBufferStra
             z = false;
             z2 = true;
             if (deque.size() == this.bufferSize) {
-                int i = h.f68492a[this.strategy.ordinal()];
+                int i = h.f68639a[this.strategy.ordinal()];
                 if (i == 1) {
                     deque.pollLast();
                     deque.offer(t);

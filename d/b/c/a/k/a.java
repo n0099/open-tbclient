@@ -7,7 +7,7 @@ public interface a {
 
     /* renamed from: d.b.c.a.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0549a {
+    public interface InterfaceC0568a {
         void a(SQLiteDatabase sQLiteDatabase);
     }
 
@@ -17,5 +17,5 @@ public interface a {
 
     void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
 
-    void setOnCreateCallback(InterfaceC0549a interfaceC0549a);
+    void setOnCreateCallback(InterfaceC0568a interfaceC0568a);
 }

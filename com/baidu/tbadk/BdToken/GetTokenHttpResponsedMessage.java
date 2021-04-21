@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
-import d.b.h0.a.y;
+import d.b.i0.a.y;
 import tbclient.Error;
 import tbclient.GetToken.GetTokenResIdl;
 /* loaded from: classes3.dex */

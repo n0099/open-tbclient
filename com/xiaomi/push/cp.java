@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class cp {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40622a;
+    public String f40717a;
 
     /* renamed from: a  reason: collision with other field name */
     public final ArrayList<co> f192a = new ArrayList<>();
@@ -21,7 +21,7 @@ public class cp {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the host is empty");
         }
-        this.f40622a = str;
+        this.f40717a = str;
     }
 
     public synchronized co a() {
@@ -36,17 +36,17 @@ public class cp {
     }
 
     public synchronized cp a(JSONObject jSONObject) {
-        this.f40622a = jSONObject.getString("host");
+        this.f40717a = jSONObject.getString("host");
         JSONArray jSONArray = jSONObject.getJSONArray("fbs");
         for (int i = 0; i < jSONArray.length(); i++) {
-            this.f192a.add(new co(this.f40622a).a(jSONArray.getJSONObject(i)));
+            this.f192a.add(new co(this.f40717a).a(jSONArray.getJSONObject(i)));
         }
         return this;
     }
 
     /* renamed from: a  reason: collision with other method in class */
     public String m208a() {
-        return this.f40622a;
+        return this.f40717a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
@@ -58,7 +58,7 @@ public class cp {
     public synchronized JSONObject m210a() {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
-        jSONObject.put("host", this.f40622a);
+        jSONObject.put("host", this.f40717a);
         JSONArray jSONArray = new JSONArray();
         Iterator<co> it = this.f192a.iterator();
         while (it.hasNext()) {
@@ -103,7 +103,7 @@ public class cp {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f40622a);
+        sb.append(this.f40717a);
         sb.append("\n");
         Iterator<co> it = this.f192a.iterator();
         while (it.hasNext()) {

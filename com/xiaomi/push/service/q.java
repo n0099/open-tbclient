@@ -201,8 +201,8 @@ public class q {
                     com.xiaomi.channel.commonutils.logger.b.m55a("drop a duplicate message, key=" + str6);
                 } else {
                     ac.c m555a = ac.m555a((Context) xMPushService, a4, bArr);
-                    if (m555a.f41226a > 0 && !TextUtils.isEmpty(m555a.f875a)) {
-                        gq.a(xMPushService, m555a.f875a, m555a.f41226a, true, false, System.currentTimeMillis());
+                    if (m555a.f41321a > 0 && !TextUtils.isEmpty(m555a.f875a)) {
+                        gq.a(xMPushService, m555a.f875a, m555a.f41321a, true, false, System.currentTimeMillis());
                     }
                     if (!ac.m560a(a4) && com.xiaomi.push.g.m325a(xMPushService.getApplicationContext(), str)) {
                         Intent intent2 = new Intent("com.xiaomi.mipush.MESSAGE_ARRIVED");
@@ -485,7 +485,7 @@ public class q {
             return;
         }
         try {
-            m.a(context, a2.f41338f, a2.f41336d, a2.f41337e);
+            m.a(context, a2.f41433f, a2.f41431d, a2.f41432e);
         } catch (IOException | JSONException e2) {
             com.xiaomi.channel.commonutils.logger.b.a(e2);
         }
@@ -493,7 +493,7 @@ public class q {
 
     public void a(XMPushService xMPushService, fa faVar, av.b bVar) {
         try {
-            a(xMPushService, faVar.m292a(bVar.f41257h), faVar.c());
+            a(xMPushService, faVar.m292a(bVar.f41352h), faVar.c());
         } catch (IllegalArgumentException e2) {
             com.xiaomi.channel.commonutils.logger.b.a(e2);
         }
@@ -508,7 +508,7 @@ public class q {
         fz a2 = gbVar.a("s");
         if (a2 != null) {
             try {
-                a(xMPushService, be.a(be.a(bVar.f41257h, gbVar.j()), a2.c()), gq.a(gcVar.m330a()));
+                a(xMPushService, be.a(be.a(bVar.f41352h, gbVar.j()), a2.c()), gq.a(gcVar.m330a()));
             } catch (IllegalArgumentException e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
             }

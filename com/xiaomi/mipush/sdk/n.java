@@ -8,7 +8,7 @@ import com.xiaomi.push.bh;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f40492a = -1;
+    public static int f40587a = -1;
 
     public static af a(Context context) {
         try {
@@ -38,23 +38,23 @@ public class n {
         Object a3 = bh.a("com.google.android.gms.common.ConnectionResult", com.alipay.security.mobile.module.http.model.c.f2125g);
         if (a3 == null || !(a3 instanceof Integer)) {
             com.xiaomi.channel.commonutils.logger.b.c("google service is not avaliable");
-            f40492a = 0;
+            f40587a = 0;
             return false;
         }
         int intValue = ((Integer) Integer.class.cast(a3)).intValue();
         if (a2 != null) {
             if (a2 instanceof Integer) {
-                f40492a = ((Integer) Integer.class.cast(a2)).intValue() == intValue ? 1 : 0;
+                f40587a = ((Integer) Integer.class.cast(a2)).intValue() == intValue ? 1 : 0;
             } else {
-                f40492a = 0;
+                f40587a = 0;
                 com.xiaomi.channel.commonutils.logger.b.c("google service is not avaliable");
             }
         }
         StringBuilder sb = new StringBuilder();
         sb.append("is google service can be used");
-        sb.append(f40492a > 0);
+        sb.append(f40587a > 0);
         com.xiaomi.channel.commonutils.logger.b.c(sb.toString());
-        return f40492a > 0;
+        return f40587a > 0;
     }
 
     public static boolean b(Context context) {

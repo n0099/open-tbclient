@@ -10,32 +10,32 @@ import java.util.HashMap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39819a;
+    public Context f39914a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39820b;
+    public String f39915b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile SharedPreferences f39821c;
+    public volatile SharedPreferences f39916c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, String> f39822d = new HashMap<>();
+    public HashMap<String, String> f39917d = new HashMap<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, Long> f39823e = new HashMap<>();
+    public HashMap<String, Long> f39918e = new HashMap<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, Integer> f39824f = new HashMap<>();
+    public HashMap<String, Integer> f39919f = new HashMap<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public HashMap<String, Boolean> f39825g = new HashMap<>();
+    public HashMap<String, Boolean> f39920g = new HashMap<>();
 
     public final void a(Context context, String str) {
         if (context instanceof Application) {
             if (!TextUtils.isEmpty(str)) {
-                this.f39820b = str;
-                this.f39821c = context.getSharedPreferences(str, 0);
-                this.f39819a = context;
+                this.f39915b = str;
+                this.f39916c = context.getSharedPreferences(str, 0);
+                this.f39914a = context;
                 return;
             }
             throw new RuntimeException("sharedFileName can't be null");
@@ -44,29 +44,29 @@ public class a {
     }
 
     public final int b(String str) {
-        Integer num = this.f39824f.get(str);
+        Integer num = this.f39919f.get(str);
         if (num != null) {
             return num.intValue();
         }
         b();
-        if (this.f39821c != null) {
-            num = Integer.valueOf(this.f39821c.getInt(str, 0));
+        if (this.f39916c != null) {
+            num = Integer.valueOf(this.f39916c.getInt(str, 0));
             if (!num.equals(0)) {
-                this.f39824f.put(str, num);
+                this.f39919f.put(str, num);
             }
         }
         return num.intValue();
     }
 
     public final void c(String str) {
-        this.f39823e.remove(str);
-        this.f39824f.remove(str);
-        this.f39825g.remove(str);
-        this.f39822d.remove(str);
+        this.f39918e.remove(str);
+        this.f39919f.remove(str);
+        this.f39920g.remove(str);
+        this.f39917d.remove(str);
         b();
-        if (this.f39821c != null) {
-            SharedPreferences.Editor edit = this.f39821c.edit();
-            if (this.f39821c.contains(str)) {
+        if (this.f39916c != null) {
+            SharedPreferences.Editor edit = this.f39916c.edit();
+            if (this.f39916c.contains(str)) {
                 edit.remove(str);
                 a(edit);
             }
@@ -74,45 +74,45 @@ public class a {
     }
 
     public final void a(String str, String str2) {
-        this.f39822d.put(str, str2);
+        this.f39917d.put(str, str2);
         b();
-        if (this.f39821c != null) {
-            SharedPreferences.Editor edit = this.f39821c.edit();
+        if (this.f39916c != null) {
+            SharedPreferences.Editor edit = this.f39916c.edit();
             edit.putString(str, str2);
             a(edit);
         }
     }
 
     public final long b(String str, long j) {
-        Long l = this.f39823e.get(str);
+        Long l = this.f39918e.get(str);
         if (l != null) {
             return l.longValue();
         }
         b();
-        if (this.f39821c != null) {
-            l = Long.valueOf(this.f39821c.getLong(str, j));
+        if (this.f39916c != null) {
+            l = Long.valueOf(this.f39916c.getLong(str, j));
             if (!l.equals(Long.valueOf(j))) {
-                this.f39823e.put(str, l);
+                this.f39918e.put(str, l);
             }
         }
         return l.longValue();
     }
 
     public final void a(String str, int i) {
-        this.f39824f.put(str, Integer.valueOf(i));
+        this.f39919f.put(str, Integer.valueOf(i));
         b();
-        if (this.f39821c != null) {
-            SharedPreferences.Editor edit = this.f39821c.edit();
+        if (this.f39916c != null) {
+            SharedPreferences.Editor edit = this.f39916c.edit();
             edit.putInt(str, i);
             a(edit);
         }
     }
 
     private void b() {
-        if (this.f39821c == null) {
-            Context context = this.f39819a;
+        if (this.f39916c == null) {
+            Context context = this.f39914a;
             if (context != null) {
-                this.f39821c = context.getSharedPreferences(this.f39820b, 0);
+                this.f39916c = context.getSharedPreferences(this.f39915b, 0);
                 return;
             }
             throw new RuntimeException("SharedPreferences is not init", new Throwable());
@@ -120,25 +120,25 @@ public class a {
     }
 
     public final void a(String str, long j) {
-        this.f39823e.put(str, Long.valueOf(j));
+        this.f39918e.put(str, Long.valueOf(j));
         b();
-        if (this.f39821c != null) {
-            SharedPreferences.Editor edit = this.f39821c.edit();
+        if (this.f39916c != null) {
+            SharedPreferences.Editor edit = this.f39916c.edit();
             edit.putLong(str, j);
             a(edit);
         }
     }
 
     public final String a(String str) {
-        String str2 = this.f39822d.get(str);
+        String str2 = this.f39917d.get(str);
         if (str2 != null) {
             return str2;
         }
         b();
-        if (this.f39821c != null) {
-            str2 = this.f39821c.getString(str, null);
+        if (this.f39916c != null) {
+            str2 = this.f39916c.getString(str, null);
             if (!TextUtils.isEmpty(str2) && !str2.equals(null)) {
-                this.f39822d.put(str, str2);
+                this.f39917d.put(str, str2);
             }
         }
         return str2;
@@ -156,13 +156,13 @@ public class a {
     }
 
     public final void a() {
-        this.f39823e.clear();
-        this.f39824f.clear();
-        this.f39825g.clear();
-        this.f39822d.clear();
+        this.f39918e.clear();
+        this.f39919f.clear();
+        this.f39920g.clear();
+        this.f39917d.clear();
         b();
-        if (this.f39821c != null) {
-            SharedPreferences.Editor edit = this.f39821c.edit();
+        if (this.f39916c != null) {
+            SharedPreferences.Editor edit = this.f39916c.edit();
             edit.clear();
             a(edit);
         }

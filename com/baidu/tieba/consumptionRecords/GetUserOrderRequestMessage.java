@@ -2,7 +2,7 @@ package com.baidu.tieba.consumptionRecords;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.h0.z0.w;
+import d.b.i0.z0.w;
 import tbclient.GetUserOrder.DataReq;
 import tbclient.GetUserOrder.GetUserOrderReqIdl;
 /* loaded from: classes4.dex */

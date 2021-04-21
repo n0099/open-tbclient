@@ -1,59 +1,305 @@
 package d.b.d0.a;
 
-import android.util.Log;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import d.b.d0.a.d.c;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class b extends c {
+public class b {
 
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f43151c = false;
+    /* renamed from: a  reason: collision with root package name */
+    public JSONObject f43290a;
 
-    /* renamed from: d  reason: collision with root package name */
-    public long f43152d;
+    /* renamed from: d.b.d0.a.b$b  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public static class C0593b {
 
-    /* renamed from: e  reason: collision with root package name */
-    public V8ExceptionInfo f43153e;
+        /* renamed from: a  reason: collision with root package name */
+        public JSONObject f43291a = new JSONObject();
 
-    /* renamed from: f  reason: collision with root package name */
-    public int f43154f;
+        public C0593b(String str, String str2) {
+            F("material_type", str);
+            F("material_url", str2);
+        }
 
-    @Override // d.b.d0.a.d.c
-    public synchronized void a(int i, V8ExceptionInfo v8ExceptionInfo) {
-        if (this.f43153e == null && v8ExceptionInfo != null) {
-            this.f43153e = new V8ExceptionInfo(v8ExceptionInfo.exceptionTime, v8ExceptionInfo.exceptionMsg, v8ExceptionInfo.exceptionTrace, v8ExceptionInfo.exceptionType, v8ExceptionInfo.filePath);
-            this.f43154f = i;
-            if (this.f43165b != null) {
-                this.f43165b.b();
+        public C0593b A(int i) {
+            try {
+                this.f43291a.put("skip_btn_width", i);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b B(int i) {
+            try {
+                this.f43291a.put("skipTime", i);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b C(int i) {
+            try {
+                this.f43291a.put("small_logo_height", i);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b D(int i) {
+            try {
+                this.f43291a.put("small_logo_width", i);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b E(JSONObject jSONObject) {
+            try {
+                this.f43291a.put("style", jSONObject);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public final void F(String str, String str2) {
+            try {
+                this.f43291a.put(str, str2);
+            } catch (Throwable th) {
+                d.b.d0.a.k.b.i().g(th);
             }
         }
-    }
 
-    public final void d() {
-        this.f43153e = null;
-        this.f43152d = 0L;
-        this.f43154f = -1;
-    }
-
-    public synchronized void e() {
-        if (this.f43151c) {
-            return;
+        public b a() {
+            return new b(this.f43291a);
         }
-        if (this.f43165b != null && this.f43152d > 0 && this.f43153e != null) {
-            if (System.currentTimeMillis() - this.f43153e.exceptionTime > this.f43164a && this.f43153e.exceptionTime > this.f43152d) {
-                this.f43165b.a(new d.b.d0.a.d.b(this.f43154f, this.f43153e, this.f43152d));
-                d();
+
+        public C0593b b(int i) {
+            try {
+                this.f43291a.put("ad_click_opt", i);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
             }
-            return;
+            return this;
         }
-        Log.e("StuckScreenHandler", "[StuckScreen] 未设置冻屏监听器， 或者异常信息已经被清空（需等待下次上屏）。");
+
+        public C0593b c(String str) {
+            try {
+                this.f43291a.put("ad_label", str);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b d(int i) {
+            try {
+                this.f43291a.put("ad_label_height", i);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b e(int i) {
+            try {
+                this.f43291a.put("ad_label_width", i);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b f(String str) {
+            try {
+                this.f43291a.put("publisher", str);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b g(String str) {
+            try {
+                this.f43291a.put("app_version", str);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b h(int i) {
+            try {
+                this.f43291a.put("bottom_logo_height", i);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b i(int i) {
+            try {
+                this.f43291a.put("close_type", i);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b j(boolean z) {
+            try {
+                this.f43291a.put("displayMantle", z);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b k(int i) {
+            try {
+                this.f43291a.put("bitmapDisplayMode", i);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b l(boolean z) {
+            try {
+                this.f43291a.put("full_screen", z);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b m(int i) {
+            try {
+                this.f43291a.put("host_big_logo_res_id", i);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b n(int i) {
+            try {
+                this.f43291a.put("host_small_logo_res_id", i);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b o(boolean z) {
+            try {
+                this.f43291a.put("show_host_small_logo", z);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b p(JSONObject jSONObject) {
+            try {
+                this.f43291a.put("inner_style", jSONObject);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b q(String str) {
+            F("lottie_url", str);
+            return this;
+        }
+
+        public C0593b r(String str) {
+            try {
+                this.f43291a.put("mantleActionText", str);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b s(int i) {
+            try {
+                this.f43291a.put("mantleBottomMargin", i);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b t(String str) {
+            F("prod", str);
+            return this;
+        }
+
+        public C0593b u(boolean z) {
+            try {
+                this.f43291a.put("hide_bd_logo", z);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b v(boolean z) {
+            try {
+                this.f43291a.put("Display_Down_Info", z);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b w(boolean z) {
+            try {
+                this.f43291a.put("lottie_show", z);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b x(boolean z) {
+            try {
+                this.f43291a.put("show_wifi_view", z);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b y(int i) {
+            try {
+                this.f43291a.put("skip_btn_height", i);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
+
+        public C0593b z(int i) {
+            try {
+                this.f43291a.put("skip_btn_type", i);
+            } catch (JSONException e2) {
+                d.b.d0.a.k.b.i().g(e2);
+            }
+            return this;
+        }
     }
 
-    public synchronized void f(boolean z, long j) {
-        this.f43151c = z;
-        if (z) {
-            this.f43152d = j;
-            this.f43153e = null;
-        }
+    public JSONObject a() {
+        return this.f43290a;
+    }
+
+    public b(JSONObject jSONObject) {
+        this.f43290a = jSONObject;
     }
 }

@@ -16,23 +16,23 @@ import com.baidu.tbadk.core.view.MorePopupWindow;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.TabMenuPopView;
 import d.b.c.e.p.l;
-import d.b.i0.q0.c0;
-import d.b.i0.q0.e1;
+import d.b.j0.q0.c0;
+import d.b.j0.q0.e1;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class PostCategoryView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f22058e;
+    public Context f22066e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f22059f;
+    public boolean f22067f;
 
     /* renamed from: g  reason: collision with root package name */
-    public MorePopupWindow f22060g;
+    public MorePopupWindow f22068g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f22061h;
+    public LinearLayout f22069h;
     public LinearLayout i;
     public TabMenuPopView j;
     public View k;
@@ -61,8 +61,8 @@ public class PostCategoryView extends TextView {
 
         @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
         public void b() {
-            if (PostCategoryView.this.f22060g != null) {
-                PostCategoryView.this.f22060g.dismiss();
+            if (PostCategoryView.this.f22068g != null) {
+                PostCategoryView.this.f22068g.dismiss();
             }
         }
     }
@@ -71,15 +71,15 @@ public class PostCategoryView extends TextView {
     public class c implements PopupWindow.OnDismissListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PostCategoryView f22064e;
+        public final /* synthetic */ PostCategoryView f22072e;
 
         public c(PostCategoryView postCategoryView) {
-            this.f22064e = postCategoryView;
+            this.f22072e = postCategoryView;
         }
 
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            PostCategoryView postCategoryView = this.f22064e;
+            PostCategoryView postCategoryView = this.f22072e;
             if (postCategoryView != null) {
                 postCategoryView.e();
             }
@@ -88,8 +88,8 @@ public class PostCategoryView extends TextView {
 
     public PostCategoryView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f22058e = context;
-        this.f22059f = false;
+        this.f22066e = context;
+        this.f22067f = false;
         Drawable drawable = SkinManager.getDrawable(R.drawable.icon_title_down);
         this.l = drawable;
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), this.l.getIntrinsicHeight());
@@ -98,12 +98,12 @@ public class PostCategoryView extends TextView {
         drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), this.l.getIntrinsicHeight());
         setCompoundDrawables(null, null, this.l, null);
         setPadding(0, 0, l.g(getContext(), R.dimen.ds50), 0);
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f22058e).inflate(R.layout.pop_category, (ViewGroup) null);
-        this.f22061h = linearLayout;
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f22066e).inflate(R.layout.pop_category, (ViewGroup) null);
+        this.f22069h = linearLayout;
         LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.pop_category_layout);
         this.i = linearLayout2;
         this.j = (TabMenuPopView) linearLayout2.findViewById(R.id.pop_category_view);
-        View findViewById = this.f22061h.findViewById(R.id.pop_category_grav);
+        View findViewById = this.f22069h.findViewById(R.id.pop_category_grav);
         this.k = findViewById;
         findViewById.setOnClickListener(new a());
     }
@@ -122,34 +122,34 @@ public class PostCategoryView extends TextView {
     }
 
     public void c() {
-        MorePopupWindow morePopupWindow = this.f22060g;
+        MorePopupWindow morePopupWindow = this.f22068g;
         if (morePopupWindow != null) {
             morePopupWindow.dismiss();
         }
     }
 
     public final void d(PostCategoryView postCategoryView) {
-        if (this.f22060g == null) {
-            MorePopupWindow morePopupWindow = new MorePopupWindow((Activity) this.f22058e, this.f22061h, this, SkinManager.getDrawable(R.drawable.transparent_bg), new b());
-            this.f22060g = morePopupWindow;
+        if (this.f22068g == null) {
+            MorePopupWindow morePopupWindow = new MorePopupWindow((Activity) this.f22066e, this.f22069h, this, SkinManager.getDrawable(R.drawable.transparent_bg), new b());
+            this.f22068g = morePopupWindow;
             morePopupWindow.setOnDismissListener(new c(postCategoryView));
         }
     }
 
     public void e() {
-        if (this.f22059f) {
+        if (this.f22067f) {
             setCompoundDrawables(null, null, this.l, null);
-            this.f22059f = false;
+            this.f22067f = false;
         } else {
             d(this);
-            MorePopupWindow morePopupWindow = this.f22060g;
+            MorePopupWindow morePopupWindow = this.f22068g;
             if (morePopupWindow != null) {
                 morePopupWindow.refresh();
-                this.f22060g.setWidthAsWidthOfDeviceScreen((Activity) this.f22058e);
-                this.f22060g.setHeight(-1);
-                this.f22060g.showWindowInCustomPosition(0, 0);
+                this.f22068g.setWidthAsWidthOfDeviceScreen((Activity) this.f22066e);
+                this.f22068g.setHeight(-1);
+                this.f22068g.showWindowInCustomPosition(0, 0);
                 setCompoundDrawables(null, null, this.m, null);
-                this.f22059f = true;
+                this.f22067f = true;
             }
         }
         invalidate();

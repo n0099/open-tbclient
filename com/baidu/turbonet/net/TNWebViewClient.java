@@ -10,7 +10,7 @@ import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.android.common.others.lang.StringUtil;
-import d.b.j0.b.e.d;
+import d.b.k0.b.e.d;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -23,7 +23,7 @@ import java.util.Map;
 public class TNWebViewClient extends WebViewClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public final TurbonetEngine f22523a;
+    public final TurbonetEngine f22531a;
 
     @Override // android.webkit.WebViewClient
     public void onPageFinished(WebView webView, String str) {
@@ -52,9 +52,9 @@ public class TNWebViewClient extends WebViewClient {
         } catch (Exception e4) {
             Log.e("tn_TNWebViewClient", "Exception when intercept webview request: " + e4.toString());
         }
-        if (webResourceRequest.getMethod().equals("GET") && !this.f22523a.f()) {
+        if (webResourceRequest.getMethod().equals("GET") && !this.f22531a.f()) {
             Log.d("tn_TNWebViewClient", "Intercept request and send " + webResourceRequest.getUrl().toString());
-            d dVar = new d(new URL(webResourceRequest.getUrl().toString()), this.f22523a);
+            d dVar = new d(new URL(webResourceRequest.getUrl().toString()), this.f22531a);
             dVar.setRequestMethod(webResourceRequest.getMethod());
             Map<String, String> requestHeaders = webResourceRequest.getRequestHeaders();
             if (requestHeaders != null) {

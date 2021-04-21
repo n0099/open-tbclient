@@ -11,9 +11,9 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
 import com.tencent.connect.common.Constants;
-import d.b.h0.z0.j;
-import d.b.i0.j2.f;
-import d.b.i0.j2.n;
+import d.b.i0.z0.j;
+import d.b.j0.j2.f;
+import d.b.j0.j2.n;
 /* loaded from: classes.dex */
 public class VideoPasterContentView extends FrameLayout {
 
@@ -28,7 +28,7 @@ public class VideoPasterContentView extends FrameLayout {
 
     /* renamed from: h  reason: collision with root package name */
     public TbCyberVideoView f2519h;
-    public d.b.i0.j2.f i;
+    public d.b.j0.j2.f i;
     public i j;
     public boolean k;
     public j l;
@@ -109,7 +109,7 @@ public class VideoPasterContentView extends FrameLayout {
         public e() {
         }
 
-        @Override // d.b.i0.j2.f.b
+        @Override // d.b.j0.j2.f.b
         public void a() {
         }
     }
@@ -157,12 +157,12 @@ public class VideoPasterContentView extends FrameLayout {
         public h() {
         }
 
-        @Override // d.b.h0.z0.j.b
+        @Override // d.b.i0.z0.j.b
         public void a(long j) {
             VideoPasterContentView.this.u();
         }
 
-        @Override // d.b.h0.z0.j.b
+        @Override // d.b.i0.z0.j.b
         public void b(long j, long j2) {
             VideoPasterContentView.this.q = (int) (j2 / 1000);
             if (VideoPasterContentView.this.f2516e != null) {
@@ -209,7 +209,7 @@ public class VideoPasterContentView extends FrameLayout {
             this.f2518g.setVisibility(0);
             this.f2519h.setVideoPath(this.p.l);
             this.f2519h.start();
-            d.b.i0.j2.f fVar = this.i;
+            d.b.j0.j2.f fVar = this.i;
             if (fVar != null) {
                 fVar.m();
             }
@@ -273,7 +273,7 @@ public class VideoPasterContentView extends FrameLayout {
         } else if (this.p.a() == 1) {
             this.f2518g.setVisibility(0);
             this.f2519h.stopPlayback();
-            d.b.i0.j2.f fVar = this.i;
+            d.b.j0.j2.f fVar = this.i;
             if (fVar != null) {
                 fVar.n();
             }
@@ -378,7 +378,7 @@ public class VideoPasterContentView extends FrameLayout {
         this.f2519h.setOnCompletionListener(new b());
         this.f2519h.setOnErrorListener(new c());
         this.f2519h.setOnSurfaceDestroyedListener(new d());
-        d.b.i0.j2.f fVar = new d.b.i0.j2.f();
+        d.b.j0.j2.f fVar = new d.b.j0.j2.f();
         this.i = fVar;
         fVar.l(this.f2519h);
         this.i.i(new e());

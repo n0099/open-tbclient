@@ -6,7 +6,7 @@ import java.io.ByteArrayInputStream;
 public class q extends aa {
 
     /* renamed from: h  reason: collision with root package name */
-    public int f36451h;
+    public int f36546h;
     public int i;
     public int j;
     public int k;
@@ -23,11 +23,11 @@ public class q extends aa {
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
-        if (dVar.f36429a != 13) {
-            throw new PngjException("Bad IDHR len " + dVar.f36429a);
+        if (dVar.f36524a != 13) {
+            throw new PngjException("Bad IDHR len " + dVar.f36524a);
         }
         ByteArrayInputStream b2 = dVar.b();
-        this.f36451h = com.kwad.sdk.pngencrypt.n.b(b2);
+        this.f36546h = com.kwad.sdk.pngencrypt.n.b(b2);
         this.i = com.kwad.sdk.pngencrypt.n.b(b2);
         this.j = com.kwad.sdk.pngencrypt.n.a(b2);
         this.k = com.kwad.sdk.pngencrypt.n.a(b2);
@@ -37,14 +37,14 @@ public class q extends aa {
     }
 
     public void a(com.kwad.sdk.pngencrypt.k kVar) {
-        b(this.f36413e.f36474a);
-        c(this.f36413e.f36475b);
-        d(this.f36413e.f36476c);
-        int i = this.f36413e.f36478e ? 4 : 0;
-        if (this.f36413e.f36480g) {
+        b(this.f36508e.f36569a);
+        c(this.f36508e.f36570b);
+        d(this.f36508e.f36571c);
+        int i = this.f36508e.f36573e ? 4 : 0;
+        if (this.f36508e.f36575g) {
             i++;
         }
-        if (!this.f36413e.f36479f) {
+        if (!this.f36508e.f36574f) {
             i += 2;
         }
         e(i);
@@ -54,11 +54,11 @@ public class q extends aa {
     }
 
     public void b(int i) {
-        this.f36451h = i;
+        this.f36546h = i;
     }
 
     public int c() {
-        return this.f36451h;
+        return this.f36546h;
     }
 
     public void c(int i) {
@@ -111,7 +111,7 @@ public class q extends aa {
     }
 
     public void j() {
-        if (this.f36451h < 1 || this.i < 1 || this.l != 0 || this.m != 0) {
+        if (this.f36546h < 1 || this.i < 1 || this.l != 0 || this.m != 0) {
             throw new PngjException("bad IHDR: col/row/compmethod/filmethod invalid");
         }
         int i = this.j;

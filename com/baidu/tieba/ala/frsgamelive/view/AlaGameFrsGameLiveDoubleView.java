@@ -6,23 +6,23 @@ import android.widget.LinearLayout;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import d.b.i0.t.c;
-import d.b.i0.t.h.b.a;
-import d.b.i0.x.b;
+import d.b.j0.t.c;
+import d.b.j0.t.h.b.a;
+import d.b.j0.x.b;
 /* loaded from: classes4.dex */
 public class AlaGameFrsGameLiveDoubleView extends b<a> {
-    public d.b.i0.t.e.d.a m;
-    public d.b.i0.t.e.d.a n;
+    public d.b.j0.t.e.d.a m;
+    public d.b.j0.t.e.d.a n;
 
     /* loaded from: classes4.dex */
     public static class AlaGameFrsGameLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public AlaGameFrsGameLiveDoubleView f14657a;
+        public AlaGameFrsGameLiveDoubleView f14665a;
 
         public AlaGameFrsGameLiveDoubleViewHolder(AlaGameFrsGameLiveDoubleView alaGameFrsGameLiveDoubleView) {
             super(alaGameFrsGameLiveDoubleView.m());
-            this.f14657a = alaGameFrsGameLiveDoubleView;
+            this.f14665a = alaGameFrsGameLiveDoubleView;
         }
     }
 
@@ -31,12 +31,12 @@ public class AlaGameFrsGameLiveDoubleView extends b<a> {
         u();
     }
 
-    @Override // d.b.i0.x.b
+    @Override // d.b.j0.x.b
     public int h() {
         return R.layout.ala_sub_list_game_live;
     }
 
-    @Override // d.b.i0.x.b
+    @Override // d.b.j0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
         this.m.e(tbPageContext, i);
         this.n.e(tbPageContext, i);
@@ -47,8 +47,8 @@ public class AlaGameFrsGameLiveDoubleView extends b<a> {
     }
 
     public final void u() {
-        this.m = new d.b.i0.t.e.d.a(l());
-        this.n = new d.b.i0.t.e.d.a(l());
+        this.m = new d.b.j0.t.e.d.a(l());
+        this.n = new d.b.j0.t.e.d.a(l());
         ViewGroup viewGroup = (ViewGroup) m();
         View view = new View(b());
         viewGroup.addView(this.m.c());
@@ -57,12 +57,12 @@ public class AlaGameFrsGameLiveDoubleView extends b<a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.i0.x.b
+    @Override // d.b.j0.x.b
     /* renamed from: v */
     public void n(a aVar) {
         if (aVar != null) {
-            this.m.d(aVar.f62337e);
-            this.n.d(aVar.f62338f);
+            this.m.d(aVar.f62758e);
+            this.n.d(aVar.f62759f);
         }
     }
 

@@ -7,8 +7,8 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.setting.model.MsgRemindModel;
 import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushInfo;
 import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushModel;
-import d.b.h0.s.d.d;
-import d.b.i0.v2.c.f;
+import d.b.i0.s.d.d;
+import d.b.j0.v2.c.f;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> implements BdSwitchView.b {

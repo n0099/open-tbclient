@@ -5,21 +5,21 @@ import java.util.Map;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, String> f29984a;
+    public final Map<String, String> f29992a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f29985b;
+    public final String f29993b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f29986c;
+    public final int f29994c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f29987d;
+    public final String f29995d;
 
     public c(Map<String, String> map, String str, int i, String str2) {
-        this.f29984a = map;
-        this.f29985b = str;
-        this.f29986c = i;
-        this.f29987d = str2;
+        this.f29992a = map;
+        this.f29993b = str;
+        this.f29994c = i;
+        this.f29995d = str2;
     }
 }

@@ -8,7 +8,6 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.searchbox.dns.DnsHelper;
-import com.baidu.searchbox.dns.statistics.HttpDNSStat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
@@ -119,8 +118,8 @@ public class IMSocketAddrProvider {
                         }
                     }, 5000L);
                     DnsHelper dnsHelper = new DnsHelper(IMSocketAddrProvider.mContext);
-                    dnsHelper.setHttpDnsState(false, (HttpDNSStat) null, false, true);
-                    List ipListForceHttp = dnsHelper.getIpListForceHttp(Constants.URL_SOCKET_SERVER);
+                    dnsHelper.setHttpDnsState(false, null, false, true);
+                    List<String> ipListForceHttp = dnsHelper.getIpListForceHttp(Constants.URL_SOCKET_SERVER);
                     LogUtils.d(IMSocketAddrProvider.TAG, "bddns > bdDnsIps = " + ipListForceHttp);
                     Context context = IMSocketAddrProvider.mContext;
                     Utility.writeLoginFlag(context, "11Y", "BDHttpDNS success, ip=" + ipListForceHttp);

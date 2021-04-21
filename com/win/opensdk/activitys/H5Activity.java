@@ -37,28 +37,28 @@ import org.json.JSONException;
 public class H5Activity extends Activity implements H1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f40156a;
+    public Context f40251a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f40157b;
+    public ViewGroup f40252b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CloseParentView f40158c;
+    public CloseParentView f40253c;
 
     /* renamed from: d  reason: collision with root package name */
-    public z2 f40159d;
+    public z2 f40254d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Info f40160e;
+    public Info f40255e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f40161f;
+    public String f40256f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f40162g;
+    public String f40257g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f40163h = 0;
+    public long f40258h = 0;
     public h2 i;
 
     public static void a(Context context, Info info, String str) {
@@ -90,7 +90,7 @@ public class H5Activity extends Activity implements H1 {
     public final void a() {
         View decorView;
         int i;
-        Info info = this.f40160e;
+        Info info = this.f40255e;
         if (info != null && info.getXn() > 0) {
             int i2 = Build.VERSION.SDK_INT;
             if (i2 > 11 && i2 < 19) {
@@ -102,10 +102,10 @@ public class H5Activity extends Activity implements H1 {
             }
             decorView.setSystemUiVisibility(i);
         }
-        Info info2 = this.f40160e;
+        Info info2 = this.f40255e;
         int i3 = Build.VERSION.SDK_INT;
         if (i3 <= 25 || i3 >= 28) {
-            String str = this.f40161f;
+            String str = this.f40256f;
             int i4 = 1;
             if (G.g(str)) {
                 char c2 = 3;
@@ -159,29 +159,29 @@ public class H5Activity extends Activity implements H1 {
             i4 = 2;
             setRequestedOrientation(i4);
         }
-        View b2 = this.f40159d.b();
+        View b2 = this.f40254d.b();
         b2.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-        this.f40157b.addView(b2, 0);
-        z2 z2Var = this.f40159d;
+        this.f40252b.addView(b2, 0);
+        z2 z2Var = this.f40254d;
         if (z2Var instanceof S) {
-            z2Var.a(this.f40160e.getLoad(), this.f40160e);
+            z2Var.a(this.f40255e.getLoad(), this.f40255e);
         }
-        this.f40159d.a(new s(this));
-        this.f40158c.setCollectVisible(false);
-        this.f40158c.setLocation(FragmentManagerImpl.ANIM_DUR);
-        this.f40158c.setCountDown(this.f40160e.getCdt());
-        this.f40158c.setOnCloseListener(new t(this));
-        a1.a(this.f40156a).b(new b1(this.f40160e)).a();
-        I1.a(this.f40160e.getId() + this.f40161f, "is_display", null);
-        if (this.f40160e != null) {
-            V1.a(this.f40156a, this.f40160e.getId() + ":" + System.currentTimeMillis(), false);
+        this.f40254d.a(new s(this));
+        this.f40253c.setCollectVisible(false);
+        this.f40253c.setLocation(FragmentManagerImpl.ANIM_DUR);
+        this.f40253c.setCountDown(this.f40255e.getCdt());
+        this.f40253c.setOnCloseListener(new t(this));
+        a1.a(this.f40251a).b(new b1(this.f40255e)).a();
+        I1.a(this.f40255e.getId() + this.f40256f, "is_display", null);
+        if (this.f40255e != null) {
+            V1.a(this.f40251a, this.f40255e.getId() + ":" + System.currentTimeMillis(), false);
         }
-        G.a(this.f40160e);
+        G.a(this.f40255e);
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        if (this.f40160e.getCb() == 0) {
+        if (this.f40255e.getCb() == 0) {
             super.onBackPressed();
         }
     }
@@ -190,10 +190,10 @@ public class H5Activity extends Activity implements H1 {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.layout_activity_h5);
-        this.f40156a = getApplicationContext();
-        this.f40157b = (ViewGroup) findViewById(R.id.parent);
-        this.f40158c = (CloseParentView) findViewById(R.id.close_parent);
-        this.f40163h = 0L;
+        this.f40251a = getApplicationContext();
+        this.f40252b = (ViewGroup) findViewById(R.id.parent);
+        this.f40253c = (CloseParentView) findViewById(R.id.close_parent);
+        this.f40258h = 0L;
         this.i = new h2(this);
         I1.a("hcl", this);
         I1.a("onT", this);
@@ -203,12 +203,12 @@ public class H5Activity extends Activity implements H1 {
         I1.a("onRewardedAdStart", this);
         Intent intent = getIntent();
         String stringExtra = intent.getStringExtra("id");
-        this.f40161f = intent.getStringExtra("pid");
+        this.f40256f = intent.getStringExtra("pid");
         String stringExtra2 = intent.getStringExtra("traceid");
-        this.f40160e = E.a().a(B2.a(stringExtra2, stringExtra, this.f40161f));
-        z2 a2 = B2.a().a(B2.a(stringExtra2, stringExtra, this.f40161f));
-        this.f40159d = a2;
-        if (!((a2 == null || this.f40160e == null) ? false : true)) {
+        this.f40255e = E.a().a(B2.a(stringExtra2, stringExtra, this.f40256f));
+        z2 a2 = B2.a().a(B2.a(stringExtra2, stringExtra, this.f40256f));
+        this.f40254d = a2;
+        if (!((a2 == null || this.f40255e == null) ? false : true)) {
             finish();
         }
         try {
@@ -221,12 +221,12 @@ public class H5Activity extends Activity implements H1 {
     @Override // android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        a1.a(this.f40156a).a(new b1(this.f40160e)).a();
-        z2 z2Var = this.f40159d;
+        a1.a(this.f40251a).a(new b1(this.f40255e)).a();
+        z2 z2Var = this.f40254d;
         if (z2Var != null) {
             z2Var.a();
         }
-        CloseParentView closeParentView = this.f40158c;
+        CloseParentView closeParentView = this.f40253c;
         if (closeParentView != null) {
             closeParentView.b();
         }
@@ -235,7 +235,7 @@ public class H5Activity extends Activity implements H1 {
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         Info info;
-        if (keyEvent.getKeyCode() != 4 || (info = this.f40160e) == null || info.getCb() > 0) {
+        if (keyEvent.getKeyCode() != 4 || (info = this.f40255e) == null || info.getCb() > 0) {
             return super.onKeyDown(i, keyEvent);
         }
         return true;
@@ -245,8 +245,8 @@ public class H5Activity extends Activity implements H1 {
     public void a(String str, String str2, Object obj) {
         if (str.equals("hcl")) {
             finish();
-            I1.a(this.f40160e.getId() + this.f40161f, "is_dismiss", null);
-            I1.a(this.f40160e.getId() + this.f40161f);
+            I1.a(this.f40255e.getId() + this.f40256f, "is_dismiss", null);
+            I1.a(this.f40255e.getId() + this.f40256f);
             I1.a("hcl");
             I1.a("onT");
             I1.a("onRewardedShowFail");
@@ -257,32 +257,32 @@ public class H5Activity extends Activity implements H1 {
         }
         try {
             if (str.equals("onRewardedShowFail")) {
-                Z0 a2 = a1.a(this.f40156a);
+                Z0 a2 = a1.a(this.f40251a);
                 String str3 = (String) obj;
                 try {
-                    a2.f40139b = a1.a("vvsf", new b1(this.f40160e));
+                    a2.f40234b = a1.a("vvsf", new b1(this.f40255e));
                     a2.a("desc", str3);
                 } catch (JSONException unused) {
                 }
                 a2.a();
-                I1.a(this.f40160e.getId() + this.f40161f, "VIDEO_SHOW_FAIL", (String) obj);
+                I1.a(this.f40255e.getId() + this.f40256f, "VIDEO_SHOW_FAIL", (String) obj);
             } else if (str.equals("onRewardedAdFinish")) {
                 int intValue = ((Integer) obj).intValue();
-                if (intValue < 0 || intValue < this.f40160e.getVvt() * 0.9d) {
-                    I1.a(this.f40160e.getId() + this.f40161f, "VIDEO_USER_EARNED_REWARD", null);
+                if (intValue < 0 || intValue < this.f40255e.getVvt() * 0.9d) {
+                    I1.a(this.f40255e.getId() + this.f40256f, "VIDEO_USER_EARNED_REWARD", null);
                 } else {
-                    Z0 a3 = a1.a(this.f40156a);
-                    b1 b1Var = new b1(this.f40160e);
-                    long vvamount = this.f40160e.getVvamount();
+                    Z0 a3 = a1.a(this.f40251a);
+                    b1 b1Var = new b1(this.f40255e);
+                    long vvamount = this.f40255e.getVvamount();
                     try {
-                        a3.f40139b = a1.a("vvss", b1Var);
+                        a3.f40234b = a1.a("vvss", b1Var);
                         a3.a("desc", vvamount);
                     } catch (JSONException unused2) {
                     }
                     a3.a();
-                    I1.a(this.f40160e.getId() + this.f40161f, "VIDEO_USER_EARNED_REWARD", Long.valueOf(this.f40160e.getVvamount()));
+                    I1.a(this.f40255e.getId() + this.f40256f, "VIDEO_USER_EARNED_REWARD", Long.valueOf(this.f40255e.getVvamount()));
                 }
-                Info info = this.f40160e;
+                Info info = this.f40255e;
                 try {
                     G.a(info, 401, "");
                     if (info == null || TextUtils.isEmpty(info.getVv_finish_urls())) {
@@ -293,17 +293,17 @@ public class H5Activity extends Activity implements H1 {
                     e2.printStackTrace();
                 }
             } else if (str.equals("onPlayProgress")) {
-                Z0 a4 = a1.a(this.f40156a);
-                b1 b1Var2 = new b1(this.f40160e);
+                Z0 a4 = a1.a(this.f40251a);
+                b1 b1Var2 = new b1(this.f40255e);
                 int intValue2 = ((Integer) obj).intValue();
                 try {
-                    a4.f40139b = a1.a("vvst", b1Var2);
+                    a4.f40234b = a1.a("vvst", b1Var2);
                     a4.a("desc", intValue2);
                 } catch (JSONException unused3) {
                 }
                 a4.a();
             } else if (str.equals("onRewardedAdStart")) {
-                Info info2 = this.f40160e;
+                Info info2 = this.f40255e;
                 if (info2 != null) {
                     try {
                         if (TextUtils.isEmpty(info2.getVv_start_urls())) {
@@ -315,13 +315,13 @@ public class H5Activity extends Activity implements H1 {
                         e3.printStackTrace();
                     }
                 }
-            } else if (str.equals("onT") && R1.a(this.f40160e, this.f40163h)) {
-                this.f40163h = System.currentTimeMillis();
-                if (TextUtils.isEmpty(this.f40162g)) {
-                    this.f40162g = "";
+            } else if (str.equals("onT") && R1.a(this.f40255e, this.f40258h)) {
+                this.f40258h = System.currentTimeMillis();
+                if (TextUtils.isEmpty(this.f40257g)) {
+                    this.f40257g = "";
                 }
                 try {
-                    a((String) obj, this.f40162g);
+                    a((String) obj, this.f40257g);
                 } catch (Exception e4) {
                     e4.printStackTrace();
                 }
@@ -332,11 +332,11 @@ public class H5Activity extends Activity implements H1 {
     }
 
     public final void a(String str, String str2) {
-        if (!H.f39963d.f39966c) {
-            R1.a(this.f40156a, str, this.f40160e, this.i, str2);
-            a1.a(this.f40156a).a(new b1(this.f40160e), str).a("desc", str2).a();
-            G.a(this.f40160e, str2);
+        if (!H.f40058d.f40061c) {
+            R1.a(this.f40251a, str, this.f40255e, this.i, str2);
+            a1.a(this.f40251a).a(new b1(this.f40255e), str).a("desc", str2).a();
+            G.a(this.f40255e, str2);
         }
-        I1.a(this.f40160e.getId() + this.f40161f, "is_click", null);
+        I1.a(this.f40255e.getId() + this.f40256f, "is_click", null);
     }
 }

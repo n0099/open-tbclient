@@ -9,7 +9,7 @@ import java.util.List;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static PointF f41793a = new PointF();
+    public static PointF f41888a = new PointF();
 
     public static PointF a(PointF pointF, PointF pointF2) {
         return new PointF(pointF.x + pointF2.x, pointF.y + pointF2.y);
@@ -48,18 +48,18 @@ public class g {
         path.reset();
         PointF b2 = hVar.b();
         path.moveTo(b2.x, b2.y);
-        f41793a.set(b2.x, b2.y);
+        f41888a.set(b2.x, b2.y);
         for (int i = 0; i < hVar.a().size(); i++) {
             d.a.a.u.a aVar = hVar.a().get(i);
             PointF a2 = aVar.a();
             PointF b3 = aVar.b();
             PointF c2 = aVar.c();
-            if (a2.equals(f41793a) && b3.equals(c2)) {
+            if (a2.equals(f41888a) && b3.equals(c2)) {
                 path.lineTo(c2.x, c2.y);
             } else {
                 path.cubicTo(a2.x, a2.y, b3.x, b3.y, c2.x, c2.y);
             }
-            f41793a.set(c2.x, c2.y);
+            f41888a.set(c2.x, c2.y);
         }
         if (hVar.d()) {
             path.close();

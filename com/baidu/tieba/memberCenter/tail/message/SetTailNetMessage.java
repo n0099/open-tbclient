@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.tail.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.h0.z0.w;
+import d.b.i0.z0.w;
 import tbclient.SetTail.ReqData;
 import tbclient.SetTail.SetTailReqIdl;
 /* loaded from: classes3.dex */

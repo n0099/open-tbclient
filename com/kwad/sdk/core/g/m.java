@@ -7,11 +7,11 @@ import org.json.JSONArray;
 public class m extends com.kwad.sdk.core.network.d {
     public m(h.a aVar, long j) {
         JSONArray jSONArray = new JSONArray();
-        for (com.kwad.sdk.core.g.a.f fVar : aVar.f34074a) {
+        for (com.kwad.sdk.core.g.a.f fVar : aVar.f34169a) {
             com.kwad.sdk.utils.o.a(jSONArray, fVar.toJson());
         }
         a("impInfo", jSONArray);
-        a("contentInfo", aVar.f34075b);
+        a("contentInfo", aVar.f34170b);
         a(URLPackage.KEY_TREND_ID, j);
     }
 

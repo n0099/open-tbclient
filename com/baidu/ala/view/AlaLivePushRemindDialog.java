@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import d.b.c.c.g.c;
-import d.b.h0.r.s.a;
-import d.b.h0.s.d.d;
+import d.b.i0.r.s.a;
+import d.b.i0.s.d.d;
 /* loaded from: classes.dex */
 public class AlaLivePushRemindDialog {
     public TbPageContext mPageContext;
@@ -65,7 +65,7 @@ public class AlaLivePushRemindDialog {
         aVar.setAutoNight(false);
         aVar.setTitle(R.string.ala_live_push_remind);
         aVar.setPositiveButton(R.string.ala_live_push_remind_open, new a.e() { // from class: com.baidu.ala.view.AlaLivePushRemindDialog.2
-            @Override // d.b.h0.r.s.a.e
+            @Override // d.b.i0.r.s.a.e
             public void onClick(a aVar2) {
                 TiebaStatic.log("c12670");
                 AlaLivePushRemindDialog.this.openMsgRemind();
@@ -76,7 +76,7 @@ public class AlaLivePushRemindDialog {
             }
         });
         aVar.setNegativeButton(R.string.ala_live_push_remind_close, new a.e() { // from class: com.baidu.ala.view.AlaLivePushRemindDialog.3
-            @Override // d.b.h0.r.s.a.e
+            @Override // d.b.i0.r.s.a.e
             public void onClick(a aVar2) {
                 TiebaStatic.log("c12671");
                 aVar2.dismiss();

@@ -3,10 +3,10 @@ package com.win.opensdk;
 public class x0 implements C2 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ y0 f40389a;
+    public final /* synthetic */ y0 f40484a;
 
     public x0(y0 y0Var) {
-        this.f40389a = y0Var;
+        this.f40484a = y0Var;
     }
 
     @Override // com.win.opensdk.C2
@@ -15,13 +15,13 @@ public class x0 implements C2 {
 
     @Override // com.win.opensdk.C2
     public void onLoaded() {
-        this.f40389a.k.removeMessages(11);
-        this.f40389a.f40398d = true;
-        a1.a(this.f40389a.f40396b).a(new b1(this.f40389a.f40400f), 200, System.currentTimeMillis() - this.f40389a.j).a();
-        y0 y0Var = this.f40389a;
-        if (y0Var.f40399e) {
+        this.f40484a.k.removeMessages(11);
+        this.f40484a.f40493d = true;
+        a1.a(this.f40484a.f40491b).a(new b1(this.f40484a.f40495f), 200, System.currentTimeMillis() - this.f40484a.j).a();
+        y0 y0Var = this.f40484a;
+        if (y0Var.f40494e) {
             return;
         }
-        y0Var.f40402h.onLoaded();
+        y0Var.f40497h.onLoaded();
     }
 }

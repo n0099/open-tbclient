@@ -9,53 +9,53 @@ import java.util.Map;
 public abstract class l<IN, OUT> extends d<IN, OUT> {
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, a> f29857d;
+    public Map<String, a> f29865d;
 
     /* loaded from: classes5.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<h> f29858a = new ArrayList();
+        public List<h> f29866a = new ArrayList();
 
         public a a(h hVar) {
-            this.f29858a.add(hVar);
+            this.f29866a.add(hVar);
             return this;
         }
 
         public a a(List<h> list) {
-            this.f29858a.addAll(list);
+            this.f29866a.addAll(list);
             return this;
         }
     }
 
     public Map<String, a> a() {
-        return this.f29857d;
+        return this.f29865d;
     }
 
     public boolean a(List<h> list) {
-        return !list.isEmpty() && list.get(list.size() - 1).f29845a == f.class;
+        return !list.isEmpty() && list.get(list.size() - 1).f29853a == f.class;
     }
 
     /* loaded from: classes5.dex */
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<String, a> f29859a = new HashMap();
+        public Map<String, a> f29867a = new HashMap();
 
         /* renamed from: b  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.preload.b.b.a f29860b;
+        public com.bytedance.sdk.openadsdk.preload.b.b.a f29868b;
 
         public a a(String str) {
-            if (!this.f29859a.containsKey(str)) {
+            if (!this.f29867a.containsKey(str)) {
                 a aVar = new a();
-                this.f29859a.put(str, aVar);
+                this.f29867a.put(str, aVar);
                 return aVar;
             }
             throw new IllegalArgumentException("duplicated branch name");
         }
 
         public h a(Class<? extends l> cls) {
-            return h.a.a().a(cls).a(this.f29859a).a(this.f29860b).b();
+            return h.a.a().a(cls).a(this.f29867a).a(this.f29868b).b();
         }
     }
 
@@ -64,7 +64,7 @@ public abstract class l<IN, OUT> extends d<IN, OUT> {
         super.a(objArr);
         if (objArr != null && objArr.length == 1 && objArr[0] != null) {
             try {
-                this.f29857d = (Map) objArr[0];
+                this.f29865d = (Map) objArr[0];
                 return;
             } catch (ClassCastException e2) {
                 throw new IllegalArgumentException(e2);

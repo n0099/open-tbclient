@@ -1,46 +1,36 @@
 package d.b.i0.p0.c;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import java.util.ArrayList;
-/* loaded from: classes4.dex */
-public class a extends BaseCardInfo {
+import android.app.Service;
+import android.content.BroadcastReceiver;
+import android.content.ContentProvider;
+/* loaded from: classes3.dex */
+public class a {
 
-    /* renamed from: g  reason: collision with root package name */
-    public static final BdUniqueId f58885g = BdUniqueId.gen();
+    /* renamed from: a  reason: collision with root package name */
+    public static Service f51150a;
 
-    /* renamed from: h  reason: collision with root package name */
-    public static final BdUniqueId f58886h = BdUniqueId.gen();
-    public static final BdUniqueId i = BdUniqueId.gen();
+    /* renamed from: b  reason: collision with root package name */
+    public static ContentProvider f51151b;
 
-    /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f58887e;
+    /* renamed from: c  reason: collision with root package name */
+    public static BroadcastReceiver f51152c;
 
-    /* renamed from: f  reason: collision with root package name */
-    public ArrayList<String> f58888f;
+    /* renamed from: d  reason: collision with root package name */
+    public static BroadcastReceiver f51153d;
 
-    public a() {
-        BdUniqueId bdUniqueId = f58886h;
-        this.f58887e = bdUniqueId;
-        this.f58887e = bdUniqueId;
+    public static BroadcastReceiver a() {
+        return f51153d;
     }
 
-    public ArrayList<String> g() {
-        return this.f58888f;
+    public static ContentProvider b() {
+        return f51151b;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
-    public BdUniqueId getType() {
-        return this.f58887e;
+    public static BroadcastReceiver c() {
+        return f51152c;
     }
 
-    public void j(BdUniqueId bdUniqueId) {
-        this.f58887e = bdUniqueId;
-    }
-
-    public a(ArrayList<String> arrayList) {
-        this.f58887e = f58886h;
-        this.f58888f = arrayList;
-        this.f58887e = f58885g;
+    public static Service d() {
+        return f51150a;
     }
 }

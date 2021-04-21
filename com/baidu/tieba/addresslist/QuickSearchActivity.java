@@ -148,10 +148,10 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
     public class h {
 
         /* renamed from: a  reason: collision with root package name */
-        public HeadImageView f14246a;
+        public HeadImageView f14254a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f14247b;
+        public TextView f14255b;
 
         public h() {
         }
@@ -195,7 +195,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refreshResultList(String str) {
-        List<d.b.h0.s.f.a> s = this.mSearchModel.s(str);
+        List<d.b.i0.s.f.a> s = this.mSearchModel.s(str);
         if (s.size() > 0) {
             showSearchResultList(true);
             this.mListAdapter.b(s);
@@ -243,7 +243,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         if (headerViewsCount > 0) {
             i -= headerViewsCount;
         }
-        d.b.h0.s.f.a item = this.mListAdapter.getItem(i);
+        d.b.i0.s.f.a item = this.mListAdapter.getItem(i);
         if (item == null || item.e() <= 0) {
             return;
         }
@@ -258,29 +258,29 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
     public class g extends BaseAdapter {
 
         /* renamed from: e  reason: collision with root package name */
-        public List<d.b.h0.s.f.a> f14244e;
+        public List<d.b.i0.s.f.a> f14252e;
 
         public g() {
-            this.f14244e = new ArrayList();
+            this.f14252e = new ArrayList();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
         /* renamed from: a */
-        public d.b.h0.s.f.a getItem(int i) {
-            if (this.f14244e == null || i < 0 || i >= getCount()) {
+        public d.b.i0.s.f.a getItem(int i) {
+            if (this.f14252e == null || i < 0 || i >= getCount()) {
                 return null;
             }
-            return this.f14244e.get(i);
+            return this.f14252e.get(i);
         }
 
-        public void b(List<d.b.h0.s.f.a> list) {
-            this.f14244e = list;
+        public void b(List<d.b.i0.s.f.a> list) {
+            this.f14252e = list;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            List<d.b.h0.s.f.a> list = this.f14244e;
+            List<d.b.i0.s.f.a> list = this.f14252e;
             if (list != null) {
                 return list.size();
             }
@@ -295,17 +295,17 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         @Override // android.widget.Adapter
         public View getView(int i, View view, ViewGroup viewGroup) {
             h hVar;
-            d.b.h0.r.c layoutMode = QuickSearchActivity.this.getLayoutMode();
+            d.b.i0.r.c layoutMode = QuickSearchActivity.this.getLayoutMode();
             TbadkCoreApplication.getInst().getSkinType();
-            d.b.h0.s.f.a item = getItem(i);
+            d.b.i0.s.f.a item = getItem(i);
             if (item == null) {
                 return null;
             }
             if (view == null) {
                 view = LayoutInflater.from(QuickSearchActivity.this.getPageContext().getPageActivity()).inflate(R.layout.quick_search_item, (ViewGroup) null);
                 hVar = new h(QuickSearchActivity.this, null);
-                hVar.f14246a = (HeadImageView) view.findViewById(R.id.quick_search_item_icon);
-                hVar.f14247b = (TextView) view.findViewById(R.id.quick_search_item_text);
+                hVar.f14254a = (HeadImageView) view.findViewById(R.id.quick_search_item_icon);
+                hVar.f14255b = (TextView) view.findViewById(R.id.quick_search_item_text);
                 view.setTag(hVar);
             } else {
                 hVar = (h) view.getTag();
@@ -313,9 +313,9 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
             layoutMode.j(view);
             SkinManager.setBackgroundResource(view, R.drawable.addresslist_item_bg);
             if (item.f() != null) {
-                hVar.f14247b.setText(item.f());
+                hVar.f14255b.setText(item.f());
             }
-            hVar.f14246a.W(item.h(), 12, false);
+            hVar.f14254a.W(item.h(), 12, false);
             return view;
         }
 

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import d.b.c0.a.l.c;
+import d.b.d0.a.l.c;
 import java.util.concurrent.TimeUnit;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes2.dex */
@@ -18,14 +18,14 @@ public abstract class AbsCountDownView extends TextView {
     public b f11228f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.c0.a.l.b f11229g;
+    public d.b.d0.a.l.b f11229g;
 
     /* loaded from: classes2.dex */
-    public class a extends d.b.c0.a.l.b {
+    public class a extends d.b.d0.a.l.b {
         public a() {
         }
 
-        @Override // d.b.c0.a.l.b
+        @Override // d.b.d0.a.l.b
         public Object b() {
             AbsCountDownView.this.d();
             return null;
@@ -54,7 +54,7 @@ public abstract class AbsCountDownView extends TextView {
     }
 
     public void c() {
-        d.b.c0.a.l.b bVar = this.f11229g;
+        d.b.d0.a.l.b bVar = this.f11229g;
         if (bVar != null) {
             bVar.cancel();
             this.f11229g = null;

@@ -9,10 +9,10 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import com.baidu.pyramid.runtime.multiprocess.components.ServerProvider;
 import com.baidu.pyramid.runtime.multiprocess.internal.IPCServiceManagerAidl;
-import d.b.b0.b.a.e;
-import d.b.b0.b.a.f;
-import d.b.b0.b.a.g;
-import d.b.b0.b.a.h;
+import d.b.c0.b.a.e;
+import d.b.c0.b.a.f;
+import d.b.c0.b.a.g;
+import d.b.c0.b.a.h;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -65,7 +65,7 @@ public class IPCServiceManager {
             this.f10090h = str;
         }
 
-        @Override // d.b.b0.b.a.f
+        @Override // d.b.c0.b.a.f
         public IBinder c() throws RemoteException {
             return IPCServiceManager.g().getService(this.f10090h);
         }
@@ -80,7 +80,7 @@ public class IPCServiceManager {
         public b() {
         }
 
-        @Override // d.b.b0.b.a.f
+        @Override // d.b.c0.b.a.f
         public IBinder c() {
             ContentResolver contentResolver = e.a().getContentResolver();
             JSONObject jSONObject = new JSONObject();

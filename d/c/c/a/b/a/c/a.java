@@ -9,10 +9,10 @@ import java.io.IOException;
 public final class a implements w {
 
     /* renamed from: a  reason: collision with root package name */
-    public final y f66030a;
+    public final y f66125a;
 
     public a(y yVar) {
-        this.f66030a = yVar;
+        this.f66125a = yVar;
     }
 
     @Override // d.c.c.a.b.w
@@ -20,6 +20,6 @@ public final class a implements w {
         e.i iVar = (e.i) aVar;
         a0 a2 = iVar.a();
         f f2 = iVar.f();
-        return iVar.b(a2, f2, f2.d(this.f66030a, aVar, !a2.c().equals("GET")), f2.j());
+        return iVar.b(a2, f2, f2.d(this.f66125a, aVar, !a2.c().equals("GET")), f2.j());
     }
 }

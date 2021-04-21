@@ -12,22 +12,22 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.b.i0.d2.i.b;
+import d.b.j0.d2.i.b;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class TextSizeSeekBar extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19856e;
+    public int f19864e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f19857f;
+    public int f19865f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f19858g;
+    public int f19866g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19859h;
+    public int f19867h;
     public int i;
     public int j;
     public Paint k;
@@ -67,13 +67,13 @@ public class TextSizeSeekBar extends View {
     public final void b(Canvas canvas) {
         this.k.setColor(this.r);
         this.k.setStrokeWidth(this.u);
-        int i = this.f19859h;
+        int i = this.f19867h;
         int i2 = this.j;
-        canvas.drawLine((float) (i / 2.0d), i2, (float) (this.f19856e - (i / 2.0d)), i2, this.k);
+        canvas.drawLine((float) (i / 2.0d), i2, (float) (this.f19864e - (i / 2.0d)), i2, this.k);
         this.k.setStrokeWidth(this.v);
         this.k.setStrokeCap(Paint.Cap.ROUND);
         for (int i3 = 0; i3 < 4; i3++) {
-            canvas.drawPoint((this.f19858g * i3) + (this.f19859h / 2), this.j, this.k);
+            canvas.drawPoint((this.f19866g * i3) + (this.f19867h / 2), this.j, this.k);
         }
     }
 
@@ -86,7 +86,7 @@ public class TextSizeSeekBar extends View {
             }
             this.k.setTextSize(this.l);
             this.k.setTextAlign(Paint.Align.CENTER);
-            canvas.drawText(this.o[i], (this.f19858g * i) + (this.f19859h / 2), this.j - this.w, this.k);
+            canvas.drawText(this.o[i], (this.f19866g * i) + (this.f19867h / 2), this.j - this.w, this.k);
         }
     }
 
@@ -98,7 +98,7 @@ public class TextSizeSeekBar extends View {
         this.k.setDither(true);
         this.k.setFilterBitmap(true);
         this.m = SkinManager.getDrawable(R.drawable.pic_wordsize_n);
-        this.f19859h = dimensionPixelSize;
+        this.f19867h = dimensionPixelSize;
         this.i = dimensionPixelSize;
         this.l = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.T_X09);
         this.o = new String[]{context.getString(R.string.font_size_small), context.getString(R.string.font_size_mid), context.getString(R.string.font_size_big), context.getString(R.string.font_size_xlarge)};
@@ -150,20 +150,20 @@ public class TextSizeSeekBar extends View {
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.f19856e == 0 || this.f19857f == 0) {
-            this.f19856e = View.MeasureSpec.getSize(i);
+        if (this.f19864e == 0 || this.f19865f == 0) {
+            this.f19864e = View.MeasureSpec.getSize(i);
             int dimensionPixelSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds176);
-            this.f19857f = dimensionPixelSize;
-            this.f19858g = (this.f19856e - this.f19859h) / 3;
+            this.f19865f = dimensionPixelSize;
+            this.f19866g = (this.f19864e - this.f19867h) / 3;
             this.j = dimensionPixelSize / 2;
             for (int i3 = 0; i3 < 4; i3++) {
-                int i4 = this.f19858g;
+                int i4 = this.f19866g;
                 int i5 = this.j;
                 int i6 = this.i;
-                this.t.add(new Rect(i4 * i3, i5 - (i6 / 2), (i4 * i3) + this.f19859h, i5 + (i6 / 2)));
+                this.t.add(new Rect(i4 * i3, i5 - (i6 / 2), (i4 * i3) + this.f19867h, i5 + (i6 / 2)));
             }
         }
-        setMeasuredDimension(this.f19856e, this.f19857f);
+        setMeasuredDimension(this.f19864e, this.f19865f);
     }
 
     @Override // android.view.View

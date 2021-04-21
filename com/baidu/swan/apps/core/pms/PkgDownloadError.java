@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.core.pms;
 
-import d.b.g0.a.f2.a;
-import d.b.g0.l.k.e;
+import d.b.h0.a.f2.a;
+import d.b.h0.l.k.e;
 /* loaded from: classes2.dex */
 public class PkgDownloadError extends Throwable {
     public a mErrCode;

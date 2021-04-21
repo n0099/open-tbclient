@@ -1,177 +1,86 @@
 package d.b.i0.o;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.UrlManager;
-import d.b.c.e.m.e;
-import d.b.i0.s2.l;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
-public final class a implements l {
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f58596d = Pattern.compile(UrlManager.patternText, 2);
-
-    /* renamed from: e  reason: collision with root package name */
-    public static a f58597e = new a();
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ChunkUploadDatabaseService;
+import d.b.i0.r.d0.b;
+import java.io.File;
+/* loaded from: classes3.dex */
+public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<l.a> f58598a = new LinkedList();
-
-    /* renamed from: b  reason: collision with root package name */
-    public final ConcurrentHashMap<String, l.b> f58599b = new ConcurrentHashMap<>();
-
-    /* renamed from: c  reason: collision with root package name */
-    public l.c f58600c = null;
+    public static long f51115a = 604800000;
 
     /* renamed from: d.b.i0.o.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class RunnableC1408a implements Runnable {
+    /* loaded from: classes3.dex */
+    public static class C1105a extends CustomMessageListener {
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l.a f58601e;
-
-        public RunnableC1408a(l.a aVar) {
-            this.f58601e = aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            a.this.f(this.f58601e);
-        }
-    }
-
-    public static a l() {
-        return f58597e;
-    }
-
-    @Override // d.b.i0.s2.l
-    public boolean a(String str) {
-        return f58596d.matcher(str).find();
-    }
-
-    @Override // d.b.i0.s2.l
-    public void b(Context context, String[] strArr, boolean z, Bundle bundle) {
-        h(context, strArr, false, null, z, bundle);
-    }
-
-    @Override // d.b.i0.s2.l
-    public boolean c(Context context, String[] strArr, Bundle bundle) {
-        return h(context, strArr, false, null, false, bundle);
-    }
-
-    public void e(l.a aVar) {
-        if (d.b.c.e.p.l.B()) {
-            f(aVar);
-        } else {
-            e.a().post(new RunnableC1408a(aVar));
-        }
-    }
-
-    public final void f(l.a aVar) {
-        if (this.f58598a.contains(aVar)) {
-            return;
-        }
-        this.f58598a.add(aVar);
-    }
-
-    public boolean g(Context context, String str, String[] strArr, boolean z, l.d dVar, boolean z2, Bundle bundle) {
-        boolean z3;
-        if (strArr == null || strArr.length == 0 || TextUtils.isEmpty(strArr[0])) {
-            return false;
-        }
-        String str2 = strArr[0];
-        l.b bVar = this.f58599b.get(m(str2));
-        if (bVar != null) {
-            bVar.a(context, j(k(str2)));
-            return true;
-        }
-        Iterator<l.a> it = this.f58598a.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                z3 = false;
-                break;
+        /* renamed from: d.b.i0.o.a$a$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class C1106a extends Thread {
+            public C1106a(C1105a c1105a) {
             }
-            l.a next = it.next();
-            if (next != null && next.a(context, strArr) != 3) {
-                z3 = true;
-                break;
-            }
-        }
-        if (!z3 && this.f58600c != null) {
-            if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
-                return true;
-            }
-            n(context, str, strArr[0], z, dVar, z2, bundle);
-        }
-        return z3;
-    }
 
-    public boolean h(Context context, String[] strArr, boolean z, l.d dVar, boolean z2, Bundle bundle) {
-        return g(context, "", strArr, z, dVar, z2, bundle);
-    }
-
-    public int i(Context context, String[] strArr) {
-        int a2;
-        if (strArr != null && strArr.length != 0) {
-            for (l.a aVar : this.f58598a) {
-                if (aVar != null && (a2 = aVar.a(context, strArr)) != 3) {
-                    return a2;
+            @Override // java.lang.Thread, java.lang.Runnable
+            public void run() {
+                super.run();
+                try {
+                    ChunkUploadDatabaseService.delOverdueChunkUploadData();
+                    a.c(TbadkCoreApplication.getInst().getCacheDir());
+                } catch (Exception unused) {
                 }
             }
         }
-        return 3;
-    }
 
-    public final Map<String, String> j(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+        public C1105a(int i) {
+            super(i);
         }
-        HashMap hashMap = new HashMap();
-        String[] split = str.split("[&]");
-        if (split == null) {
-            hashMap.put(UrlManager.DEFAULT_PARAM, str);
-            return hashMap;
-        }
-        for (String str2 : split) {
-            String[] split2 = str2.split("[=]");
-            if (split2.length > 1) {
-                hashMap.put(split2[0], split2[1]);
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            long l = b.j().l("key_clear_resource", 0L);
+            long currentTimeMillis = System.currentTimeMillis();
+            if (l == 0) {
+                b.j().w("key_clear_resource", currentTimeMillis);
+                l = currentTimeMillis;
+            }
+            if (currentTimeMillis - l > a.f51115a) {
+                new C1106a(this).start();
+                b.j().w("key_clear_resource", currentTimeMillis);
             }
         }
-        return hashMap;
     }
 
-    public final String k(String str) {
-        int lastIndexOf;
-        if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
-            return str.substring(lastIndexOf + 1);
+    public static void c(File file) {
+        if (file == null) {
+            return;
         }
-        return null;
-    }
-
-    public final String m(String str) {
-        if (StringUtils.isNull(str)) {
-            return null;
+        try {
+            if (file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                if (listFiles != null) {
+                    for (int i = 0; i < listFiles.length; i++) {
+                        if (listFiles[i].isDirectory()) {
+                            c(listFiles[i]);
+                        } else {
+                            listFiles[i].delete();
+                        }
+                    }
+                    return;
+                }
+                return;
+            }
+            file.delete();
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
         }
-        return str.contains(":") ? str.substring(0, str.lastIndexOf(":")) : str;
     }
 
-    public final void n(Context context, String str, String str2, boolean z, l.d dVar, boolean z2, Bundle bundle) {
-        if (f58596d.matcher(str2).find()) {
-            this.f58600c.a(context, str, str2, z, dVar, z2, bundle);
-        }
-    }
-
-    public void o(l.c cVar) {
-        this.f58600c = cVar;
+    public static void d() {
+        MessageManager.getInstance().registerListener(new C1105a(2005016));
     }
 }

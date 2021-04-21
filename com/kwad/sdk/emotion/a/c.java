@@ -20,51 +20,51 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<String, SoftReference<Bitmap>> f34932a = new HashMap<>(168);
+    public static final HashMap<String, SoftReference<Bitmap>> f35027a = new HashMap<>(168);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f34933b = new com.kwad.sdk.emotion.a.a() { // from class: com.kwad.sdk.emotion.a.c.1
+    public static final g f35028b = new com.kwad.sdk.emotion.a.a() { // from class: com.kwad.sdk.emotion.a.c.1
     };
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c f34934c;
+    public static volatile c f35029c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<String, a> f34935d = new ConcurrentHashMap();
+    public final Map<String, a> f35030d = new ConcurrentHashMap();
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<String, EmotionInfo> f34936e = new ConcurrentHashMap();
+    public final Map<String, EmotionInfo> f35031e = new ConcurrentHashMap();
 
     /* renamed from: f  reason: collision with root package name */
-    public final Map<String, b> f34937f = new ConcurrentHashMap();
+    public final Map<String, b> f35032f = new ConcurrentHashMap();
 
     /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.emotion.b.d f34938g = new com.kwad.sdk.emotion.b.d();
+    public com.kwad.sdk.emotion.b.d f35033g = new com.kwad.sdk.emotion.b.d();
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.emotion.c f34939h;
+    public com.kwad.sdk.emotion.c f35034h;
     public AtomicInteger i;
 
     /* loaded from: classes6.dex */
     public class a {
 
         /* renamed from: b  reason: collision with root package name */
-        public EmotionInfo f34942b;
+        public EmotionInfo f35037b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f34943c;
+        public String f35038c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f34944d;
+        public boolean f35039d;
 
         public a(EmotionInfo emotionInfo) {
-            this.f34942b = emotionInfo;
-            this.f34943c = emotionInfo.id;
+            this.f35037b = emotionInfo;
+            this.f35038c = emotionInfo.id;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(EmotionInfo emotionInfo) {
-            if (c.f34932a.get(emotionInfo.id) == null || !this.f34944d) {
+            if (c.f35027a.get(emotionInfo.id) == null || !this.f35039d) {
                 return;
             }
             c.this.a(emotionInfo, this);
@@ -72,11 +72,11 @@ public class c {
 
         @Nullable
         public Bitmap a() {
-            SoftReference softReference = (SoftReference) c.f34932a.get(this.f34943c);
+            SoftReference softReference = (SoftReference) c.f35027a.get(this.f35038c);
             Bitmap bitmap = softReference != null ? (Bitmap) softReference.get() : null;
             if (bitmap == null || bitmap.isRecycled()) {
-                Bitmap a2 = com.kwad.sdk.emotion.b.d.a(this.f34942b.id, false);
-                c.f34932a.put(this.f34943c, new SoftReference(a2));
+                Bitmap a2 = com.kwad.sdk.emotion.b.d.a(this.f35037b.id, false);
+                c.f35027a.put(this.f35038c, new SoftReference(a2));
                 return a2;
             }
             return bitmap;
@@ -84,13 +84,13 @@ public class c {
 
         @SuppressLint({"CheckResult"})
         public void a(final b bVar) {
-            Bitmap a2 = com.kwad.sdk.emotion.b.d.a(this.f34942b.id, false);
+            Bitmap a2 = com.kwad.sdk.emotion.b.d.a(this.f35037b.id, false);
             if (a2 != null) {
-                c.f34932a.put(this.f34942b.id, new SoftReference(a2));
-                a(this.f34942b);
+                c.f35027a.put(this.f35037b.id, new SoftReference(a2));
+                a(this.f35037b);
                 bVar.b();
             } else {
-                c.this.f34938g.a(this.f34942b, false, new d.a() { // from class: com.kwad.sdk.emotion.a.c.a.1
+                c.this.f35033g.a(this.f35037b, false, new d.a() { // from class: com.kwad.sdk.emotion.a.c.a.1
                     @Override // com.kwad.sdk.emotion.b.d.a
                     public void a() {
                         bVar.e();
@@ -98,15 +98,15 @@ public class c {
 
                     @Override // com.kwad.sdk.emotion.b.d.a
                     public void a(String str) {
-                        c.f34932a.put(a.this.f34942b.id, new SoftReference(BitmapFactory.decodeFile(str)));
+                        c.f35027a.put(a.this.f35037b.id, new SoftReference(BitmapFactory.decodeFile(str)));
                         a aVar = a.this;
-                        aVar.a(aVar.f34942b);
+                        aVar.a(aVar.f35037b);
                         bVar.b();
                     }
                 });
             }
-            if (!com.kwad.sdk.emotion.b.b.a().b(this.f34942b.id, true)) {
-                c.this.f34938g.a(this.f34942b, true, new d.a() { // from class: com.kwad.sdk.emotion.a.c.a.2
+            if (!com.kwad.sdk.emotion.b.b.a().b(this.f35037b.id, true)) {
+                c.this.f35033g.a(this.f35037b, true, new d.a() { // from class: com.kwad.sdk.emotion.a.c.a.2
                     @Override // com.kwad.sdk.emotion.b.d.a
                     public void a() {
                         bVar.e();
@@ -114,50 +114,50 @@ public class c {
 
                     @Override // com.kwad.sdk.emotion.b.d.a
                     public void a(String str) {
-                        a.this.f34944d = true;
+                        a.this.f35039d = true;
                         a aVar = a.this;
-                        aVar.a(aVar.f34942b);
+                        aVar.a(aVar.f35037b);
                         bVar.c();
                     }
                 });
                 return;
             }
-            this.f34944d = true;
-            a(this.f34942b);
+            this.f35039d = true;
+            a(this.f35037b);
             bVar.c();
         }
     }
 
     public static c a() {
-        if (f34934c == null) {
+        if (f35029c == null) {
             synchronized (c.class) {
-                if (f34934c == null) {
-                    f34934c = new c();
+                if (f35029c == null) {
+                    f35029c = new c();
                 }
             }
         }
-        return f34934c;
+        return f35029c;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(EmotionInfo emotionInfo, a aVar) {
-        this.f34936e.put(emotionInfo.id, emotionInfo);
+        this.f35031e.put(emotionInfo.id, emotionInfo);
         for (EmotionCode emotionCode : emotionInfo.emotionCodes) {
             for (String str : emotionCode.codes) {
-                this.f34935d.put(str, aVar);
+                this.f35030d.put(str, aVar);
             }
         }
     }
 
     private void a(EmotionPackage emotionPackage) {
         if (emotionPackage != null) {
-            b bVar = new b(emotionPackage, this.f34939h, new Runnable() { // from class: com.kwad.sdk.emotion.a.c.2
+            b bVar = new b(emotionPackage, this.f35034h, new Runnable() { // from class: com.kwad.sdk.emotion.a.c.2
                 @Override // java.lang.Runnable
                 public void run() {
                     c.this.i.decrementAndGet();
                 }
             });
-            this.f34937f.put(emotionPackage.id, bVar);
+            this.f35032f.put(emotionPackage.id, bVar);
             List<EmotionInfo> list = emotionPackage.emotions;
             if (list != null) {
                 for (EmotionInfo emotionInfo : list) {
@@ -168,13 +168,13 @@ public class c {
     }
 
     public Bitmap a(Context context, String str, int i) {
-        a aVar = this.f34935d.get(str);
+        a aVar = this.f35030d.get(str);
         Bitmap a2 = aVar != null ? aVar.a() : null;
         return a2 != null ? a2 : BitmapFactory.decodeResource(context.getResources(), i);
     }
 
     public String a(String str) {
-        return this.f34935d.get(str).f34943c;
+        return this.f35030d.get(str).f35038c;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -184,7 +184,7 @@ public class c {
         }
         List<EmotionPackage> a2 = fVar.a();
         this.i = new AtomicInteger(a2.size());
-        this.f34939h = cVar;
+        this.f35034h = cVar;
         for (EmotionPackage emotionPackage : a2) {
             a(emotionPackage);
         }
@@ -195,6 +195,6 @@ public class c {
     }
 
     public boolean c(String str) {
-        return this.f34935d.containsKey(str);
+        return this.f35030d.containsKey(str);
     }
 }

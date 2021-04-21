@@ -40,13 +40,13 @@ import java.util.List;
 public class an {
 
     /* renamed from: a  reason: collision with root package name */
-    public static an f40453a = null;
+    public static an f40548a = null;
 
     /* renamed from: a  reason: collision with other field name */
     public static final ArrayList<a> f63a = new ArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f40454b = false;
+    public static boolean f40549b = false;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f64a;
@@ -64,7 +64,7 @@ public class an {
     public List<Message> f70a = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f40455c = false;
+    public boolean f40550c = false;
 
     /* renamed from: a  reason: collision with other field name */
     public Intent f65a = null;
@@ -79,7 +79,7 @@ public class an {
     public static class a<T extends iq<T, ?>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public hf f40456a;
+        public hf f40551a;
 
         /* renamed from: a  reason: collision with other field name */
         public T f72a;
@@ -93,7 +93,7 @@ public class an {
         this.f66a = null;
         this.f64a = context.getApplicationContext();
         this.f71a = m84c();
-        f40454b = m85d();
+        f40549b = m85d();
         this.f66a = new ao(this, Looper.getMainLooper());
         if (com.xiaomi.push.l.m521a(context)) {
             com.xiaomi.push.service.d.a(new ap(this));
@@ -123,10 +123,10 @@ public class an {
     public static synchronized an a(Context context) {
         an anVar;
         synchronized (an.class) {
-            if (f40453a == null) {
-                f40453a = new an(context);
+            if (f40548a == null) {
+                f40548a = new an(context);
             }
-            anVar = f40453a;
+            anVar = f40548a;
         }
         return anVar;
     }
@@ -159,7 +159,7 @@ public class an {
                 ieVar2.a(str);
                 ieVar = z ? new ie(str, true) : null;
             }
-            switch (as.f40461a[atVar.ordinal()]) {
+            switch (as.f40556a[atVar.ordinal()]) {
                 case 1:
                     ieVar2.c(hp.DisablePushMessage.f506a);
                     ieVar.c(hp.DisablePushMessage.f506a);
@@ -254,7 +254,7 @@ public class an {
     private void c(Intent intent) {
         int a2 = com.xiaomi.push.service.aq.a(this.f64a).a(hk.ServiceBootMode.a(), hg.START.a());
         int a3 = a();
-        boolean z = a2 == hg.BIND.a() && f40454b;
+        boolean z = a2 == hg.BIND.a() && f40549b;
         int a4 = (z ? hg.BIND : hg.START).a();
         if (a4 != a3) {
             m90a(a4);
@@ -290,7 +290,7 @@ public class an {
     }
 
     private synchronized void d(Intent intent) {
-        if (this.f40455c) {
+        if (this.f40550c) {
             Message a2 = a(intent);
             if (this.f70a.size() >= 50) {
                 this.f70a.remove(0);
@@ -300,7 +300,7 @@ public class an {
         }
         if (this.f67a == null) {
             this.f64a.bindService(intent, new ar(this), 1);
-            this.f40455c = true;
+            this.f40550c = true;
             this.f70a.clear();
             this.f70a.add(a(intent));
         } else {
@@ -308,7 +308,7 @@ public class an {
                 this.f67a.send(a(intent));
             } catch (RemoteException unused) {
                 this.f67a = null;
-                this.f40455c = false;
+                this.f40550c = false;
             }
         }
     }
@@ -445,7 +445,7 @@ public class an {
     public <T extends iq<T, ?>> void a(T t, hf hfVar, boolean z) {
         a aVar = new a();
         aVar.f72a = t;
-        aVar.f40456a = hfVar;
+        aVar.f40551a = hfVar;
         aVar.f73a = z;
         synchronized (f63a) {
             f63a.add(aVar);
@@ -602,7 +602,7 @@ public class an {
             Iterator<a> it = f63a.iterator();
             while (it.hasNext()) {
                 a next = it.next();
-                a(next.f72a, next.f40456a, next.f73a, false, null, true);
+                a(next.f72a, next.f40551a, next.f73a, false, null, true);
                 if (!z) {
                     try {
                         Thread.sleep(100L);

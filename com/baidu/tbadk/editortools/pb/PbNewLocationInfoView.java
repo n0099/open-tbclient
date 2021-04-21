@@ -10,18 +10,18 @@ import d.b.c.e.p.l;
 public class PbNewLocationInfoView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13559e;
+    public int f13567e;
 
     public PbNewLocationInfoView(Context context) {
         this(context, null);
     }
 
     public int getState() {
-        return this.f13559e;
+        return this.f13567e;
     }
 
     public void setState(int i, String str) {
-        this.f13559e = i;
+        this.f13567e = i;
         if (i == 1) {
             if (str == null) {
                 str = getResources().getString(R.string.location_loading);

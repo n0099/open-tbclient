@@ -3,7 +3,7 @@ package com.baidu.tieba.personExtra;
 import android.os.Bundle;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
-import d.b.i0.h2.c;
+import d.b.j0.h2.c;
 /* loaded from: classes3.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
     public PersonBarAdapter mAdapter = null;

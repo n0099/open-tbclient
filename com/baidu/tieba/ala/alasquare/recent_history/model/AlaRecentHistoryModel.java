@@ -21,20 +21,20 @@ import java.util.List;
 public class AlaRecentHistoryModel extends BdBaseModel {
 
     /* renamed from: f  reason: collision with root package name */
-    public b f14492f;
+    public b f14500f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14493g;
+    public int f14501g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14494h;
+    public int f14502h;
     public boolean i;
     public boolean j;
     public HttpMessageListener l;
     public BdUniqueId k = BdUniqueId.gen();
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d.b.i0.t.d.e.b.b> f14491e = new ArrayList();
+    public List<d.b.j0.t.d.e.b.b> f14499e = new ArrayList();
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -48,27 +48,27 @@ public class AlaRecentHistoryModel extends BdBaseModel {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021082 && (httpResponsedMessage instanceof AlaRecentHistoryResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaRecentHistoryModel.this.k) {
                 AlaRecentHistoryResponseMessage alaRecentHistoryResponseMessage = (AlaRecentHistoryResponseMessage) httpResponsedMessage;
                 if (!alaRecentHistoryResponseMessage.isSuccess()) {
-                    if (AlaRecentHistoryModel.this.f14492f != null) {
-                        AlaRecentHistoryModel.this.f14492f.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaRecentHistoryModel.this.j);
+                    if (AlaRecentHistoryModel.this.f14500f != null) {
+                        AlaRecentHistoryModel.this.f14500f.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), AlaRecentHistoryModel.this.j);
                     }
                 } else {
-                    d.b.i0.t.d.e.b.a recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
+                    d.b.j0.t.d.e.b.a recentHistoryData = alaRecentHistoryResponseMessage.getRecentHistoryData();
                     if (recentHistoryData == null) {
                         return;
                     }
-                    AlaRecentHistoryModel.this.i = recentHistoryData.f62071a;
-                    List<d.b.i0.t.d.e.b.b> list = recentHistoryData.f62072b;
+                    AlaRecentHistoryModel.this.i = recentHistoryData.f62492a;
+                    List<d.b.j0.t.d.e.b.b> list = recentHistoryData.f62493b;
                     if (!AlaRecentHistoryModel.this.j) {
-                        AlaRecentHistoryModel.this.f14491e.clear();
+                        AlaRecentHistoryModel.this.f14499e.clear();
                         if (!ListUtils.isEmpty(list)) {
-                            AlaRecentHistoryModel.this.f14491e.addAll(list);
+                            AlaRecentHistoryModel.this.f14499e.addAll(list);
                         }
                     } else if (!ListUtils.isEmpty(list)) {
                         AlaRecentHistoryModel.x(AlaRecentHistoryModel.this);
-                        AlaRecentHistoryModel.this.f14491e.addAll(list);
+                        AlaRecentHistoryModel.this.f14499e.addAll(list);
                     }
-                    if (AlaRecentHistoryModel.this.f14492f != null) {
-                        AlaRecentHistoryModel.this.f14492f.a(AlaRecentHistoryModel.this.i, AlaRecentHistoryModel.this.f14491e);
+                    if (AlaRecentHistoryModel.this.f14500f != null) {
+                        AlaRecentHistoryModel.this.f14500f.a(AlaRecentHistoryModel.this.i, AlaRecentHistoryModel.this.f14499e);
                     }
                 }
                 AlaRecentHistoryModel.this.j = false;
@@ -78,21 +78,21 @@ public class AlaRecentHistoryModel extends BdBaseModel {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(boolean z, List<d.b.i0.t.d.e.b.b> list);
+        void a(boolean z, List<d.b.j0.t.d.e.b.b> list);
 
         void b(int i, String str, boolean z);
     }
 
     public AlaRecentHistoryModel(TbPageContext tbPageContext, int i, b bVar) {
-        this.f14493g = i;
-        this.f14492f = bVar;
+        this.f14501g = i;
+        this.f14500f = bVar;
         registerListener();
         registerTask();
     }
 
     public static /* synthetic */ int x(AlaRecentHistoryModel alaRecentHistoryModel) {
-        int i = alaRecentHistoryModel.f14494h;
-        alaRecentHistoryModel.f14494h = i + 1;
+        int i = alaRecentHistoryModel.f14502h;
+        alaRecentHistoryModel.f14502h = i + 1;
         return i;
     }
 
@@ -103,19 +103,19 @@ public class AlaRecentHistoryModel extends BdBaseModel {
         this.j = true;
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_RECENT_HISTORY_LIST);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
-        httpMessage.addParam("type", this.f14493g);
-        httpMessage.addParam(Config.PACKAGE_NAME, this.f14494h + 1);
+        httpMessage.addParam("type", this.f14501g);
+        httpMessage.addParam(Config.PACKAGE_NAME, this.f14502h + 1);
         httpMessage.setTag(this.k);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
     public void B() {
         this.j = false;
-        this.f14494h = 0;
+        this.f14502h = 0;
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_RECENT_HISTORY_LIST);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
-        httpMessage.addParam("type", this.f14493g);
-        httpMessage.addParam(Config.PACKAGE_NAME, this.f14494h);
+        httpMessage.addParam("type", this.f14501g);
+        httpMessage.addParam(Config.PACKAGE_NAME, this.f14502h);
         httpMessage.setTag(this.k);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
@@ -130,8 +130,8 @@ public class AlaRecentHistoryModel extends BdBaseModel {
         return false;
     }
 
-    public List<d.b.i0.t.d.e.b.b> getData() {
-        return this.f14491e;
+    public List<d.b.j0.t.d.e.b.b> getData() {
+        return this.f14499e;
     }
 
     public void onDestroy() {

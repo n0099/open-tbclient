@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import d.b.c.e.p.k;
-import d.b.h0.g0.b.a;
+import d.b.i0.g0.b.a;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -320,7 +320,7 @@ public class FeedData implements Serializable, a {
             jSONObject.put("is_share_thread", i);
             if (this.mOriginalThreadInfo != null) {
                 JSONObject jSONObject5 = new JSONObject();
-                jSONObject5.put("title", this.mOriginalThreadInfo.f12878g);
+                jSONObject5.put("title", this.mOriginalThreadInfo.f12886g);
                 jSONObject.put("origin_thread_info", jSONObject5);
             }
             jSONArray.put(jSONObject);

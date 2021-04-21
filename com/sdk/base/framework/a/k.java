@@ -11,29 +11,29 @@ import java.util.TreeMap;
 public class k<T> implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38778a = "com.sdk.base.framework.a.k";
+    public static final String f38873a = "com.sdk.base.framework.a.k";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f38779b = Boolean.valueOf(com.sdk.base.framework.c.f.f38809b);
+    public static final Boolean f38874b = Boolean.valueOf(com.sdk.base.framework.c.f.f38904b);
 
     /* renamed from: d  reason: collision with root package name */
-    public String f38781d;
+    public String f38876d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TreeMap<String, Object> f38782e;
+    public TreeMap<String, Object> f38877e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<File> f38783f;
+    public ArrayList<File> f38878f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HashMap<String, Object> f38784g;
+    public HashMap<String, Object> f38879g;
     public com.sdk.base.framework.b.b<T> i;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38780c = j.f38770a.toString();
+    public String f38875c = j.f38865a.toString();
 
     /* renamed from: h  reason: collision with root package name */
-    public int f38785h = 0;
+    public int f38880h = 0;
 
     public static String b(TreeMap<String, Object> treeMap) {
         StringBuilder sb;
@@ -45,7 +45,7 @@ public class k<T> implements Serializable {
                     Object value = entry.getValue();
                     if (value != null && com.sdk.base.framework.a.a.c.b(key).booleanValue()) {
                         String encode = URLEncoder.encode(value.toString(), "UTF-8");
-                        boolean z = com.sdk.base.framework.c.f.f38812e;
+                        boolean z = com.sdk.base.framework.c.f.f38907e;
                         sb.append(key);
                         sb.append("=");
                         sb.append(encode);
@@ -54,7 +54,7 @@ public class k<T> implements Serializable {
                 }
                 sb.deleteCharAt(sb.length() - 1);
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(f38778a, e2.getMessage(), f38779b);
+                com.sdk.base.framework.a.a.c.b(f38873a, e2.getMessage(), f38874b);
                 throw new Exception("http请求参数出错");
             }
         } else {
@@ -67,11 +67,11 @@ public class k<T> implements Serializable {
     }
 
     public final String a() {
-        return this.f38780c;
+        return this.f38875c;
     }
 
     public final void a(int i) {
-        this.f38785h = i;
+        this.f38880h = i;
     }
 
     public final void a(com.sdk.base.framework.b.b<T> bVar) {
@@ -80,45 +80,45 @@ public class k<T> implements Serializable {
 
     public final void a(String str) {
         if (com.sdk.base.framework.a.a.c.b(str).booleanValue()) {
-            this.f38780c = str;
+            this.f38875c = str;
         }
     }
 
     public final void a(ArrayList<File> arrayList) {
-        this.f38783f = arrayList;
+        this.f38878f = arrayList;
     }
 
     public final void a(HashMap<String, Object> hashMap) {
-        this.f38784g = hashMap;
+        this.f38879g = hashMap;
     }
 
     public final void a(TreeMap<String, Object> treeMap) {
-        this.f38782e = treeMap;
+        this.f38877e = treeMap;
     }
 
     public final ArrayList<File> b() {
-        return this.f38783f;
+        return this.f38878f;
     }
 
     public final void b(String str) {
-        this.f38781d = str;
+        this.f38876d = str;
     }
 
     public final boolean c() {
-        ArrayList<File> arrayList = this.f38783f;
+        ArrayList<File> arrayList = this.f38878f;
         return (arrayList == null || arrayList.size() == 0) ? false : true;
     }
 
     public final String d() {
-        return this.f38781d;
+        return this.f38876d;
     }
 
     public final TreeMap<String, Object> e() {
-        return this.f38782e;
+        return this.f38877e;
     }
 
     public final int f() {
-        return this.f38785h;
+        return this.f38880h;
     }
 
     public final com.sdk.base.framework.b.b<T> g() {
@@ -126,6 +126,6 @@ public class k<T> implements Serializable {
     }
 
     public final HashMap<String, Object> h() {
-        return this.f38784g;
+        return this.f38879g;
     }
 }

@@ -1,12 +1,12 @@
 package com.google.common.collect;
 
-import d.g.c.c.c1;
-import d.g.c.c.h0;
-import d.g.c.c.i0;
-import d.g.c.c.j;
-import d.g.c.c.m;
-import d.g.c.c.n0;
-import d.g.c.c.r0;
+import d.h.c.c.c1;
+import d.h.c.c.h0;
+import d.h.c.c.i0;
+import d.h.c.c.j;
+import d.h.c.c.m;
+import d.h.c.c.n0;
+import d.h.c.c.r0;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -65,7 +65,7 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
             return ImmutableMultimap.this.containsKey(obj);
         }
 
-        @Override // com.google.common.collect.ImmutableMultiset, d.g.c.c.i0
+        @Override // com.google.common.collect.ImmutableMultiset, d.h.c.c.i0
         public int count(Object obj) {
             ImmutableCollection<V> immutableCollection = ImmutableMultimap.this.map.get(obj);
             if (immutableCollection == null) {
@@ -85,7 +85,7 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
             return true;
         }
 
-        @Override // java.util.AbstractCollection, java.util.Collection, d.g.c.c.i0
+        @Override // java.util.AbstractCollection, java.util.Collection, d.h.c.c.i0
         public int size() {
             return ImmutableMultimap.this.size();
         }
@@ -96,7 +96,7 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.common.collect.ImmutableMultiset, d.g.c.c.i0
+        @Override // com.google.common.collect.ImmutableMultiset, d.h.c.c.i0
         public ImmutableSet<K> elementSet() {
             return ImmutableMultimap.this.keySet();
         }
@@ -120,20 +120,20 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
         public static final long serialVersionUID = 0;
 
         /* renamed from: e  reason: collision with root package name */
-        public final transient ImmutableMultimap<K, V> f30803e;
+        public final transient ImmutableMultimap<K, V> f30898e;
 
         public Values(ImmutableMultimap<K, V> immutableMultimap) {
-            this.f30803e = immutableMultimap;
+            this.f30898e = immutableMultimap;
         }
 
         @Override // com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.util.Set
         public boolean contains(Object obj) {
-            return this.f30803e.containsValue(obj);
+            return this.f30898e.containsValue(obj);
         }
 
         @Override // com.google.common.collect.ImmutableCollection
         public int copyIntoArray(Object[] objArr, int i) {
-            c1<? extends ImmutableCollection<V>> it = this.f30803e.map.values().iterator();
+            c1<? extends ImmutableCollection<V>> it = this.f30898e.map.values().iterator();
             while (it.hasNext()) {
                 i = it.next().copyIntoArray(objArr, i);
             }
@@ -147,13 +147,13 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
 
         @Override // java.util.AbstractCollection, java.util.Collection
         public int size() {
-            return this.f30803e.size();
+            return this.f30898e.size();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set, java.util.NavigableSet
         public c1<V> iterator() {
-            return this.f30803e.valueIterator();
+            return this.f30898e.valueIterator();
         }
     }
 
@@ -161,33 +161,33 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
     public class a extends c1<Map.Entry<K, V>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Iterator<? extends Map.Entry<K, ? extends ImmutableCollection<V>>> f30804e;
+        public final Iterator<? extends Map.Entry<K, ? extends ImmutableCollection<V>>> f30899e;
 
         /* renamed from: f  reason: collision with root package name */
-        public K f30805f = null;
+        public K f30900f = null;
 
         /* renamed from: g  reason: collision with root package name */
-        public Iterator<V> f30806g = Iterators.h();
+        public Iterator<V> f30901g = Iterators.h();
 
         public a() {
-            this.f30804e = ImmutableMultimap.this.map.entrySet().iterator();
+            this.f30899e = ImmutableMultimap.this.map.entrySet().iterator();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
         /* renamed from: a */
         public Map.Entry<K, V> next() {
-            if (!this.f30806g.hasNext()) {
-                Map.Entry<K, ? extends ImmutableCollection<V>> next = this.f30804e.next();
-                this.f30805f = next.getKey();
-                this.f30806g = next.getValue().iterator();
+            if (!this.f30901g.hasNext()) {
+                Map.Entry<K, ? extends ImmutableCollection<V>> next = this.f30899e.next();
+                this.f30900f = next.getKey();
+                this.f30901g = next.getValue().iterator();
             }
-            return Maps.j(this.f30805f, this.f30806g.next());
+            return Maps.j(this.f30900f, this.f30901g.next());
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f30806g.hasNext() || this.f30804e.hasNext();
+            return this.f30901g.hasNext() || this.f30899e.hasNext();
         }
     }
 
@@ -195,26 +195,26 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
     public class b extends c1<V> {
 
         /* renamed from: e  reason: collision with root package name */
-        public Iterator<? extends ImmutableCollection<V>> f30808e;
+        public Iterator<? extends ImmutableCollection<V>> f30903e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Iterator<V> f30809f = Iterators.h();
+        public Iterator<V> f30904f = Iterators.h();
 
         public b() {
-            this.f30808e = ImmutableMultimap.this.map.values().iterator();
+            this.f30903e = ImmutableMultimap.this.map.values().iterator();
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.f30809f.hasNext() || this.f30808e.hasNext();
+            return this.f30904f.hasNext() || this.f30903e.hasNext();
         }
 
         @Override // java.util.Iterator
         public V next() {
-            if (!this.f30809f.hasNext()) {
-                this.f30809f = this.f30808e.next().iterator();
+            if (!this.f30904f.hasNext()) {
+                this.f30904f = this.f30903e.next().iterator();
             }
-            return this.f30809f.next();
+            return this.f30904f.next();
         }
     }
 
@@ -222,21 +222,21 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
     public static class c<K, V> {
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<K, Collection<V>> f30811a = n0.h();
+        public Map<K, Collection<V>> f30906a = n0.h();
 
         /* renamed from: b  reason: collision with root package name */
-        public Comparator<? super K> f30812b;
+        public Comparator<? super K> f30907b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Comparator<? super V> f30813c;
+        public Comparator<? super V> f30908c;
 
         public ImmutableMultimap<K, V> a() {
-            Collection entrySet = this.f30811a.entrySet();
-            Comparator<? super K> comparator = this.f30812b;
+            Collection entrySet = this.f30906a.entrySet();
+            Comparator<? super K> comparator = this.f30907b;
             if (comparator != null) {
                 entrySet = Ordering.from(comparator).onKeys().immutableSortedCopy(entrySet);
             }
-            return ImmutableListMultimap.fromMapEntries(entrySet, this.f30813c);
+            return ImmutableListMultimap.fromMapEntries(entrySet, this.f30908c);
         }
 
         public Collection<V> b() {
@@ -245,9 +245,9 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
 
         public c<K, V> c(K k, V v) {
             m.a(k, v);
-            Collection<V> collection = this.f30811a.get(k);
+            Collection<V> collection = this.f30906a.get(k);
             if (collection == null) {
-                Map<K, Collection<V>> map = this.f30811a;
+                Map<K, Collection<V>> map = this.f30906a;
                 Collection<V> b2 = b();
                 map.put(k, b2);
                 collection = b2;
@@ -272,10 +272,10 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final r0.b<ImmutableMultimap> f30814a = r0.a(ImmutableMultimap.class, "map");
+        public static final r0.b<ImmutableMultimap> f30909a = r0.a(ImmutableMultimap.class, "map");
 
         /* renamed from: b  reason: collision with root package name */
-        public static final r0.b<ImmutableMultimap> f30815b = r0.a(ImmutableMultimap.class, "size");
+        public static final r0.b<ImmutableMultimap> f30910b = r0.a(ImmutableMultimap.class, "size");
     }
 
     public ImmutableMultimap(ImmutableMap<K, ? extends ImmutableCollection<V>> immutableMap, int i) {
@@ -301,60 +301,60 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
         return ImmutableListMultimap.of();
     }
 
-    @Override // d.g.c.c.h0
+    @Override // d.h.c.c.h0
     @Deprecated
     public void clear() {
         throw new UnsupportedOperationException();
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     public /* bridge */ /* synthetic */ boolean containsEntry(Object obj, Object obj2) {
         return super.containsEntry(obj, obj2);
     }
 
-    @Override // d.g.c.c.h0
+    @Override // d.h.c.c.h0
     public boolean containsKey(Object obj) {
         return this.map.containsKey(obj);
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     public boolean containsValue(Object obj) {
         return obj != null && super.containsValue(obj);
     }
 
-    @Override // d.g.c.c.c
+    @Override // d.h.c.c.c
     public Map<K, Collection<V>> createAsMap() {
         throw new AssertionError("should never be called");
     }
 
-    @Override // d.g.c.c.c
+    @Override // d.h.c.c.c
     public Set<K> createKeySet() {
         throw new AssertionError("unreachable");
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     public /* bridge */ /* synthetic */ boolean equals(Object obj) {
         return super.equals(obj);
     }
 
-    @Override // d.g.c.c.h0, d.g.c.c.g0
+    @Override // d.h.c.c.h0, d.h.c.c.g0
     public abstract ImmutableCollection<V> get(K k);
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // d.g.c.c.h0, d.g.c.c.g0
+    @Override // d.h.c.c.h0, d.h.c.c.g0
     public /* bridge */ /* synthetic */ Collection get(Object obj) {
         return get((ImmutableMultimap<K, V>) obj);
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     public /* bridge */ /* synthetic */ int hashCode() {
         return super.hashCode();
     }
 
     public abstract ImmutableMultimap<V, K> inverse();
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     public /* bridge */ /* synthetic */ boolean isEmpty() {
         return super.isEmpty();
     }
@@ -363,19 +363,19 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
         return this.map.isPartialView();
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     @Deprecated
     public boolean put(K k, V v) {
         throw new UnsupportedOperationException();
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     @Deprecated
     public boolean putAll(K k, Iterable<? extends V> iterable) {
         throw new UnsupportedOperationException();
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     @Deprecated
     public boolean remove(Object obj, Object obj2) {
         throw new UnsupportedOperationException();
@@ -383,18 +383,18 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // d.g.c.c.c, d.g.c.c.h0, d.g.c.c.g0
+    @Override // d.h.c.c.c, d.h.c.c.h0, d.h.c.c.g0
     @Deprecated
     public /* bridge */ /* synthetic */ Collection replaceValues(Object obj, Iterable iterable) {
         return replaceValues((ImmutableMultimap<K, V>) obj, iterable);
     }
 
-    @Override // d.g.c.c.h0
+    @Override // d.h.c.c.h0
     public int size() {
         return this.size;
     }
 
-    @Override // d.g.c.c.c
+    @Override // d.h.c.c.c
     public /* bridge */ /* synthetic */ String toString() {
         return super.toString();
     }
@@ -405,80 +405,80 @@ public abstract class ImmutableMultimap<K, V> extends j<K, V> implements Seriali
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: com.google.common.collect.ImmutableMap<K, ? extends com.google.common.collect.ImmutableCollection<V>>, com.google.common.collect.ImmutableMap<K, java.util.Collection<V>> */
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     public ImmutableMap<K, Collection<V>> asMap() {
         return (ImmutableMap<K, ? extends ImmutableCollection<V>>) this.map;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.c
+    @Override // d.h.c.c.c
     public ImmutableCollection<Map.Entry<K, V>> createEntries() {
         return new EntryCollection(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.c
+    @Override // d.h.c.c.c
     public ImmutableMultiset<K> createKeys() {
         return new Keys();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.c
+    @Override // d.h.c.c.c
     public ImmutableCollection<V> createValues() {
         return new Values(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     public ImmutableCollection<Map.Entry<K, V>> entries() {
         return (ImmutableCollection) super.entries();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.c
+    @Override // d.h.c.c.c
     public c1<Map.Entry<K, V>> entryIterator() {
         return new a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     public ImmutableSet<K> keySet() {
         return this.map.keySet();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     public ImmutableMultiset<K> keys() {
         return (ImmutableMultiset) super.keys();
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     @Deprecated
     public boolean putAll(h0<? extends K, ? extends V> h0Var) {
         throw new UnsupportedOperationException();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.h0, d.g.c.c.g0
+    @Override // d.h.c.c.h0, d.h.c.c.g0
     @Deprecated
     public ImmutableCollection<V> removeAll(Object obj) {
         throw new UnsupportedOperationException();
     }
 
-    @Override // d.g.c.c.c, d.g.c.c.h0, d.g.c.c.g0
+    @Override // d.h.c.c.c, d.h.c.c.h0, d.h.c.c.g0
     @Deprecated
     public ImmutableCollection<V> replaceValues(K k, Iterable<? extends V> iterable) {
         throw new UnsupportedOperationException();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.c
+    @Override // d.h.c.c.c
     public c1<V> valueIterator() {
         return new b();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.g.c.c.c, d.g.c.c.h0
+    @Override // d.h.c.c.c, d.h.c.c.h0
     public ImmutableCollection<V> values() {
         return (ImmutableCollection) super.values();
     }

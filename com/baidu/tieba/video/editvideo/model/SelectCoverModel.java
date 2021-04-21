@@ -19,7 +19,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.video.editvideo.data.PendantData;
 import d.b.c.e.p.j;
-import d.b.i0.t1.g;
+import d.b.j0.t1.g;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -32,16 +32,16 @@ import org.json.JSONObject;
 public class SelectCoverModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.q3.j.a f21427e;
+    public d.b.j0.q3.j.a f21435e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f21428f;
+    public d f21436f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbPageContext f21429g;
+    public TbPageContext f21437g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f21430h;
+    public g f21438h;
     public final HttpMessageListener i;
     public final HttpMessageListener j;
 
@@ -127,21 +127,21 @@ public class SelectCoverModel extends BdBaseModel {
                 VideoCheckUegResponseMessage videoCheckUegResponseMessage = (VideoCheckUegResponseMessage) httpResponsedMessage;
                 String status = videoCheckUegResponseMessage.getStatus();
                 if (VideoCheckUegResponseMessage.STATUS_OK.equals(status)) {
-                    SelectCoverModel.this.f21427e.onCheckUegSuccess();
+                    SelectCoverModel.this.f21435e.onCheckUegSuccess();
                 } else if (VideoCheckUegResponseMessage.STATUS_FAIL.equals(status)) {
                     String msg = videoCheckUegResponseMessage.getMsg();
                     if (TextUtils.isEmpty(msg)) {
                         msg = TbadkCoreApplication.getInst().getResources().getString(R.string.video_ueg_fail);
                     }
-                    SelectCoverModel.this.f21427e.onCheckUegFail(msg);
+                    SelectCoverModel.this.f21435e.onCheckUegFail(msg);
                 } else {
                     String errorString = httpResponsedMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
                         errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.video_fail);
                     }
-                    SelectCoverModel.this.f21427e.onCheckUegFail(errorString);
-                    if (SelectCoverModel.this.f21430h != null) {
-                        SelectCoverModel.this.f21430h.a(201, errorString);
+                    SelectCoverModel.this.f21435e.onCheckUegFail(errorString);
+                    if (SelectCoverModel.this.f21438h != null) {
+                        SelectCoverModel.this.f21438h.a(201, errorString);
                     }
                 }
             }
@@ -162,7 +162,7 @@ public class SelectCoverModel extends BdBaseModel {
                 if (videoPendantResponseMessage.pendantDatas == null) {
                     return;
                 }
-                SelectCoverModel.this.f21427e.setPendantData(videoPendantResponseMessage.pendantDatas);
+                SelectCoverModel.this.f21435e.setPendantData(videoPendantResponseMessage.pendantDatas);
             }
         }
     }
@@ -171,22 +171,22 @@ public class SelectCoverModel extends BdBaseModel {
     public class c extends BdAsyncTask<Void, Integer, String> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Bitmap f21433a;
+        public final /* synthetic */ Bitmap f21441a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f21434b;
+        public final /* synthetic */ String f21442b;
 
         public c(Bitmap bitmap, String str) {
-            this.f21433a = bitmap;
-            this.f21434b = str;
+            this.f21441a = bitmap;
+            this.f21442b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public String doInBackground(Void[] voidArr) {
-            File x = SelectCoverModel.this.x(this.f21433a, this.f21434b);
-            this.f21433a.recycle();
+            File x = SelectCoverModel.this.x(this.f21441a, this.f21442b);
+            this.f21441a.recycle();
             return x.getAbsolutePath();
         }
 
@@ -194,7 +194,7 @@ public class SelectCoverModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((c) str);
-            SelectCoverModel.this.f21427e.onSaveCover(str);
+            SelectCoverModel.this.f21435e.onSaveCover(str);
         }
     }
 
@@ -202,33 +202,33 @@ public class SelectCoverModel extends BdBaseModel {
     public class d extends BdAsyncTask<Void, Integer, Bitmap> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f21436a;
+        public String f21444a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f21437b;
+        public int f21445b;
 
         public d(String str, int i) {
-            this.f21436a = str;
-            this.f21437b = i;
+            this.f21444a = str;
+            this.f21445b = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Bitmap doInBackground(Void... voidArr) {
             Bitmap bitmap = null;
-            if (TextUtils.isEmpty(this.f21436a)) {
+            if (TextUtils.isEmpty(this.f21444a)) {
                 return null;
             }
             try {
                 MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                mediaMetadataRetriever.setDataSource(this.f21436a);
-                bitmap = mediaMetadataRetriever.getFrameAtTime(this.f21437b * 1000);
+                mediaMetadataRetriever.setDataSource(this.f21444a);
+                bitmap = mediaMetadataRetriever.getFrameAtTime(this.f21445b * 1000);
                 mediaMetadataRetriever.release();
                 return bitmap;
             } catch (Exception e2) {
                 e2.printStackTrace();
-                if (SelectCoverModel.this.f21430h != null) {
-                    SelectCoverModel.this.f21430h.a(203, d.b.i0.t1.a.a(e2));
+                if (SelectCoverModel.this.f21438h != null) {
+                    SelectCoverModel.this.f21438h.a(203, d.b.j0.t1.a.a(e2));
                     return bitmap;
                 }
                 return bitmap;
@@ -239,17 +239,17 @@ public class SelectCoverModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((d) bitmap);
-            SelectCoverModel.this.f21427e.onGetCoverBitmap(bitmap);
+            SelectCoverModel.this.f21435e.onGetCoverBitmap(bitmap);
         }
     }
 
-    public SelectCoverModel(TbPageContext tbPageContext, d.b.i0.q3.j.a aVar, g gVar) {
+    public SelectCoverModel(TbPageContext tbPageContext, d.b.j0.q3.j.a aVar, g gVar) {
         super(tbPageContext);
         this.i = new a(CmdConfigHttp.CMD_VIDEO_TEXT_UEG);
         this.j = new b(CmdConfigHttp.CMD_VIDEO_COVER_PENDANT);
-        this.f21429g = tbPageContext;
-        this.f21427e = aVar;
-        this.f21430h = gVar;
+        this.f21437g = tbPageContext;
+        this.f21435e = aVar;
+        this.f21438h = gVar;
         registerTask();
         this.i.setTag(getUniqueId());
         this.i.setSelfListener(true);
@@ -268,7 +268,7 @@ public class SelectCoverModel extends BdBaseModel {
     public boolean cancelLoadData() {
         MessageManager.getInstance().unRegisterListener(this.i);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_VIDEO_TEXT_UEG);
-        d dVar = this.f21428f;
+        d dVar = this.f21436f;
         if (dVar != null) {
             dVar.cancel();
             return false;
@@ -293,7 +293,7 @@ public class SelectCoverModel extends BdBaseModel {
 
     public void v() {
         if (!j.z()) {
-            this.f21429g.showToast(R.string.no_network);
+            this.f21437g.showToast(R.string.no_network);
         } else {
             sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_COVER_PENDANT));
         }
@@ -343,8 +343,8 @@ public class SelectCoverModel extends BdBaseModel {
                     r2 = r2;
                     try {
                         e.printStackTrace();
-                        if (this.f21430h != null) {
-                            this.f21430h.a(202, d.b.i0.t1.a.a(e));
+                        if (this.f21438h != null) {
+                            this.f21438h.a(202, d.b.j0.t1.a.a(e));
                         }
                         d.b.c.e.m.a.d(r2);
                         d.b.c.e.m.a.d(bufferedOutputStream2);
@@ -385,7 +385,7 @@ public class SelectCoverModel extends BdBaseModel {
 
     public void y(String str, int i) {
         d dVar = new d(str, i);
-        this.f21428f = dVar;
+        this.f21436f = dVar;
         dVar.execute(new Void[0]);
     }
 }

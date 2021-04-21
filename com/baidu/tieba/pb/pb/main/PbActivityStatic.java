@@ -43,12 +43,12 @@ import com.baidu.tieba.pb.pb.sub.SubPbHttpResponseMessage;
 import com.baidu.tieba.pb.pb.sub.SubPbSocketResponseMessage;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
 import d.b.c.e.p.l;
-import d.b.h0.t.i;
-import d.b.h0.z0.n0;
-import d.b.h0.z0.o0;
-import d.b.i0.d2.k.e.p;
-import d.b.i0.d2.k.e.r0;
-import d.b.i0.d2.k.e.v0;
+import d.b.i0.t.i;
+import d.b.i0.z0.n0;
+import d.b.i0.z0.o0;
+import d.b.j0.d2.k.e.p;
+import d.b.j0.d2.k.e.r0;
+import d.b.j0.d2.k.e.v0;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -57,13 +57,13 @@ import tbclient.PbPage.PbPageResIdl;
 public class PbActivityStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static BdAsyncTaskParallel f19195a = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+    public static BdAsyncTaskParallel f19203a = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
 
     /* loaded from: classes3.dex */
-    public static class a implements d.b.h0.d.d {
-        @Override // d.b.h0.d.d
+    public static class a implements d.b.i0.d.d {
+        @Override // d.b.i0.d.d
         public View a(Context context) {
-            TextView a2 = d.b.h0.d.c.a(context);
+            TextView a2 = d.b.i0.d.c.a(context);
             if (a2 != null) {
                 FloatingLayout.LayoutParams layoutParams = new FloatingLayout.LayoutParams(-2, -2);
                 ((LinearLayout.LayoutParams) layoutParams).gravity = 16;
@@ -76,10 +76,10 @@ public class PbActivityStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements d.b.h0.d.d {
-        @Override // d.b.h0.d.d
+    public static class b implements d.b.i0.d.d {
+        @Override // d.b.i0.d.d
         public View a(Context context) {
-            TextView a2 = d.b.h0.d.c.a(context);
+            TextView a2 = d.b.i0.d.c.a(context);
             if (a2 != null) {
                 SkinManager.setViewTextColor(a2, R.color.CAM_X0302);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
@@ -92,10 +92,10 @@ public class PbActivityStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class c implements d.b.h0.d.d {
-        @Override // d.b.h0.d.d
+    public static class c implements d.b.i0.d.d {
+        @Override // d.b.i0.d.d
         public View a(Context context) {
-            TextView a2 = d.b.h0.d.c.a(context);
+            TextView a2 = d.b.i0.d.c.a(context);
             if (a2 != null) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 SkinManager.setViewTextColor(a2, R.color.CAM_X0302);
@@ -108,10 +108,10 @@ public class PbActivityStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class d implements d.b.h0.d.d {
-        @Override // d.b.h0.d.d
+    public static class d implements d.b.i0.d.d {
+        @Override // d.b.i0.d.d
         public View a(Context context) {
-            TextView a2 = d.b.h0.d.c.a(context);
+            TextView a2 = d.b.i0.d.c.a(context);
             if (a2 != null) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 SkinManager.setViewTextColor(a2, R.color.CAM_X0302);
@@ -152,7 +152,7 @@ public class PbActivityStatic {
     public static class g implements UrlManager.UrlDealListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public Pattern f19196a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
+        public Pattern f19204a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
 
         /* JADX WARN: Removed duplicated region for block: B:191:0x037e  */
         /* JADX WARN: Removed duplicated region for block: B:193:0x0384 A[RETURN] */
@@ -178,7 +178,7 @@ public class PbActivityStatic {
             }
             boolean z7 = strArr.length > 1 && !StringUtils.isNull(strArr[1]) && strArr[1].toLowerCase().contains("n/video/opersquare");
             String lowerCase = strArr[0].toLowerCase();
-            Matcher matcher = this.f19196a.matcher(lowerCase);
+            Matcher matcher = this.f19204a.matcher(lowerCase);
             String str3 = "push";
             if (!Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1").matcher(lowerCase).find() && !lowerCase.contains(UrlSchemaHelper.SCHEMA_TYPE_BAIJIAHAO_PB)) {
                 if (lowerCase.contains("unidispatch/pb")) {
@@ -395,11 +395,11 @@ public class PbActivityStatic {
     /* loaded from: classes3.dex */
     public static class h implements CustomMessageTask.CustomRunnable<Context> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.b.i0.l3.a> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<d.b.j0.l3.a> run(CustomMessage<Context> customMessage) {
             if (customMessage == null || !(customMessage.getData() instanceof Context)) {
                 return null;
             }
-            return new CustomResponsedMessage<>(2921343, new d.b.i0.d2.k.f.a(customMessage.getData()));
+            return new CustomResponsedMessage<>(2921343, new d.b.j0.d2.k.f.a(customMessage.getData()));
         }
     }
 
@@ -425,10 +425,10 @@ public class PbActivityStatic {
     }
 
     public static void a() {
-        d.b.h0.d.b.b().c(2, new a());
-        d.b.h0.d.b.b().c(3, new b());
-        d.b.h0.d.b.b().c(4, new c());
-        d.b.h0.d.b.b().c(6, new d());
+        d.b.i0.d.b.b().c(2, new a());
+        d.b.i0.d.b.b().c(3, new b());
+        d.b.i0.d.b.b().c(4, new c());
+        d.b.i0.d.b.b().c(6, new d());
     }
 
     public static void b() {
@@ -445,10 +445,10 @@ public class PbActivityStatic {
 
     public static void e() {
         TbadkCoreApplication.getInst().RegisterIntent(SubPbActivityConfig.class, NewSubPbActivity.class);
-        d.b.h0.v0.b h2 = d.b.i0.d3.d0.a.h(302002, SubPbSocketResponseMessage.class, false, false);
-        TbHttpMessageTask c2 = d.b.i0.d3.d0.a.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
-        h2.setParallel(f19195a);
-        c2.setParallel(f19195a);
+        d.b.i0.v0.b h2 = d.b.j0.d3.d0.a.h(302002, SubPbSocketResponseMessage.class, false, false);
+        TbHttpMessageTask c2 = d.b.j0.d3.d0.a.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
+        h2.setParallel(f19203a);
+        c2.setParallel(f19203a);
     }
 
     public static void f() {
@@ -463,12 +463,12 @@ public class PbActivityStatic {
     }
 
     public static void h() {
-        d.b.i0.d3.d0.a.b(2004003, v0.class);
+        d.b.j0.d3.d0.a.b(2004003, v0.class);
     }
 
     public static void i() {
-        d.b.i0.d3.d0.a.h(302001, pbPageSocketResponseMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, d.b.i0.d3.d0.a.a("c/f/pb/page", 302001));
+        d.b.j0.d3.d0.a.h(302001, pbPageSocketResponseMessage.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, d.b.j0.d3.d0.a.a("c/f/pb/page", 302001));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);

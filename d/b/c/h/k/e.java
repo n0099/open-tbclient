@@ -16,10 +16,10 @@ import java.util.jar.JarFile;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f42814a = new Object();
+    public static Object f43054a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<byte[]> f42815b;
+    public static WeakReference<byte[]> f43055b;
 
     public static Signature[] a(String str, Util.a aVar) throws CertificateEncodingException, IOException {
         WeakReference<byte[]> weakReference;
@@ -29,10 +29,10 @@ public final class e {
         if (TextUtils.isEmpty(str) || aVar == null) {
             return null;
         }
-        synchronized (f42814a) {
-            weakReference = f42815b;
+        synchronized (f43054a) {
+            weakReference = f43055b;
             if (weakReference != null) {
-                f42815b = null;
+                f43055b = null;
                 bArr = weakReference.get();
             } else {
                 bArr = null;
@@ -101,8 +101,8 @@ public final class e {
                 } else {
                     aVar.f2275c = 8;
                     jarFile.close();
-                    synchronized (f42814a) {
-                        f42815b = weakReference;
+                    synchronized (f43054a) {
+                        f43055b = weakReference;
                     }
                     aVar.f2275c = 9;
                     if (certificateArr != null && certificateArr.length > 0) {

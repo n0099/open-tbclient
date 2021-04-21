@@ -5,20 +5,20 @@ import android.app.AlertDialog;
 public final class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ AlertDialog f26559a;
+    public final /* synthetic */ AlertDialog f26567a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ b f26560b;
+    public final /* synthetic */ b f26568b;
 
     public e(b bVar, AlertDialog alertDialog) {
-        this.f26560b = bVar;
-        this.f26559a = alertDialog;
+        this.f26568b = bVar;
+        this.f26567a = alertDialog;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         try {
-            this.f26559a.dismiss();
+            this.f26567a.dismiss();
         } catch (Exception e2) {
             e2.printStackTrace();
         }

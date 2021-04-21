@@ -1,21 +1,21 @@
 package d.b.d.m;
 
 import com.baidu.mobads.container.util.SDKLogTypeConstants;
-import d.b.i0.s2.f0.e;
-import d.b.i0.s2.f0.h;
+import d.b.j0.s2.f0.e;
+import d.b.j0.s2.f0.h;
 /* loaded from: classes.dex */
 public class b {
     public static void a(d.b.d.m.g.a aVar, String str) {
-        d.b.i0.s2.f0.c f2 = h.f(aVar);
+        d.b.j0.s2.f0.c f2 = h.f(aVar);
         f2.c(str);
-        f2.k(aVar.f43129h);
+        f2.k(aVar.f43289h);
         e.b().d(f2);
     }
 
     public static void b(d.b.d.m.g.a aVar, int i) {
-        d.b.i0.s2.f0.c f2 = h.f(aVar);
-        f2.k(aVar.f43129h);
-        f2.m(aVar.f43127f);
+        d.b.j0.s2.f0.c f2 = h.f(aVar);
+        f2.k(aVar.f43289h);
+        f2.m(aVar.f43287f);
         f2.n(i);
         e.b().d(f2);
     }
@@ -29,8 +29,8 @@ public class b {
     }
 
     public static void e(d.b.d.m.g.a aVar) {
-        d.b.i0.s2.f0.c f2 = h.f(aVar);
-        f2.k(aVar.f43129h);
+        d.b.j0.s2.f0.c f2 = h.f(aVar);
+        f2.k(aVar.f43289h);
         e.b().d(f2);
     }
 
@@ -39,7 +39,7 @@ public class b {
     }
 
     public static void g(d.b.d.m.g.a aVar, int i) {
-        d.b.i0.s2.f0.c n = h.n(aVar);
+        d.b.j0.s2.f0.c n = h.n(aVar);
         n.j(SDKLogTypeConstants.CLOSE_GAME_TYPE);
         boolean z = i == 1000;
         n.c(z ? "APP" : "URL");

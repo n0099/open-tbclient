@@ -9,10 +9,10 @@ import android.widget.LinearLayout;
 public class DeskLinearLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f13591e;
+    public View f13599e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13592f;
+    public boolean f13600f;
 
     public DeskLinearLayout(Context context) {
         super(context);
@@ -21,10 +21,10 @@ public class DeskLinearLayout extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.f13592f) {
+        if (this.f13600f) {
             canvas.save();
-            canvas.translate(this.f13591e.getLeft(), this.f13591e.getTop());
-            this.f13591e.draw(canvas);
+            canvas.translate(this.f13599e.getLeft(), this.f13599e.getTop());
+            this.f13599e.draw(canvas);
             canvas.restore();
         }
     }
@@ -33,29 +33,29 @@ public class DeskLinearLayout extends LinearLayout {
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         View childAt = getChildAt(0);
-        if (this.f13591e == null || childAt == null) {
+        if (this.f13599e == null || childAt == null) {
             return;
         }
-        int measuredWidth = childAt.getMeasuredWidth() - this.f13591e.getMeasuredWidth();
-        View view = this.f13591e;
-        view.layout(measuredWidth, 0, view.getMeasuredWidth() + measuredWidth, this.f13591e.getMeasuredHeight());
+        int measuredWidth = childAt.getMeasuredWidth() - this.f13599e.getMeasuredWidth();
+        View view = this.f13599e;
+        view.layout(measuredWidth, 0, view.getMeasuredWidth() + measuredWidth, this.f13599e.getMeasuredHeight());
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        View view = this.f13591e;
+        View view = this.f13599e;
         if (view != null) {
-            this.f13591e.measure(LinearLayout.getChildMeasureSpec(i, 0, view.getLayoutParams().width), LinearLayout.getChildMeasureSpec(i2, 0, this.f13591e.getLayoutParams().height));
+            this.f13599e.measure(LinearLayout.getChildMeasureSpec(i, 0, view.getLayoutParams().width), LinearLayout.getChildMeasureSpec(i2, 0, this.f13599e.getLayoutParams().height));
         }
     }
 
     public void setNewView(View view) {
-        this.f13591e = view;
+        this.f13599e = view;
     }
 
     public void setNewViewVisible(boolean z) {
-        this.f13592f = z;
+        this.f13600f = z;
         invalidate();
     }
 

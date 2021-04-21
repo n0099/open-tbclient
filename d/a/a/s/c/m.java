@@ -21,8 +21,8 @@ public class m extends a<PointF, PointF> {
         this.j.l(f2);
         this.k.l(f2);
         this.i.set(this.j.h().floatValue(), this.k.h().floatValue());
-        for (int i = 0; i < this.f41595a.size(); i++) {
-            this.f41595a.get(i).a();
+        for (int i = 0; i < this.f41690a.size(); i++) {
+            this.f41690a.get(i).a();
         }
     }
 

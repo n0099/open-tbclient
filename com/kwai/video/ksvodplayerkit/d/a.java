@@ -9,18 +9,18 @@ import com.kwai.video.ksvodplayerkit.i;
 public class a extends b {
 
     /* renamed from: h  reason: collision with root package name */
-    public String f37576h;
+    public String f37671h;
     public VodAdaptivePreloadPriorityTask.VodAdaptiveInit i;
 
     @Override // com.kwai.video.ksvodplayerkit.d.b
     public AbstractHodorPreloadTask a() {
-        this.f37577a.a(false);
-        if (this.f37577a.f() <= 0 || this.f37577a.e() || this.f37578b.get() >= i.a().e() || !this.f37577a.a()) {
+        this.f37672a.a(false);
+        if (this.f37672a.f() <= 0 || this.f37672a.e() || this.f37673b.get() >= i.a().e() || !this.f37672a.a()) {
             return null;
         }
-        this.f37576h = m.a(this.f37577a.g());
-        VodAdaptivePreloadPriorityTask vodAdaptivePreloadPriorityTask = new VodAdaptivePreloadPriorityTask(this.f37576h, this.i);
-        this.f37581e = vodAdaptivePreloadPriorityTask;
+        this.f37671h = m.a(this.f37672a.g());
+        VodAdaptivePreloadPriorityTask vodAdaptivePreloadPriorityTask = new VodAdaptivePreloadPriorityTask(this.f37671h, this.i);
+        this.f37676e = vodAdaptivePreloadPriorityTask;
         return vodAdaptivePreloadPriorityTask;
     }
 
@@ -36,9 +36,9 @@ public class a extends b {
 
     @Override // com.kwai.video.ksvodplayerkit.d.b
     public AbstractHodorPreloadTask b() {
-        if (this.f37581e == null) {
-            this.f37581e = new VodAdaptivePreloadPriorityTask(this.f37576h, this.i);
+        if (this.f37676e == null) {
+            this.f37676e = new VodAdaptivePreloadPriorityTask(this.f37671h, this.i);
         }
-        return this.f37581e;
+        return this.f37676e;
     }
 }

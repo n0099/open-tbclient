@@ -19,8 +19,8 @@ public class p {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(l.b<?> bVar, l.b<?> bVar2) {
-            long j = bVar.f42200c;
-            long j2 = bVar2.f42200c;
+            long j = bVar.f42440c;
+            long j2 = bVar2.f42440c;
             if (j == j2) {
                 return 0;
             }
@@ -44,10 +44,10 @@ public class p {
         while (cursor.moveToNext()) {
             try {
                 l.b bVar = new l.b();
-                bVar.f42198a = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.f42200c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.f42438a = cursor.getString(cursor.getColumnIndex("m_key"));
+                bVar.f42440c = cursor.getLong(cursor.getColumnIndex("saveTime"));
                 cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                bVar.f42199b = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                bVar.f42439b = cursor.getBlob(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
                 th = th2;
@@ -82,10 +82,10 @@ public class p {
         while (cursor.moveToNext()) {
             try {
                 l.b bVar = new l.b();
-                bVar.f42198a = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.f42200c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.f42438a = cursor.getString(cursor.getColumnIndex("m_key"));
+                bVar.f42440c = cursor.getLong(cursor.getColumnIndex("saveTime"));
                 cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                bVar.f42199b = cursor.getString(cursor.getColumnIndex("m_value"));
+                bVar.f42439b = cursor.getString(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
                 th = th2;

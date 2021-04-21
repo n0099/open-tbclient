@@ -3,25 +3,25 @@ package com.bytedance.sdk.openadsdk.preload.b;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public Class<? extends d> f29845a;
+    public Class<? extends d> f29853a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.b.b.a f29846b;
+    public com.bytedance.sdk.openadsdk.preload.b.b.a f29854b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object[] f29847c;
+    public Object[] f29855c;
 
     /* loaded from: classes5.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Class<? extends d> f29848a;
+        public Class<? extends d> f29856a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.preload.b.b.a f29849b;
+        public com.bytedance.sdk.openadsdk.preload.b.b.a f29857b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Object[] f29850c;
+        public Object[] f29858c;
 
         public static a a() {
             return new a();
@@ -33,20 +33,20 @@ public final class h {
 
         public a a(Class<? extends d> cls) {
             if (cls != null) {
-                this.f29848a = cls;
+                this.f29856a = cls;
                 return this;
             }
             throw new IllegalArgumentException("interceptor class == null");
         }
 
         public a a(com.bytedance.sdk.openadsdk.preload.b.b.a aVar) {
-            this.f29849b = aVar;
+            this.f29857b = aVar;
             return this;
         }
 
         public a a(Object... objArr) {
             if (objArr != null) {
-                this.f29850c = objArr;
+                this.f29858c = objArr;
                 return this;
             }
             throw new IllegalArgumentException("args == null");
@@ -54,22 +54,22 @@ public final class h {
     }
 
     public Class<? extends d> a() {
-        return this.f29845a;
+        return this.f29853a;
     }
 
     public com.bytedance.sdk.openadsdk.preload.b.b.a b() {
-        return this.f29846b;
+        return this.f29854b;
     }
 
     public Object[] c() {
-        return this.f29847c;
+        return this.f29855c;
     }
 
     public h(a aVar) {
-        this.f29845a = aVar.f29848a;
-        this.f29846b = aVar.f29849b;
-        this.f29847c = aVar.f29850c;
-        if (this.f29845a == null) {
+        this.f29853a = aVar.f29856a;
+        this.f29854b = aVar.f29857b;
+        this.f29855c = aVar.f29858c;
+        if (this.f29853a == null) {
             throw new IllegalArgumentException("Interceptor class == null");
         }
     }

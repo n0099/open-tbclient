@@ -13,28 +13,28 @@ import androidx.recyclerview.widget.RecyclerView;
 public class b extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    public Rect f34218a;
+    public Rect f34313a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34219b;
+    public int f34314b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34220c;
+    public int f34315c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f34221d;
+    public boolean f34316d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f34222e;
+    public int f34317e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f34223f;
+    public a f34318f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f34224g;
+    public boolean f34319g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f34225h;
+    public boolean f34320h;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -51,15 +51,15 @@ public class b extends g {
 
     public b(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f34222e = Integer.MIN_VALUE;
-        this.f34225h = false;
+        this.f34317e = Integer.MIN_VALUE;
+        this.f34320h = false;
     }
 
     private void a(int i, int i2, int i3) {
-        if (this.f34222e == Integer.MIN_VALUE) {
+        if (this.f34317e == Integer.MIN_VALUE) {
             int[] iArr = new int[2];
             getLocationOnScreen(iArr);
-            this.f34222e = iArr[1];
+            this.f34317e = iArr[1];
         }
         int a2 = f.a(this).a();
         int b2 = f.a(this).b();
@@ -79,14 +79,14 @@ public class b extends g {
         if (getChildCount() > i4) {
             int[] iArr2 = new int[2];
             getChildAt(i4).getLocationOnScreen(iArr2);
-            scrollBy(0, (iArr2[1] - this.f34222e) - i3);
+            scrollBy(0, (iArr2[1] - this.f34317e) - i3);
         }
     }
 
     private void b() {
-        Rect rect = this.f34218a;
+        Rect rect = this.f34313a;
         if (rect == null) {
-            this.f34218a = new Rect();
+            this.f34313a = new Rect();
         } else {
             rect.setEmpty();
         }
@@ -94,7 +94,7 @@ public class b extends g {
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
             if (childAt.getVisibility() == 0) {
-                this.f34218a.union(childAt.getLeft(), childAt.getTop(), childAt.getRight(), childAt.getBottom());
+                this.f34313a.union(childAt.getLeft(), childAt.getTop(), childAt.getRight(), childAt.getBottom());
             }
         }
     }
@@ -118,13 +118,13 @@ public class b extends g {
 
     @Override // androidx.recyclerview.widget.RecyclerView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.f34219b != 0) {
+        if (this.f34314b != 0) {
             b();
-            Rect rect = this.f34218a;
+            Rect rect = this.f34313a;
             if (rect != null && !rect.isEmpty()) {
                 canvas.save();
-                canvas.clipRect(this.f34218a);
-                canvas.drawColor(this.f34219b);
+                canvas.clipRect(this.f34313a);
+                canvas.drawColor(this.f34314b);
                 canvas.restore();
             }
         }
@@ -133,13 +133,13 @@ public class b extends g {
 
     @Override // androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.f34224g) {
+        if (this.f34319g) {
             return false;
         }
-        if (motionEvent.getAction() == 0 && this.f34225h) {
+        if (motionEvent.getAction() == 0 && this.f34320h) {
             stopScroll();
         }
-        a aVar = this.f34223f;
+        a aVar = this.f34318f;
         if (aVar == null || !aVar.a(motionEvent)) {
             return super.onInterceptTouchEvent(motionEvent);
         }
@@ -149,9 +149,9 @@ public class b extends g {
     @Override // androidx.recyclerview.widget.RecyclerView, android.view.View
     public void onMeasure(int i, int i2) {
         int size = View.MeasureSpec.getSize(i2);
-        int i3 = this.f34220c;
+        int i3 = this.f34315c;
         if (i3 > 0 && i3 < size) {
-            i2 = View.MeasureSpec.makeMeasureSpec(this.f34220c, View.MeasureSpec.getMode(i2));
+            i2 = View.MeasureSpec.makeMeasureSpec(this.f34315c, View.MeasureSpec.getMode(i2));
         }
         super.onMeasure(i, i2);
     }
@@ -159,7 +159,7 @@ public class b extends g {
     @Override // androidx.recyclerview.widget.RecyclerView, android.view.View
     @SuppressLint({"ClickableViewAccessibility"})
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.f34224g) {
+        if (this.f34319g) {
             return false;
         }
         return super.onTouchEvent(motionEvent);
@@ -167,7 +167,7 @@ public class b extends g {
 
     @Override // androidx.recyclerview.widget.RecyclerView
     public void scrollToPosition(int i) {
-        if (this.f34221d) {
+        if (this.f34316d) {
             a(i, 0);
         } else {
             super.scrollToPosition(i);
@@ -175,24 +175,24 @@ public class b extends g {
     }
 
     public void setDisableScroll(boolean z) {
-        this.f34224g = z;
+        this.f34319g = z;
     }
 
     public void setDownStop(boolean z) {
-        this.f34225h = z;
+        this.f34320h = z;
     }
 
     public void setIgnoreTouchSwipeHandler(a aVar) {
-        this.f34223f = aVar;
+        this.f34318f = aVar;
     }
 
     public void setUnderneathColor(int i) {
-        this.f34219b = i;
+        this.f34314b = i;
         b();
         invalidate();
     }
 
     public void setUseCustomScrollToPosition(boolean z) {
-        this.f34221d = z;
+        this.f34316d = z;
     }
 }

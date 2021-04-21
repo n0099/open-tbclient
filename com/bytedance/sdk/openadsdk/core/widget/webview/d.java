@@ -15,44 +15,44 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f28705c = new byte[0];
+    public static final byte[] f28713c = new byte[0];
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f28706d = 10;
+    public static int f28714d = 10;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f28707e = 3;
+    public static int f28715e = 3;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile d f28708g;
+    public static volatile d f28716g;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<WeakReference<SSWebView>> f28709a;
+    public List<WeakReference<SSWebView>> f28717a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<WeakReference<SSWebView>> f28710b;
+    public List<WeakReference<SSWebView>> f28718b;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicBoolean f28711f = new AtomicBoolean(false);
+    public final AtomicBoolean f28719f = new AtomicBoolean(false);
 
     public d() {
-        this.f28709a = new ArrayList();
-        this.f28710b = new ArrayList();
-        this.f28709a = new ArrayList();
-        this.f28710b = new ArrayList();
+        this.f28717a = new ArrayList();
+        this.f28718b = new ArrayList();
+        this.f28717a = new ArrayList();
+        this.f28718b = new ArrayList();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        for (int i = 0; i < f28707e; i++) {
+        for (int i = 0; i < f28715e; i++) {
             SSWebView sSWebView = new SSWebView(p.a());
             sSWebView.loadUrl("about:blank");
-            this.f28709a.add(new WeakReference<>(sSWebView));
+            this.f28717a.add(new WeakReference<>(sSWebView));
         }
     }
 
     public void b() {
-        if (this.f28711f.getAndSet(true)) {
+        if (this.f28719f.getAndSet(true)) {
             return;
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
@@ -70,50 +70,50 @@ public class d {
     public WeakReference<SSWebView> c() {
         WeakReference<SSWebView> weakReference;
         WeakReference<SSWebView> weakReference2;
-        u.f("webviewpool", "===start getWebView available:" + this.f28709a.size() + " ,inuse:" + this.f28710b.size());
-        synchronized (f28705c) {
+        u.f("webviewpool", "===start getWebView available:" + this.f28717a.size() + " ,inuse:" + this.f28718b.size());
+        synchronized (f28713c) {
             try {
             } catch (Exception unused) {
                 WeakReference<SSWebView> weakReference3 = new WeakReference<>(new SSWebView(p.a()));
-                this.f28710b.add(weakReference3);
+                this.f28718b.add(weakReference3);
                 weakReference = weakReference3;
             }
-            if (this.f28709a.size() > 0 && this.f28709a.get(0) != null) {
-                weakReference = this.f28709a.get(0);
+            if (this.f28717a.size() > 0 && this.f28717a.get(0) != null) {
+                weakReference = this.f28717a.get(0);
                 if (weakReference.get() != null) {
-                    this.f28709a.remove(0);
-                    this.f28710b.add(weakReference);
-                    u.f("webviewpool", "===end getWebView available:" + this.f28709a.size() + " ,inuse:" + this.f28710b.size());
+                    this.f28717a.remove(0);
+                    this.f28718b.add(weakReference);
+                    u.f("webviewpool", "===end getWebView available:" + this.f28717a.size() + " ,inuse:" + this.f28718b.size());
                     weakReference.get().loadUrl("about:blank");
                 } else {
-                    this.f28709a.remove(0);
+                    this.f28717a.remove(0);
                     weakReference2 = new WeakReference<>(new SSWebView(p.a()));
-                    this.f28710b.add(weakReference2);
+                    this.f28718b.add(weakReference2);
                 }
             } else {
                 weakReference2 = new WeakReference<>(new SSWebView(p.a()));
-                this.f28710b.add(weakReference2);
+                this.f28718b.add(weakReference2);
             }
             weakReference = weakReference2;
-            u.f("webviewpool", "===end getWebView available:" + this.f28709a.size() + " ,inuse:" + this.f28710b.size());
+            u.f("webviewpool", "===end getWebView available:" + this.f28717a.size() + " ,inuse:" + this.f28718b.size());
             weakReference.get().loadUrl("about:blank");
         }
         return weakReference;
     }
 
     public static d a() {
-        if (f28708g == null) {
+        if (f28716g == null) {
             synchronized (d.class) {
-                if (f28708g == null) {
-                    f28708g = new d();
+                if (f28716g == null) {
+                    f28716g = new d();
                 }
             }
         }
-        return f28708g;
+        return f28716g;
     }
 
     public void a(ViewGroup viewGroup, WeakReference<SSWebView> weakReference, boolean z) {
-        u.f("webviewpool", "===start removeWebView available:" + this.f28709a.size() + " ,inuse:" + this.f28710b.size());
+        u.f("webviewpool", "===start removeWebView available:" + this.f28717a.size() + " ,inuse:" + this.f28718b.size());
         if (!z || weakReference == null || weakReference.get() == null) {
             return;
         }
@@ -141,16 +141,16 @@ public class d {
             sSWebView.getSettings().setDefaultFontSize(16);
             aa.a(p.a(), sSWebView);
             aa.a(sSWebView);
-            synchronized (f28705c) {
-                this.f28710b.remove(weakReference);
-                if (this.f28709a.size() < f28707e) {
+            synchronized (f28713c) {
+                this.f28718b.remove(weakReference);
+                if (this.f28717a.size() < f28715e) {
                     SSWebView sSWebView2 = new SSWebView(p.a());
                     sSWebView2.loadUrl("about:blank");
-                    this.f28709a.add(new WeakReference<>(sSWebView2));
+                    this.f28717a.add(new WeakReference<>(sSWebView2));
                 }
             }
         } catch (Exception unused) {
         }
-        u.f("webviewpool", "===end removeWebView available:" + this.f28709a.size() + " ,inuse:" + this.f28710b.size());
+        u.f("webviewpool", "===end removeWebView available:" + this.f28717a.size() + " ,inuse:" + this.f28718b.size());
     }
 }

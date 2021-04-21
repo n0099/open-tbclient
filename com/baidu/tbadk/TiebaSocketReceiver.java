@@ -8,7 +8,7 @@ import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.ImgHttpClient;
 import d.b.c.e.p.j;
-import d.b.h0.c0.a;
+import d.b.i0.c0.a;
 import org.apache.http.conn.params.ConnRoutePNames;
 /* loaded from: classes3.dex */
 public class TiebaSocketReceiver extends BroadcastReceiver {

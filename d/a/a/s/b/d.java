@@ -13,28 +13,28 @@ import java.util.List;
 public class d implements e, m, a.b, d.a.a.u.e {
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f41517a;
+    public Paint f41612a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RectF f41518b;
+    public RectF f41613b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Matrix f41519c;
+    public final Matrix f41614c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Path f41520d;
+    public final Path f41615d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final RectF f41521e;
+    public final RectF f41616e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f41522f;
+    public final String f41617f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final boolean f41523g;
+    public final boolean f41618g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<c> f41524h;
+    public final List<c> f41619h;
     public final d.a.a.f i;
     @Nullable
     public List<m> j;
@@ -74,11 +74,11 @@ public class d implements e, m, a.b, d.a.a.u.e {
 
     @Override // d.a.a.s.b.c
     public void b(List<c> list, List<c> list2) {
-        ArrayList arrayList = new ArrayList(list.size() + this.f41524h.size());
+        ArrayList arrayList = new ArrayList(list.size() + this.f41619h.size());
         arrayList.addAll(list);
-        for (int size = this.f41524h.size() - 1; size >= 0; size--) {
-            c cVar = this.f41524h.get(size);
-            cVar.b(arrayList, this.f41524h.subList(0, size));
+        for (int size = this.f41619h.size() - 1; size >= 0; size--) {
+            c cVar = this.f41619h.get(size);
+            cVar.b(arrayList, this.f41619h.subList(0, size));
             arrayList.add(cVar);
         }
     }
@@ -102,8 +102,8 @@ public class d implements e, m, a.b, d.a.a.u.e {
             }
             if (dVar.h(getName(), i)) {
                 int e2 = i + dVar.e(getName(), i);
-                for (int i2 = 0; i2 < this.f41524h.size(); i2++) {
-                    c cVar = this.f41524h.get(i2);
+                for (int i2 = 0; i2 < this.f41619h.size(); i2++) {
+                    c cVar = this.f41619h.get(i2);
                     if (cVar instanceof d.a.a.u.e) {
                         ((d.a.a.u.e) cVar).d(dVar, e2, list, dVar2);
                     }
@@ -114,46 +114,46 @@ public class d implements e, m, a.b, d.a.a.u.e {
 
     @Override // d.a.a.s.b.e
     public void e(RectF rectF, Matrix matrix, boolean z) {
-        this.f41519c.set(matrix);
+        this.f41614c.set(matrix);
         d.a.a.s.c.o oVar = this.k;
         if (oVar != null) {
-            this.f41519c.preConcat(oVar.f());
+            this.f41614c.preConcat(oVar.f());
         }
-        this.f41521e.set(0.0f, 0.0f, 0.0f, 0.0f);
-        for (int size = this.f41524h.size() - 1; size >= 0; size--) {
-            c cVar = this.f41524h.get(size);
+        this.f41616e.set(0.0f, 0.0f, 0.0f, 0.0f);
+        for (int size = this.f41619h.size() - 1; size >= 0; size--) {
+            c cVar = this.f41619h.get(size);
             if (cVar instanceof e) {
-                ((e) cVar).e(this.f41521e, this.f41519c, z);
-                rectF.union(this.f41521e);
+                ((e) cVar).e(this.f41616e, this.f41614c, z);
+                rectF.union(this.f41616e);
             }
         }
     }
 
     @Override // d.a.a.s.b.e
     public void g(Canvas canvas, Matrix matrix, int i) {
-        if (this.f41523g) {
+        if (this.f41618g) {
             return;
         }
-        this.f41519c.set(matrix);
+        this.f41614c.set(matrix);
         d.a.a.s.c.o oVar = this.k;
         if (oVar != null) {
-            this.f41519c.preConcat(oVar.f());
+            this.f41614c.preConcat(oVar.f());
             i = (int) (((((this.k.h() == null ? 100 : this.k.h().h().intValue()) / 100.0f) * i) / 255.0f) * 255.0f);
         }
         boolean z = this.i.K() && k() && i != 255;
         if (z) {
-            this.f41518b.set(0.0f, 0.0f, 0.0f, 0.0f);
-            e(this.f41518b, this.f41519c, true);
-            this.f41517a.setAlpha(i);
-            d.a.a.x.h.m(canvas, this.f41518b, this.f41517a);
+            this.f41613b.set(0.0f, 0.0f, 0.0f, 0.0f);
+            e(this.f41613b, this.f41614c, true);
+            this.f41612a.setAlpha(i);
+            d.a.a.x.h.m(canvas, this.f41613b, this.f41612a);
         }
         if (z) {
             i = 255;
         }
-        for (int size = this.f41524h.size() - 1; size >= 0; size--) {
-            c cVar = this.f41524h.get(size);
+        for (int size = this.f41619h.size() - 1; size >= 0; size--) {
+            c cVar = this.f41619h.get(size);
             if (cVar instanceof e) {
-                ((e) cVar).g(canvas, this.f41519c, i);
+                ((e) cVar).g(canvas, this.f41614c, i);
             }
         }
         if (z) {
@@ -163,34 +163,34 @@ public class d implements e, m, a.b, d.a.a.u.e {
 
     @Override // d.a.a.s.b.c
     public String getName() {
-        return this.f41522f;
+        return this.f41617f;
     }
 
     @Override // d.a.a.s.b.m
     public Path getPath() {
-        this.f41519c.reset();
+        this.f41614c.reset();
         d.a.a.s.c.o oVar = this.k;
         if (oVar != null) {
-            this.f41519c.set(oVar.f());
+            this.f41614c.set(oVar.f());
         }
-        this.f41520d.reset();
-        if (this.f41523g) {
-            return this.f41520d;
+        this.f41615d.reset();
+        if (this.f41618g) {
+            return this.f41615d;
         }
-        for (int size = this.f41524h.size() - 1; size >= 0; size--) {
-            c cVar = this.f41524h.get(size);
+        for (int size = this.f41619h.size() - 1; size >= 0; size--) {
+            c cVar = this.f41619h.get(size);
             if (cVar instanceof m) {
-                this.f41520d.addPath(((m) cVar).getPath(), this.f41519c);
+                this.f41615d.addPath(((m) cVar).getPath(), this.f41614c);
             }
         }
-        return this.f41520d;
+        return this.f41615d;
     }
 
     public List<m> i() {
         if (this.j == null) {
             this.j = new ArrayList();
-            for (int i = 0; i < this.f41524h.size(); i++) {
-                c cVar = this.f41524h.get(i);
+            for (int i = 0; i < this.f41619h.size(); i++) {
+                c cVar = this.f41619h.get(i);
                 if (cVar instanceof m) {
                     this.j.add((m) cVar);
                 }
@@ -204,14 +204,14 @@ public class d implements e, m, a.b, d.a.a.u.e {
         if (oVar != null) {
             return oVar.f();
         }
-        this.f41519c.reset();
-        return this.f41519c;
+        this.f41614c.reset();
+        return this.f41614c;
     }
 
     public final boolean k() {
         int i = 0;
-        for (int i2 = 0; i2 < this.f41524h.size(); i2++) {
-            if ((this.f41524h.get(i2) instanceof e) && (i = i + 1) >= 2) {
+        for (int i2 = 0; i2 < this.f41619h.size(); i2++) {
+            if ((this.f41619h.get(i2) instanceof e) && (i = i + 1) >= 2) {
                 return true;
             }
         }
@@ -219,15 +219,15 @@ public class d implements e, m, a.b, d.a.a.u.e {
     }
 
     public d(d.a.a.f fVar, d.a.a.u.k.a aVar, String str, boolean z, List<c> list, @Nullable d.a.a.u.i.l lVar) {
-        this.f41517a = new d.a.a.s.a();
-        this.f41518b = new RectF();
-        this.f41519c = new Matrix();
-        this.f41520d = new Path();
-        this.f41521e = new RectF();
-        this.f41522f = str;
+        this.f41612a = new d.a.a.s.a();
+        this.f41613b = new RectF();
+        this.f41614c = new Matrix();
+        this.f41615d = new Path();
+        this.f41616e = new RectF();
+        this.f41617f = str;
         this.i = fVar;
-        this.f41523g = z;
-        this.f41524h = list;
+        this.f41618g = z;
+        this.f41619h = list;
         if (lVar != null) {
             d.a.a.s.c.o b2 = lVar.b();
             this.k = b2;

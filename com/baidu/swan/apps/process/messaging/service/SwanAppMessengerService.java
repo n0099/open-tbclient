@@ -17,18 +17,18 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.env.SwanAppDeleteInfo;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.xiaomi.mipush.sdk.Constants;
-import d.b.g0.a.c0.c;
-import d.b.g0.a.i2.n0;
-import d.b.g0.a.k;
-import d.b.g0.a.l0.b;
-import d.b.g0.a.n1.c.f.e;
-import d.b.g0.a.r1.d;
+import d.b.h0.a.c0.c;
+import d.b.h0.a.i2.n0;
+import d.b.h0.a.k;
+import d.b.h0.a.l0.b;
+import d.b.h0.a.n1.c.f.e;
+import d.b.h0.a.r1.d;
 /* loaded from: classes2.dex */
 public final class SwanAppMessengerService extends Service {
     public static final String ACTION_DEFAULT = "com.baidu.searchbox.action.SWAN_APP_MSG_SERVICE_DEFAULT";
     public static final String ACTION_PREFIX = "com.baidu.searchbox.action.SWAN_APP_MSG_SERVICE_";
     public static final String ACTION_PRELOAD_NEXT = "com.baidu.searchbox.action.SWAN_APP_MSG_SERVICE_PRELOAD_NEXT";
-    public static final boolean DEBUG = k.f45443a;
+    public static final boolean DEBUG = k.f45772a;
     public static final String SEND_BROADCAST_INNER_ACTION = "innerAction";
     public static final String TAG = "SwanAppMessengerService";
     @Nullable
@@ -42,13 +42,13 @@ public final class SwanAppMessengerService extends Service {
 
         public final void a() {
             c.g(SwanAppMessengerService.TAG, "resetCore: service handleCoreReset");
-            d.b.g0.a.b2.f.a.b(0);
+            d.b.h0.a.b2.f.a.b(0);
             b.d(0).e().h(0L);
-            d.b.g0.a.n1.c.a e2 = d.b.g0.a.n1.c.a.e();
-            d.b.g0.a.n1.c.c cVar = new d.b.g0.a.n1.c.c(129);
+            d.b.h0.a.n1.c.a e2 = d.b.h0.a.n1.c.a.e();
+            d.b.h0.a.n1.c.c cVar = new d.b.h0.a.n1.c.c(129);
             cVar.d();
             e2.h(cVar);
-            d.b.g0.a.b2.b.l(0);
+            d.b.h0.a.b2.b.l(0);
         }
 
         public final void b(@NonNull Message message) {
@@ -62,7 +62,7 @@ public final class SwanAppMessengerService extends Service {
             }
             int i = message.arg1;
             e j = e.j();
-            d.b.g0.a.n1.c.f.c m = j.m(i);
+            d.b.h0.a.n1.c.f.c m = j.m(i);
             if (m == null) {
                 return;
             }
@@ -85,7 +85,7 @@ public final class SwanAppMessengerService extends Service {
             if (obj instanceof Bundle) {
                 Bundle bundle = (Bundle) obj;
                 bundle.setClassLoader(a.class.getClassLoader());
-                d.b.g0.a.n1.c.f.c m = e.j().m(message.arg1);
+                d.b.h0.a.n1.c.f.c m = e.j().m(message.arg1);
                 if (m == null) {
                     return;
                 }
@@ -93,7 +93,7 @@ public final class SwanAppMessengerService extends Service {
                 if (TextUtils.isEmpty(string)) {
                     string = m.getAppId();
                 }
-                d.b.g0.a.n1.c.a.e().b(string);
+                d.b.h0.a.n1.c.a.e().b(string);
                 m.J();
                 if (SwanAppMessengerService.DEBUG) {
                     e j = e.j();
@@ -114,14 +114,14 @@ public final class SwanAppMessengerService extends Service {
                     bundle.setClassLoader(a.class.getClassLoader());
                     String string = bundle.getString(Constants.APP_ID);
                     int i = bundle.getInt("task_id");
-                    d.b.g0.a.w0.a.A().b(string, false);
+                    d.b.h0.a.w0.a.A().b(string, false);
                     n0.h(false, i);
                 }
             }
         }
 
         public final void e(@NonNull Message message) {
-            d.b.g0.a.n1.c.f.c n;
+            d.b.h0.a.n1.c.f.c n;
             if (SwanAppMessengerService.DEBUG) {
                 Log.i(SwanAppMessengerService.TAG, "MSG_TYPE_CS_ON_APP_FOREGROUND");
             }
@@ -134,7 +134,7 @@ public final class SwanAppMessengerService extends Service {
                     String string = bundle.getString(Constants.APP_ID);
                     int i = bundle.getInt("task_id");
                     e.j().f(string, n);
-                    d.b.g0.a.w0.a.A().b(string, true);
+                    d.b.h0.a.w0.a.A().b(string, true);
                     n0.h(true, i);
                     e.j().u(indexOf);
                     if (SwanAppMessengerService.DEBUG) {
@@ -146,7 +146,7 @@ public final class SwanAppMessengerService extends Service {
         }
 
         public final void f(@NonNull Message message) {
-            d.b.g0.a.n1.c.f.c n;
+            d.b.h0.a.n1.c.f.c n;
             SwanAppProcessInfo indexOf = SwanAppProcessInfo.indexOf(message.arg1);
             if (indexOf.isSwanAppProcess() && (n = e.j().n(indexOf)) != null) {
                 Object obj = message.obj;
@@ -163,7 +163,7 @@ public final class SwanAppMessengerService extends Service {
         }
 
         public final void g(@NonNull Message message) {
-            d.b.g0.a.n1.c.f.c n;
+            d.b.h0.a.n1.c.f.c n;
             Object obj = message.obj;
             if (obj instanceof Bundle) {
                 ((Bundle) obj).setClassLoader(a.class.getClassLoader());
@@ -179,7 +179,7 @@ public final class SwanAppMessengerService extends Service {
         }
 
         public final void h(@NonNull Message message) {
-            d.b.g0.a.n1.c.f.c n;
+            d.b.h0.a.n1.c.f.c n;
             Object obj = message.obj;
             if (obj instanceof Bundle) {
                 ((Bundle) obj).setClassLoader(a.class.getClassLoader());
@@ -208,8 +208,8 @@ public final class SwanAppMessengerService extends Service {
                 if (SwanAppMessengerService.DEBUG) {
                     Log.d(SwanAppMessengerService.TAG, "MSG_TYPE_CS_GET_DATA msg: " + message);
                 }
-                d.b.g0.a.n1.c.a e2 = d.b.g0.a.n1.c.a.e();
-                d.b.g0.a.n1.c.c cVar = new d.b.g0.a.n1.c.c(101);
+                d.b.h0.a.n1.c.a e2 = d.b.h0.a.n1.c.a.e();
+                d.b.h0.a.n1.c.c cVar = new d.b.h0.a.n1.c.c(101);
                 cVar.b(indexOf);
                 e2.h(cVar);
             } else if (i == 4) {
@@ -220,20 +220,20 @@ public final class SwanAppMessengerService extends Service {
                 if (SwanAppMessengerService.DEBUG) {
                     Log.d(SwanAppMessengerService.TAG, "MSG_TYPE_CS_NIGHT_MODE_CHANGED");
                 }
-                d.b.g0.a.w0.a.z().c(d.b.g0.a.w0.a.z().a());
-                d.b.g0.a.n1.c.a e3 = d.b.g0.a.n1.c.a.e();
-                d.b.g0.a.n1.c.c cVar2 = new d.b.g0.a.n1.c.c(102);
+                d.b.h0.a.w0.a.z().c(d.b.h0.a.w0.a.z().a());
+                d.b.h0.a.n1.c.a e3 = d.b.h0.a.n1.c.a.e();
+                d.b.h0.a.n1.c.c cVar2 = new d.b.h0.a.n1.c.c(102);
                 cVar2.e(message.arg1);
                 e3.h(cVar2);
             } else if (i == 123) {
-                d.b.g0.a.n1.c.a e4 = d.b.g0.a.n1.c.a.e();
-                d.b.g0.a.n1.c.c cVar3 = new d.b.g0.a.n1.c.c(message);
+                d.b.h0.a.n1.c.a e4 = d.b.h0.a.n1.c.a.e();
+                d.b.h0.a.n1.c.c cVar3 = new d.b.h0.a.n1.c.c(message);
                 cVar3.e(message.arg1);
                 e4.h(cVar3);
             } else if (i == 124) {
-                d.b.g0.a.i2.b.q(message);
-                d.b.g0.a.n1.c.a e5 = d.b.g0.a.n1.c.a.e();
-                d.b.g0.a.n1.c.c cVar4 = new d.b.g0.a.n1.c.c(message);
+                d.b.h0.a.i2.b.q(message);
+                d.b.h0.a.n1.c.a e5 = d.b.h0.a.n1.c.a.e();
+                d.b.h0.a.n1.c.c cVar4 = new d.b.h0.a.n1.c.c(message);
                 cVar4.e(message.arg1);
                 e5.h(cVar4);
             } else if (i != 129) {
@@ -244,9 +244,9 @@ public final class SwanAppMessengerService extends Service {
                         }
                         Bundle bundle = (Bundle) message.obj;
                         if (bundle != null) {
-                            d.b.g0.a.i1.a.b().f45011a = bundle.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                            d.b.g0.a.i1.a.b().f45012b = bundle.getString("frameType");
-                            d.b.g0.a.i1.a.b().f45013c = bundle.getString("params");
+                            d.b.h0.a.i1.a.b().f45340a = bundle.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+                            d.b.h0.a.i1.a.b().f45341b = bundle.getString("frameType");
+                            d.b.h0.a.i1.a.b().f45342c = bundle.getString("params");
                             return;
                         }
                         return;
@@ -260,10 +260,10 @@ public final class SwanAppMessengerService extends Service {
                             return;
                         }
                         boolean z = swanAppDeleteInfo.mCheckHisAndFavor == 0;
-                        d.b.g0.a.j0.c d2 = d.b.g0.a.j0.e.c().d();
+                        d.b.h0.a.j0.c d2 = d.b.h0.a.j0.e.c().d();
                         if (d2 != null) {
                             String str = swanAppDeleteInfo.mAppId;
-                            d.b.g0.a.j0.j.c k = d.b.g0.a.j0.j.c.k();
+                            d.b.h0.a.j0.j.c k = d.b.h0.a.j0.j.c.k();
                             k.h(swanAppDeleteInfo.a());
                             d2.e(str, z, k.j());
                             return;
@@ -282,7 +282,7 @@ public final class SwanAppMessengerService extends Service {
                         }
                         return;
                     case 12:
-                        d.b.g0.a.n1.c.d.a.a(message);
+                        d.b.h0.a.n1.c.d.a.a(message);
                         return;
                     case 13:
                         f(message);
@@ -302,18 +302,18 @@ public final class SwanAppMessengerService extends Service {
                     case 18:
                         Object obj = message.obj;
                         if (obj instanceof Bundle) {
-                            d.b.g0.a.l0.k.a.a((Bundle) obj);
+                            d.b.h0.a.l0.k.a.a((Bundle) obj);
                             return;
                         }
                         return;
                     case 19:
-                        d.b.y.d.b((Bundle) message.obj);
+                        d.b.z.d.b((Bundle) message.obj);
                         return;
                     case 20:
                         e.j().r(message);
                         return;
                     case 21:
-                        d.b.g0.a.n1.c.d.a.c(message);
+                        d.b.h0.a.n1.c.d.a.c(message);
                         return;
                     case 22:
                         return;
@@ -335,7 +335,7 @@ public final class SwanAppMessengerService extends Service {
                 if (TextUtils.isEmpty(string) || TextUtils.isEmpty(string2)) {
                     return;
                 }
-                d.b.g0.a.w0.a.g().a(string, string2);
+                d.b.h0.a.w0.a.g().a(string, string2);
             }
         }
     }
@@ -345,8 +345,8 @@ public final class SwanAppMessengerService extends Service {
         Bundle bundle = new Bundle();
         bundle.putString("ai_apps_data", str);
         Message obtain = Message.obtain(null, i, bundle);
-        d.b.g0.a.n1.c.a e2 = d.b.g0.a.n1.c.a.e();
-        d.b.g0.a.n1.c.c cVar = new d.b.g0.a.n1.c.c(obtain);
+        d.b.h0.a.n1.c.a e2 = d.b.h0.a.n1.c.a.e();
+        d.b.h0.a.n1.c.c cVar = new d.b.h0.a.n1.c.c(obtain);
         cVar.d();
         e2.h(cVar);
         return true;
@@ -357,7 +357,7 @@ public final class SwanAppMessengerService extends Service {
             if (DEBUG) {
                 Log.i(TAG, "updatePkg: swanAsyncUpdate -> 收到异步升级消息");
             }
-            d.b.g0.a.y0.h.a.a((Bundle) message.obj);
+            d.b.h0.a.y0.h.a.a((Bundle) message.obj);
         }
     }
 
@@ -371,7 +371,7 @@ public final class SwanAppMessengerService extends Service {
         if (DEBUG) {
             Log.d(TAG, "onBind() " + this + " pid: " + Process.myPid());
         }
-        return e.j().f45792c.getBinder();
+        return e.j().f46121c.getBinder();
     }
 
     @Override // android.app.Service
@@ -408,30 +408,30 @@ public final class SwanAppMessengerService extends Service {
             if (TextUtils.isEmpty(intent.getStringExtra("bundle_key_preload_preload_scene"))) {
                 intent.putExtra("bundle_key_preload_preload_scene", "0");
             }
-            d.b.g0.a.n1.c.f.b.j(this, intent.getExtras());
+            d.b.h0.a.n1.c.f.b.j(this, intent.getExtras());
         }
         return super.onStartCommand(intent, i, i2);
     }
 
-    public void sendDelegationMessage(@Nullable int i, @Nullable Bundle bundle, @NonNull Class<? extends d.b.g0.a.n1.a.a.a> cls, @Nullable d.b.g0.a.n1.a.b.c.c cVar) {
+    public void sendDelegationMessage(@Nullable int i, @Nullable Bundle bundle, @NonNull Class<? extends d.b.h0.a.n1.a.a.a> cls, @Nullable d.b.h0.a.n1.a.b.c.c cVar) {
         if (DEBUG) {
             Log.d(TAG, "sendMessageToClient: delegation: " + cls.getName());
         }
         Message obtain = Message.obtain((Handler) null, 125);
-        obtain.replyTo = e.j().f45792c;
+        obtain.replyTo = e.j().f46121c;
         Bundle bundle2 = new Bundle();
         bundle2.putString("ai_apps_delegation_name", cls.getName());
         if (cVar != null) {
             bundle2.putString("ai_apps_observer_id", cVar.b());
-            d.b.g0.a.n1.a.b.b.a.b().e(cVar);
+            d.b.h0.a.n1.a.b.b.a.b().e(cVar);
         }
         if (bundle != null) {
             bundle2.putBundle("ai_apps_data", bundle);
         }
         obtain.obj = bundle2;
         SwanAppProcessInfo indexOf = SwanAppProcessInfo.indexOf(i);
-        d.b.g0.a.n1.c.a e2 = d.b.g0.a.n1.c.a.e();
-        d.b.g0.a.n1.c.c cVar2 = new d.b.g0.a.n1.c.c(obtain);
+        d.b.h0.a.n1.c.a e2 = d.b.h0.a.n1.c.a.e();
+        d.b.h0.a.n1.c.c cVar2 = new d.b.h0.a.n1.c.c(obtain);
         cVar2.b(indexOf);
         e2.h(cVar2);
     }
@@ -443,18 +443,18 @@ public final class SwanAppMessengerService extends Service {
 
     @Deprecated
     public boolean sendMessageToClient(SwanAppProcessInfo swanAppProcessInfo, int i, Bundle bundle) {
-        d.b.g0.a.n1.c.a e2 = d.b.g0.a.n1.c.a.e();
-        d.b.g0.a.n1.c.c cVar = new d.b.g0.a.n1.c.c(i, bundle);
+        d.b.h0.a.n1.c.a e2 = d.b.h0.a.n1.c.a.e();
+        d.b.h0.a.n1.c.c cVar = new d.b.h0.a.n1.c.c(i, bundle);
         cVar.b(swanAppProcessInfo);
         e2.h(cVar);
         return true;
     }
 
     @Deprecated
-    public boolean sendMessageToClient(d.b.g0.a.n1.c.f.c cVar, int i, Bundle bundle) {
-        d.b.g0.a.n1.c.a e2 = d.b.g0.a.n1.c.a.e();
-        d.b.g0.a.n1.c.c cVar2 = new d.b.g0.a.n1.c.c(i, bundle);
-        cVar2.b(cVar.f45783f);
+    public boolean sendMessageToClient(d.b.h0.a.n1.c.f.c cVar, int i, Bundle bundle) {
+        d.b.h0.a.n1.c.a e2 = d.b.h0.a.n1.c.a.e();
+        d.b.h0.a.n1.c.c cVar2 = new d.b.h0.a.n1.c.c(i, bundle);
+        cVar2.b(cVar.f46112f);
         e2.h(cVar2);
         return true;
     }
@@ -464,8 +464,8 @@ public final class SwanAppMessengerService extends Service {
         Bundle bundle = new Bundle();
         bundle.putLong("ai_apps_data", j);
         Message obtain = Message.obtain(null, i, bundle);
-        d.b.g0.a.n1.c.a e2 = d.b.g0.a.n1.c.a.e();
-        d.b.g0.a.n1.c.c cVar = new d.b.g0.a.n1.c.c(obtain);
+        d.b.h0.a.n1.c.a e2 = d.b.h0.a.n1.c.a.e();
+        d.b.h0.a.n1.c.c cVar = new d.b.h0.a.n1.c.c(obtain);
         cVar.d();
         e2.h(cVar);
         return true;

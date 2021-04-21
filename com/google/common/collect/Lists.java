@@ -1,12 +1,12 @@
 package com.google.common.collect;
 
 import com.google.common.primitives.Ints;
-import d.g.c.a.g;
-import d.g.c.a.k;
-import d.g.c.a.n;
-import d.g.c.c.b1;
-import d.g.c.c.m;
-import d.g.c.f.c;
+import d.h.c.a.g;
+import d.h.c.a.k;
+import d.h.c.a.n;
+import d.h.c.c.b1;
+import d.h.c.c.m;
+import d.h.c.f.c;
 import java.io.Serializable;
 import java.util.AbstractList;
 import java.util.AbstractSequentialList;
@@ -104,7 +104,7 @@ public final class Lists {
                 super(listIterator);
             }
 
-            @Override // d.g.c.c.a1
+            @Override // d.h.c.c.a1
             public T a(F f2) {
                 return TransformingRandomAccessList.this.function.apply(f2);
             }
@@ -167,7 +167,7 @@ public final class Lists {
                 super(listIterator);
             }
 
-            @Override // d.g.c.c.a1
+            @Override // d.h.c.c.a1
             public T a(F f2) {
                 return TransformingSequentialList.this.function.apply(f2);
             }
@@ -337,7 +337,7 @@ public final class Lists {
     public static <E> ArrayList<E> j(Iterable<? extends E> iterable) {
         n.p(iterable);
         if (iterable instanceof Collection) {
-            return new ArrayList<>(d.g.c.c.n.a(iterable));
+            return new ArrayList<>(d.h.c.c.n.a(iterable));
         }
         return k(iterable.iterator());
     }

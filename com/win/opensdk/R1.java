@@ -42,7 +42,7 @@ public class R1 {
         } else if (a(context, Uri.parse(str), info)) {
         } else {
             if (info.getOpent() == 1) {
-                if (H.f39963d.f39966c) {
+                if (H.f40058d.f40061c) {
                     Toast.makeText(context, context.getString(R.string.wdownload_loading), 1).show();
                     a1.a(context).b(new b1(info), 5).a();
                     return;
@@ -55,29 +55,29 @@ public class R1 {
                 b1 b1Var = new b1(info);
                 String open = info.getOpen();
                 try {
-                    a2.f40139b = a1.a("wdtr", b1Var);
+                    a2.f40234b = a1.a("wdtr", b1Var);
                     a2.a("msg", a1.a(open));
                 } catch (JSONException unused2) {
                 }
                 a2.a();
                 if (h2Var != null) {
-                    h2Var.f40233c = info;
-                    WebView webView2 = h2Var.f40232b;
+                    h2Var.f40328c = info;
+                    WebView webView2 = h2Var.f40327b;
                     if (webView2 == null) {
                         return;
                     }
                     webView2.loadUrl(info.getOpen());
-                    webView = h2Var.f40232b;
+                    webView = h2Var.f40327b;
                     g2Var = new g2(h2Var);
                 } else {
                     h2 h2Var2 = new h2(context);
-                    h2Var2.f40233c = info;
-                    WebView webView3 = h2Var2.f40232b;
+                    h2Var2.f40328c = info;
+                    WebView webView3 = h2Var2.f40327b;
                     if (webView3 == null) {
                         return;
                     }
                     webView3.loadUrl(info.getOpen());
-                    webView = h2Var2.f40232b;
+                    webView = h2Var2.f40327b;
                     g2Var = new g2(h2Var2);
                 }
                 webView.setDownloadListener(g2Var);

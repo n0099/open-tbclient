@@ -5,22 +5,22 @@ import org.json.JSONObject;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f27904a;
+    public long f27912a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f27905b;
+    public long f27913b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f27906c;
+    public long f27914c;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f27908e;
+    public long f27916e;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27910g;
+    public int f27918g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f27911h;
+    public String f27919h;
     public int i;
     public int j;
     public long k;
@@ -41,17 +41,17 @@ public class r {
     public long z;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f27907d = false;
+    public boolean f27915d = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f27909f = true;
+    public boolean f27917f = true;
 
     public int a() {
-        return this.f27910g;
+        return this.f27918g;
     }
 
     public String b() {
-        return this.f27911h;
+        return this.f27919h;
     }
 
     public int c() {
@@ -123,19 +123,19 @@ public class r {
     }
 
     public long t() {
-        return this.f27904a;
+        return this.f27912a;
     }
 
     public long u() {
-        return this.f27905b;
+        return this.f27913b;
     }
 
     public long v() {
-        return this.f27906c;
+        return this.f27914c;
     }
 
     public boolean w() {
-        return this.f27907d;
+        return this.f27915d;
     }
 
     public long x() {
@@ -143,15 +143,15 @@ public class r {
     }
 
     public long y() {
-        return this.f27908e;
+        return this.f27916e;
     }
 
     public boolean z() {
-        return this.f27909f;
+        return this.f27917f;
     }
 
     public void a(int i) {
-        this.f27910g = i;
+        this.f27918g = i;
     }
 
     public void b(int i) {
@@ -195,15 +195,15 @@ public class r {
     }
 
     public void l(long j) {
-        this.f27904a = j;
+        this.f27912a = j;
     }
 
     public void m(long j) {
-        this.f27905b = j;
+        this.f27913b = j;
     }
 
     public void n(long j) {
-        this.f27906c = j;
+        this.f27914c = j;
     }
 
     public void o(long j) {
@@ -211,11 +211,11 @@ public class r {
     }
 
     public void p(long j) {
-        this.f27908e = j;
+        this.f27916e = j;
     }
 
     public void a(String str) {
-        this.f27911h = str;
+        this.f27919h = str;
     }
 
     public void b(long j) {
@@ -243,7 +243,7 @@ public class r {
     }
 
     public void b(boolean z) {
-        this.f27909f = z;
+        this.f27917f = z;
     }
 
     public void a(JSONObject jSONObject) {
@@ -251,6 +251,6 @@ public class r {
     }
 
     public void a(boolean z) {
-        this.f27907d = z;
+        this.f27915d = z;
     }
 }

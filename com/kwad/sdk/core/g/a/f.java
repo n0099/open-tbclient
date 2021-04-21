@@ -8,23 +8,23 @@ import org.json.JSONObject;
 public class f implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public SceneImpl f33940a;
+    public SceneImpl f34035a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f33941b = 0;
+    public long f34036b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f33942c = 0;
+    public long f34037c = 0;
 
     public f(KsScene ksScene) {
-        this.f33940a = (SceneImpl) ksScene;
+        this.f34035a = (SceneImpl) ksScene;
     }
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
-        JSONObject json = this.f33940a.toJson();
-        o.a(json, "pageScene", this.f33941b);
-        o.a(json, "subPageScene", this.f33942c);
+        JSONObject json = this.f34035a.toJson();
+        o.a(json, "pageScene", this.f34036b);
+        o.a(json, "subPageScene", this.f34037c);
         return json;
     }
 }

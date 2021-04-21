@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import d.b.h0.r.q.a2;
-import d.b.h0.z0.l;
-import d.b.i0.b0.g;
+import d.b.i0.r.q.a2;
+import d.b.i0.z0.l;
+import d.b.j0.b0.g;
 /* loaded from: classes.dex */
 public class UnfollowedDecorView extends AppCompatImageView implements View.OnClickListener {
 

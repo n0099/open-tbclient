@@ -13,20 +13,20 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.tab.NewPagerSlidingTabBaseStrip;
 import com.baidu.tieba.R;
-import d.b.h0.k0.d;
-import d.b.h0.k0.e;
-import d.b.h0.r.g;
+import d.b.i0.k0.d;
+import d.b.i0.k0.e;
+import d.b.i0.r.g;
 /* loaded from: classes4.dex */
 public class EnterForumTabFragment extends BaseFragment implements g {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.i0.i0.h.c f15070e;
+    public d.b.j0.i0.h.c f15078e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NewPagerSlidingTabBaseStrip.c f15071f = new a();
+    public NewPagerSlidingTabBaseStrip.c f15079f = new a();
 
     /* renamed from: g  reason: collision with root package name */
-    public CustomMessageListener f15072g = new b(2001384);
+    public CustomMessageListener f15080g = new b(2001384);
 
     /* loaded from: classes4.dex */
     public class a implements NewPagerSlidingTabBaseStrip.c {
@@ -35,15 +35,15 @@ public class EnterForumTabFragment extends BaseFragment implements g {
 
         @Override // com.baidu.tbadk.widget.tab.NewPagerSlidingTabBaseStrip.c
         public void a(View view, int i) {
-            if (view == null || !EnterForumTabFragment.this.isPrimary() || EnterForumTabFragment.this.f15070e == null) {
+            if (view == null || !EnterForumTabFragment.this.isPrimary() || EnterForumTabFragment.this.f15078e == null) {
                 return;
             }
-            if (EnterForumTabFragment.this.f15070e.v() == i) {
-                EnterForumTabFragment.this.f15070e.L(i);
+            if (EnterForumTabFragment.this.f15078e.v() == i) {
+                EnterForumTabFragment.this.f15078e.L(i);
             } else if (i == 0) {
                 TiebaStatic.log(new StatisticItem("c13366").param("obj_locate", 1));
             } else if (i > 0) {
-                TiebaStatic.log(new StatisticItem("c13366").param("obj_locate", 3).param(TiebaStatic.Params.RESOURCE_ID, EnterForumTabFragment.this.f15070e.x(i)));
+                TiebaStatic.log(new StatisticItem("c13366").param("obj_locate", 3).param(TiebaStatic.Params.RESOURCE_ID, EnterForumTabFragment.this.f15078e.x(i)));
             }
         }
     }
@@ -57,93 +57,93 @@ public class EnterForumTabFragment extends BaseFragment implements g {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Integer) || ((Integer) customResponsedMessage.getData()).intValue() != 1 || EnterForumTabFragment.this.f15070e == null) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Integer) || ((Integer) customResponsedMessage.getData()).intValue() != 1 || EnterForumTabFragment.this.f15078e == null) {
                 return;
             }
             if (EnterForumTabFragment.this.isPrimary()) {
-                EnterForumTabFragment.this.f15070e.L(EnterForumTabFragment.this.f15070e.v());
+                EnterForumTabFragment.this.f15078e.L(EnterForumTabFragment.this.f15078e.v());
                 return;
             }
-            int v = EnterForumTabFragment.this.f15070e.v();
+            int v = EnterForumTabFragment.this.f15078e.v();
             if (v == 0) {
                 TiebaStatic.log(new StatisticItem("c13366").param("obj_locate", 1));
             } else if (v > 0) {
-                TiebaStatic.log(new StatisticItem("c13366").param("obj_locate", 3).param(TiebaStatic.Params.RESOURCE_ID, EnterForumTabFragment.this.f15070e.x(v)));
+                TiebaStatic.log(new StatisticItem("c13366").param("obj_locate", 3).param(TiebaStatic.Params.RESOURCE_ID, EnterForumTabFragment.this.f15078e.x(v)));
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c extends d.b.h0.k0.b {
+    public class c extends d.b.i0.k0.b {
         public c() {
         }
 
-        @Override // d.b.h0.k0.b
+        @Override // d.b.i0.k0.b
         public boolean canStat(d dVar) {
             return false;
         }
 
-        @Override // d.b.h0.k0.b
+        @Override // d.b.i0.k0.b
         public int getMaxCost() {
             return e.b().c();
         }
 
-        @Override // d.b.h0.k0.b
+        @Override // d.b.i0.k0.b
         public boolean isCurrentPageCanBeAddToSourceTrace() {
             return false;
         }
     }
 
     public final void F0(Intent intent, Bundle bundle) {
-        if (this.f15070e == null || intent == null || intent.getExtras() == null) {
+        if (this.f15078e == null || intent == null || intent.getExtras() == null) {
             return;
         }
         if (intent.getBooleanExtra("is_from_scheme", false)) {
             String stringExtra = intent.getStringExtra("sub_locate_type");
-            int s = this.f15070e.s(stringExtra);
-            if (this.f15070e.F()) {
-                if (this.f15070e.R(s != -1 ? s : 0)) {
+            int s = this.f15078e.s(stringExtra);
+            if (this.f15078e.F()) {
+                if (this.f15078e.R(s != -1 ? s : 0)) {
                     intent.removeExtra("sub_locate_type");
                     intent.removeExtra("is_from_scheme");
                     return;
                 }
                 return;
             }
-            this.f15070e.V(stringExtra);
+            this.f15078e.V(stringExtra);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void changeSkinType(int i) {
-        if (this.f15070e != null) {
+        if (this.f15078e != null) {
             super.changeSkinType(i);
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, d.b.h0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, d.b.i0.k0.a
     public String getCurrentPageKey() {
-        d.b.i0.i0.h.c cVar = this.f15070e;
+        d.b.j0.i0.h.c cVar = this.f15078e;
         if (cVar != null) {
             return cVar.u();
         }
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, d.b.h0.k0.a
-    public d.b.h0.k0.b getPageStayFilter() {
+    @Override // com.baidu.tbadk.core.BaseFragment, d.b.i0.k0.a
+    public d.b.i0.k0.b getPageStayFilter() {
         return new c();
     }
 
-    @Override // d.b.h0.r.g
+    @Override // d.b.i0.r.g
     public void o0(Intent intent) {
-        if (intent == null || this.f15070e == null) {
+        if (intent == null || this.f15078e == null) {
             return;
         }
-        int s = this.f15070e.s(intent.getStringExtra("sub_locate_type"));
+        int s = this.f15078e.s(intent.getStringExtra("sub_locate_type"));
         if (s == -1) {
             s = 0;
         }
-        if (this.f15070e.R(s)) {
+        if (this.f15078e.R(s)) {
             intent.removeExtra("sub_locate_type");
         }
     }
@@ -151,13 +151,13 @@ public class EnterForumTabFragment extends BaseFragment implements g {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.f15070e.I();
+        this.f15078e.I();
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        d.b.i0.i0.h.c cVar = this.f15070e;
+        d.b.j0.i0.h.c cVar = this.f15078e;
         if (cVar != null) {
             cVar.J(i, i2, intent);
         }
@@ -166,7 +166,7 @@ public class EnterForumTabFragment extends BaseFragment implements g {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        d.b.i0.i0.h.c cVar = this.f15070e;
+        d.b.j0.i0.h.c cVar = this.f15078e;
         if (cVar != null) {
             cVar.onChangeSkinType(this.mSkinType);
         }
@@ -175,25 +175,25 @@ public class EnterForumTabFragment extends BaseFragment implements g {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f15070e = new d.b.i0.i0.h.c(this);
-        registerListener(this.f15072g);
+        this.f15078e = new d.b.j0.i0.h.c(this);
+        registerListener(this.f15080g);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.enter_forum_tab, viewGroup, false);
-        this.f15070e.B(inflate, bundle);
+        this.f15078e.B(inflate, bundle);
         F0(getActivity().getIntent(), bundle);
-        this.f15070e.o(this.f15071f);
+        this.f15078e.o(this.f15079f);
         return inflate;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        d.b.i0.e1.h.e.m().c();
-        MessageManager.getInstance().unRegisterListener(this.f15072g);
-        d.b.i0.i0.h.c cVar = this.f15070e;
+        d.b.j0.e1.h.e.m().c();
+        MessageManager.getInstance().unRegisterListener(this.f15080g);
+        d.b.j0.i0.h.c cVar = this.f15078e;
         if (cVar != null) {
             cVar.K();
         }
@@ -210,7 +210,7 @@ public class EnterForumTabFragment extends BaseFragment implements g {
         if (isPrimary() && getActivity() != null) {
             F0(getActivity().getIntent(), null);
         }
-        d.b.i0.i0.h.c cVar = this.f15070e;
+        d.b.j0.i0.h.c cVar = this.f15078e;
         if (cVar != null) {
             cVar.U(isPrimary());
         }
@@ -238,7 +238,7 @@ public class EnterForumTabFragment extends BaseFragment implements g {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void setPrimary(boolean z) {
         super.setPrimary(z);
-        d.b.i0.i0.h.c cVar = this.f15070e;
+        d.b.j0.i0.h.c cVar = this.f15078e;
         if (cVar != null) {
             cVar.U(z);
         }

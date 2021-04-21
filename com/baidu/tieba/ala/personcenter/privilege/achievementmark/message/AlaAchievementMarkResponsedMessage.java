@@ -4,7 +4,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.data.AlaUserInfoData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.i0.t.j.g.c.c.c;
+import d.b.j0.t.j.g.c.c.c;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;

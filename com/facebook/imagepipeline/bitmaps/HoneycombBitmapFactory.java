@@ -12,7 +12,7 @@ import com.facebook.imagepipeline.platform.PlatformDecoder;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(11)
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class HoneycombBitmapFactory extends PlatformBitmapFactory {
     public static final String TAG = "HoneycombBitmapFactory";
     public final CloseableReferenceFactory mCloseableReferenceFactory;

@@ -1,0 +1,127 @@
+package d.b.j0.h3;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.tblauncherInterestGuide.data.InterestFrsData;
+import java.util.List;
+/* loaded from: classes5.dex */
+public class c extends BaseAdapter {
+
+    /* renamed from: e  reason: collision with root package name */
+    public List<InterestFrsData.Card> f56963e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Context f56964f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public View.OnClickListener f56965g;
+
+    /* loaded from: classes5.dex */
+    public class b {
+
+        /* renamed from: a  reason: collision with root package name */
+        public FrameLayout f56966a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public TbImageView f56967b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public ImageView f56968c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public RelativeLayout f56969d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public TextView f56970e;
+
+        public b(c cVar) {
+        }
+    }
+
+    public c(Context context) {
+        this.f56964f = context;
+    }
+
+    public void a(List<InterestFrsData.Card> list) {
+        this.f56963e = list;
+        notifyDataSetChanged();
+    }
+
+    public void b(ImageView imageView, boolean z) {
+        if (!z) {
+            imageView.setBackgroundDrawable(this.f56964f.getResources().getDrawable(R.drawable.icon_startpage2_add_pic_n));
+        } else {
+            imageView.setBackgroundDrawable(this.f56964f.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_s));
+        }
+    }
+
+    public void c(View.OnClickListener onClickListener) {
+        this.f56965g = onClickListener;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        List<InterestFrsData.Card> list = this.f56963e;
+        if (list != null) {
+            return list.size();
+        }
+        return 0;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        List<InterestFrsData.Card> list = this.f56963e;
+        if (list == null || i < 0 || i >= list.size()) {
+            return null;
+        }
+        return this.f56963e.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        b bVar;
+        if (view == null) {
+            view = LayoutInflater.from(this.f56964f).inflate(R.layout.new_user_img_item, viewGroup, false);
+            bVar = new b();
+            bVar.f56967b = (TbImageView) view.findViewById(R.id.pic);
+            bVar.f56968c = (ImageView) view.findViewById(R.id.select_icon);
+            bVar.f56969d = (RelativeLayout) view.findViewById(R.id.lay_select);
+            bVar.f56970e = (TextView) view.findViewById(R.id.tv_fname);
+            FrameLayout frameLayout = (FrameLayout) view.findViewById(R.id.pic_layout);
+            bVar.f56966a = frameLayout;
+            frameLayout.setOnClickListener(this.f56965g);
+            view.setTag(bVar);
+        } else {
+            bVar = (b) view.getTag();
+        }
+        bVar.f56967b.setTag(null);
+        bVar.f56969d.setTag(null);
+        bVar.f56970e.setText("");
+        bVar.f56966a.setTag(null);
+        Object item = getItem(i);
+        if (item != null && (item instanceof InterestFrsData.Card)) {
+            InterestFrsData.Card card = (InterestFrsData.Card) item;
+            b(bVar.f56968c, card.getIs_like() == 1);
+            bVar.f56969d.setTag(card);
+            bVar.f56966a.setTag(card);
+            bVar.f56967b.setTag(card.getIcon_url());
+            bVar.f56967b.W(card.getIcon_url(), 21, false);
+            bVar.f56970e.setText(card.getFname());
+        }
+        return view;
+    }
+}

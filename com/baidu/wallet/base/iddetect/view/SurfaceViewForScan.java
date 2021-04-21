@@ -30,28 +30,28 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
     public static final String TAG = SurfaceViewForScan.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f23349a = PeerConnectionClient.HD_VIDEO_HEIGHT;
+    public static int f23357a = PeerConnectionClient.HD_VIDEO_HEIGHT;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f23350b = TbConfig.HEAD_IMG_SIZE;
+    public static int f23358b = TbConfig.HEAD_IMG_SIZE;
 
     /* renamed from: c  reason: collision with root package name */
-    public Camera f23351c;
+    public Camera f23359c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Camera.Parameters f23352d;
+    public Camera.Parameters f23360d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f23353e;
+    public int f23361e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SurfaceHolder f23354f;
+    public SurfaceHolder f23362f;
 
     /* renamed from: g  reason: collision with root package name */
-    public byte[][] f23355g;
+    public byte[][] f23363g;
 
     /* renamed from: h  reason: collision with root package name */
-    public byte[] f23356h;
+    public byte[] f23364h;
     public a i;
     public int j;
     public int k;
@@ -76,7 +76,7 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
     public class b extends Thread {
 
         /* renamed from: a  reason: collision with root package name */
-        public Handler f23360a;
+        public Handler f23368a;
 
         public b() {
         }
@@ -84,7 +84,7 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             Looper.prepare();
-            this.f23360a = new c(SurfaceViewForScan.this);
+            this.f23368a = new c(SurfaceViewForScan.this);
             Looper.loop();
         }
     }
@@ -93,60 +93,60 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
     public static class c extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<SurfaceViewForScan> f23362a;
+        public final WeakReference<SurfaceViewForScan> f23370a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f23363b = System.currentTimeMillis();
+        public long f23371b = System.currentTimeMillis();
 
         public c(SurfaceViewForScan surfaceViewForScan) {
-            this.f23362a = new WeakReference<>(surfaceViewForScan);
+            this.f23370a = new WeakReference<>(surfaceViewForScan);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             int i;
             int i2;
-            SurfaceViewForScan surfaceViewForScan = this.f23362a.get();
+            SurfaceViewForScan surfaceViewForScan = this.f23370a.get();
             if (surfaceViewForScan == null) {
                 return;
             }
             byte[] bArr = (byte[]) message.obj;
-            if (System.currentTimeMillis() - this.f23363b > 200) {
-                this.f23363b = System.currentTimeMillis();
+            if (System.currentTimeMillis() - this.f23371b > 200) {
+                this.f23371b = System.currentTimeMillis();
                 int i3 = surfaceViewForScan.n;
                 if (surfaceViewForScan.o == 1) {
                     i3 += 180;
                 }
                 int i4 = 360 - i3;
                 if (i4 == 0) {
-                    System.arraycopy(bArr, 0, surfaceViewForScan.f23356h, 0, bArr.length);
+                    System.arraycopy(bArr, 0, surfaceViewForScan.f23364h, 0, bArr.length);
                     i = surfaceViewForScan.j;
                     i2 = surfaceViewForScan.k;
                 } else if (i4 == 90) {
-                    surfaceViewForScan.a(bArr, surfaceViewForScan.f23356h, surfaceViewForScan.j, surfaceViewForScan.k);
+                    surfaceViewForScan.a(bArr, surfaceViewForScan.f23364h, surfaceViewForScan.j, surfaceViewForScan.k);
                     i = surfaceViewForScan.k;
                     i2 = surfaceViewForScan.j;
                 } else if (i4 == 180) {
-                    surfaceViewForScan.b(bArr, surfaceViewForScan.f23356h, surfaceViewForScan.j, surfaceViewForScan.k);
+                    surfaceViewForScan.b(bArr, surfaceViewForScan.f23364h, surfaceViewForScan.j, surfaceViewForScan.k);
                     i = surfaceViewForScan.j;
                     i2 = surfaceViewForScan.k;
                 } else if (i4 == 270) {
-                    surfaceViewForScan.c(bArr, surfaceViewForScan.f23356h, surfaceViewForScan.j, surfaceViewForScan.k);
+                    surfaceViewForScan.c(bArr, surfaceViewForScan.f23364h, surfaceViewForScan.j, surfaceViewForScan.k);
                     i = surfaceViewForScan.k;
                     i2 = surfaceViewForScan.j;
                 } else {
-                    System.arraycopy(bArr, 0, surfaceViewForScan.f23356h, 0, bArr.length);
+                    System.arraycopy(bArr, 0, surfaceViewForScan.f23364h, 0, bArr.length);
                     i = surfaceViewForScan.j;
                     i2 = surfaceViewForScan.k;
                 }
                 if (surfaceViewForScan.i != null) {
-                    surfaceViewForScan.i.a(surfaceViewForScan.f23356h, i, i2, surfaceViewForScan.l);
+                    surfaceViewForScan.i.a(surfaceViewForScan.f23364h, i, i2, surfaceViewForScan.l);
                 }
             }
-            if (Build.VERSION.SDK_INT < 8 || surfaceViewForScan.f23351c == null || bArr == null) {
+            if (Build.VERSION.SDK_INT < 8 || surfaceViewForScan.f23359c == null || bArr == null) {
                 return;
             }
-            surfaceViewForScan.f23351c.addCallbackBuffer(bArr);
+            surfaceViewForScan.f23359c.addCallbackBuffer(bArr);
         }
     }
 
@@ -161,8 +161,8 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
     public void autoFocus() {
         Camera.Parameters parameters;
         try {
-            if (this.f23351c != null && (parameters = this.f23351c.getParameters()) != null && parameters.getSupportedFocusModes() != null && parameters.getFocusMode() != null && parameters.getSupportedFocusModes().contains("auto") && parameters.getFocusMode().equals("auto")) {
-                this.f23351c.autoFocus(null);
+            if (this.f23359c != null && (parameters = this.f23359c.getParameters()) != null && parameters.getSupportedFocusModes() != null && parameters.getFocusMode() != null && parameters.getSupportedFocusModes().contains("auto") && parameters.getFocusMode().equals("auto")) {
+                this.f23359c.autoFocus(null);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -174,11 +174,11 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
     }
 
     public Camera getCamera() {
-        return this.f23351c;
+        return this.f23359c;
     }
 
     public int getCameraID() {
-        return this.f23353e;
+        return this.f23361e;
     }
 
     public Camera.PictureCallback getPictureCallback() {
@@ -194,7 +194,7 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
     public void pointFocus(float f2, float f3) {
         Camera.Parameters parameters;
         try {
-            if (this.f23351c != null && (parameters = this.f23351c.getParameters()) != null && parameters.getSupportedFocusModes() != null && parameters.getFocusMode() != null && parameters.getSupportedFocusModes().contains("auto") && parameters.getFocusMode().equals("auto")) {
+            if (this.f23359c != null && (parameters = this.f23359c.getParameters()) != null && parameters.getSupportedFocusModes() != null && parameters.getFocusMode() != null && parameters.getSupportedFocusModes().contains("auto") && parameters.getFocusMode().equals("auto")) {
                 ArrayList arrayList = new ArrayList();
                 int a2 = a((int) (((f2 / getWidth()) * 2000.0f) - 1000.0f), -1000, getWidth() - this.s);
                 int a3 = a((int) (((f3 / getHeight()) * 2000.0f) - 1000.0f), -1000, getHeight() - this.s);
@@ -203,11 +203,11 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
                 String str2 = TAG;
                 LogUtil.d(str2, CustomDialogData.POS_LEFT + a2 + "top" + a3);
                 arrayList.add(new Camera.Area(new Rect(a2, a3, this.s + a2, this.s + a3), 1000));
-                this.f23351c.cancelAutoFocus();
+                this.f23359c.cancelAutoFocus();
                 parameters.setFocusMode("auto");
                 parameters.setFocusAreas(arrayList);
-                this.f23351c.setParameters(parameters);
-                this.f23351c.autoFocus(this.v);
+                this.f23359c.setParameters(parameters);
+                this.f23359c.autoFocus(this.v);
             }
         } catch (Exception unused) {
             autoFocus();
@@ -216,17 +216,17 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
 
     public void releaseSource() {
         try {
-            if (this.f23351c != null) {
-                this.f23351c.setPreviewCallbackWithBuffer(null);
-                this.f23351c.setPreviewCallback(null);
-                this.f23351c.stopPreview();
-                this.f23351c.release();
-                this.f23351c = null;
+            if (this.f23359c != null) {
+                this.f23359c.setPreviewCallbackWithBuffer(null);
+                this.f23359c.setPreviewCallback(null);
+                this.f23359c.stopPreview();
+                this.f23359c.release();
+                this.f23359c = null;
             }
-            if (this.m == null || this.m.f23360a == null) {
+            if (this.m == null || this.m.f23368a == null) {
                 return;
             }
-            this.m.f23360a.getLooper().quit();
+            this.m.f23368a.getLooper().quit();
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -254,17 +254,17 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
             return;
         }
         try {
-            if (this.f23351c != null) {
-                this.f23351c.stopPreview();
+            if (this.f23359c != null) {
+                this.f23359c.stopPreview();
             }
         } catch (Exception e2) {
             e2.printStackTrace();
         }
         try {
             b();
-            if (this.f23351c != null) {
-                this.f23351c.setPreviewDisplay(surfaceHolder);
-                this.f23351c.startPreview();
+            if (this.f23359c != null) {
+                this.f23359c.setPreviewDisplay(surfaceHolder);
+                this.f23359c.startPreview();
                 autoFocus();
             }
         } catch (Exception e3) {
@@ -280,19 +280,19 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
         Handler handler;
-        Camera camera = this.f23351c;
+        Camera camera = this.f23359c;
         if (camera != null) {
             camera.release();
         }
         b bVar = this.m;
-        if (bVar == null || (handler = bVar.f23360a) == null) {
+        if (bVar == null || (handler = bVar.f23368a) == null) {
             return;
         }
         handler.getLooper().quit();
     }
 
     public void switchCamera() {
-        SurfaceHolder surfaceHolder = this.f23354f;
+        SurfaceHolder surfaceHolder = this.f23362f;
         if (surfaceHolder == null || surfaceHolder.getSurface() == null) {
             return;
         }
@@ -305,8 +305,8 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
             releaseSource();
             a();
             b();
-            this.f23351c.setPreviewDisplay(this.f23354f);
-            this.f23351c.startPreview();
+            this.f23359c.setPreviewDisplay(this.f23362f);
+            this.f23359c.startPreview();
             autoFocus();
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -316,7 +316,7 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
     public void takePicture() {
         Camera camera;
         Camera.PictureCallback pictureCallback;
-        if (this.p != 0 || (camera = this.f23351c) == null || (pictureCallback = this.q) == null) {
+        if (this.p != 0 || (camera = this.f23359c) == null || (pictureCallback = this.q) == null) {
             return;
         }
         camera.takePicture(null, null, pictureCallback);
@@ -328,7 +328,7 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
 
     public SurfaceViewForScan(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f23355g = new byte[4];
+        this.f23363g = new byte[4];
         this.o = 0;
         this.p = 1;
         this.q = null;
@@ -345,8 +345,8 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
             com.baidu.wallet.base.iddetect.a a2 = com.baidu.wallet.base.iddetect.utils.b.a(context, 1, false);
             this.t = a2;
             if (a2 != null) {
-                f23350b = a2.f23326a;
-                f23349a = a2.f23327b;
+                f23358b = a2.f23334a;
+                f23357a = a2.f23335b;
             } else {
                 IdCardActivity idCardActivity = this.u;
                 if (idCardActivity != null) {
@@ -355,9 +355,9 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
                 }
             }
             SurfaceHolder holder = getHolder();
-            this.f23354f = holder;
+            this.f23362f = holder;
             holder.addCallback(this);
-            this.f23354f.setType(3);
+            this.f23362f.setType(3);
         } catch (Exception e2) {
             String simpleName = SurfaceViewForScan.class.getSimpleName();
             LogUtil.errord(simpleName, "init fail exception = " + e2.getMessage());
@@ -397,25 +397,25 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
     */
     private void b() {
         Method method;
-        if (this.f23351c == null) {
+        if (this.f23359c == null) {
             return;
         }
         b bVar = new b();
         this.m = bVar;
         bVar.start();
         String str = TAG;
-        LogUtil.i(str, "FRAME_WIDTH = " + f23350b + ";FRAME_HEIGHT=" + f23349a);
+        LogUtil.i(str, "FRAME_WIDTH = " + f23358b + ";FRAME_HEIGHT=" + f23357a);
         int i = Build.VERSION.SDK_INT;
         int i2 = 270;
         int i3 = 0;
         if (i >= 9) {
-            Camera.Parameters parameters = this.f23351c.getParameters();
-            this.f23352d = parameters;
+            Camera.Parameters parameters = this.f23359c.getParameters();
+            this.f23360d = parameters;
             parameters.setPreviewFormat(17);
-            this.f23352d.setPreviewSize(f23350b, f23349a);
-            this.f23351c.setParameters(this.f23352d);
+            this.f23360d.setPreviewSize(f23358b, f23357a);
+            this.f23359c.setParameters(this.f23360d);
             Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-            Camera.getCameraInfo(this.f23353e, cameraInfo);
+            Camera.getCameraInfo(this.f23361e, cameraInfo);
             int rotation = ((Activity) getContext()).getWindowManager().getDefaultDisplay().getRotation();
             if (rotation != 0) {
                 if (rotation == 1) {
@@ -430,52 +430,52 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
                 } else {
                     this.n = ((cameraInfo.orientation - i2) + 360) % 360;
                 }
-                this.f23351c.setDisplayOrientation(this.n);
-                this.k = this.f23352d.getPreviewSize().height;
-                this.j = this.f23352d.getPreviewSize().width;
-                this.l = this.f23352d.getPreviewFormat();
-                int bitsPerPixel = (int) ((((this.k * 1) * this.j) * ImageFormat.getBitsPerPixel(this.f23351c.getParameters().getPreviewFormat())) / 8);
-                this.f23356h = new byte[bitsPerPixel];
+                this.f23359c.setDisplayOrientation(this.n);
+                this.k = this.f23360d.getPreviewSize().height;
+                this.j = this.f23360d.getPreviewSize().width;
+                this.l = this.f23360d.getPreviewFormat();
+                int bitsPerPixel = (int) ((((this.k * 1) * this.j) * ImageFormat.getBitsPerPixel(this.f23359c.getParameters().getPreviewFormat())) / 8);
+                this.f23364h = new byte[bitsPerPixel];
                 while (i3 < 4) {
-                    byte[][] bArr = this.f23355g;
+                    byte[][] bArr = this.f23363g;
                     bArr[i3] = new byte[bitsPerPixel];
-                    this.f23351c.addCallbackBuffer(bArr[i3]);
+                    this.f23359c.addCallbackBuffer(bArr[i3]);
                     i3++;
                 }
                 if (this.p != 1) {
-                    this.f23351c.setPreviewCallbackWithBuffer(new Camera.PreviewCallback() { // from class: com.baidu.wallet.base.iddetect.view.SurfaceViewForScan.1
+                    this.f23359c.setPreviewCallbackWithBuffer(new Camera.PreviewCallback() { // from class: com.baidu.wallet.base.iddetect.view.SurfaceViewForScan.1
                         @Override // android.hardware.Camera.PreviewCallback
                         public void onPreviewFrame(byte[] bArr2, Camera camera) {
                             Message message = new Message();
                             message.obj = bArr2;
-                            SurfaceViewForScan.this.m.f23360a.sendMessage(message);
+                            SurfaceViewForScan.this.m.f23368a.sendMessage(message);
                         }
                     });
                     return;
                 } else {
-                    this.f23351c.setPreviewCallbackWithBuffer(null);
+                    this.f23359c.setPreviewCallbackWithBuffer(null);
                     return;
                 }
             }
             i2 = 0;
             if (cameraInfo.facing != 1) {
             }
-            this.f23351c.setDisplayOrientation(this.n);
-            this.k = this.f23352d.getPreviewSize().height;
-            this.j = this.f23352d.getPreviewSize().width;
-            this.l = this.f23352d.getPreviewFormat();
-            int bitsPerPixel2 = (int) ((((this.k * 1) * this.j) * ImageFormat.getBitsPerPixel(this.f23351c.getParameters().getPreviewFormat())) / 8);
-            this.f23356h = new byte[bitsPerPixel2];
+            this.f23359c.setDisplayOrientation(this.n);
+            this.k = this.f23360d.getPreviewSize().height;
+            this.j = this.f23360d.getPreviewSize().width;
+            this.l = this.f23360d.getPreviewFormat();
+            int bitsPerPixel2 = (int) ((((this.k * 1) * this.j) * ImageFormat.getBitsPerPixel(this.f23359c.getParameters().getPreviewFormat())) / 8);
+            this.f23364h = new byte[bitsPerPixel2];
             while (i3 < 4) {
             }
             if (this.p != 1) {
             }
         } else if (i == 8) {
-            Camera.Parameters parameters2 = this.f23351c.getParameters();
-            this.f23352d = parameters2;
+            Camera.Parameters parameters2 = this.f23359c.getParameters();
+            this.f23360d = parameters2;
             parameters2.setPreviewFormat(17);
-            this.f23352d.setPreviewSize(f23350b, f23349a);
-            this.f23351c.setParameters(this.f23352d);
+            this.f23360d.setPreviewSize(f23358b, f23357a);
+            this.f23359c.setParameters(this.f23360d);
             int orientation = ((Activity) getContext()).getWindowManager().getDefaultDisplay().getOrientation();
             if (orientation != 0) {
                 if (orientation == 1) {
@@ -485,52 +485,52 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
                 }
                 int i5 = ((90 - i2) + 360) % 360;
                 this.n = i5;
-                this.f23351c.setDisplayOrientation(i5);
-                this.k = this.f23352d.getPreviewSize().height;
-                this.j = this.f23352d.getPreviewSize().width;
-                this.l = this.f23352d.getPreviewFormat();
-                int bitsPerPixel3 = (int) (((this.k * this.j) * ImageFormat.getBitsPerPixel(this.f23351c.getParameters().getPreviewFormat())) / 8);
-                this.f23356h = new byte[bitsPerPixel3];
+                this.f23359c.setDisplayOrientation(i5);
+                this.k = this.f23360d.getPreviewSize().height;
+                this.j = this.f23360d.getPreviewSize().width;
+                this.l = this.f23360d.getPreviewFormat();
+                int bitsPerPixel3 = (int) (((this.k * this.j) * ImageFormat.getBitsPerPixel(this.f23359c.getParameters().getPreviewFormat())) / 8);
+                this.f23364h = new byte[bitsPerPixel3];
                 while (i3 < 4) {
-                    byte[][] bArr2 = this.f23355g;
+                    byte[][] bArr2 = this.f23363g;
                     bArr2[i3] = new byte[bitsPerPixel3];
-                    this.f23351c.addCallbackBuffer(bArr2[i3]);
+                    this.f23359c.addCallbackBuffer(bArr2[i3]);
                     i3++;
                 }
                 if (this.p != 1) {
-                    this.f23351c.setPreviewCallbackWithBuffer(new Camera.PreviewCallback() { // from class: com.baidu.wallet.base.iddetect.view.SurfaceViewForScan.2
+                    this.f23359c.setPreviewCallbackWithBuffer(new Camera.PreviewCallback() { // from class: com.baidu.wallet.base.iddetect.view.SurfaceViewForScan.2
                         @Override // android.hardware.Camera.PreviewCallback
                         public void onPreviewFrame(byte[] bArr3, Camera camera) {
                             Message message = new Message();
                             message.obj = bArr3;
-                            SurfaceViewForScan.this.m.f23360a.sendMessage(message);
+                            SurfaceViewForScan.this.m.f23368a.sendMessage(message);
                         }
                     });
                     return;
                 } else {
-                    this.f23351c.setPreviewCallbackWithBuffer(null);
+                    this.f23359c.setPreviewCallbackWithBuffer(null);
                     return;
                 }
             }
             i2 = 0;
             int i52 = ((90 - i2) + 360) % 360;
             this.n = i52;
-            this.f23351c.setDisplayOrientation(i52);
-            this.k = this.f23352d.getPreviewSize().height;
-            this.j = this.f23352d.getPreviewSize().width;
-            this.l = this.f23352d.getPreviewFormat();
-            int bitsPerPixel32 = (int) (((this.k * this.j) * ImageFormat.getBitsPerPixel(this.f23351c.getParameters().getPreviewFormat())) / 8);
-            this.f23356h = new byte[bitsPerPixel32];
+            this.f23359c.setDisplayOrientation(i52);
+            this.k = this.f23360d.getPreviewSize().height;
+            this.j = this.f23360d.getPreviewSize().width;
+            this.l = this.f23360d.getPreviewFormat();
+            int bitsPerPixel32 = (int) (((this.k * this.j) * ImageFormat.getBitsPerPixel(this.f23359c.getParameters().getPreviewFormat())) / 8);
+            this.f23364h = new byte[bitsPerPixel32];
             while (i3 < 4) {
             }
             if (this.p != 1) {
             }
         } else {
-            Camera.Parameters parameters3 = this.f23351c.getParameters();
-            this.f23352d = parameters3;
+            Camera.Parameters parameters3 = this.f23359c.getParameters();
+            this.f23360d = parameters3;
             parameters3.setPreviewFormat(17);
-            this.f23352d.setPreviewSize(f23350b, f23349a);
-            this.f23351c.setParameters(this.f23352d);
+            this.f23360d.setPreviewSize(f23358b, f23357a);
+            this.f23359c.setParameters(this.f23360d);
             int orientation2 = ((Activity) getContext()).getWindowManager().getDefaultDisplay().getOrientation();
             if (orientation2 != 0) {
                 if (orientation2 == 1) {
@@ -539,38 +539,38 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
                     i2 = 180;
                 }
                 this.n = ((90 - i2) + 360) % 360;
-                method = this.f23351c.getClass().getMethod("setDisplayOrientation", Integer.TYPE);
+                method = this.f23359c.getClass().getMethod("setDisplayOrientation", Integer.TYPE);
                 if (method != null) {
-                    method.invoke(this.f23351c, Integer.valueOf(this.n));
+                    method.invoke(this.f23359c, Integer.valueOf(this.n));
                 }
-                this.k = this.f23352d.getPreviewSize().height;
-                this.j = this.f23352d.getPreviewSize().width;
-                this.l = this.f23352d.getPreviewFormat();
-                this.f23356h = new byte[(int) (((this.k * this.j) * 12) / 8)];
+                this.k = this.f23360d.getPreviewSize().height;
+                this.j = this.f23360d.getPreviewSize().width;
+                this.l = this.f23360d.getPreviewFormat();
+                this.f23364h = new byte[(int) (((this.k * this.j) * 12) / 8)];
                 if (this.p != 1) {
-                    this.f23351c.setPreviewCallback(new Camera.PreviewCallback() { // from class: com.baidu.wallet.base.iddetect.view.SurfaceViewForScan.3
+                    this.f23359c.setPreviewCallback(new Camera.PreviewCallback() { // from class: com.baidu.wallet.base.iddetect.view.SurfaceViewForScan.3
                         @Override // android.hardware.Camera.PreviewCallback
                         public void onPreviewFrame(byte[] bArr3, Camera camera) {
                             Message message = new Message();
                             message.obj = bArr3;
-                            SurfaceViewForScan.this.m.f23360a.sendMessage(message);
+                            SurfaceViewForScan.this.m.f23368a.sendMessage(message);
                         }
                     });
                     return;
                 } else {
-                    this.f23351c.setPreviewCallback(null);
+                    this.f23359c.setPreviewCallback(null);
                     return;
                 }
             }
             i2 = 0;
             this.n = ((90 - i2) + 360) % 360;
-            method = this.f23351c.getClass().getMethod("setDisplayOrientation", Integer.TYPE);
+            method = this.f23359c.getClass().getMethod("setDisplayOrientation", Integer.TYPE);
             if (method != null) {
             }
-            this.k = this.f23352d.getPreviewSize().height;
-            this.j = this.f23352d.getPreviewSize().width;
-            this.l = this.f23352d.getPreviewFormat();
-            this.f23356h = new byte[(int) (((this.k * this.j) * 12) / 8)];
+            this.k = this.f23360d.getPreviewSize().height;
+            this.j = this.f23360d.getPreviewSize().width;
+            this.l = this.f23360d.getPreviewFormat();
+            this.f23364h = new byte[(int) (((this.k * this.j) * 12) / 8)];
             if (this.p != 1) {
             }
         }
@@ -607,29 +607,29 @@ public class SurfaceViewForScan extends SurfaceView implements SurfaceHolder.Cal
             try {
                 try {
                     if (this.o == 1) {
-                        this.f23351c = Camera.open(0);
-                        this.f23353e = 0;
+                        this.f23359c = Camera.open(0);
+                        this.f23361e = 0;
                     } else {
-                        this.f23351c = Camera.open(1);
-                        this.f23353e = 1;
+                        this.f23359c = Camera.open(1);
+                        this.f23361e = 1;
                     }
                 } catch (Exception unused) {
-                    this.f23351c = Camera.open();
-                    this.f23353e = 0;
+                    this.f23359c = Camera.open();
+                    this.f23361e = 0;
                 }
             } catch (Exception unused2) {
-                this.f23351c = null;
-                this.f23353e = -1;
+                this.f23359c = null;
+                this.f23361e = -1;
             }
         } else {
             try {
-                this.f23351c = Camera.open();
+                this.f23359c = Camera.open();
             } catch (Exception unused3) {
-                this.f23351c = null;
-                this.f23353e = -1;
+                this.f23359c = null;
+                this.f23361e = -1;
             }
         }
-        if (this.f23351c != null || (idCardActivity = this.u) == null) {
+        if (this.f23359c != null || (idCardActivity = this.u) == null) {
             return;
         }
         idCardActivity.dialogPermission();

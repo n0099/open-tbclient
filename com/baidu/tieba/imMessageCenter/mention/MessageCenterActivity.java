@@ -12,7 +12,7 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     public MessageCenterFragment mFragment;
     public int mSkinType = 3;
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.b.h0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.b.i0.k0.a
     public String getCurrentPageKey() {
         return "a079";
     }

@@ -5,28 +5,28 @@ import java.util.Map;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f66495a = false;
+    public boolean f66590a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f66496b = true;
+    public boolean f66591b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Integer> f66497c = null;
+    public Map<String, Integer> f66592c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f66498d = null;
+    public Map<String, String> f66593d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f66499e = 10;
+    public int f66594e = 10;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f66500f = 1;
+    public int f66595f = 1;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f66501g = 1;
+    public int f66596g = 1;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f66502h = 10;
+    public int f66597h = 10;
     public int i = 1;
     public int j = 1;
     public int k = 900;
@@ -36,23 +36,23 @@ public class d {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(" localEnable: ");
-        sb.append(this.f66495a);
+        sb.append(this.f66590a);
         sb.append(" probeEnable: ");
-        sb.append(this.f66496b);
+        sb.append(this.f66591b);
         sb.append(" hostFilter: ");
-        Map<String, Integer> map = this.f66497c;
+        Map<String, Integer> map = this.f66592c;
         sb.append(map != null ? map.size() : 0);
         sb.append(" hostMap: ");
-        Map<String, String> map2 = this.f66498d;
+        Map<String, String> map2 = this.f66593d;
         sb.append(map2 != null ? map2.size() : 0);
         sb.append(" reqTo: ");
-        sb.append(this.f66499e);
+        sb.append(this.f66594e);
         sb.append("#");
-        sb.append(this.f66500f);
+        sb.append(this.f66595f);
         sb.append("#");
-        sb.append(this.f66501g);
+        sb.append(this.f66596g);
         sb.append(" reqErr: ");
-        sb.append(this.f66502h);
+        sb.append(this.f66597h);
         sb.append("#");
         sb.append(this.i);
         sb.append("#");

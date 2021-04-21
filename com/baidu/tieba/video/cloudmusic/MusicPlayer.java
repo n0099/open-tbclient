@@ -9,13 +9,13 @@ import java.io.IOException;
 public class MusicPlayer {
 
     /* renamed from: c  reason: collision with root package name */
-    public static MusicPlayer f21401c;
+    public static MusicPlayer f21409c;
 
     /* renamed from: a  reason: collision with root package name */
-    public MediaPlayer f21402a;
+    public MediaPlayer f21410a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MusicPlayerState f21403b = MusicPlayerState.WAIT;
+    public MusicPlayerState f21411b = MusicPlayerState.WAIT;
 
     /* loaded from: classes5.dex */
     public enum MusicPlayerState {
@@ -31,19 +31,19 @@ public class MusicPlayer {
     public class a implements MediaPlayer.OnPreparedListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList f21404e;
+        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList f21412e;
 
         public a(CloudMusicData.MusicTagList.MusicList musicList) {
-            this.f21404e = musicList;
+            this.f21412e = musicList;
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
-            d.b.i0.q3.i.h.a.b().d(this.f21404e);
+            d.b.j0.q3.i.h.a.b().d(this.f21412e);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921307));
-            MusicPlayer.this.f21402a.setLooping(true);
-            MusicPlayer.this.f21402a.start();
-            MusicPlayer.this.f21403b = MusicPlayerState.PREPARED;
+            MusicPlayer.this.f21410a.setLooping(true);
+            MusicPlayer.this.f21410a.start();
+            MusicPlayer.this.f21411b = MusicPlayerState.PREPARED;
         }
     }
 
@@ -55,40 +55,40 @@ public class MusicPlayer {
     public static synchronized MusicPlayer c() {
         MusicPlayer musicPlayer;
         synchronized (MusicPlayer.class) {
-            if (f21401c == null) {
-                f21401c = new MusicPlayer();
+            if (f21409c == null) {
+                f21409c = new MusicPlayer();
             }
-            musicPlayer = f21401c;
+            musicPlayer = f21409c;
         }
         return musicPlayer;
     }
 
     public void d() {
-        MediaPlayer mediaPlayer = this.f21402a;
+        MediaPlayer mediaPlayer = this.f21410a;
         if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-            this.f21402a.pause();
+            this.f21410a.pause();
         }
-        this.f21403b = MusicPlayerState.PAUSE;
+        this.f21411b = MusicPlayerState.PAUSE;
     }
 
     public void e(String str, CloudMusicData.MusicTagList.MusicList musicList, b bVar) {
-        if (this.f21403b == MusicPlayerState.PAUSE) {
+        if (this.f21411b == MusicPlayerState.PAUSE) {
             return;
         }
-        if (this.f21402a == null) {
+        if (this.f21410a == null) {
             MediaPlayer mediaPlayer = new MediaPlayer();
-            this.f21402a = mediaPlayer;
+            this.f21410a = mediaPlayer;
             mediaPlayer.setAudioStreamType(3);
         }
         try {
-            this.f21402a.reset();
-            this.f21402a.setDataSource(str);
-            this.f21402a.prepare();
-            this.f21403b = MusicPlayerState.WAIT;
-            this.f21402a.setOnPreparedListener(new a(musicList));
+            this.f21410a.reset();
+            this.f21410a.setDataSource(str);
+            this.f21410a.prepare();
+            this.f21411b = MusicPlayerState.WAIT;
+            this.f21410a.setOnPreparedListener(new a(musicList));
         } catch (IOException e2) {
             e2.printStackTrace();
-            this.f21403b = MusicPlayerState.ERROR;
+            this.f21411b = MusicPlayerState.ERROR;
             if (bVar != null) {
                 bVar.a();
             }
@@ -96,22 +96,22 @@ public class MusicPlayer {
     }
 
     public void f() {
-        MediaPlayer mediaPlayer = this.f21402a;
+        MediaPlayer mediaPlayer = this.f21410a;
         if (mediaPlayer != null) {
             if (mediaPlayer.isPlaying()) {
-                this.f21402a.stop();
+                this.f21410a.stop();
             }
-            this.f21402a.release();
-            this.f21402a = null;
+            this.f21410a.release();
+            this.f21410a = null;
         }
     }
 
     public void g() {
-        MediaPlayer mediaPlayer = this.f21402a;
+        MediaPlayer mediaPlayer = this.f21410a;
         if (mediaPlayer != null) {
             mediaPlayer.start();
-            this.f21402a.seekTo(0);
+            this.f21410a.seekTo(0);
         }
-        this.f21403b = MusicPlayerState.RESUME;
+        this.f21411b = MusicPlayerState.RESUME;
     }
 }

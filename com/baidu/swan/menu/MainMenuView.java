@@ -10,8 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import d.b.g0.i.g;
-import d.b.g0.i.o;
+import d.b.h0.i.g;
+import d.b.h0.i.o;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class MainMenuView extends BaseMenuView {
@@ -135,7 +135,7 @@ public class MainMenuView extends BaseMenuView {
         this.n = recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.n.setPadding(0, (int) this.f12643e.getResources().getDimension(g.aiapp_menu_gridview_padding_top), 0, 0);
+        this.n.setPadding(0, (int) this.f12651e.getResources().getDimension(g.aiapp_menu_gridview_padding_top), 0, 0);
         this.k.addView(this.n, layoutParams);
         View view = new View(context);
         this.m = view;

@@ -10,15 +10,15 @@ public class h implements f {
     @Override // com.fun.openid.sdk.f
     public void a(Context context, f.a aVar) {
         String str = null;
-        if (!((m.f30524b == null || m.f30523a == null) ? false : true)) {
+        if (!((m.f30619b == null || m.f30618a == null) ? false : true)) {
             if (FunOpenIDSdk.isLogEnabled()) {
                 Log.e(FunOpenIDSdk.TAG, "当前设备不支持获取OAID");
             }
             ((e.a) aVar).a(false, null);
             return;
         }
-        Method method = m.f30525c;
-        Object obj = m.f30523a;
+        Method method = m.f30620c;
+        Object obj = m.f30618a;
         if (obj != null && method != null) {
             try {
                 Object invoke = method.invoke(obj, context);

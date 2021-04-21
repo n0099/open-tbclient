@@ -6,16 +6,16 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
-import d.b.i0.d3.k0.a;
-import d.b.i0.d3.k0.b;
+import d.b.j0.d3.k0.a;
+import d.b.j0.d3.k0.b;
 /* loaded from: classes5.dex */
 public class DragLayer extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f21043e;
+    public a f21051e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f21044f;
+    public b f21052f;
 
     public DragLayer(Context context) {
         super(context);
@@ -23,14 +23,14 @@ public class DragLayer extends FrameLayout {
     }
 
     public void a() {
-        b bVar = this.f21044f;
+        b bVar = this.f21052f;
         if (bVar != null) {
-            Bitmap bitmap = bVar.f54924b;
+            Bitmap bitmap = bVar.f55345b;
             if (bitmap != null) {
                 bitmap.recycle();
-                this.f21044f.f54924b = null;
+                this.f21052f.f55345b = null;
             }
-            this.f21044f = null;
+            this.f21052f = null;
         }
     }
 
@@ -40,19 +40,19 @@ public class DragLayer extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        b bVar = this.f21044f;
-        if (bVar == null || !this.f21043e.f54920f) {
+        b bVar = this.f21052f;
+        if (bVar == null || !this.f21051e.f55341f) {
             return;
         }
         bVar.a(canvas);
     }
 
     public a getDragController() {
-        return this.f21043e;
+        return this.f21051e;
     }
 
     public b getDragObject() {
-        return this.f21044f;
+        return this.f21052f;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -68,20 +68,20 @@ public class DragLayer extends FrameLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        return this.f21043e.c(motionEvent);
+        return this.f21051e.c(motionEvent);
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.f21043e.d(motionEvent);
+        return this.f21051e.d(motionEvent);
     }
 
     public void setDragController(a aVar) {
-        this.f21043e = aVar;
+        this.f21051e = aVar;
     }
 
     public void setDragObject(b bVar) {
-        this.f21044f = bVar;
+        this.f21052f = bVar;
         invalidate();
     }
 

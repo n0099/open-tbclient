@@ -23,11 +23,11 @@ public class IdCardDetectionController {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final IdCardDetectionController f23272a = new IdCardDetectionController();
+        public static final IdCardDetectionController f23280a = new IdCardDetectionController();
     }
 
     public static final IdCardDetectionController getInstance() {
-        return a.f23272a;
+        return a.f23280a;
     }
 
     public void IdCardDeteFailed(int i, String str) {

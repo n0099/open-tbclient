@@ -12,27 +12,27 @@ import java.lang.reflect.Field;
 public class BdBaseViewPager extends ViewPager {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13307e;
+    public boolean f13315e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13308f;
+    public boolean f13316f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f13309g;
+    public float f13317g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f13310h;
+    public float f13318h;
     public int i;
 
     /* loaded from: classes3.dex */
     public class a extends Scroller {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f13311a;
+        public int f13319a;
 
         public a(Context context) {
             super(context);
-            this.f13311a = 1000;
+            this.f13319a = 1000;
         }
 
         public void a(ViewPager viewPager) {
@@ -46,24 +46,24 @@ public class BdBaseViewPager extends ViewPager {
         }
 
         public void b(int i) {
-            this.f13311a = i;
+            this.f13319a = i;
         }
 
         @Override // android.widget.Scroller
         public void startScroll(int i, int i2, int i3, int i4, int i5) {
-            super.startScroll(i, i2, i3, i4, this.f13311a);
+            super.startScroll(i, i2, i3, i4, this.f13319a);
         }
 
         @Override // android.widget.Scroller
         public void startScroll(int i, int i2, int i3, int i4) {
-            super.startScroll(i, i2, i3, i4, this.f13311a);
+            super.startScroll(i, i2, i3, i4, this.f13319a);
         }
     }
 
     public BdBaseViewPager(Context context) {
         super(context);
-        this.f13307e = false;
-        this.f13308f = false;
+        this.f13315e = false;
+        this.f13316f = false;
         this.i = -1;
         initViewPager();
     }
@@ -88,7 +88,7 @@ public class BdBaseViewPager extends ViewPager {
         if (a(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.f13307e) {
+        if (motionEvent.getPointerCount() > 1 && this.f13315e) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -115,7 +115,7 @@ public class BdBaseViewPager extends ViewPager {
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         int findPointerIndex;
-        if (this.f13308f) {
+        if (this.f13316f) {
             return false;
         }
         if (a(motionEvent)) {
@@ -123,8 +123,8 @@ public class BdBaseViewPager extends ViewPager {
         }
         int action = motionEvent.getAction() & 255;
         if (action == 0) {
-            this.f13309g = motionEvent.getX();
-            this.f13310h = motionEvent.getY();
+            this.f13317g = motionEvent.getX();
+            this.f13318h = motionEvent.getY();
             this.i = motionEvent.getPointerId(0);
             if (getCurrentItem() != 0) {
                 b(true);
@@ -132,9 +132,9 @@ public class BdBaseViewPager extends ViewPager {
         } else if (action == 2) {
             int i = this.i;
             if (i != -1 && (findPointerIndex = motionEvent.findPointerIndex(i)) != -1 && findPointerIndex < motionEvent.getPointerCount()) {
-                float x = motionEvent.getX(findPointerIndex) - this.f13309g;
+                float x = motionEvent.getX(findPointerIndex) - this.f13317g;
                 float abs = Math.abs(x);
-                float abs2 = Math.abs(motionEvent.getY(findPointerIndex) - this.f13310h);
+                float abs2 = Math.abs(motionEvent.getY(findPointerIndex) - this.f13318h);
                 if (x > 0.0f && abs > abs2 && getCurrentItem() == 0 && getScrollState() == 0) {
                     b(false);
                     return false;
@@ -152,7 +152,7 @@ public class BdBaseViewPager extends ViewPager {
         int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
         if (motionEvent.getPointerId(actionIndex) == this.i) {
             int i = actionIndex == 0 ? 1 : 0;
-            this.f13309g = motionEvent.getX(i);
+            this.f13317g = motionEvent.getX(i);
             this.i = motionEvent.getPointerId(i);
         }
     }
@@ -160,7 +160,7 @@ public class BdBaseViewPager extends ViewPager {
     @Override // androidx.viewpager.widget.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         int findPointerIndex;
-        if (this.f13308f) {
+        if (this.f13316f) {
             return false;
         }
         int action = motionEvent.getAction() & 255;
@@ -169,9 +169,9 @@ public class BdBaseViewPager extends ViewPager {
                 if (action == 2) {
                     int i = this.i;
                     if (i != -1 && (findPointerIndex = motionEvent.findPointerIndex(i)) != -1 && findPointerIndex < motionEvent.getPointerCount()) {
-                        float x = motionEvent.getX(findPointerIndex) - this.f13309g;
+                        float x = motionEvent.getX(findPointerIndex) - this.f13317g;
                         float abs = Math.abs(x);
-                        float abs2 = Math.abs(motionEvent.getY(findPointerIndex) - this.f13310h);
+                        float abs2 = Math.abs(motionEvent.getY(findPointerIndex) - this.f13318h);
                         if (x > 0.0f && abs > abs2 && getCurrentItem() == 0 && getScrollState() == 0) {
                             b(false);
                             return false;
@@ -182,18 +182,18 @@ public class BdBaseViewPager extends ViewPager {
                 } else if (action != 3) {
                     if (action == 5) {
                         int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
-                        this.f13309g = motionEvent.getX(actionIndex);
+                        this.f13317g = motionEvent.getX(actionIndex);
                         this.i = motionEvent.getPointerId(actionIndex);
                     } else if (action == 6) {
                         onSecondaryPointerUp(motionEvent);
-                        this.f13309g = motionEvent.getX(motionEvent.findPointerIndex(this.i));
+                        this.f13317g = motionEvent.getX(motionEvent.findPointerIndex(this.i));
                     }
                 }
             }
             b(false);
         } else {
-            this.f13309g = motionEvent.getX();
-            this.f13310h = motionEvent.getY();
+            this.f13317g = motionEvent.getX();
+            this.f13318h = motionEvent.getY();
             this.i = motionEvent.getPointerId(0);
             if (getCurrentItem() != 0) {
                 b(true);
@@ -211,18 +211,18 @@ public class BdBaseViewPager extends ViewPager {
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.f13307e = z;
+        this.f13315e = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
     public void setmDisallowSlip(boolean z) {
-        this.f13308f = z;
+        this.f13316f = z;
     }
 
     public BdBaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13307e = false;
-        this.f13308f = false;
+        this.f13315e = false;
+        this.f13316f = false;
         this.i = -1;
         initViewPager();
     }

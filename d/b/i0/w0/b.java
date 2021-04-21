@@ -1,21 +1,11 @@
 package d.b.i0.w0;
+/* loaded from: classes3.dex */
+public interface b {
+    void a(String str, boolean z, boolean z2);
 
-import tbclient.GoodsWin;
-/* loaded from: classes4.dex */
-public class b {
+    void b();
 
-    /* renamed from: a  reason: collision with root package name */
-    public Integer f63640a;
+    void c(String str, boolean z);
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f63641b;
-
-    public boolean a() {
-        return this.f63640a.intValue() == 1;
-    }
-
-    public void b(GoodsWin goodsWin) {
-        this.f63640a = goodsWin.show;
-        this.f63641b = goodsWin.goods_url;
-    }
+    void onAdDismiss();
 }

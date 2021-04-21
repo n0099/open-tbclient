@@ -3,23 +3,23 @@ package com.sdk.base.framework.a.c;
 public final class b extends Enum<b> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f38709a = 4;
+    public static final int f38804a = 4;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f38710b = 1;
+    public static int f38805b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f38711c = 2;
+    public static int f38806c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f38712d = 3;
+    public static int f38807d = 3;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f38713e = 5;
+    public static int f38808e = 5;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f38714f = 6;
+    public static int f38809f = 6;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f38715g = 7;
+    public static int f38810g = 7;
 }

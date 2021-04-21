@@ -20,13 +20,13 @@ import java.util.concurrent.TimeUnit;
 public final class e implements Closeable {
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f66156e;
+    public final boolean f66251e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i f66157f;
+    public final i f66252f;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f66159h;
+    public final String f66254h;
     public int i;
     public int j;
     public boolean k;
@@ -41,7 +41,7 @@ public final class e implements Closeable {
     public static final ExecutorService x = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60, TimeUnit.SECONDS, new SynchronousQueue(), d.c.c.a.b.a.e.o("OkHttp Http2Connection", true));
 
     /* renamed from: g  reason: collision with root package name */
-    public final Map<Integer, d.c.c.a.b.a.h.g> f66158g = new LinkedHashMap();
+    public final Map<Integer, d.c.c.a.b.a.h.g> f66253g = new LinkedHashMap();
     public long o = 0;
     public l q = new l();
     public final l r = new l();
@@ -52,22 +52,22 @@ public final class e implements Closeable {
     public class a extends d.c.c.a.b.a.d {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f66160f;
+        public final /* synthetic */ int f66255f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ com.bytedance.sdk.a.b.a.e.b f66161g;
+        public final /* synthetic */ com.bytedance.sdk.a.b.a.e.b f66256g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(String str, Object[] objArr, int i, com.bytedance.sdk.a.b.a.e.b bVar) {
             super(str, objArr);
-            this.f66160f = i;
-            this.f66161g = bVar;
+            this.f66255f = i;
+            this.f66256g = bVar;
         }
 
         @Override // d.c.c.a.b.a.d
         public void i() {
             try {
-                e.this.D(this.f66160f, this.f66161g);
+                e.this.D(this.f66255f, this.f66256g);
             } catch (IOException unused) {
             }
         }
@@ -77,22 +77,22 @@ public final class e implements Closeable {
     public class b extends d.c.c.a.b.a.d {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f66163f;
+        public final /* synthetic */ int f66258f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f66164g;
+        public final /* synthetic */ long f66259g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(String str, Object[] objArr, int i, long j) {
             super(str, objArr);
-            this.f66163f = i;
-            this.f66164g = j;
+            this.f66258f = i;
+            this.f66259g = j;
         }
 
         @Override // d.c.c.a.b.a.d
         public void i() {
             try {
-                e.this.u.r(this.f66163f, this.f66164g);
+                e.this.u.r(this.f66258f, this.f66259g);
             } catch (IOException unused) {
             }
         }
@@ -102,28 +102,28 @@ public final class e implements Closeable {
     public class c extends d.c.c.a.b.a.d {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ boolean f66166f;
+        public final /* synthetic */ boolean f66261f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f66167g;
+        public final /* synthetic */ int f66262g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f66168h;
+        public final /* synthetic */ int f66263h;
         public final /* synthetic */ d.c.c.a.b.a.h.j i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(String str, Object[] objArr, boolean z, int i, int i2, d.c.c.a.b.a.h.j jVar) {
             super(str, objArr);
-            this.f66166f = z;
-            this.f66167g = i;
-            this.f66168h = i2;
+            this.f66261f = z;
+            this.f66262g = i;
+            this.f66263h = i2;
             this.i = jVar;
         }
 
         @Override // d.c.c.a.b.a.d
         public void i() {
             try {
-                e.this.E(this.f66166f, this.f66167g, this.f66168h, this.i);
+                e.this.E(this.f66261f, this.f66262g, this.f66263h, this.i);
             } catch (IOException unused) {
             }
         }
@@ -133,25 +133,25 @@ public final class e implements Closeable {
     public class d extends d.c.c.a.b.a.d {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f66169f;
+        public final /* synthetic */ int f66264f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ List f66170g;
+        public final /* synthetic */ List f66265g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(String str, Object[] objArr, int i, List list) {
             super(str, objArr);
-            this.f66169f = i;
-            this.f66170g = list;
+            this.f66264f = i;
+            this.f66265g = list;
         }
 
         @Override // d.c.c.a.b.a.d
         public void i() {
-            if (e.this.n.a(this.f66169f, this.f66170g)) {
+            if (e.this.n.a(this.f66264f, this.f66265g)) {
                 try {
-                    e.this.u.s(this.f66169f, com.bytedance.sdk.a.b.a.e.b.CANCEL);
+                    e.this.u.s(this.f66264f, com.bytedance.sdk.a.b.a.e.b.CANCEL);
                     synchronized (e.this) {
-                        e.this.w.remove(Integer.valueOf(this.f66169f));
+                        e.this.w.remove(Integer.valueOf(this.f66264f));
                     }
                 } catch (IOException unused) {
                 }
@@ -161,38 +161,38 @@ public final class e implements Closeable {
 
     /* renamed from: d.c.c.a.b.a.h.e$e  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C1818e extends d.c.c.a.b.a.d {
+    public class C1821e extends d.c.c.a.b.a.d {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f66172f;
+        public final /* synthetic */ int f66267f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ List f66173g;
+        public final /* synthetic */ List f66268g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ boolean f66174h;
+        public final /* synthetic */ boolean f66269h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1818e(String str, Object[] objArr, int i, List list, boolean z) {
+        public C1821e(String str, Object[] objArr, int i, List list, boolean z) {
             super(str, objArr);
-            this.f66172f = i;
-            this.f66173g = list;
-            this.f66174h = z;
+            this.f66267f = i;
+            this.f66268g = list;
+            this.f66269h = z;
         }
 
         @Override // d.c.c.a.b.a.d
         public void i() {
-            boolean c2 = e.this.n.c(this.f66172f, this.f66173g, this.f66174h);
+            boolean c2 = e.this.n.c(this.f66267f, this.f66268g, this.f66269h);
             if (c2) {
                 try {
-                    e.this.u.s(this.f66172f, com.bytedance.sdk.a.b.a.e.b.CANCEL);
+                    e.this.u.s(this.f66267f, com.bytedance.sdk.a.b.a.e.b.CANCEL);
                 } catch (IOException unused) {
                     return;
                 }
             }
-            if (c2 || this.f66174h) {
+            if (c2 || this.f66269h) {
                 synchronized (e.this) {
-                    e.this.w.remove(Integer.valueOf(this.f66172f));
+                    e.this.w.remove(Integer.valueOf(this.f66267f));
                 }
             }
         }
@@ -202,34 +202,34 @@ public final class e implements Closeable {
     public class f extends d.c.c.a.b.a.d {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f66175f;
+        public final /* synthetic */ int f66270f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.c.c.a.a.c f66176g;
+        public final /* synthetic */ d.c.c.a.a.c f66271g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f66177h;
+        public final /* synthetic */ int f66272h;
         public final /* synthetic */ boolean i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(String str, Object[] objArr, int i, d.c.c.a.a.c cVar, int i2, boolean z) {
             super(str, objArr);
-            this.f66175f = i;
-            this.f66176g = cVar;
-            this.f66177h = i2;
+            this.f66270f = i;
+            this.f66271g = cVar;
+            this.f66272h = i2;
             this.i = z;
         }
 
         @Override // d.c.c.a.b.a.d
         public void i() {
             try {
-                boolean b2 = e.this.n.b(this.f66175f, this.f66176g, this.f66177h, this.i);
+                boolean b2 = e.this.n.b(this.f66270f, this.f66271g, this.f66272h, this.i);
                 if (b2) {
-                    e.this.u.s(this.f66175f, com.bytedance.sdk.a.b.a.e.b.CANCEL);
+                    e.this.u.s(this.f66270f, com.bytedance.sdk.a.b.a.e.b.CANCEL);
                 }
                 if (b2 || this.i) {
                     synchronized (e.this) {
-                        e.this.w.remove(Integer.valueOf(this.f66175f));
+                        e.this.w.remove(Integer.valueOf(this.f66270f));
                     }
                 }
             } catch (IOException unused) {
@@ -241,23 +241,23 @@ public final class e implements Closeable {
     public class g extends d.c.c.a.b.a.d {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f66178f;
+        public final /* synthetic */ int f66273f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ com.bytedance.sdk.a.b.a.e.b f66179g;
+        public final /* synthetic */ com.bytedance.sdk.a.b.a.e.b f66274g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(String str, Object[] objArr, int i, com.bytedance.sdk.a.b.a.e.b bVar) {
             super(str, objArr);
-            this.f66178f = i;
-            this.f66179g = bVar;
+            this.f66273f = i;
+            this.f66274g = bVar;
         }
 
         @Override // d.c.c.a.b.a.d
         public void i() {
-            e.this.n.a(this.f66178f, this.f66179g);
+            e.this.n.a(this.f66273f, this.f66274g);
             synchronized (e.this) {
-                e.this.w.remove(Integer.valueOf(this.f66178f));
+                e.this.w.remove(Integer.valueOf(this.f66273f));
             }
         }
     }
@@ -266,40 +266,40 @@ public final class e implements Closeable {
     public static class h {
 
         /* renamed from: a  reason: collision with root package name */
-        public Socket f66181a;
+        public Socket f66276a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f66182b;
+        public String f66277b;
 
         /* renamed from: c  reason: collision with root package name */
-        public d.c.c.a.a.e f66183c;
+        public d.c.c.a.a.e f66278c;
 
         /* renamed from: d  reason: collision with root package name */
-        public d.c.c.a.a.d f66184d;
+        public d.c.c.a.a.d f66279d;
 
         /* renamed from: e  reason: collision with root package name */
-        public i f66185e = i.f66188a;
+        public i f66280e = i.f66283a;
 
         /* renamed from: f  reason: collision with root package name */
-        public k f66186f = k.f66234a;
+        public k f66281f = k.f66329a;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f66187g;
+        public boolean f66282g;
 
         public h(boolean z) {
-            this.f66187g = z;
+            this.f66282g = z;
         }
 
         public h a(i iVar) {
-            this.f66185e = iVar;
+            this.f66280e = iVar;
             return this;
         }
 
         public h b(Socket socket, String str, d.c.c.a.a.e eVar, d.c.c.a.a.d dVar) {
-            this.f66181a = socket;
-            this.f66182b = str;
-            this.f66183c = eVar;
-            this.f66184d = dVar;
+            this.f66276a = socket;
+            this.f66277b = str;
+            this.f66278c = eVar;
+            this.f66279d = dVar;
             return this;
         }
 
@@ -312,7 +312,7 @@ public final class e implements Closeable {
     public static abstract class i {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final i f66188a = new a();
+        public static final i f66283a = new a();
 
         /* loaded from: classes5.dex */
         public static class a extends i {
@@ -329,32 +329,32 @@ public final class e implements Closeable {
     }
 
     public e(h hVar) {
-        this.n = hVar.f66186f;
-        boolean z = hVar.f66187g;
-        this.f66156e = z;
-        this.f66157f = hVar.f66185e;
+        this.n = hVar.f66281f;
+        boolean z = hVar.f66282g;
+        this.f66251e = z;
+        this.f66252f = hVar.f66280e;
         int i2 = z ? 1 : 2;
         this.j = i2;
-        if (hVar.f66187g) {
+        if (hVar.f66282g) {
             this.j = i2 + 2;
         }
-        boolean z2 = hVar.f66187g;
-        if (hVar.f66187g) {
+        boolean z2 = hVar.f66282g;
+        if (hVar.f66282g) {
             this.q.a(7, 16777216);
         }
-        this.f66159h = hVar.f66182b;
-        this.l = new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), d.c.c.a.b.a.e.o(d.c.c.a.b.a.e.j("OkHttp %s Push Observer", this.f66159h), true));
+        this.f66254h = hVar.f66277b;
+        this.l = new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), d.c.c.a.b.a.e.o(d.c.c.a.b.a.e.j("OkHttp %s Push Observer", this.f66254h), true));
         this.r.a(7, 65535);
         this.r.a(5, 16384);
         this.p = this.r.i();
-        this.t = hVar.f66181a;
-        this.u = new d.c.c.a.b.a.h.h(hVar.f66184d, this.f66156e);
-        this.v = new j(new d.c.c.a.b.a.h.f(hVar.f66183c, this.f66156e));
+        this.t = hVar.f66276a;
+        this.u = new d.c.c.a.b.a.h.h(hVar.f66279d, this.f66251e);
+        this.v = new j(new d.c.c.a.b.a.h.f(hVar.f66278c, this.f66251e));
     }
 
     public synchronized d.c.c.a.b.a.h.g A(int i2) {
         d.c.c.a.b.a.h.g remove;
-        remove = this.f66158g.remove(Integer.valueOf(i2));
+        remove = this.f66253g.remove(Integer.valueOf(i2));
         notifyAll();
         return remove;
     }
@@ -374,10 +374,10 @@ public final class e implements Closeable {
                     i3 = this.j;
                     this.j += 2;
                     gVar = new d.c.c.a.b.a.h.g(i3, this, z3, false, list);
-                    if (z && this.p != 0 && gVar.f66205b != 0) {
+                    if (z && this.p != 0 && gVar.f66300b != 0) {
                         z2 = false;
                         if (gVar.g()) {
-                            this.f66158g.put(Integer.valueOf(i3), gVar);
+                            this.f66253g.put(Integer.valueOf(i3), gVar);
                         }
                     }
                     z2 = true;
@@ -389,7 +389,7 @@ public final class e implements Closeable {
             }
             if (i2 == 0) {
                 this.u.x(z3, i3, i2, list);
-            } else if (!this.f66156e) {
+            } else if (!this.f66251e) {
                 this.u.q(i2, i3, list);
             } else {
                 throw new IllegalArgumentException("client streams shouldn't have associated stream IDs");
@@ -427,7 +427,7 @@ public final class e implements Closeable {
     }
 
     public void H(int i2, com.bytedance.sdk.a.b.a.e.b bVar) {
-        this.l.execute(new g("OkHttp %s Push Reset[%s]", new Object[]{this.f66159h, Integer.valueOf(i2)}, i2, bVar));
+        this.l.execute(new g("OkHttp %s Push Reset[%s]", new Object[]{this.f66254h, Integer.valueOf(i2)}, i2, bVar));
     }
 
     public synchronized boolean I() {
@@ -455,7 +455,7 @@ public final class e implements Closeable {
     }
 
     public synchronized d.c.c.a.b.a.h.g o(int i2) {
-        return this.f66158g.get(Integer.valueOf(i2));
+        return this.f66253g.get(Integer.valueOf(i2));
     }
 
     public d.c.c.a.b.a.h.g p(List<d.c.c.a.b.a.h.a> list, boolean z) throws IOException {
@@ -463,7 +463,7 @@ public final class e implements Closeable {
     }
 
     public void q(int i2, long j2) {
-        x.execute(new b("OkHttp Window Update %s stream %d", new Object[]{this.f66159h, Integer.valueOf(i2)}, i2, j2));
+        x.execute(new b("OkHttp Window Update %s stream %d", new Object[]{this.f66254h, Integer.valueOf(i2)}, i2, j2));
     }
 
     public void r(int i2, d.c.c.a.a.e eVar, int i3, boolean z) throws IOException {
@@ -472,14 +472,14 @@ public final class e implements Closeable {
         eVar.a(j2);
         eVar.a(cVar, j2);
         if (cVar.v() == j2) {
-            this.l.execute(new f("OkHttp %s Push Data[%s]", new Object[]{this.f66159h, Integer.valueOf(i2)}, i2, cVar, i3, z));
+            this.l.execute(new f("OkHttp %s Push Data[%s]", new Object[]{this.f66254h, Integer.valueOf(i2)}, i2, cVar, i3, z));
             return;
         }
         throw new IOException(cVar.v() + " != " + i3);
     }
 
     public void s(int i2, com.bytedance.sdk.a.b.a.e.b bVar) {
-        x.execute(new a("OkHttp %s stream %d", new Object[]{this.f66159h, Integer.valueOf(i2)}, i2, bVar));
+        x.execute(new a("OkHttp %s stream %d", new Object[]{this.f66254h, Integer.valueOf(i2)}, i2, bVar));
     }
 
     public void t(int i2, List<d.c.c.a.b.a.h.a> list) {
@@ -489,12 +489,12 @@ public final class e implements Closeable {
                 return;
             }
             this.w.add(Integer.valueOf(i2));
-            this.l.execute(new d("OkHttp %s Push Request[%s]", new Object[]{this.f66159h, Integer.valueOf(i2)}, i2, list));
+            this.l.execute(new d("OkHttp %s Push Request[%s]", new Object[]{this.f66254h, Integer.valueOf(i2)}, i2, list));
         }
     }
 
     public void u(int i2, List<d.c.c.a.b.a.h.a> list, boolean z) {
-        this.l.execute(new C1818e("OkHttp %s Push Headers[%s]", new Object[]{this.f66159h, Integer.valueOf(i2)}, i2, list, z));
+        this.l.execute(new C1821e("OkHttp %s Push Headers[%s]", new Object[]{this.f66254h, Integer.valueOf(i2)}, i2, list, z));
     }
 
     public void v(int i2, boolean z, d.c.c.a.a.c cVar, long j2) throws IOException {
@@ -508,7 +508,7 @@ public final class e implements Closeable {
             synchronized (this) {
                 while (this.p <= 0) {
                     try {
-                        if (this.f66158g.containsKey(Integer.valueOf(i2))) {
+                        if (this.f66253g.containsKey(Integer.valueOf(i2))) {
                             wait();
                         } else {
                             throw new IOException("stream closed");
@@ -533,7 +533,7 @@ public final class e implements Closeable {
                     return;
                 }
                 this.k = true;
-                this.u.t(this.i, bVar, d.c.c.a.b.a.e.f66063a);
+                this.u.t(this.i, bVar, d.c.c.a.b.a.e.f66158a);
             }
         }
     }
@@ -551,11 +551,11 @@ public final class e implements Closeable {
             e = e2;
         }
         synchronized (this) {
-            if (this.f66158g.isEmpty()) {
+            if (this.f66253g.isEmpty()) {
                 gVarArr = null;
             } else {
-                gVarArr = (d.c.c.a.b.a.h.g[]) this.f66158g.values().toArray(new d.c.c.a.b.a.h.g[this.f66158g.size()]);
-                this.f66158g.clear();
+                gVarArr = (d.c.c.a.b.a.h.g[]) this.f66253g.values().toArray(new d.c.c.a.b.a.h.g[this.f66253g.size()]);
+                this.f66253g.clear();
             }
             if (this.m != null) {
                 this.m = null;
@@ -610,36 +610,36 @@ public final class e implements Closeable {
     }
 
     public void z(boolean z, int i2, int i3, d.c.c.a.b.a.h.j jVar) {
-        x.execute(new c("OkHttp %s ping %08x%08x", new Object[]{this.f66159h, Integer.valueOf(i2), Integer.valueOf(i3)}, z, i2, i3, jVar));
+        x.execute(new c("OkHttp %s ping %08x%08x", new Object[]{this.f66254h, Integer.valueOf(i2), Integer.valueOf(i3)}, z, i2, i3, jVar));
     }
 
     /* loaded from: classes5.dex */
     public class j extends d.c.c.a.b.a.d implements f.b {
 
         /* renamed from: f  reason: collision with root package name */
-        public final d.c.c.a.b.a.h.f f66189f;
+        public final d.c.c.a.b.a.h.f f66284f;
 
         /* loaded from: classes5.dex */
         public class a extends d.c.c.a.b.a.d {
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d.c.c.a.b.a.h.g f66191f;
+            public final /* synthetic */ d.c.c.a.b.a.h.g f66286f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(String str, Object[] objArr, d.c.c.a.b.a.h.g gVar) {
                 super(str, objArr);
-                this.f66191f = gVar;
+                this.f66286f = gVar;
             }
 
             @Override // d.c.c.a.b.a.d
             public void i() {
                 try {
-                    e.this.f66157f.b(this.f66191f);
+                    e.this.f66252f.b(this.f66286f);
                 } catch (IOException e2) {
                     d.c.c.a.b.a.i.e j = d.c.c.a.b.a.i.e.j();
-                    j.f(4, "Http2Connection.Listener failure for " + e.this.f66159h, e2);
+                    j.f(4, "Http2Connection.Listener failure for " + e.this.f66254h, e2);
                     try {
-                        this.f66191f.d(com.bytedance.sdk.a.b.a.e.b.PROTOCOL_ERROR);
+                        this.f66286f.d(com.bytedance.sdk.a.b.a.e.b.PROTOCOL_ERROR);
                     } catch (IOException unused) {
                     }
                 }
@@ -655,7 +655,7 @@ public final class e implements Closeable {
             @Override // d.c.c.a.b.a.d
             public void i() {
                 e eVar = e.this;
-                eVar.f66157f.a(eVar);
+                eVar.f66252f.a(eVar);
             }
         }
 
@@ -663,26 +663,26 @@ public final class e implements Closeable {
         public class c extends d.c.c.a.b.a.d {
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ l f66194f;
+            public final /* synthetic */ l f66289f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public c(String str, Object[] objArr, l lVar) {
                 super(str, objArr);
-                this.f66194f = lVar;
+                this.f66289f = lVar;
             }
 
             @Override // d.c.c.a.b.a.d
             public void i() {
                 try {
-                    e.this.u.v(this.f66194f);
+                    e.this.u.v(this.f66289f);
                 } catch (IOException unused) {
                 }
             }
         }
 
         public j(d.c.c.a.b.a.h.f fVar) {
-            super("OkHttp %s", e.this.f66159h);
-            this.f66189f = fVar;
+            super("OkHttp %s", e.this.f66254h);
+            this.f66284f = fVar;
         }
 
         @Override // d.c.c.a.b.a.h.f.b
@@ -724,7 +724,7 @@ public final class e implements Closeable {
             d.c.c.a.b.a.h.g[] gVarArr;
             fVar.g();
             synchronized (e.this) {
-                gVarArr = (d.c.c.a.b.a.h.g[]) e.this.f66158g.values().toArray(new d.c.c.a.b.a.h.g[e.this.f66158g.size()]);
+                gVarArr = (d.c.c.a.b.a.h.g[]) e.this.f66253g.values().toArray(new d.c.c.a.b.a.h.g[e.this.f66253g.size()]);
                 e.this.k = true;
             }
             for (d.c.c.a.b.a.h.g gVar : gVarArr) {
@@ -755,8 +755,8 @@ public final class e implements Closeable {
                     }
                     d.c.c.a.b.a.h.g gVar = new d.c.c.a.b.a.h.g(i, e.this, false, z, list);
                     e.this.i = i;
-                    e.this.f66158g.put(Integer.valueOf(i), gVar);
-                    e.x.execute(new a("OkHttp %s stream %d", new Object[]{e.this.f66159h, Integer.valueOf(i)}, gVar));
+                    e.this.f66253g.put(Integer.valueOf(i), gVar);
+                    e.x.execute(new a("OkHttp %s stream %d", new Object[]{e.this.f66254h, Integer.valueOf(i)}, gVar));
                     return;
                 }
                 o.e(list);
@@ -810,11 +810,11 @@ public final class e implements Closeable {
                         e.this.a(j);
                         e.this.s = true;
                     }
-                    if (!e.this.f66158g.isEmpty()) {
-                        gVarArr = (d.c.c.a.b.a.h.g[]) e.this.f66158g.values().toArray(new d.c.c.a.b.a.h.g[e.this.f66158g.size()]);
+                    if (!e.this.f66253g.isEmpty()) {
+                        gVarArr = (d.c.c.a.b.a.h.g[]) e.this.f66253g.values().toArray(new d.c.c.a.b.a.h.g[e.this.f66253g.size()]);
                     }
                 }
-                e.x.execute(new b("OkHttp %s settings", e.this.f66159h));
+                e.x.execute(new b("OkHttp %s settings", e.this.f66254h));
             }
             if (gVarArr == null || j == 0) {
                 return;
@@ -837,8 +837,8 @@ public final class e implements Closeable {
             }
             try {
                 try {
-                    this.f66189f.l(this);
-                    while (this.f66189f.o(false, this)) {
+                    this.f66284f.l(this);
+                    while (this.f66284f.o(false, this)) {
                     }
                     bVar = com.bytedance.sdk.a.b.a.e.b.NO_ERROR;
                 } catch (IOException unused) {
@@ -851,7 +851,7 @@ public final class e implements Closeable {
                     bVar2 = com.bytedance.sdk.a.b.a.e.b.PROTOCOL_ERROR;
                     eVar = e.this;
                     eVar.x(bVar, bVar2);
-                    d.c.c.a.b.a.e.q(this.f66189f);
+                    d.c.c.a.b.a.e.q(this.f66284f);
                 }
             } catch (IOException unused3) {
             } catch (Throwable th2) {
@@ -861,15 +861,15 @@ public final class e implements Closeable {
                     e.this.x(bVar, bVar2);
                 } catch (IOException unused4) {
                 }
-                d.c.c.a.b.a.e.q(this.f66189f);
+                d.c.c.a.b.a.e.q(this.f66284f);
                 throw th;
             }
             eVar.x(bVar, bVar2);
-            d.c.c.a.b.a.e.q(this.f66189f);
+            d.c.c.a.b.a.e.q(this.f66284f);
         }
 
         public final void j(l lVar) {
-            e.x.execute(new c("OkHttp %s ACK Settings", new Object[]{e.this.f66159h}, lVar));
+            e.x.execute(new c("OkHttp %s ACK Settings", new Object[]{e.this.f66254h}, lVar));
         }
 
         @Override // d.c.c.a.b.a.h.f.b

@@ -7,22 +7,22 @@ import android.widget.PopupWindow;
 public final class df implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f22856a;
+    public final /* synthetic */ Context f22864a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f22857b;
+    public final /* synthetic */ String f22865b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f22858c;
+    public final /* synthetic */ String f22866c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f22859d;
+    public final /* synthetic */ FeedbackListActivity f22867d;
 
     public df(FeedbackListActivity feedbackListActivity, Context context, String str, String str2) {
-        this.f22859d = feedbackListActivity;
-        this.f22856a = context;
-        this.f22857b = str;
-        this.f22858c = str2;
+        this.f22867d = feedbackListActivity;
+        this.f22864a = context;
+        this.f22865b = str;
+        this.f22866c = str2;
     }
 
     @Override // android.view.View.OnClickListener
@@ -30,12 +30,12 @@ public final class df implements View.OnClickListener {
         View view2;
         PopupWindow popupWindow;
         PopupWindow popupWindow2;
-        view2 = this.f22859d.w;
+        view2 = this.f22867d.w;
         view2.setVisibility(0);
         new Thread(new dg(this)).start();
-        popupWindow = this.f22859d.z;
+        popupWindow = this.f22867d.z;
         if (popupWindow.isShowing()) {
-            popupWindow2 = this.f22859d.z;
+            popupWindow2 = this.f22867d.z;
             popupWindow2.dismiss();
         }
     }

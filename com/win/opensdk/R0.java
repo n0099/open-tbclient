@@ -10,46 +10,46 @@ import com.win.opensdk.views.MraidLayout;
 public class R0 implements z2, J0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public C0 f40071a;
+    public C0 f40166a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MraidLayout f40072b;
+    public MraidLayout f40167b;
 
     /* renamed from: c  reason: collision with root package name */
-    public C2 f40073c;
+    public C2 f40168c;
 
     /* renamed from: d  reason: collision with root package name */
-    public A2 f40074d;
+    public A2 f40169d;
 
     public R0(Context context, K0 k0) {
         C0 c0 = new C0(context, null, 0, k0);
-        this.f40071a = c0;
+        this.f40166a = c0;
         c0.a(this);
-        this.f40072b = new MraidLayout(context);
-        this.f40072b.addView(this.f40071a, new FrameLayout.LayoutParams(-1, -1));
-        this.f40071a.setMraidListener(this);
+        this.f40167b = new MraidLayout(context);
+        this.f40167b.addView(this.f40166a, new FrameLayout.LayoutParams(-1, -1));
+        this.f40166a.setMraidListener(this);
     }
 
     @Override // com.win.opensdk.z2
     public void a() {
-        MraidLayout mraidLayout = this.f40072b;
+        MraidLayout mraidLayout = this.f40167b;
         if (mraidLayout != null) {
             mraidLayout.removeAllViews();
         }
-        C0 c0 = this.f40071a;
+        C0 c0 = this.f40166a;
         if (c0 != null) {
             c0.b();
-            this.f40071a.destroy();
+            this.f40166a.destroy();
         }
     }
 
     @Override // com.win.opensdk.z2
     public void a(A2 a2) {
-        this.f40074d = a2;
+        this.f40169d = a2;
     }
 
     public void a(C2 c2) {
-        this.f40073c = c2;
+        this.f40168c = c2;
     }
 
     @Override // com.win.opensdk.z2
@@ -57,20 +57,20 @@ public class R0 implements z2, J0 {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        C2 c2 = this.f40073c;
+        C2 c2 = this.f40168c;
         if (c2 != null) {
             c2.a();
         }
         if (str.startsWith("http")) {
-            this.f40071a.b(str);
+            this.f40166a.b(str);
         } else {
-            this.f40071a.a(str);
+            this.f40166a.a(str);
         }
     }
 
     @Override // com.win.opensdk.z2
     public View b() {
-        return this.f40072b;
+        return this.f40167b;
     }
 
     public void c() {

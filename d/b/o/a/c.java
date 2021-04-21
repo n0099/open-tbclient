@@ -18,16 +18,16 @@ import java.util.Map;
 public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnVideoSizeChangedListener, CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnMediaSourceChangedListener, MethodChannel.MethodCallHandler {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextureRegistry.SurfaceTextureEntry f64881e;
+    public TextureRegistry.SurfaceTextureEntry f65124e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WeakReference<Context> f64882f;
+    public WeakReference<Context> f65125f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f64883g;
+    public String f65126g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f64884h;
+    public Context f65127h;
     public FlutterCyberView i;
     public Surface j;
     public CyberPlayer k;
@@ -41,10 +41,10 @@ public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerMana
     }
 
     public c(Context context, BinaryMessenger binaryMessenger, TextureRegistry.SurfaceTextureEntry surfaceTextureEntry, HashMap<String, String> hashMap, String str, String str2, int i, boolean z) {
-        this.f64882f = new WeakReference<>(context);
-        this.f64881e = surfaceTextureEntry;
-        this.f64883g = str;
-        this.f64884h = context;
+        this.f65125f = new WeakReference<>(context);
+        this.f65124e = surfaceTextureEntry;
+        this.f65126g = str;
+        this.f65127h = context;
         FlutterCyberView flutterCyberView = new FlutterCyberView(context);
         this.i = flutterCyberView;
         flutterCyberView.setOnPreparedListener(this);
@@ -90,7 +90,7 @@ public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerMana
         if (surface != null) {
             surface.release();
         }
-        TextureRegistry.SurfaceTextureEntry surfaceTextureEntry = this.f64881e;
+        TextureRegistry.SurfaceTextureEntry surfaceTextureEntry = this.f65124e;
         if (surfaceTextureEntry != null) {
             surfaceTextureEntry.release();
         }
@@ -140,11 +140,11 @@ public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerMana
     public void f(boolean z) {
         if (z) {
             this.k.setVolume(0.0f, 0.0f);
-            b.a(this.f64882f, true);
+            b.a(this.f65125f, true);
             return;
         }
         this.k.setVolume(1.0f, 1.0f);
-        b.a(this.f64882f, false);
+        b.a(this.f65125f, false);
     }
 
     public void g(HashMap<String, String> hashMap) {
@@ -164,7 +164,7 @@ public class c implements CyberPlayerManager.OnPreparedListener, CyberPlayerMana
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
     public void onCompletion() {
-        d.b().c(this.f64883g);
+        d.b().c(this.f65126g);
         this.m.invokeMethod("onCompletion", "");
     }
 

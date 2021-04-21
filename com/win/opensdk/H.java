@@ -6,14 +6,14 @@ import java.util.concurrent.ThreadPoolExecutor;
 public class H {
 
     /* renamed from: d  reason: collision with root package name */
-    public static H f39963d = new H();
+    public static H f40058d = new H();
 
     /* renamed from: b  reason: collision with root package name */
-    public L f39965b;
+    public L f40060b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f39966c = false;
+    public boolean f40061c = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public ThreadPoolExecutor f39964a = (ThreadPoolExecutor) Executors.newCachedThreadPool();
+    public ThreadPoolExecutor f40059a = (ThreadPoolExecutor) Executors.newCachedThreadPool();
 }

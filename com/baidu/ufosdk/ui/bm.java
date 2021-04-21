@@ -3,44 +3,44 @@ package com.baidu.ufosdk.ui;
 public final class bm implements eu {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ er f22774a;
+    public final /* synthetic */ er f22782a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f22775b;
+    public final /* synthetic */ FeedbackInputActivity f22783b;
 
     public bm(FeedbackInputActivity feedbackInputActivity, er erVar) {
-        this.f22775b = feedbackInputActivity;
-        this.f22774a = erVar;
+        this.f22783b = feedbackInputActivity;
+        this.f22782a = erVar;
     }
 
     @Override // com.baidu.ufosdk.ui.eu
     public final void a() {
-        this.f22774a.dismiss();
-        this.f22775b.s.setVisibility(0);
-        this.f22775b.s.bringToFront();
+        this.f22782a.dismiss();
+        this.f22783b.s.setVisibility(0);
+        this.f22783b.s.bringToFront();
         new Thread(new bp(this)).start();
     }
 
     @Override // com.baidu.ufosdk.ui.eu
     public final void a(String str) {
         if (str == null || str.trim().length() == 0) {
-            this.f22774a.dismiss();
-            FeedbackInputActivity feedbackInputActivity = this.f22775b;
+            this.f22782a.dismiss();
+            FeedbackInputActivity feedbackInputActivity = this.f22783b;
             feedbackInputActivity.D = true;
             feedbackInputActivity.J.setTextColor(com.baidu.ufosdk.b.y);
-            this.f22775b.E.setEnabled(false);
-            this.f22775b.s.setVisibility(0);
-            this.f22775b.s.bringToFront();
+            this.f22783b.E.setEnabled(false);
+            this.f22783b.s.setVisibility(0);
+            this.f22783b.s.bringToFront();
             new Thread(new bo(this)).start();
             return;
         }
-        this.f22774a.dismiss();
-        FeedbackInputActivity feedbackInputActivity2 = this.f22775b;
+        this.f22782a.dismiss();
+        FeedbackInputActivity feedbackInputActivity2 = this.f22783b;
         feedbackInputActivity2.D = true;
         feedbackInputActivity2.J.setTextColor(com.baidu.ufosdk.b.y);
-        this.f22775b.E.setEnabled(false);
-        this.f22775b.s.setVisibility(0);
-        this.f22775b.s.bringToFront();
+        this.f22783b.E.setEnabled(false);
+        this.f22783b.s.setVisibility(0);
+        this.f22783b.s.bringToFront();
         new Thread(new bn(this, str)).start();
     }
 }

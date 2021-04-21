@@ -1,10 +1,10 @@
 package com.google.common.base;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import d.g.c.a.g;
-import d.g.c.a.k;
-import d.g.c.a.n;
-import d.g.c.a.o;
+import d.h.c.a.g;
+import d.h.c.a.k;
+import d.h.c.a.n;
+import d.h.c.a.o;
 import java.io.Serializable;
 /* loaded from: classes6.dex */
 public abstract class Equivalence<T> {
@@ -41,12 +41,12 @@ public abstract class Equivalence<T> {
             this.target = t;
         }
 
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public boolean apply(T t) {
             return this.equivalence.equivalent(t, this.target);
         }
 
-        @Override // d.g.c.a.o
+        @Override // d.h.c.a.o
         public boolean equals(Object obj) {
             if (this == obj) {
                 return true;

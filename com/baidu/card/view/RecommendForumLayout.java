@@ -22,12 +22,12 @@ import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.tbadk.widget.horizontalpullview.RefreshView;
 import com.baidu.tieba.R;
 import d.b.c.e.p.l;
-import d.b.h0.g0.b.a;
-import d.b.h0.m.f;
-import d.b.h0.r.q.n;
-import d.b.h0.r.q.n1;
-import d.b.h0.r.q.o1;
 import d.b.i.q;
+import d.b.i0.g0.b.a;
+import d.b.i0.m.f;
+import d.b.i0.r.q.n;
+import d.b.i0.r.q.n1;
+import d.b.i0.r.q.o1;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class RecommendForumLayout extends LinearLayout implements q {
@@ -66,9 +66,9 @@ public class RecommendForumLayout extends LinearLayout implements q {
     public void a(o1 o1Var) {
         this.l.setOnClickListener(this.v);
         this.k.setOnClickListener(this.v);
-        if (!TextUtils.isEmpty(o1Var.f51261h) && o1Var.i != 0) {
+        if (!TextUtils.isEmpty(o1Var.f51597h) && o1Var.i != 0) {
             this.j.setTextSize(0, l.g(getContext(), R.dimen.tbds37));
-            this.j.setText(o1Var.f51261h);
+            this.j.setText(o1Var.f51597h);
             this.u = o1Var.i;
             this.k.setVisibility(0);
             this.l.setVisibility(8);

@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.recommend.message;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.i0.k.c.a;
+import d.b.j0.i0.k.c.a;
 import tbclient.Recommforum.RecommforumResIdl;
 /* loaded from: classes4.dex */
 public class ResponseHttpRecommendMessage extends TbHttpResponsedMessage {

@@ -6,42 +6,42 @@ import android.database.DataSetObserver;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import d.b.h0.m.g;
+import d.b.i0.m.g;
 /* loaded from: classes3.dex */
 public abstract class AdapterLayout extends ViewGroup {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.h0.b1.f.a.b f13796e;
+    public d.b.i0.b1.f.a.b f13804e;
 
     /* renamed from: f  reason: collision with root package name */
-    public DataSetObserver f13797f;
+    public DataSetObserver f13805f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13798g;
+    public boolean f13806g;
 
     /* loaded from: classes3.dex */
     public class a extends g {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f13799e;
+        public final /* synthetic */ Context f13807e;
 
         public a(Context context) {
-            this.f13799e = context;
+            this.f13807e = context;
         }
 
-        @Override // d.b.h0.m.g, android.app.Application.ActivityLifecycleCallbacks
+        @Override // d.b.i0.m.g, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             DataSetObserver dataSetObserver;
-            if (activity == this.f13799e) {
+            if (activity == this.f13807e) {
                 AdapterLayout adapterLayout = AdapterLayout.this;
-                d.b.h0.b1.f.a.b bVar = adapterLayout.f13796e;
-                if (bVar != null && (dataSetObserver = adapterLayout.f13797f) != null) {
+                d.b.i0.b1.f.a.b bVar = adapterLayout.f13804e;
+                if (bVar != null && (dataSetObserver = adapterLayout.f13805f) != null) {
                     bVar.e(dataSetObserver);
                     AdapterLayout adapterLayout2 = AdapterLayout.this;
-                    adapterLayout2.f13796e = null;
-                    adapterLayout2.f13797f = null;
+                    adapterLayout2.f13804e = null;
+                    adapterLayout2.f13805f = null;
                 }
-                ((Activity) this.f13799e).getApplication().unregisterActivityLifecycleCallbacks(this);
+                ((Activity) this.f13807e).getApplication().unregisterActivityLifecycleCallbacks(this);
             }
         }
     }
@@ -63,22 +63,22 @@ public abstract class AdapterLayout extends ViewGroup {
 
     public final void a() {
         DataSetObserver dataSetObserver;
-        d.b.h0.b1.f.a.b bVar = this.f13796e;
-        if (bVar == null || (dataSetObserver = this.f13797f) == null || this.f13798g) {
+        d.b.i0.b1.f.a.b bVar = this.f13804e;
+        if (bVar == null || (dataSetObserver = this.f13805f) == null || this.f13806g) {
             return;
         }
         bVar.d(dataSetObserver);
-        this.f13798g = true;
+        this.f13806g = true;
     }
 
     public void b() {
-        if (this.f13796e == null) {
+        if (this.f13804e == null) {
             return;
         }
         removeAllViews();
-        int a2 = this.f13796e.a();
+        int a2 = this.f13804e.a();
         for (int i = 0; i < a2; i++) {
-            View b2 = this.f13796e.b(i, this);
+            View b2 = this.f13804e.b(i, this);
             b2.setFocusable(true);
             addView(b2);
         }
@@ -86,11 +86,11 @@ public abstract class AdapterLayout extends ViewGroup {
 
     public final void c() {
         DataSetObserver dataSetObserver;
-        d.b.h0.b1.f.a.b bVar = this.f13796e;
-        if (bVar == null || (dataSetObserver = this.f13797f) == null || !this.f13798g) {
+        d.b.i0.b1.f.a.b bVar = this.f13804e;
+        if (bVar == null || (dataSetObserver = this.f13805f) == null || !this.f13806g) {
             return;
         }
-        this.f13798g = false;
+        this.f13806g = false;
         bVar.e(dataSetObserver);
     }
 
@@ -106,11 +106,11 @@ public abstract class AdapterLayout extends ViewGroup {
         super.onDetachedFromWindow();
     }
 
-    public void setAdapter(d.b.h0.b1.f.a.b bVar) {
+    public void setAdapter(d.b.i0.b1.f.a.b bVar) {
         c();
         if (bVar != null) {
-            this.f13796e = bVar;
-            this.f13797f = new b();
+            this.f13804e = bVar;
+            this.f13805f = new b();
             a();
             b();
             return;
@@ -124,7 +124,7 @@ public abstract class AdapterLayout extends ViewGroup {
 
     public AdapterLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f13798g = false;
+        this.f13806g = false;
         if (context instanceof Activity) {
             ((Activity) context).getApplication().registerActivityLifecycleCallbacks(new a(context));
         }

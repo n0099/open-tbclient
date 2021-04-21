@@ -36,28 +36,28 @@ public abstract class a implements d.a.a.s.b.e, a.b, d.a.a.u.e {
     public final o v;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Path f41718a = new Path();
+    public final Path f41813a = new Path();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Matrix f41719b = new Matrix();
+    public final Matrix f41814b = new Matrix();
 
     /* renamed from: c  reason: collision with root package name */
-    public final Paint f41720c = new d.a.a.s.a(1);
+    public final Paint f41815c = new d.a.a.s.a(1);
 
     /* renamed from: d  reason: collision with root package name */
-    public final Paint f41721d = new d.a.a.s.a(1, PorterDuff.Mode.DST_IN);
+    public final Paint f41816d = new d.a.a.s.a(1, PorterDuff.Mode.DST_IN);
 
     /* renamed from: e  reason: collision with root package name */
-    public final Paint f41722e = new d.a.a.s.a(1, PorterDuff.Mode.DST_OUT);
+    public final Paint f41817e = new d.a.a.s.a(1, PorterDuff.Mode.DST_OUT);
 
     /* renamed from: f  reason: collision with root package name */
-    public final Paint f41723f = new d.a.a.s.a(1);
+    public final Paint f41818f = new d.a.a.s.a(1);
 
     /* renamed from: g  reason: collision with root package name */
-    public final Paint f41724g = new d.a.a.s.a(PorterDuff.Mode.CLEAR);
+    public final Paint f41819g = new d.a.a.s.a(PorterDuff.Mode.CLEAR);
 
     /* renamed from: h  reason: collision with root package name */
-    public final RectF f41725h = new RectF();
+    public final RectF f41820h = new RectF();
     public final RectF i = new RectF();
     public final RectF j = new RectF();
     public final RectF k = new RectF();
@@ -67,8 +67,8 @@ public abstract class a implements d.a.a.s.b.e, a.b, d.a.a.u.e {
 
     /* renamed from: d.a.a.u.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0544a implements a.b {
-        public C0544a() {
+    public class C0547a implements a.b {
+        public C0547a() {
         }
 
         @Override // d.a.a.s.c.a.b
@@ -82,58 +82,58 @@ public abstract class a implements d.a.a.s.b.e, a.b, d.a.a.u.e {
     public static /* synthetic */ class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f41727a;
+        public static final /* synthetic */ int[] f41822a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f41728b;
+        public static final /* synthetic */ int[] f41823b;
 
         static {
             int[] iArr = new int[Mask.MaskMode.values().length];
-            f41728b = iArr;
+            f41823b = iArr;
             try {
                 iArr[Mask.MaskMode.MASK_MODE_NONE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f41728b[Mask.MaskMode.MASK_MODE_SUBTRACT.ordinal()] = 2;
+                f41823b[Mask.MaskMode.MASK_MODE_SUBTRACT.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f41728b[Mask.MaskMode.MASK_MODE_INTERSECT.ordinal()] = 3;
+                f41823b[Mask.MaskMode.MASK_MODE_INTERSECT.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f41728b[Mask.MaskMode.MASK_MODE_ADD.ordinal()] = 4;
+                f41823b[Mask.MaskMode.MASK_MODE_ADD.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             int[] iArr2 = new int[Layer.LayerType.values().length];
-            f41727a = iArr2;
+            f41822a = iArr2;
             try {
                 iArr2[Layer.LayerType.SHAPE.ordinal()] = 1;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f41727a[Layer.LayerType.PRE_COMP.ordinal()] = 2;
+                f41822a[Layer.LayerType.PRE_COMP.ordinal()] = 2;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f41727a[Layer.LayerType.SOLID.ordinal()] = 3;
+                f41822a[Layer.LayerType.SOLID.ordinal()] = 3;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f41727a[Layer.LayerType.IMAGE.ordinal()] = 4;
+                f41822a[Layer.LayerType.IMAGE.ordinal()] = 4;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f41727a[Layer.LayerType.NULL.ordinal()] = 5;
+                f41822a[Layer.LayerType.NULL.ordinal()] = 5;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f41727a[Layer.LayerType.TEXT.ordinal()] = 6;
+                f41822a[Layer.LayerType.TEXT.ordinal()] = 6;
             } catch (NoSuchFieldError unused10) {
             }
             try {
-                f41727a[Layer.LayerType.UNKNOWN.ordinal()] = 7;
+                f41822a[Layer.LayerType.UNKNOWN.ordinal()] = 7;
             } catch (NoSuchFieldError unused11) {
             }
         }
@@ -144,9 +144,9 @@ public abstract class a implements d.a.a.s.b.e, a.b, d.a.a.u.e {
         this.o = layer;
         this.l = layer.g() + "#draw";
         if (layer.f() == Layer.MatteType.INVERT) {
-            this.f41723f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+            this.f41818f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         } else {
-            this.f41723f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+            this.f41818f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         }
         o b2 = layer.u().b();
         this.v = b2;
@@ -167,7 +167,7 @@ public abstract class a implements d.a.a.s.b.e, a.b, d.a.a.u.e {
 
     @Nullable
     public static a u(Layer layer, d.a.a.f fVar, d.a.a.d dVar) {
-        switch (b.f41727a[layer.d().ordinal()]) {
+        switch (b.f41822a[layer.d().ordinal()]) {
             case 1:
                 return new e(fVar, layer);
             case 2:
@@ -244,7 +244,7 @@ public abstract class a implements d.a.a.s.b.e, a.b, d.a.a.u.e {
             d.a.a.s.c.c cVar = new d.a.a.s.c.c(this.o.c());
             this.q = cVar;
             cVar.k();
-            this.q.a(new C0544a());
+            this.q.a(new C0547a());
             H(this.q.h().floatValue() == 1.0f);
             i(this.q);
             return;
@@ -285,7 +285,7 @@ public abstract class a implements d.a.a.s.b.e, a.b, d.a.a.u.e {
     @Override // d.a.a.s.b.e
     @CallSuper
     public void e(RectF rectF, Matrix matrix, boolean z) {
-        this.f41725h.set(0.0f, 0.0f, 0.0f, 0.0f);
+        this.f41820h.set(0.0f, 0.0f, 0.0f, 0.0f);
         r();
         this.m.set(matrix);
         if (z) {
@@ -310,46 +310,46 @@ public abstract class a implements d.a.a.s.b.e, a.b, d.a.a.u.e {
         if (this.w && !this.o.v()) {
             r();
             d.a.a.c.a("Layer#parentMatrix");
-            this.f41719b.reset();
-            this.f41719b.set(matrix);
+            this.f41814b.reset();
+            this.f41814b.set(matrix);
             for (int size = this.t.size() - 1; size >= 0; size--) {
-                this.f41719b.preConcat(this.t.get(size).v.f());
+                this.f41814b.preConcat(this.t.get(size).v.f());
             }
             d.a.a.c.b("Layer#parentMatrix");
             int intValue = (int) ((((i / 255.0f) * (this.v.h() == null ? 100 : this.v.h().h().intValue())) / 100.0f) * 255.0f);
             if (!x() && !w()) {
-                this.f41719b.preConcat(this.v.f());
+                this.f41814b.preConcat(this.v.f());
                 d.a.a.c.a("Layer#drawLayer");
-                t(canvas, this.f41719b, intValue);
+                t(canvas, this.f41814b, intValue);
                 d.a.a.c.b("Layer#drawLayer");
                 B(d.a.a.c.b(this.l));
                 return;
             }
             d.a.a.c.a("Layer#computeBounds");
-            e(this.f41725h, this.f41719b, false);
-            z(this.f41725h, matrix);
-            this.f41719b.preConcat(this.v.f());
-            y(this.f41725h, this.f41719b);
-            if (!this.f41725h.intersect(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight())) {
-                this.f41725h.set(0.0f, 0.0f, 0.0f, 0.0f);
+            e(this.f41820h, this.f41814b, false);
+            z(this.f41820h, matrix);
+            this.f41814b.preConcat(this.v.f());
+            y(this.f41820h, this.f41814b);
+            if (!this.f41820h.intersect(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight())) {
+                this.f41820h.set(0.0f, 0.0f, 0.0f, 0.0f);
             }
             d.a.a.c.b("Layer#computeBounds");
-            if (!this.f41725h.isEmpty()) {
+            if (!this.f41820h.isEmpty()) {
                 d.a.a.c.a("Layer#saveLayer");
-                this.f41720c.setAlpha(255);
-                d.a.a.x.h.m(canvas, this.f41725h, this.f41720c);
+                this.f41815c.setAlpha(255);
+                d.a.a.x.h.m(canvas, this.f41820h, this.f41815c);
                 d.a.a.c.b("Layer#saveLayer");
                 s(canvas);
                 d.a.a.c.a("Layer#drawLayer");
-                t(canvas, this.f41719b, intValue);
+                t(canvas, this.f41814b, intValue);
                 d.a.a.c.b("Layer#drawLayer");
                 if (w()) {
-                    o(canvas, this.f41719b);
+                    o(canvas, this.f41814b);
                 }
                 if (x()) {
                     d.a.a.c.a("Layer#drawMatte");
                     d.a.a.c.a("Layer#saveLayer");
-                    d.a.a.x.h.n(canvas, this.f41725h, this.f41723f, 19);
+                    d.a.a.x.h.n(canvas, this.f41820h, this.f41818f, 19);
                     d.a.a.c.b("Layer#saveLayer");
                     s(canvas);
                     this.r.g(canvas, matrix, intValue);
@@ -381,54 +381,54 @@ public abstract class a implements d.a.a.s.b.e, a.b, d.a.a.u.e {
     }
 
     public final void j(Canvas canvas, Matrix matrix, Mask mask, d.a.a.s.c.a<h, Path> aVar, d.a.a.s.c.a<Integer, Integer> aVar2) {
-        this.f41718a.set(aVar.h());
-        this.f41718a.transform(matrix);
-        this.f41720c.setAlpha((int) (aVar2.h().intValue() * 2.55f));
-        canvas.drawPath(this.f41718a, this.f41720c);
+        this.f41813a.set(aVar.h());
+        this.f41813a.transform(matrix);
+        this.f41815c.setAlpha((int) (aVar2.h().intValue() * 2.55f));
+        canvas.drawPath(this.f41813a, this.f41815c);
     }
 
     public final void k(Canvas canvas, Matrix matrix, Mask mask, d.a.a.s.c.a<h, Path> aVar, d.a.a.s.c.a<Integer, Integer> aVar2) {
-        d.a.a.x.h.m(canvas, this.f41725h, this.f41721d);
-        this.f41718a.set(aVar.h());
-        this.f41718a.transform(matrix);
-        this.f41720c.setAlpha((int) (aVar2.h().intValue() * 2.55f));
-        canvas.drawPath(this.f41718a, this.f41720c);
+        d.a.a.x.h.m(canvas, this.f41820h, this.f41816d);
+        this.f41813a.set(aVar.h());
+        this.f41813a.transform(matrix);
+        this.f41815c.setAlpha((int) (aVar2.h().intValue() * 2.55f));
+        canvas.drawPath(this.f41813a, this.f41815c);
         canvas.restore();
     }
 
     public final void l(Canvas canvas, Matrix matrix, Mask mask, d.a.a.s.c.a<h, Path> aVar, d.a.a.s.c.a<Integer, Integer> aVar2) {
-        d.a.a.x.h.m(canvas, this.f41725h, this.f41720c);
-        canvas.drawRect(this.f41725h, this.f41720c);
-        this.f41718a.set(aVar.h());
-        this.f41718a.transform(matrix);
-        this.f41720c.setAlpha((int) (aVar2.h().intValue() * 2.55f));
-        canvas.drawPath(this.f41718a, this.f41722e);
+        d.a.a.x.h.m(canvas, this.f41820h, this.f41815c);
+        canvas.drawRect(this.f41820h, this.f41815c);
+        this.f41813a.set(aVar.h());
+        this.f41813a.transform(matrix);
+        this.f41815c.setAlpha((int) (aVar2.h().intValue() * 2.55f));
+        canvas.drawPath(this.f41813a, this.f41817e);
         canvas.restore();
     }
 
     public final void m(Canvas canvas, Matrix matrix, Mask mask, d.a.a.s.c.a<h, Path> aVar, d.a.a.s.c.a<Integer, Integer> aVar2) {
-        d.a.a.x.h.m(canvas, this.f41725h, this.f41721d);
-        canvas.drawRect(this.f41725h, this.f41720c);
-        this.f41722e.setAlpha((int) (aVar2.h().intValue() * 2.55f));
-        this.f41718a.set(aVar.h());
-        this.f41718a.transform(matrix);
-        canvas.drawPath(this.f41718a, this.f41722e);
+        d.a.a.x.h.m(canvas, this.f41820h, this.f41816d);
+        canvas.drawRect(this.f41820h, this.f41815c);
+        this.f41817e.setAlpha((int) (aVar2.h().intValue() * 2.55f));
+        this.f41813a.set(aVar.h());
+        this.f41813a.transform(matrix);
+        canvas.drawPath(this.f41813a, this.f41817e);
         canvas.restore();
     }
 
     public final void n(Canvas canvas, Matrix matrix, Mask mask, d.a.a.s.c.a<h, Path> aVar, d.a.a.s.c.a<Integer, Integer> aVar2) {
-        d.a.a.x.h.m(canvas, this.f41725h, this.f41722e);
-        canvas.drawRect(this.f41725h, this.f41720c);
-        this.f41722e.setAlpha((int) (aVar2.h().intValue() * 2.55f));
-        this.f41718a.set(aVar.h());
-        this.f41718a.transform(matrix);
-        canvas.drawPath(this.f41718a, this.f41722e);
+        d.a.a.x.h.m(canvas, this.f41820h, this.f41817e);
+        canvas.drawRect(this.f41820h, this.f41815c);
+        this.f41817e.setAlpha((int) (aVar2.h().intValue() * 2.55f));
+        this.f41813a.set(aVar.h());
+        this.f41813a.transform(matrix);
+        canvas.drawPath(this.f41813a, this.f41817e);
         canvas.restore();
     }
 
     public final void o(Canvas canvas, Matrix matrix) {
         d.a.a.c.a("Layer#saveLayer");
-        d.a.a.x.h.n(canvas, this.f41725h, this.f41721d, 19);
+        d.a.a.x.h.n(canvas, this.f41820h, this.f41816d, 19);
         if (Build.VERSION.SDK_INT < 28) {
             s(canvas);
         }
@@ -437,13 +437,13 @@ public abstract class a implements d.a.a.s.b.e, a.b, d.a.a.u.e {
             Mask mask = this.p.b().get(i);
             d.a.a.s.c.a<h, Path> aVar = this.p.a().get(i);
             d.a.a.s.c.a<Integer, Integer> aVar2 = this.p.c().get(i);
-            int i2 = b.f41728b[mask.a().ordinal()];
+            int i2 = b.f41823b[mask.a().ordinal()];
             if (i2 != 1) {
                 if (i2 == 2) {
                     if (i == 0) {
-                        this.f41720c.setColor(-16777216);
-                        this.f41720c.setAlpha(255);
-                        canvas.drawRect(this.f41725h, this.f41720c);
+                        this.f41815c.setColor(-16777216);
+                        this.f41815c.setAlpha(255);
+                        canvas.drawRect(this.f41820h, this.f41815c);
                     }
                     if (mask.d()) {
                         n(canvas, matrix, mask, aVar, aVar2);
@@ -464,8 +464,8 @@ public abstract class a implements d.a.a.s.b.e, a.b, d.a.a.u.e {
                     k(canvas, matrix, mask, aVar, aVar2);
                 }
             } else if (q()) {
-                this.f41720c.setAlpha(255);
-                canvas.drawRect(this.f41725h, this.f41720c);
+                this.f41815c.setAlpha(255);
+                canvas.drawRect(this.f41820h, this.f41815c);
             }
         }
         d.a.a.c.a("Layer#restoreLayer");
@@ -474,9 +474,9 @@ public abstract class a implements d.a.a.s.b.e, a.b, d.a.a.u.e {
     }
 
     public final void p(Canvas canvas, Matrix matrix, Mask mask, d.a.a.s.c.a<h, Path> aVar, d.a.a.s.c.a<Integer, Integer> aVar2) {
-        this.f41718a.set(aVar.h());
-        this.f41718a.transform(matrix);
-        canvas.drawPath(this.f41718a, this.f41722e);
+        this.f41813a.set(aVar.h());
+        this.f41813a.transform(matrix);
+        canvas.drawPath(this.f41813a, this.f41817e);
     }
 
     public final boolean q() {
@@ -507,8 +507,8 @@ public abstract class a implements d.a.a.s.b.e, a.b, d.a.a.u.e {
 
     public final void s(Canvas canvas) {
         d.a.a.c.a("Layer#clearLayer");
-        RectF rectF = this.f41725h;
-        canvas.drawRect(rectF.left - 1.0f, rectF.top - 1.0f, rectF.right + 1.0f, rectF.bottom + 1.0f, this.f41724g);
+        RectF rectF = this.f41820h;
+        canvas.drawRect(rectF.left - 1.0f, rectF.top - 1.0f, rectF.right + 1.0f, rectF.bottom + 1.0f, this.f41819g);
         d.a.a.c.b("Layer#clearLayer");
     }
 
@@ -533,16 +533,16 @@ public abstract class a implements d.a.a.s.b.e, a.b, d.a.a.u.e {
             int size = this.p.b().size();
             for (int i = 0; i < size; i++) {
                 Mask mask = this.p.b().get(i);
-                this.f41718a.set(this.p.a().get(i).h());
-                this.f41718a.transform(matrix);
-                int i2 = b.f41728b[mask.a().ordinal()];
+                this.f41813a.set(this.p.a().get(i).h());
+                this.f41813a.transform(matrix);
+                int i2 = b.f41823b[mask.a().ordinal()];
                 if (i2 == 1 || i2 == 2) {
                     return;
                 }
                 if ((i2 == 3 || i2 == 4) && mask.d()) {
                     return;
                 }
-                this.f41718a.computeBounds(this.k, false);
+                this.f41813a.computeBounds(this.k, false);
                 if (i == 0) {
                     this.i.set(this.k);
                 } else {

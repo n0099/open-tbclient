@@ -14,9 +14,9 @@ import com.baidu.searchbox.pms.db.PackageTable;
 import com.ss.android.socialbase.downloader.constants.f;
 import com.ss.android.socialbase.downloader.constants.h;
 import com.ss.android.socialbase.downloader.exception.BaseException;
-import d.o.a.e.b.f.j;
-import d.o.a.e.b.g.d;
-import d.o.a.e.b.l.e;
+import d.p.a.e.b.f.j;
+import d.p.a.e.b.g.d;
+import d.p.a.e.b.l.e;
 import java.io.File;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
@@ -626,7 +626,7 @@ public class DownloadInfo implements Parcelable {
         if (this.tempFileSaveCompleteCallbacks == null) {
             return;
         }
-        d.o.a.e.b.c.a.g(TAG, "handleTempSaveCallback isSuccess " + z + " callback size:" + this.tempFileSaveCompleteCallbacks.size());
+        d.p.a.e.b.c.a.g(TAG, "handleTempSaveCallback isSuccess " + z + " callback size:" + this.tempFileSaveCompleteCallbacks.size());
         for (j jVar : this.tempFileSaveCompleteCallbacks) {
             if (jVar != null) {
                 if (z) {
@@ -807,7 +807,7 @@ public class DownloadInfo implements Parcelable {
             return;
         }
         try {
-            d.o.a.e.b.c.a.g(TAG, "registerTempFileSaveCallback");
+            d.p.a.e.b.c.a.g(TAG, "registerTempFileSaveCallback");
             if (this.tempFileSaveCompleteCallbacks == null) {
                 this.tempFileSaveCompleteCallbacks = new ArrayList();
             }
@@ -1231,7 +1231,7 @@ public class DownloadInfo implements Parcelable {
     }
 
     public boolean h1() {
-        d.o.a.e.b.g.j I0;
+        d.p.a.e.b.g.j I0;
         if (this.chunkCount > 1 && (I0 = d.I0()) != null) {
             List<com.ss.android.socialbase.downloader.model.b> c2 = I0.c(c0());
             if (c2 == null || c2.size() != this.chunkCount) {
@@ -1438,7 +1438,7 @@ public class DownloadInfo implements Parcelable {
     }
 
     public boolean m1() {
-        return d.o.a.e.b.d.a.a(H0());
+        return d.p.a.e.b.d.a.a(H0());
     }
 
     public void m2(boolean z) {
@@ -1692,14 +1692,14 @@ public class DownloadInfo implements Parcelable {
         if (exists && !isDirectory) {
             long length = file.length();
             long E = E();
-            if (d.o.a.e.b.j.a.r().l("fix_file_data_valid")) {
+            if (d.p.a.e.b.j.a.r().l("fix_file_data_valid")) {
                 if (E > 0) {
                     long j = this.totalBytes;
                     if (j > 0 && this.chunkCount > 0 && length >= E && length <= j) {
                         return true;
                     }
                 }
-                d.o.a.e.b.c.a.i(TAG, "isFileDataValid: cur = " + E + ",totalBytes =" + this.totalBytes + ",fileLength=" + length);
+                d.p.a.e.b.c.a.i(TAG, "isFileDataValid: cur = " + E + ",totalBytes =" + this.totalBytes + ",fileLength=" + length);
                 return false;
             }
             if (length > 0 && E > 0) {
@@ -1708,7 +1708,7 @@ public class DownloadInfo implements Parcelable {
                     return true;
                 }
             }
-            d.o.a.e.b.c.a.i(TAG, "isFileDataValid: cur = " + E + ",totalBytes =" + this.totalBytes + ",fileLength=" + length);
+            d.p.a.e.b.c.a.i(TAG, "isFileDataValid: cur = " + E + ",totalBytes =" + this.totalBytes + ",fileLength=" + length);
         }
         return false;
     }
@@ -2019,28 +2019,28 @@ public class DownloadInfo implements Parcelable {
         public boolean V;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f39211a;
+        public String f39306a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f39212b;
+        public String f39307b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f39213c;
+        public String f39308c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f39214d;
+        public String f39309d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f39215e;
+        public String f39310e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f39216f;
+        public boolean f39311f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f39217g;
+        public String f39312g;
 
         /* renamed from: h  reason: collision with root package name */
-        public List<c> f39218h;
+        public List<c> f39313h;
         public int i;
         public String[] j;
         public int[] k;
@@ -2072,7 +2072,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public b B(boolean z) {
-            this.f39216f = z;
+            this.f39311f = z;
             return this;
         }
 
@@ -2091,7 +2091,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public b G(String str) {
-            this.f39212b = str;
+            this.f39307b = str;
             return this;
         }
 
@@ -2116,7 +2116,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public b M(String str) {
-            this.f39213c = str;
+            this.f39308c = str;
             return this;
         }
 
@@ -2126,7 +2126,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public b P(String str) {
-            this.f39214d = str;
+            this.f39309d = str;
             return this;
         }
 
@@ -2151,7 +2151,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public b W(String str) {
-            this.f39217g = str;
+            this.f39312g = str;
             return this;
         }
 
@@ -2241,7 +2241,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public b y(String str) {
-            this.f39211a = str;
+            this.f39306a = str;
             return this;
         }
 
@@ -2251,12 +2251,12 @@ public class DownloadInfo implements Parcelable {
         }
 
         public b z(List<c> list) {
-            this.f39218h = list;
+            this.f39313h = list;
             return this;
         }
 
         public b(String str) {
-            this.f39213c = str;
+            this.f39308c = str;
         }
     }
 
@@ -2281,10 +2281,10 @@ public class DownloadInfo implements Parcelable {
         if (bVar == null) {
             return;
         }
-        this.name = bVar.f39211a;
-        this.title = bVar.f39212b;
-        this.url = bVar.f39213c;
-        String str = bVar.f39214d;
+        this.name = bVar.f39306a;
+        this.title = bVar.f39307b;
+        this.url = bVar.f39308c;
+        String str = bVar.f39309d;
         if (TextUtils.isEmpty(str)) {
             try {
                 str = e.E0();
@@ -2293,12 +2293,12 @@ public class DownloadInfo implements Parcelable {
             }
         }
         this.savePath = str;
-        this.tempPath = bVar.f39215e;
+        this.tempPath = bVar.f39310e;
         this.status = new AtomicInteger(0);
         this.curBytes = new AtomicLong(0L);
-        this.extra = bVar.f39217g;
-        this.onlyWifi = bVar.f39216f;
-        this.extraHeaders = bVar.f39218h;
+        this.extra = bVar.f39312g;
+        this.onlyWifi = bVar.f39311f;
+        this.extraHeaders = bVar.f39313h;
         this.maxBytes = bVar.i;
         this.retryCount = bVar.l;
         this.backUpUrlRetryCount = bVar.m;

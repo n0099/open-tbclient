@@ -18,7 +18,7 @@ public final class ObservableWithLatestFromMany$WithLatestFromObserver<T, R> ext
     public final h<? super Object[], R> combiner;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicReference<b> f69086d;
+    public final AtomicReference<b> f69233d;
     public volatile boolean done;
     public final AtomicThrowable error;
     public final ObservableWithLatestFromMany$WithLatestInnerObserver[] observers;
@@ -33,7 +33,7 @@ public final class ObservableWithLatestFromMany$WithLatestFromObserver<T, R> ext
         }
         this.observers = observableWithLatestFromMany$WithLatestInnerObserverArr;
         this.values = new AtomicReferenceArray<>(i);
-        this.f69086d = new AtomicReference<>();
+        this.f69233d = new AtomicReference<>();
         this.error = new AtomicThrowable();
     }
 
@@ -48,7 +48,7 @@ public final class ObservableWithLatestFromMany$WithLatestFromObserver<T, R> ext
 
     @Override // f.b.t.b
     public void dispose() {
-        DisposableHelper.dispose(this.f69086d);
+        DisposableHelper.dispose(this.f69233d);
         for (ObservableWithLatestFromMany$WithLatestInnerObserver observableWithLatestFromMany$WithLatestInnerObserver : this.observers) {
             observableWithLatestFromMany$WithLatestInnerObserver.dispose();
         }
@@ -65,7 +65,7 @@ public final class ObservableWithLatestFromMany$WithLatestFromObserver<T, R> ext
 
     public void innerError(int i, Throwable th) {
         this.done = true;
-        DisposableHelper.dispose(this.f69086d);
+        DisposableHelper.dispose(this.f69233d);
         cancelAllBut(i);
         e.c(this.actual, th, this, this.error);
     }
@@ -76,7 +76,7 @@ public final class ObservableWithLatestFromMany$WithLatestFromObserver<T, R> ext
 
     @Override // f.b.t.b
     public boolean isDisposed() {
-        return DisposableHelper.isDisposed(this.f69086d.get());
+        return DisposableHelper.isDisposed(this.f69233d.get());
     }
 
     @Override // f.b.o
@@ -131,12 +131,12 @@ public final class ObservableWithLatestFromMany$WithLatestFromObserver<T, R> ext
 
     @Override // f.b.o
     public void onSubscribe(b bVar) {
-        DisposableHelper.setOnce(this.f69086d, bVar);
+        DisposableHelper.setOnce(this.f69233d, bVar);
     }
 
     public void subscribe(n<?>[] nVarArr, int i) {
         ObservableWithLatestFromMany$WithLatestInnerObserver[] observableWithLatestFromMany$WithLatestInnerObserverArr = this.observers;
-        AtomicReference<b> atomicReference = this.f69086d;
+        AtomicReference<b> atomicReference = this.f69233d;
         for (int i2 = 0; i2 < i && !DisposableHelper.isDisposed(atomicReference.get()) && !this.done; i2++) {
             nVarArr[i2].subscribe(observableWithLatestFromMany$WithLatestInnerObserverArr[i2]);
         }

@@ -16,7 +16,7 @@ public class d extends c<SocketMessage, SocketMessageTask, k, SocketResponsedMes
         super(messageManager);
         this.i = null;
         this.i = new g(messageManager);
-        this.f42054e = d.b.c.c.j.c.c();
+        this.f42294e = d.b.c.c.j.c.c();
     }
 
     @Override // d.b.c.c.b
@@ -41,7 +41,7 @@ public class d extends c<SocketMessage, SocketMessageTask, k, SocketResponsedMes
     @Override // d.b.c.c.h.c
     /* renamed from: x */
     public SocketMessage l(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        return this.f42050a.getController().m(socketMessage, socketMessageTask);
+        return this.f42290a.getController().m(socketMessage, socketMessageTask);
     }
 
     public void y(BdUniqueId bdUniqueId) {

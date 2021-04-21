@@ -23,23 +23,23 @@ import okio.Okio;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, m<d.a.a.d>> f41423a = new HashMap();
+    public static final Map<String, m<d.a.a.d>> f41518a = new HashMap();
 
     /* loaded from: classes.dex */
     public class a implements d.a.a.h<d.a.a.d> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f41424a;
+        public final /* synthetic */ String f41519a;
 
         public a(String str) {
-            this.f41424a = str;
+            this.f41519a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.a.h
         /* renamed from: a */
         public void onResult(d.a.a.d dVar) {
-            e.f41423a.remove(this.f41424a);
+            e.f41518a.remove(this.f41519a);
         }
     }
 
@@ -47,17 +47,17 @@ public class e {
     public class b implements d.a.a.h<Throwable> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f41425a;
+        public final /* synthetic */ String f41520a;
 
         public b(String str) {
-            this.f41425a = str;
+            this.f41520a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.a.a.h
         /* renamed from: a */
         public void onResult(Throwable th) {
-            e.f41423a.remove(this.f41425a);
+            e.f41518a.remove(this.f41520a);
         }
     }
 
@@ -65,25 +65,25 @@ public class e {
     public class c implements Callable<l<d.a.a.d>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f41426e;
+        public final /* synthetic */ Context f41521e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41427f;
+        public final /* synthetic */ String f41522f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f41428g;
+        public final /* synthetic */ String f41523g;
 
         public c(Context context, String str, String str2) {
-            this.f41426e = context;
-            this.f41427f = str;
-            this.f41428g = str2;
+            this.f41521e = context;
+            this.f41522f = str;
+            this.f41523g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public l<d.a.a.d> call() {
-            return d.a.a.v.b.e(this.f41426e, this.f41427f, this.f41428g);
+            return d.a.a.v.b.e(this.f41521e, this.f41522f, this.f41523g);
         }
     }
 
@@ -91,60 +91,60 @@ public class e {
     public class d implements Callable<l<d.a.a.d>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f41429e;
+        public final /* synthetic */ Context f41524e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41430f;
+        public final /* synthetic */ String f41525f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f41431g;
+        public final /* synthetic */ String f41526g;
 
         public d(Context context, String str, String str2) {
-            this.f41429e = context;
-            this.f41430f = str;
-            this.f41431g = str2;
+            this.f41524e = context;
+            this.f41525f = str;
+            this.f41526g = str2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public l<d.a.a.d> call() {
-            return e.g(this.f41429e, this.f41430f, this.f41431g);
+            return e.g(this.f41524e, this.f41525f, this.f41526g);
         }
     }
 
     /* renamed from: d.a.a.e$e  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class CallableC0540e implements Callable<l<d.a.a.d>> {
+    public class CallableC0543e implements Callable<l<d.a.a.d>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WeakReference f41432e;
+        public final /* synthetic */ WeakReference f41527e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Context f41433f;
+        public final /* synthetic */ Context f41528f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f41434g;
+        public final /* synthetic */ int f41529g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ String f41435h;
+        public final /* synthetic */ String f41530h;
 
-        public CallableC0540e(WeakReference weakReference, Context context, int i, String str) {
-            this.f41432e = weakReference;
-            this.f41433f = context;
-            this.f41434g = i;
-            this.f41435h = str;
+        public CallableC0543e(WeakReference weakReference, Context context, int i, String str) {
+            this.f41527e = weakReference;
+            this.f41528f = context;
+            this.f41529g = i;
+            this.f41530h = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public l<d.a.a.d> call() {
-            Context context = (Context) this.f41432e.get();
+            Context context = (Context) this.f41527e.get();
             if (context == null) {
-                context = this.f41433f;
+                context = this.f41528f;
             }
-            return e.p(context, this.f41434g, this.f41435h);
+            return e.p(context, this.f41529g, this.f41530h);
         }
     }
 
@@ -152,21 +152,21 @@ public class e {
     public class f implements Callable<l<d.a.a.d>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ InputStream f41436e;
+        public final /* synthetic */ InputStream f41531e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41437f;
+        public final /* synthetic */ String f41532f;
 
         public f(InputStream inputStream, String str) {
-            this.f41436e = inputStream;
-            this.f41437f = str;
+            this.f41531e = inputStream;
+            this.f41532f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public l<d.a.a.d> call() {
-            return e.i(this.f41436e, this.f41437f);
+            return e.i(this.f41531e, this.f41532f);
         }
     }
 
@@ -174,21 +174,21 @@ public class e {
     public class g implements Callable<l<d.a.a.d>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ZipInputStream f41438e;
+        public final /* synthetic */ ZipInputStream f41533e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f41439f;
+        public final /* synthetic */ String f41534f;
 
         public g(ZipInputStream zipInputStream, String str) {
-            this.f41438e = zipInputStream;
-            this.f41439f = str;
+            this.f41533e = zipInputStream;
+            this.f41534f = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public l<d.a.a.d> call() {
-            return e.t(this.f41438e, this.f41439f);
+            return e.t(this.f41533e, this.f41534f);
         }
     }
 
@@ -196,17 +196,17 @@ public class e {
     public class h implements Callable<l<d.a.a.d>> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.a.d f41440e;
+        public final /* synthetic */ d.a.a.d f41535e;
 
         public h(d.a.a.d dVar) {
-            this.f41440e = dVar;
+            this.f41535e = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public l<d.a.a.d> call() {
-            return new l<>(this.f41440e);
+            return new l<>(this.f41535e);
         }
     }
 
@@ -215,14 +215,14 @@ public class e {
         if (a2 != null) {
             return new m<>(new h(a2));
         }
-        if (str != null && f41423a.containsKey(str)) {
-            return f41423a.get(str);
+        if (str != null && f41518a.containsKey(str)) {
+            return f41518a.get(str);
         }
         m<d.a.a.d> mVar = new m<>(callable);
         if (str != null) {
             mVar.f(new a(str));
             mVar.e(new b(str));
-            f41423a.put(str, mVar);
+            f41518a.put(str, mVar);
         }
         return mVar;
     }
@@ -320,7 +320,7 @@ public class e {
     }
 
     public static m<d.a.a.d> n(Context context, @RawRes int i, @Nullable String str) {
-        return b(str, new CallableC0540e(new WeakReference(context), context.getApplicationContext(), i, str));
+        return b(str, new CallableC0543e(new WeakReference(context), context.getApplicationContext(), i, str));
     }
 
     @WorkerThread

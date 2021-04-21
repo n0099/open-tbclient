@@ -20,41 +20,41 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class c extends e {
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f33332b;
+    public com.kwad.sdk.core.i.a f33427b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f33333c;
+    public RelativeLayout f33428c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TrendsRollingTextContainer f33334d;
+    public TrendsRollingTextContainer f33429d;
     public i i;
     public boolean j;
     public List<a> n;
 
     /* renamed from: e  reason: collision with root package name */
-    public AtomicBoolean f33335e = new AtomicBoolean(false);
+    public AtomicBoolean f33430e = new AtomicBoolean(false);
 
     /* renamed from: f  reason: collision with root package name */
-    public List<TrendInfo> f33336f = new ArrayList();
+    public List<TrendInfo> f33431f = new ArrayList();
 
     /* renamed from: g  reason: collision with root package name */
-    public long f33337g = 0;
+    public long f33432g = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f33338h = "";
+    public String f33433h = "";
     public com.kwad.sdk.core.i.c k = new d() { // from class: com.kwad.sdk.contentalliance.trends.a.b.c.1
         @Override // com.kwad.sdk.core.i.d, com.kwad.sdk.core.i.c
         public void c_() {
-            if (c.this.f33335e.getAndSet(true)) {
+            if (c.this.f33430e.getAndSet(true)) {
                 return;
             }
-            com.kwad.sdk.core.report.e.a(((e) c.this).f33058a.f33063e, c.this.f33337g, c.this.f33338h);
+            com.kwad.sdk.core.report.e.a(((e) c.this).f33153a.f33158e, c.this.f33432g, c.this.f33433h);
         }
     };
     public f.a l = new f.a() { // from class: com.kwad.sdk.contentalliance.trends.a.b.c.2
         @Override // com.kwad.sdk.contentalliance.home.b.f.a
         public void a() {
-            if (c.this.f33336f.isEmpty()) {
+            if (c.this.f33431f.isEmpty()) {
                 o.a(true, new o.d() { // from class: com.kwad.sdk.contentalliance.trends.a.b.c.2.1
                     @Override // com.kwad.sdk.core.g.o.d
                     public void a(int i, String str) {
@@ -63,8 +63,8 @@ public class c extends e {
                     @Override // com.kwad.sdk.core.g.o.d
                     public void a(@NonNull List<TrendInfo> list) {
                         Collections.sort(list, TrendInfo.mTrendsComparator);
-                        c.this.f33336f.addAll(list);
-                        ((e) c.this).f33058a.f33066h = c.this.f33336f;
+                        c.this.f33431f.addAll(list);
+                        ((e) c.this).f33153a.f33161h = c.this.f33431f;
                         c.this.g();
                     }
                 });
@@ -76,8 +76,8 @@ public class c extends e {
     public g m = new g() { // from class: com.kwad.sdk.contentalliance.trends.a.b.c.3
         @Override // com.kwad.sdk.contentalliance.detail.photo.comment.g
         public void a() {
-            c.this.f33334d.b();
-            c.this.f33333c.setVisibility(8);
+            c.this.f33429d.b();
+            c.this.f33428c.setVisibility(8);
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.photo.comment.g
@@ -130,35 +130,35 @@ public class c extends e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (this.f33336f.isEmpty()) {
+        if (this.f33431f.isEmpty()) {
             return;
         }
-        this.f33334d.c();
-        this.f33333c.setVisibility(0);
+        this.f33429d.c();
+        this.f33428c.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        if (this.f33336f.isEmpty()) {
+        if (this.f33431f.isEmpty()) {
             return;
         }
-        this.f33334d.b();
-        this.f33333c.setVisibility(4);
+        this.f33429d.b();
+        this.f33428c.setVisibility(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        List<TrendInfo> list = this.f33336f;
+        List<TrendInfo> list = this.f33431f;
         if (list == null || list.isEmpty()) {
             f();
             return;
         }
-        this.f33334d.a(this.f33336f);
-        this.f33333c.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.trends.a.b.c.6
+        this.f33429d.a(this.f33431f);
+        this.f33428c.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.trends.a.b.c.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.f33333c.setVisibility(8);
-                com.kwad.sdk.core.report.e.b(((e) c.this).f33058a.f33063e, c.this.f33337g, c.this.f33338h);
+                c.this.f33428c.setVisibility(8);
+                com.kwad.sdk.core.report.e.b(((e) c.this).f33153a.f33158e, c.this.f33432g, c.this.f33433h);
                 c.this.h();
             }
         });
@@ -170,7 +170,7 @@ public class c extends e {
         List<a> list = this.n;
         if (list != null) {
             for (a aVar : list) {
-                aVar.a(this.f33336f);
+                aVar.a(this.f33431f);
             }
         }
     }
@@ -178,41 +178,41 @@ public class c extends e {
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        i iVar = ((e) this).f33058a.f33060b;
+        i iVar = ((e) this).f33153a.f33155b;
         this.i = iVar;
         iVar.a(this.p);
-        com.kwad.sdk.core.i.a aVar = ((e) this).f33058a.f33064f.f33078a;
-        this.f33332b = aVar;
+        com.kwad.sdk.core.i.a aVar = ((e) this).f33153a.f33159f.f33173a;
+        this.f33427b = aVar;
         aVar.a(this.k);
-        TrendInfo trendInfo = ((e) this).f33058a.i;
+        TrendInfo trendInfo = ((e) this).f33153a.i;
         if (trendInfo != null) {
-            this.f33337g = trendInfo.trendId;
-            this.f33338h = trendInfo.name;
+            this.f33432g = trendInfo.trendId;
+            this.f33433h = trendInfo.name;
         }
-        com.kwad.sdk.contentalliance.home.f fVar = ((e) this).f33058a;
-        this.f33336f = fVar.f33066h;
+        com.kwad.sdk.contentalliance.home.f fVar = ((e) this).f33153a;
+        this.f33431f = fVar.f33161h;
         this.n = fVar.n;
         g();
-        ((e) this).f33058a.o.add(this.o);
-        ((e) this).f33058a.f33064f.f33083f.add(this.m);
-        ((e) this).f33058a.p.add(this.l);
+        ((e) this).f33153a.o.add(this.o);
+        ((e) this).f33153a.f33159f.f33178f.add(this.m);
+        ((e) this).f33153a.p.add(this.l);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        ((e) this).f33058a.f33064f.f33083f.remove(this.m);
-        ((e) this).f33058a.o.remove(this.o);
-        this.f33332b.b(this.k);
-        this.f33334d.a();
+        ((e) this).f33153a.f33159f.f33178f.remove(this.m);
+        ((e) this).f33153a.o.remove(this.o);
+        this.f33427b.b(this.k);
+        this.f33429d.a();
         this.i.b(this.p);
-        ((e) this).f33058a.p.remove(this.l);
+        ((e) this).f33153a.p.remove(this.l);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f33333c = (RelativeLayout) b(R.id.ksad_trends_rolling_container);
-        this.f33334d = (TrendsRollingTextContainer) b(R.id.ksad_trends_rolling_trend_name_layout);
+        this.f33428c = (RelativeLayout) b(R.id.ksad_trends_rolling_container);
+        this.f33429d = (TrendsRollingTextContainer) b(R.id.ksad_trends_rolling_trend_name_layout);
     }
 }

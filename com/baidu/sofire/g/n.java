@@ -10,7 +10,7 @@ import java.security.MessageDigest;
 public final class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f11446a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, "a", "b", "c", "d", "e", "f"};
+    public static final String[] f11454a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, "a", "b", "c", "d", "e", "f"};
 
     public static String a(String str) {
         String str2 = null;
@@ -48,7 +48,7 @@ public final class n {
             if (i < 0) {
                 i += 256;
             }
-            stringBuffer.append(f11446a[i / 16] + f11446a[i % 16]);
+            stringBuffer.append(f11454a[i / 16] + f11454a[i % 16]);
         }
         return stringBuffer.toString();
     }

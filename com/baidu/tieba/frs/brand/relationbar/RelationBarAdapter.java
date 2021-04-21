@@ -10,20 +10,20 @@ import tbclient.OriForumInfo;
 public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f15842a;
+    public Context f15850a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<OriForumInfo> f15843b;
+    public List<OriForumInfo> f15851b;
 
     public RelationBarAdapter(Context context) {
-        this.f15842a = context;
+        this.f15850a = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: c */
     public void onBindViewHolder(RelationBarHolder relationBarHolder, int i) {
-        OriForumInfo oriForumInfo = (OriForumInfo) ListUtils.getItem(this.f15843b, i);
+        OriForumInfo oriForumInfo = (OriForumInfo) ListUtils.getItem(this.f15851b, i);
         if (oriForumInfo == null) {
             return;
         }
@@ -36,18 +36,18 @@ public class RelationBarAdapter extends RecyclerView.Adapter<RelationBarHolder> 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: d */
     public RelationBarHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new RelationBarHolder(new RelationBarCellView(this.f15842a));
+        return new RelationBarHolder(new RelationBarCellView(this.f15850a));
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return ListUtils.getCount(this.f15843b);
+        return ListUtils.getCount(this.f15851b);
     }
 
     public void setData(List<OriForumInfo> list) {
         if (ListUtils.isEmpty(list)) {
             return;
         }
-        this.f15843b = list;
+        this.f15851b = list;
     }
 }

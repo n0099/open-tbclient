@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import d.b.g0.r.b;
+import d.b.h0.r.b;
 /* loaded from: classes3.dex */
 public class VeloceAppIpcProvider extends ContentProvider {
     public static final boolean DEBUG = false;

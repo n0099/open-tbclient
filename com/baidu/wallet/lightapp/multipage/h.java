@@ -13,16 +13,16 @@ import org.json.JSONException;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24974a;
+    public String f24982a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LangbridgeSettings f24975b;
+    public LangbridgeSettings f24983b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f24976c;
+    public b f24984c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Set<WeakReference<a>> f24977d;
+    public Set<WeakReference<a>> f24985d;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -38,59 +38,59 @@ public class h {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static h f24978a = new h();
+        public static h f24986a = new h();
     }
 
     public static h a() {
-        return c.f24978a;
+        return c.f24986a;
     }
 
     public void b(@NonNull Context context) {
-        if (this.f24975b != null) {
+        if (this.f24983b != null) {
             LogUtil.d("LangbridgeSettings", "");
-            for (WeakReference<a> weakReference : this.f24977d) {
+            for (WeakReference<a> weakReference : this.f24985d) {
                 if (weakReference != null && weakReference.get() != null) {
                     a aVar = weakReference.get();
-                    b bVar = this.f24976c;
-                    aVar.onSettingUpdated(bVar != null ? bVar.a(context, this.f24975b) : this.f24975b);
+                    b bVar = this.f24984c;
+                    aVar.onSettingUpdated(bVar != null ? bVar.a(context, this.f24983b) : this.f24983b);
                 }
             }
         }
     }
 
     public h() {
-        this.f24977d = new CopyOnWriteArraySet();
-        this.f24976c = e.a();
+        this.f24985d = new CopyOnWriteArraySet();
+        this.f24984c = e.a();
     }
 
     public LangbridgeSettings a(@NonNull Context context) {
-        if (this.f24975b == null) {
-            this.f24975b = a(this.f24974a);
+        if (this.f24983b == null) {
+            this.f24983b = a(this.f24982a);
         }
-        if (this.f24975b == null) {
-            this.f24975b = new LangbridgeSettings();
+        if (this.f24983b == null) {
+            this.f24983b = new LangbridgeSettings();
         }
         LogUtil.d("LangbridgeSettings", "");
-        b bVar = this.f24976c;
-        return bVar != null ? bVar.a(context, this.f24975b) : this.f24975b;
+        b bVar = this.f24984c;
+        return bVar != null ? bVar.a(context, this.f24983b) : this.f24983b;
     }
 
     public void a(@NonNull Context context, String str) {
-        if (this.f24975b == null) {
-            this.f24975b = new LangbridgeSettings();
+        if (this.f24983b == null) {
+            this.f24983b = new LangbridgeSettings();
         }
         if (TextUtils.isEmpty(str)) {
-            this.f24975b = new LangbridgeSettings();
-            if (!TextUtils.isEmpty(this.f24974a)) {
-                this.f24974a = JsonUtils.toJson(this.f24975b);
+            this.f24983b = new LangbridgeSettings();
+            if (!TextUtils.isEmpty(this.f24982a)) {
+                this.f24982a = JsonUtils.toJson(this.f24983b);
             }
-            LogUtil.d("WebViewCacheManager", "updateSettings CLEAR mSettings = " + this.f24975b.toString());
+            LogUtil.d("WebViewCacheManager", "updateSettings CLEAR mSettings = " + this.f24983b.toString());
             return;
         }
         LangbridgeSettings a2 = a(str);
         StringBuilder sb = new StringBuilder();
         sb.append("updateSettings oldSettings = ");
-        LangbridgeSettings langbridgeSettings = this.f24975b;
+        LangbridgeSettings langbridgeSettings = this.f24983b;
         String str2 = langbridgeSettings;
         if (langbridgeSettings != null) {
             str2 = langbridgeSettings.toString();
@@ -99,31 +99,31 @@ public class h {
         sb.append("\nnewSettings = ");
         sb.append((Object) (a2 != null ? a2.toString() : a2));
         LogUtil.d("WebViewCacheManager", sb.toString());
-        if (a2 != null && !a2.MW_USE_OLD && a2.MW_ON && !TextUtils.isEmpty(this.f24974a)) {
-            LangbridgeSettings langbridgeSettings2 = this.f24975b;
+        if (a2 != null && !a2.MW_USE_OLD && a2.MW_ON && !TextUtils.isEmpty(this.f24982a)) {
+            LangbridgeSettings langbridgeSettings2 = this.f24983b;
             if (langbridgeSettings2.MW_USE_OLD || !langbridgeSettings2.MW_ON) {
-                LogUtil.d("WebViewCacheManager", "updateSettings CANCEL mSettings = " + this.f24975b.toString());
+                LogUtil.d("WebViewCacheManager", "updateSettings CANCEL mSettings = " + this.f24983b.toString());
                 return;
             }
         }
         if (a2 != null) {
-            this.f24975b = a2;
+            this.f24983b = a2;
             LogUtil.d("LangbridgeSettings", "");
-            this.f24974a = str;
-            for (WeakReference<a> weakReference : this.f24977d) {
+            this.f24982a = str;
+            for (WeakReference<a> weakReference : this.f24985d) {
                 if (weakReference != null && weakReference.get() != null) {
                     a aVar = weakReference.get();
-                    b bVar = this.f24976c;
-                    aVar.onSettingUpdated(bVar != null ? bVar.a(context, this.f24975b) : this.f24975b);
+                    b bVar = this.f24984c;
+                    aVar.onSettingUpdated(bVar != null ? bVar.a(context, this.f24983b) : this.f24983b);
                 }
             }
         }
-        LogUtil.d("WebViewCacheManager", "updateSettings SUCCESS mSettings = " + this.f24975b.toString());
+        LogUtil.d("WebViewCacheManager", "updateSettings SUCCESS mSettings = " + this.f24983b.toString());
     }
 
     public void a(a aVar) {
         if (aVar != null) {
-            this.f24977d.add(new WeakReference<>(aVar));
+            this.f24985d.add(new WeakReference<>(aVar));
         }
     }
 

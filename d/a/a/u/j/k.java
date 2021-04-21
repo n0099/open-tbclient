@@ -5,22 +5,22 @@ import d.a.a.s.b.q;
 public class k implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f41714a;
+    public final String f41809a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f41715b;
+    public final int f41810b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.a.a.u.i.h f41716c;
+    public final d.a.a.u.i.h f41811c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f41717d;
+    public final boolean f41812d;
 
     public k(String str, int i, d.a.a.u.i.h hVar, boolean z) {
-        this.f41714a = str;
-        this.f41715b = i;
-        this.f41716c = hVar;
-        this.f41717d = z;
+        this.f41809a = str;
+        this.f41810b = i;
+        this.f41811c = hVar;
+        this.f41812d = z;
     }
 
     @Override // d.a.a.u.j.b
@@ -29,18 +29,18 @@ public class k implements b {
     }
 
     public String b() {
-        return this.f41714a;
+        return this.f41809a;
     }
 
     public d.a.a.u.i.h c() {
-        return this.f41716c;
+        return this.f41811c;
     }
 
     public boolean d() {
-        return this.f41717d;
+        return this.f41812d;
     }
 
     public String toString() {
-        return "ShapePath{name=" + this.f41714a + ", index=" + this.f41715b + '}';
+        return "ShapePath{name=" + this.f41809a + ", index=" + this.f41810b + '}';
     }
 }

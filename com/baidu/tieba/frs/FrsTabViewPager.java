@@ -13,25 +13,25 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f15762a;
+        public boolean f15770a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f15763b;
+        public boolean f15771b;
 
         public boolean a() {
-            return this.f15762a;
+            return this.f15770a;
         }
 
         public boolean b() {
-            return this.f15763b;
+            return this.f15771b;
         }
 
         public void c(boolean z) {
-            this.f15762a = z;
+            this.f15770a = z;
         }
 
         public void d(boolean z) {
-            this.f15763b = z;
+            this.f15771b = z;
         }
     }
 

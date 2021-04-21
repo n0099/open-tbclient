@@ -46,7 +46,7 @@ public class TimeDisplaySetting implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                d.j.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+                d.k.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -74,7 +74,7 @@ public class TimeDisplaySetting implements Parcelable {
             return timeDisplaySetting;
         }
         str = "no such tag time_display_setting";
-        d.j.a.a.a.b(TAG, str);
+        d.k.a.a.a.b(TAG, str);
         return timeDisplaySetting;
     }
 

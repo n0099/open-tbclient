@@ -10,61 +10,61 @@ import org.apache.http.message.BasicNameValuePair;
 public class d {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile d f42774c;
+    public static volatile d f43014c;
 
     /* renamed from: a  reason: collision with root package name */
-    public PluginNetConfigInfos f42775a = new PluginNetConfigInfos();
+    public PluginNetConfigInfos f43015a = new PluginNetConfigInfos();
 
     /* renamed from: b  reason: collision with root package name */
-    public b f42776b;
+    public b f43016b;
 
     /* loaded from: classes.dex */
     public class a implements d.b.c.h.j.f.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.b.c.h.j.f.a f42777a;
+        public final /* synthetic */ d.b.c.h.j.f.a f43017a;
 
         public a(d.b.c.h.j.f.a aVar) {
-            this.f42777a = aVar;
+            this.f43017a = aVar;
         }
 
         @Override // d.b.c.h.j.f.a
         public void a(boolean z, c cVar, PluginNetConfigInfos pluginNetConfigInfos, String str) {
             if (z) {
-                d.this.f42775a = pluginNetConfigInfos;
+                d.this.f43015a = pluginNetConfigInfos;
             }
-            d.b.c.h.j.f.a aVar = this.f42777a;
+            d.b.c.h.j.f.a aVar = this.f43017a;
             if (aVar != null) {
-                aVar.a(z, cVar, d.this.f42775a, str);
+                aVar.a(z, cVar, d.this.f43015a, str);
             }
         }
     }
 
     public static d c() {
-        if (f42774c == null) {
+        if (f43014c == null) {
             synchronized (d.class) {
-                if (f42774c == null) {
-                    f42774c = new d();
+                if (f43014c == null) {
+                    f43014c = new d();
                 }
             }
         }
-        return f42774c;
+        return f43014c;
     }
 
     public PluginNetConfigInfos d() {
-        return this.f42775a;
+        return this.f43015a;
     }
 
     public void e(PluginSettings pluginSettings, boolean z, d.b.c.h.j.f.a aVar) {
         c g2 = g(pluginSettings);
-        b bVar = this.f42776b;
+        b bVar = this.f43016b;
         if (bVar != null) {
             bVar.a(z, g2, new a(aVar));
         }
     }
 
     public void f(b bVar) {
-        this.f42776b = bVar;
+        this.f43016b = bVar;
     }
 
     public c g(PluginSettings pluginSettings) {

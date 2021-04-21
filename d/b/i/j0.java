@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThemeCardInUserData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import d.b.h0.r.q.a2;
+import d.b.i0.r.q.a2;
 /* loaded from: classes.dex */
 public class j0 extends c implements p<a2> {
     public TbPageContext i;
@@ -23,15 +23,15 @@ public class j0 extends c implements p<a2> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ThemeCardInUserData f52204e;
+        public final /* synthetic */ ThemeCardInUserData f50172e;
 
         public a(ThemeCardInUserData themeCardInUserData) {
-            this.f52204e = themeCardInUserData;
+            this.f50172e = themeCardInUserData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(j0.this.i.getPageActivity(), this.f52204e.getCardId())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(j0.this.i.getPageActivity(), this.f50172e.getCardId())));
         }
     }
 

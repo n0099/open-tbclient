@@ -5,21 +5,21 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f37522a = "1.0";
+    public String f37617a = "1.0";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37523b = "hls";
+    public String f37618b = "hls";
 
     /* renamed from: c  reason: collision with root package name */
-    public a f37524c;
+    public a f37619c;
 
     /* renamed from: d  reason: collision with root package name */
-    public transient String f37525d;
+    public transient String f37620d;
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<f> f37526a;
+        public List<f> f37621a;
     }
 }

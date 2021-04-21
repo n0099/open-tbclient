@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.DialogLoginHelper;
-import d.b.h0.r.q.r0;
+import d.b.i0.r.q.r0;
 /* loaded from: classes3.dex */
 public class LoginDialogActivityConfig extends IntentConfig {
     public static final String LOGIN_DIALOG_DATA_LOCATE = "login_dialog_data_locate";

@@ -24,7 +24,7 @@ import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.VideoPlayModel;
 import com.baidu.tieba.videoplay.VideoPlayView;
 import d.b.c.e.p.l;
-import d.b.i0.q3.g;
+import d.b.j0.q3.g;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
@@ -61,7 +61,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 return;
             }
             g gVar = (g) customResponsedMessage.getData();
-            List<VideoItemData> list = gVar.f60581a;
+            List<VideoItemData> list = gVar.f61002a;
             if (!ListUtils.isEmpty(list)) {
                 if (VideoPlayActivity.this.mVideoDataList == null) {
                     VideoPlayActivity.this.mVideoDataList = new ArrayList();
@@ -72,7 +72,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (VideoPlayActivity.this.mVideoPlayView != null) {
                 VideoPlayActivity.this.mVideoPlayView.y();
             }
-            VideoPlayActivity.this.mHasMore = gVar.f60582b;
+            VideoPlayActivity.this.mHasMore = gVar.f61003b;
         }
     }
 
@@ -285,8 +285,8 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (videoPlayView == null || !videoPlayView.r()) {
                 VideoPlayView videoPlayView2 = this.mVideoPlayView;
                 int i2 = videoPlayView2.i;
-                int i3 = videoPlayView2.f21681h;
-                if (i2 != i3 && i3 >= 0 && i3 < this.mVideoDataList.size() && (videoItemData = this.mVideoDataList.get(this.mVideoPlayView.f21681h)) != null && !StringUtils.isNull(videoItemData.thread_id)) {
+                int i3 = videoPlayView2.f21689h;
+                if (i2 != i3 && i3 >= 0 && i3 < this.mVideoDataList.size() && (videoItemData = this.mVideoDataList.get(this.mVideoPlayView.f21689h)) != null && !StringUtils.isNull(videoItemData.thread_id)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921321, videoItemData.thread_id));
                 }
                 finish();
@@ -313,12 +313,12 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         if (videoPlayView != null) {
             videoPlayView.B();
         }
-        d.b.h0.a.c.y().E();
+        d.b.i0.a.c.y().E();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        d.b.h0.a.c.y().P(d.b.h0.a.b.Z, getMissionTid());
+        d.b.i0.a.c.y().P(d.b.i0.a.b.Z, getMissionTid());
     }
 }

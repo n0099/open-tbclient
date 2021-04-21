@@ -3,7 +3,7 @@ package com.baidu.tbadk.template.base;
 import android.os.Bundle;
 import android.view.ViewGroup;
 import com.baidu.tbadk.BaseActivity;
-import d.b.h0.x0.a;
+import d.b.i0.x0.a;
 /* loaded from: classes3.dex */
 public abstract class BaseTemplatePageActivity extends BaseActivity {
     public a mPageLoader;

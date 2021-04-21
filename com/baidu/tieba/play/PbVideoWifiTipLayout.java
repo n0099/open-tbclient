@@ -15,16 +15,16 @@ import tbclient.VideoInfo;
 public class PbVideoWifiTipLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f20184e;
+    public TextView f20192e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f20185f;
+    public TextView f20193f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20186g;
+    public TextView f20194g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f20187h;
+    public TextView f20195h;
     public TextView i;
     public View.OnClickListener j;
 
@@ -35,7 +35,7 @@ public class PbVideoWifiTipLayout extends LinearLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.b.h0.l.a.u(true, PbVideoWifiTipLayout.this.getContext(), PbVideoWifiTipLayout.this.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
+            d.b.i0.l.a.u(true, PbVideoWifiTipLayout.this.getContext(), PbVideoWifiTipLayout.this.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
             if (PbVideoWifiTipLayout.this.j != null) {
                 PbVideoWifiTipLayout.this.j.onClick(view);
             }
@@ -49,10 +49,10 @@ public class PbVideoWifiTipLayout extends LinearLayout {
 
     public final void b() {
         LinearLayout.inflate(getContext(), R.layout.layout_video_wifi_tip, this);
-        this.f20184e = (TextView) findViewById(R.id.tv_video_duration);
-        this.f20185f = (TextView) findViewById(R.id.tv_video_data);
-        this.f20186g = (TextView) findViewById(R.id.tv_play);
-        this.f20187h = (TextView) findViewById(R.id.tv_divider);
+        this.f20192e = (TextView) findViewById(R.id.tv_video_duration);
+        this.f20193f = (TextView) findViewById(R.id.tv_video_data);
+        this.f20194g = (TextView) findViewById(R.id.tv_play);
+        this.f20195h = (TextView) findViewById(R.id.tv_divider);
         TextView textView = (TextView) findViewById(R.id.tv_open_free_data);
         this.i = textView;
         textView.setOnClickListener(new a());
@@ -63,7 +63,7 @@ public class PbVideoWifiTipLayout extends LinearLayout {
     }
 
     public TextView getTvPlay() {
-        return this.f20186g;
+        return this.f20194g;
     }
 
     public void setData(VideoInfo videoInfo) {
@@ -78,21 +78,21 @@ public class PbVideoWifiTipLayout extends LinearLayout {
     }
 
     public void setOnPlayClickListener(View.OnClickListener onClickListener) {
-        this.f20186g.setOnClickListener(onClickListener);
+        this.f20194g.setOnClickListener(onClickListener);
     }
 
     public void setData(int i, int i2) {
         if (i > 0) {
-            this.f20184e.setText(String.format(getResources().getString(R.string.pb_video_duration), StringHelper.stringForVideoTime(i * 1000)));
+            this.f20192e.setText(String.format(getResources().getString(R.string.pb_video_duration), StringHelper.stringForVideoTime(i * 1000)));
         } else {
-            this.f20184e.setVisibility(8);
-            this.f20187h.setVisibility(8);
+            this.f20192e.setVisibility(8);
+            this.f20195h.setVisibility(8);
         }
         if (i2 > 0) {
-            this.f20185f.setText(String.format(getResources().getString(R.string.pb_video_data), new DecimalFormat(XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT).format(i2 / 1048576.0f)));
+            this.f20193f.setText(String.format(getResources().getString(R.string.pb_video_data), new DecimalFormat(XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT).format(i2 / 1048576.0f)));
         } else {
-            this.f20185f.setVisibility(8);
-            this.f20187h.setVisibility(8);
+            this.f20193f.setVisibility(8);
+            this.f20195h.setVisibility(8);
         }
         this.i.setVisibility(0);
     }

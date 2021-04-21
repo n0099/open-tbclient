@@ -8,17 +8,17 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class CompletableSubject extends a implements b {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final CompletableDisposable[] f69113h = new CompletableDisposable[0];
+    public static final CompletableDisposable[] f69260h = new CompletableDisposable[0];
     public static final CompletableDisposable[] i = new CompletableDisposable[0];
 
     /* renamed from: g  reason: collision with root package name */
-    public Throwable f69116g;
+    public Throwable f69263g;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicBoolean f69115f = new AtomicBoolean();
+    public final AtomicBoolean f69262f = new AtomicBoolean();
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReference<CompletableDisposable[]> f69114e = new AtomicReference<>(f69113h);
+    public final AtomicReference<CompletableDisposable[]> f69261e = new AtomicReference<>(f69260h);
 
     /* loaded from: classes7.dex */
     public static final class CompletableDisposable extends AtomicReference<CompletableSubject> implements f.b.t.b {
@@ -55,7 +55,7 @@ public final class CompletableSubject extends a implements b {
             }
             return;
         }
-        Throwable th = this.f69116g;
+        Throwable th = this.f69263g;
         if (th != null) {
             bVar.onError(th);
         } else {
@@ -67,7 +67,7 @@ public final class CompletableSubject extends a implements b {
         CompletableDisposable[] completableDisposableArr;
         CompletableDisposable[] completableDisposableArr2;
         do {
-            completableDisposableArr = this.f69114e.get();
+            completableDisposableArr = this.f69261e.get();
             if (completableDisposableArr == i) {
                 return false;
             }
@@ -75,7 +75,7 @@ public final class CompletableSubject extends a implements b {
             completableDisposableArr2 = new CompletableDisposable[length + 1];
             System.arraycopy(completableDisposableArr, 0, completableDisposableArr2, 0, length);
             completableDisposableArr2[length] = completableDisposable;
-        } while (!this.f69114e.compareAndSet(completableDisposableArr, completableDisposableArr2));
+        } while (!this.f69261e.compareAndSet(completableDisposableArr, completableDisposableArr2));
         return true;
     }
 
@@ -83,7 +83,7 @@ public final class CompletableSubject extends a implements b {
         CompletableDisposable[] completableDisposableArr;
         CompletableDisposable[] completableDisposableArr2;
         do {
-            completableDisposableArr = this.f69114e.get();
+            completableDisposableArr = this.f69261e.get();
             int length = completableDisposableArr.length;
             if (length == 0) {
                 return;
@@ -104,20 +104,20 @@ public final class CompletableSubject extends a implements b {
                 return;
             }
             if (length == 1) {
-                completableDisposableArr2 = f69113h;
+                completableDisposableArr2 = f69260h;
             } else {
                 CompletableDisposable[] completableDisposableArr3 = new CompletableDisposable[length - 1];
                 System.arraycopy(completableDisposableArr, 0, completableDisposableArr3, 0, i2);
                 System.arraycopy(completableDisposableArr, i2 + 1, completableDisposableArr3, i2, (length - i2) - 1);
                 completableDisposableArr2 = completableDisposableArr3;
             }
-        } while (!this.f69114e.compareAndSet(completableDisposableArr, completableDisposableArr2));
+        } while (!this.f69261e.compareAndSet(completableDisposableArr, completableDisposableArr2));
     }
 
     @Override // f.b.b
     public void onComplete() {
-        if (this.f69115f.compareAndSet(false, true)) {
-            for (CompletableDisposable completableDisposable : this.f69114e.getAndSet(i)) {
+        if (this.f69262f.compareAndSet(false, true)) {
+            for (CompletableDisposable completableDisposable : this.f69261e.getAndSet(i)) {
                 completableDisposable.actual.onComplete();
             }
         }
@@ -126,9 +126,9 @@ public final class CompletableSubject extends a implements b {
     @Override // f.b.b
     public void onError(Throwable th) {
         f.b.x.b.a.b(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.f69115f.compareAndSet(false, true)) {
-            this.f69116g = th;
-            for (CompletableDisposable completableDisposable : this.f69114e.getAndSet(i)) {
+        if (this.f69262f.compareAndSet(false, true)) {
+            this.f69263g = th;
+            for (CompletableDisposable completableDisposable : this.f69261e.getAndSet(i)) {
                 completableDisposable.actual.onError(th);
             }
             return;
@@ -138,7 +138,7 @@ public final class CompletableSubject extends a implements b {
 
     @Override // f.b.b
     public void onSubscribe(f.b.t.b bVar) {
-        if (this.f69114e.get() == i) {
+        if (this.f69261e.get() == i) {
             bVar.dispose();
         }
     }

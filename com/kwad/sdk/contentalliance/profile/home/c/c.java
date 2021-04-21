@@ -12,26 +12,26 @@ import com.kwad.sdk.lib.desigin.KSCoordinatorLayout;
 public class c extends com.kwad.sdk.contentalliance.profile.home.b.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public KSAppBarLayout f33178b;
+    public KSAppBarLayout f33273b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewPager f33179c;
+    public ViewPager f33274c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.profile.home.a.a f33180d = new com.kwad.sdk.contentalliance.profile.home.a.a() { // from class: com.kwad.sdk.contentalliance.profile.home.c.c.1
+    public com.kwad.sdk.contentalliance.profile.home.a.a f33275d = new com.kwad.sdk.contentalliance.profile.home.a.a() { // from class: com.kwad.sdk.contentalliance.profile.home.c.c.1
         @Override // com.kwad.sdk.contentalliance.profile.home.a.a
         public void a(@NonNull UserProfile userProfile) {
-            c.this.f33178b.post(c.this.f33181e);
+            c.this.f33273b.post(c.this.f33276e);
         }
     };
 
     /* renamed from: e  reason: collision with root package name */
-    public Runnable f33181e = new Runnable() { // from class: com.kwad.sdk.contentalliance.profile.home.c.c.2
+    public Runnable f33276e = new Runnable() { // from class: com.kwad.sdk.contentalliance.profile.home.c.c.2
         @Override // java.lang.Runnable
         public void run() {
-            KSCoordinatorLayout.Behavior behavior = ((KSCoordinatorLayout.LayoutParams) c.this.f33178b.getLayoutParams()).getBehavior();
+            KSCoordinatorLayout.Behavior behavior = ((KSCoordinatorLayout.LayoutParams) c.this.f33273b.getLayoutParams()).getBehavior();
             if (behavior instanceof CustomReboundBehavior) {
-                ((CustomReboundBehavior) behavior).setScrollableSize((c.this.f33178b.getHeight() + c.this.f33179c.getHeight()) - ((ViewGroup) c.this.f33178b.getParent()).getHeight());
+                ((CustomReboundBehavior) behavior).setScrollableSize((c.this.f33273b.getHeight() + c.this.f33274c.getHeight()) - ((ViewGroup) c.this.f33273b.getParent()).getHeight());
             }
         }
     };
@@ -39,21 +39,21 @@ public class c extends com.kwad.sdk.contentalliance.profile.home.b.a {
     @Override // com.kwad.sdk.contentalliance.profile.home.b.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.contentalliance.profile.home.b.b bVar = ((com.kwad.sdk.contentalliance.profile.home.b.a) this).f33157a;
-        this.f33179c = bVar.f33160c;
-        bVar.f33163f.add(this.f33180d);
+        com.kwad.sdk.contentalliance.profile.home.b.b bVar = ((com.kwad.sdk.contentalliance.profile.home.b.a) this).f33252a;
+        this.f33274c = bVar.f33255c;
+        bVar.f33258f.add(this.f33275d);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f33178b.removeCallbacks(this.f33181e);
-        ((com.kwad.sdk.contentalliance.profile.home.b.a) this).f33157a.f33163f.remove(this.f33180d);
+        this.f33273b.removeCallbacks(this.f33276e);
+        ((com.kwad.sdk.contentalliance.profile.home.b.a) this).f33252a.f33258f.remove(this.f33275d);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f33178b = (KSAppBarLayout) b(R.id.ksad_profile_appbar);
+        this.f33273b = (KSAppBarLayout) b(R.id.ksad_profile_appbar);
     }
 }

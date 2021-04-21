@@ -7,35 +7,35 @@ import org.json.JSONObject;
 public class f2 extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f65838e;
+    public final Context f65933e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i f65839f;
+    public final i f65934f;
 
     public f2(Context context, i iVar) {
         super(true, false);
-        this.f65838e = context;
-        this.f65839f = iVar;
+        this.f65933e = context;
+        this.f65934f = iVar;
     }
 
     @Override // d.c.b.h2
     public boolean b(JSONObject jSONObject) {
-        if (!TextUtils.isEmpty(this.f65839f.i())) {
-            jSONObject.put("ab_client", this.f65839f.i());
+        if (!TextUtils.isEmpty(this.f65934f.i())) {
+            jSONObject.put("ab_client", this.f65934f.i());
         }
-        if (!TextUtils.isEmpty(this.f65839f.P())) {
-            if (r0.f65909b) {
-                r0.a("init config has abversion:" + this.f65839f.P(), null);
+        if (!TextUtils.isEmpty(this.f65934f.P())) {
+            if (r0.f66004b) {
+                r0.a("init config has abversion:" + this.f65934f.P(), null);
             }
-            jSONObject.put("ab_version", this.f65839f.P());
+            jSONObject.put("ab_version", this.f65934f.P());
         }
-        if (!TextUtils.isEmpty(this.f65839f.j())) {
-            jSONObject.put("ab_group", this.f65839f.j());
+        if (!TextUtils.isEmpty(this.f65934f.j())) {
+            jSONObject.put("ab_group", this.f65934f.j());
         }
-        if (TextUtils.isEmpty(this.f65839f.k())) {
+        if (TextUtils.isEmpty(this.f65934f.k())) {
             return true;
         }
-        jSONObject.put("ab_feature", this.f65839f.k());
+        jSONObject.put("ab_feature", this.f65934f.k());
         return true;
     }
 }

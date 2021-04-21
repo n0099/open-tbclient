@@ -151,7 +151,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
     private boolean isShowNewStyle() {
         int d2 = com.kwad.sdk.core.response.b.a.d(this.mAdInfo);
         int e2 = com.kwad.sdk.core.response.b.a.e(this.mAdInfo);
-        if (this.mCallerContext.f36510e == 1) {
+        if (this.mCallerContext.f36605e == 1) {
             if (d2 > e2) {
                 return false;
             }
@@ -215,18 +215,18 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
     @Override // com.kwad.sdk.core.e.a
     public com.kwad.sdk.reward.a onCreateCallerContext() {
         com.kwad.sdk.reward.a aVar = new com.kwad.sdk.reward.a();
-        aVar.f36512g = this.mContext;
-        aVar.f36507b = this.mAdOpenInteractionListener;
-        aVar.f36510e = this.mScreenOrientation;
+        aVar.f36607g = this.mContext;
+        aVar.f36602b = this.mAdOpenInteractionListener;
+        aVar.f36605e = this.mScreenOrientation;
         KsVideoPlayConfig ksVideoPlayConfig = this.mVideoPlayConfig;
-        aVar.f36508c = ksVideoPlayConfig;
-        aVar.f36509d = this.mReportExtData;
-        aVar.f36513h = this.mRootContainer;
+        aVar.f36603c = ksVideoPlayConfig;
+        aVar.f36604d = this.mReportExtData;
+        aVar.f36608h = this.mRootContainer;
         AdTemplate adTemplate = this.mAdTemplate;
-        aVar.f36511f = adTemplate;
+        aVar.f36606f = adTemplate;
         com.kwad.sdk.reward.c.a aVar2 = new com.kwad.sdk.reward.c.a(adTemplate, this.mDetailVideoView, ksVideoPlayConfig);
         aVar.i = aVar2;
-        aVar.f36506a.add(aVar2);
+        aVar.f36601a.add(aVar2);
         if (com.kwad.sdk.core.response.b.a.y(this.mAdInfo)) {
             aVar.j = new com.kwad.sdk.core.download.b.b(this.mAdTemplate, this.mReportExtData);
         }

@@ -3,7 +3,7 @@ package com.facebook.imageformat;
 import com.facebook.common.internal.ImmutableList;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class DefaultImageFormats {
     public static ImmutableList<ImageFormat> sAllDefaultFormats;
     public static final ImageFormat JPEG = new ImageFormat("JPEG", "jpeg");

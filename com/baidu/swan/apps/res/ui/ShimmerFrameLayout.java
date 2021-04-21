@@ -17,22 +17,22 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
-import d.b.g0.a.j;
-/* loaded from: classes2.dex */
+import d.b.h0.a.j;
+/* loaded from: classes3.dex */
 public class ShimmerFrameLayout extends FrameLayout {
     public static final PorterDuffXfermode v = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f12137e;
+    public Paint f12145e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f12138f;
+    public Paint f12146f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d f12139g;
+    public d f12147g;
 
     /* renamed from: h  reason: collision with root package name */
-    public e f12140h;
+    public e f12148h;
     public Bitmap i;
     public Bitmap j;
     public boolean k;
@@ -47,7 +47,7 @@ public class ShimmerFrameLayout extends FrameLayout {
     public ValueAnimator t;
     public Bitmap u;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum MaskAngle {
         CW_0,
         CW_90,
@@ -55,14 +55,14 @@ public class ShimmerFrameLayout extends FrameLayout {
         CW_270
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum MaskShape {
         LINEAR,
         RADIAL,
         WHITE_LINEAR
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public a() {
         }
@@ -77,7 +77,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public b() {
         }
@@ -87,105 +87,105 @@ public class ShimmerFrameLayout extends FrameLayout {
             float max = Math.max(0.0f, Math.min(1.0f, ((Float) valueAnimator.getAnimatedValue()).floatValue()));
             ShimmerFrameLayout shimmerFrameLayout = ShimmerFrameLayout.this;
             float f2 = 1.0f - max;
-            shimmerFrameLayout.setMaskOffsetX((int) ((shimmerFrameLayout.f12140h.f12153a * f2) + (ShimmerFrameLayout.this.f12140h.f12155c * max)));
+            shimmerFrameLayout.setMaskOffsetX((int) ((shimmerFrameLayout.f12148h.f12161a * f2) + (ShimmerFrameLayout.this.f12148h.f12163c * max)));
             ShimmerFrameLayout shimmerFrameLayout2 = ShimmerFrameLayout.this;
-            shimmerFrameLayout2.setMaskOffsetY((int) ((shimmerFrameLayout2.f12140h.f12154b * f2) + (ShimmerFrameLayout.this.f12140h.f12156d * max)));
+            shimmerFrameLayout2.setMaskOffsetY((int) ((shimmerFrameLayout2.f12148h.f12162b * f2) + (ShimmerFrameLayout.this.f12148h.f12164d * max)));
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f12143a;
+        public static final /* synthetic */ int[] f12151a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f12144b;
+        public static final /* synthetic */ int[] f12152b;
 
         static {
             int[] iArr = new int[MaskAngle.values().length];
-            f12144b = iArr;
+            f12152b = iArr;
             try {
                 iArr[MaskAngle.CW_0.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f12144b[MaskAngle.CW_90.ordinal()] = 2;
+                f12152b[MaskAngle.CW_90.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f12144b[MaskAngle.CW_180.ordinal()] = 3;
+                f12152b[MaskAngle.CW_180.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f12144b[MaskAngle.CW_270.ordinal()] = 4;
+                f12152b[MaskAngle.CW_270.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             int[] iArr2 = new int[MaskShape.values().length];
-            f12143a = iArr2;
+            f12151a = iArr2;
             try {
                 iArr2[MaskShape.LINEAR.ordinal()] = 1;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f12143a[MaskShape.RADIAL.ordinal()] = 2;
+                f12151a[MaskShape.RADIAL.ordinal()] = 2;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f12143a[MaskShape.WHITE_LINEAR.ordinal()] = 3;
+                f12151a[MaskShape.WHITE_LINEAR.ordinal()] = 3;
             } catch (NoSuchFieldError unused7) {
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public MaskAngle f12145a;
+        public MaskAngle f12153a;
 
         /* renamed from: b  reason: collision with root package name */
-        public float f12146b;
+        public float f12154b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f12147c;
+        public float f12155c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f12148d;
+        public int f12156d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f12149e;
+        public int f12157e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f12150f;
+        public float f12158f;
 
         /* renamed from: g  reason: collision with root package name */
-        public float f12151g;
+        public float f12159g;
 
         /* renamed from: h  reason: collision with root package name */
-        public float f12152h;
+        public float f12160h;
         public MaskShape i;
 
         public d() {
         }
 
         public int[] a() {
-            int i = c.f12143a[this.i.ordinal()];
+            int i = c.f12151a[this.i.ordinal()];
             return i != 2 ? i != 3 ? new int[]{0, -16777216, -16777216, 0} : new int[]{-16777216, 0, 0, -16777216} : new int[]{-16777216, -16777216, 0};
         }
 
         public float[] b() {
-            return c.f12143a[this.i.ordinal()] != 2 ? new float[]{Math.max(((1.0f - this.f12150f) - this.f12147c) / 2.0f, 0.0f), Math.max((1.0f - this.f12150f) / 2.0f, 0.0f), Math.min((this.f12150f + 1.0f) / 2.0f, 1.0f), Math.min(((this.f12150f + 1.0f) + this.f12147c) / 2.0f, 1.0f)} : new float[]{0.0f, Math.min(this.f12150f, 1.0f), Math.min(this.f12150f + this.f12147c, 1.0f)};
+            return c.f12151a[this.i.ordinal()] != 2 ? new float[]{Math.max(((1.0f - this.f12158f) - this.f12155c) / 2.0f, 0.0f), Math.max((1.0f - this.f12158f) / 2.0f, 0.0f), Math.min((this.f12158f + 1.0f) / 2.0f, 1.0f), Math.min(((this.f12158f + 1.0f) + this.f12155c) / 2.0f, 1.0f)} : new float[]{0.0f, Math.min(this.f12158f, 1.0f), Math.min(this.f12158f + this.f12155c, 1.0f)};
         }
 
         public int c(int i) {
-            int i2 = this.f12149e;
-            return i2 > 0 ? i2 : (int) (i * this.f12152h);
+            int i2 = this.f12157e;
+            return i2 > 0 ? i2 : (int) (i * this.f12160h);
         }
 
         public int d(int i) {
-            int i2 = this.f12148d;
-            return i2 > 0 ? i2 : (int) (i * this.f12151g);
+            int i2 = this.f12156d;
+            return i2 > 0 ? i2 : (int) (i * this.f12159g);
         }
 
         public /* synthetic */ d(a aVar) {
@@ -193,29 +193,29 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f12153a;
+        public int f12161a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f12154b;
+        public int f12162b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f12155c;
+        public int f12163c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f12156d;
+        public int f12164d;
 
         public e() {
         }
 
         public void a(int i, int i2, int i3, int i4) {
-            this.f12153a = i;
-            this.f12154b = i2;
-            this.f12155c = i3;
-            this.f12156d = i4;
+            this.f12161a = i;
+            this.f12162b = i2;
+            this.f12163c = i3;
+            this.f12164d = i4;
         }
 
         public /* synthetic */ e(a aVar) {
@@ -245,12 +245,12 @@ public class ShimmerFrameLayout extends FrameLayout {
         if (bitmap != null) {
             return bitmap;
         }
-        int d2 = this.f12139g.d(getWidth());
-        int c2 = this.f12139g.c(getHeight());
+        int d2 = this.f12147g.d(getWidth());
+        int c2 = this.f12147g.c(getHeight());
         this.u = h(d2, c2);
         Canvas canvas = new Canvas(this.u);
-        if (c.f12143a[this.f12139g.i.ordinal()] != 2) {
-            int i4 = c.f12144b[this.f12139g.f12145a.ordinal()];
+        if (c.f12151a[this.f12147g.i.ordinal()] != 2) {
+            int i4 = c.f12152b[this.f12147g.f12153a.ordinal()];
             int i5 = 0;
             if (i4 != 2) {
                 if (i4 == 3) {
@@ -270,11 +270,11 @@ public class ShimmerFrameLayout extends FrameLayout {
                 i2 = 0;
                 i3 = 0;
             }
-            radialGradient = new LinearGradient(i5, i2, i3, i, this.f12139g.a(), this.f12139g.b(), Shader.TileMode.REPEAT);
+            radialGradient = new LinearGradient(i5, i2, i3, i, this.f12147g.a(), this.f12147g.b(), Shader.TileMode.REPEAT);
         } else {
-            radialGradient = new RadialGradient(d2 / 2, c2 / 2, (float) (Math.max(d2, c2) / Math.sqrt(2.0d)), this.f12139g.a(), this.f12139g.b(), Shader.TileMode.REPEAT);
+            radialGradient = new RadialGradient(d2 / 2, c2 / 2, (float) (Math.max(d2, c2) / Math.sqrt(2.0d)), this.f12147g.a(), this.f12147g.b(), Shader.TileMode.REPEAT);
         }
-        canvas.rotate(this.f12139g.f12146b, d2 / 2, c2 / 2);
+        canvas.rotate(this.f12147g.f12154b, d2 / 2, c2 / 2);
         Paint paint = new Paint();
         paint.setShader(radialGradient);
         float f2 = -(((int) (Math.sqrt(2.0d) * Math.max(d2, c2))) / 2);
@@ -289,16 +289,16 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
         int width = getWidth();
         int height = getHeight();
-        int i = c.f12143a[this.f12139g.i.ordinal()];
-        int i2 = c.f12144b[this.f12139g.f12145a.ordinal()];
+        int i = c.f12151a[this.f12147g.i.ordinal()];
+        int i2 = c.f12152b[this.f12147g.f12153a.ordinal()];
         if (i2 == 2) {
-            this.f12140h.a(0, -height, 0, height);
+            this.f12148h.a(0, -height, 0, height);
         } else if (i2 == 3) {
-            this.f12140h.a(width, 0, -width, 0);
+            this.f12148h.a(width, 0, -width, 0);
         } else if (i2 != 4) {
-            this.f12140h.a(-width, 0, width, 0);
+            this.f12148h.a(-width, 0, width, 0);
         } else {
-            this.f12140h.a(0, height, 0, -height);
+            this.f12148h.a(0, height, 0, -height);
         }
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, (this.n / this.l) + 1.0f);
         this.t = ofFloat;
@@ -346,15 +346,15 @@ public class ShimmerFrameLayout extends FrameLayout {
     }
 
     public MaskAngle getAngle() {
-        return this.f12139g.f12145a;
+        return this.f12147g.f12153a;
     }
 
     public float getBaseAlpha() {
-        return this.f12137e.getAlpha() / 255.0f;
+        return this.f12145e.getAlpha() / 255.0f;
     }
 
     public float getDropoff() {
-        return this.f12139g.f12147c;
+        return this.f12147g.f12155c;
     }
 
     public int getDuration() {
@@ -362,27 +362,27 @@ public class ShimmerFrameLayout extends FrameLayout {
     }
 
     public int getFixedHeight() {
-        return this.f12139g.f12149e;
+        return this.f12147g.f12157e;
     }
 
     public int getFixedWidth() {
-        return this.f12139g.f12148d;
+        return this.f12147g.f12156d;
     }
 
     public float getIntensity() {
-        return this.f12139g.f12150f;
+        return this.f12147g.f12158f;
     }
 
     public MaskShape getMaskShape() {
-        return this.f12139g.i;
+        return this.f12147g.i;
     }
 
     public float getRelativeHeight() {
-        return this.f12139g.f12152h;
+        return this.f12147g.f12160h;
     }
 
     public float getRelativeWidth() {
-        return this.f12139g.f12151g;
+        return this.f12147g.f12159g;
     }
 
     public int getRepeatCount() {
@@ -398,7 +398,7 @@ public class ShimmerFrameLayout extends FrameLayout {
     }
 
     public float getTilt() {
-        return this.f12139g.f12146b;
+        return this.f12147g.f12154b;
     }
 
     public final boolean i(Canvas canvas) {
@@ -408,7 +408,7 @@ public class ShimmerFrameLayout extends FrameLayout {
             return false;
         }
         k(new Canvas(s));
-        canvas.drawBitmap(s, 0.0f, 0.0f, this.f12137e);
+        canvas.drawBitmap(s, 0.0f, 0.0f, this.f12145e);
         j(new Canvas(r));
         canvas.drawBitmap(r, 0.0f, 0.0f, (Paint) null);
         return true;
@@ -423,7 +423,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         canvas.clipRect(i, this.q, maskBitmap.getWidth() + i, this.q + maskBitmap.getHeight());
         canvas.drawColor(0, PorterDuff.Mode.CLEAR);
         super.dispatchDraw(canvas);
-        canvas.drawBitmap(maskBitmap, this.p, this.q, this.f12138f);
+        canvas.drawBitmap(maskBitmap, this.p, this.q, this.f12146f);
     }
 
     public final void k(Canvas canvas) {
@@ -535,7 +535,7 @@ public class ShimmerFrameLayout extends FrameLayout {
     }
 
     public void setAngle(MaskAngle maskAngle) {
-        this.f12139g.f12145a = maskAngle;
+        this.f12147g.f12153a = maskAngle;
         l();
     }
 
@@ -545,12 +545,12 @@ public class ShimmerFrameLayout extends FrameLayout {
     }
 
     public void setBaseAlpha(float f2) {
-        this.f12137e.setAlpha((int) (g(0.0f, 1.0f, f2) * 255.0f));
+        this.f12145e.setAlpha((int) (g(0.0f, 1.0f, f2) * 255.0f));
         l();
     }
 
     public void setDropoff(float f2) {
-        this.f12139g.f12147c = f2;
+        this.f12147g.f12155c = f2;
         l();
     }
 
@@ -560,32 +560,32 @@ public class ShimmerFrameLayout extends FrameLayout {
     }
 
     public void setFixedHeight(int i) {
-        this.f12139g.f12149e = i;
+        this.f12147g.f12157e = i;
         l();
     }
 
     public void setFixedWidth(int i) {
-        this.f12139g.f12148d = i;
+        this.f12147g.f12156d = i;
         l();
     }
 
     public void setIntensity(float f2) {
-        this.f12139g.f12150f = f2;
+        this.f12147g.f12158f = f2;
         l();
     }
 
     public void setMaskShape(MaskShape maskShape) {
-        this.f12139g.i = maskShape;
+        this.f12147g.i = maskShape;
         l();
     }
 
     public void setRelativeHeight(int i) {
-        this.f12139g.f12152h = i;
+        this.f12147g.f12160h = i;
         l();
     }
 
     public void setRelativeWidth(int i) {
-        this.f12139g.f12151g = i;
+        this.f12147g.f12159g = i;
         l();
     }
 
@@ -605,7 +605,7 @@ public class ShimmerFrameLayout extends FrameLayout {
     }
 
     public void setTilt(float f2) {
-        this.f12139g.f12146b = f2;
+        this.f12147g.f12154b = f2;
         l();
     }
 
@@ -614,17 +614,17 @@ public class ShimmerFrameLayout extends FrameLayout {
         setRepeatCount(-1);
         setRepeatDelay(0);
         setRepeatMode(1);
-        d dVar = this.f12139g;
-        dVar.f12145a = MaskAngle.CW_0;
+        d dVar = this.f12147g;
+        dVar.f12153a = MaskAngle.CW_0;
         dVar.i = MaskShape.LINEAR;
-        dVar.f12147c = 0.5f;
-        dVar.f12148d = 0;
-        dVar.f12149e = 0;
-        dVar.f12150f = 0.0f;
-        dVar.f12151g = 1.0f;
-        dVar.f12152h = 1.0f;
-        dVar.f12146b = 340.0f;
-        this.f12140h = new e(null);
+        dVar.f12155c = 0.5f;
+        dVar.f12156d = 0;
+        dVar.f12157e = 0;
+        dVar.f12158f = 0.0f;
+        dVar.f12159g = 1.0f;
+        dVar.f12160h = 1.0f;
+        dVar.f12154b = 340.0f;
+        this.f12148h = new e(null);
         setBaseAlpha(1.0f);
         l();
     }
@@ -636,14 +636,14 @@ public class ShimmerFrameLayout extends FrameLayout {
     public ShimmerFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         setWillNotDraw(false);
-        this.f12139g = new d(null);
-        this.f12137e = new Paint();
+        this.f12147g = new d(null);
+        this.f12145e = new Paint();
         Paint paint = new Paint();
-        this.f12138f = paint;
+        this.f12146f = paint;
         paint.setAntiAlias(true);
-        this.f12138f.setDither(true);
-        this.f12138f.setFilterBitmap(true);
-        this.f12138f.setXfermode(v);
+        this.f12146f.setDither(true);
+        this.f12146f.setFilterBitmap(true);
+        this.f12146f.setXfermode(v);
         t();
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, j.ShimmerFrameLayout, 0, 0);
@@ -669,42 +669,42 @@ public class ShimmerFrameLayout extends FrameLayout {
                 if (obtainStyledAttributes.hasValue(j.ShimmerFrameLayout_angle)) {
                     int i2 = obtainStyledAttributes.getInt(j.ShimmerFrameLayout_angle, 0);
                     if (i2 == 90) {
-                        this.f12139g.f12145a = MaskAngle.CW_90;
+                        this.f12147g.f12153a = MaskAngle.CW_90;
                     } else if (i2 == 180) {
-                        this.f12139g.f12145a = MaskAngle.CW_180;
+                        this.f12147g.f12153a = MaskAngle.CW_180;
                     } else if (i2 != 270) {
-                        this.f12139g.f12145a = MaskAngle.CW_0;
+                        this.f12147g.f12153a = MaskAngle.CW_0;
                     } else {
-                        this.f12139g.f12145a = MaskAngle.CW_270;
+                        this.f12147g.f12153a = MaskAngle.CW_270;
                     }
                 }
                 if (obtainStyledAttributes.hasValue(j.ShimmerFrameLayout_shimmer_shape)) {
                     if (obtainStyledAttributes.getInt(j.ShimmerFrameLayout_shimmer_shape, 0) != 1) {
-                        this.f12139g.i = MaskShape.LINEAR;
+                        this.f12147g.i = MaskShape.LINEAR;
                     } else {
-                        this.f12139g.i = MaskShape.RADIAL;
+                        this.f12147g.i = MaskShape.RADIAL;
                     }
                 }
                 if (obtainStyledAttributes.hasValue(j.ShimmerFrameLayout_dropoff)) {
-                    this.f12139g.f12147c = obtainStyledAttributes.getFloat(j.ShimmerFrameLayout_dropoff, 0.0f);
+                    this.f12147g.f12155c = obtainStyledAttributes.getFloat(j.ShimmerFrameLayout_dropoff, 0.0f);
                 }
                 if (obtainStyledAttributes.hasValue(j.ShimmerFrameLayout_fixed_width)) {
-                    this.f12139g.f12148d = obtainStyledAttributes.getDimensionPixelSize(j.ShimmerFrameLayout_fixed_width, 0);
+                    this.f12147g.f12156d = obtainStyledAttributes.getDimensionPixelSize(j.ShimmerFrameLayout_fixed_width, 0);
                 }
                 if (obtainStyledAttributes.hasValue(j.ShimmerFrameLayout_fixed_height)) {
-                    this.f12139g.f12149e = obtainStyledAttributes.getDimensionPixelSize(j.ShimmerFrameLayout_fixed_height, 0);
+                    this.f12147g.f12157e = obtainStyledAttributes.getDimensionPixelSize(j.ShimmerFrameLayout_fixed_height, 0);
                 }
                 if (obtainStyledAttributes.hasValue(j.ShimmerFrameLayout_intensity)) {
-                    this.f12139g.f12150f = obtainStyledAttributes.getFloat(j.ShimmerFrameLayout_intensity, 0.0f);
+                    this.f12147g.f12158f = obtainStyledAttributes.getFloat(j.ShimmerFrameLayout_intensity, 0.0f);
                 }
                 if (obtainStyledAttributes.hasValue(j.ShimmerFrameLayout_relative_width)) {
-                    this.f12139g.f12151g = obtainStyledAttributes.getFloat(j.ShimmerFrameLayout_relative_width, 0.0f);
+                    this.f12147g.f12159g = obtainStyledAttributes.getFloat(j.ShimmerFrameLayout_relative_width, 0.0f);
                 }
                 if (obtainStyledAttributes.hasValue(j.ShimmerFrameLayout_relative_height)) {
-                    this.f12139g.f12152h = obtainStyledAttributes.getFloat(j.ShimmerFrameLayout_relative_height, 0.0f);
+                    this.f12147g.f12160h = obtainStyledAttributes.getFloat(j.ShimmerFrameLayout_relative_height, 0.0f);
                 }
                 if (obtainStyledAttributes.hasValue(j.ShimmerFrameLayout_tilt)) {
-                    this.f12139g.f12146b = obtainStyledAttributes.getFloat(j.ShimmerFrameLayout_tilt, 0.0f);
+                    this.f12147g.f12154b = obtainStyledAttributes.getFloat(j.ShimmerFrameLayout_tilt, 0.0f);
                 }
             } finally {
                 obtainStyledAttributes.recycle();

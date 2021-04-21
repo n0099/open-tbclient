@@ -15,7 +15,7 @@ public class b extends c<HttpMessage, HttpMessageTask, d.b.c.c.f.d, HttpResponse
         super(messageManager);
         this.i = null;
         this.i = new HttpClient(messageManager);
-        this.f42054e = d.b.c.c.j.b.d();
+        this.f42294e = d.b.c.c.j.b.d();
     }
 
     @Override // d.b.c.c.b
@@ -54,7 +54,7 @@ public class b extends c<HttpMessage, HttpMessageTask, d.b.c.c.f.d, HttpResponse
     /* renamed from: y */
     public void f(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         if (httpMessageTask.getConnectTimeOut() == null) {
-            httpMessageTask.setConnectTimeOut(((d.b.c.c.j.b) this.f42054e).c());
+            httpMessageTask.setConnectTimeOut(((d.b.c.c.j.b) this.f42294e).c());
         }
         this.i.f(httpMessage, httpMessageTask);
     }

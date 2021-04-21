@@ -3,11 +3,11 @@ package g.c.i;
 import java.util.Iterator;
 /* loaded from: classes7.dex */
 public interface f {
-    boolean c(String str);
+    boolean b(String str);
 
-    Iterator<String> e();
+    Iterator<String> d();
 
     byte[] getContent();
 
-    String i(String str);
+    String h(String str);
 }

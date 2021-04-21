@@ -13,21 +13,21 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
-import d.b.i0.c1.c.i;
+import d.b.j0.c1.c.i;
 /* loaded from: classes4.dex */
 public class HotTopicPkView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f17315e;
+    public int f17323e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f17316f;
+    public int f17324f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f17317g;
+    public int f17325g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f17318h;
+    public int f17326h;
     public int i;
     public int j;
     public Drawable k;
@@ -75,25 +75,25 @@ public class HotTopicPkView extends View {
         int i;
         int i2;
         i iVar = this.u;
-        if (iVar.f53522h == 0 && iVar.j == 0) {
-            this.i = (int) ((this.f17318h * 0.5d) + this.n + 50.0d);
+        if (iVar.f53943h == 0 && iVar.j == 0) {
+            this.i = (int) ((this.f17326h * 0.5d) + this.n + 50.0d);
         } else {
             i iVar2 = this.u;
-            long j = iVar2.f53522h;
-            this.i = (int) (((((float) j) / ((float) (j + iVar2.j))) * this.f17318h) + this.n + 50.0f);
+            long j = iVar2.f53943h;
+            this.i = (int) (((((float) j) / ((float) (j + iVar2.j))) * this.f17326h) + this.n + 50.0f);
         }
         if (this.u.k == 2) {
             this.t.setColor(SkinManager.getColor(R.color.topic_pk_agree_disable));
         } else {
             this.t.setColor(SkinManager.getColor(R.color.CAM_X0308));
         }
-        canvas.drawRect(this.n / 2.0f, this.j, this.i, this.f17315e - i, this.t);
+        canvas.drawRect(this.n / 2.0f, this.j, this.i, this.f17323e - i, this.t);
         if (this.u.k == 1) {
             this.t.setColor(SkinManager.getColor(R.color.topic_pk_oppose_disable));
         } else {
             this.t.setColor(SkinManager.getColor(R.color.CAM_X0302));
         }
-        canvas.drawRect(this.i, this.j, this.f17317g - (this.n / 2.0f), this.f17315e - i2, this.t);
+        canvas.drawRect(this.i, this.j, this.f17325g - (this.n / 2.0f), this.f17323e - i2, this.t);
     }
 
     public final void c(Canvas canvas) {
@@ -128,7 +128,7 @@ public class HotTopicPkView extends View {
         this.k.setBounds(0, 0, this.n, this.o);
         this.k.draw(canvas);
         Drawable drawable = this.l;
-        int i = this.f17317g;
+        int i = this.f17325g;
         drawable.setBounds(i - this.n, 0, i, this.o);
         this.l.draw(canvas);
     }
@@ -141,13 +141,13 @@ public class HotTopicPkView extends View {
         } else {
             this.t.setColor(SkinManager.getColor(R.color.CAM_X0308));
         }
-        canvas.drawText(StringHelper.numberUniformFormat(this.u.f53522h), this.n, this.f17315e + dimensionPixelSize, this.t);
+        canvas.drawText(StringHelper.numberUniformFormat(this.u.f53943h), this.n, this.f17323e + dimensionPixelSize, this.t);
         if (this.u.k == 1) {
             this.t.setColor(SkinManager.getColor(R.color.topic_pk_oppose_disable));
         } else {
             this.t.setColor(SkinManager.getColor(R.color.CAM_X0302));
         }
-        canvas.drawText(StringHelper.numberUniformFormat(this.u.j), (this.f17317g - this.n) - ((int) this.t.measureText(StringHelper.numberUniformFormat(this.u.j))), this.f17315e + dimensionPixelSize, this.t);
+        canvas.drawText(StringHelper.numberUniformFormat(this.u.j), (this.f17325g - this.n) - ((int) this.t.measureText(StringHelper.numberUniformFormat(this.u.j))), this.f17323e + dimensionPixelSize, this.t);
     }
 
     public final void f(Context context) {
@@ -156,7 +156,7 @@ public class HotTopicPkView extends View {
         paint.setAntiAlias(true);
         this.t.setDither(true);
         this.t.setFilterBitmap(true);
-        this.f17316f = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds30);
+        this.f17324f = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds30);
         g();
         this.m = SkinManager.getDrawable(R.drawable.icon_pic_vs);
         this.n = this.k.getIntrinsicWidth();
@@ -199,14 +199,14 @@ public class HotTopicPkView extends View {
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        this.f17315e = this.o;
+        this.f17323e = this.o;
         int size = View.MeasureSpec.getSize(i);
-        this.f17317g = size;
-        setMeasuredDimension(size, this.f17315e + this.f17316f);
-        this.f17318h = (this.f17317g - (this.n * 2)) - 100;
+        this.f17325g = size;
+        setMeasuredDimension(size, this.f17323e + this.f17324f);
+        this.f17326h = (this.f17325g - (this.n * 2)) - 100;
         if (this.s == null) {
-            int i3 = this.f17317g;
-            this.s = new RectF(i3 - this.n, 0.0f, i3, this.f17315e);
+            int i3 = this.f17325g;
+            this.s = new RectF(i3 - this.n, 0.0f, i3, this.f17323e);
         }
     }
 
@@ -220,7 +220,7 @@ public class HotTopicPkView extends View {
         }
         if (this.r.contains(motionEvent.getX(), motionEvent.getY())) {
             i iVar = this.u;
-            iVar.f53522h++;
+            iVar.f53943h++;
             iVar.k = 1;
         } else if (this.s.contains(motionEvent.getX(), motionEvent.getY())) {
             i iVar2 = this.u;
@@ -230,7 +230,7 @@ public class HotTopicPkView extends View {
         g();
         i iVar3 = this.u;
         if (iVar3.k != 0) {
-            if (iVar3.f53522h + iVar3.j > 50) {
+            if (iVar3.f53943h + iVar3.j > 50) {
                 this.w = true;
                 new Thread(new a()).start();
             } else {

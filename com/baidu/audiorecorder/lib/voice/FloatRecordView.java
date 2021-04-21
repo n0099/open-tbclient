@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.tieba.R;
-import d.b.i0.e1.f.b;
+import d.b.j0.e1.f.b;
 /* loaded from: classes.dex */
 public class FloatRecordView implements b {
 
@@ -42,12 +42,12 @@ public class FloatRecordView implements b {
         return this.f4271f;
     }
 
-    @Override // d.b.i0.e1.f.b
+    @Override // d.b.j0.e1.f.b
     public void closeRecordCancel() {
         this.f4273h.setVisibility(8);
     }
 
-    @Override // d.b.i0.e1.f.b
+    @Override // d.b.j0.e1.f.b
     public void closeRecordTooShort() {
         this.f4272g.setVisibility(8);
     }
@@ -119,17 +119,17 @@ public class FloatRecordView implements b {
     public void onStopingRecorder() {
     }
 
-    @Override // d.b.i0.e1.f.b
+    @Override // d.b.j0.e1.f.b
     public void showRecordCancel() {
         this.f4273h.setVisibility(0);
     }
 
-    @Override // d.b.i0.e1.f.b
+    @Override // d.b.j0.e1.f.b
     public void startRecordVoice() {
         this.f4271f.setVisibility(0);
     }
 
-    @Override // d.b.i0.e1.f.b
+    @Override // d.b.j0.e1.f.b
     public void stopRecordVoice() {
         this.f4271f.setVisibility(8);
     }

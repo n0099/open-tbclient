@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.RawLayout;
 import com.baidu.tieba.R;
 import d.b.c.e.p.l;
-import d.b.h0.w.h;
-import d.b.h0.w.m;
-import d.b.h0.w.n;
+import d.b.i0.w.h;
+import d.b.i0.w.m;
+import d.b.i0.w.n;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -38,16 +38,16 @@ public class EditorBar extends RawLayout {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public n f13499a;
+        public n f13507a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f13500b;
+        public int f13508b;
 
         public a(n nVar, int i, boolean z) {
-            this.f13499a = null;
-            this.f13500b = 0;
-            this.f13499a = nVar;
-            this.f13500b = i;
+            this.f13507a = null;
+            this.f13508b = 0;
+            this.f13507a = nVar;
+            this.f13508b = i;
         }
     }
 
@@ -195,7 +195,7 @@ public class EditorBar extends RawLayout {
         RawLayout.LayoutParams layoutParams;
         int i;
         for (a aVar : this.n) {
-            View view = (View) aVar.f13499a;
+            View view = (View) aVar.f13507a;
             ViewGroup.LayoutParams layoutParams2 = view.getLayoutParams();
             if (layoutParams2 == null) {
                 layoutParams = new RawLayout.LayoutParams(-1, -2, 19);
@@ -205,10 +205,10 @@ public class EditorBar extends RawLayout {
                 layoutParams = new RawLayout.LayoutParams(view.getLayoutParams());
                 ((LinearLayout.LayoutParams) layoutParams).gravity = 19;
             }
-            if (z && aVar.f13500b == 1) {
+            if (z && aVar.f13508b == 1) {
                 layoutParams.a(2);
                 addView(view, layoutParams);
-            } else if (!z && (i = aVar.f13500b) != 1) {
+            } else if (!z && (i = aVar.f13508b) != 1) {
                 if (i == 2) {
                     layoutParams.a(2);
                 } else if (i == 3) {
@@ -242,7 +242,7 @@ public class EditorBar extends RawLayout {
             for (h hVar2 : this.m) {
                 if (hVar2 instanceof View) {
                     View view = (View) hVar2;
-                    if (hVar2.getToolId() == mVar.f51950c && mVar.i) {
+                    if (hVar2.getToolId() == mVar.f52286c && mVar.i) {
                         view.setSelected(true);
                     } else {
                         view.setSelected(false);
@@ -258,12 +258,12 @@ public class EditorBar extends RawLayout {
                 }
                 return;
             }
-            int i2 = mVar.f51950c;
+            int i2 = mVar.f52286c;
             if (i2 == 5 || i2 == 2 || i2 == 6) {
                 for (h hVar4 : this.m) {
                     if (hVar4 instanceof View) {
                         View view2 = (View) hVar4;
-                        if (hVar4.getToolId() == mVar.f51950c && mVar.i) {
+                        if (hVar4.getToolId() == mVar.f52286c && mVar.i) {
                             view2.setSelected(true);
                         } else {
                             view2.setSelected(false);
@@ -277,14 +277,14 @@ public class EditorBar extends RawLayout {
     public void o(int i) {
         EditorTools editorTools;
         if (i == 2 && u() && (editorTools = this.u) != null) {
-            editorTools.A(new d.b.h0.w.a(1, 3, null));
+            editorTools.A(new d.b.i0.w.a(1, 3, null));
             return;
         }
         a r = r(i);
         if (r == null) {
             return;
         }
-        if (r.f13500b == 5) {
+        if (r.f13508b == 5) {
             for (h hVar : this.m) {
                 if (hVar.getToolId() != 2 && hVar.getToolId() != 1) {
                     hVar.hide();
@@ -293,9 +293,9 @@ public class EditorBar extends RawLayout {
                 }
             }
             for (a aVar : this.n) {
-                n nVar = aVar.f13499a;
+                n nVar = aVar.f13507a;
                 if (nVar != null) {
-                    if (aVar.f13500b == 5) {
+                    if (aVar.f13508b == 5) {
                         nVar.b();
                     } else {
                         nVar.hide();
@@ -317,9 +317,9 @@ public class EditorBar extends RawLayout {
                 }
             }
             for (a aVar2 : this.n) {
-                n nVar2 = aVar2.f13499a;
+                n nVar2 = aVar2.f13507a;
                 if (nVar2 != null) {
-                    if (aVar2.f13500b == 5) {
+                    if (aVar2.f13508b == 5) {
                         nVar2.hide();
                     } else {
                         nVar2.b();
@@ -404,7 +404,7 @@ public class EditorBar extends RawLayout {
 
     public final a r(int i) {
         for (a aVar : this.n) {
-            n nVar = aVar.f13499a;
+            n nVar = aVar.f13507a;
             if (nVar != null && nVar.getToolId() == i) {
                 return aVar;
             }
@@ -455,7 +455,7 @@ public class EditorBar extends RawLayout {
     public final boolean u() {
         n nVar;
         for (a aVar : this.n) {
-            if (aVar.f13500b == 5 && (nVar = aVar.f13499a) != null && (nVar instanceof View) && ((View) nVar).getVisibility() == 0) {
+            if (aVar.f13508b == 5 && (nVar = aVar.f13507a) != null && (nVar instanceof View) && ((View) nVar).getVisibility() == 0) {
                 return true;
             }
         }
@@ -469,7 +469,7 @@ public class EditorBar extends RawLayout {
             hVar.onChangeSkinType(i);
         }
         for (a aVar : this.n) {
-            n nVar = aVar.f13499a;
+            n nVar = aVar.f13507a;
             if (nVar != null) {
                 nVar.onChangeSkinType(i);
             }

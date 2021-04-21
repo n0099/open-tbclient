@@ -8,24 +8,24 @@ import java.util.concurrent.atomic.AtomicReference;
 public abstract class b<T> implements o<T>, f.b.t.b {
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicReference<f.b.t.b> f68546e = new AtomicReference<>();
+    public final AtomicReference<f.b.t.b> f68693e = new AtomicReference<>();
 
     public void a() {
     }
 
     @Override // f.b.t.b
     public final void dispose() {
-        DisposableHelper.dispose(this.f68546e);
+        DisposableHelper.dispose(this.f68693e);
     }
 
     @Override // f.b.t.b
     public final boolean isDisposed() {
-        return this.f68546e.get() == DisposableHelper.DISPOSED;
+        return this.f68693e.get() == DisposableHelper.DISPOSED;
     }
 
     @Override // f.b.o
     public final void onSubscribe(f.b.t.b bVar) {
-        if (d.c(this.f68546e, bVar, getClass())) {
+        if (d.c(this.f68693e, bVar, getClass())) {
             a();
         }
     }

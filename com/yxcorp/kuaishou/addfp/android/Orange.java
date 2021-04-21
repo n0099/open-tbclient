@@ -1,29 +1,29 @@
 package com.yxcorp.kuaishou.addfp.android;
 
 import android.content.Context;
-import d.q.a.a.c.b.b;
+import d.r.a.a.c.b.b;
 /* loaded from: classes7.dex */
 public class Orange {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f41400a = true;
+    public static boolean f41495a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile Orange f41401b;
+    public static volatile Orange f41496b;
 
     public Orange() {
         g();
     }
 
     public static Orange a() {
-        if (f41401b == null) {
+        if (f41496b == null) {
             synchronized (Orange.class) {
-                if (f41401b == null) {
-                    f41401b = new Orange();
+                if (f41496b == null) {
+                    f41496b = new Orange();
                 }
             }
         }
-        return f41401b;
+        return f41496b;
     }
 
     public static native String getClock(Context context, byte[] bArr, int i);
@@ -76,16 +76,16 @@ public class Orange {
     public final void g() {
         try {
             System.loadLibrary("sgcore");
-            f41400a = false;
+            f41495a = false;
             b.e("so loaded");
         } catch (Throwable th) {
             b.e("so load failed");
-            f41400a = true;
+            f41495a = true;
             b.c(th);
         }
     }
 
     public final boolean h() {
-        return f41400a;
+        return f41495a;
     }
 }

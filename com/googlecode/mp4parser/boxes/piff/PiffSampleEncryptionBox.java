@@ -7,12 +7,12 @@ import g.a.a.a;
 import g.a.b.b.b;
 /* loaded from: classes6.dex */
 public class PiffSampleEncryptionBox extends AbstractSampleEncryptionBox {
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_4 = null;
-    public static final /* synthetic */ a.InterfaceC1894a ajc$tjp_5 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1898a ajc$tjp_5 = null;
 
     static {
         ajc$preClinit();

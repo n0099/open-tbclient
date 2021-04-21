@@ -12,22 +12,22 @@ import java.util.Iterator;
 public class c {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile c f42766c;
+    public static volatile c f43006c;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<String> f42767a = new ArrayList<>();
+    public ArrayList<String> f43007a = new ArrayList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public a f42768b;
+    public a f43008b;
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f42769a;
+        public String f43009a;
 
         public a(String str) {
-            this.f42769a = str;
+            this.f43009a = str;
         }
 
         public final void b(String str) {
@@ -54,7 +54,7 @@ public class c {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            String str = this.f42769a;
+            String str = this.f43009a;
             if (str != null) {
                 b(str);
             }
@@ -65,16 +65,16 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            c.this.f42768b = null;
-            if (c.this.f42767a.size() > 0) {
-                Iterator it = c.this.f42767a.iterator();
+            c.this.f43008b = null;
+            if (c.this.f43007a.size() > 0) {
+                Iterator it = c.this.f43007a.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String str = (String) it.next();
-                    if (str != null && str.equals(this.f42769a)) {
-                        c.this.f42767a.remove(str);
+                    if (str != null && str.equals(this.f43009a)) {
+                        c.this.f43007a.remove(str);
                         break;
                     }
                 }
@@ -84,14 +84,14 @@ public class c {
     }
 
     public static c e() {
-        if (f42766c == null) {
+        if (f43006c == null) {
             synchronized (c.class) {
-                if (f42766c == null) {
-                    f42766c = new c();
+                if (f43006c == null) {
+                    f43006c = new c();
                 }
             }
         }
-        return f42766c;
+        return f43006c;
     }
 
     public void d(PluginSetting pluginSetting) {
@@ -99,7 +99,7 @@ public class c {
             return;
         }
         boolean z = false;
-        Iterator<String> it = this.f42767a.iterator();
+        Iterator<String> it = this.f43007a.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -111,17 +111,17 @@ public class c {
             }
         }
         if (!z) {
-            this.f42767a.add(pluginSetting.packageName);
+            this.f43007a.add(pluginSetting.packageName);
         }
         f();
     }
 
     public final void f() {
-        if (this.f42767a.size() <= 0 || this.f42768b != null) {
+        if (this.f43007a.size() <= 0 || this.f43008b != null) {
             return;
         }
-        a aVar = new a(this.f42767a.get(0));
-        this.f42768b = aVar;
+        a aVar = new a(this.f43007a.get(0));
+        this.f43008b = aVar;
         aVar.execute(new String[0]);
     }
 }

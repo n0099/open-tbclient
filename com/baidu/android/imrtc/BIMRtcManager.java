@@ -38,7 +38,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.internal.MessageFactory;
 import com.baidu.android.imsdk.utils.Utility;
-import d.b.q.a;
+import d.b.r.a;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;

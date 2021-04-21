@@ -63,7 +63,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     public String mLastSendText;
     public EmotionEditModel mModel;
     public PermissionJudgePolicy mPermissionJudgement;
-    public d.b.h0.r.f0.a mProgressDialog;
+    public d.b.i0.r.f0.a mProgressDialog;
     public View mRootView;
     public View mSend;
     public int mSendInStep = 0;
@@ -264,7 +264,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
                 }
                 Bitmap addTextToImage = addTextToImage(bdImage.p());
                 if (addTextToImage != null) {
-                    this.mModel.E(addTextToImage, f.f42500b + "/" + TbConfig.getTempDirName() + "/emotion.png");
+                    this.mModel.E(addTextToImage, f.f42740b + "/" + TbConfig.getTempDirName() + "/emotion.png");
                     return;
                 }
                 showToast(R.string.upload_error);
@@ -466,7 +466,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         addGlobalLayoutListener();
         adjustResizeForSoftInput(R.color.black_alpha40, false);
         this.mInputManager = (InputMethodManager) getSystemService("input_method");
-        d.b.h0.r.f0.a aVar = new d.b.h0.r.f0.a(getPageContext());
+        d.b.i0.r.f0.a aVar = new d.b.i0.r.f0.a(getPageContext());
         this.mProgressDialog = aVar;
         aVar.i(R.string.emotion_composition);
         this.mProgressDialog.e(new a());

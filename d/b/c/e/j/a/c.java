@@ -19,40 +19,40 @@ import javax.net.ssl.SSLException;
 public class c {
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f42269f = true;
+    public static boolean f42509f = true;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f42270a;
+    public e f42510a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f42271b;
+    public b f42511b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f42272c = 0;
+    public int f42512c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f42273d = 0;
+    public long f42513d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f42274e = true;
+    public boolean f42514e = true;
 
     public c(e eVar) {
-        this.f42270a = eVar;
+        this.f42510a = eVar;
     }
 
     public final void a(int i) {
         try {
-            if (this.f42270a == null || i <= 0) {
+            if (this.f42510a == null || i <= 0) {
                 return;
             }
-            this.f42270a.b().a("Retry-Count", String.valueOf(i));
+            this.f42510a.b().a("Retry-Count", String.valueOf(i));
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
     }
 
     public void b() {
-        b bVar = this.f42271b;
+        b bVar = this.f42511b;
         if (bVar != null) {
             bVar.b();
         }
@@ -65,7 +65,7 @@ public class c {
         if (r0 == null) goto L135;
      */
     /* JADX WARN: Code restructure failed: missing block: B:136:0x04ca, code lost:
-        r0.c(r23.f42270a);
+        r0.c(r23.f42510a);
      */
     /* JADX WARN: Code restructure failed: missing block: B:137:0x04cf, code lost:
         r10 = r27;
@@ -103,21 +103,21 @@ public class c {
         String str4 = "responseCode:";
         int b5 = i3 <= 0 ? d.b.c.c.j.b.d().b().b() : i3;
         int b6 = i4 <= 0 ? d.b.c.c.j.b.d().c().b() : i4;
-        b bVar = new b(this.f42270a);
-        this.f42271b = bVar;
-        bVar.u(f42269f);
+        b bVar = new b(this.f42510a);
+        this.f42511b = bVar;
+        bVar.u(f42509f);
         int i8 = 0;
         boolean z3 = false;
         for (int a2 = i <= 0 ? d.b.c.c.j.b.d().a() : i; i8 < a2; a2 = i6) {
             d dVar10 = new d();
-            this.f42270a.c().f42296c = -1;
-            this.f42271b.s(i8);
+            this.f42510a.c().f42536c = -1;
+            this.f42511b.s(i8);
             int i9 = i8 + 1;
             try {
                 try {
-                    dVar10.f42279e = i9;
+                    dVar10.f42519e = i9;
                     try {
-                        this.f42272c = i8;
+                        this.f42512c = i8;
                         a(i8);
                         str2 = str4;
                         i7 = i9;
@@ -223,19 +223,19 @@ public class c {
                 i6 = a2;
             }
             try {
-                z3 = this.f42271b.d(str, hVar, b5, b6, z, dVar10, z2);
-                if (!z3 && this.f42270a.c().f42294a) {
-                    this.f42270a.c().f42296c = -14;
+                z3 = this.f42511b.d(str, hVar, b5, b6, z, dVar10, z2);
+                if (!z3 && this.f42510a.c().f42534a) {
+                    this.f42510a.c().f42536c = -14;
                 }
-                d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar10.f42282h), dVar10.l != null);
+                d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar10.f42522h), dVar10.l != null);
                 if (!z3 && i5 == i6 - 1) {
-                    dVar10.f42282h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
-                    dVar10.f42282h += "|netAvailable:" + j.A();
+                    dVar10.f42522h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
+                    dVar10.f42522h += "|netAvailable:" + j.A();
                 }
-                this.f42270a.e(dVar10);
+                this.f42510a.e(dVar10);
                 a b7 = a.b();
                 if (b7 != null) {
-                    b7.c(this.f42270a);
+                    b7.c(this.f42510a);
                 }
                 return z3;
             } catch (FileNotFoundException e15) {
@@ -244,190 +244,190 @@ public class c {
                 StringBuilder sb = new StringBuilder();
                 str3 = str2;
                 sb.append(str3);
-                sb.append(String.valueOf(this.f42270a.c().f42295b));
+                sb.append(String.valueOf(this.f42510a.c().f42535b));
                 sb.append("|retryCount:");
                 sb.append(i5);
                 sb.append(FieldBuilder.SE);
                 sb.append(e.getClass().getName());
                 sb.append(FieldBuilder.SE);
                 sb.append(e.getMessage());
-                dVar5.f42282h = sb.toString();
-                this.f42270a.c().f42296c = -100;
-                d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar5.f42282h), dVar5.l != null);
+                dVar5.f42522h = sb.toString();
+                this.f42510a.c().f42536c = -100;
+                d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar5.f42522h), dVar5.l != null);
                 if (!z3 && i5 == i6 - 1) {
-                    dVar5.f42282h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
-                    dVar5.f42282h += "|netAvailable:" + j.A();
+                    dVar5.f42522h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
+                    dVar5.f42522h += "|netAvailable:" + j.A();
                 }
-                this.f42270a.e(dVar5);
+                this.f42510a.e(dVar5);
                 b4 = a.b();
                 if (b4 == null) {
                     str4 = str3;
                     i8 = i7;
                 }
-                b4.c(this.f42270a);
+                b4.c(this.f42510a);
                 str4 = str3;
                 i8 = i7;
             } catch (IllegalStateException e16) {
                 e = e16;
                 dVar9 = dVar10;
                 str3 = str2;
-                dVar9.f42282h = str3 + String.valueOf(this.f42270a.c().f42295b) + "|retryCount:" + i5 + FieldBuilder.SE + e.getClass().getName() + FieldBuilder.SE + e.getMessage() + "|getcontent_illegal_error";
-                this.f42270a.c().f42296c = -19;
-                d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar9.f42282h), dVar9.l != null);
+                dVar9.f42522h = str3 + String.valueOf(this.f42510a.c().f42535b) + "|retryCount:" + i5 + FieldBuilder.SE + e.getClass().getName() + FieldBuilder.SE + e.getMessage() + "|getcontent_illegal_error";
+                this.f42510a.c().f42536c = -19;
+                d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar9.f42522h), dVar9.l != null);
                 if (!z3 && i5 == i6 - 1) {
-                    dVar9.f42282h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
-                    dVar9.f42282h += "|netAvailable:" + j.A();
+                    dVar9.f42522h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
+                    dVar9.f42522h += "|netAvailable:" + j.A();
                 }
-                this.f42270a.e(dVar9);
+                this.f42510a.e(dVar9);
                 b4 = a.b();
                 if (b4 == null) {
                     str4 = str3;
                     i8 = i7;
                 }
-                b4.c(this.f42270a);
+                b4.c(this.f42510a);
                 str4 = str3;
                 i8 = i7;
             } catch (ConnectException e17) {
                 e = e17;
                 dVar8 = dVar10;
                 str3 = str2;
-                dVar8.f42282h = str3 + String.valueOf(this.f42270a.c().f42295b) + "|retryCount:" + i5 + FieldBuilder.SE + e.getClass().getName() + FieldBuilder.SE + e.getMessage();
-                this.f42270a.c().f42296c = -22;
-                d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar8.f42282h), dVar8.l != null);
+                dVar8.f42522h = str3 + String.valueOf(this.f42510a.c().f42535b) + "|retryCount:" + i5 + FieldBuilder.SE + e.getClass().getName() + FieldBuilder.SE + e.getMessage();
+                this.f42510a.c().f42536c = -22;
+                d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar8.f42522h), dVar8.l != null);
                 if (!z3 && i5 == i6 - 1) {
-                    dVar8.f42282h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
-                    dVar8.f42282h += "|netAvailable:" + j.A();
+                    dVar8.f42522h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
+                    dVar8.f42522h += "|netAvailable:" + j.A();
                 }
-                this.f42270a.e(dVar8);
+                this.f42510a.e(dVar8);
                 b4 = a.b();
                 if (b4 == null) {
                     str4 = str3;
                     i8 = i7;
                 }
-                b4.c(this.f42270a);
+                b4.c(this.f42510a);
                 str4 = str3;
                 i8 = i7;
             } catch (SocketException e18) {
                 e = e18;
                 dVar7 = dVar10;
                 str3 = str2;
-                dVar7.f42282h = str3 + String.valueOf(this.f42270a.c().f42295b) + "|retryCount:" + i5 + FieldBuilder.SE + e.getClass().getName() + FieldBuilder.SE + e.getMessage();
-                this.f42270a.c().f42296c = -12;
-                d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar7.f42282h), dVar7.l != null);
+                dVar7.f42522h = str3 + String.valueOf(this.f42510a.c().f42535b) + "|retryCount:" + i5 + FieldBuilder.SE + e.getClass().getName() + FieldBuilder.SE + e.getMessage();
+                this.f42510a.c().f42536c = -12;
+                d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar7.f42522h), dVar7.l != null);
                 if (!z3 && i5 == i6 - 1) {
-                    dVar7.f42282h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
-                    dVar7.f42282h += "|netAvailable:" + j.A();
+                    dVar7.f42522h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
+                    dVar7.f42522h += "|netAvailable:" + j.A();
                 }
-                this.f42270a.e(dVar7);
+                this.f42510a.e(dVar7);
                 b4 = a.b();
                 if (b4 == null) {
                     str4 = str3;
                     i8 = i7;
                 }
-                b4.c(this.f42270a);
+                b4.c(this.f42510a);
                 str4 = str3;
                 i8 = i7;
             } catch (SocketTimeoutException e19) {
                 e = e19;
                 dVar6 = dVar10;
                 str3 = str2;
-                dVar6.f42282h = str3 + String.valueOf(this.f42270a.c().f42295b) + "|retryCount:" + i5 + FieldBuilder.SE + e.getClass().getName() + FieldBuilder.SE + e.getMessage();
-                this.f42270a.c().f42296c = -13;
-                d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar6.f42282h), dVar6.l != null);
+                dVar6.f42522h = str3 + String.valueOf(this.f42510a.c().f42535b) + "|retryCount:" + i5 + FieldBuilder.SE + e.getClass().getName() + FieldBuilder.SE + e.getMessage();
+                this.f42510a.c().f42536c = -13;
+                d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar6.f42522h), dVar6.l != null);
                 if (!z3 && i5 == i6 - 1) {
-                    dVar6.f42282h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
-                    dVar6.f42282h += "|netAvailable:" + j.A();
+                    dVar6.f42522h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
+                    dVar6.f42522h += "|netAvailable:" + j.A();
                 }
-                this.f42270a.e(dVar6);
+                this.f42510a.e(dVar6);
                 b4 = a.b();
                 if (b4 == null) {
                     str4 = str3;
                     i8 = i7;
                 }
-                b4.c(this.f42270a);
+                b4.c(this.f42510a);
                 str4 = str3;
                 i8 = i7;
             } catch (UnknownHostException e20) {
                 e = e20;
                 dVar4 = dVar10;
-                dVar4.f42282h = "errorCode:" + String.valueOf(this.f42270a.c().f42295b) + "|retryCount:" + i5 + FieldBuilder.SE + e.getClass().getName() + FieldBuilder.SE + e.getMessage();
-                this.f42270a.c().f42296c = -21;
-                d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar4.f42282h), dVar4.l != null);
+                dVar4.f42522h = "errorCode:" + String.valueOf(this.f42510a.c().f42535b) + "|retryCount:" + i5 + FieldBuilder.SE + e.getClass().getName() + FieldBuilder.SE + e.getMessage();
+                this.f42510a.c().f42536c = -21;
+                d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar4.f42522h), dVar4.l != null);
                 if (!z3 && i5 == i6 - 1) {
-                    dVar4.f42282h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
-                    dVar4.f42282h += "|netAvailable:" + j.A();
+                    dVar4.f42522h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
+                    dVar4.f42522h += "|netAvailable:" + j.A();
                 }
-                this.f42270a.e(dVar4);
+                this.f42510a.e(dVar4);
                 b3 = a.b();
             } catch (SSLException e21) {
                 e = e21;
                 dVar3 = dVar10;
-                if (this.f42270a.b().e() && i5 < i6 - 1) {
-                    String b8 = d.b.c.e.j.a.j.d.b(this.f42270a.b().i());
+                if (this.f42510a.b().e() && i5 < i6 - 1) {
+                    String b8 = d.b.c.e.j.a.j.d.b(this.f42510a.b().i());
                     if (!k.isEmpty(b8)) {
-                        this.f42270a.b().s(b8);
+                        this.f42510a.b().s(b8);
                     }
                     BdStatisticsManager.getInstance().eventStat(null, "c13429", "", 1, "obj_type", "1");
                 } else {
-                    dVar3.f42282h = "errorCode:" + String.valueOf(this.f42270a.c().f42295b) + "|retryCount:" + i5 + FieldBuilder.SE + e.getClass().getName() + FieldBuilder.SE + e.getMessage();
-                    this.f42270a.c().f42296c = -20;
+                    dVar3.f42522h = "errorCode:" + String.valueOf(this.f42510a.c().f42535b) + "|retryCount:" + i5 + FieldBuilder.SE + e.getClass().getName() + FieldBuilder.SE + e.getMessage();
+                    this.f42510a.c().f42536c = -20;
                 }
-                d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar3.f42282h), dVar3.l != null);
+                d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar3.f42522h), dVar3.l != null);
                 if (!z3 && i5 == i6 - 1) {
-                    dVar3.f42282h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
-                    dVar3.f42282h += "|netAvailable:" + j.A();
+                    dVar3.f42522h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
+                    dVar3.f42522h += "|netAvailable:" + j.A();
                 }
-                this.f42270a.e(dVar3);
+                this.f42510a.e(dVar3);
                 b3 = a.b();
             } catch (IOException e22) {
                 e = e22;
                 dVar2 = dVar10;
-                dVar2.f42282h = "errorCode:" + String.valueOf(this.f42270a.c().f42295b) + "|retryCount:" + i5 + FieldBuilder.SE + e.getClass().getName() + FieldBuilder.SE + e.getMessage();
-                this.f42270a.c().f42296c = -19;
-                d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar2.f42282h), dVar2.l != null);
+                dVar2.f42522h = "errorCode:" + String.valueOf(this.f42510a.c().f42535b) + "|retryCount:" + i5 + FieldBuilder.SE + e.getClass().getName() + FieldBuilder.SE + e.getMessage();
+                this.f42510a.c().f42536c = -19;
+                d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar2.f42522h), dVar2.l != null);
                 if (!z3 && i5 == i6 - 1) {
-                    dVar2.f42282h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
-                    dVar2.f42282h += "|netAvailable:" + j.A();
+                    dVar2.f42522h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
+                    dVar2.f42522h += "|netAvailable:" + j.A();
                 }
-                this.f42270a.e(dVar2);
+                this.f42510a.e(dVar2);
                 b3 = a.b();
             } catch (Exception e23) {
                 e = e23;
                 dVar = dVar10;
                 try {
-                    dVar.f42282h = "errorCode:" + String.valueOf(this.f42270a.c().f42295b) + "|retryCount:" + i5 + FieldBuilder.SE + e.getClass().getName() + FieldBuilder.SE + e.getMessage();
-                    this.f42270a.c().f42296c = -10;
+                    dVar.f42522h = "errorCode:" + String.valueOf(this.f42510a.c().f42535b) + "|retryCount:" + i5 + FieldBuilder.SE + e.getClass().getName() + FieldBuilder.SE + e.getMessage();
+                    this.f42510a.c().f42536c = -10;
                     BdLog.e(e.getMessage());
-                    d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l != null);
+                    d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l != null);
                     if (!z3 && i5 == i6 - 1) {
-                        dVar.f42282h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
-                        dVar.f42282h += "|netAvailable:" + j.A();
+                        dVar.f42522h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
+                        dVar.f42522h += "|netAvailable:" + j.A();
                     }
-                    this.f42270a.e(dVar);
+                    this.f42510a.e(dVar);
                     b3 = a.b();
                 } catch (Throwable th2) {
                     th = th2;
-                    d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l == null);
+                    d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l == null);
                     if (!z3 && i5 == i6 - 1) {
-                        dVar.f42282h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
-                        dVar.f42282h += "|netAvailable:" + j.A();
+                        dVar.f42522h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
+                        dVar.f42522h += "|netAvailable:" + j.A();
                     }
-                    this.f42270a.e(dVar);
+                    this.f42510a.e(dVar);
                     b2 = a.b();
                     if (b2 != null) {
-                        b2.c(this.f42270a);
+                        b2.c(this.f42510a);
                     }
                     throw th;
                 }
             } catch (Throwable th3) {
                 th = th3;
                 dVar = dVar10;
-                d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l == null);
+                d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l == null);
                 if (!z3) {
-                    dVar.f42282h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
-                    dVar.f42282h += "|netAvailable:" + j.A();
+                    dVar.f42522h += FieldBuilder.SE + d.b.c.e.j.a.j.d.c();
+                    dVar.f42522h += "|netAvailable:" + j.A();
                 }
-                this.f42270a.e(dVar);
+                this.f42510a.e(dVar);
                 b2 = a.b();
                 if (b2 != null) {
                 }
@@ -445,7 +445,7 @@ public class c {
         if (r0 == null) goto L93;
      */
     /* JADX WARN: Code restructure failed: missing block: B:106:0x03a4, code lost:
-        r0.c(r19.f42270a);
+        r0.c(r19.f42510a);
      */
     /* JADX WARN: Code restructure failed: missing block: B:107:0x03a9, code lost:
         r12 = 1;
@@ -473,32 +473,32 @@ public class c {
         long currentTimeMillis = System.currentTimeMillis();
         int i5 = true;
         int i6 = 0;
-        for (int i7 = 1; !this.f42270a.c().f42294a && i5 == i7 && i6 < a2; i7 = 1) {
+        for (int i7 = 1; !this.f42510a.c().f42534a && i5 == i7 && i6 < a2; i7 = 1) {
             d dVar = new d();
-            this.f42270a.e(dVar);
+            this.f42510a.e(dVar);
             try {
                 try {
                     try {
                         try {
-                            this.f42272c = i6;
-                            dVar.f42279e = i6 + 1;
+                            this.f42512c = i6;
+                            dVar.f42519e = i6 + 1;
                             dVar.v = i7;
                             a(i6);
-                            b bVar8 = new b(this.f42270a);
-                            this.f42271b = bVar8;
+                            b bVar8 = new b(this.f42510a);
+                            this.f42511b = bVar8;
                             bVar8.s(i6);
-                            this.f42271b.u(f42269f);
-                            this.f42271b.k(b4, b5, dVar);
+                            this.f42511b.u(f42509f);
+                            this.f42511b.k(b4, b5, dVar);
                         } catch (Exception e2) {
-                            dVar.f42282h = String.valueOf(this.f42270a.c().f42295b) + "|retryCount:" + i6 + FieldBuilder.SE + e2.getClass() + FieldBuilder.SE + e2.getMessage();
-                            this.f42270a.c().f42296c = -10;
+                            dVar.f42522h = String.valueOf(this.f42510a.c().f42535b) + "|retryCount:" + i6 + FieldBuilder.SE + e2.getClass() + FieldBuilder.SE + e2.getMessage();
+                            this.f42510a.c().f42536c = -10;
                             BdLog.e(e2.getMessage());
-                            if (this.f42273d <= 0 && (bVar4 = this.f42271b) != null) {
-                                this.f42273d = bVar4.i();
+                            if (this.f42513d <= 0 && (bVar4 = this.f42511b) != null) {
+                                this.f42513d = bVar4.i();
                             }
-                            dVar.f42280f = System.currentTimeMillis() - currentTimeMillis;
-                            d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l != null);
-                            this.f42270a.f(dVar);
+                            dVar.f42520f = System.currentTimeMillis() - currentTimeMillis;
+                            d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l != null);
+                            this.f42510a.f(dVar);
                             b3 = a.b();
                             if (b3 == null) {
                                 return;
@@ -506,84 +506,84 @@ public class c {
                         }
                     } catch (SocketTimeoutException e3) {
                         i4 = b4;
-                        dVar.f42282h = String.valueOf(this.f42270a.c().f42295b) + "|retryCount:" + i6 + FieldBuilder.SE + e3.getClass() + FieldBuilder.SE + e3.getMessage();
-                        this.f42270a.c().f42296c = -13;
-                        if (this.f42273d <= 0 && (bVar3 = this.f42271b) != null) {
-                            this.f42273d = bVar3.i();
+                        dVar.f42522h = String.valueOf(this.f42510a.c().f42535b) + "|retryCount:" + i6 + FieldBuilder.SE + e3.getClass() + FieldBuilder.SE + e3.getMessage();
+                        this.f42510a.c().f42536c = -13;
+                        if (this.f42513d <= 0 && (bVar3 = this.f42511b) != null) {
+                            this.f42513d = bVar3.i();
                         }
-                        dVar.f42280f = System.currentTimeMillis() - currentTimeMillis;
-                        d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l != null);
-                        this.f42270a.f(dVar);
+                        dVar.f42520f = System.currentTimeMillis() - currentTimeMillis;
+                        d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l != null);
+                        this.f42510a.f(dVar);
                         b2 = a.b();
                     }
                 } catch (SocketException e4) {
                     i4 = b4;
-                    dVar.f42282h = String.valueOf(this.f42270a.c().f42295b) + "|retryCount:" + i6 + FieldBuilder.SE + e4.getClass() + FieldBuilder.SE + e4.getMessage();
-                    this.f42270a.c().f42296c = -12;
-                    if (this.f42273d <= 0 && (bVar2 = this.f42271b) != null) {
-                        this.f42273d = bVar2.i();
+                    dVar.f42522h = String.valueOf(this.f42510a.c().f42535b) + "|retryCount:" + i6 + FieldBuilder.SE + e4.getClass() + FieldBuilder.SE + e4.getMessage();
+                    this.f42510a.c().f42536c = -12;
+                    if (this.f42513d <= 0 && (bVar2 = this.f42511b) != null) {
+                        this.f42513d = bVar2.i();
                     }
-                    dVar.f42280f = System.currentTimeMillis() - currentTimeMillis;
-                    d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l != null);
-                    this.f42270a.f(dVar);
+                    dVar.f42520f = System.currentTimeMillis() - currentTimeMillis;
+                    d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l != null);
+                    this.f42510a.f(dVar);
                     b2 = a.b();
                 } catch (IOException e5) {
-                    this.f42270a.c().f42296c = -19;
-                    dVar.f42282h = "errorCode:" + String.valueOf(-19) + FieldBuilder.SE + e5.getClass() + FieldBuilder.SE + e5.getMessage() + "|getcontent_illegal_error";
-                    if (this.f42273d <= 0 && (bVar = this.f42271b) != null) {
-                        this.f42273d = bVar.i();
+                    this.f42510a.c().f42536c = -19;
+                    dVar.f42522h = "errorCode:" + String.valueOf(-19) + FieldBuilder.SE + e5.getClass() + FieldBuilder.SE + e5.getMessage() + "|getcontent_illegal_error";
+                    if (this.f42513d <= 0 && (bVar = this.f42511b) != null) {
+                        this.f42513d = bVar.i();
                     }
-                    dVar.f42280f = System.currentTimeMillis() - currentTimeMillis;
+                    dVar.f42520f = System.currentTimeMillis() - currentTimeMillis;
                     i4 = b4;
-                    d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l != null);
-                    this.f42270a.f(dVar);
+                    d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l != null);
+                    this.f42510a.f(dVar);
                     a b6 = a.b();
                     if (b6 != null) {
-                        b6.c(this.f42270a);
+                        b6.c(this.f42510a);
                     }
                 }
-                if (this.f42270a.c().f42295b != 200) {
-                    dVar.f42282h = String.valueOf(this.f42270a.c().f42295b) + "|retryCount:" + i6;
-                    boolean m = m(this.f42270a.c().f42295b);
-                    if (this.f42273d <= 0 && (bVar7 = this.f42271b) != null) {
-                        this.f42273d = bVar7.i();
+                if (this.f42510a.c().f42535b != 200) {
+                    dVar.f42522h = String.valueOf(this.f42510a.c().f42535b) + "|retryCount:" + i6;
+                    boolean m = m(this.f42510a.c().f42535b);
+                    if (this.f42513d <= 0 && (bVar7 = this.f42511b) != null) {
+                        this.f42513d = bVar7.i();
                     }
-                    dVar.f42280f = System.currentTimeMillis() - currentTimeMillis;
-                    d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l != null);
-                    this.f42270a.f(dVar);
+                    dVar.f42520f = System.currentTimeMillis() - currentTimeMillis;
+                    d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l != null);
+                    this.f42510a.f(dVar);
                     a b7 = a.b();
                     if (b7 != null) {
-                        b7.c(this.f42270a);
+                        b7.c(this.f42510a);
                     }
                     i5 = m;
                     i4 = b4;
                     i6++;
                     b4 = i4;
                 } else {
-                    this.f42270a.f(dVar);
-                    if (this.f42273d <= 0 && (bVar6 = this.f42271b) != null) {
-                        this.f42273d = bVar6.i();
+                    this.f42510a.f(dVar);
+                    if (this.f42513d <= 0 && (bVar6 = this.f42511b) != null) {
+                        this.f42513d = bVar6.i();
                     }
-                    dVar.f42280f = System.currentTimeMillis() - currentTimeMillis;
-                    d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l != null);
-                    this.f42270a.f(dVar);
+                    dVar.f42520f = System.currentTimeMillis() - currentTimeMillis;
+                    d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l != null);
+                    this.f42510a.f(dVar);
                     b3 = a.b();
                     if (b3 == null) {
                         return;
                     }
-                    b3.c(this.f42270a);
+                    b3.c(this.f42510a);
                     return;
                 }
             } catch (Throwable th) {
-                if (this.f42273d <= 0 && (bVar5 = this.f42271b) != null) {
-                    this.f42273d = bVar5.i();
+                if (this.f42513d <= 0 && (bVar5 = this.f42511b) != null) {
+                    this.f42513d = bVar5.i();
                 }
-                dVar.f42280f = System.currentTimeMillis() - currentTimeMillis;
-                d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l != null);
-                this.f42270a.f(dVar);
+                dVar.f42520f = System.currentTimeMillis() - currentTimeMillis;
+                d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l != null);
+                this.f42510a.f(dVar);
                 a b8 = a.b();
                 if (b8 != null) {
-                    b8.c(this.f42270a);
+                    b8.c(this.f42510a);
                 }
                 throw th;
             }
@@ -591,7 +591,7 @@ public class c {
     }
 
     public long f() {
-        b bVar = this.f42271b;
+        b bVar = this.f42511b;
         if (bVar == null) {
             return -1L;
         }
@@ -599,7 +599,7 @@ public class c {
     }
 
     public long g() {
-        b bVar = this.f42271b;
+        b bVar = this.f42511b;
         if (bVar == null) {
             return -1L;
         }
@@ -607,11 +607,11 @@ public class c {
     }
 
     public long h() {
-        long j = this.f42273d;
+        long j = this.f42513d;
         if (j > 0) {
             return j;
         }
-        b bVar = this.f42271b;
+        b bVar = this.f42511b;
         if (bVar == null) {
             return -1L;
         }
@@ -619,7 +619,7 @@ public class c {
     }
 
     public long i() {
-        b bVar = this.f42271b;
+        b bVar = this.f42511b;
         if (bVar == null) {
             return -1L;
         }
@@ -627,7 +627,7 @@ public class c {
     }
 
     public long j() {
-        b bVar = this.f42271b;
+        b bVar = this.f42511b;
         if (bVar == null) {
             return -1L;
         }
@@ -635,15 +635,15 @@ public class c {
     }
 
     public int k() {
-        return this.f42272c;
+        return this.f42512c;
     }
 
     public boolean l() {
-        e eVar = this.f42270a;
+        e eVar = this.f42510a;
         if (eVar == null) {
             return false;
         }
-        return eVar.c().f42294a;
+        return eVar.c().f42534a;
     }
 
     public final boolean m(int i) {
@@ -654,7 +654,7 @@ public class c {
     }
 
     public void n(int i, int i2, int i3) {
-        if (this.f42270a.b().j()) {
+        if (this.f42510a.b().j()) {
             p(i, i2, i3);
         } else {
             o(i, i2, i3);
@@ -663,7 +663,7 @@ public class c {
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 0, expect 1 */
     /* JADX WARN: Code restructure failed: missing block: B:100:0x0342, code lost:
-        r0.c(r16.f42270a);
+        r0.c(r16.f42510a);
      */
     /* JADX WARN: Code restructure failed: missing block: B:101:0x0347, code lost:
         r0 = true;
@@ -675,7 +675,7 @@ public class c {
         if (r0 == null) goto L62;
      */
     /* JADX WARN: Code restructure failed: missing block: B:71:0x0246, code lost:
-        r0.c(r16.f42270a);
+        r0.c(r16.f42510a);
      */
     /* JADX WARN: Code restructure failed: missing block: B:72:0x024b, code lost:
         r0 = false;
@@ -705,108 +705,108 @@ public class c {
         long currentTimeMillis = System.currentTimeMillis();
         boolean z = true;
         int i4 = 0;
-        for (boolean z2 = true; !this.f42270a.c().f42294a && z == z2 && i4 < a2; z2 = true) {
+        for (boolean z2 = true; !this.f42510a.c().f42534a && z == z2 && i4 < a2; z2 = true) {
             d dVar = new d();
-            this.f42272c = i4;
+            this.f42512c = i4;
             int i5 = i4 + 1;
-            dVar.f42279e = i5;
+            dVar.f42519e = i5;
             a(i4);
             try {
                 try {
-                    b bVar8 = new b(this.f42270a);
-                    this.f42271b = bVar8;
+                    b bVar8 = new b(this.f42510a);
+                    this.f42511b = bVar8;
                     bVar8.s(i4);
-                    this.f42271b.u(f42269f);
-                    this.f42271b.t(this.f42274e);
-                    this.f42271b.r(b4, b5, dVar);
+                    this.f42511b.u(f42509f);
+                    this.f42511b.t(this.f42514e);
+                    this.f42511b.r(b4, b5, dVar);
                 } catch (UnsupportedOperationException unused) {
-                    this.f42270a.c().f42296c = -14;
-                    dVar.f42282h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
-                    this.f42270a.e(dVar);
-                    if (this.f42273d <= 0 && (bVar5 = this.f42271b) != null) {
-                        this.f42273d = bVar5.i();
+                    this.f42510a.c().f42536c = -14;
+                    dVar.f42522h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                    this.f42510a.e(dVar);
+                    if (this.f42513d <= 0 && (bVar5 = this.f42511b) != null) {
+                        this.f42513d = bVar5.i();
                     }
-                    dVar.f42280f = System.currentTimeMillis() - currentTimeMillis;
-                    d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l != null);
-                    this.f42270a.e(dVar);
+                    dVar.f42520f = System.currentTimeMillis() - currentTimeMillis;
+                    d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l != null);
+                    this.f42510a.e(dVar);
                     b2 = a.b();
                 } catch (SocketTimeoutException e2) {
-                    this.f42270a.c().f42296c = -13;
-                    dVar.f42282h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                    this.f42510a.c().f42536c = -13;
+                    dVar.f42522h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(e2.getMessage());
-                    this.f42270a.e(dVar);
-                    if (this.f42273d <= 0 && (bVar4 = this.f42271b) != null) {
-                        this.f42273d = bVar4.i();
+                    this.f42510a.e(dVar);
+                    if (this.f42513d <= 0 && (bVar4 = this.f42511b) != null) {
+                        this.f42513d = bVar4.i();
                     }
-                    dVar.f42280f = System.currentTimeMillis() - currentTimeMillis;
-                    d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l != null);
-                    this.f42270a.e(dVar);
+                    dVar.f42520f = System.currentTimeMillis() - currentTimeMillis;
+                    d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l != null);
+                    this.f42510a.e(dVar);
                     b3 = a.b();
                 }
             } catch (SocketException e3) {
-                this.f42270a.c().f42296c = -12;
-                dVar.f42282h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                this.f42510a.c().f42536c = -12;
+                dVar.f42522h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                 BdLog.e(e3.getMessage());
-                this.f42270a.e(dVar);
-                if (this.f42273d <= 0 && (bVar2 = this.f42271b) != null) {
-                    this.f42273d = bVar2.i();
+                this.f42510a.e(dVar);
+                if (this.f42513d <= 0 && (bVar2 = this.f42511b) != null) {
+                    this.f42513d = bVar2.i();
                 }
-                dVar.f42280f = System.currentTimeMillis() - currentTimeMillis;
-                d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l != null);
-                this.f42270a.e(dVar);
+                dVar.f42520f = System.currentTimeMillis() - currentTimeMillis;
+                d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l != null);
+                this.f42510a.e(dVar);
                 b3 = a.b();
             } catch (Throwable th) {
                 try {
-                    this.f42270a.c().f42296c = -10;
-                    dVar.f42282h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                    this.f42510a.c().f42536c = -10;
+                    dVar.f42522h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(th.getMessage());
-                    this.f42270a.e(dVar);
-                    if (this.f42273d <= 0 && (bVar = this.f42271b) != null) {
-                        this.f42273d = bVar.i();
+                    this.f42510a.e(dVar);
+                    if (this.f42513d <= 0 && (bVar = this.f42511b) != null) {
+                        this.f42513d = bVar.i();
                     }
-                    dVar.f42280f = System.currentTimeMillis() - currentTimeMillis;
-                    d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l != null);
-                    this.f42270a.e(dVar);
+                    dVar.f42520f = System.currentTimeMillis() - currentTimeMillis;
+                    d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l != null);
+                    this.f42510a.e(dVar);
                     b2 = a.b();
                 } catch (Throwable th2) {
-                    if (this.f42273d <= 0 && (bVar3 = this.f42271b) != null) {
-                        this.f42273d = bVar3.i();
+                    if (this.f42513d <= 0 && (bVar3 = this.f42511b) != null) {
+                        this.f42513d = bVar3.i();
                     }
-                    dVar.f42280f = System.currentTimeMillis() - currentTimeMillis;
-                    d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l != null);
-                    this.f42270a.e(dVar);
+                    dVar.f42520f = System.currentTimeMillis() - currentTimeMillis;
+                    d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l != null);
+                    this.f42510a.e(dVar);
                     a b6 = a.b();
                     if (b6 != null) {
-                        b6.c(this.f42270a);
+                        b6.c(this.f42510a);
                     }
                     throw th2;
                 }
             }
-            if (this.f42270a.c().f42295b != 200) {
-                dVar.f42282h = String.valueOf(this.f42270a.c().f42295b) + "|retryCount:" + i4;
-                z = m(this.f42270a.c().f42295b);
-                this.f42270a.e(dVar);
-                if (this.f42273d <= 0 && (bVar7 = this.f42271b) != null) {
-                    this.f42273d = bVar7.i();
+            if (this.f42510a.c().f42535b != 200) {
+                dVar.f42522h = String.valueOf(this.f42510a.c().f42535b) + "|retryCount:" + i4;
+                z = m(this.f42510a.c().f42535b);
+                this.f42510a.e(dVar);
+                if (this.f42513d <= 0 && (bVar7 = this.f42511b) != null) {
+                    this.f42513d = bVar7.i();
                 }
-                dVar.f42280f = System.currentTimeMillis() - currentTimeMillis;
-                d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l != null);
-                this.f42270a.e(dVar);
+                dVar.f42520f = System.currentTimeMillis() - currentTimeMillis;
+                d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l != null);
+                this.f42510a.e(dVar);
                 a b7 = a.b();
                 if (b7 != null) {
-                    b7.c(this.f42270a);
+                    b7.c(this.f42510a);
                 }
                 i4 = i5;
             } else {
-                if (this.f42273d <= 0 && (bVar6 = this.f42271b) != null) {
-                    this.f42273d = bVar6.i();
+                if (this.f42513d <= 0 && (bVar6 = this.f42511b) != null) {
+                    this.f42513d = bVar6.i();
                 }
-                dVar.f42280f = System.currentTimeMillis() - currentTimeMillis;
-                d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l != null);
-                this.f42270a.e(dVar);
+                dVar.f42520f = System.currentTimeMillis() - currentTimeMillis;
+                d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l != null);
+                this.f42510a.e(dVar);
                 a b8 = a.b();
                 if (b8 != null) {
-                    b8.c(this.f42270a);
+                    b8.c(this.f42510a);
                     return;
                 }
                 return;
@@ -821,7 +821,7 @@ public class c {
         if (r8.p() != false) goto L99;
      */
     /* JADX WARN: Code restructure failed: missing block: B:124:0x0378, code lost:
-        r0.c(r16.f42270a);
+        r0.c(r16.f42510a);
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -842,102 +842,102 @@ public class c {
         long currentTimeMillis = System.currentTimeMillis();
         boolean z = true;
         int i4 = 0;
-        for (boolean z2 = true; !this.f42270a.c().f42294a && z == z2 && i4 < a2; z2 = true) {
+        for (boolean z2 = true; !this.f42510a.c().f42534a && z == z2 && i4 < a2; z2 = true) {
             d dVar = new d();
             int i5 = i4 + 1;
-            dVar.f42279e = i5;
-            this.f42272c = i4;
+            dVar.f42519e = i5;
+            this.f42512c = i4;
             a(i4);
             try {
                 try {
                     try {
-                        b bVar9 = new b(this.f42270a);
-                        this.f42271b = bVar9;
+                        b bVar9 = new b(this.f42510a);
+                        this.f42511b = bVar9;
                         bVar9.s(i4);
-                        this.f42271b.u(f42269f);
-                        this.f42271b.q(b3, b4, dVar);
+                        this.f42511b.u(f42509f);
+                        this.f42511b.q(b3, b4, dVar);
                     } catch (UnsupportedOperationException unused) {
-                        this.f42270a.c().f42296c = -14;
-                        dVar.f42282h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
-                        this.f42270a.e(dVar);
-                        if (this.f42273d <= 0 && (bVar4 = this.f42271b) != null) {
-                            this.f42273d = bVar4.i();
+                        this.f42510a.c().f42536c = -14;
+                        dVar.f42522h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                        this.f42510a.e(dVar);
+                        if (this.f42513d <= 0 && (bVar4 = this.f42511b) != null) {
+                            this.f42513d = bVar4.i();
                         }
-                        dVar.f42280f = System.currentTimeMillis() - currentTimeMillis;
-                        d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l != null);
-                        this.f42270a.e(dVar);
+                        dVar.f42520f = System.currentTimeMillis() - currentTimeMillis;
+                        d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l != null);
+                        this.f42510a.e(dVar);
                         a b5 = a.b();
-                        if (b5 != null && (bVar3 = this.f42271b) != null && bVar3.p()) {
-                            b5.c(this.f42270a);
+                        if (b5 != null && (bVar3 = this.f42511b) != null && bVar3.p()) {
+                            b5.c(this.f42510a);
                         }
                         z = false;
                     }
                 } catch (SocketException e2) {
-                    this.f42270a.c().f42296c = -12;
-                    dVar.f42282h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                    this.f42510a.c().f42536c = -12;
+                    dVar.f42522h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(e2.getMessage());
-                    this.f42270a.e(dVar);
-                    if (this.f42273d <= 0 && (bVar2 = this.f42271b) != null) {
-                        this.f42273d = bVar2.i();
+                    this.f42510a.e(dVar);
+                    if (this.f42513d <= 0 && (bVar2 = this.f42511b) != null) {
+                        this.f42513d = bVar2.i();
                     }
-                    dVar.f42280f = System.currentTimeMillis() - currentTimeMillis;
-                    d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l != null);
-                    this.f42270a.e(dVar);
+                    dVar.f42520f = System.currentTimeMillis() - currentTimeMillis;
+                    d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l != null);
+                    this.f42510a.e(dVar);
                     b2 = a.b();
                     if (b2 != null) {
-                        b bVar10 = this.f42271b;
+                        b bVar10 = this.f42511b;
                         if (bVar10 != null) {
                         }
                     }
                     z = true;
                     i4 = i5;
                 } catch (SocketTimeoutException e3) {
-                    this.f42270a.c().f42296c = -13;
-                    dVar.f42282h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
+                    this.f42510a.c().f42536c = -13;
+                    dVar.f42522h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(e3.getMessage());
-                    this.f42270a.e(dVar);
-                    if (this.f42273d <= 0 && (bVar = this.f42271b) != null) {
-                        this.f42273d = bVar.i();
+                    this.f42510a.e(dVar);
+                    if (this.f42513d <= 0 && (bVar = this.f42511b) != null) {
+                        this.f42513d = bVar.i();
                     }
-                    dVar.f42280f = System.currentTimeMillis() - currentTimeMillis;
-                    d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l != null);
-                    this.f42270a.e(dVar);
+                    dVar.f42520f = System.currentTimeMillis() - currentTimeMillis;
+                    d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l != null);
+                    this.f42510a.e(dVar);
                     b2 = a.b();
                     if (b2 != null) {
-                        b bVar11 = this.f42271b;
+                        b bVar11 = this.f42511b;
                         if (bVar11 != null) {
                         }
                     }
                     z = true;
                     i4 = i5;
                 }
-                if (this.f42270a.c().f42295b != 200) {
-                    dVar.f42282h = String.valueOf(this.f42270a.c().f42295b) + "|retryCount:" + i4;
-                    z = m(this.f42270a.c().f42295b);
-                    this.f42270a.e(dVar);
-                    if (this.f42273d <= 0 && (bVar8 = this.f42271b) != null) {
-                        this.f42273d = bVar8.i();
+                if (this.f42510a.c().f42535b != 200) {
+                    dVar.f42522h = String.valueOf(this.f42510a.c().f42535b) + "|retryCount:" + i4;
+                    z = m(this.f42510a.c().f42535b);
+                    this.f42510a.e(dVar);
+                    if (this.f42513d <= 0 && (bVar8 = this.f42511b) != null) {
+                        this.f42513d = bVar8.i();
                     }
-                    dVar.f42280f = System.currentTimeMillis() - currentTimeMillis;
-                    d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l != null);
-                    this.f42270a.e(dVar);
+                    dVar.f42520f = System.currentTimeMillis() - currentTimeMillis;
+                    d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l != null);
+                    this.f42510a.e(dVar);
                     a b6 = a.b();
-                    if (b6 != null && (bVar7 = this.f42271b) != null && bVar7.p()) {
-                        b6.c(this.f42270a);
+                    if (b6 != null && (bVar7 = this.f42511b) != null && bVar7.p()) {
+                        b6.c(this.f42510a);
                     }
                     i4 = i5;
                 } else {
-                    if (this.f42273d <= 0 && (bVar6 = this.f42271b) != null) {
-                        this.f42273d = bVar6.i();
+                    if (this.f42513d <= 0 && (bVar6 = this.f42511b) != null) {
+                        this.f42513d = bVar6.i();
                     }
-                    dVar.f42280f = System.currentTimeMillis() - currentTimeMillis;
-                    d.b.c.e.e.a.c().g(this.f42270a.b().i(), this.f42270a.b().g("Host"), TextUtils.isEmpty(dVar.f42282h), dVar.l != null);
-                    this.f42270a.e(dVar);
+                    dVar.f42520f = System.currentTimeMillis() - currentTimeMillis;
+                    d.b.c.e.e.a.c().g(this.f42510a.b().i(), this.f42510a.b().g("Host"), TextUtils.isEmpty(dVar.f42522h), dVar.l != null);
+                    this.f42510a.e(dVar);
                     a b7 = a.b();
-                    if (b7 == null || (bVar5 = this.f42271b) == null || !bVar5.p()) {
+                    if (b7 == null || (bVar5 = this.f42511b) == null || !bVar5.p()) {
                         return;
                     }
-                    b7.c(this.f42270a);
+                    b7.c(this.f42510a);
                     return;
                 }
             }
@@ -945,10 +945,10 @@ public class c {
     }
 
     public void q() {
-        e eVar = this.f42270a;
+        e eVar = this.f42510a;
         if (eVar == null) {
             return;
         }
-        eVar.c().f42294a = true;
+        eVar.c().f42534a = true;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.faceshop;
 
-import d.b.i0.k0.c.b;
+import d.b.j0.k0.c.b;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
 public class EmotionData implements Serializable, b {
@@ -9,12 +9,12 @@ public class EmotionData implements Serializable, b {
     public int orderId;
     public String sharpText;
 
-    @Override // d.b.i0.k0.c.b
+    @Override // d.b.j0.k0.c.b
     public boolean IsValid() {
         return true;
     }
 
-    @Override // d.b.i0.k0.c.b
+    @Override // d.b.j0.k0.c.b
     public String getGroupId() {
         return this.groupId;
     }

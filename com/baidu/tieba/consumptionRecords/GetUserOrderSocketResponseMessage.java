@@ -2,8 +2,8 @@ package com.baidu.tieba.consumptionRecords;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
-import d.b.i0.a0.a;
-import d.b.i0.a0.b;
+import d.b.j0.a0.a;
+import d.b.j0.a0.b;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;

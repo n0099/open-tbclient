@@ -1,7 +1,7 @@
 package com.baidu.tieba.personExtra;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.i0.h2.b;
+import d.b.j0.h2.b;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class PersonBarResponseMessage extends JsonHttpResponsedMessage {

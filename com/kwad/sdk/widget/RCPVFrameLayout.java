@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 public class RCPVFrameLayout extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    public d f37105a;
+    public d f37200a;
 
     public RCPVFrameLayout(@NonNull Context context) {
         this(context, null);
@@ -22,32 +22,32 @@ public class RCPVFrameLayout extends a {
     public RCPVFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         d dVar = new d();
-        this.f37105a = dVar;
+        this.f37200a = dVar;
         dVar.a(context, attributeSet);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        this.f37105a.c(canvas);
+        this.f37200a.c(canvas);
         super.dispatchDraw(canvas);
-        this.f37105a.d(canvas);
+        this.f37200a.d(canvas);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        this.f37105a.a(canvas);
+        this.f37200a.a(canvas);
         super.draw(canvas);
-        this.f37105a.b(canvas);
+        this.f37200a.b(canvas);
     }
 
     @Override // com.kwad.sdk.widget.a, android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        this.f37105a.a(i, i2);
+        this.f37200a.a(i, i2);
     }
 
     public void setRadius(float f2) {
-        this.f37105a.a(f2);
+        this.f37200a.a(f2);
         postInvalidate();
     }
 }

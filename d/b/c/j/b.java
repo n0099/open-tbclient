@@ -13,34 +13,34 @@ import java.lang.ref.WeakReference;
 public class b extends ImageSpan {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42830e;
+    public int f43070e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42831f;
+    public int f43071f;
 
     /* renamed from: g  reason: collision with root package name */
-    public WeakReference<Drawable> f42832g;
+    public WeakReference<Drawable> f43072g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f42833h;
+    public int f43073h;
 
     public b(Context context, Bitmap bitmap, int i) {
         super(context, bitmap, i);
     }
 
     public final Drawable a() {
-        WeakReference<Drawable> weakReference = this.f42832g;
+        WeakReference<Drawable> weakReference = this.f43072g;
         Drawable drawable = weakReference != null ? weakReference.get() : null;
         if (drawable == null) {
             Drawable drawable2 = getDrawable();
-            this.f42832g = new WeakReference<>(drawable2);
+            this.f43072g = new WeakReference<>(drawable2);
             return drawable2;
         }
         return drawable;
     }
 
     public void b(int i) {
-        this.f42831f = i;
+        this.f43071f = i;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
@@ -48,14 +48,14 @@ public class b extends ImageSpan {
         Drawable a2 = a();
         canvas.save();
         int i6 = paint.getFontMetricsInt().top;
-        canvas.translate(f2 + this.f42831f, ((i5 - a2.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - i6) / 2) - ((a2.getBounds().top + a2.getBounds().bottom) / 2))) + this.f42833h);
+        canvas.translate(f2 + this.f43071f, ((i5 - a2.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - i6) / 2) - ((a2.getBounds().top + a2.getBounds().bottom) / 2))) + this.f43073h);
         a2.draw(canvas);
         canvas.restore();
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        return super.getSize(paint, charSequence, i, i2, fontMetricsInt) + this.f42831f + this.f42830e;
+        return super.getSize(paint, charSequence, i, i2, fontMetricsInt) + this.f43071f + this.f43070e;
     }
 
     public b(Drawable drawable, int i) {

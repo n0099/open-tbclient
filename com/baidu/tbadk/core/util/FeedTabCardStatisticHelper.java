@@ -2,8 +2,8 @@ package com.baidu.tbadk.core.util;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.b.h0.r.q.a2;
-import d.b.h0.r.q.v0;
+import d.b.i0.r.q.a2;
+import d.b.i0.r.q.v0;
 /* loaded from: classes3.dex */
 public class FeedTabCardStatisticHelper {
     public static final String KEY_TAB_FEED_PICTURE_TEXT_THREAD_BIG_PICTURE_CLICK = "c13632";

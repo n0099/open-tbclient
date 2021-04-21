@@ -11,30 +11,30 @@ import org.json.JSONObject;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f64464a;
+    public String f52659a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64465b;
+    public String f52660b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f64466c = 2;
+    public int f52661c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f64467d = 0;
+    public int f52662d = 0;
 
     public static j a(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         j jVar = new j();
-        jVar.f64464a = str;
+        jVar.f52659a = str;
         int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
-        jVar.f64467d = length;
+        jVar.f52662d = length;
         if (length < 14) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "0";
             }
-            jVar.f64465b = str2;
+            jVar.f52660b = str2;
         }
         return jVar;
     }
@@ -71,14 +71,14 @@ public class j {
             int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
             if (!TextUtils.isEmpty(string)) {
                 j jVar = new j();
-                jVar.f64464a = string;
-                jVar.f64466c = i;
-                jVar.f64467d = length;
+                jVar.f52659a = string;
+                jVar.f52661c = i;
+                jVar.f52662d = length;
                 if (length < 14) {
                     if (!TextUtils.isEmpty(str3)) {
                         str2 = str3;
                     }
-                    jVar.f64465b = str2;
+                    jVar.f52660b = str2;
                 }
                 jVar.k();
                 return jVar;
@@ -120,11 +120,11 @@ public class j {
     }
 
     public boolean b() {
-        return d(this.f64465b);
+        return d(this.f52660b);
     }
 
     public boolean f() {
-        return c(this.f64467d);
+        return c(this.f52662d);
     }
 
     public String h() {
@@ -140,13 +140,13 @@ public class j {
         } else {
             str = "0";
         }
-        this.f64465b = str;
+        this.f52660b = str;
         return true;
     }
 
     public final String l() {
         try {
-            return new JSONObject().put(i("ZGV2aWNlaWQ="), this.f64464a).put(i("aW1laQ=="), this.f64465b).put(i("dmVy"), this.f64466c).toString();
+            return new JSONObject().put(i("ZGV2aWNlaWQ="), this.f52659a).put(i("aW1laQ=="), this.f52660b).put(i("dmVy"), this.f52661c).toString();
         } catch (JSONException e2) {
             d.b.j.i.c.c(e2);
             return null;

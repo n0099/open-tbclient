@@ -93,7 +93,7 @@ public class G {
         }
         hashMap.put("Accept-Encoding", Collections.singletonList("application/gzip"));
         hashMap.put("Content-Encoding", Collections.singletonList("application/gzip"));
-        hashMap.put("User-Agent", Collections.singletonList(a2.f40155a));
+        hashMap.put("User-Agent", Collections.singletonList(a2.f40250a));
         return hashMap;
     }
 
@@ -200,7 +200,7 @@ public class G {
         sb4.append("o7my");
         G1 g1 = new G1(sb3, sb4.toString());
         Cipher cipher = Cipher.getInstance("DES/CBC/NoPadding");
-        cipher.init(2, g1.f39962b, g1.f39961a);
+        cipher.init(2, g1.f40057b, g1.f40056a);
         int length = str.length() / 2;
         byte[] bArr = new byte[length];
         for (int i = 0; i < length; i++) {
@@ -472,7 +472,7 @@ public class G {
             if (a2.getFlags() > 0) {
                 Z0 a3 = a1.a(context);
                 try {
-                    a3.f40139b = a1.a("wist", new b1(info));
+                    a3.f40234b = a1.a("wist", new b1(info));
                     a3.a("msg", a1.a(str));
                 } catch (JSONException unused) {
                 }
@@ -502,7 +502,7 @@ public class G {
             if (a3 == 200) {
                 s0.a(u1Var);
             } else {
-                s0.a(a3, u1Var.f40336b);
+                s0.a(a3, u1Var.f40431b);
             }
         } catch (JSONException e2) {
             message = e2.getMessage();
@@ -548,7 +548,7 @@ public class G {
             if (info != null) {
                 Z0 a2 = a1.a(context);
                 try {
-                    a2.f40139b = a1.a("wiin", new b1(info));
+                    a2.f40234b = a1.a("wiin", new b1(info));
                     a2.a("msg", a1.a(str));
                 } catch (JSONException unused) {
                 }
@@ -597,11 +597,11 @@ public class G {
     }
 
     public static int a(U0 u0, u1 u1Var) {
-        byte[] bArr = u0.f40107b;
-        int i = u0.f40106a;
+        byte[] bArr = u0.f40202b;
+        int i = u0.f40201a;
         if (i == 200) {
             u1Var.a(new String(bArr, "UTF-8"));
-            return u1Var.f40335a;
+            return u1Var.f40430a;
         }
         return i;
     }

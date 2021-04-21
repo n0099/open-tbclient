@@ -10,6 +10,6 @@ public class f extends n<PointF, PointF> {
 
     @Override // d.a.a.u.i.m
     public d.a.a.s.c.a<PointF, PointF> a() {
-        return new d.a.a.s.c.j(this.f41668a);
+        return new d.a.a.s.c.j(this.f41763a);
     }
 }

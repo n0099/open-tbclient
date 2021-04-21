@@ -9,83 +9,83 @@ import com.baidu.tbadk.core.util.svg.AbsSvgType;
 public class SwitchImageView extends AppCompatImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f21891e;
+    public int f21899e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21892f;
+    public int f21900f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f21893g;
+    public int f21901g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f21894h;
+    public boolean f21902h;
     public AbsSvgType i;
     public AbsSvgType j;
 
     public SwitchImageView(Context context) {
         super(context);
-        this.f21894h = false;
+        this.f21902h = false;
         a();
     }
 
     public final void a() {
-        this.f21891e = 0;
-        this.f21892f = 0;
-        this.f21893g = 0;
+        this.f21899e = 0;
+        this.f21900f = 0;
+        this.f21901g = 0;
     }
 
     public void b() {
-        if (this.f21891e == 0) {
-            this.f21891e = 1;
+        if (this.f21899e == 0) {
+            this.f21899e = 1;
             setState(1);
             return;
         }
-        this.f21891e = 0;
+        this.f21899e = 0;
         setState(0);
     }
 
     public int getCurrentState() {
-        return this.f21891e;
+        return this.f21899e;
     }
 
     public void setState(int i) {
         if (i == 0) {
-            this.f21891e = 0;
-            if (this.f21894h) {
+            this.f21899e = 0;
+            if (this.f21902h) {
                 setImageDrawable(this.i.getDrawable());
             } else {
-                setImageResource(this.f21892f);
+                setImageResource(this.f21900f);
             }
         } else if (i == 1) {
-            this.f21891e = 1;
-            if (this.f21894h) {
+            this.f21899e = 1;
+            if (this.f21902h) {
                 setImageDrawable(this.j.getDrawable());
             } else {
-                setImageResource(this.f21893g);
+                setImageResource(this.f21901g);
             }
         }
     }
 
     public void setStateImage(int i, int i2) {
-        this.f21892f = i;
-        this.f21893g = i2;
+        this.f21900f = i;
+        this.f21901g = i2;
     }
 
     public void setSvgStateImage(AbsSvgType absSvgType, AbsSvgType absSvgType2) {
         this.i = absSvgType;
         this.j = absSvgType2;
-        this.f21894h = true;
+        this.f21902h = true;
     }
 
     public SwitchImageView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f21894h = false;
+        this.f21902h = false;
         a();
     }
 
     public SwitchImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f21894h = false;
+        this.f21902h = false;
         a();
     }
 }

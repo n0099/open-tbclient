@@ -1,6 +1,6 @@
 package com.google.common.primitives;
 
-import d.g.c.a.n;
+import d.h.c.a.n;
 import java.math.BigInteger;
 import java.util.Comparator;
 /* loaded from: classes6.dex */
@@ -32,31 +32,31 @@ public final class UnsignedLongs {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final long[] f31130a = new long[37];
+        public static final long[] f31225a = new long[37];
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int[] f31131b = new int[37];
+        public static final int[] f31226b = new int[37];
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int[] f31132c = new int[37];
+        public static final int[] f31227c = new int[37];
 
         static {
             BigInteger bigInteger = new BigInteger("10000000000000000", 16);
             for (int i = 2; i <= 36; i++) {
                 long j = i;
-                f31130a[i] = UnsignedLongs.b(-1L, j);
-                f31131b[i] = (int) UnsignedLongs.e(-1L, j);
-                f31132c[i] = bigInteger.toString(i).length() - 1;
+                f31225a[i] = UnsignedLongs.b(-1L, j);
+                f31226b[i] = (int) UnsignedLongs.e(-1L, j);
+                f31227c[i] = bigInteger.toString(i).length() - 1;
             }
         }
 
         public static boolean a(long j, int i, int i2) {
             if (j >= 0) {
-                long[] jArr = f31130a;
+                long[] jArr = f31225a;
                 if (j < jArr[i2]) {
                     return false;
                 }
-                return j > jArr[i2] || i > f31131b[i2];
+                return j > jArr[i2] || i > f31226b[i2];
             }
             return true;
         }
@@ -85,7 +85,7 @@ public final class UnsignedLongs {
         n.p(str);
         if (str.length() != 0) {
             if (i >= 2 && i <= 36) {
-                int i2 = a.f31132c[i] - 1;
+                int i2 = a.f31227c[i] - 1;
                 long j = 0;
                 for (int i3 = 0; i3 < str.length(); i3++) {
                     int digit = Character.digit(str.charAt(i3), i);

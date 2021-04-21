@@ -7,27 +7,27 @@ import org.json.JSONObject;
 public class u1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40335a = 101;
+    public int f40430a = 101;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40336b;
+    public String f40431b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f40337c;
+    public JSONObject f40432c;
 
     public void a(String str) {
         JSONObject jSONObject = new JSONObject(str);
-        this.f40335a = jSONObject.optInt(Constants.KEYS.RET);
-        this.f40336b = jSONObject.optString("msg");
+        this.f40430a = jSONObject.optInt(Constants.KEYS.RET);
+        this.f40431b = jSONObject.optString("msg");
         String optString = jSONObject.optString("data");
         try {
             optString = G.b(optString);
         } catch (Exception unused) {
         }
         if (TextUtils.isEmpty(optString)) {
-            this.f40337c = new JSONObject();
+            this.f40432c = new JSONObject();
         } else {
-            this.f40337c = new JSONObject(optString);
+            this.f40432c = new JSONObject(optString);
         }
     }
 }

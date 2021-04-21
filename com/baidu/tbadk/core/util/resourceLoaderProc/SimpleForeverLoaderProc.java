@@ -59,7 +59,7 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f42345a = diskCancelWorker;
+            bVar.f42585a = diskCancelWorker;
         }
     }
 
@@ -81,7 +81,7 @@ public class SimpleForeverLoaderProc extends AbstractImageLoaderProc {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(createDiskPicOperate);
-            bVar.f42345a = diskCancelWorker;
+            bVar.f42585a = diskCancelWorker;
         }
         if (!d.g().a(createDiskPicOperate)) {
             d.b.c.e.l.a.f(false, 0L);

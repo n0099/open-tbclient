@@ -6,38 +6,38 @@ import com.vivo.push.model.InsideNotificationItem;
 public final class r extends com.vivo.push.y {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39681a;
+    public String f39776a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f39682b;
+    public long f39777b;
 
     /* renamed from: c  reason: collision with root package name */
-    public InsideNotificationItem f39683c;
+    public InsideNotificationItem f39778c;
 
     public r(String str, long j, InsideNotificationItem insideNotificationItem) {
         super(5);
-        this.f39681a = str;
-        this.f39682b = j;
-        this.f39683c = insideNotificationItem;
+        this.f39776a = str;
+        this.f39777b = j;
+        this.f39778c = insideNotificationItem;
     }
 
     @Override // com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
-        aVar.a("package_name", this.f39681a);
-        aVar.a("notify_id", this.f39682b);
-        aVar.a("notification_v1", com.vivo.push.util.q.b(this.f39683c));
+        aVar.a("package_name", this.f39776a);
+        aVar.a("notify_id", this.f39777b);
+        aVar.a("notification_v1", com.vivo.push.util.q.b(this.f39778c));
     }
 
     public final String d() {
-        return this.f39681a;
+        return this.f39776a;
     }
 
     public final long e() {
-        return this.f39682b;
+        return this.f39777b;
     }
 
     public final InsideNotificationItem f() {
-        return this.f39683c;
+        return this.f39778c;
     }
 
     @Override // com.vivo.push.y
@@ -47,15 +47,15 @@ public final class r extends com.vivo.push.y {
 
     @Override // com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
-        this.f39681a = aVar.a("package_name");
-        this.f39682b = aVar.b("notify_id", -1L);
+        this.f39776a = aVar.a("package_name");
+        this.f39777b = aVar.b("notify_id", -1L);
         String a2 = aVar.a("notification_v1");
         if (!TextUtils.isEmpty(a2)) {
-            this.f39683c = com.vivo.push.util.q.a(a2);
+            this.f39778c = com.vivo.push.util.q.a(a2);
         }
-        InsideNotificationItem insideNotificationItem = this.f39683c;
+        InsideNotificationItem insideNotificationItem = this.f39778c;
         if (insideNotificationItem != null) {
-            insideNotificationItem.setMsgId(this.f39682b);
+            insideNotificationItem.setMsgId(this.f39777b);
         }
     }
 

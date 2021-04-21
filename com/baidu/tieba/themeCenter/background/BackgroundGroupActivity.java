@@ -5,10 +5,10 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.themeCenter.background.BackgroundGroupModel;
-import d.b.i0.j3.e.b;
-import d.b.i0.j3.e.c;
-import d.b.i0.j3.e.d;
-import d.b.i0.j3.h.e;
+import d.b.j0.j3.e.b;
+import d.b.j0.j3.e.c;
+import d.b.j0.j3.e.d;
+import d.b.j0.j3.h.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivity> {
@@ -37,16 +37,16 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.b.h0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.b.i0.k0.a
     public String getCurrentPageKey() {
         return "b007";
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public d.b.h0.k0.d getPageStayDurationItem() {
-        d.b.h0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
+    public d.b.i0.k0.d getPageStayDurationItem() {
+        d.b.i0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.f50646a = true;
+            pageStayDurationItem.f50982a = true;
         }
         return pageStayDurationItem;
     }

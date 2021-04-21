@@ -4,10 +4,10 @@ import android.content.Context;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import d.b.i0.d2.h.c;
-import d.b.i0.d2.h.e;
-import d.b.i0.d2.k.e.k;
-import d.b.i0.s2.f0.b;
+import d.b.j0.d2.h.c;
+import d.b.j0.d2.h.e;
+import d.b.j0.d2.k.e.k;
+import d.b.j0.s2.f0.b;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.PbPage.AppealInfo;
@@ -77,12 +77,12 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
             this.mAppealInfo = cVar;
             AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
             if (appealInfo != null) {
-                cVar.f53809a = appealInfo.source;
-                cVar.f53811c = appealInfo.appeal_url;
+                cVar.f54230a = appealInfo.source;
+                cVar.f54232c = appealInfo.appeal_url;
             }
             SimpleForum simpleForum = pbPageResIdl.data.forum;
             if (simpleForum != null) {
-                this.mAppealInfo.f53810b = simpleForum.name;
+                this.mAppealInfo.f54231b = simpleForum.name;
                 return;
             }
             return;

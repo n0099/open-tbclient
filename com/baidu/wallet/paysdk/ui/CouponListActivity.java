@@ -26,10 +26,10 @@ import java.util.ArrayList;
 public class CouponListActivity extends HalfScreenBaseActivity implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public ViewGroup f25718a;
+    public ViewGroup f25726a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f25719b;
+    public View f25727b;
     public CouponListContract.Presenter mPresenter;
 
     @Override // com.baidu.wallet.paysdk.ui.HalfScreenBaseActivity
@@ -56,7 +56,7 @@ public class CouponListActivity extends HalfScreenBaseActivity implements View.O
         this.mTitle = textView;
         textView.setBackgroundColor(ResUtils.getColor(this.mAct, "ebpay_white"));
         this.mTitle.setText(ResUtils.getString(getActivity(), "ebpay_select_coupon"));
-        this.f25718a = (ViewGroup) findViewById(ResUtils.id(this.mAct, "bd_wallet_coupon_container"));
+        this.f25726a = (ViewGroup) findViewById(ResUtils.id(this.mAct, "bd_wallet_coupon_container"));
     }
 
     @Override // com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -111,11 +111,11 @@ public class CouponListActivity extends HalfScreenBaseActivity implements View.O
     }
 
     public void revertItemView() {
-        View view = this.f25719b;
+        View view = this.f25727b;
         if (view != null) {
-            a((ProgressBar) view.findViewById(ResUtils.id(this, "ebpay_mini_progress_bar")), (ImageView) this.f25719b.findViewById(ResUtils.id(this, "coupon_select")), false);
+            a((ProgressBar) view.findViewById(ResUtils.id(this, "ebpay_mini_progress_bar")), (ImageView) this.f25727b.findViewById(ResUtils.id(this, "coupon_select")), false);
         }
-        this.f25719b = null;
+        this.f25727b = null;
     }
 
     public void setPageClickable(boolean z) {
@@ -135,9 +135,9 @@ public class CouponListActivity extends HalfScreenBaseActivity implements View.O
         if (arrayList == null) {
             return;
         }
-        this.f25719b = null;
+        this.f25727b = null;
         setPageClickable(true);
-        this.f25718a.removeAllViews();
+        this.f25726a.removeAllViews();
         int dimension = (int) ResUtils.getDimension(this.mAct, "bd_wallet_coupon_height");
         for (int i = 0; i < arrayList.size(); i++) {
             View a2 = a(arrayList.get(i));
@@ -146,7 +146,7 @@ public class CouponListActivity extends HalfScreenBaseActivity implements View.O
                 layoutParams.bottomMargin = DisplayUtils.dip2px(this, 5.0f);
             }
             a2.setLayoutParams(layoutParams);
-            this.f25718a.addView(a2);
+            this.f25726a.addView(a2);
         }
     }
 
@@ -173,30 +173,30 @@ public class CouponListActivity extends HalfScreenBaseActivity implements View.O
         inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.CouponListActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                CouponListActivity.this.f25719b = inflate;
+                CouponListActivity.this.f25727b = inflate;
                 CouponListPresenter.a aVar2 = (CouponListPresenter.a) view.getTag();
-                if (aVar2.f25412g) {
+                if (aVar2.f25420g) {
                     PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_CLICK_COUPON);
                     CouponListActivity.this.a(progressBar, imageView, true);
                     CouponListActivity.this.mPresenter.calcPayamount(aVar2);
                     return;
                 }
-                GlobalUtils.toast(CouponListActivity.this, aVar2.f25411f);
+                GlobalUtils.toast(CouponListActivity.this, aVar2.f25419f);
             }
         });
         a(progressBar, imageView, false);
-        ((NetImageView) inflate.findViewById(ResUtils.id(this, "ebpay_coupon_logo"))).setImageUrl(aVar.f25406a);
-        ((TextView) inflate.findViewById(ResUtils.id(this, "coupon_dicount_name"))).setText(aVar.f25409d);
-        ((TextView) inflate.findViewById(ResUtils.id(this, "coupon_dicount_tip"))).setText(aVar.f25410e);
+        ((NetImageView) inflate.findViewById(ResUtils.id(this, "ebpay_coupon_logo"))).setImageUrl(aVar.f25414a);
+        ((TextView) inflate.findViewById(ResUtils.id(this, "coupon_dicount_name"))).setText(aVar.f25417d);
+        ((TextView) inflate.findViewById(ResUtils.id(this, "coupon_dicount_tip"))).setText(aVar.f25418e);
         TextView textView = (TextView) inflate.findViewById(ResUtils.id(this, "coupon_disable_reason"));
-        if (!TextUtils.isEmpty(aVar.f25411f)) {
+        if (!TextUtils.isEmpty(aVar.f25419f)) {
             textView.setVisibility(0);
-            textView.setText(aVar.f25411f);
+            textView.setText(aVar.f25419f);
         } else {
             textView.setVisibility(8);
         }
-        if (aVar.f25412g) {
-            imageView.setSelected(aVar.f25413h);
+        if (aVar.f25420g) {
+            imageView.setSelected(aVar.f25421h);
             inflate.setTag(aVar);
             a(inflate, true);
         } else {

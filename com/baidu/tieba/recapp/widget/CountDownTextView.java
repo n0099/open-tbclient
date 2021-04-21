@@ -11,34 +11,34 @@ import java.lang.ref.WeakReference;
 public class CountDownTextView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20583e;
+    public int f20591e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f20584f;
+    public Handler f20592f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f20585g;
+    public c f20593g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Runnable f20586h;
+    public Runnable f20594h;
     public boolean i;
 
     /* loaded from: classes4.dex */
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final WeakReference<CountDownTextView> f20587e;
+        public final WeakReference<CountDownTextView> f20595e;
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.f20587e.get();
+            CountDownTextView countDownTextView = this.f20595e.get();
             if (countDownTextView != null) {
                 countDownTextView.b(1);
             }
         }
 
         public b(CountDownTextView countDownTextView) {
-            this.f20587e = new WeakReference<>(countDownTextView);
+            this.f20595e = new WeakReference<>(countDownTextView);
         }
     }
 
@@ -49,8 +49,8 @@ public class CountDownTextView extends TextView {
 
     public CountDownTextView(Context context) {
         super(context);
-        this.f20584f = null;
-        this.f20585g = null;
+        this.f20592f = null;
+        this.f20593g = null;
         this.i = true;
         d();
     }
@@ -59,30 +59,30 @@ public class CountDownTextView extends TextView {
         if (i <= 0) {
             return;
         }
-        int i2 = this.f20583e;
+        int i2 = this.f20591e;
         if (i2 == 0) {
-            if (this.f20585g != null && this.i && getVisibility() == 0) {
-                this.f20585g.a(this);
+            if (this.f20593g != null && this.i && getVisibility() == 0) {
+                this.f20593g.a(this);
             }
-            setText(String.valueOf(this.f20583e));
-            this.f20584f.removeCallbacksAndMessages(null);
+            setText(String.valueOf(this.f20591e));
+            this.f20592f.removeCallbacksAndMessages(null);
             return;
         }
         if (i2 > 0) {
             setText(String.valueOf(i2));
         }
-        this.f20584f.removeCallbacks(this.f20586h);
-        this.f20584f.postDelayed(this.f20586h, 1000L);
-        this.f20583e -= i;
+        this.f20592f.removeCallbacks(this.f20594h);
+        this.f20592f.postDelayed(this.f20594h, 1000L);
+        this.f20591e -= i;
     }
 
     public final void c() {
-        this.f20584f.removeCallbacksAndMessages(null);
+        this.f20592f.removeCallbacksAndMessages(null);
     }
 
     public final void d() {
-        this.f20586h = new b();
-        this.f20584f = new Handler();
+        this.f20594h = new b();
+        this.f20592f = new Handler();
     }
 
     public void e() {
@@ -90,7 +90,7 @@ public class CountDownTextView extends TextView {
     }
 
     public void f(int i) {
-        this.f20583e = i;
+        this.f20591e = i;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -115,21 +115,21 @@ public class CountDownTextView extends TextView {
     }
 
     public void setTimeoutListener(c cVar) {
-        this.f20585g = cVar;
+        this.f20593g = cVar;
     }
 
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20584f = null;
-        this.f20585g = null;
+        this.f20592f = null;
+        this.f20593g = null;
         this.i = true;
         d();
     }
 
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f20584f = null;
-        this.f20585g = null;
+        this.f20592f = null;
+        this.f20593g = null;
         this.i = true;
         d();
     }

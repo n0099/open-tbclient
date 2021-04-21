@@ -10,30 +10,30 @@ import com.baidu.sofire.i.c;
 public final class b implements com.baidu.sofire.h.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f11476a;
+    public a f11484a;
 
     @Override // com.baidu.sofire.h.b
     public final void a(Context context, com.baidu.sofire.h.c cVar) {
         final a aVar = new a(context, cVar);
-        this.f11476a = aVar;
-        aVar.f11472c = new ServiceConnection() { // from class: com.baidu.sofire.i.a.1
+        this.f11484a = aVar;
+        aVar.f11480c = new ServiceConnection() { // from class: com.baidu.sofire.i.a.1
             @Override // android.content.ServiceConnection
             public final synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                aVar.f11471b = c.a.a(iBinder);
+                aVar.f11479b = c.a.a(iBinder);
             }
 
             @Override // android.content.ServiceConnection
             public final void onServiceDisconnected(ComponentName componentName) {
-                aVar.f11471b = null;
+                aVar.f11479b = null;
             }
         };
         Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
         intent.setPackage("com.huawei.hwid");
-        aVar.f11470a.bindService(intent, aVar.f11472c, 1);
+        aVar.f11478a.bindService(intent, aVar.f11480c, 1);
     }
 
     @Override // com.baidu.sofire.h.b
     public final String b() {
-        return this.f11476a.a();
+        return this.f11484a.a();
     }
 }

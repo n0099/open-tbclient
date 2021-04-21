@@ -62,12 +62,12 @@ public class BarImageView extends TbClipImageView {
         this.A0.cubicTo(f6, f4, strokeWith, f5, strokeWith, f3);
         this.A0.cubicTo(strokeWith, f6, f6, strokeWith, f3, strokeWith);
         this.A0.close();
-        float strokeWidth = this.i.f42643c.getStrokeWidth();
-        this.i.f42643c.setStyle(Paint.Style.STROKE);
-        this.i.f42643c.setStrokeWidth(getStrokeWith() + 0.5f);
-        this.i.f42643c.setColor(SkinManager.getColor(getStrokeColorResId()));
-        canvas.drawPath(this.A0, this.i.f42643c);
-        this.i.f42643c.setStrokeWidth(strokeWidth);
+        float strokeWidth = this.i.f42883c.getStrokeWidth();
+        this.i.f42883c.setStyle(Paint.Style.STROKE);
+        this.i.f42883c.setStrokeWidth(getStrokeWith() + 0.5f);
+        this.i.f42883c.setColor(SkinManager.getColor(getStrokeColorResId()));
+        canvas.drawPath(this.A0, this.i.f42883c);
+        this.i.f42883c.setStrokeWidth(strokeWidth);
     }
 
     public int getStrokeWith() {
@@ -76,7 +76,7 @@ public class BarImageView extends TbClipImageView {
 
     public final Bitmap h0(int i, int i2, boolean z) {
         Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
-        new Canvas(createBitmap).drawPath(this.z0, z ? this.i.f42643c : this.i.f42642b);
+        new Canvas(createBitmap).drawPath(this.z0, z ? this.i.f42883c : this.i.f42882b);
         return createBitmap;
     }
 
@@ -87,7 +87,7 @@ public class BarImageView extends TbClipImageView {
         float f4;
         float f5;
         a aVar = this.i;
-        if (aVar != null && aVar.f42642b != null) {
+        if (aVar != null && aVar.f42882b != null) {
             if (!this.D0) {
                 super.onDraw(canvas);
                 return;
@@ -107,8 +107,8 @@ public class BarImageView extends TbClipImageView {
             this.z0.cubicTo(f6, f7, 0.0f, f11, 0.0f, f10);
             this.z0.cubicTo(0.0f, f6, f6, 0.0f, f8, 0.0f);
             this.z0.close();
-            this.i.f42643c.setStyle(Paint.Style.FILL);
-            this.i.f42643c.setColor(SkinManager.getColor(this.C0));
+            this.i.f42883c.setStyle(Paint.Style.FILL);
+            this.i.f42883c.setColor(SkinManager.getColor(this.C0));
             this.N0 = h0(measuredWidth, measuredHeight, true);
             this.z0.reset();
             float strokeWith = getStrokeWith();
@@ -132,7 +132,7 @@ public class BarImageView extends TbClipImageView {
             if (this.O0 == null) {
                 this.O0 = new Canvas(this.L0);
             }
-            this.i.f42643c.setStyle(Paint.Style.STROKE);
+            this.i.f42883c.setStyle(Paint.Style.STROKE);
             super.onDraw(this.O0);
             this.M0 = h0(measuredWidth, measuredHeight, false);
             if (this.K0) {
@@ -141,12 +141,12 @@ public class BarImageView extends TbClipImageView {
                 f3 = f7;
                 f4 = f6;
                 int saveLayer = canvas.saveLayer(0.0f, 0.0f, f7, f2, null, 31);
-                this.i.f42643c.setStyle(Paint.Style.FILL);
-                this.i.f42643c.setColor(SkinManager.getColor(this.C0));
-                canvas.drawBitmap(this.M0, 0.0f, 0.0f, this.i.f42643c);
-                this.i.f42643c.setXfermode(this.R0);
-                canvas.drawBitmap(this.N0, 0.0f, 0.0f, this.i.f42643c);
-                this.i.f42643c.setXfermode(null);
+                this.i.f42883c.setStyle(Paint.Style.FILL);
+                this.i.f42883c.setColor(SkinManager.getColor(this.C0));
+                canvas.drawBitmap(this.M0, 0.0f, 0.0f, this.i.f42883c);
+                this.i.f42883c.setXfermode(this.R0);
+                canvas.drawBitmap(this.N0, 0.0f, 0.0f, this.i.f42883c);
+                this.i.f42883c.setXfermode(null);
                 if (saveLayer >= 1 && saveLayer <= canvas.getSaveCount()) {
                     canvas.restoreToCount(saveLayer);
                 }
@@ -157,10 +157,10 @@ public class BarImageView extends TbClipImageView {
                 f5 = 0.0f;
             }
             int saveLayer2 = canvas.saveLayer(0.0f, 0.0f, f3, f2, null, 31);
-            canvas.drawBitmap(this.M0, f5, f5, this.i.f42642b);
-            this.i.f42642b.setXfermode(this.Q0);
-            canvas.drawBitmap(this.L0, f5, f5, this.i.f42642b);
-            this.i.f42642b.setXfermode(null);
+            canvas.drawBitmap(this.M0, f5, f5, this.i.f42882b);
+            this.i.f42882b.setXfermode(this.Q0);
+            canvas.drawBitmap(this.L0, f5, f5, this.i.f42882b);
+            this.i.f42882b.setXfermode(null);
             if (saveLayer2 >= 1 && saveLayer2 <= canvas.getSaveCount()) {
                 canvas.restoreToCount(saveLayer2);
             }

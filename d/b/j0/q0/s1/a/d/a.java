@@ -1,0 +1,13 @@
+package d.b.j0.q0.s1.a.d;
+/* loaded from: classes4.dex */
+public interface a {
+    e a(int i);
+
+    void b(int i, int i2);
+
+    boolean c(int i, int i2);
+
+    void d(int i, int i2);
+
+    String h();
+}

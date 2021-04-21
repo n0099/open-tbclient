@@ -1,8 +1,8 @@
 package com.google.common.collect;
 
 import com.google.common.primitives.Ints;
-import d.g.c.a.n;
-import d.g.c.c.m;
+import d.h.c.a.n;
+import d.h.c.c.m;
 import java.io.Serializable;
 import java.lang.Comparable;
 import java.math.BigInteger;
@@ -15,13 +15,13 @@ public abstract class DiscreteDomain<C extends Comparable> {
     public static final class BigIntegerDomain extends DiscreteDomain<BigInteger> implements Serializable {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final BigIntegerDomain f30755e = new BigIntegerDomain();
+        public static final BigIntegerDomain f30850e = new BigIntegerDomain();
 
         /* renamed from: f  reason: collision with root package name */
-        public static final BigInteger f30756f = BigInteger.valueOf(Long.MIN_VALUE);
+        public static final BigInteger f30851f = BigInteger.valueOf(Long.MIN_VALUE);
 
         /* renamed from: g  reason: collision with root package name */
-        public static final BigInteger f30757g = BigInteger.valueOf(Long.MAX_VALUE);
+        public static final BigInteger f30852g = BigInteger.valueOf(Long.MAX_VALUE);
         public static final long serialVersionUID = 0;
 
         public BigIntegerDomain() {
@@ -29,7 +29,7 @@ public abstract class DiscreteDomain<C extends Comparable> {
         }
 
         private Object readResolve() {
-            return f30755e;
+            return f30850e;
         }
 
         public String toString() {
@@ -39,7 +39,7 @@ public abstract class DiscreteDomain<C extends Comparable> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.common.collect.DiscreteDomain
         public long distance(BigInteger bigInteger, BigInteger bigInteger2) {
-            return bigInteger2.subtract(bigInteger).max(f30756f).min(f30757g).longValue();
+            return bigInteger2.subtract(bigInteger).max(f30851f).min(f30852g).longValue();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,7 +66,7 @@ public abstract class DiscreteDomain<C extends Comparable> {
     public static final class IntegerDomain extends DiscreteDomain<Integer> implements Serializable {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final IntegerDomain f30758e = new IntegerDomain();
+        public static final IntegerDomain f30853e = new IntegerDomain();
         public static final long serialVersionUID = 0;
 
         public IntegerDomain() {
@@ -74,7 +74,7 @@ public abstract class DiscreteDomain<C extends Comparable> {
         }
 
         private Object readResolve() {
-            return f30758e;
+            return f30853e;
         }
 
         public String toString() {
@@ -131,7 +131,7 @@ public abstract class DiscreteDomain<C extends Comparable> {
     public static final class LongDomain extends DiscreteDomain<Long> implements Serializable {
 
         /* renamed from: e  reason: collision with root package name */
-        public static final LongDomain f30759e = new LongDomain();
+        public static final LongDomain f30854e = new LongDomain();
         public static final long serialVersionUID = 0;
 
         public LongDomain() {
@@ -139,7 +139,7 @@ public abstract class DiscreteDomain<C extends Comparable> {
         }
 
         private Object readResolve() {
-            return f30759e;
+            return f30854e;
         }
 
         public String toString() {
@@ -204,15 +204,15 @@ public abstract class DiscreteDomain<C extends Comparable> {
     }
 
     public static DiscreteDomain<BigInteger> bigIntegers() {
-        return BigIntegerDomain.f30755e;
+        return BigIntegerDomain.f30850e;
     }
 
     public static DiscreteDomain<Integer> integers() {
-        return IntegerDomain.f30758e;
+        return IntegerDomain.f30853e;
     }
 
     public static DiscreteDomain<Long> longs() {
-        return LongDomain.f30759e;
+        return LongDomain.f30854e;
     }
 
     public abstract long distance(C c2, C c3);

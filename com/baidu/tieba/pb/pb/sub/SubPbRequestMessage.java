@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.pb.sub;
 import android.content.Context;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.h0.z0.w;
+import d.b.i0.z0.w;
 import tbclient.PbFloor.DataReq;
 import tbclient.PbFloor.PbFloorReqIdl;
 /* loaded from: classes3.dex */

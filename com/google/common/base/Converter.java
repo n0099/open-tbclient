@@ -2,15 +2,15 @@ package com.google.common.base;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import d.g.c.a.g;
-import d.g.c.a.n;
+import d.h.c.a.g;
+import d.h.c.a.n;
 import java.io.Serializable;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public abstract class Converter<A, B> implements g<A, B> {
 
     /* renamed from: e  reason: collision with root package name */
-    public transient Converter<B, A> f30582e;
+    public transient Converter<B, A> f30677e;
     public final boolean handleNullAutomatically;
 
     /* loaded from: classes6.dex */
@@ -44,7 +44,7 @@ public abstract class Converter<A, B> implements g<A, B> {
             throw new AssertionError();
         }
 
-        @Override // com.google.common.base.Converter, d.g.c.a.g
+        @Override // com.google.common.base.Converter, d.h.c.a.g
         public boolean equals(Object obj) {
             if (obj instanceof ConverterComposition) {
                 ConverterComposition converterComposition = (ConverterComposition) obj;
@@ -81,7 +81,7 @@ public abstract class Converter<A, B> implements g<A, B> {
             return this.forwardFunction.apply(a2);
         }
 
-        @Override // com.google.common.base.Converter, d.g.c.a.g
+        @Override // com.google.common.base.Converter, d.h.c.a.g
         public boolean equals(Object obj) {
             if (obj instanceof FunctionBasedConverter) {
                 FunctionBasedConverter functionBasedConverter = (FunctionBasedConverter) obj;
@@ -171,7 +171,7 @@ public abstract class Converter<A, B> implements g<A, B> {
             throw new AssertionError();
         }
 
-        @Override // com.google.common.base.Converter, d.g.c.a.g
+        @Override // com.google.common.base.Converter, d.h.c.a.g
         public boolean equals(Object obj) {
             if (obj instanceof ReverseConverter) {
                 return this.original.equals(((ReverseConverter) obj).original);
@@ -197,42 +197,42 @@ public abstract class Converter<A, B> implements g<A, B> {
     public class a implements Iterable<B> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Iterable f30583e;
+        public final /* synthetic */ Iterable f30678e;
 
         /* renamed from: com.google.common.base.Converter$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0349a implements Iterator<B> {
+        public class C0352a implements Iterator<B> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final Iterator<? extends A> f30585e;
+            public final Iterator<? extends A> f30680e;
 
-            public C0349a() {
-                this.f30585e = a.this.f30583e.iterator();
+            public C0352a() {
+                this.f30680e = a.this.f30678e.iterator();
             }
 
             @Override // java.util.Iterator
             public boolean hasNext() {
-                return this.f30585e.hasNext();
+                return this.f30680e.hasNext();
             }
 
             @Override // java.util.Iterator
             public B next() {
-                return (B) Converter.this.convert(this.f30585e.next());
+                return (B) Converter.this.convert(this.f30680e.next());
             }
 
             @Override // java.util.Iterator
             public void remove() {
-                this.f30585e.remove();
+                this.f30680e.remove();
             }
         }
 
         public a(Iterable iterable) {
-            this.f30583e = iterable;
+            this.f30678e = iterable;
         }
 
         @Override // java.lang.Iterable
         public Iterator<B> iterator() {
-            return new C0349a();
+            return new C0352a();
         }
     }
 
@@ -252,7 +252,7 @@ public abstract class Converter<A, B> implements g<A, B> {
         return doAndThen(converter);
     }
 
-    @Override // d.g.c.a.g
+    @Override // d.h.c.a.g
     @Deprecated
     public final B apply(A a2) {
         return convert(a2);
@@ -300,16 +300,16 @@ public abstract class Converter<A, B> implements g<A, B> {
 
     public abstract B doForward(A a2);
 
-    @Override // d.g.c.a.g
+    @Override // d.h.c.a.g
     public boolean equals(Object obj) {
         return super.equals(obj);
     }
 
     public Converter<B, A> reverse() {
-        Converter<B, A> converter = this.f30582e;
+        Converter<B, A> converter = this.f30677e;
         if (converter == null) {
             ReverseConverter reverseConverter = new ReverseConverter(this);
-            this.f30582e = reverseConverter;
+            this.f30677e = reverseConverter;
             return reverseConverter;
         }
         return converter;

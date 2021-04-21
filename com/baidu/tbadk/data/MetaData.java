@@ -17,9 +17,9 @@ import com.baidu.tbadk.coreExtra.data.NewGodData;
 import com.baidu.tbadk.coreExtra.data.PrivSetsData;
 import d.b.c.e.m.b;
 import d.b.c.e.p.k;
-import d.b.h0.r.f0.q.a;
-import d.b.h0.t.d;
-import d.b.h0.t.n;
+import d.b.i0.r.f0.q.a;
+import d.b.i0.t.d;
+import d.b.i0.t.n;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -172,7 +172,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return this.fansNickName;
     }
 
-    @Override // d.b.h0.r.f0.q.a
+    @Override // d.b.i0.r.f0.q.a
     public int getFansNum() {
         return this.fansNum;
     }
@@ -217,7 +217,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return this.imBjhAvatar;
     }
 
-    @Override // d.b.h0.r.f0.q.a
+    @Override // d.b.i0.r.f0.q.a
     public boolean getIsLike() {
         return isGod() ? this.godUserData.getIsLike() || this.mHadConcerned : this.is_like == 1 || this.mHadConcerned;
     }
@@ -254,7 +254,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return this.likeNum;
     }
 
-    @Override // d.b.h0.r.f0.q.a
+    @Override // d.b.i0.r.f0.q.a
     public int getLikeStatus() {
         return this.likeStatus;
     }
@@ -278,7 +278,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return this.pendantData;
     }
 
-    @Override // d.b.h0.r.f0.q.a
+    @Override // d.b.i0.r.f0.q.a
     public String getPortrait() {
         return this.portrait;
     }
@@ -319,7 +319,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         return this.uk;
     }
 
-    @Override // d.b.h0.r.f0.q.a
+    @Override // d.b.i0.r.f0.q.a
     public String getUserId() {
         return this.userId;
     }
@@ -356,10 +356,10 @@ public class MetaData extends OrmObject implements Serializable, a {
 
     public boolean isForumBusinessAccount() {
         d dVar = this.businessAccountData;
-        return dVar != null && dVar.f51878b;
+        return dVar != null && dVar.f52214b;
     }
 
-    @Override // d.b.h0.r.f0.q.a
+    @Override // d.b.i0.r.f0.q.a
     public boolean isGod() {
         return this.isGod;
     }
@@ -375,7 +375,7 @@ public class MetaData extends OrmObject implements Serializable, a {
 
     public boolean isOfficial() {
         d dVar = this.businessAccountData;
-        return dVar != null && dVar.f51877a;
+        return dVar != null && dVar.f52213a;
     }
 
     public boolean isVideoGod() {
@@ -560,7 +560,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         this.fansNickName = str;
     }
 
-    @Override // d.b.h0.r.f0.q.a
+    @Override // d.b.i0.r.f0.q.a
     public void setFansNum(int i) {
         this.fansNum = i;
     }
@@ -607,7 +607,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         this.isBigV = z;
     }
 
-    @Override // d.b.h0.r.f0.q.a
+    @Override // d.b.i0.r.f0.q.a
     public void setIsFromNetWork(boolean z) {
         this.isLikeStatusFromNet = z;
         GodUserData godUserData = this.godUserData;
@@ -644,7 +644,7 @@ public class MetaData extends OrmObject implements Serializable, a {
         this.likeNum = i;
     }
 
-    @Override // d.b.h0.r.f0.q.a
+    @Override // d.b.i0.r.f0.q.a
     public void setLikeStatus(int i) {
         this.likeStatus = i;
     }

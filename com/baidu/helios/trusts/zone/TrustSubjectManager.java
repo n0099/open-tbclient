@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import com.baidu.helios.trusts.zone.TrustSubject;
-import d.b.p.g.d.a;
+import d.b.q.g.d.a;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class TrustSubjectManager {
 
     /* renamed from: a  reason: collision with root package name */
-    public a.C1765a f6323a;
+    public a.C1784a f6323a;
 
     /* renamed from: b  reason: collision with root package name */
     public Context f6324b;
@@ -50,7 +50,7 @@ public class TrustSubjectManager {
         public Context f6326a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d.b.p.g.d.a f6327b;
+        public d.b.q.g.d.a f6327b;
     }
 
     /* loaded from: classes2.dex */
@@ -159,8 +159,8 @@ public class TrustSubjectManager {
         }
     }
 
-    public final d.b.p.g.b.e.a a() {
-        return d.b.p.g.b.c.a(d.b.p.j.a.a.f65228a, d.b.p.j.a.a.f65229b);
+    public final d.b.q.g.b.e.a a() {
+        return d.b.q.g.b.c.a(d.b.q.j.a.a.f65492a, d.b.q.j.a.a.f65493b);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:87:0x011a A[SYNTHETIC] */
@@ -168,7 +168,7 @@ public class TrustSubjectManager {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final d b(d.b.p.g.b.e.a aVar) {
+    public final d b(d.b.q.g.b.e.a aVar) {
         boolean z;
         TrustSubject trustSubject;
         d dVar = new d();
@@ -297,7 +297,7 @@ public class TrustSubjectManager {
 
     public void f(a aVar) {
         this.f6324b = aVar.f6326a;
-        a.C1765a f2 = aVar.f6327b.d().f("tz");
+        a.C1784a f2 = aVar.f6327b.d().f("tz");
         this.f6323a = f2;
         f2.a();
     }
@@ -310,7 +310,7 @@ public class TrustSubjectManager {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final d g(d.b.p.g.b.e.a aVar) {
+    public final d g(d.b.q.g.b.e.a aVar) {
         TrustSubject trustSubject;
         boolean z;
         d dVar = new d();
@@ -463,7 +463,7 @@ public class TrustSubjectManager {
     }
 
     public d j(c cVar) {
-        d.b.p.g.b.e.a a2 = a();
+        d.b.q.g.b.e.a a2 = a();
         int i = cVar.f6328a;
         if (i == 1) {
             return b(a2);

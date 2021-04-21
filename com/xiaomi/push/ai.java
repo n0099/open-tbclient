@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class ai {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile ai f40513a;
+    public static volatile ai f40608a;
 
     /* renamed from: a  reason: collision with other field name */
     public SharedPreferences f103a;
@@ -35,10 +35,10 @@ public class ai {
     public static class b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public a f40514a;
+        public a f40609a;
 
         public b(a aVar) {
-            this.f40514a = aVar;
+            this.f40609a = aVar;
         }
 
         public void a() {
@@ -50,7 +50,7 @@ public class ai {
         @Override // java.lang.Runnable
         public void run() {
             a();
-            this.f40514a.run();
+            this.f40609a.run();
             b();
         }
     }
@@ -60,14 +60,14 @@ public class ai {
     }
 
     public static ai a(Context context) {
-        if (f40513a == null) {
+        if (f40608a == null) {
             synchronized (ai.class) {
-                if (f40513a == null) {
-                    f40513a = new ai(context);
+                if (f40608a == null) {
+                    f40608a = new ai(context);
                 }
             }
         }
-        return f40513a;
+        return f40608a;
     }
 
     public static String a(String str) {

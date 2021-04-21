@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.R;
 import d.b.c.e.p.l;
-import d.b.h0.r.q.a2;
-import d.b.h0.r.u.c;
 import d.b.i.p;
+import d.b.i0.r.q.a2;
+import d.b.i0.r.u.c;
 /* loaded from: classes.dex */
-public class RichTextLayout extends LinearLayout implements p<d.b.h0.r.q.a>, View.OnClickListener {
+public class RichTextLayout extends LinearLayout implements p<d.b.i0.r.q.a>, View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
     public final int f4545e;
@@ -82,7 +82,7 @@ public class RichTextLayout extends LinearLayout implements p<d.b.h0.r.q.a>, Vie
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.i.p
     /* renamed from: d */
-    public void a(d.b.h0.r.q.a aVar) {
+    public void a(d.b.i0.r.q.a aVar) {
         if (aVar == null || aVar.n() == null) {
             return;
         }
@@ -94,7 +94,7 @@ public class RichTextLayout extends LinearLayout implements p<d.b.h0.r.q.a>, Vie
             d2.v(R.string.F_X01);
             d2.u(R.dimen.T_X07);
             if (originalThreadInfo.m) {
-                ThreadCardUtils.setAbstract(this.f4547g, this.f4546f, new SpannableString(originalThreadInfo.f12878g), n, this.f4545e, this.i, this.k);
+                ThreadCardUtils.setAbstract(this.f4547g, this.f4546f, new SpannableString(originalThreadInfo.f12886g), n, this.f4545e, this.i, this.k);
                 SkinManager.setViewTextColor(this.f4547g, R.color.CAM_X0108);
             } else {
                 ThreadCardUtils.setAbstract(this.f4547g, this.f4546f, originalThreadInfo.t, n, this.f4545e, this.i, this.k);

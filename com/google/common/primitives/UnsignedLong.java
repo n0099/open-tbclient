@@ -1,6 +1,6 @@
 package com.google.common.primitives;
 
-import d.g.c.a.n;
+import d.h.c.a.n;
 import java.io.Serializable;
 import java.math.BigInteger;
 /* loaded from: classes6.dex */

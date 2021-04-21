@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.tab;
 
-import d.b.i0.q0.k2.d;
+import d.b.j0.q0.k2.d;
 import java.util.Collection;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */

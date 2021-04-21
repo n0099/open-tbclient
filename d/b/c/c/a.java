@@ -8,29 +8,29 @@ import java.util.List;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f41979b;
+    public static volatile a f42219b;
 
     /* renamed from: a  reason: collision with root package name */
-    public SparseArray<String> f41980a;
+    public SparseArray<String> f42220a;
 
     public a() {
-        this.f41980a = null;
-        this.f41980a = new SparseArray<>();
+        this.f42220a = null;
+        this.f42220a = new SparseArray<>();
     }
 
     public static a a() {
-        if (f41979b == null) {
+        if (f42219b == null) {
             synchronized (a.class) {
-                if (f41979b == null) {
-                    f41979b = new a();
+                if (f42219b == null) {
+                    f42219b = new a();
                 }
             }
         }
-        return f41979b;
+        return f42219b;
     }
 
     public String b(int i) {
-        String str = this.f41980a.get(i);
+        String str = this.f42220a.get(i);
         if (str != null) {
             return str;
         }
@@ -57,10 +57,10 @@ public class a {
             for (Field field : fields) {
                 int i = field.getInt(newInstance);
                 String name = field.getName();
-                if (this.f41980a.get(i) == null) {
-                    this.f41980a.put(i, name);
+                if (this.f42220a.get(i) == null) {
+                    this.f42220a.put(i, name);
                 } else {
-                    throw new Error("cmd " + str + " " + name + " 和 " + this.f41980a.get(i) + " 重复");
+                    throw new Error("cmd " + str + " " + name + " 和 " + this.f42220a.get(i) + " 重复");
                 }
             }
         } catch (ClassNotFoundException e2) {

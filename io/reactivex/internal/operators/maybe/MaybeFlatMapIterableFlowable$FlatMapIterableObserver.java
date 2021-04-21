@@ -17,7 +17,7 @@ public final class MaybeFlatMapIterableFlowable$FlatMapIterableObserver<T, R> ex
     public volatile boolean cancelled;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f69050d;
+    public b f69197d;
     public volatile Iterator<? extends R> it;
     public final h<? super T, ? extends Iterable<? extends R>> mapper;
     public boolean outputFused;
@@ -31,8 +31,8 @@ public final class MaybeFlatMapIterableFlowable$FlatMapIterableObserver<T, R> ex
     @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, g.d.d
     public void cancel() {
         this.cancelled = true;
-        this.f69050d.dispose();
-        this.f69050d = DisposableHelper.DISPOSED;
+        this.f69197d.dispose();
+        this.f69197d = DisposableHelper.DISPOSED;
     }
 
     @Override // io.reactivex.internal.subscriptions.BasicIntQueueSubscription, f.b.x.c.f
@@ -140,14 +140,14 @@ public final class MaybeFlatMapIterableFlowable$FlatMapIterableObserver<T, R> ex
 
     @Override // f.b.i
     public void onError(Throwable th) {
-        this.f69050d = DisposableHelper.DISPOSED;
+        this.f69197d = DisposableHelper.DISPOSED;
         this.actual.onError(th);
     }
 
     @Override // f.b.i
     public void onSubscribe(b bVar) {
-        if (DisposableHelper.validate(this.f69050d, bVar)) {
-            this.f69050d = bVar;
+        if (DisposableHelper.validate(this.f69197d, bVar)) {
+            this.f69197d = bVar;
             this.actual.onSubscribe(this);
         }
     }

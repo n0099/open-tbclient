@@ -21,17 +21,17 @@ import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 public class N0 extends WebViewClient {
 
     /* renamed from: a  reason: collision with root package name */
-    public C0 f40015a;
+    public C0 f40110a;
 
     /* renamed from: b  reason: collision with root package name */
-    public F0 f40016b;
+    public F0 f40111b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f40017c;
+    public boolean f40112c;
 
     public N0(C0 c0, F0 f0) {
-        this.f40015a = c0;
-        this.f40016b = f0;
+        this.f40110a = c0;
+        this.f40111b = f0;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:45:0x00ed, code lost:
@@ -56,20 +56,20 @@ public class N0 extends WebViewClient {
         I0 i0;
         C0 c0;
         super.onPageFinished(webView, str);
-        if (this.f40017c) {
+        if (this.f40112c) {
             return;
         }
-        C0 c02 = this.f40015a;
-        if (c02 != null && (f0 = this.f40016b) != null && (c0 = (i0 = (I0) f0).f39968a) != null && !i0.f39970c) {
+        C0 c02 = this.f40110a;
+        if (c02 != null && (f0 = this.f40111b) != null && (c0 = (i0 = (I0) f0).f40063a) != null && !i0.f40065c) {
             String str2 = c0.getMraidMideaType() == K0.BANNER ? "inline" : "interstitial";
-            i0.f39969b = c02.getMraidState().equals(L0.STATE_EXPANDED);
+            i0.f40064b = c02.getMraidState().equals(L0.STATE_EXPANDED);
             G.a(c02, "javascript:window.mraidbridge.setPlacementType('" + str2 + "')");
-            if (!i0.f39969b) {
-                if (i0.f39968a != null) {
+            if (!i0.f40064b) {
+                if (i0.f40063a != null) {
                     boolean a2 = i0.a(new Intent("android.intent.action.VIEW", Uri.parse("sms:11035000")));
                     boolean a3 = i0.a(new Intent("android.intent.action.VIEW", Uri.parse("tel:11035000")));
                     boolean z = Build.VERSION.SDK_INT >= 14 && (i0.a(new Intent("android.intent.action.EDIT").setData(CalendarContract.Events.CONTENT_URI)) || i0.a(new Intent("android.intent.action.EDIT").setType("vnd.android.cursor.item/event")));
-                    boolean z2 = i0.f39968a.getContext().getPackageManager().checkPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION, i0.f39968a.getContext().getPackageName()) == 0 && Build.VERSION.SDK_INT >= 11;
+                    boolean z2 = i0.f40063a.getContext().getPackageManager().checkPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION, i0.f40063a.getContext().getPackageName()) == 0 && Build.VERSION.SDK_INT >= 11;
                     try {
                         Activity activity = (Activity) c02.getViewContext();
                         View view = c02;
@@ -85,21 +85,21 @@ public class N0 extends WebViewClient {
                     } catch (Exception unused) {
                     }
                     boolean z3 = false;
-                    C0 c03 = i0.f39968a;
+                    C0 c03 = i0.f40063a;
                     G.a(c03, "javascript:window.mraidbridge.setSupports(" + a2 + "," + a3 + "," + z + "," + z2 + "," + z3 + SmallTailInfo.EMOTION_SUFFIX);
                 }
                 i0.c();
                 i0.b();
-                C0 c04 = i0.f39968a;
+                C0 c04 = i0.f40063a;
                 if (c04 != null) {
                     try {
                         int[] iArr = new int[2];
                         c04.getLocationOnScreen(iArr);
-                        iArr[1] = iArr[1] - (i0.f39968a.getViewContext() instanceof Activity ? ((Activity) i0.f39968a.getViewContext()).getWindow().findViewById(16908290).getTop() : 0);
-                        i0.f39968a.measure(0, 0);
-                        int[] iArr2 = {i0.f39968a.getMeasuredWidth(), i0.f39968a.getMeasuredHeight()};
-                        G.a(i0.f39968a.getViewContext(), iArr2);
-                        C0 c05 = i0.f39968a;
+                        iArr[1] = iArr[1] - (i0.f40063a.getViewContext() instanceof Activity ? ((Activity) i0.f40063a.getViewContext()).getWindow().findViewById(16908290).getTop() : 0);
+                        i0.f40063a.measure(0, 0);
+                        int[] iArr2 = {i0.f40063a.getMeasuredWidth(), i0.f40063a.getMeasuredHeight()};
+                        G.a(i0.f40063a.getViewContext(), iArr2);
+                        C0 c05 = i0.f40063a;
                         int i = iArr[0];
                         int i2 = iArr[1];
                         int i3 = iArr2[0];
@@ -109,21 +109,21 @@ public class N0 extends WebViewClient {
                     }
                 }
             }
-            i0.f39968a.a();
+            i0.f40063a.a();
             i0.a(c02, c02.getMraidState());
             G.a(c02, "javascript:window.mraidbridge.notifyReadyEvent()");
-            i0.f39970c = true;
-            i0.a(i0.f39968a.g());
+            i0.f40065c = true;
+            i0.a(i0.f40063a.g());
         }
-        if (!((I0) this.f40016b).f39969b) {
-            A0 a0 = (A0) this.f40015a.getDispatcher();
-            a0.f39904a.h();
-            J0 j0 = a0.f39904a.o;
-            if (j0 != null && (c2 = ((R0) j0).f40073c) != null) {
+        if (!((I0) this.f40111b).f40064b) {
+            A0 a0 = (A0) this.f40110a.getDispatcher();
+            a0.f39999a.h();
+            J0 j0 = a0.f39999a.o;
+            if (j0 != null && (c2 = ((R0) j0).f40168c) != null) {
                 c2.onLoaded();
             }
         }
-        this.f40017c = true;
+        this.f40112c = true;
     }
 
     @Override // android.webkit.WebViewClient
@@ -181,15 +181,15 @@ public class N0 extends WebViewClient {
                 return super.shouldOverrideUrlLoading(webView, webResourceRequest);
             }
             if ("mraid".equals(scheme)) {
-                F0 f0 = this.f40016b;
+                F0 f0 = this.f40111b;
                 if (f0 != null) {
-                    ((I0) f0).a(uri, this.f40015a.e());
+                    ((I0) f0).a(uri, this.f40110a.e());
                 }
-                C0 c0 = this.f40015a;
+                C0 c0 = this.f40110a;
                 G.a(c0, "javascript:window.mraidbridge.nativeCallComplete('" + host + "')");
                 return true;
             }
-            F0 f02 = this.f40016b;
+            F0 f02 = this.f40111b;
             if (f02 != null) {
                 return ((I0) f02).a(uri);
             }
@@ -202,14 +202,14 @@ public class N0 extends WebViewClient {
         if (Build.VERSION.SDK_INT < 24) {
             if (!TextUtils.isEmpty(str) && !str.startsWith("javascript:")) {
                 if ("mraid".equals(Uri.parse(str).getScheme())) {
-                    F0 f0 = this.f40016b;
+                    F0 f0 = this.f40111b;
                     if (f0 != null) {
-                        ((I0) f0).a(str, this.f40015a.e());
+                        ((I0) f0).a(str, this.f40110a.e());
                         return true;
                     }
                     return true;
                 }
-                F0 f02 = this.f40016b;
+                F0 f02 = this.f40111b;
                 if (f02 != null) {
                     return ((I0) f02).a(str);
                 }

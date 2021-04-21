@@ -6,16 +6,16 @@ import java.io.OutputStream;
 public class PipedOutputStreamAndroid25 extends OutputStream {
 
     /* renamed from: e  reason: collision with root package name */
-    public PipedInputStreamAndroid25 f22485e;
+    public PipedInputStreamAndroid25 f22493e;
 
     public synchronized void c(PipedInputStreamAndroid25 pipedInputStreamAndroid25) throws IOException {
         try {
             if (pipedInputStreamAndroid25 != null) {
-                if (this.f22485e == null && !pipedInputStreamAndroid25.f22483g) {
-                    this.f22485e = pipedInputStreamAndroid25;
+                if (this.f22493e == null && !pipedInputStreamAndroid25.f22491g) {
+                    this.f22493e = pipedInputStreamAndroid25;
                     pipedInputStreamAndroid25.k = -1;
                     pipedInputStreamAndroid25.l = 0;
-                    pipedInputStreamAndroid25.f22483g = true;
+                    pipedInputStreamAndroid25.f22491g = true;
                 } else {
                     throw new IOException("Already connected");
                 }
@@ -29,7 +29,7 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        PipedInputStreamAndroid25 pipedInputStreamAndroid25 = this.f22485e;
+        PipedInputStreamAndroid25 pipedInputStreamAndroid25 = this.f22493e;
         if (pipedInputStreamAndroid25 != null) {
             pipedInputStreamAndroid25.t();
         }
@@ -37,16 +37,16 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
 
     @Override // java.io.OutputStream, java.io.Flushable
     public synchronized void flush() throws IOException {
-        if (this.f22485e != null) {
-            synchronized (this.f22485e) {
-                this.f22485e.notifyAll();
+        if (this.f22493e != null) {
+            synchronized (this.f22493e) {
+                this.f22493e.notifyAll();
             }
         }
     }
 
     @Override // java.io.OutputStream
     public void write(int i) throws IOException {
-        PipedInputStreamAndroid25 pipedInputStreamAndroid25 = this.f22485e;
+        PipedInputStreamAndroid25 pipedInputStreamAndroid25 = this.f22493e;
         if (pipedInputStreamAndroid25 != null) {
             pipedInputStreamAndroid25.r(i);
             return;
@@ -57,7 +57,7 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
     @Override // java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
         int i3;
-        PipedInputStreamAndroid25 pipedInputStreamAndroid25 = this.f22485e;
+        PipedInputStreamAndroid25 pipedInputStreamAndroid25 = this.f22493e;
         if (pipedInputStreamAndroid25 == null) {
             throw new IOException("Pipe not connected");
         }

@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.squareup.wire.Wire;
-import d.b.i0.d2.h.q;
+import d.b.j0.d2.h.q;
 import tbclient.PbFloor.PbFloorResIdl;
 /* loaded from: classes3.dex */
 public class SubPbSocketResponseMessage extends SocketResponsedMessage {

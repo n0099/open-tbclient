@@ -4,9 +4,9 @@ public class k extends com.kwad.sdk.contentalliance.home.e {
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        if (((com.kwad.sdk.plugin.d) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.d.class)).a(((com.kwad.sdk.contentalliance.home.e) this).f33058a.f33063e)) {
-            com.kwad.sdk.contentalliance.home.f fVar = ((com.kwad.sdk.contentalliance.home.e) this).f33058a;
-            fVar.f33061c.setInitStartPosition(fVar.j);
+        if (((com.kwad.sdk.plugin.d) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.d.class)).a(((com.kwad.sdk.contentalliance.home.e) this).f33153a.f33158e)) {
+            com.kwad.sdk.contentalliance.home.f fVar = ((com.kwad.sdk.contentalliance.home.e) this).f33153a;
+            fVar.f33156c.setInitStartPosition(fVar.j);
         }
     }
 }

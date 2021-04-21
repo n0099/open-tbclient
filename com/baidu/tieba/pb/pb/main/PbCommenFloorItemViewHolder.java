@@ -25,9 +25,9 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.sub.SubPbLayout;
 import d.b.c.e.p.l;
-import d.b.h0.b1.j.f;
-import d.b.h0.r.q.e;
-import d.b.i0.d2.k.e.z0.d;
+import d.b.i0.b1.j.f;
+import d.b.i0.r.q.e;
+import d.b.j0.d2.k.e.z0.d;
 /* loaded from: classes3.dex */
 public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public ImageView A;
@@ -58,35 +58,35 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public ImageView Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f19210a;
+    public int f19218a;
     public ViewGroup a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f19211b;
+    public View f19219b;
     public TextView b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f19212c;
+    public boolean f19220c;
     public TextView c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f19213d;
+    public View f19221d;
     public ImageView d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f19214e;
+    public TextView f19222e;
     public FrameLayout e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f19215f;
+    public TextView f19223f;
     public MaskView f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f19216g;
+    public TextView f19224g;
     public d g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f19217h;
+    public TextView f19225h;
     public TextView i;
     public TextView j;
     public AgreeView k;
@@ -119,17 +119,17 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
 
     public PbCommenFloorItemViewHolder(TbPageContext tbPageContext, View view, int i) {
         super(view);
-        this.f19210a = 3;
-        this.f19212c = true;
+        this.f19218a = 3;
+        this.f19220c = true;
         this.U = -1;
         if (tbPageContext == null || view == null) {
             return;
         }
-        this.f19211b = view;
-        this.f19213d = view.findViewById(R.id.top_divider_line);
-        this.f19214e = (TextView) view.findViewById(R.id.view_user_name);
-        this.f19215f = (TextView) view.findViewById(R.id.view_author_tip);
-        this.f19216g = (TextView) view.findViewById(R.id.view_post_time);
+        this.f19219b = view;
+        this.f19221d = view.findViewById(R.id.top_divider_line);
+        this.f19222e = (TextView) view.findViewById(R.id.view_user_name);
+        this.f19223f = (TextView) view.findViewById(R.id.view_author_tip);
+        this.f19224g = (TextView) view.findViewById(R.id.view_post_time);
         this.E = (ImageView) view.findViewById(R.id.icon_forum_level);
         this.j = (TextView) view.findViewById(R.id.view_location);
         this.o = view.findViewById(R.id.pb_post_reply_container);
@@ -161,10 +161,10 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.I = (ImageView) view.findViewById(R.id.pb_floor_feedback);
         this.V = i;
         e eVar = new e();
-        eVar.f51170b = 5;
-        eVar.f51176h = 8;
-        eVar.f51175g = 2;
-        eVar.f51174f = i;
+        eVar.f51506b = 5;
+        eVar.f51512h = 8;
+        eVar.f51511g = 2;
+        eVar.f51510f = i;
         this.k.setStatisticData(eVar);
         this.l = (HeadImageView) view.findViewById(R.id.normal_user_photo);
         HeadPendantView headPendantView = (HeadPendantView) view.findViewById(R.id.pendant_user_photo);
@@ -187,12 +187,12 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.n = (ConstrainImageGroup) view.findViewById(R.id.floor_images_content);
         this.J = view.findViewById(R.id.pb_bottom_line);
         this.D = (TextView) view.findViewById(R.id.floor_num);
-        this.f19217h = (TextView) view.findViewById(R.id.point_between_floor_and_time);
+        this.f19225h = (TextView) view.findViewById(R.id.point_between_floor_and_time);
         this.i = (TextView) view.findViewById(R.id.point_between_time_and_locate);
         this.n.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds16));
         this.n.setSingleImageRatio(0.75d);
         this.n.setImageProcessor(new f(3));
-        d.b.i0.d2.k.e.e eVar2 = new d.b.i0.d2.k.e.e(this.m.getLayoutStrategy());
+        d.b.j0.d2.k.e.e eVar2 = new d.b.j0.d2.k.e.e(this.m.getLayoutStrategy());
         eVar2.j(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18));
         eVar2.o(TbConfig.getPostLineSpace(), 1.0f);
         this.m.setLayoutStrategy(eVar2);
@@ -200,7 +200,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.l.setIsRound(true);
         this.l.setGodIconWidth(R.dimen.tbds31);
         this.l.setPlaceHolder(1);
-        this.m.setDisplayImage(this.f19212c, false);
+        this.m.setDisplayImage(this.f19220c, false);
         this.m.setVoiceViewRes(R.layout.voice_play_btn_new);
         this.K = (TextView) view.findViewById(R.id.pb_item_tail_content);
         this.L = (LinearLayout) view.findViewById(R.id.pb_post_recommend_live_layout);
@@ -228,7 +228,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.e0 = frameLayout;
         d dVar = new d(tbPageContext, frameLayout);
         this.g0 = dVar;
-        dVar.f54406f = 3;
+        dVar.f54827f = 3;
         this.f0 = (MaskView) view.findViewById(R.id.mask_view_op);
     }
 
@@ -267,10 +267,10 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public void f(boolean z) {
         if (z) {
             e eVar = new e();
-            eVar.f51170b = 12;
-            eVar.f51176h = 9;
-            eVar.f51175g = 3;
-            eVar.f51174f = this.V;
+            eVar.f51506b = 12;
+            eVar.f51512h = 9;
+            eVar.f51511g = 3;
+            eVar.f51510f = this.V;
             this.k.setStatisticData(eVar);
         }
     }

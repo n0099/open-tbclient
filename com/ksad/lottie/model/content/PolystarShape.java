@@ -6,28 +6,28 @@ import com.ksad.lottie.model.a.m;
 public class PolystarShape implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f31773a;
+    public final String f31868a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Type f31774b;
+    public final Type f31869b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.b f31775c;
+    public final com.ksad.lottie.model.a.b f31870c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final m<PointF, PointF> f31776d;
+    public final m<PointF, PointF> f31871d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.b f31777e;
+    public final com.ksad.lottie.model.a.b f31872e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.b f31778f;
+    public final com.ksad.lottie.model.a.b f31873f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.b f31779g;
+    public final com.ksad.lottie.model.a.b f31874g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final com.ksad.lottie.model.a.b f31780h;
+    public final com.ksad.lottie.model.a.b f31875h;
     public final com.ksad.lottie.model.a.b i;
 
     /* loaded from: classes6.dex */
@@ -53,14 +53,14 @@ public class PolystarShape implements b {
     }
 
     public PolystarShape(String str, Type type, com.ksad.lottie.model.a.b bVar, m<PointF, PointF> mVar, com.ksad.lottie.model.a.b bVar2, com.ksad.lottie.model.a.b bVar3, com.ksad.lottie.model.a.b bVar4, com.ksad.lottie.model.a.b bVar5, com.ksad.lottie.model.a.b bVar6) {
-        this.f31773a = str;
-        this.f31774b = type;
-        this.f31775c = bVar;
-        this.f31776d = mVar;
-        this.f31777e = bVar2;
-        this.f31778f = bVar3;
-        this.f31779g = bVar4;
-        this.f31780h = bVar5;
+        this.f31868a = str;
+        this.f31869b = type;
+        this.f31870c = bVar;
+        this.f31871d = mVar;
+        this.f31872e = bVar2;
+        this.f31873f = bVar3;
+        this.f31874g = bVar4;
+        this.f31875h = bVar5;
         this.i = bVar6;
     }
 
@@ -70,35 +70,35 @@ public class PolystarShape implements b {
     }
 
     public String a() {
-        return this.f31773a;
+        return this.f31868a;
     }
 
     public Type b() {
-        return this.f31774b;
+        return this.f31869b;
     }
 
     public com.ksad.lottie.model.a.b c() {
-        return this.f31775c;
+        return this.f31870c;
     }
 
     public m<PointF, PointF> d() {
-        return this.f31776d;
+        return this.f31871d;
     }
 
     public com.ksad.lottie.model.a.b e() {
-        return this.f31777e;
+        return this.f31872e;
     }
 
     public com.ksad.lottie.model.a.b f() {
-        return this.f31778f;
+        return this.f31873f;
     }
 
     public com.ksad.lottie.model.a.b g() {
-        return this.f31779g;
+        return this.f31874g;
     }
 
     public com.ksad.lottie.model.a.b h() {
-        return this.f31780h;
+        return this.f31875h;
     }
 
     public com.ksad.lottie.model.a.b i() {

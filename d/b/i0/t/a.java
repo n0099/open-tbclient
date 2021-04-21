@@ -1,135 +1,71 @@
 package d.b.i0.t;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.b.c.e.p.j;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    public JSONObject f61788a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public HttpMessageListener f61789b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public BdUniqueId f61790c = BdUniqueId.gen();
-
-    /* renamed from: d  reason: collision with root package name */
-    public BdUniqueId f61791d = BdUniqueId.gen();
+import tbclient.Advertisement;
+/* loaded from: classes3.dex */
+public class a implements Comparable<a> {
 
     /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f61792e = new b(2000994);
+    public long f52209e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CustomMessageListener f61793f = new c(2921324);
+    public String f52210f;
 
-    /* renamed from: d.b.i0.t.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class C1590a extends HttpMessageListener {
-        public C1590a(int i) {
-            super(i);
-        }
+    /* renamed from: g  reason: collision with root package name */
+    public String f52211g;
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003390 && httpResponsedMessage.getError() == 0) {
-                a.this.f61788a = null;
-            }
-        }
+    /* renamed from: h  reason: collision with root package name */
+    public String f52212h;
+    public String i;
+    public int j;
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(a aVar) {
+        return g() > aVar.g() ? -1 : 1;
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends CustomMessageListener {
-        public b(int i) {
-            super(i);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.A() && a.this.f61788a != null) {
-                a aVar = a.this;
-                aVar.h(aVar.f61788a, a.this.f61791d);
-            }
-        }
+    public String b() {
+        return this.i;
     }
 
-    /* loaded from: classes4.dex */
-    public class c extends CustomMessageListener {
-        public c(int i) {
-            super(i);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof JSONObject)) {
-                return;
-            }
-            a.this.f((JSONObject) customResponsedMessage.getData());
-        }
+    public int c() {
+        return this.j;
     }
 
-    public a(TbPageContext tbPageContext) {
-        if (this.f61789b == null) {
-            this.f61789b = new C1590a(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK);
-        }
-        MessageManager.getInstance().registerListener(this.f61789b);
-        MessageManager.getInstance().registerListener(this.f61792e);
-        this.f61793f.setTag(tbPageContext.getUniqueId());
-        this.f61793f.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.f61793f);
+    public String d() {
+        return this.f52212h;
     }
 
-    public final void f(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return;
-        }
-        if (j.A()) {
-            h(jSONObject, this.f61790c);
-        } else {
-            this.f61788a = jSONObject;
-        }
+    public String e() {
+        return this.f52210f;
     }
 
-    public void g() {
-        MessageManager.getInstance().unRegisterListener(this.f61789b);
-        MessageManager.getInstance().unRegisterListener(this.f61792e);
-        MessageManager.getInstance().unRegisterListener(this.f61793f);
-        this.f61788a = null;
+    public String f() {
+        return this.f52211g;
     }
 
-    public final void h(JSONObject jSONObject, BdUniqueId bdUniqueId) {
-        if (jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("tid");
-        String optString2 = jSONObject.optString("fid");
-        String optString3 = jSONObject.optString("dislike_ids");
-        String optString4 = jSONObject.optString("type");
-        int i = 1;
-        if ("ala_frs_stage_live_feed_back_type".equals(optString4)) {
-            i = 2;
-        } else {
-            "ala_frs_demo_hell_live_feed_back_type".equals(optString4);
-        }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK);
-        httpMessage.addParam("thread_id", optString);
-        httpMessage.addParam("forum_id", optString2);
-        httpMessage.addParam("dislike_reason_id", optString3);
-        httpMessage.addParam("reason_type", i);
-        httpMessage.setTag(bdUniqueId);
-        MessageManager.getInstance().sendMessage(httpMessage);
+    public long g() {
+        return this.f52209e;
+    }
+
+    public void h(Advertisement advertisement) {
+        this.f52209e = advertisement.time.longValue();
+        this.f52210f = advertisement.pic;
+        this.f52211g = advertisement.pic_click;
+        this.f52212h = advertisement.jump_link;
+        this.i = advertisement.advertisement_id;
+    }
+
+    public void i(JSONObject jSONObject) {
+        this.f52210f = jSONObject.optString("pic");
+        this.f52211g = jSONObject.optString("pic_click");
+        this.f52212h = jSONObject.optString("jump_link");
+        this.i = jSONObject.optString("advertisement_id");
+    }
+
+    public void j(int i) {
+        this.j = i;
     }
 }

@@ -9,7 +9,7 @@ import java.util.Map;
 public class f {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final e.a<?> f35542b = new e.a<Object>() { // from class: com.kwad.sdk.glide.load.a.f.1
+    public static final e.a<?> f35637b = new e.a<Object>() { // from class: com.kwad.sdk.glide.load.a.f.1
         @Override // com.kwad.sdk.glide.load.a.e.a
         @NonNull
         public e<Object> a(@NonNull Object obj) {
@@ -24,22 +24,22 @@ public class f {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<Class<?>, e.a<?>> f35543a = new HashMap();
+    public final Map<Class<?>, e.a<?>> f35638a = new HashMap();
 
     /* loaded from: classes6.dex */
     public static final class a implements e<Object> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Object f35544a;
+        public final Object f35639a;
 
         public a(@NonNull Object obj) {
-            this.f35544a = obj;
+            this.f35639a = obj;
         }
 
         @Override // com.kwad.sdk.glide.load.a.e
         @NonNull
         public Object a() {
-            return this.f35544a;
+            return this.f35639a;
         }
 
         @Override // com.kwad.sdk.glide.load.a.e
@@ -51,9 +51,9 @@ public class f {
     public synchronized <T> e<T> a(@NonNull T t) {
         e.a<?> aVar;
         com.kwad.sdk.glide.g.j.a(t);
-        aVar = this.f35543a.get(t.getClass());
+        aVar = this.f35638a.get(t.getClass());
         if (aVar == null) {
-            Iterator<e.a<?>> it = this.f35543a.values().iterator();
+            Iterator<e.a<?>> it = this.f35638a.values().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -66,12 +66,12 @@ public class f {
             }
         }
         if (aVar == null) {
-            aVar = f35542b;
+            aVar = f35637b;
         }
         return (e<T>) aVar.a(t);
     }
 
     public synchronized void a(@NonNull e.a<?> aVar) {
-        this.f35543a.put(aVar.a(), aVar);
+        this.f35638a.put(aVar.a(), aVar);
     }
 }

@@ -45,28 +45,28 @@ import java.util.Random;
 public class ah {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f36997a = "";
+    public static String f37092a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f36998b = "";
+    public static String f37093b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f36999c = "";
+    public static String f37094c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f37000d = "";
+    public static String f37095d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f37001e = "";
+    public static String f37096e = "";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f37002f = null;
+    public static String f37097f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f37003g = false;
+    public static boolean f37098g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f37004h = false;
+    public static boolean f37099h = false;
     public static boolean i = false;
     public static boolean j = false;
     public static int k = 0;
@@ -211,25 +211,25 @@ public class ah {
 
     @SuppressLint({"HardwareIds", "MissingPermission"})
     public static String d(@Nullable Context context) {
-        if (f37003g) {
+        if (f37098g) {
             return "";
         }
-        if (!TextUtils.isEmpty(f36998b) || context == null) {
-            return f36998b;
+        if (!TextUtils.isEmpty(f37093b) || context == null) {
+            return f37093b;
         }
         try {
             r1 = a(context, "android.permission.READ_PHONE_STATE") == 0;
             if (r1) {
-                f36998b = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+                f37093b = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
             }
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
-            f36998b = null;
+            f37093b = null;
         }
-        if (r1 && f36999c == null) {
-            f37003g = true;
+        if (r1 && f37094c == null) {
+            f37098g = true;
         }
-        return f36998b;
+        return f37093b;
     }
 
     public static String e() {
@@ -239,11 +239,11 @@ public class ah {
     @SuppressLint({"HardwareIds", "MissingPermission"})
     public static String e(Context context) {
         String str;
-        if (f37004h) {
+        if (f37099h) {
             return "";
         }
-        if (!TextUtils.isEmpty(f36999c) || context == null) {
-            return f36999c;
+        if (!TextUtils.isEmpty(f37094c) || context == null) {
+            return f37094c;
         }
         try {
             r2 = a(context, "android.permission.READ_PHONE_STATE") == 0;
@@ -252,10 +252,10 @@ public class ah {
             str = null;
         }
         if (r2 && str == null) {
-            f37004h = true;
+            f37099h = true;
         }
         String str2 = TextUtils.isEmpty(str) ? "" : str;
-        f36999c = str2;
+        f37094c = str2;
         return str2;
     }
 
@@ -271,7 +271,7 @@ public class ah {
         if (i) {
             return "";
         }
-        if (TextUtils.isEmpty(f37000d)) {
+        if (TextUtils.isEmpty(f37095d)) {
             if (context != null && n) {
                 try {
                     r2 = a(context, "android.permission.READ_PHONE_STATE") == 0;
@@ -284,11 +284,11 @@ public class ah {
                     i = true;
                 }
                 str = TextUtils.isEmpty(str2) ? "" : str2;
-                f37000d = str;
+                f37095d = str;
             }
             return str;
         }
-        return f37000d;
+        return f37095d;
     }
 
     public static int g(Context context) {
@@ -328,17 +328,17 @@ public class ah {
         if (j) {
             return "";
         }
-        if (!TextUtils.isEmpty(f37001e) || context == null) {
-            return f37001e;
+        if (!TextUtils.isEmpty(f37096e) || context == null) {
+            return f37096e;
         }
         try {
-            f37001e = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+            f37096e = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
         } catch (Exception unused) {
         }
-        if (TextUtils.isEmpty(f37001e)) {
+        if (TextUtils.isEmpty(f37096e)) {
             j = true;
         }
-        return f37001e;
+        return f37096e;
     }
 
     public static int j() {
@@ -361,13 +361,13 @@ public class ah {
         if (context == null || !m) {
             return "";
         }
-        if (TextUtils.isEmpty(f36997a)) {
+        if (TextUtils.isEmpty(f37092a)) {
             try {
                 WifiInfo connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo();
                 if (connectionInfo != null) {
-                    f36997a = connectionInfo.getMacAddress();
+                    f37092a = connectionInfo.getMacAddress();
                 }
-                if (TextUtils.isEmpty(f36997a) || f36997a.equals(Config.DEF_MAC_ID)) {
+                if (TextUtils.isEmpty(f37092a) || f37092a.equals(Config.DEF_MAC_ID)) {
                     Iterator it = Collections.list(NetworkInterface.getNetworkInterfaces()).iterator();
                     while (true) {
                         if (!it.hasNext()) {
@@ -385,21 +385,21 @@ public class ah {
                                 if (sb.length() > 0) {
                                     sb.deleteCharAt(sb.length() - 1);
                                 }
-                                f36997a = sb.toString();
+                                f37092a = sb.toString();
                             }
                         }
                     }
                 }
-                if (TextUtils.isEmpty(f36997a) || f36997a.equals(Config.DEF_MAC_ID)) {
-                    f36997a = new LineNumberReader(new InputStreamReader(Runtime.getRuntime().exec("cat /sys/class/net/wlan0/address ").getInputStream())).readLine();
+                if (TextUtils.isEmpty(f37092a) || f37092a.equals(Config.DEF_MAC_ID)) {
+                    f37092a = new LineNumberReader(new InputStreamReader(Runtime.getRuntime().exec("cat /sys/class/net/wlan0/address ").getInputStream())).readLine();
                 }
-                if (!TextUtils.isEmpty(f36997a)) {
-                    f36997a = f36997a.toUpperCase(Locale.US);
+                if (!TextUtils.isEmpty(f37092a)) {
+                    f37092a = f37092a.toUpperCase(Locale.US);
                 }
             } catch (Exception unused) {
             }
         }
-        return f36997a;
+        return f37092a;
     }
 
     public static String l() {
@@ -434,28 +434,28 @@ public class ah {
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.b(e2);
         }
-        if (TextUtils.isEmpty(f37002f)) {
+        if (TextUtils.isEmpty(f37097f)) {
             String p = p();
             if (!TextUtils.isEmpty(p)) {
                 String str = "ANDROID_" + p;
-                f37002f = str;
+                f37097f = str;
                 return str;
             }
             String i2 = i(KsAdSDKImpl.get().getContext());
             if (!TextUtils.isEmpty(i2) && !a(i2)) {
                 String str2 = "ANDROID_" + i2;
-                f37002f = str2;
+                f37097f = str2;
                 return str2;
             }
             String o2 = o();
             if (!TextUtils.isEmpty(o2)) {
-                f37002f = "ANDROID_" + o2;
+                f37097f = "ANDROID_" + o2;
                 b(o2);
-                return f37002f;
+                return f37097f;
             }
             return "ANDROID_";
         }
-        return f37002f;
+        return f37097f;
     }
 
     public static String m(Context context) {

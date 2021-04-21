@@ -10,11 +10,11 @@ import com.baidu.tieba.im.data.ValidateItemData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import d.b.c.e.p.l;
-import d.b.h0.z0.f0;
-import d.b.h0.z0.h0;
-import d.b.h0.z0.n;
-import d.b.i0.e1.h.d;
-import d.b.i0.e1.k.b;
+import d.b.i0.z0.f0;
+import d.b.i0.z0.h0;
+import d.b.i0.z0.n;
+import d.b.j0.e1.h.d;
+import d.b.j0.e1.k.b;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -83,7 +83,7 @@ public class ValidateModel {
         h0.c(new f0<Boolean>() { // from class: com.baidu.tieba.im.model.ValidateModel.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.b.h0.z0.f0
+            @Override // d.b.i0.z0.f0
             public Boolean doInBackground() {
                 return Boolean.valueOf(d.f().a(ValidateItemData.this.getNotice_id()));
             }
@@ -121,7 +121,7 @@ public class ValidateModel {
         h0.c(new f0<Integer>() { // from class: com.baidu.tieba.im.model.ValidateModel.5
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.b.h0.z0.f0
+            @Override // d.b.i0.z0.f0
             public Integer doInBackground() {
                 return Integer.valueOf(d.f().e("apply_join_group"));
             }
@@ -131,7 +131,7 @@ public class ValidateModel {
     public static void requestValidateDataFromDB(final int i, final int i2, n<LinkedList<GroupNewsPojo>> nVar) {
         h0.c(new f0<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.ValidateModel.4
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.b.h0.z0.f0
+            @Override // d.b.i0.z0.f0
             public LinkedList<GroupNewsPojo> doInBackground() {
                 return d.f().c(0L, i, i2, "apply_join_group");
             }
@@ -152,7 +152,7 @@ public class ValidateModel {
         h0.c(new f0<Boolean>() { // from class: com.baidu.tieba.im.model.ValidateModel.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.b.h0.z0.f0
+            @Override // d.b.i0.z0.f0
             public Boolean doInBackground() {
                 return Boolean.valueOf(d.f().j(ValidateItemData.this));
             }

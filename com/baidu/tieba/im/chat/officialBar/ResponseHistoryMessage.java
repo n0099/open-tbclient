@@ -19,16 +19,16 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17559a;
+        public String f17567a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f17560b;
+        public int f17568b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f17561c;
+        public String f17569c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f17562d;
+        public int f17570d;
     }
 
     public ResponseHistoryMessage() {
@@ -59,10 +59,10 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                 if (msgInfo != null) {
                     Date date = new Date();
                     date.setTime(msgInfo.sendTime.longValue() * 1000);
-                    aVar.f17559a = k.getDateStringMouth(date);
-                    aVar.f17560b = msgInfo.type.intValue();
-                    aVar.f17561c = msgInfo.content;
-                    aVar.f17562d = msgInfo.id.intValue();
+                    aVar.f17567a = k.getDateStringMouth(date);
+                    aVar.f17568b = msgInfo.type.intValue();
+                    aVar.f17569c = msgInfo.content;
+                    aVar.f17570d = msgInfo.id.intValue();
                     this.msg.add(aVar);
                 }
             }
@@ -70,7 +70,7 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
         if (this.msg.isEmpty()) {
             return;
         }
-        l<byte[]> d2 = d.b.h0.r.r.a.f().d("tb.im_official_history");
+        l<byte[]> d2 = d.b.i0.r.r.a.f().d("tb.im_official_history");
         RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
         if (requestHistoryMessage == null || requestHistoryMessage.getRequestId() != 0) {
             return;

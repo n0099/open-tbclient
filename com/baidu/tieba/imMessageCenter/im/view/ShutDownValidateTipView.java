@@ -17,16 +17,16 @@ import java.util.ArrayList;
 public class ShutDownValidateTipView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f17972e;
+    public TextView f17980e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f17973f;
+    public ImageView f17981f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f17974g;
+    public TextView f17982g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f17975h;
+    public TextView f17983h;
     public boolean i;
     public ArrayList<c> j;
 
@@ -80,24 +80,24 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void a(Context context) {
         addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
-        this.f17973f = (ImageView) findViewById(R.id.no_network_icon);
-        this.f17974g = (TextView) findViewById(R.id.no_network_guide1);
-        this.f17975h = (TextView) findViewById(R.id.no_network_guide2);
-        this.f17972e = (TextView) findViewById(R.id.no_network_showmore);
+        this.f17981f = (ImageView) findViewById(R.id.no_network_icon);
+        this.f17982g = (TextView) findViewById(R.id.no_network_guide1);
+        this.f17983h = (TextView) findViewById(R.id.no_network_guide2);
+        this.f17980e = (TextView) findViewById(R.id.no_network_showmore);
     }
 
     public void b(int i) {
-        SkinManager.setImageResource(this.f17973f, R.drawable.icon_error);
+        SkinManager.setImageResource(this.f17981f, R.drawable.icon_error);
         SkinManager.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
         if (i != 1 && i != 4) {
-            this.f17974g.setTextColor(-14277082);
-            this.f17975h.setTextColor(-5065030);
-            this.f17972e.setTextColor(-14277082);
+            this.f17982g.setTextColor(-14277082);
+            this.f17983h.setTextColor(-5065030);
+            this.f17980e.setTextColor(-14277082);
             return;
         }
-        this.f17974g.setTextColor(-10523526);
-        this.f17975h.setTextColor(-8682095);
-        this.f17972e.setTextColor(-10523526);
+        this.f17982g.setTextColor(-10523526);
+        this.f17983h.setTextColor(-8682095);
+        this.f17980e.setTextColor(-10523526);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -112,7 +112,7 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        TextView textView = this.f17972e;
+        TextView textView = this.f17980e;
         if (textView == null) {
             return;
         }

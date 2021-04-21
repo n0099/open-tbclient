@@ -3,13 +3,13 @@ package com.baidu.ufosdk.f;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f22640a;
+    public static long f22648a;
 
     public static boolean a() {
         long currentTimeMillis = System.currentTimeMillis();
-        long j = currentTimeMillis - f22640a;
+        long j = currentTimeMillis - f22648a;
         if (0 >= j || j >= 500) {
-            f22640a = currentTimeMillis;
+            f22648a = currentTimeMillis;
             return false;
         }
         return true;

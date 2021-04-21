@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityAccountAuto;
-import d.b.h0.l.a;
+import d.b.i0.l.a;
 import java.net.URLEncoder;
 /* loaded from: classes4.dex */
 public class UtilityAccount implements TiebaUtilityAccountAuto.HostUtilityAccount {

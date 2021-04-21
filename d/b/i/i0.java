@@ -8,7 +8,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class i0 extends h {
     public ThreadSmartAppLayout l;
-    public d.b.h0.r.q.a m;
+    public d.b.i0.r.q.a m;
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
@@ -46,7 +46,7 @@ public class i0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.i.p
     /* renamed from: t */
-    public void a(d.b.h0.r.q.a aVar) {
+    public void a(d.b.i0.r.q.a aVar) {
         this.m = aVar;
         this.l.a(aVar);
     }

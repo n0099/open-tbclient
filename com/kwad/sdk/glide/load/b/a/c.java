@@ -11,34 +11,34 @@ import java.io.InputStream;
 public class c implements n<Uri, InputStream> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f35572a;
+    public final Context f35667a;
 
     /* loaded from: classes6.dex */
     public static class a implements o<Uri, InputStream> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Context f35574a;
+        public final Context f35669a;
 
         public a(Context context) {
-            this.f35574a = context;
+            this.f35669a = context;
         }
 
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
         public n<Uri, InputStream> a(r rVar) {
-            return new c(this.f35574a);
+            return new c(this.f35669a);
         }
     }
 
     public c(Context context) {
-        this.f35572a = context.getApplicationContext();
+        this.f35667a = context.getApplicationContext();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.b.n
     public n.a<InputStream> a(@NonNull Uri uri, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
         if (com.kwad.sdk.glide.load.a.a.b.a(i, i2)) {
-            return new n.a<>(new com.kwad.sdk.glide.f.b(uri), com.kwad.sdk.glide.load.a.a.c.a(this.f35572a, uri));
+            return new n.a<>(new com.kwad.sdk.glide.f.b(uri), com.kwad.sdk.glide.load.a.a.c.a(this.f35667a, uri));
         }
         return null;
     }

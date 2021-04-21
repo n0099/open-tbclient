@@ -28,16 +28,16 @@ import java.util.Map;
 public class MultiImageView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13426e;
+    public int f13434e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f13427f;
+    public Button f13435f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Button f13428g;
+    public Button f13436g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f13429h;
+    public LinearLayout f13437h;
     public GalleryViewPager i;
     public ImagePagerAdapter j;
     public View.OnClickListener k;
@@ -55,7 +55,7 @@ public class MultiImageView extends RelativeLayout {
     public Map<String, ImageUrlData> w;
     public boolean x;
     public boolean y;
-    public d.b.h0.s.i.a z;
+    public d.b.i0.s.i.a z;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -65,12 +65,12 @@ public class MultiImageView extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             DragImageView currentImageView;
-            if (view == MultiImageView.this.f13427f) {
+            if (view == MultiImageView.this.f13435f) {
                 DragImageView currentImageView2 = MultiImageView.this.getCurrentImageView();
                 if (currentImageView2 != null) {
                     currentImageView2.t0();
                 }
-            } else if (view != MultiImageView.this.f13428g || (currentImageView = MultiImageView.this.getCurrentImageView()) == null) {
+            } else if (view != MultiImageView.this.f13436g || (currentImageView = MultiImageView.this.getCurrentImageView()) == null) {
             } else {
                 currentImageView.u0();
             }
@@ -191,10 +191,10 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context) {
         super(context);
-        this.f13426e = 3;
-        this.f13427f = null;
-        this.f13428g = null;
-        this.f13429h = null;
+        this.f13434e = 3;
+        this.f13435f = null;
+        this.f13436g = null;
+        this.f13437h = null;
         this.i = null;
         this.j = null;
         this.k = null;
@@ -234,14 +234,14 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void A(boolean z) {
-        d.b.h0.s.i.a aVar = this.z;
+        d.b.i0.s.i.a aVar = this.z;
         if (aVar != null) {
             aVar.n(z ? 0 : 8);
         }
     }
 
     public void B(boolean z, int i) {
-        d.b.h0.s.i.a aVar;
+        d.b.i0.s.i.a aVar;
         if (this.y && (aVar = this.z) != null) {
             aVar.o(z ? 0 : 8, i);
         }
@@ -251,11 +251,11 @@ public class MultiImageView extends RelativeLayout {
         if (this.s) {
             return;
         }
-        this.f13429h.setVisibility(0);
+        this.f13437h.setVisibility(0);
     }
 
     public int getBottomHeight() {
-        d.b.h0.s.i.a aVar;
+        d.b.i0.s.i.a aVar;
         if (!this.y || (aVar = this.z) == null) {
             return 0;
         }
@@ -407,7 +407,7 @@ public class MultiImageView extends RelativeLayout {
         if (this.s) {
             return;
         }
-        this.f13429h.setVisibility(8);
+        this.f13437h.setVisibility(8);
     }
 
     public void q() {
@@ -429,37 +429,37 @@ public class MultiImageView extends RelativeLayout {
         this.i.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
         this.i.setOnPageChangeListener(this.m);
         addView(this.i);
-        this.f13429h = new LinearLayout(getContext());
+        this.f13437h = new LinearLayout(getContext());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.bottomMargin = l.e(getContext(), 10.0f);
         layoutParams.addRule(12);
         layoutParams.addRule(14);
-        this.f13429h.setOrientation(0);
-        this.f13429h.setLayoutParams(layoutParams);
-        addView(this.f13429h);
+        this.f13437h.setOrientation(0);
+        this.f13437h.setLayoutParams(layoutParams);
+        addView(this.f13437h);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
         Button button = new Button(getContext());
-        this.f13428g = button;
+        this.f13436g = button;
         SkinManager.setBackgroundResource(button, R.drawable.image_zoomout, 0);
-        this.f13428g.setLayoutParams(layoutParams2);
-        this.f13428g.setOnClickListener(this.k);
-        this.f13428g.setEnabled(false);
-        this.f13429h.addView(this.f13428g);
+        this.f13436g.setLayoutParams(layoutParams2);
+        this.f13436g.setOnClickListener(this.k);
+        this.f13436g.setEnabled(false);
+        this.f13437h.addView(this.f13436g);
         Button button2 = new Button(getContext());
-        this.f13427f = button2;
+        this.f13435f = button2;
         SkinManager.setBackgroundResource(button2, R.drawable.image_zoomin, 0);
-        this.f13427f.setLayoutParams(layoutParams2);
-        this.f13427f.setOnClickListener(this.k);
-        this.f13427f.setEnabled(false);
-        this.f13429h.addView(this.f13427f);
+        this.f13435f.setLayoutParams(layoutParams2);
+        this.f13435f.setOnClickListener(this.k);
+        this.f13435f.setEnabled(false);
+        this.f13437h.addView(this.f13435f);
         if (this.s) {
-            this.f13429h.setVisibility(8);
+            this.f13437h.setVisibility(8);
         }
         ImagePagerAdapter imagePagerAdapter = new ImagePagerAdapter(getContext(), this.l);
         this.j = imagePagerAdapter;
         imagePagerAdapter.w(this.p);
         setAdapter(this.j);
-        this.z = new d.b.h0.s.i.a(getContext(), this);
+        this.z = new d.b.i0.s.i.a(getContext(), this);
     }
 
     public void setAddSize(int i) {
@@ -583,7 +583,7 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void setOnDownloadImageListener(ImageViewerBottomLayout.b bVar) {
-        d.b.h0.s.i.a aVar = this.z;
+        d.b.i0.s.i.a aVar = this.z;
         if (aVar != null) {
             aVar.j(bVar);
         }
@@ -594,7 +594,7 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void setOnReplyClickListener(View.OnClickListener onClickListener) {
-        d.b.h0.s.i.a aVar = this.z;
+        d.b.i0.s.i.a aVar = this.z;
         if (aVar != null) {
             aVar.k(onClickListener);
         }
@@ -608,7 +608,7 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void setOnShareImageListener(ImageViewerBottomLayout.c cVar) {
-        d.b.h0.s.i.a aVar = this.z;
+        d.b.i0.s.i.a aVar = this.z;
         if (aVar != null) {
             aVar.l(cVar);
         }
@@ -667,7 +667,7 @@ public class MultiImageView extends RelativeLayout {
                 ((UrlDragImageView) childAt).setUserId(str);
             }
         }
-        d.b.h0.s.i.a aVar = this.z;
+        d.b.i0.s.i.a aVar = this.z;
         if (aVar != null) {
             aVar.m(str);
         }
@@ -683,20 +683,20 @@ public class MultiImageView extends RelativeLayout {
     public void setZoomButton(DragImageView dragImageView) {
         if (dragImageView != null) {
             if (dragImageView.Q()) {
-                this.f13427f.setEnabled(true);
+                this.f13435f.setEnabled(true);
             } else {
-                this.f13427f.setEnabled(false);
+                this.f13435f.setEnabled(false);
             }
             if (dragImageView.R()) {
-                this.f13428g.setEnabled(true);
+                this.f13436g.setEnabled(true);
                 return;
             } else {
-                this.f13428g.setEnabled(false);
+                this.f13436g.setEnabled(false);
                 return;
             }
         }
-        this.f13428g.setEnabled(false);
-        this.f13427f.setEnabled(false);
+        this.f13436g.setEnabled(false);
+        this.f13435f.setEnabled(false);
     }
 
     public boolean t() {
@@ -772,7 +772,7 @@ public class MultiImageView extends RelativeLayout {
 
     public void y(int i) {
         GalleryViewPager galleryViewPager;
-        if (this.f13426e == i || (galleryViewPager = this.i) == null) {
+        if (this.f13434e == i || (galleryViewPager = this.i) == null) {
             return;
         }
         int childCount = galleryViewPager.getChildCount();
@@ -782,11 +782,11 @@ public class MultiImageView extends RelativeLayout {
                 ((UrlDragImageView) childAt).W(i);
             }
         }
-        this.f13426e = i;
+        this.f13434e = i;
     }
 
     public void z(ImageUrlData imageUrlData) {
-        d.b.h0.s.i.a aVar = this.z;
+        d.b.i0.s.i.a aVar = this.z;
         if (aVar != null) {
             aVar.i(imageUrlData);
             if (!this.x && imageUrlData != null) {
@@ -805,10 +805,10 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13426e = 3;
-        this.f13427f = null;
-        this.f13428g = null;
-        this.f13429h = null;
+        this.f13434e = 3;
+        this.f13435f = null;
+        this.f13436g = null;
+        this.f13437h = null;
         this.i = null;
         this.j = null;
         this.k = null;
@@ -830,10 +830,10 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f13426e = 3;
-        this.f13427f = null;
-        this.f13428g = null;
-        this.f13429h = null;
+        this.f13434e = 3;
+        this.f13435f = null;
+        this.f13436g = null;
+        this.f13437h = null;
         this.i = null;
         this.j = null;
         this.k = null;

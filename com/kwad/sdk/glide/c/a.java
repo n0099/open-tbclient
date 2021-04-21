@@ -8,27 +8,27 @@ import java.util.WeakHashMap;
 public class a implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Set<i> f35385a = Collections.newSetFromMap(new WeakHashMap());
+    public final Set<i> f35480a = Collections.newSetFromMap(new WeakHashMap());
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f35386b;
+    public boolean f35481b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f35387c;
+    public boolean f35482c;
 
     public void a() {
-        this.f35386b = true;
-        for (i iVar : com.kwad.sdk.glide.g.k.a(this.f35385a)) {
+        this.f35481b = true;
+        for (i iVar : com.kwad.sdk.glide.g.k.a(this.f35480a)) {
             iVar.c();
         }
     }
 
     @Override // com.kwad.sdk.glide.c.h
     public void a(@NonNull i iVar) {
-        this.f35385a.add(iVar);
-        if (this.f35387c) {
+        this.f35480a.add(iVar);
+        if (this.f35482c) {
             iVar.e();
-        } else if (this.f35386b) {
+        } else if (this.f35481b) {
             iVar.c();
         } else {
             iVar.d();
@@ -36,20 +36,20 @@ public class a implements h {
     }
 
     public void b() {
-        this.f35386b = false;
-        for (i iVar : com.kwad.sdk.glide.g.k.a(this.f35385a)) {
+        this.f35481b = false;
+        for (i iVar : com.kwad.sdk.glide.g.k.a(this.f35480a)) {
             iVar.d();
         }
     }
 
     @Override // com.kwad.sdk.glide.c.h
     public void b(@NonNull i iVar) {
-        this.f35385a.remove(iVar);
+        this.f35480a.remove(iVar);
     }
 
     public void c() {
-        this.f35387c = true;
-        for (i iVar : com.kwad.sdk.glide.g.k.a(this.f35385a)) {
+        this.f35482c = true;
+        for (i iVar : com.kwad.sdk.glide.g.k.a(this.f35480a)) {
             iVar.e();
         }
     }

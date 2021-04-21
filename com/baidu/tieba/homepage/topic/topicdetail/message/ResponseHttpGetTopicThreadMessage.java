@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import d.b.c.j.e.n;
-import d.b.i0.a1.j.a.c.c;
+import d.b.j0.a1.j.a.c.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.NewTopicThread.DataRes;

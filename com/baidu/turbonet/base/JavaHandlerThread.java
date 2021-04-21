@@ -11,25 +11,25 @@ import com.baidu.turbonet.base.annotations.JNINamespace;
 public class JavaHandlerThread {
 
     /* renamed from: a  reason: collision with root package name */
-    public final HandlerThread f22329a;
+    public final HandlerThread f22337a;
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f22330e;
+        public final /* synthetic */ long f22338e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f22331f;
+        public final /* synthetic */ long f22339f;
 
         public a(long j, long j2) {
-            this.f22330e = j;
-            this.f22331f = j2;
+            this.f22338e = j;
+            this.f22339f = j2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            JavaHandlerThread.this.nativeInitializeThread(this.f22330e, this.f22331f);
+            JavaHandlerThread.this.nativeInitializeThread(this.f22338e, this.f22339f);
         }
     }
 
@@ -37,32 +37,32 @@ public class JavaHandlerThread {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f22333e;
+        public final /* synthetic */ long f22341e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f22334f;
+        public final /* synthetic */ long f22342f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f22335g;
+        public final /* synthetic */ boolean f22343g;
 
         public b(long j, long j2, boolean z) {
-            this.f22333e = j;
-            this.f22334f = j2;
-            this.f22335g = z;
+            this.f22341e = j;
+            this.f22342f = j2;
+            this.f22343g = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            JavaHandlerThread.this.nativeStopThread(this.f22333e, this.f22334f);
-            if (this.f22335g) {
+            JavaHandlerThread.this.nativeStopThread(this.f22341e, this.f22342f);
+            if (this.f22343g) {
                 return;
             }
-            JavaHandlerThread.this.f22329a.quit();
+            JavaHandlerThread.this.f22337a.quit();
         }
     }
 
     public JavaHandlerThread(String str) {
-        this.f22329a = new HandlerThread(str);
+        this.f22337a = new HandlerThread(str);
     }
 
     @CalledByNative
@@ -78,17 +78,17 @@ public class JavaHandlerThread {
 
     @CalledByNative
     private void start(long j, long j2) {
-        this.f22329a.start();
-        new Handler(this.f22329a.getLooper()).post(new a(j, j2));
+        this.f22337a.start();
+        new Handler(this.f22337a.getLooper()).post(new a(j, j2));
     }
 
     @CalledByNative
     @TargetApi(18)
     private void stop(long j, long j2) {
         boolean z = Build.VERSION.SDK_INT >= 18;
-        new Handler(this.f22329a.getLooper()).post(new b(j, j2, z));
+        new Handler(this.f22337a.getLooper()).post(new b(j, j2, z));
         if (z) {
-            this.f22329a.quitSafely();
+            this.f22337a.quitSafely();
         }
     }
 }

@@ -12,19 +12,19 @@ import org.json.JSONObject;
 public class e implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.core.webview.a f34622a;
+    public final com.kwad.sdk.core.webview.a f34717a;
 
     /* loaded from: classes6.dex */
     public static final class a implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<AdTemplate> f34623a;
+        public List<AdTemplate> f34718a;
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
             JSONArray jSONArray = new JSONArray();
-            for (AdTemplate adTemplate : this.f34623a) {
+            for (AdTemplate adTemplate : this.f34718a) {
                 if (!TextUtils.isEmpty(adTemplate.mOriginJString)) {
                     try {
                         jSONArray.put(new JSONObject(adTemplate.mOriginJString));
@@ -40,7 +40,7 @@ public class e implements com.kwad.sdk.core.webview.a.a {
     }
 
     public e(com.kwad.sdk.core.webview.a aVar) {
-        this.f34622a = aVar;
+        this.f34717a = aVar;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -51,12 +51,12 @@ public class e implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
-        if (this.f34622a.f34575b == null) {
+        if (this.f34717a.f34670b == null) {
             cVar.a(-1, "native adTemplate is null");
             return;
         }
         a aVar = new a();
-        aVar.f34623a = Collections.singletonList(this.f34622a.f34575b);
+        aVar.f34718a = Collections.singletonList(this.f34717a.f34670b);
         cVar.a(aVar);
     }
 

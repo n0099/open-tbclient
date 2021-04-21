@@ -17,29 +17,29 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class EmptyView extends View implements am.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f27693a;
+    public boolean f27701a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f27694b;
+    public boolean f27702b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f27695c;
+    public a f27703c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f27696d;
+    public View f27704d;
 
     /* renamed from: e  reason: collision with root package name */
-    public WeakReference<Activity> f27697e;
+    public WeakReference<Activity> f27705e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<View> f27698f;
+    public List<View> f27706f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public List<View> f27699g;
+    public List<View> f27707g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27700h;
+    public boolean f27708h;
     public int i;
     public final Handler j;
     public final AtomicBoolean k;
@@ -60,15 +60,15 @@ public class EmptyView extends View implements am.a {
         this.j = new am(Looper.getMainLooper(), this);
         this.k = new AtomicBoolean(true);
         if (context instanceof Activity) {
-            this.f27697e = new WeakReference<>((Activity) context);
+            this.f27705e = new WeakReference<>((Activity) context);
         }
-        this.f27696d = view;
+        this.f27704d = view;
         setLayoutParams(new ViewGroup.LayoutParams(0, 0));
     }
 
     private void b() {
         a aVar;
-        if (!this.k.getAndSet(false) || (aVar = this.f27695c) == null) {
+        if (!this.k.getAndSet(false) || (aVar = this.f27703c) == null) {
             return;
         }
         aVar.a();
@@ -76,33 +76,33 @@ public class EmptyView extends View implements am.a {
 
     private void c() {
         a aVar;
-        if (this.k.getAndSet(true) || (aVar = this.f27695c) == null) {
+        if (this.k.getAndSet(true) || (aVar = this.f27703c) == null) {
             return;
         }
         aVar.b();
     }
 
     private void d() {
-        if (!this.f27694b || this.f27693a) {
+        if (!this.f27702b || this.f27701a) {
             return;
         }
-        this.f27693a = true;
+        this.f27701a = true;
         this.j.sendEmptyMessage(1);
     }
 
     private void e() {
-        if (this.f27693a) {
+        if (this.f27701a) {
             this.j.removeCallbacksAndMessages(null);
-            this.f27693a = false;
+            this.f27701a = false;
         }
     }
 
     private boolean f() {
         Activity activity;
         boolean a2 = ak.a();
-        WeakReference<Activity> weakReference = this.f27697e;
+        WeakReference<Activity> weakReference = this.f27705e;
         boolean z = (weakReference == null || (activity = weakReference.get()) == null || activity.isFinishing()) ? false : true;
-        boolean a3 = y.a(this.f27696d, 20, this.i);
+        boolean a3 = y.a(this.f27704d, 20, this.i);
         if (!a2) {
             a3 = true;
         }
@@ -113,15 +113,15 @@ public class EmptyView extends View implements am.a {
     }
 
     public void a() {
-        a(this.f27698f, null);
-        a(this.f27699g, null);
+        a(this.f27706f, null);
+        a(this.f27707g, null);
     }
 
     @Override // android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
         d();
-        this.f27700h = false;
+        this.f27708h = false;
         b();
     }
 
@@ -129,7 +129,7 @@ public class EmptyView extends View implements am.a {
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         e();
-        this.f27700h = true;
+        this.f27708h = true;
         c();
     }
 
@@ -148,7 +148,7 @@ public class EmptyView extends View implements am.a {
     @Override // android.view.View
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        a aVar = this.f27695c;
+        a aVar = this.f27703c;
         if (aVar != null) {
             aVar.a(z);
         }
@@ -159,25 +159,25 @@ public class EmptyView extends View implements am.a {
     }
 
     public void setCallback(a aVar) {
-        this.f27695c = aVar;
+        this.f27703c = aVar;
     }
 
     public void setNeedCheckingShow(boolean z) {
-        this.f27694b = z;
-        if (!z && this.f27693a) {
+        this.f27702b = z;
+        if (!z && this.f27701a) {
             e();
-        } else if (!z || this.f27693a) {
+        } else if (!z || this.f27701a) {
         } else {
             d();
         }
     }
 
     public void setRefClickViews(List<View> list) {
-        this.f27698f = list;
+        this.f27706f = list;
     }
 
     public void setRefCreativeViews(@Nullable List<View> list) {
-        this.f27699g = list;
+        this.f27707g = list;
     }
 
     public void a(List<View> list, com.bytedance.sdk.openadsdk.core.a.c cVar) {
@@ -198,17 +198,17 @@ public class EmptyView extends View implements am.a {
             }
             if (f()) {
                 this.j.sendEmptyMessageDelayed(2, 1000L);
-            } else if (this.f27700h) {
+            } else if (this.f27708h) {
             } else {
                 setNeedCheckingShow(true);
             }
-        } else if (this.f27693a) {
-            if (y.a(this.f27696d, 20, this.i)) {
+        } else if (this.f27701a) {
+            if (y.a(this.f27704d, 20, this.i)) {
                 e();
                 this.j.sendEmptyMessageDelayed(2, 1000L);
-                a aVar = this.f27695c;
+                a aVar = this.f27703c;
                 if (aVar != null) {
-                    aVar.a(this.f27696d);
+                    aVar.a(this.f27704d);
                     return;
                 }
                 return;

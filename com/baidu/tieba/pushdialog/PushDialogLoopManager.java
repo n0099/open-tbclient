@@ -38,25 +38,25 @@ import com.baidu.tieba.screenlocknotify.ScreenLockActivity;
 public class PushDialogLoopManager {
 
     /* renamed from: g  reason: collision with root package name */
-    public static PushDialogLoopManager f20302g;
+    public static PushDialogLoopManager f20310g;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f20303a;
+    public Handler f20311a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f20304b;
+    public String f20312b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f20305c = false;
+    public boolean f20313c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f20306d = false;
+    public boolean f20314d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f20307e;
+    public boolean f20315e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AlarmManager f20308f;
+    public AlarmManager f20316f;
 
     /* loaded from: classes3.dex */
     public static class PushAlarmReceiver extends BroadcastReceiver {
@@ -96,12 +96,12 @@ public class PushDialogLoopManager {
             } else {
                 tid = responsedMessage instanceof PullTidSocketResponseMessage ? ((PullTidSocketResponseMessage) responsedMessage).getTid() : "";
             }
-            if (StringUtils.isNull(tid) || responsedMessage.getError() != 0 || PushDialogLoopManager.this.f20304b.equals(tid) || "0".equals(tid)) {
+            if (StringUtils.isNull(tid) || responsedMessage.getError() != 0 || PushDialogLoopManager.this.f20312b.equals(tid) || "0".equals(tid)) {
                 return;
             }
-            PushDialogLoopManager.this.f20304b = tid;
-            if (d.b.i0.u2.a.j().f62790d.c()) {
-                PushDialogLoopManager.this.f20305c = true;
+            PushDialogLoopManager.this.f20312b = tid;
+            if (d.b.j0.u2.a.j().f63211d.c()) {
+                PushDialogLoopManager.this.f20313c = true;
             } else {
                 PushDialogLoopManager.this.p(tid);
             }
@@ -153,42 +153,42 @@ public class PushDialogLoopManager {
     }
 
     public PushDialogLoopManager() {
-        this.f20304b = "";
-        this.f20307e = false;
+        this.f20312b = "";
+        this.f20315e = false;
         Handler handler = new Handler(Looper.getMainLooper(), new a());
-        this.f20303a = handler;
+        this.f20311a = handler;
         handler.sendEmptyMessage(1);
         MessageManager.getInstance().registerListener(new b(CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, 309618));
         MessageManager.getInstance().registerListener(new c(1003));
         MessageManager.getInstance().registerListener(new d(2001371));
-        this.f20304b = d.b.h0.r.d0.b.j().p("key_push_dialog_last_show_tid", "0");
+        this.f20312b = d.b.i0.r.d0.b.j().p("key_push_dialog_last_show_tid", "0");
         TbadkCoreApplication.getInst().registerReceiver(new e(null), new IntentFilter("android.intent.action.SCREEN_OFF"));
-        this.f20308f = (AlarmManager) TbadkCoreApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
+        this.f20316f = (AlarmManager) TbadkCoreApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
         try {
             if (Build.VERSION.SDK_INT >= 21) {
                 TbadkCoreApplication.getInst().startService(new Intent().setClass(TbadkCoreApplication.getInst(), PushDialogJobService.class));
-                this.f20307e = true;
+                this.f20315e = true;
             }
         } catch (Throwable th) {
             BdLog.e(th);
-            this.f20307e = false;
+            this.f20315e = false;
         }
     }
 
     public static PushDialogLoopManager i() {
-        if (f20302g == null) {
+        if (f20310g == null) {
             synchronized (PushDialogLoopManager.class) {
-                if (f20302g == null) {
-                    f20302g = new PushDialogLoopManager();
+                if (f20310g == null) {
+                    f20310g = new PushDialogLoopManager();
                 }
             }
         }
-        return f20302g;
+        return f20310g;
     }
 
     public final void j() {
-        if (this.f20305c && d.b.i0.u2.a.j().g() && !this.f20306d) {
-            if (Build.VERSION.SDK_INT >= 21 && this.f20307e) {
+        if (this.f20313c && d.b.j0.u2.a.j().g() && !this.f20314d) {
+            if (Build.VERSION.SDK_INT >= 21 && this.f20315e) {
                 try {
                     ((JobScheduler) TbadkCoreApplication.getInst().getSystemService("jobscheduler")).schedule(new JobInfo.Builder(29467, new ComponentName(TbadkCoreApplication.getInst(), PushDialogJobService.class)).setMinimumLatency(TbSingleton.getInstance().getPushDialogShowTime()).setOverrideDeadline(TbSingleton.getInstance().getPushDialogShowTime()).setRequiredNetworkType(1).setRequiresCharging(false).setRequiresDeviceIdle(false).build());
                 } catch (Throwable th) {
@@ -198,28 +198,28 @@ public class PushDialogLoopManager {
             } else {
                 k();
             }
-            this.f20306d = true;
-            TiebaStatic.log(new StatisticItem("c13196").param("obj_type", 1).param("obj_source", 2).param("tid", this.f20304b));
+            this.f20314d = true;
+            TiebaStatic.log(new StatisticItem("c13196").param("obj_type", 1).param("obj_source", 2).param("tid", this.f20312b));
         }
     }
 
     public final void k() {
-        this.f20308f.set(0, System.currentTimeMillis() + TbSingleton.getInstance().getPushDialogShowTime(), PendingIntent.getBroadcast(TbadkCoreApplication.getInst().getApp(), 29467, new Intent(TbadkCoreApplication.getInst().getApp(), PushAlarmReceiver.class), 134217728));
+        this.f20316f.set(0, System.currentTimeMillis() + TbSingleton.getInstance().getPushDialogShowTime(), PendingIntent.getBroadcast(TbadkCoreApplication.getInst().getApp(), 29467, new Intent(TbadkCoreApplication.getInst().getApp(), PushAlarmReceiver.class), 134217728));
     }
 
     public final void l() {
-        if (this.f20303a.hasMessages(1)) {
-            this.f20303a.removeMessages(1);
+        if (this.f20311a.hasMessages(1)) {
+            this.f20311a.removeMessages(1);
         }
-        this.f20303a.sendEmptyMessageDelayed(1, TbSingleton.getInstance().getPushDialogLoopTime());
+        this.f20311a.sendEmptyMessageDelayed(1, TbSingleton.getInstance().getPushDialogLoopTime());
     }
 
     public final void m() {
-        this.f20303a.removeMessages(1);
+        this.f20311a.removeMessages(1);
         if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) || TbSingleton.getInstance().getPushDialogLoopTime() <= 0) {
             return;
         }
-        this.f20303a.sendEmptyMessageDelayed(1, TbSingleton.getInstance().getPushDialogLoopTime());
+        this.f20311a.sendEmptyMessageDelayed(1, TbSingleton.getInstance().getPushDialogLoopTime());
     }
 
     public final void n() {
@@ -230,19 +230,19 @@ public class PushDialogLoopManager {
     }
 
     public void o() {
-        this.f20306d = false;
-        p(this.f20304b);
+        this.f20314d = false;
+        p(this.f20312b);
     }
 
     public final void p(String str) {
-        if (!d.b.i0.u2.a.j().f62790d.c() && TbSingleton.getInstance().getLastResumeTime() <= UtilHelper.getTodayZeroTime()) {
+        if (!d.b.j0.u2.a.j().f63211d.c() && TbSingleton.getInstance().getLastResumeTime() <= UtilHelper.getTodayZeroTime()) {
             Activity b2 = d.b.c.a.b.f().b();
             if (b2 != null && b2.getClass() != null && b2.getClass().getName().equals(ScreenLockActivity.class.getName())) {
                 b2.finish();
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PushDialogActivityConfig(TbadkCoreApplication.getInst(), 0L, str)));
-            d.b.h0.r.d0.b.j().x("key_push_dialog_last_show_tid", str);
-            this.f20305c = false;
+            d.b.i0.r.d0.b.j().x("key_push_dialog_last_show_tid", str);
+            this.f20313c = false;
         }
     }
 }

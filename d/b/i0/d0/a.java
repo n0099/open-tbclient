@@ -1,27 +1,59 @@
 package d.b.i0.d0;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import d.b.h0.r.q.a2;
-/* loaded from: classes4.dex */
-public class a extends BaseCardInfo {
+import android.view.View;
+import android.view.ViewGroup;
+/* loaded from: classes3.dex */
+public class a {
+    public View attachedView;
+    public boolean isAttached;
+    public boolean isWrapStyle = false;
 
-    /* renamed from: f  reason: collision with root package name */
-    public static final BdUniqueId f53663f = BdUniqueId.gen();
-
-    /* renamed from: e  reason: collision with root package name */
-    public a2 f53664e;
-
-    public a2 g() {
-        return this.f53664e;
+    public a(View view) {
+        this.attachedView = view;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.c.j.e.n
-    public BdUniqueId getType() {
-        return f53663f;
+    public void attachView(View view, boolean z) {
+        View view2;
+        if (view == null || (view2 = this.attachedView) == null || view2.getParent() != null) {
+            return;
+        }
+        this.isAttached = true;
+        e.b(view, this.isWrapStyle).a(view, this.attachedView, z);
+        onViewAttached();
     }
 
-    public void j(a2 a2Var) {
-        this.f53664e = a2Var;
+    public void dettachView(View view) {
+        View view2;
+        if (view == null || (view2 = this.attachedView) == null || view2.getParent() == null || !(view instanceof ViewGroup)) {
+            return;
+        }
+        try {
+            onViewDettached();
+            ((ViewGroup) view).removeView(this.attachedView);
+            this.isAttached = false;
+        } catch (Exception unused) {
+        }
+    }
+
+    public View getView() {
+        return this.attachedView;
+    }
+
+    public boolean isViewAttached() {
+        return this.isAttached;
+    }
+
+    public void onViewAttached() {
+    }
+
+    public void onViewDettached() {
+    }
+
+    public void setWrapStyle(boolean z) {
+        this.isWrapStyle = z;
+    }
+
+    public void attachView(View view) {
+        attachView(view, false);
     }
 }

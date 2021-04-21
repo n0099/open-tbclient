@@ -7,11 +7,11 @@ import com.baidu.pyramid.annotation.Inject;
 public class a {
     @Inject(force = false)
     public static c a() {
-        return d.b.i0.y2.f.a();
+        return d.b.j0.y2.f.a();
     }
 
     @Inject(force = false)
     public static d b() {
-        return d.b.i0.y2.h.a();
+        return d.b.j0.y2.h.a();
     }
 }

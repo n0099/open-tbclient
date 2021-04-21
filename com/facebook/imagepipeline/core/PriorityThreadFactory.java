@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.core;
 import android.os.Process;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PriorityThreadFactory implements ThreadFactory {
     public final boolean mAddThreadNumber;
     public final String mPrefix;

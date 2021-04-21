@@ -8,13 +8,13 @@ import androidx.collection.LruCache;
 public class f {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final f f41645b = new f();
+    public static final f f41740b = new f();
 
     /* renamed from: a  reason: collision with root package name */
-    public final LruCache<String, d.a.a.d> f41646a = new LruCache<>(20);
+    public final LruCache<String, d.a.a.d> f41741a = new LruCache<>(20);
 
     public static f b() {
-        return f41645b;
+        return f41740b;
     }
 
     @Nullable
@@ -22,13 +22,13 @@ public class f {
         if (str == null) {
             return null;
         }
-        return this.f41646a.get(str);
+        return this.f41741a.get(str);
     }
 
     public void c(@Nullable String str, d.a.a.d dVar) {
         if (str == null) {
             return;
         }
-        this.f41646a.put(str, dVar);
+        this.f41741a.put(str, dVar);
     }
 }

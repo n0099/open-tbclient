@@ -9,33 +9,33 @@ import com.baidu.wallet.core.utils.LogUtil;
 public class DelegateOnCancleListener implements DialogInterface.OnCancelListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23741a = "DelegateOnCancleListener";
+    public static final String f23749a = "DelegateOnCancleListener";
 
     /* renamed from: b  reason: collision with root package name */
-    public Dialog f23742b;
+    public Dialog f23750b;
     public DialogInterface.OnCancelListener mOnCancleListener;
 
     public DelegateOnCancleListener(DialogInterface.OnCancelListener onCancelListener, Dialog dialog) {
         this.mOnCancleListener = onCancelListener;
-        this.f23742b = dialog;
+        this.f23750b = dialog;
         if (Build.VERSION.SDK_INT >= 12) {
             dialog.getWindow().getDecorView().addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() { // from class: com.baidu.wallet.base.widget.dialog.listener.DelegateOnCancleListener.1
                 @Override // android.view.View.OnAttachStateChangeListener
                 public void onViewAttachedToWindow(View view) {
-                    LogUtil.w(DelegateOnCancleListener.f23741a, "onWindowAttached, dialog=" + this);
+                    LogUtil.w(DelegateOnCancleListener.f23749a, "onWindowAttached, dialog=" + this);
                 }
 
                 @Override // android.view.View.OnAttachStateChangeListener
                 public void onViewDetachedFromWindow(View view) {
-                    LogUtil.d(DelegateOnCancleListener.f23741a, "Dialog.onWindowDetached");
+                    LogUtil.d(DelegateOnCancleListener.f23749a, "Dialog.onWindowDetached");
                 }
             });
         }
-        this.f23742b.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.wallet.base.widget.dialog.listener.DelegateOnCancleListener.2
+        this.f23750b.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.wallet.base.widget.dialog.listener.DelegateOnCancleListener.2
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                LogUtil.d(DelegateOnCancleListener.f23741a, "Dialog.onDismiss");
-                DelegateOnCancleListener.this.f23742b = null;
+                LogUtil.d(DelegateOnCancleListener.f23749a, "Dialog.onDismiss");
+                DelegateOnCancleListener.this.f23750b = null;
                 DelegateOnCancleListener.this.mOnCancleListener = null;
             }
         });
@@ -43,7 +43,7 @@ public class DelegateOnCancleListener implements DialogInterface.OnCancelListene
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        LogUtil.d(f23741a, "Dialog.onDismiss");
+        LogUtil.d(f23749a, "Dialog.onDismiss");
         DialogInterface.OnCancelListener onCancelListener = this.mOnCancleListener;
         if (onCancelListener != null) {
             onCancelListener.onCancel(dialogInterface);

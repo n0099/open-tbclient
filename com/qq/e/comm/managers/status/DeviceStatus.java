@@ -29,28 +29,28 @@ import java.util.Map;
 public class DeviceStatus {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f38622a;
+    public String f38717a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38623b;
+    public String f38718b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38624c;
+    public int f38719c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f38625d;
+    public int f38720d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f38626e;
+    public int f38721e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f38627f;
+    public String f38722f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f38628g;
+    public String f38723g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f38629h;
+    public String f38724h;
     public String i;
     public String j;
     public volatile String k;
@@ -62,9 +62,9 @@ public class DeviceStatus {
     public DeviceStatus(Context context) {
         this.n = context.getApplicationContext();
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        this.f38626e = getVersion() > 3 ? displayMetrics.densityDpi : 120;
-        this.f38624c = getVersion() > 3 ? a(displayMetrics.density, displayMetrics.widthPixels) : displayMetrics.widthPixels;
-        this.f38625d = getVersion() > 3 ? a(displayMetrics.density, displayMetrics.heightPixels) : displayMetrics.heightPixels;
+        this.f38721e = getVersion() > 3 ? displayMetrics.densityDpi : 120;
+        this.f38719c = getVersion() > 3 ? a(displayMetrics.density, displayMetrics.widthPixels) : displayMetrics.widthPixels;
+        this.f38720d = getVersion() > 3 ? a(displayMetrics.density, displayMetrics.heightPixels) : displayMetrics.heightPixels;
         a();
     }
 
@@ -165,15 +165,15 @@ public class DeviceStatus {
     }
 
     public int getDeviceDensity() {
-        return this.f38626e;
+        return this.f38721e;
     }
 
     public int getDeviceHeight() {
-        return this.f38625d;
+        return this.f38720d;
     }
 
     public int getDeviceWidth() {
-        return this.f38624c;
+        return this.f38719c;
     }
 
     public String getDid() {
@@ -219,14 +219,14 @@ public class DeviceStatus {
     }
 
     public String getLanguage() {
-        if (this.f38623b == null) {
+        if (this.f38718b == null) {
             String lowerCase = Locale.getDefault().getLanguage().toLowerCase(Locale.US);
-            this.f38623b = lowerCase;
+            this.f38718b = lowerCase;
             if (lowerCase.length() == 0) {
-                this.f38623b = "en";
+                this.f38718b = "en";
             }
         }
-        return this.f38623b;
+        return this.f38718b;
     }
 
     public String getLat() {
@@ -287,10 +287,10 @@ public class DeviceStatus {
 
     public String getOperator() {
         try {
-            this.f38628g = ((TelephonyManager) this.n.getSystemService("phone")).getNetworkOperator();
+            this.f38723g = ((TelephonyManager) this.n.getSystemService("phone")).getNetworkOperator();
         } catch (Exception unused) {
         }
-        return this.f38628g;
+        return this.f38723g;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r0v6 int)] */
@@ -305,11 +305,11 @@ public class DeviceStatus {
                 }
                 StringBuilder sb = new StringBuilder();
                 sb.append(networkType);
-                this.f38629h = sb.toString();
+                this.f38724h = sb.toString();
             }
         } catch (Exception unused) {
         }
-        return this.f38629h;
+        return this.f38724h;
     }
 
     public String getPlainDid() {
@@ -328,17 +328,17 @@ public class DeviceStatus {
     }
 
     public String getScreenOrientation() {
-        this.f38627f = this.n.getResources().getConfiguration().orientation == 2 ? "l" : "p";
-        return this.f38627f;
+        this.f38722f = this.n.getResources().getConfiguration().orientation == 2 ? "l" : "p";
+        return this.f38722f;
     }
 
     public String getUid() {
         if (GDTADManager.getInstance().getSM().getInteger("adidon", 1) == 1) {
-            if (this.f38622a == null) {
+            if (this.f38717a == null) {
                 String string = Settings.Secure.getString(this.n.getContentResolver(), IAdRequestParam.ANDROID_ID);
-                this.f38622a = string != null ? Md5Util.encode(string) : "";
+                this.f38717a = string != null ? Md5Util.encode(string) : "";
             }
-            return this.f38622a;
+            return this.f38717a;
         }
         return "";
     }

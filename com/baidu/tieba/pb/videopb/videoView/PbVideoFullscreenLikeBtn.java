@@ -12,7 +12,7 @@ public class PbVideoFullscreenLikeBtn extends PbFirstFloorUserLikeButton {
         super(context);
     }
 
-    @Override // com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton, d.b.h0.r.f0.q.b
+    @Override // com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton, d.b.i0.r.f0.q.b
     public void b(View view) {
         setText(this.s);
         setClickable(false);

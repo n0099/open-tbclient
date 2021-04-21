@@ -15,14 +15,14 @@ public enum NotificationLite {
         public static final long serialVersionUID = -7482590109178395495L;
 
         /* renamed from: d  reason: collision with root package name */
-        public final b f69104d;
+        public final b f69251d;
 
         public DisposableNotification(b bVar) {
-            this.f69104d = bVar;
+            this.f69251d = bVar;
         }
 
         public String toString() {
-            return "NotificationLite.Disposable[" + this.f69104d + "]";
+            return "NotificationLite.Disposable[" + this.f69251d + "]";
         }
     }
 
@@ -31,25 +31,25 @@ public enum NotificationLite {
         public static final long serialVersionUID = -8759979445933046293L;
 
         /* renamed from: e  reason: collision with root package name */
-        public final Throwable f69105e;
+        public final Throwable f69252e;
 
         public ErrorNotification(Throwable th) {
-            this.f69105e = th;
+            this.f69252e = th;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof ErrorNotification) {
-                return a.a(this.f69105e, ((ErrorNotification) obj).f69105e);
+                return a.a(this.f69252e, ((ErrorNotification) obj).f69252e);
             }
             return false;
         }
 
         public int hashCode() {
-            return this.f69105e.hashCode();
+            return this.f69252e.hashCode();
         }
 
         public String toString() {
-            return "NotificationLite.Error[" + this.f69105e + "]";
+            return "NotificationLite.Error[" + this.f69252e + "]";
         }
     }
 
@@ -72,7 +72,7 @@ public enum NotificationLite {
             cVar.onComplete();
             return true;
         } else if (obj instanceof ErrorNotification) {
-            cVar.onError(((ErrorNotification) obj).f69105e);
+            cVar.onError(((ErrorNotification) obj).f69252e);
             return true;
         } else {
             cVar.onNext(obj);
@@ -85,7 +85,7 @@ public enum NotificationLite {
             cVar.onComplete();
             return true;
         } else if (obj instanceof ErrorNotification) {
-            cVar.onError(((ErrorNotification) obj).f69105e);
+            cVar.onError(((ErrorNotification) obj).f69252e);
             return true;
         } else if (obj instanceof SubscriptionNotification) {
             cVar.onSubscribe(((SubscriptionNotification) obj).s);
@@ -109,11 +109,11 @@ public enum NotificationLite {
     }
 
     public static b getDisposable(Object obj) {
-        return ((DisposableNotification) obj).f69104d;
+        return ((DisposableNotification) obj).f69251d;
     }
 
     public static Throwable getError(Object obj) {
-        return ((ErrorNotification) obj).f69105e;
+        return ((ErrorNotification) obj).f69252e;
     }
 
     public static d getSubscription(Object obj) {
@@ -160,7 +160,7 @@ public enum NotificationLite {
             oVar.onComplete();
             return true;
         } else if (obj instanceof ErrorNotification) {
-            oVar.onError(((ErrorNotification) obj).f69105e);
+            oVar.onError(((ErrorNotification) obj).f69252e);
             return true;
         } else {
             oVar.onNext(obj);
@@ -173,10 +173,10 @@ public enum NotificationLite {
             oVar.onComplete();
             return true;
         } else if (obj instanceof ErrorNotification) {
-            oVar.onError(((ErrorNotification) obj).f69105e);
+            oVar.onError(((ErrorNotification) obj).f69252e);
             return true;
         } else if (obj instanceof DisposableNotification) {
-            oVar.onSubscribe(((DisposableNotification) obj).f69104d);
+            oVar.onSubscribe(((DisposableNotification) obj).f69251d);
             return false;
         } else {
             oVar.onNext(obj);

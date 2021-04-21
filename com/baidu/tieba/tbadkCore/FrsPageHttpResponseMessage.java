@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import d.b.c.e.m.b;
-import d.b.i0.d3.e;
-import d.b.i0.d3.m;
+import d.b.j0.d3.e;
+import d.b.j0.d3.m;
 import tbclient.Error;
 import tbclient.FrsPage.FrsPageResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<m, FrsPageResIdl> {
     public int mCategoryId;
     public int mIsGood;

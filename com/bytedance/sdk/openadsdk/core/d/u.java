@@ -3,38 +3,38 @@ package com.bytedance.sdk.openadsdk.core.d;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f27927a;
+    public int f27935a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27928b;
+    public int f27936b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27929c;
+    public int f27937c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f27930d;
+    public String f27938d;
 
     public void a(int i) {
-        this.f27927a = i;
+        this.f27935a = i;
     }
 
     public void b(int i) {
-        this.f27928b = i;
+        this.f27936b = i;
     }
 
     public void c(int i) {
-        this.f27929c = i;
+        this.f27937c = i;
     }
 
     public int a() {
-        return this.f27929c;
+        return this.f27937c;
     }
 
     public String b() {
-        return this.f27930d;
+        return this.f27938d;
     }
 
     public void a(String str) {
-        this.f27930d = str;
+        this.f27938d = str;
     }
 }

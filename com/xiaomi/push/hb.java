@@ -13,25 +13,25 @@ import java.util.ArrayList;
 public class hb {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f40914a = false;
+    public static boolean f41009a = false;
 
     /* loaded from: classes7.dex */
     public static class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f40915a;
+        public Context f41010a;
 
         /* renamed from: a  reason: collision with other field name */
         public he f465a;
 
         public a(Context context, he heVar) {
             this.f465a = heVar;
-            this.f40915a = context;
+            this.f41010a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            hb.c(this.f40915a, this.f465a);
+            hb.c(this.f41010a, this.f465a);
         }
     }
 
@@ -136,11 +136,11 @@ public class hb {
     public static void c(Context context, he heVar) {
         RandomAccessFile randomAccessFile;
         File file;
-        if (f40914a) {
+        if (f41009a) {
             com.xiaomi.channel.commonutils.logger.b.m55a("TinyData extractTinyData is running");
             return;
         }
-        f40914a = true;
+        f41009a = true;
         File file2 = new File(context.getFilesDir(), "tiny_data.data");
         if (!file2.exists()) {
             com.xiaomi.channel.commonutils.logger.b.m55a("TinyData no ready file to get data.");
@@ -222,6 +222,6 @@ public class hb {
         a(context, heVar, file, a2);
         ha.a(false);
         b(context);
-        f40914a = false;
+        f41009a = false;
     }
 }

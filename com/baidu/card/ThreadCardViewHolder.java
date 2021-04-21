@@ -8,9 +8,6 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.view.FollowUserButton;
-import d.b.h0.b.d;
-import d.b.h0.r.q.a;
-import d.b.h0.r.q.a2;
 import d.b.i.b0;
 import d.b.i.c;
 import d.b.i.d0;
@@ -21,6 +18,9 @@ import d.b.i.k0;
 import d.b.i.l0;
 import d.b.i.q0;
 import d.b.i.u;
+import d.b.i0.b.d;
+import d.b.i0.r.q.a;
+import d.b.i0.r.q.a2;
 /* loaded from: classes.dex */
 public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
 
@@ -146,7 +146,7 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void j(d.b.i0.x.b0<T> b0Var) {
+    public void j(d.b.j0.x.b0<T> b0Var) {
         this.f4388f.p(b0Var);
     }
 

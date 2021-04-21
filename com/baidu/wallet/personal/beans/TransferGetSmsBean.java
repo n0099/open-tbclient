@@ -15,11 +15,11 @@ import java.util.List;
 public class TransferGetSmsBean extends BaseBean<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public TransfRecvRequest f26235a;
+    public TransfRecvRequest f26243a;
 
     public <T> TransferGetSmsBean(Context context) {
         super(context);
-        this.f26235a = (TransfRecvRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_TRANSFER_RECV);
+        this.f26243a = (TransfRecvRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_TRANSFER_RECV);
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -30,12 +30,12 @@ public class TransferGetSmsBean extends BaseBean<Object> {
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        TransfRecvRequest transfRecvRequest = this.f26235a;
+        TransfRecvRequest transfRecvRequest = this.f26243a;
         if (transfRecvRequest == null) {
             return arrayList;
         }
         arrayList.add(new RestNameValuePair("idt", transfRecvRequest.idt));
-        arrayList.add(new RestNameValuePair("recv_card_num", this.f26235a.recv_card_num));
+        arrayList.add(new RestNameValuePair("recv_card_num", this.f26243a.recv_card_num));
         arrayList.add(new RestNameValuePair("token", AccountManager.getInstance(this.mContext).getBfbToken()));
         return arrayList;
     }

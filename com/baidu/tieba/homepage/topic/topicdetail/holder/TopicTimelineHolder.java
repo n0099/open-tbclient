@@ -6,14 +6,14 @@ import androidx.recyclerview.widget.RecyclerView;
 public class TopicTimelineHolder<T extends View> extends RecyclerView.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public T f17051a;
+    public T f17059a;
 
     public TopicTimelineHolder(T t) {
         super(t);
-        this.f17051a = t;
+        this.f17059a = t;
     }
 
     public T a() {
-        return this.f17051a;
+        return this.f17059a;
     }
 }

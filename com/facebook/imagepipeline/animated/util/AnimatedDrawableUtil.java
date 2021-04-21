@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.os.Build;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AnimatedDrawableUtil {
     public static final int FRAME_DURATION_MS_FOR_MIN = 100;
     public static final int MIN_FRAME_DURATION_MS = 11;

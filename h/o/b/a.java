@@ -3,25 +3,25 @@ package h.o.b;
 import h.f;
 /* loaded from: classes7.dex */
 public final class a implements f {
-    public static final f k = new C1910a();
+    public static final f k = new C1914a();
 
     /* renamed from: e  reason: collision with root package name */
-    public long f68858e;
+    public long f69005e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f68859f;
+    public f f69006f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f68860g;
+    public boolean f69007g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f68861h;
+    public long f69008h;
     public long i;
     public f j;
 
     /* renamed from: h.o.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C1910a implements f {
+    public static class C1914a implements f {
         @Override // h.f
         public void request(long j) {
         }
@@ -30,27 +30,27 @@ public final class a implements f {
     public void a() {
         while (true) {
             synchronized (this) {
-                long j = this.f68861h;
+                long j = this.f69008h;
                 long j2 = this.i;
                 f fVar = this.j;
                 int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
                 if (i == 0 && j2 == 0 && fVar == null) {
-                    this.f68860g = false;
+                    this.f69007g = false;
                     return;
                 }
-                this.f68861h = 0L;
+                this.f69008h = 0L;
                 this.i = 0L;
                 this.j = null;
-                long j3 = this.f68858e;
+                long j3 = this.f69005e;
                 if (j3 != Long.MAX_VALUE) {
                     long j4 = j3 + j;
                     if (j4 < 0 || j4 == Long.MAX_VALUE) {
-                        this.f68858e = Long.MAX_VALUE;
+                        this.f69005e = Long.MAX_VALUE;
                         j3 = Long.MAX_VALUE;
                     } else {
                         j3 = j4 - j2;
                         if (j3 >= 0) {
-                            this.f68858e = j3;
+                            this.f69005e = j3;
                         } else {
                             throw new IllegalStateException("more produced than requested");
                         }
@@ -58,13 +58,13 @@ public final class a implements f {
                 }
                 if (fVar != null) {
                     if (fVar == k) {
-                        this.f68859f = null;
+                        this.f69006f = null;
                     } else {
-                        this.f68859f = fVar;
+                        this.f69006f = fVar;
                         fVar.request(j3);
                     }
                 } else {
-                    f fVar2 = this.f68859f;
+                    f fVar2 = this.f69006f;
                     if (fVar2 != null && i != 0) {
                         fVar2.request(j);
                     }
@@ -77,17 +77,17 @@ public final class a implements f {
     public void b(long j) {
         if (j > 0) {
             synchronized (this) {
-                if (this.f68860g) {
+                if (this.f69007g) {
                     this.i += j;
                     return;
                 }
-                this.f68860g = true;
+                this.f69007g = true;
                 try {
-                    long j2 = this.f68858e;
+                    long j2 = this.f69005e;
                     if (j2 != Long.MAX_VALUE) {
                         long j3 = j2 - j;
                         if (j3 >= 0) {
-                            this.f68858e = j3;
+                            this.f69005e = j3;
                         } else {
                             throw new IllegalStateException("more items arrived than were requested");
                         }
@@ -96,7 +96,7 @@ public final class a implements f {
                     return;
                 } catch (Throwable th) {
                     synchronized (this) {
-                        this.f68860g = false;
+                        this.f69007g = false;
                         throw th;
                     }
                 }
@@ -108,23 +108,23 @@ public final class a implements f {
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public void c(f fVar) {
         synchronized (this) {
-            if (this.f68860g) {
+            if (this.f69007g) {
                 if (fVar == null) {
                     fVar = k;
                 }
                 this.j = fVar;
                 return;
             }
-            this.f68860g = true;
+            this.f69007g = true;
             try {
-                this.f68859f = fVar;
+                this.f69006f = fVar;
                 if (fVar != null) {
-                    fVar.request(this.f68858e);
+                    fVar.request(this.f69005e);
                 }
                 a();
             } catch (Throwable th) {
                 synchronized (this) {
-                    this.f68860g = false;
+                    this.f69007g = false;
                     throw th;
                 }
             }
@@ -142,25 +142,25 @@ public final class a implements f {
             return;
         }
         synchronized (this) {
-            if (this.f68860g) {
-                this.f68861h += j;
+            if (this.f69007g) {
+                this.f69008h += j;
                 return;
             }
-            this.f68860g = true;
+            this.f69007g = true;
             try {
-                long j2 = this.f68858e + j;
+                long j2 = this.f69005e + j;
                 if (j2 < 0) {
                     j2 = Long.MAX_VALUE;
                 }
-                this.f68858e = j2;
-                f fVar = this.f68859f;
+                this.f69005e = j2;
+                f fVar = this.f69006f;
                 if (fVar != null) {
                     fVar.request(j);
                 }
                 a();
             } catch (Throwable th) {
                 synchronized (this) {
-                    this.f68860g = false;
+                    this.f69007g = false;
                     throw th;
                 }
             }

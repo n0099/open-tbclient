@@ -7,26 +7,26 @@ import d.a.a.u.i.m;
 public class f implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f41692a;
+    public final String f41787a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final m<PointF, PointF> f41693b;
+    public final m<PointF, PointF> f41788b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final d.a.a.u.i.f f41694c;
+    public final d.a.a.u.i.f f41789c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final d.a.a.u.i.b f41695d;
+    public final d.a.a.u.i.b f41790d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f41696e;
+    public final boolean f41791e;
 
     public f(String str, m<PointF, PointF> mVar, d.a.a.u.i.f fVar, d.a.a.u.i.b bVar, boolean z) {
-        this.f41692a = str;
-        this.f41693b = mVar;
-        this.f41694c = fVar;
-        this.f41695d = bVar;
-        this.f41696e = z;
+        this.f41787a = str;
+        this.f41788b = mVar;
+        this.f41789c = fVar;
+        this.f41790d = bVar;
+        this.f41791e = z;
     }
 
     @Override // d.a.a.u.j.b
@@ -35,26 +35,26 @@ public class f implements b {
     }
 
     public d.a.a.u.i.b b() {
-        return this.f41695d;
+        return this.f41790d;
     }
 
     public String c() {
-        return this.f41692a;
+        return this.f41787a;
     }
 
     public m<PointF, PointF> d() {
-        return this.f41693b;
+        return this.f41788b;
     }
 
     public d.a.a.u.i.f e() {
-        return this.f41694c;
+        return this.f41789c;
     }
 
     public boolean f() {
-        return this.f41696e;
+        return this.f41791e;
     }
 
     public String toString() {
-        return "RectangleShape{position=" + this.f41693b + ", size=" + this.f41694c + '}';
+        return "RectangleShape{position=" + this.f41788b + ", size=" + this.f41789c + '}';
     }
 }

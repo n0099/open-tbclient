@@ -51,22 +51,22 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
     public static final class b extends GeneratedMessageLite.Builder<Bdtls$ServerHello, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f12491e;
+        public int f12499e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Bdtls$Random f12492f = Bdtls$Random.getDefaultInstance();
+        public Bdtls$Random f12500f = Bdtls$Random.getDefaultInstance();
 
         /* renamed from: g  reason: collision with root package name */
-        public ByteString f12493g;
+        public ByteString f12501g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f12494h;
+        public int f12502h;
         public ByteString i;
         public List<Bdtls$Extension> j;
 
         public b() {
             ByteString byteString = ByteString.EMPTY;
-            this.f12493g = byteString;
+            this.f12501g = byteString;
             this.i = byteString;
             this.j = Collections.emptyList();
             maybeForceBuilderInitialization();
@@ -111,35 +111,35 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         }
 
         public b B(Bdtls$Random bdtls$Random) {
-            if ((this.f12491e & 1) == 1 && this.f12492f != Bdtls$Random.getDefaultInstance()) {
-                Bdtls$Random.b newBuilder = Bdtls$Random.newBuilder(this.f12492f);
+            if ((this.f12499e & 1) == 1 && this.f12500f != Bdtls$Random.getDefaultInstance()) {
+                Bdtls$Random.b newBuilder = Bdtls$Random.newBuilder(this.f12500f);
                 newBuilder.u(bdtls$Random);
-                this.f12492f = newBuilder.buildPartial();
+                this.f12500f = newBuilder.buildPartial();
             } else {
-                this.f12492f = bdtls$Random;
+                this.f12500f = bdtls$Random;
             }
-            this.f12491e |= 1;
+            this.f12499e |= 1;
             return this;
         }
 
         public b C(ByteString byteString) {
             if (byteString != null) {
-                this.f12491e |= 2;
-                this.f12493g = byteString;
+                this.f12499e |= 2;
+                this.f12501g = byteString;
                 return this;
             }
             throw null;
         }
 
         public b D(int i) {
-            this.f12491e |= 4;
-            this.f12494h = i;
+            this.f12499e |= 4;
+            this.f12502h = i;
             return this;
         }
 
         public b E(ByteString byteString) {
             if (byteString != null) {
-                this.f12491e |= 8;
+                this.f12499e |= 8;
                 this.i = byteString;
                 return this;
             }
@@ -153,9 +153,9 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         }
 
         public final void ensureExtensionsIsMutable() {
-            if ((this.f12491e & 16) != 16) {
+            if ((this.f12499e & 16) != 16) {
                 this.j = new ArrayList(this.j);
-                this.f12491e |= 16;
+                this.f12499e |= 16;
             }
         }
 
@@ -197,24 +197,24 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         /* renamed from: n */
         public Bdtls$ServerHello buildPartial() {
             Bdtls$ServerHello bdtls$ServerHello = new Bdtls$ServerHello(this);
-            int i = this.f12491e;
+            int i = this.f12499e;
             int i2 = (i & 1) != 1 ? 0 : 1;
-            bdtls$ServerHello.random_ = this.f12492f;
+            bdtls$ServerHello.random_ = this.f12500f;
             if ((i & 2) == 2) {
                 i2 |= 2;
             }
-            bdtls$ServerHello.cipherSuite_ = this.f12493g;
+            bdtls$ServerHello.cipherSuite_ = this.f12501g;
             if ((i & 4) == 4) {
                 i2 |= 4;
             }
-            bdtls$ServerHello.lifeTime_ = this.f12494h;
+            bdtls$ServerHello.lifeTime_ = this.f12502h;
             if ((i & 8) == 8) {
                 i2 |= 8;
             }
             bdtls$ServerHello.sKR_ = this.i;
-            if ((this.f12491e & 16) == 16) {
+            if ((this.f12499e & 16) == 16) {
                 this.j = Collections.unmodifiableList(this.j);
-                this.f12491e &= -17;
+                this.f12499e &= -17;
             }
             bdtls$ServerHello.extensions_ = this.j;
             bdtls$ServerHello.bitField0_ = i2;
@@ -223,20 +223,20 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
 
         public b o() {
             super.clear();
-            this.f12492f = Bdtls$Random.getDefaultInstance();
-            int i = this.f12491e & (-2);
-            this.f12491e = i;
+            this.f12500f = Bdtls$Random.getDefaultInstance();
+            int i = this.f12499e & (-2);
+            this.f12499e = i;
             ByteString byteString = ByteString.EMPTY;
-            this.f12493g = byteString;
+            this.f12501g = byteString;
             int i2 = i & (-3);
-            this.f12491e = i2;
-            this.f12494h = 0;
+            this.f12499e = i2;
+            this.f12502h = 0;
             int i3 = i2 & (-5);
-            this.f12491e = i3;
+            this.f12499e = i3;
             this.i = byteString;
-            this.f12491e = i3 & (-9);
+            this.f12499e = i3 & (-9);
             this.j = Collections.emptyList();
-            this.f12491e &= -17;
+            this.f12499e &= -17;
             return this;
         }
 
@@ -265,23 +265,23 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         }
 
         public Bdtls$Random u() {
-            return this.f12492f;
+            return this.f12500f;
         }
 
         public boolean v() {
-            return (this.f12491e & 2) == 2;
+            return (this.f12499e & 2) == 2;
         }
 
         public boolean w() {
-            return (this.f12491e & 4) == 4;
+            return (this.f12499e & 4) == 4;
         }
 
         public boolean x() {
-            return (this.f12491e & 1) == 1;
+            return (this.f12499e & 1) == 1;
         }
 
         public boolean y() {
-            return (this.f12491e & 8) == 8;
+            return (this.f12499e & 8) == 8;
         }
 
         public b z(Bdtls$ServerHello bdtls$ServerHello) {
@@ -303,7 +303,7 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
             if (!bdtls$ServerHello.extensions_.isEmpty()) {
                 if (this.j.isEmpty()) {
                     this.j = bdtls$ServerHello.extensions_;
-                    this.f12491e &= -17;
+                    this.f12499e &= -17;
                 } else {
                     ensureExtensionsIsMutable();
                     this.j.addAll(bdtls$ServerHello.extensions_);
@@ -380,11 +380,11 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         return this.extensions_;
     }
 
-    public d.b.g0.g.d.g.b getExtensionsOrBuilder(int i) {
+    public d.b.h0.g.d.g.b getExtensionsOrBuilder(int i) {
         return this.extensions_.get(i);
     }
 
-    public List<? extends d.b.g0.g.d.g.b> getExtensionsOrBuilderList() {
+    public List<? extends d.b.h0.g.d.g.b> getExtensionsOrBuilderList() {
         return this.extensions_;
     }
 

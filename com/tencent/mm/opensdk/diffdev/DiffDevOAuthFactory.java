@@ -2,7 +2,7 @@ package com.tencent.mm.opensdk.diffdev;
 
 import com.tencent.mm.opensdk.diffdev.a.a;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class DiffDevOAuthFactory {
     public static final int MAX_SUPPORTED_VERSION = 1;
     public static final String TAG = "MicroMsg.SDK.DiffDevOAuthFactory";

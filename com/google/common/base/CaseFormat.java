@@ -1,9 +1,9 @@
 package com.google.common.base;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import d.g.c.a.a;
-import d.g.c.a.b;
-import d.g.c.a.n;
+import d.h.c.a.a;
+import d.h.c.a.b;
+import d.h.c.a.n;
 import java.io.Serializable;
 /* loaded from: classes6.dex */
 public enum CaseFormat {
@@ -92,7 +92,7 @@ public enum CaseFormat {
             this.targetFormat = caseFormat2;
         }
 
-        @Override // com.google.common.base.Converter, d.g.c.a.g
+        @Override // com.google.common.base.Converter, d.h.c.a.g
         public boolean equals(Object obj) {
             if (obj instanceof StringConverter) {
                 StringConverter stringConverter = (StringConverter) obj;

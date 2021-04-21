@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.message;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.b.h0.s.c.o;
+import d.b.i0.s.c.o;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ChannelConfigResponseMessage extends JsonHttpResponsedMessage {

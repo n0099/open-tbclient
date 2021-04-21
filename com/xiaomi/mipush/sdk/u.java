@@ -28,22 +28,22 @@ public class u {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f40496a;
+        public String f40591a;
 
         /* renamed from: a  reason: collision with other field name */
         public boolean f93a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f40497b;
+        public String f40592b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f94b;
 
         public b(String str, boolean z, boolean z2, String str2) {
-            this.f40496a = str;
+            this.f40591a = str;
             this.f93a = z;
             this.f94b = z2;
-            this.f40497b = str2;
+            this.f40592b = str2;
         }
     }
 
@@ -228,7 +228,7 @@ public class u {
                     b bVar = (b) hashMap2.remove(serviceInfo.name);
                     boolean z = bVar.f93a;
                     boolean z2 = bVar.f94b;
-                    String str = bVar.f40497b;
+                    String str = bVar.f40592b;
                     if (z != serviceInfo.enabled) {
                         throw new a(String.format("<service android:name=\"%1$s\" .../> in AndroidManifest had the wrong enabled attribute, which should be android:enabled=%2$b.", serviceInfo.name, Boolean.valueOf(z)));
                     }

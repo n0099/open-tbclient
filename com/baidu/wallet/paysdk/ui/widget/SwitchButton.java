@@ -10,10 +10,10 @@ import com.baidu.wallet.utils.AccessibilityUtils;
 public class SwitchButton extends ImageButton {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f26138a;
+    public boolean f26146a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f26139b;
+    public boolean f26147b;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -22,20 +22,20 @@ public class SwitchButton extends ImageButton {
 
     public SwitchButton(Context context) {
         super(context);
-        this.f26139b = false;
+        this.f26147b = false;
         a();
     }
 
     public boolean isChanged() {
-        return this.f26138a == this.f26139b;
+        return this.f26146a == this.f26147b;
     }
 
     public boolean isChecked() {
-        return this.f26138a;
+        return this.f26146a;
     }
 
     public void resetChecked() {
-        this.f26139b = this.f26138a;
+        this.f26147b = this.f26146a;
     }
 
     public void setChecked(boolean z) {
@@ -44,7 +44,7 @@ public class SwitchButton extends ImageButton {
         } else {
             setBackgroundResource(ResUtils.drawable(getContext(), "wallet_base_btn_default_off"));
         }
-        this.f26138a = z;
+        this.f26146a = z;
         AccessibilityUtils.setContentDescription(this, !z ? "开" : "关");
     }
 
@@ -54,7 +54,7 @@ public class SwitchButton extends ImageButton {
             public void onClick(View view) {
                 a aVar2 = aVar;
                 if (aVar2 != null) {
-                    aVar2.a(!SwitchButton.this.f26138a);
+                    aVar2.a(!SwitchButton.this.f26146a);
                 }
             }
         });
@@ -62,12 +62,12 @@ public class SwitchButton extends ImageButton {
 
     private void a() {
         setBackgroundResource(ResUtils.drawable(getContext(), "wallet_base_btn_default_off"));
-        AccessibilityUtils.setContentDescription(this, !this.f26138a ? "开" : "关");
+        AccessibilityUtils.setContentDescription(this, !this.f26146a ? "开" : "关");
     }
 
     public SwitchButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f26139b = false;
+        this.f26147b = false;
         a();
     }
 }

@@ -14,8 +14,8 @@ import com.baidu.cyberplayer.sdk.rtc.RTCRoomProvider;
 import com.baidu.cyberplayer.sdk.rtc.RTCVideoViewProvider;
 import com.baidu.media.duplayer.monitor.DuplayerQualityMonitorManager;
 import com.baidu.media.recorder.DuAudioRecorder;
-import d.b.v.a.c;
-import d.b.v.b.a;
+import d.b.w.a.c;
+import d.b.w.b.a;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
@@ -41,7 +41,7 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public ExtractorProvider createCyberExtractor() {
-        return d.b.v.c.a.a();
+        return d.b.w.c.a.a();
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider

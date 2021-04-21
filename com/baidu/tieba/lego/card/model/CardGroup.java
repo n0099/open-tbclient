@@ -1,7 +1,7 @@
 package com.baidu.tieba.lego.card.model;
 
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import d.b.i0.j1.o.b;
+import d.b.j0.j1.o.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;

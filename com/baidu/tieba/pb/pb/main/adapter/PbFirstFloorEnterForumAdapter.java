@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import d.b.c.e.p.l;
 import d.b.c.j.e.a;
-import d.b.i0.d2.h.g;
+import d.b.j0.d2.h.g;
 /* loaded from: classes3.dex */
 public class PbFirstFloorEnterForumAdapter extends a<g, PbFirstFloorEnterForumViewHolder> {
 
@@ -24,47 +24,47 @@ public class PbFirstFloorEnterForumAdapter extends a<g, PbFirstFloorEnterForumVi
     public class PbFirstFloorEnterForumViewHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public CardForumHeadLayout f19464e;
+        public CardForumHeadLayout f19472e;
 
         /* renamed from: f  reason: collision with root package name */
-        public View f19465f;
+        public View f19473f;
 
         /* renamed from: g  reason: collision with root package name */
-        public View f19466g;
+        public View f19474g;
 
         /* renamed from: h  reason: collision with root package name */
-        public ImageView f19467h;
+        public ImageView f19475h;
         public g i;
 
         public PbFirstFloorEnterForumViewHolder(View view) {
             super(view);
             ViewGroup viewGroup = (ViewGroup) view;
             CardForumHeadLayout cardForumHeadLayout = (CardForumHeadLayout) viewGroup.getChildAt(0);
-            this.f19464e = cardForumHeadLayout;
+            this.f19472e = cardForumHeadLayout;
             if (cardForumHeadLayout != null) {
                 cardForumHeadLayout.setOnClickListener(cardForumHeadLayout);
-                this.f19464e.setAfterClickListener(this);
+                this.f19472e.setAfterClickListener(this);
             }
-            this.f19465f = viewGroup.getChildAt(1);
-            this.f19467h = (ImageView) viewGroup.getChildAt(2);
-            this.f19466g = viewGroup.getChildAt(3);
+            this.f19473f = viewGroup.getChildAt(1);
+            this.f19475h = (ImageView) viewGroup.getChildAt(2);
+            this.f19474g = viewGroup.getChildAt(3);
         }
 
         public void b() {
-            WebPManager.setPureDrawable(this.f19467h, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0107, null);
-            SkinManager.setBackgroundColor(this.f19465f, R.color.CAM_X0203);
-            SkinManager.setBackgroundColor(this.f19466g, R.color.CAM_X0203);
-            this.f19464e.b();
+            WebPManager.setPureDrawable(this.f19475h, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0107, null);
+            SkinManager.setBackgroundColor(this.f19473f, R.color.CAM_X0203);
+            SkinManager.setBackgroundColor(this.f19474g, R.color.CAM_X0203);
+            this.f19472e.b();
         }
 
         public void c(g gVar) {
             if (gVar != null) {
                 this.i = gVar;
-                this.f19466g.setVisibility(gVar.i ? 0 : 8);
+                this.f19474g.setVisibility(gVar.i ? 0 : 8);
                 if (a() != null) {
-                    a().setPadding(0, 0, 0, gVar.i ? l.g(PbFirstFloorEnterForumAdapter.this.f42855e, R.dimen.tbds42) : 0);
+                    a().setPadding(0, 0, 0, gVar.i ? l.g(PbFirstFloorEnterForumAdapter.this.f43095e, R.dimen.tbds42) : 0);
                 }
-                this.f19464e.setData(gVar.f53823e, gVar.f53824f, gVar.f53825g, gVar.f53826h);
+                this.f19472e.setData(gVar.f54244e, gVar.f54245f, gVar.f54246g, gVar.f54247h);
             }
         }
 
@@ -89,26 +89,26 @@ public class PbFirstFloorEnterForumAdapter extends a<g, PbFirstFloorEnterForumVi
     @Override // d.b.c.j.e.a
     /* renamed from: i0 */
     public PbFirstFloorEnterForumViewHolder R(ViewGroup viewGroup) {
-        FrameLayout frameLayout = new FrameLayout(this.f42855e);
-        int g2 = l.g(this.f42855e, R.dimen.M_W_X007);
-        CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.f42855e);
-        cardForumHeadLayout.setPadding(0, l.g(this.f42855e, R.dimen.tbds32), 0, l.g(this.f42855e, R.dimen.tbds13));
+        FrameLayout frameLayout = new FrameLayout(this.f43095e);
+        int g2 = l.g(this.f43095e, R.dimen.M_W_X007);
+        CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.f43095e);
+        cardForumHeadLayout.setPadding(0, l.g(this.f43095e, R.dimen.tbds32), 0, l.g(this.f43095e, R.dimen.tbds13));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.leftMargin = g2;
         layoutParams.rightMargin = g2;
         frameLayout.addView(cardForumHeadLayout, layoutParams);
-        View view = new View(this.f42855e);
-        FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, l.g(this.f42855e, R.dimen.tbds1));
+        View view = new View(this.f43095e);
+        FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, l.g(this.f43095e, R.dimen.tbds1));
         layoutParams2.leftMargin = g2;
         layoutParams2.rightMargin = g2;
         frameLayout.addView(view, layoutParams2);
-        ImageView imageView = new ImageView(this.f42855e);
-        FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(l.g(this.f42855e, R.dimen.tbds42), l.g(this.f42855e, R.dimen.tbds42));
+        ImageView imageView = new ImageView(this.f43095e);
+        FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(l.g(this.f43095e, R.dimen.tbds42), l.g(this.f43095e, R.dimen.tbds42));
         layoutParams3.gravity = 21;
         layoutParams3.rightMargin = g2;
         frameLayout.addView(imageView, layoutParams3);
-        View view2 = new View(this.f42855e);
-        FrameLayout.LayoutParams layoutParams4 = new FrameLayout.LayoutParams(-1, l.g(this.f42855e, R.dimen.tbds1));
+        View view2 = new View(this.f43095e);
+        FrameLayout.LayoutParams layoutParams4 = new FrameLayout.LayoutParams(-1, l.g(this.f43095e, R.dimen.tbds1));
         layoutParams4.leftMargin = g2;
         layoutParams4.rightMargin = g2;
         layoutParams4.gravity = 80;

@@ -26,22 +26,22 @@ import org.json.JSONObject;
 public class TTMiddlePageActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f27110a;
+    public LinearLayout f27118a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TTNativeExpressAd f27111b;
+    public TTNativeExpressAd f27119b;
 
     /* renamed from: c  reason: collision with root package name */
-    public l f27112c;
+    public l f27120c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdSlot f27113d;
+    public AdSlot f27121d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f27114e;
+    public b f27122e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f27115f = false;
+    public boolean f27123f = false;
 
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
@@ -52,15 +52,15 @@ public class TTMiddlePageActivity extends Activity {
         if (intent != null) {
             try {
                 l a2 = c.a(new JSONObject(intent.getStringExtra("middle_page_material_meta")));
-                this.f27112c = a2;
+                this.f27120c = a2;
                 AdSlot b2 = b(a2);
-                this.f27113d = b2;
-                this.f27111b = new n(this, this.f27112c, b2);
+                this.f27121d = b2;
+                this.f27119b = new n(this, this.f27120c, b2);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
-        TTNativeExpressAd tTNativeExpressAd = this.f27111b;
+        TTNativeExpressAd tTNativeExpressAd = this.f27119b;
         if (tTNativeExpressAd == null) {
             finish();
             return;
@@ -70,20 +70,20 @@ public class TTMiddlePageActivity extends Activity {
             finish();
             return;
         }
-        this.f27110a = (LinearLayout) findViewById(ad.e(this, "tt_middle_page_layout"));
+        this.f27118a = (LinearLayout) findViewById(ad.e(this, "tt_middle_page_layout"));
         if (expressAdView instanceof NativeExpressVideoView) {
-            this.f27114e = ((NativeExpressVideoView) expressAdView).getClickListener();
+            this.f27122e = ((NativeExpressVideoView) expressAdView).getClickListener();
         } else if (expressAdView instanceof NativeExpressView) {
-            this.f27114e = ((NativeExpressView) expressAdView).getClickListener();
+            this.f27122e = ((NativeExpressView) expressAdView).getClickListener();
         }
-        l lVar = this.f27112c;
+        l lVar = this.f27120c;
         if (lVar != null && lVar.aG() == 2 && (expressAdView instanceof NativeExpressView) && (jsObject = ((NativeExpressView) expressAdView).getJsObject()) != null) {
-            jsObject.a(this.f27113d);
+            jsObject.a(this.f27121d);
         }
-        this.f27111b.setCanInterruptVideoPlay(true);
-        this.f27110a.removeAllViews();
-        this.f27110a.addView(expressAdView);
-        this.f27111b.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTMiddlePageActivity.1
+        this.f27119b.setCanInterruptVideoPlay(true);
+        this.f27118a.removeAllViews();
+        this.f27118a.addView(expressAdView);
+        this.f27119b.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTMiddlePageActivity.1
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
             public void onAdClicked(View view, int i) {
             }
@@ -94,35 +94,35 @@ public class TTMiddlePageActivity extends Activity {
 
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
             public void onRenderFail(View view, String str, int i) {
-                if (TTMiddlePageActivity.this.f27115f) {
+                if (TTMiddlePageActivity.this.f27123f) {
                     return;
                 }
-                if (TTMiddlePageActivity.this.f27112c != null && TTMiddlePageActivity.this.f27112c.aG() == 1 && TTMiddlePageActivity.this.f27114e != null) {
-                    TTMiddlePageActivity.this.f27115f = true;
-                    TTMiddlePageActivity.this.f27114e.e();
+                if (TTMiddlePageActivity.this.f27120c != null && TTMiddlePageActivity.this.f27120c.aG() == 1 && TTMiddlePageActivity.this.f27122e != null) {
+                    TTMiddlePageActivity.this.f27123f = true;
+                    TTMiddlePageActivity.this.f27122e.e();
                 }
                 TTMiddlePageActivity.this.finish();
             }
 
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
             public void onRenderSuccess(View view, float f2, float f3) {
-                if (TTMiddlePageActivity.this.isFinishing() || TTMiddlePageActivity.this.f27112c == null) {
+                if (TTMiddlePageActivity.this.isFinishing() || TTMiddlePageActivity.this.f27120c == null) {
                     return;
                 }
-                d.b(p.a(), TTMiddlePageActivity.this.f27112c, "feed_video_middle_page", "middle_page_show");
+                d.b(p.a(), TTMiddlePageActivity.this.f27120c, "feed_video_middle_page", "middle_page_show");
             }
         });
-        this.f27111b.render();
+        this.f27119b.render();
     }
 
     @Override // android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.f27111b != null) {
-            this.f27111b = null;
+        if (this.f27119b != null) {
+            this.f27119b = null;
         }
-        if (this.f27112c != null) {
-            this.f27112c = null;
+        if (this.f27120c != null) {
+            this.f27120c = null;
         }
     }
 

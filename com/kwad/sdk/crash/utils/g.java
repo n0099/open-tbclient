@@ -18,28 +18,28 @@ import java.util.List;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f34783a = Charset.forName("US-ASCII");
+    public static final Charset f34878a = Charset.forName("US-ASCII");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Charset f34784b = Charset.forName("UTF-8");
+    public static final Charset f34879b = Charset.forName("UTF-8");
 
     /* renamed from: c  reason: collision with root package name */
-    public static final BigInteger f34785c;
+    public static final BigInteger f34880c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final BigInteger f34786d;
+    public static final BigInteger f34881d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final BigInteger f34787e;
+    public static final BigInteger f34882e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final BigInteger f34788f;
+    public static final BigInteger f34883f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BigInteger f34789g;
+    public static final BigInteger f34884g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BigInteger f34790h;
+    public static final BigInteger f34885h;
     public static final char i;
     public static final BigInteger j;
     public static final BigInteger k;
@@ -50,19 +50,19 @@ public class g {
 
     static {
         BigInteger valueOf = BigInteger.valueOf(1024L);
-        f34785c = valueOf;
+        f34880c = valueOf;
         BigInteger multiply = valueOf.multiply(valueOf);
-        f34786d = multiply;
-        BigInteger multiply2 = f34785c.multiply(multiply);
-        f34787e = multiply2;
-        BigInteger multiply3 = f34785c.multiply(multiply2);
-        f34788f = multiply3;
-        BigInteger multiply4 = f34785c.multiply(multiply3);
-        f34789g = multiply4;
-        f34790h = f34785c.multiply(multiply4);
+        f34881d = multiply;
+        BigInteger multiply2 = f34880c.multiply(multiply);
+        f34882e = multiply2;
+        BigInteger multiply3 = f34880c.multiply(multiply2);
+        f34883f = multiply3;
+        BigInteger multiply4 = f34880c.multiply(multiply3);
+        f34884g = multiply4;
+        f34885h = f34880c.multiply(multiply4);
         BigInteger multiply5 = BigInteger.valueOf(1024L).multiply(BigInteger.valueOf(1152921504606846976L));
         j = multiply5;
-        k = f34785c.multiply(multiply5);
+        k = f34880c.multiply(multiply5);
         l = new File[0];
         m = Character.toString(IStringUtil.EXTENSION_SEPARATOR);
         n = Charset.forName("UTF-8");

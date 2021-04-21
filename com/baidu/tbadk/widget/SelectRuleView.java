@@ -12,16 +12,16 @@ import java.util.List;
 public class SelectRuleView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13763e;
+    public int f13771e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13764f;
+    public int f13772f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13765g;
+    public int f13773g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<String> f13766h;
+    public List<String> f13774h;
     public List<String> i;
     public List<String> j;
 
@@ -54,19 +54,19 @@ public class SelectRuleView extends LinearLayout {
     }
 
     public void d(int i) {
-        if (this.f13765g == i) {
+        if (this.f13773g == i) {
             return;
         }
-        int i2 = this.f13763e;
+        int i2 = this.f13771e;
         if (i2 == 0) {
-            setData(this.f13766h, this.i);
+            setData(this.f13774h, this.i);
         } else if (i2 == 1) {
-            setData(this.j, this.f13766h, this.i);
+            setData(this.j, this.f13774h, this.i);
         }
     }
 
     public void setColumn(int i) {
-        this.f13764f = i;
+        this.f13772f = i;
     }
 
     public void setData(List<String> list, List<String> list2) {
@@ -74,7 +74,7 @@ public class SelectRuleView extends LinearLayout {
             return;
         }
         b();
-        this.f13766h = list;
+        this.f13774h = list;
         this.i = list2;
         List<String> arrayList = new ArrayList<>();
         arrayList.addAll(list);
@@ -89,13 +89,13 @@ public class SelectRuleView extends LinearLayout {
         }
         int i = 0;
         while (true) {
-            int i2 = this.f13764f;
+            int i2 = this.f13772f;
             if (i >= ((size + i2) - 1) / i2) {
                 return;
             }
             SelectRuleRowItem selectRuleRowItem = new SelectRuleRowItem(getContext());
-            selectRuleRowItem.setType(this.f13763e);
-            int i3 = this.f13764f;
+            selectRuleRowItem.setType(this.f13771e);
+            int i3 = this.f13772f;
             int i4 = i * i3;
             i++;
             int i5 = i3 * i;
@@ -105,7 +105,7 @@ public class SelectRuleView extends LinearLayout {
     }
 
     public void setType(int i) {
-        this.f13763e = i;
+        this.f13771e = i;
     }
 
     public SelectRuleView(Context context, @Nullable AttributeSet attributeSet) {
@@ -114,9 +114,9 @@ public class SelectRuleView extends LinearLayout {
 
     public SelectRuleView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f13763e = 0;
-        this.f13764f = 2;
-        this.f13765g = 3;
+        this.f13771e = 0;
+        this.f13772f = 2;
+        this.f13773g = 3;
         c();
     }
 
@@ -125,7 +125,7 @@ public class SelectRuleView extends LinearLayout {
             return;
         }
         b();
-        this.f13766h = list2;
+        this.f13774h = list2;
         this.i = list3;
         this.j = list;
         List<String> arrayList = new ArrayList<>();
@@ -149,13 +149,13 @@ public class SelectRuleView extends LinearLayout {
         }
         int i = 0;
         while (true) {
-            int i2 = this.f13764f;
+            int i2 = this.f13772f;
             if (i >= ((size + i2) - 1) / i2) {
                 return;
             }
             SelectRuleRowItem selectRuleRowItem = new SelectRuleRowItem(getContext());
-            selectRuleRowItem.setType(this.f13763e);
-            int i3 = this.f13764f;
+            selectRuleRowItem.setType(this.f13771e);
+            int i3 = this.f13772f;
             int i4 = i * i3;
             i++;
             int i5 = i3 * i;

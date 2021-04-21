@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.AlaPlayAnimationView;
-import d.b.h0.r.q.a2;
-import d.b.h0.z0.i0;
+import d.b.i0.r.q.a2;
+import d.b.i0.z0.i0;
 /* loaded from: classes.dex */
 public class AlaCardBottomUserInfoLayout extends LinearLayout {
     public static final int MAX_USERNAME_LENGTH = 10;

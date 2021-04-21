@@ -6,50 +6,50 @@ import java.util.List;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<d> f38802a = new ArrayList();
+    public List<d> f38897a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f38803b = new ArrayList();
+    public List<String> f38898b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public List<String> f38804c = new ArrayList();
+    public List<String> f38899c = new ArrayList();
 
     /* renamed from: d  reason: collision with root package name */
-    public String f38805d = "";
+    public String f38900d = "";
 
     public final String a() {
-        return this.f38805d;
+        return this.f38900d;
     }
 
     public final void a(String str) {
-        this.f38805d = str;
+        this.f38900d = str;
     }
 
     public final void a(List<d> list) {
-        this.f38802a = list;
+        this.f38897a = list;
     }
 
     public final List<d> b() {
-        return this.f38802a;
+        return this.f38897a;
     }
 
     public final void b(List<String> list) {
-        this.f38803b = list;
+        this.f38898b = list;
     }
 
     public final List<String> c() {
-        return this.f38803b;
+        return this.f38898b;
     }
 
     public final void c(List<String> list) {
-        this.f38804c = list;
+        this.f38899c = list;
     }
 
     public final List<String> d() {
-        return this.f38804c;
+        return this.f38899c;
     }
 
     public final String toString() {
-        return "StatusBean{_$101005=" + this.f38802a + ", _$302001=" + this.f38803b + ", _$302002=" + this.f38804c + ", _$302003='" + this.f38805d + "'}";
+        return "StatusBean{_$101005=" + this.f38897a + ", _$302001=" + this.f38898b + ", _$302002=" + this.f38899c + ", _$302003='" + this.f38900d + "'}";
     }
 }

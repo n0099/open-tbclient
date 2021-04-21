@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class db {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile db f40637a;
+    public static volatile db f40732a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f214a;
@@ -38,7 +38,7 @@ public class db {
     public class b extends al.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f40639a = System.currentTimeMillis();
+        public long f40734a = System.currentTimeMillis();
 
         public b() {
         }
@@ -54,7 +54,7 @@ public class db {
 
         @Override // com.xiaomi.push.al.b
         public final boolean b() {
-            return System.currentTimeMillis() - this.f40639a > 172800000;
+            return System.currentTimeMillis() - this.f40734a > 172800000;
         }
     }
 
@@ -62,7 +62,7 @@ public class db {
     public class c extends b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f40641a;
+        public int f40736a;
 
         /* renamed from: a  reason: collision with other field name */
         public File f217a;
@@ -74,7 +74,7 @@ public class db {
         public boolean f219a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f40642b;
+        public String f40737b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f220b;
@@ -82,7 +82,7 @@ public class db {
         public c(String str, String str2, File file, boolean z) {
             super();
             this.f218a = str;
-            this.f40642b = str2;
+            this.f40737b = str2;
             this.f217a = file;
             this.f220b = z;
         }
@@ -129,7 +129,7 @@ public class db {
                 if (c()) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("uid", com.xiaomi.push.service.bi.m597a());
-                    hashMap.put("token", this.f40642b);
+                    hashMap.put("token", this.f40737b);
                     hashMap.put("net", bg.m157a(db.this.f214a));
                     bg.a(this.f218a, hashMap, this.f217a, "file");
                 }
@@ -142,16 +142,16 @@ public class db {
         /* renamed from: c  reason: collision with other method in class */
         public void mo227c() {
             if (!this.f219a) {
-                int i = this.f40641a + 1;
-                this.f40641a = i;
+                int i = this.f40736a + 1;
+                this.f40736a = i;
                 if (i < 3) {
                     db.this.f215a.add(this);
                 }
             }
-            if (this.f219a || this.f40641a >= 3) {
+            if (this.f219a || this.f40736a >= 3) {
                 this.f217a.delete();
             }
-            db.this.a((1 << this.f40641a) * 1000);
+            db.this.a((1 << this.f40736a) * 1000);
         }
     }
 
@@ -164,15 +164,15 @@ public class db {
     }
 
     public static db a(Context context) {
-        if (f40637a == null) {
+        if (f40732a == null) {
             synchronized (db.class) {
-                if (f40637a == null) {
-                    f40637a = new db(context);
+                if (f40732a == null) {
+                    f40732a = new db(context);
                 }
             }
         }
-        f40637a.f214a = context;
-        return f40637a;
+        f40732a.f214a = context;
+        return f40732a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

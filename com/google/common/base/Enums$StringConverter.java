@@ -1,6 +1,6 @@
 package com.google.common.base;
 
-import d.g.c.a.n;
+import d.h.c.a.n;
 import java.io.Serializable;
 import java.lang.Enum;
 /* loaded from: classes6.dex */
@@ -21,7 +21,7 @@ public final class Enums$StringConverter<T extends Enum<T>> extends Converter<St
         return doBackward((Enums$StringConverter<T>) ((Enum) obj));
     }
 
-    @Override // com.google.common.base.Converter, d.g.c.a.g
+    @Override // com.google.common.base.Converter, d.h.c.a.g
     public boolean equals(Object obj) {
         if (obj instanceof Enums$StringConverter) {
             return this.enumClass.equals(((Enums$StringConverter) obj).enumClass);

@@ -40,12 +40,12 @@ public final class f extends d<com.vivo.push.model.a> {
 
     @Override // com.vivo.push.cache.d
     public final String b(String str) throws Exception {
-        return new String(g.a(g.a(d.f39747a), g.a(d.f39748b), Base64.decode(str, 2)), "utf-8");
+        return new String(g.a(g.a(d.f39842a), g.a(d.f39843b), Base64.decode(str, 2)), "utf-8");
     }
 
     public final String c(String str) {
-        synchronized (d.f39749c) {
-            for (T t : this.f39750d) {
+        synchronized (d.f39844c) {
+            for (T t : this.f39845d) {
                 if (!TextUtils.isEmpty(t.a()) && t.a().equals(str)) {
                     return t.b();
                 }

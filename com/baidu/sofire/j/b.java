@@ -11,26 +11,26 @@ import java.security.NoSuchAlgorithmException;
 public final class b {
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f11481b;
+    public Context f11489b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.baidu.sofire.h.c f11482c;
+    public com.baidu.sofire.h.c f11490c;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f11480a = null;
+    public a f11488a = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f11484e = null;
+    public String f11492e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f11485f = null;
+    public String f11493f = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public ServiceConnection f11483d = new d(this);
+    public ServiceConnection f11491d = new d(this);
 
     public b(Context context, com.baidu.sofire.h.c cVar) {
-        this.f11481b = context;
-        this.f11482c = cVar;
+        this.f11489b = context;
+        this.f11490c = cVar;
     }
 
     public final String a(String str) {
@@ -38,12 +38,12 @@ public final class b {
         Signature[] signatureArr;
         String str3 = null;
         try {
-            if (TextUtils.isEmpty(this.f11484e)) {
-                this.f11484e = this.f11481b.getPackageName();
+            if (TextUtils.isEmpty(this.f11492e)) {
+                this.f11492e = this.f11489b.getPackageName();
             }
-            if (TextUtils.isEmpty(this.f11485f)) {
+            if (TextUtils.isEmpty(this.f11493f)) {
                 try {
-                    signatureArr = this.f11481b.getPackageManager().getPackageInfo(this.f11484e, 64).signatures;
+                    signatureArr = this.f11489b.getPackageManager().getPackageInfo(this.f11492e, 64).signatures;
                 } catch (PackageManager.NameNotFoundException unused) {
                     signatureArr = null;
                 }
@@ -59,9 +59,9 @@ public final class b {
                         e2.printStackTrace();
                     }
                 }
-                this.f11485f = str3;
+                this.f11493f = str3;
             }
-            str2 = this.f11480a.a(this.f11484e, this.f11485f, str);
+            str2 = this.f11488a.a(this.f11492e, this.f11493f, str);
         } catch (Throwable th) {
             th.printStackTrace();
             str2 = str3;

@@ -18,16 +18,16 @@ import d.b.c.e.p.l;
 public class LoopADView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20462e;
+    public Context f20470e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f20463f;
+    public a f20471f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20464g;
+    public int f20472g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20465h;
+    public int f20473h;
     public Resources i;
     public AdCard.d[] j;
     public int k;
@@ -60,9 +60,9 @@ public class LoopADView extends LinearLayout {
         } else {
             dimension = this.i.getDimension(R.dimen.ds40);
         }
-        int dimension2 = (int) (((int) ((l.p(this.f20462e)[0] - dimension) - ((int) this.i.getDimension(R.dimen.ds4)))) * 0.75f);
-        this.f20464g = dimension2;
-        this.f20465h = (int) (dimension2 / f4);
+        int dimension2 = (int) (((int) ((l.p(this.f20470e)[0] - dimension) - ((int) this.i.getDimension(R.dimen.ds4)))) * 0.75f);
+        this.f20472g = dimension2;
+        this.f20473h = (int) (dimension2 / f4);
     }
 
     public void b() {
@@ -81,21 +81,21 @@ public class LoopADView extends LinearLayout {
         }
         TbImageView tbImageView = (TbImageView) view.findViewById(R.id.loop_image_view);
         TextView textView = (TextView) view.findViewById(R.id.loop_text_view);
-        g(tbImageView, this.f20464g, this.f20465h);
-        g(view, this.f20464g, -2);
-        a aVar = this.f20463f;
+        g(tbImageView, this.f20472g, this.f20473h);
+        g(view, this.f20472g, -2);
+        a aVar = this.f20471f;
         if (aVar != null) {
-            aVar.a(tbImageView, dVar.f20401c);
+            aVar.a(tbImageView, dVar.f20409c);
         }
-        tbImageView.W(dVar.f20399a, i, false);
+        tbImageView.W(dVar.f20407a, i, false);
         if (itemType == ItemType.WITHOUT_BOTTOM_TITLE) {
             textView.setText("");
             textView.setVisibility(8);
         } else if (itemType == ItemType.WITH_BOTTOM_TITLE) {
             textView.setVisibility(0);
-            a aVar2 = this.f20463f;
+            a aVar2 = this.f20471f;
             if (aVar2 != null) {
-                textView.setText(aVar2.b(dVar.f20402d));
+                textView.setText(aVar2.b(dVar.f20410d));
             }
         }
     }
@@ -110,7 +110,7 @@ public class LoopADView extends LinearLayout {
         try {
             boolean z = false;
             for (AdCard.d dVar : dVarArr) {
-                View inflate = LayoutInflater.from(this.f20462e).inflate(R.layout.loop_ad_item, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.f20470e).inflate(R.layout.loop_ad_item, (ViewGroup) null);
                 if (inflate == null) {
                     return;
                 }
@@ -128,7 +128,7 @@ public class LoopADView extends LinearLayout {
 
     public final boolean e(AdCard.d[] dVarArr) {
         for (AdCard.d dVar : dVarArr) {
-            if (TextUtils.isEmpty(dVar.f20402d)) {
+            if (TextUtils.isEmpty(dVar.f20410d)) {
                 return false;
             }
         }
@@ -167,7 +167,7 @@ public class LoopADView extends LinearLayout {
             i3 = (int) dimension;
         }
         a(i2, i3, i4);
-        a aVar = this.f20463f;
+        a aVar = this.f20471f;
         if (aVar != null) {
             aVar.reset();
         }
@@ -180,7 +180,7 @@ public class LoopADView extends LinearLayout {
     }
 
     public void setOnClickCallbackListener(a aVar) {
-        this.f20463f = aVar;
+        this.f20471f = aVar;
     }
 
     public LoopADView(Context context, AttributeSet attributeSet) {
@@ -189,14 +189,14 @@ public class LoopADView extends LinearLayout {
 
     public LoopADView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f20462e = null;
-        this.f20463f = null;
-        this.f20464g = 0;
-        this.f20465h = 0;
+        this.f20470e = null;
+        this.f20471f = null;
+        this.f20472g = 0;
+        this.f20473h = 0;
         this.i = null;
         this.j = null;
         Context applicationContext = context.getApplicationContext();
-        this.f20462e = applicationContext;
+        this.f20470e = applicationContext;
         this.i = applicationContext.getResources();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
         layoutParams.gravity = 17;

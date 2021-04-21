@@ -8,30 +8,30 @@ import android.os.RemoteException;
 public class a implements IInterface {
 
     /* renamed from: a  reason: collision with root package name */
-    public final IBinder f30546a;
+    public final IBinder f30641a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f30547b;
+    public final String f30642b;
 
     public a(IBinder iBinder, String str) {
-        this.f30546a = iBinder;
-        this.f30547b = str;
+        this.f30641a = iBinder;
+        this.f30642b = str;
     }
 
     public final Parcel a() {
         Parcel obtain = Parcel.obtain();
-        obtain.writeInterfaceToken(this.f30547b);
+        obtain.writeInterfaceToken(this.f30642b);
         return obtain;
     }
 
     @Override // android.os.IInterface
     public IBinder asBinder() {
-        return this.f30546a;
+        return this.f30641a;
     }
 
     public final void b(int i, Parcel parcel) throws RemoteException {
         try {
-            this.f30546a.transact(i, parcel, null, 1);
+            this.f30641a.transact(i, parcel, null, 1);
         } finally {
             parcel.recycle();
         }
@@ -41,7 +41,7 @@ public class a implements IInterface {
         Parcel obtain = Parcel.obtain();
         try {
             try {
-                this.f30546a.transact(i, parcel, obtain, 0);
+                this.f30641a.transact(i, parcel, obtain, 0);
                 obtain.readException();
                 return obtain;
             } catch (RuntimeException e2) {

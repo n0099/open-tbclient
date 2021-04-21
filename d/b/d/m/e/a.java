@@ -3,19 +3,19 @@ package d.b.d.m.e;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import d.b.i0.j1.o.h.b;
+import d.b.j0.j1.o.h.b;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class a implements d.b.i0.j1.o.h.b {
+public class a implements d.b.j0.j1.o.h.b {
 
     /* renamed from: f  reason: collision with root package name */
-    public String f43109f;
+    public String f43269f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f43110g;
+    public String f43270g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f43111h;
+    public String f43271h;
     public String i;
     public int j;
     public String k;
@@ -31,12 +31,12 @@ public class a implements d.b.i0.j1.o.h.b {
     public b.a w;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43108e = 3;
+    public int f43268e = 3;
     public ArrayList<String> u = new ArrayList<>();
     public ArrayList<String> v = new ArrayList<>();
 
     public int a() {
-        return this.f43108e;
+        return this.f43268e;
     }
 
     public String b() {
@@ -47,7 +47,7 @@ public class a implements d.b.i0.j1.o.h.b {
     }
 
     public boolean c() {
-        return this.f43108e == 2;
+        return this.f43268e == 2;
     }
 
     public boolean d() {
@@ -60,16 +60,16 @@ public class a implements d.b.i0.j1.o.h.b {
     }
 
     public void e(int i) {
-        this.f43108e = i;
+        this.f43268e = i;
     }
 
-    @Override // d.b.i0.j1.o.h.b
+    @Override // d.b.j0.j1.o.h.b
     public b.a getParallelCharge() {
         if (this.w == null) {
             b.a aVar = new b.a();
             this.w = aVar;
-            aVar.f57373c = this.u;
-            aVar.f57374d = this.v;
+            aVar.f57794c = this.u;
+            aVar.f57795d = this.v;
         }
         return this.w;
     }

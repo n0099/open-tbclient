@@ -6,33 +6,33 @@ import java.util.concurrent.ConcurrentHashMap;
 public class E {
 
     /* renamed from: b  reason: collision with root package name */
-    public static E f39946b;
+    public static E f40041b;
 
     /* renamed from: a  reason: collision with root package name */
-    public ConcurrentHashMap f39947a = new ConcurrentHashMap();
+    public ConcurrentHashMap f40042a = new ConcurrentHashMap();
 
     public static E a() {
-        if (f39946b == null) {
+        if (f40041b == null) {
             synchronized (E.class) {
-                if (f39946b == null) {
-                    f39946b = new E();
+                if (f40041b == null) {
+                    f40041b = new E();
                 }
             }
         }
-        return f39946b;
+        return f40041b;
     }
 
     public Info a(String str) {
         Info info;
         synchronized (E.class) {
-            info = (Info) this.f39947a.remove(str);
+            info = (Info) this.f40042a.remove(str);
         }
         return info;
     }
 
     public void a(String str, Info info) {
         synchronized (E.class) {
-            this.f39947a.put(str, info);
+            this.f40042a.put(str, info);
         }
     }
 }

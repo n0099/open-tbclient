@@ -3,20 +3,20 @@ package com.baidu.swan.apps.media.chooser.listener;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.apps.media.chooser.adapter.SwanAppThumbnailAdapter;
-import d.b.g0.a.b1.d.d.f;
+import d.b.h0.a.b1.d.d.f;
 import java.util.Collections;
 /* loaded from: classes2.dex */
 public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    public f f11999a;
+    public f f12007a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SwanAppThumbnailAdapter f12000b;
+    public SwanAppThumbnailAdapter f12008b;
 
     public SwanAppThumbnailTouchCallback(f fVar, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
-        this.f11999a = fVar;
-        this.f12000b = swanAppThumbnailAdapter;
+        this.f12007a = fVar;
+        this.f12008b = swanAppThumbnailAdapter;
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
@@ -46,17 +46,17 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder viewHolder2) {
-        if (this.f12000b.m() == null) {
+        if (this.f12008b.m() == null) {
             return false;
         }
         int adapterPosition = viewHolder.getAdapterPosition();
         int adapterPosition2 = viewHolder2.getAdapterPosition();
-        SwanAppThumbnailAdapter swanAppThumbnailAdapter = this.f12000b;
+        SwanAppThumbnailAdapter swanAppThumbnailAdapter = this.f12008b;
         if (swanAppThumbnailAdapter != null) {
             Collections.swap(swanAppThumbnailAdapter.m(), adapterPosition, adapterPosition2);
-            this.f12000b.notifyItemMoved(adapterPosition, adapterPosition2);
+            this.f12008b.notifyItemMoved(adapterPosition, adapterPosition2);
         }
-        f fVar = this.f11999a;
+        f fVar = this.f12007a;
         if (fVar != null) {
             fVar.onMove(adapterPosition, adapterPosition2);
             return true;

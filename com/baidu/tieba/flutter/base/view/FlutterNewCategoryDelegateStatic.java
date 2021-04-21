@@ -24,10 +24,10 @@ import com.idlefish.flutterboost.containers.FlutterFragment;
 import d.b.c.a.h;
 import d.b.c.e.m.e;
 import d.b.c.e.p.l;
-import d.b.h0.e0.b;
-import d.b.h0.e0.c;
-import d.b.h0.e0.d;
-import d.b.h0.s.c.n;
+import d.b.i0.e0.b;
+import d.b.i0.e0.c;
+import d.b.i0.e0.d;
+import d.b.i0.s.c.n;
 /* loaded from: classes4.dex */
 public class FlutterNewCategoryDelegateStatic extends b {
     public Boolean isNew = Boolean.FALSE;
@@ -53,13 +53,13 @@ public class FlutterNewCategoryDelegateStatic extends b {
         if (c2 == null) {
             return;
         }
-        if (c2.a() == n.f51619h) {
+        if (c2.a() == n.f51955h) {
             if (!TextUtils.isEmpty(this.mFinalData.b())) {
                 final c cVar = new c();
-                cVar.f50554g = this.mFinalData.b();
-                cVar.f50552e = 21;
+                cVar.f50890g = this.mFinalData.b();
+                cVar.f50888e = 21;
                 if (!TextUtils.isEmpty(this.mFinalData.c())) {
-                    cVar.f50550c = this.mFinalData.c();
+                    cVar.f50886c = this.mFinalData.c();
                 }
                 e.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.base.view.FlutterNewCategoryDelegateStatic.4
                     @Override // java.lang.Runnable
@@ -68,13 +68,13 @@ public class FlutterNewCategoryDelegateStatic extends b {
                     }
                 }, 2000L);
             }
-            TbSingleton.getInstance().getChannelConfigModel().d(n.f51619h);
-        } else if (this.mFinalData.a() == n.f51618g) {
+            TbSingleton.getInstance().getChannelConfigModel().d(n.f51955h);
+        } else if (this.mFinalData.a() == n.f51954g) {
             MessageRedDotView messageRedDotView = this.tipView;
             if (messageRedDotView != null) {
                 messageRedDotView.setVisibility(0);
             }
-            TbSingleton.getInstance().getChannelConfigModel().d(n.f51618g);
+            TbSingleton.getInstance().getChannelConfigModel().d(n.f51954g);
         } else {
             MessageRedDotView messageRedDotView2 = this.tipView;
             if (messageRedDotView2 != null) {
@@ -107,15 +107,15 @@ public class FlutterNewCategoryDelegateStatic extends b {
         MessageManager.getInstance().registerListener(customMessageListener);
     }
 
-    @Override // d.b.h0.e0.b
+    @Override // d.b.i0.e0.b
     public c createFragmentTabStructure() {
         c cVar = new c();
         FlutterFragment.NewEngineFragmentBuilder newEngineFragmentBuilder = new FlutterFragment.NewEngineFragmentBuilder(TbFlutterFragment.class);
         newEngineFragmentBuilder.url(OpenFlutter.FRAGMENT_NEWCATEGORY);
         newEngineFragmentBuilder.isTabHost(true);
         FlutterFragment build = newEngineFragmentBuilder.build();
-        cVar.f50548a = build;
-        cVar.f50552e = 21;
+        cVar.f50884a = build;
+        cVar.f50888e = 21;
         ((TbFlutterFragment) build).setOnPrimaryListener(new TbFlutterFragmentLifeCircleInterface() { // from class: com.baidu.tieba.flutter.base.view.FlutterNewCategoryDelegateStatic.3
             @Override // com.baidu.tieba.flutter.base.view.TbFlutterFragmentLifeCircleInterface
             public void onPrimary() {
@@ -123,26 +123,26 @@ public class FlutterNewCategoryDelegateStatic extends b {
             }
         });
         Resources b2 = h.a().b();
-        cVar.f50549b = b2.getIdentifier("new_category", "string", BdBaseApplication.getInst().getPackageName());
-        cVar.f50553f = b2.getIdentifier("lottie_tab_category", "raw", BdBaseApplication.getInst().getPackageName());
+        cVar.f50885b = b2.getIdentifier("new_category", "string", BdBaseApplication.getInst().getPackageName());
+        cVar.f50889f = b2.getIdentifier("lottie_tab_category", "raw", BdBaseApplication.getInst().getPackageName());
         cVar.i = c.l;
-        cVar.f50555h = d.b.h0.e0.e.c.d().c("channel");
+        cVar.f50891h = d.b.i0.e0.e.c.d().c("channel");
         return cVar;
     }
 
-    @Override // d.b.h0.e0.b
+    @Override // d.b.i0.e0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(h.a().b().getIdentifier("maintab_bottom_indicator", "layout", BdBaseApplication.getInst().getPackageName()), (ViewGroup) null);
         this.tipView = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.f13622f = this.mIndicator;
-        aVar.f13619c = l.e(context, 10.0f);
-        aVar.f13617a = this.tipView;
+        aVar.f13630f = this.mIndicator;
+        aVar.f13627c = l.e(context, 10.0f);
+        aVar.f13625a = this.tipView;
         this.mIndicator.b(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
         this.tipView.f(0);
         n nVar = this.mFinalData;
         if (nVar != null) {
-            if (nVar.a() == n.f51618g) {
+            if (nVar.a() == n.f51954g) {
                 this.tipView.setVisibility(0);
             } else {
                 this.tipView.setVisibility(8);
@@ -153,18 +153,18 @@ public class FlutterNewCategoryDelegateStatic extends b {
         return this.mIndicator;
     }
 
-    @Override // d.b.h0.e0.b
+    @Override // d.b.i0.e0.b
     public boolean isAvailable() {
         return MainTabActivityConfig.NEW_CATEGORY_TAB_AVAIBLE;
     }
 
-    @Override // d.b.h0.e0.b
+    @Override // d.b.i0.e0.b
     public void onAdd() {
         super.onAdd();
         MessageManager.getInstance().registerListener(this.mChannelDataGetListener);
     }
 
-    @Override // d.b.h0.e0.b
+    @Override // d.b.i0.e0.b
     public void onRemove() {
         super.onRemove();
         MessageManager.getInstance().unRegisterListener(this.mChannelDataGetListener);

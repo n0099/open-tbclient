@@ -13,8 +13,8 @@ public class TrafficPayResultAdapter extends PayResultAdapter {
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public String getExpectedTime() {
-        PayResultContent payResultContent = this.f25355c;
-        return (payResultContent == null || TextUtils.isEmpty(payResultContent.stream_recharge_msg)) ? "" : this.f25355c.stream_recharge_msg;
+        PayResultContent payResultContent = this.f25363c;
+        return (payResultContent == null || TextUtils.isEmpty(payResultContent.stream_recharge_msg)) ? "" : this.f25363c.stream_recharge_msg;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
@@ -27,6 +27,6 @@ public class TrafficPayResultAdapter extends PayResultAdapter {
     @Override // com.baidu.wallet.paysdk.payresult.adapters.PayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
     public boolean onCreateCheckInvalide(Bundle bundle) {
         super.onCreateCheckInvalide(bundle);
-        return this.f25355c != null;
+        return this.f25363c != null;
     }
 }

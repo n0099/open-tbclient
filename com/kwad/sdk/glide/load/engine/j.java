@@ -15,28 +15,28 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class j<R> implements a.c, DecodeJob.a<R> {
 
     /* renamed from: e  reason: collision with root package name */
-    public static final c f35854e = new c();
+    public static final c f35949e = new c();
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f35855a;
+    public final e f35950a;
 
     /* renamed from: b  reason: collision with root package name */
-    public DataSource f35856b;
+    public DataSource f35951b;
 
     /* renamed from: c  reason: collision with root package name */
-    public GlideException f35857c;
+    public GlideException f35952c;
 
     /* renamed from: d  reason: collision with root package name */
-    public n<?> f35858d;
+    public n<?> f35953d;
 
     /* renamed from: f  reason: collision with root package name */
-    public final com.kwad.sdk.glide.g.a.c f35859f;
+    public final com.kwad.sdk.glide.g.a.c f35954f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Pools.Pool<j<?>> f35860g;
+    public final Pools.Pool<j<?>> f35955g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c f35861h;
+    public final c f35956h;
     public final k i;
     public final com.kwad.sdk.glide.load.engine.b.a j;
     public final com.kwad.sdk.glide.load.engine.b.a k;
@@ -58,17 +58,17 @@ public class j<R> implements a.c, DecodeJob.a<R> {
     public class a implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        public final com.kwad.sdk.glide.request.g f35863b;
+        public final com.kwad.sdk.glide.request.g f35958b;
 
         public a(com.kwad.sdk.glide.request.g gVar) {
-            this.f35863b = gVar;
+            this.f35958b = gVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             synchronized (j.this) {
-                if (j.this.f35855a.b(this.f35863b)) {
-                    j.this.b(this.f35863b);
+                if (j.this.f35950a.b(this.f35958b)) {
+                    j.this.b(this.f35958b);
                 }
                 j.this.e();
             }
@@ -79,19 +79,19 @@ public class j<R> implements a.c, DecodeJob.a<R> {
     public class b implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        public final com.kwad.sdk.glide.request.g f35865b;
+        public final com.kwad.sdk.glide.request.g f35960b;
 
         public b(com.kwad.sdk.glide.request.g gVar) {
-            this.f35865b = gVar;
+            this.f35960b = gVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             synchronized (j.this) {
-                if (j.this.f35855a.b(this.f35865b)) {
-                    j.this.f35858d.g();
-                    j.this.a(this.f35865b);
-                    j.this.c(this.f35865b);
+                if (j.this.f35950a.b(this.f35960b)) {
+                    j.this.f35953d.g();
+                    j.this.a(this.f35960b);
+                    j.this.c(this.f35960b);
                 }
                 j.this.e();
             }
@@ -110,25 +110,25 @@ public class j<R> implements a.c, DecodeJob.a<R> {
     public static final class d {
 
         /* renamed from: a  reason: collision with root package name */
-        public final com.kwad.sdk.glide.request.g f35866a;
+        public final com.kwad.sdk.glide.request.g f35961a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Executor f35867b;
+        public final Executor f35962b;
 
         public d(com.kwad.sdk.glide.request.g gVar, Executor executor) {
-            this.f35866a = gVar;
-            this.f35867b = executor;
+            this.f35961a = gVar;
+            this.f35962b = executor;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof d) {
-                return this.f35866a.equals(((d) obj).f35866a);
+                return this.f35961a.equals(((d) obj).f35961a);
             }
             return false;
         }
 
         public int hashCode() {
-            return this.f35866a.hashCode();
+            return this.f35961a.hashCode();
         }
     }
 
@@ -136,14 +136,14 @@ public class j<R> implements a.c, DecodeJob.a<R> {
     public static final class e implements Iterable<d> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<d> f35868a;
+        public final List<d> f35963a;
 
         public e() {
             this(new ArrayList(2));
         }
 
         public e(List<d> list) {
-            this.f35868a = list;
+            this.f35963a = list;
         }
 
         public static d c(com.kwad.sdk.glide.request.g gVar) {
@@ -151,56 +151,56 @@ public class j<R> implements a.c, DecodeJob.a<R> {
         }
 
         public void a(com.kwad.sdk.glide.request.g gVar) {
-            this.f35868a.remove(c(gVar));
+            this.f35963a.remove(c(gVar));
         }
 
         public void a(com.kwad.sdk.glide.request.g gVar, Executor executor) {
-            this.f35868a.add(new d(gVar, executor));
+            this.f35963a.add(new d(gVar, executor));
         }
 
         public boolean a() {
-            return this.f35868a.isEmpty();
+            return this.f35963a.isEmpty();
         }
 
         public int b() {
-            return this.f35868a.size();
+            return this.f35963a.size();
         }
 
         public boolean b(com.kwad.sdk.glide.request.g gVar) {
-            return this.f35868a.contains(c(gVar));
+            return this.f35963a.contains(c(gVar));
         }
 
         public void c() {
-            this.f35868a.clear();
+            this.f35963a.clear();
         }
 
         public e d() {
-            return new e(new ArrayList(this.f35868a));
+            return new e(new ArrayList(this.f35963a));
         }
 
         @Override // java.lang.Iterable
         @NonNull
         public Iterator<d> iterator() {
-            return this.f35868a.iterator();
+            return this.f35963a.iterator();
         }
     }
 
     public j(com.kwad.sdk.glide.load.engine.b.a aVar, com.kwad.sdk.glide.load.engine.b.a aVar2, com.kwad.sdk.glide.load.engine.b.a aVar3, com.kwad.sdk.glide.load.engine.b.a aVar4, k kVar, Pools.Pool<j<?>> pool) {
-        this(aVar, aVar2, aVar3, aVar4, kVar, pool, f35854e);
+        this(aVar, aVar2, aVar3, aVar4, kVar, pool, f35949e);
     }
 
     @VisibleForTesting
     public j(com.kwad.sdk.glide.load.engine.b.a aVar, com.kwad.sdk.glide.load.engine.b.a aVar2, com.kwad.sdk.glide.load.engine.b.a aVar3, com.kwad.sdk.glide.load.engine.b.a aVar4, k kVar, Pools.Pool<j<?>> pool, c cVar) {
-        this.f35855a = new e();
-        this.f35859f = com.kwad.sdk.glide.g.a.c.a();
+        this.f35950a = new e();
+        this.f35954f = com.kwad.sdk.glide.g.a.c.a();
         this.n = new AtomicInteger();
         this.j = aVar;
         this.k = aVar2;
         this.l = aVar3;
         this.m = aVar4;
         this.i = kVar;
-        this.f35860g = pool;
-        this.f35861h = cVar;
+        this.f35955g = pool;
+        this.f35956h = cVar;
     }
 
     private com.kwad.sdk.glide.load.engine.b.a g() {
@@ -215,18 +215,18 @@ public class j<R> implements a.c, DecodeJob.a<R> {
         if (this.o == null) {
             throw new IllegalArgumentException();
         }
-        this.f35855a.c();
+        this.f35950a.c();
         this.o = null;
-        this.f35858d = null;
+        this.f35953d = null;
         this.t = null;
         this.v = false;
         this.x = false;
         this.u = false;
         this.w.a(false);
         this.w = null;
-        this.f35857c = null;
-        this.f35856b = null;
-        this.f35860g.release(this);
+        this.f35952c = null;
+        this.f35951b = null;
+        this.f35955g.release(this);
     }
 
     @VisibleForTesting
@@ -241,8 +241,8 @@ public class j<R> implements a.c, DecodeJob.a<R> {
 
     public synchronized void a(int i) {
         com.kwad.sdk.glide.g.j.a(h(), "Not yet complete!");
-        if (this.n.getAndAdd(i) == 0 && this.f35858d != null) {
-            this.f35858d.g();
+        if (this.n.getAndAdd(i) == 0 && this.f35953d != null) {
+            this.f35953d.g();
         }
     }
 
@@ -254,7 +254,7 @@ public class j<R> implements a.c, DecodeJob.a<R> {
     @Override // com.kwad.sdk.glide.load.engine.DecodeJob.a
     public void a(GlideException glideException) {
         synchronized (this) {
-            this.f35857c = glideException;
+            this.f35952c = glideException;
         }
         f();
     }
@@ -265,7 +265,7 @@ public class j<R> implements a.c, DecodeJob.a<R> {
     public void a(s<R> sVar, DataSource dataSource) {
         synchronized (this) {
             this.t = sVar;
-            this.f35856b = dataSource;
+            this.f35951b = dataSource;
         }
         c();
     }
@@ -273,7 +273,7 @@ public class j<R> implements a.c, DecodeJob.a<R> {
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public synchronized void a(com.kwad.sdk.glide.request.g gVar) {
         try {
-            gVar.a(this.f35858d, this.f35856b);
+            gVar.a(this.f35953d, this.f35951b);
         } catch (Throwable th) {
             throw new CallbackException(th);
         }
@@ -281,8 +281,8 @@ public class j<R> implements a.c, DecodeJob.a<R> {
 
     public synchronized void a(com.kwad.sdk.glide.request.g gVar, Executor executor) {
         Runnable aVar;
-        this.f35859f.b();
-        this.f35855a.a(gVar, executor);
+        this.f35954f.b();
+        this.f35950a.a(gVar, executor);
         boolean z = true;
         if (this.u) {
             a(1);
@@ -320,7 +320,7 @@ public class j<R> implements a.c, DecodeJob.a<R> {
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public synchronized void b(com.kwad.sdk.glide.request.g gVar) {
         try {
-            gVar.a(this.f35857c);
+            gVar.a(this.f35952c);
         } catch (Throwable th) {
             throw new CallbackException(th);
         }
@@ -328,25 +328,25 @@ public class j<R> implements a.c, DecodeJob.a<R> {
 
     public void c() {
         synchronized (this) {
-            this.f35859f.b();
+            this.f35954f.b();
             if (this.x) {
                 this.t.d_();
                 i();
-            } else if (this.f35855a.a()) {
+            } else if (this.f35950a.a()) {
                 throw new IllegalStateException("Received a resource without any callbacks to notify");
             } else {
                 if (this.u) {
                     throw new IllegalStateException("Already have resource");
                 }
-                this.f35858d = this.f35861h.a(this.t, this.p);
+                this.f35953d = this.f35956h.a(this.t, this.p);
                 this.u = true;
-                e d2 = this.f35855a.d();
+                e d2 = this.f35950a.d();
                 a(d2.b() + 1);
-                this.i.a(this, this.o, this.f35858d);
+                this.i.a(this, this.o, this.f35953d);
                 Iterator<d> it = d2.iterator();
                 while (it.hasNext()) {
                     d next = it.next();
-                    next.f35867b.execute(new b(next.f35866a));
+                    next.f35962b.execute(new b(next.f35961a));
                 }
                 e();
             }
@@ -355,9 +355,9 @@ public class j<R> implements a.c, DecodeJob.a<R> {
 
     public synchronized void c(com.kwad.sdk.glide.request.g gVar) {
         boolean z;
-        this.f35859f.b();
-        this.f35855a.a(gVar);
-        if (this.f35855a.a()) {
+        this.f35954f.b();
+        this.f35950a.a(gVar);
+        if (this.f35950a.a()) {
             b();
             if (!this.u && !this.v) {
                 z = false;
@@ -375,17 +375,17 @@ public class j<R> implements a.c, DecodeJob.a<R> {
     @Override // com.kwad.sdk.glide.g.a.a.c
     @NonNull
     public com.kwad.sdk.glide.g.a.c d() {
-        return this.f35859f;
+        return this.f35954f;
     }
 
     public synchronized void e() {
-        this.f35859f.b();
+        this.f35954f.b();
         com.kwad.sdk.glide.g.j.a(h(), "Not yet complete!");
         int decrementAndGet = this.n.decrementAndGet();
         com.kwad.sdk.glide.g.j.a(decrementAndGet >= 0, "Can't decrement below 0");
         if (decrementAndGet == 0) {
-            if (this.f35858d != null) {
-                this.f35858d.h();
+            if (this.f35953d != null) {
+                this.f35953d.h();
             }
             i();
         }
@@ -393,10 +393,10 @@ public class j<R> implements a.c, DecodeJob.a<R> {
 
     public void f() {
         synchronized (this) {
-            this.f35859f.b();
+            this.f35954f.b();
             if (this.x) {
                 i();
-            } else if (this.f35855a.a()) {
+            } else if (this.f35950a.a()) {
                 throw new IllegalStateException("Received an exception without any callbacks to notify");
             } else {
                 if (this.v) {
@@ -404,13 +404,13 @@ public class j<R> implements a.c, DecodeJob.a<R> {
                 }
                 this.v = true;
                 com.kwad.sdk.glide.load.c cVar = this.o;
-                e d2 = this.f35855a.d();
+                e d2 = this.f35950a.d();
                 a(d2.b() + 1);
                 this.i.a(this, cVar, null);
                 Iterator<d> it = d2.iterator();
                 while (it.hasNext()) {
                     d next = it.next();
-                    next.f35867b.execute(new a(next.f35866a));
+                    next.f35962b.execute(new a(next.f35961a));
                 }
                 e();
             }

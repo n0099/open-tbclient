@@ -7,31 +7,31 @@ import java.nio.ByteBuffer;
 public class AudioVolume {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f23205a = "AudioVolume";
+    public static final String f23213a = "AudioVolume";
 
     /* renamed from: b  reason: collision with root package name */
-    public int f23206b;
+    public int f23214b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f23207c = 8000;
+    public int f23215c = 8000;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f23208d;
+    public long f23216d;
 
     /* renamed from: e  reason: collision with root package name */
-    public double f23209e;
+    public double f23217e;
 
     public AudioVolume(int i) {
         a(i);
     }
 
     private void a(int i) {
-        this.f23206b = 0;
-        this.f23208d = 0;
+        this.f23214b = 0;
+        this.f23216d = 0;
         if (512 < i) {
-            this.f23207c = i;
+            this.f23215c = i;
         } else {
-            this.f23207c = 8000;
+            this.f23215c = 8000;
         }
     }
 
@@ -43,40 +43,40 @@ public class AudioVolume {
         if (z) {
             position >>= 1;
             limit >>= 1;
-            i = this.f23207c >> 1;
-            i2 = this.f23206b;
+            i = this.f23215c >> 1;
+            i2 = this.f23214b;
         } else {
-            i = this.f23207c;
-            i2 = this.f23206b;
+            i = this.f23215c;
+            i2 = this.f23214b;
         }
         int i3 = i - i2;
         int i4 = limit - position;
         if (i3 >= i4) {
             while (position < limit) {
-                this.f23208d = (long) (this.f23208d + Math.pow(z ? byteBuffer.getShort(position) : byteBuffer.get(position), 2.0d));
+                this.f23216d = (long) (this.f23216d + Math.pow(z ? byteBuffer.getShort(position) : byteBuffer.get(position), 2.0d));
                 position++;
             }
-            this.f23206b += i4;
+            this.f23214b += i4;
             return;
         }
         int i5 = i3 + position;
         while (position < i5) {
             short s = z ? byteBuffer.getShort(position) : byteBuffer.get(position);
-            LogUtil.d(f23205a, "value: " + ((int) s));
-            this.f23208d = (long) (((double) this.f23208d) + Math.pow((double) s, 2.0d));
+            LogUtil.d(f23213a, "value: " + ((int) s));
+            this.f23216d = (long) (((double) this.f23216d) + Math.pow((double) s, 2.0d));
             position++;
         }
-        this.f23209e = Math.log10((int) (this.f23208d / this.f23207c)) * 10.0d;
-        LogUtil.i(f23205a, "calAccumulatedVolume: " + this.f23209e + FieldBuilder.SE + i5 + FieldBuilder.SE + this.f23208d);
-        this.f23208d = 0L;
-        this.f23206b = 0;
+        this.f23217e = Math.log10((int) (this.f23216d / this.f23215c)) * 10.0d;
+        LogUtil.i(f23213a, "calAccumulatedVolume: " + this.f23217e + FieldBuilder.SE + i5 + FieldBuilder.SE + this.f23216d);
+        this.f23216d = 0L;
+        this.f23214b = 0;
         for (int i6 = i5; i6 < limit; i6++) {
-            this.f23208d = (long) (this.f23208d + Math.pow(z ? byteBuffer.getShort(i6) : byteBuffer.get(i6), 2.0d));
+            this.f23216d = (long) (this.f23216d + Math.pow(z ? byteBuffer.getShort(i6) : byteBuffer.get(i6), 2.0d));
         }
-        this.f23206b += limit - i5;
+        this.f23214b += limit - i5;
     }
 
     public double getVolume() {
-        return this.f23209e;
+        return this.f23217e;
     }
 }

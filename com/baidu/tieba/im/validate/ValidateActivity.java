@@ -28,13 +28,13 @@ import com.baidu.tieba.im.message.RequestDelSystemMessage;
 import com.baidu.tieba.im.message.ResponseDelSystemMessage;
 import com.baidu.tieba.im.model.ValidateModel;
 import d.b.c.e.p.j;
-import d.b.h0.r.s.b;
-import d.b.h0.z0.n;
+import d.b.i0.r.s.b;
+import d.b.i0.z0.n;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ValidateActivity extends BaseActivity<ValidateActivity> implements BdListView.p {
-    public d.b.h0.r.s.b deleteItemDialog;
+    public d.b.i0.r.s.b deleteItemDialog;
     public n<LinkedList<GroupNewsPojo>> getDataCallBack;
     public n<Integer> getDataCountCallBack;
     public boolean isLoading;
@@ -42,7 +42,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     public ValidateItemData pendingToDel;
     public int totalCount;
     public n<Boolean> updateDataCallBack;
-    public d.b.i0.e1.x.c valiateView;
+    public d.b.j0.e1.x.c valiateView;
     public boolean isWaitNetResponse = false;
     public int perCount = 20;
     public d.b.c.c.g.c mListener = new e(0);
@@ -54,7 +54,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.h0.z0.n
+        @Override // d.b.i0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             if (ValidateActivity.this.isWaitNetResponse) {
@@ -70,7 +70,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.h0.z0.n
+        @Override // d.b.i0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(LinkedList<GroupNewsPojo> linkedList) {
             ValidateActivity.this.valiateView.i(ValidateModel.convertToValidateItemDataList(linkedList));
@@ -90,7 +90,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.b.h0.z0.n
+        @Override // d.b.i0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(Integer num) {
             ValidateActivity.this.totalCount = num.intValue();
@@ -106,8 +106,8 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
         public d() {
         }
 
-        @Override // d.b.h0.r.s.b.c
-        public void a(d.b.h0.r.s.b bVar, int i, View view) {
+        @Override // d.b.i0.r.s.b.c
+        public void a(d.b.i0.r.s.b bVar, int i, View view) {
             bVar.e();
             if (i != 0) {
                 return;
@@ -171,7 +171,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                     ValidateModel.deleteValidateData(ValidateActivity.this.pendingToDel, ValidateActivity.this.updateDataCallBack);
                     ValidateActivity.this.offset--;
                     ValidateActivity.this.totalCount--;
-                    d.b.i0.e1.x.a f2 = ValidateActivity.this.valiateView.f();
+                    d.b.j0.e1.x.a f2 = ValidateActivity.this.valiateView.f();
                     f2.b().remove(ValidateActivity.this.pendingToDel);
                     ImMessageCenterPojo imMessageCenterPojo = null;
                     if (f2.b().size() > 0) {
@@ -236,7 +236,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     private void initDeleteDialog() {
         String string = getPageContext().getString(R.string.delete_user_chat);
         d dVar = new d();
-        d.b.h0.r.s.b bVar = new d.b.h0.r.s.b(getPageContext().getPageActivity());
+        d.b.i0.r.s.b bVar = new d.b.i0.r.s.b(getPageContext().getPageActivity());
         this.deleteItemDialog = bVar;
         bVar.k(R.string.operation);
         this.deleteItemDialog.j(new String[]{string}, dVar);
@@ -265,7 +265,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                 requestAddGroupUserMessage.setGroupId(d.b.c.e.m.b.f(validateItemData.getGroupId(), 0L));
                 requestAddGroupUserMessage.setNotice_id(validateItemData.getNotice_id());
                 String notice_id = validateItemData.getNotice_id();
-                String c2 = d.b.i0.e1.p.b.b().c();
+                String c2 = d.b.j0.e1.p.b.b().c();
                 if (!TextUtils.isEmpty(notice_id) && !TextUtils.isEmpty(c2) && TextUtils.isDigitsOnly(notice_id) && TextUtils.isDigitsOnly(c2)) {
                     requestAddGroupUserMessage.setSysGroupId(d.b.c.e.m.b.d(c2, 0));
                     requestAddGroupUserMessage.setSysMsgId(String.valueOf(d.b.c.e.m.b.f(notice_id, 0L) / 100));
@@ -285,7 +285,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
             showToast(R.string.neterror);
         } else if (validateItemData == null) {
         } else {
-            long f2 = d.b.c.e.m.b.f(d.b.i0.e1.p.b.b().c(), 0L);
+            long f2 = d.b.c.e.m.b.f(d.b.j0.e1.p.b.b().c(), 0L);
             if (f2 == 0) {
                 return;
             }
@@ -309,7 +309,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        d.b.i0.e1.x.c cVar = this.valiateView;
+        d.b.j0.e1.x.c cVar = this.valiateView;
         if (cVar != null) {
             cVar.onChangeSkinType(i);
         }
@@ -317,7 +317,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        d.b.i0.e1.x.c cVar;
+        d.b.j0.e1.x.c cVar;
         if (view == null || (cVar = this.valiateView) == null || !view.equals(cVar.e())) {
             return;
         }
@@ -327,14 +327,14 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.valiateView = new d.b.i0.e1.x.c(this);
+        this.valiateView = new d.b.j0.e1.x.c(this);
         initDataCallBack();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d.b.i0.e1.x.c cVar = this.valiateView;
+        d.b.j0.e1.x.c cVar = this.valiateView;
         if (cVar != null) {
             cVar.destroy();
         }
@@ -377,7 +377,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        d.b.h0.s.d.b.g0().f(1);
+        d.b.i0.s.d.b.g0().f(1);
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(TbEnum.CustomGroupId.GROUP_VALIDATION, -4)));
     }
 
@@ -398,10 +398,10 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
-        d.b.i0.e1.x.a f2;
+        d.b.j0.e1.x.a f2;
         super.onStop();
         ChatStatusManager.getInst().setIsOpen(7, false);
-        d.b.i0.e1.x.c cVar = this.valiateView;
+        d.b.j0.e1.x.c cVar = this.valiateView;
         if (cVar == null || (f2 = cVar.f()) == null) {
             return;
         }

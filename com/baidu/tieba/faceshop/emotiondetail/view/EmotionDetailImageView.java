@@ -19,65 +19,65 @@ import d.b.c.e.p.l;
 public class EmotionDetailImageView extends FrameLayout {
 
     /* renamed from: h  reason: collision with root package name */
-    public static final float f15475h = l.h(TbadkCoreApplication.getInst());
+    public static final float f15483h = l.h(TbadkCoreApplication.getInst());
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f15476e;
+    public ImageView f15484e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ProgressBar f15477f;
+    public ProgressBar f15485f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f15478g;
+    public int f15486g;
 
     /* loaded from: classes4.dex */
     public class a extends c<d.b.c.j.d.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EmotionDetailData f15479a;
+        public final /* synthetic */ EmotionDetailData f15487a;
 
         public a(EmotionDetailData emotionDetailData) {
-            this.f15479a = emotionDetailData;
+            this.f15487a = emotionDetailData;
         }
 
         @Override // d.b.c.e.l.c
         public void onCancelled(String str) {
-            EmotionDetailImageView.this.f15477f.setVisibility(8);
+            EmotionDetailImageView.this.f15485f.setVisibility(8);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.c.e.l.c
         public void onLoaded(d.b.c.j.d.a aVar, String str, int i) {
-            EmotionDetailImageView.this.f15477f.setVisibility(8);
+            EmotionDetailImageView.this.f15485f.setVisibility(8);
             if (aVar != null) {
-                EmotionDetailImageView.this.f15476e = new TbMemeImageView(EmotionDetailImageView.this.getContext());
-                ((TbMemeImageView) EmotionDetailImageView.this.f15476e).g(aVar);
+                EmotionDetailImageView.this.f15484e = new TbMemeImageView(EmotionDetailImageView.this.getContext());
+                ((TbMemeImageView) EmotionDetailImageView.this.f15484e).g(aVar);
                 EmotionDetailImageView emotionDetailImageView = EmotionDetailImageView.this;
-                ImageView imageView = emotionDetailImageView.f15476e;
-                EmotionDetailData.PicInfo picInfo = this.f15479a.pic_info;
+                ImageView imageView = emotionDetailImageView.f15484e;
+                EmotionDetailData.PicInfo picInfo = this.f15487a.pic_info;
                 emotionDetailImageView.g(imageView, picInfo.width, picInfo.height, 200, 200);
                 EmotionDetailImageView emotionDetailImageView2 = EmotionDetailImageView.this;
-                emotionDetailImageView2.addView(emotionDetailImageView2.f15476e);
+                emotionDetailImageView2.addView(emotionDetailImageView2.f15484e);
             }
         }
     }
 
     public EmotionDetailImageView(Context context) {
         super(context);
-        this.f15477f = null;
+        this.f15485f = null;
         e();
     }
 
     public final void e() {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         ProgressBar progressBar = new ProgressBar(getContext(), null, 16843399);
-        this.f15477f = progressBar;
+        this.f15485f = progressBar;
         progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.progressbar));
         layoutParams.gravity = 17;
-        this.f15477f.setLayoutParams(layoutParams);
-        this.f15477f.setIndeterminate(true);
-        addView(this.f15477f);
-        this.f15478g = l.k(getContext());
+        this.f15485f.setLayoutParams(layoutParams);
+        this.f15485f.setIndeterminate(true);
+        addView(this.f15485f);
+        this.f15486g = l.k(getContext());
     }
 
     public void f(EmotionDetailData emotionDetailData, int i, boolean z) {
@@ -87,7 +87,7 @@ public class EmotionDetailImageView extends FrameLayout {
         }
         if (z) {
             GifView gifView = new GifView(getContext());
-            this.f15476e = gifView;
+            this.f15484e = gifView;
             gifView.setSupportNoImage(false);
             GifInfo gifInfo = new GifInfo();
             EmotionDetailData.PicInfo picInfo2 = emotionDetailData.pic_info;
@@ -98,21 +98,21 @@ public class EmotionDetailImageView extends FrameLayout {
             gifInfo.mStaticUrl = str2;
             gifInfo.mGifWidth = picInfo2.width;
             gifInfo.mGifHeight = picInfo2.height;
-            this.f15476e.setTag(str);
-            ((GifView) this.f15476e).w0(gifInfo);
-            ImageView imageView = this.f15476e;
+            this.f15484e.setTag(str);
+            ((GifView) this.f15484e).w0(gifInfo);
+            ImageView imageView = this.f15484e;
             EmotionDetailData.PicInfo picInfo3 = emotionDetailData.pic_info;
             g(imageView, picInfo3.width, picInfo3.height, 200, 200);
-            addView(this.f15476e);
-            this.f15477f.setVisibility(8);
+            addView(this.f15484e);
+            this.f15485f.setVisibility(8);
             return;
         }
-        this.f15477f.setVisibility(0);
+        this.f15485f.setVisibility(0);
         d.h().m(emotionDetailData.pic_info.pic_url, i, new a(emotionDetailData), null);
     }
 
     public final boolean g(ImageView imageView, int i, int i2, int i3, int i4) {
-        int i5 = this.f15478g;
+        int i5 = this.f15486g;
         if (i5 > 0) {
             i4 = (int) (i5 * 0.5f);
             i3 = i5;
@@ -125,7 +125,7 @@ public class EmotionDetailImageView extends FrameLayout {
         int i6 = iArr[0];
         int i7 = iArr[1];
         if (i3 > i6) {
-            float f2 = f15475h;
+            float f2 = f15483h;
             if (f2 > 1.0f) {
                 float f3 = i6;
                 float f4 = i3;
@@ -149,13 +149,13 @@ public class EmotionDetailImageView extends FrameLayout {
 
     public EmotionDetailImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f15477f = null;
+        this.f15485f = null;
         e();
     }
 
     public EmotionDetailImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f15477f = null;
+        this.f15485f = null;
         e();
     }
 }

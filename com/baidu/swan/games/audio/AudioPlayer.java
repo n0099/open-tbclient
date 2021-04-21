@@ -10,27 +10,27 @@ import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.wallet.lightapp.base.LightappConstants;
 import com.baidu.wallet.router.RouterCallback;
-import d.b.g0.a.e0.l.f;
-import d.b.g0.a.e0.l.j;
-import d.b.g0.a.k;
+import d.b.h0.a.e0.l.f;
+import d.b.h0.a.e0.l.j;
+import d.b.h0.a.k;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
-    public static final boolean o = k.f45443a;
+public class AudioPlayer implements d.b.h0.a.b1.a, d.b.h0.j.a.c {
+    public static final boolean o = k.f45772a;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.g0.a.b1.c.e.a f12463a;
+    public d.b.h0.a.b1.c.e.a f12471a;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f12466d;
+    public String f12474d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.b.g0.g.c.j.c f12467e;
+    public d.b.h0.g.c.j.c f12475e;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12470h;
+    public int f12478h;
     public String i;
     public String j;
     public d k;
@@ -38,16 +38,16 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
     public long n;
 
     /* renamed from: b  reason: collision with root package name */
-    public PlayerStatus f12464b = PlayerStatus.NONE;
+    public PlayerStatus f12472b = PlayerStatus.NONE;
 
     /* renamed from: c  reason: collision with root package name */
-    public UserStatus f12465c = UserStatus.OPEN;
+    public UserStatus f12473c = UserStatus.OPEN;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.g0.g.c.d f12468f = new d.b.g0.g.c.d();
+    public d.b.h0.g.c.d f12476f = new d.b.h0.g.c.d();
 
     /* renamed from: g  reason: collision with root package name */
-    public e f12469g = new e();
+    public e f12477g = new e();
     public float l = -1.0f;
 
     /* loaded from: classes3.dex */
@@ -90,22 +90,22 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
 
         @Override // java.lang.Runnable
         public void run() {
-            d.b.g0.g.c.j.b.h().e().post(new a());
+            d.b.h0.g.c.j.b.h().e().post(new a());
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c implements d.b.g0.g.c.i.a {
+    public class c implements d.b.h0.g.c.i.a {
         public c() {
         }
 
-        @Override // d.b.g0.g.c.i.a
+        @Override // d.b.h0.g.c.i.a
         public void a(String str, String str2) {
             AudioPlayer.this.j = str2;
             AudioPlayer.this.w();
         }
 
-        @Override // d.b.g0.g.c.i.a
+        @Override // d.b.h0.g.c.i.a
         public void fail(int i, String str) {
             AudioPlayer.this.L(!SwanAppNetworkUtils.h(null) ? LightappConstants.ERRCODE_INNER_ERROR : LightappConstants.ERRCODE_NO_PERMISSION);
         }
@@ -123,10 +123,10 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
                     Log.d("SwanAppAudioPlayer", "onBufferUpdate : " + i + "%");
                 }
                 if (AudioPlayer.this.H()) {
-                    AudioPlayer.this.f12470h = (((int) AudioPlayer.this.A()) * i) / 100;
-                    if (AudioPlayer.this.f12463a != null) {
+                    AudioPlayer.this.f12478h = (((int) AudioPlayer.this.A()) * i) / 100;
+                    if (AudioPlayer.this.f12471a != null) {
                         AudioPlayer.this.J("onBufferingUpdate");
-                        if (AudioPlayer.this.f12464b != PlayerStatus.PREPARED || AudioPlayer.this.f12465c == UserStatus.STOP || (i * AudioPlayer.this.A()) / 100 > AudioPlayer.this.z()) {
+                        if (AudioPlayer.this.f12472b != PlayerStatus.PREPARED || AudioPlayer.this.f12473c == UserStatus.STOP || (i * AudioPlayer.this.A()) / 100 > AudioPlayer.this.z()) {
                             return;
                         }
                         AudioPlayer.this.J("onWaiting");
@@ -145,8 +145,8 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
                 Log.d("SwanAppAudioPlayer", "comCompletion");
             }
             try {
-                if (!AudioPlayer.this.f12468f.f48332f) {
-                    AudioPlayer.this.f12465c = UserStatus.STOP;
+                if (!AudioPlayer.this.f12476f.f48661f) {
+                    AudioPlayer.this.f12473c = UserStatus.STOP;
                     AudioPlayer.this.F();
                 }
                 AudioPlayer.this.J("onEnded");
@@ -161,7 +161,7 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
         public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
             if (AudioPlayer.o) {
                 Log.d("SwanAppAudioPlayer", "onError : what is " + i + " extra is " + i2);
-                Log.e("SwanAppAudioPlayer", "Audio Error = " + i + "playerId = " + AudioPlayer.this.f12468f.f48327a + " url = " + AudioPlayer.this.f12468f.f48329c);
+                Log.e("SwanAppAudioPlayer", "Audio Error = " + i + "playerId = " + AudioPlayer.this.f12476f.f48656a + " url = " + AudioPlayer.this.f12476f.f48658c);
             }
             String str = "-1";
             if (i != 1 && i == 100) {
@@ -190,7 +190,7 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
                 Log.d("SwanAppAudioPlayer", "onPrepared");
             }
             AudioPlayer audioPlayer = AudioPlayer.this;
-            audioPlayer.f12464b = PlayerStatus.PREPARED;
+            audioPlayer.f12472b = PlayerStatus.PREPARED;
             if (!audioPlayer.m) {
                 AudioPlayer.this.J("onCanplay");
             }
@@ -200,12 +200,12 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
             AudioPlayer.this.m = true;
             UserStatus userStatus = UserStatus.PLAY;
             AudioPlayer audioPlayer2 = AudioPlayer.this;
-            if (userStatus == audioPlayer2.f12465c) {
+            if (userStatus == audioPlayer2.f12473c) {
                 audioPlayer2.Q();
             }
             try {
-                if (AudioPlayer.this.f12468f.f48330d > 0.0f) {
-                    AudioPlayer.this.B().seek(AudioPlayer.this.f12468f.f48330d);
+                if (AudioPlayer.this.f12476f.f48659d > 0.0f) {
+                    AudioPlayer.this.B().seek(AudioPlayer.this.f12476f.f48659d);
                 } else if (AudioPlayer.this.l >= 0.0f) {
                     AudioPlayer.this.B().seek(AudioPlayer.this.l);
                     AudioPlayer.this.l = -1.0f;
@@ -233,12 +233,12 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
     /* loaded from: classes3.dex */
     public class e extends Handler {
         public e() {
-            super(d.b.g0.g.c.j.b.h().e().getLooper());
+            super(d.b.h0.g.c.j.b.h().e().getLooper());
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (message.what == 0 && AudioPlayer.this.f12464b == PlayerStatus.PREPARED) {
+            if (message.what == 0 && AudioPlayer.this.f12472b == PlayerStatus.PREPARED) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.putOpt("currentTime", Double.valueOf(AudioPlayer.this.z() / 1000.0d));
@@ -255,14 +255,14 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
     }
 
     public AudioPlayer(String str) {
-        this.f12466d = "";
-        this.f12466d = str;
+        this.f12474d = "";
+        this.f12474d = str;
     }
 
     public long A() {
         try {
-            if (0 == this.n && this.f12467e != null) {
-                return this.f12467e.getDuration();
+            if (0 == this.n && this.f12475e != null) {
+                return this.f12475e.getDuration();
             }
         } catch (Exception e2) {
             if (o) {
@@ -272,30 +272,30 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
         return this.n;
     }
 
-    public d.b.g0.g.c.j.c B() {
-        d.b.g0.g.c.j.c cVar = this.f12467e;
+    public d.b.h0.g.c.j.c B() {
+        d.b.h0.g.c.j.c cVar = this.f12475e;
         if (cVar == null || cVar.n()) {
-            this.f12467e = d.b.g0.g.c.j.b.h().d(this.j, this.f12468f.f48332f);
+            this.f12475e = d.b.h0.g.c.j.b.h().d(this.j, this.f12476f.f48661f);
             S();
         }
-        return this.f12467e;
+        return this.f12475e;
     }
 
-    public final d.b.g0.g.i.a C() {
+    public final d.b.h0.g.i.a C() {
         SwanAppActivity n;
-        d.b.g0.a.r1.e y = d.b.g0.a.r1.e.y();
+        d.b.h0.a.r1.e y = d.b.h0.a.r1.e.y();
         if (y == null || !y.i0() || (n = y.n()) == null) {
             return null;
         }
-        d.b.g0.a.o0.c frame = n.getFrame();
-        if (frame instanceof d.b.g0.g.m.b) {
-            return ((d.b.g0.g.m.b) frame).U0();
+        d.b.h0.a.o0.c frame = n.getFrame();
+        if (frame instanceof d.b.h0.g.m.b) {
+            return ((d.b.h0.g.m.b) frame).U0();
         }
         return null;
     }
 
     public float D() {
-        d.b.g0.g.c.d dVar = this.f12468f;
+        d.b.h0.g.c.d dVar = this.f12476f;
         if (dVar != null) {
             return dVar.i;
         }
@@ -304,25 +304,25 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
 
     public final void E() {
         J(MissionEvent.MESSAGE_PAUSE);
-        this.f12469g.removeMessages(0);
+        this.f12477g.removeMessages(0);
     }
 
     public final void F() {
-        this.f12464b = PlayerStatus.IDLE;
-        d.b.g0.g.c.j.c cVar = this.f12467e;
+        this.f12472b = PlayerStatus.IDLE;
+        d.b.h0.g.c.j.c cVar = this.f12475e;
         if (cVar != null) {
             cVar.destroy();
-            this.f12467e = null;
+            this.f12475e = null;
         }
-        this.f12469g.removeMessages(0);
+        this.f12477g.removeMessages(0);
     }
 
     public final boolean G() {
-        d.b.g0.a.e0.l.c m;
-        if (d.b.g0.a.r1.e.y() == null || !d.b.g0.a.r1.e.y().i0()) {
+        d.b.h0.a.e0.l.c m;
+        if (d.b.h0.a.r1.e.y() == null || !d.b.h0.a.r1.e.y().i0()) {
             return false;
         }
-        f W = d.b.g0.a.z0.f.V().W();
+        f W = d.b.h0.a.z0.f.V().W();
         if (W == null || (m = W.m()) == null || !(m instanceof j)) {
             return true;
         }
@@ -330,12 +330,12 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
     }
 
     public final boolean H() {
-        return this.f12467e != null && this.f12464b == PlayerStatus.PREPARED;
+        return this.f12475e != null && this.f12472b == PlayerStatus.PREPARED;
     }
 
     public boolean I() {
         UserStatus userStatus = UserStatus.STOP;
-        UserStatus userStatus2 = this.f12465c;
+        UserStatus userStatus2 = this.f12473c;
         return (userStatus == userStatus2 || UserStatus.DESTROY == userStatus2) ? false : true;
     }
 
@@ -344,14 +344,14 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
     }
 
     public final void K(String str, JSONObject jSONObject) {
-        d.b.g0.a.b1.c.e.a aVar = this.f12463a;
+        d.b.h0.a.b1.c.e.a aVar = this.f12471a;
         if (aVar != null) {
             aVar.b(str, jSONObject);
         }
     }
 
     public final void L(String str) {
-        if (this.f12463a != null) {
+        if (this.f12471a != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt(RouterCallback.KEY_ERROR_CODE, str);
@@ -360,14 +360,14 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
                     Log.d("SwanAppAudioPlayer", Log.getStackTraceString(e2));
                 }
             }
-            this.f12463a.b("onError", jSONObject);
+            this.f12471a.b("onError", jSONObject);
         }
     }
 
     public final void M() {
         try {
             if (this.i.contains("http")) {
-                d.b.g0.g.c.j.b h2 = d.b.g0.g.c.j.b.h();
+                d.b.h0.g.c.j.b h2 = d.b.h0.g.c.j.b.h();
                 File file = new File(h2.g(this.i));
                 if (file.exists() && !file.isDirectory()) {
                     this.j = file.getAbsolutePath();
@@ -386,53 +386,53 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
         }
     }
 
-    public void N(d.b.g0.g.c.d dVar) {
+    public void N(d.b.h0.g.c.d dVar) {
         if (o) {
             Log.d("SwanAppAudioPlayer", "AudioPlayer open");
         }
-        if (this.f12467e != null) {
+        if (this.f12475e != null) {
             F();
         }
-        this.f12465c = UserStatus.OPEN;
-        this.f12468f = dVar;
-        this.f12470h = 0;
-        this.i = d.b.g0.a.z0.f.V().y().m(this.f12468f.f48329c);
-        this.f12464b = PlayerStatus.IDLE;
+        this.f12473c = UserStatus.OPEN;
+        this.f12476f = dVar;
+        this.f12478h = 0;
+        this.i = d.b.h0.a.z0.f.V().y().m(this.f12476f.f48658c);
+        this.f12472b = PlayerStatus.IDLE;
         J("onWaiting");
         M();
     }
 
     public void O() {
-        this.f12465c = UserStatus.PAUSE;
+        this.f12473c = UserStatus.PAUSE;
         P();
     }
 
     public final void P() {
         if (H()) {
-            this.f12467e.pause();
+            this.f12475e.pause();
         }
     }
 
     public void Q() {
-        this.f12465c = UserStatus.PLAY;
+        this.f12473c = UserStatus.PLAY;
         if (this.m) {
             try {
                 if (!G() && x()) {
                     if (o) {
                         Log.d("SwanAppAudioPlayer", "play music first: " + this.j);
                     }
-                    if (this.f12464b == PlayerStatus.PREPARED) {
-                        this.f12469g.sendEmptyMessage(0);
+                    if (this.f12472b == PlayerStatus.PREPARED) {
+                        this.f12477g.sendEmptyMessage(0);
                         a0();
                         if (o) {
                             Log.d("SwanAppAudioPlayer", "play music: " + this.j);
                         }
                         B().play();
                         J("onPlay");
-                    } else if (this.f12464b == PlayerStatus.IDLE) {
+                    } else if (this.f12472b == PlayerStatus.IDLE) {
                         try {
                             B().e(this.j);
-                            this.f12464b = PlayerStatus.PREPARING;
+                            this.f12472b = PlayerStatus.PREPARING;
                         } catch (Exception e2) {
                             if (o) {
                                 Log.d("SwanAppAudioPlayer", "set data source fail");
@@ -454,7 +454,7 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
         try {
             File file = new File(this.j);
             if (file.exists() && !file.isDirectory()) {
-                long f2 = d.b.g0.g.c.j.b.h().f(this.j);
+                long f2 = d.b.h0.g.c.j.b.h().f(this.j);
                 this.n = f2;
                 if (0 != f2) {
                     B().e(this.j);
@@ -478,20 +478,20 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
         if (this.k == null) {
             this.k = new d(this, null);
         }
-        this.f12467e.x(this.k);
-        this.f12467e.j(this.k);
-        this.f12467e.p(this.k);
-        this.f12467e.y(this.k);
-        this.f12467e.r(this.k);
-        this.f12467e.b(this.k);
-        this.f12467e.m(this);
+        this.f12475e.x(this.k);
+        this.f12475e.j(this.k);
+        this.f12475e.p(this.k);
+        this.f12475e.y(this.k);
+        this.f12475e.r(this.k);
+        this.f12475e.b(this.k);
+        this.f12475e.m(this);
     }
 
     public void T() {
         F();
         this.m = false;
-        this.f12465c = UserStatus.DESTROY;
-        this.f12464b = PlayerStatus.NONE;
+        this.f12473c = UserStatus.DESTROY;
+        this.f12472b = PlayerStatus.NONE;
     }
 
     public void U(float f2) {
@@ -500,12 +500,12 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
             int i = (int) (f2 * 1000.0f);
             if (H()) {
                 if (i >= 0 && i <= A()) {
-                    this.f12467e.seek(i);
+                    this.f12475e.seek(i);
                 }
                 this.l = -1.0f;
                 return;
             }
-            if (this.m && this.f12464b == PlayerStatus.IDLE) {
+            if (this.m && this.f12472b == PlayerStatus.IDLE) {
                 R();
             }
             this.l = i;
@@ -516,14 +516,14 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
         }
     }
 
-    public void V(d.b.g0.a.b1.c.e.a aVar) {
-        this.f12463a = aVar;
+    public void V(d.b.h0.a.b1.c.e.a aVar) {
+        this.f12471a = aVar;
     }
 
     public final void W(boolean z) {
         try {
             if (H()) {
-                this.f12467e.a(z);
+                this.f12475e.a(z);
             }
         } catch (Exception e2) {
             if (o) {
@@ -540,7 +540,7 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
                 f2 = 0.0f;
             }
             try {
-                this.f12467e.t(f2);
+                this.f12475e.t(f2);
             } catch (Exception e2) {
                 if (o) {
                     e2.printStackTrace();
@@ -550,80 +550,80 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
     }
 
     public void Y() {
-        this.f12465c = UserStatus.STOP;
+        this.f12473c = UserStatus.STOP;
         if (H()) {
-            this.f12467e.stop();
+            this.f12475e.stop();
         }
         F();
         J(MissionEvent.MESSAGE_STOP);
     }
 
-    public void Z(d.b.g0.g.c.d dVar) {
-        this.f12468f = dVar;
-        d.b.g0.a.b1.c.e.a aVar = this.f12463a;
+    public void Z(d.b.h0.g.c.d dVar) {
+        this.f12476f = dVar;
+        d.b.h0.a.b1.c.e.a aVar = this.f12471a;
         if (aVar != null) {
             aVar.d(dVar.j);
         }
         a0();
     }
 
-    @Override // d.b.g0.a.b1.a
+    @Override // d.b.h0.a.b1.a
     public Object a() {
         return this;
     }
 
     public final void a0() {
         if (o) {
-            Log.d("SwanAppAudioPlayer", "update AudioPlayer params : " + this.f12468f.toString());
+            Log.d("SwanAppAudioPlayer", "update AudioPlayer params : " + this.f12476f.toString());
         }
-        W(this.f12468f.f48332f);
-        X(this.f12468f.i);
+        W(this.f12476f.f48661f);
+        X(this.f12476f.i);
     }
 
-    @Override // d.b.g0.a.b1.a
+    @Override // d.b.h0.a.b1.a
     public String b() {
-        return this.f12468f.f48328b;
+        return this.f12476f.f48657b;
     }
 
-    @Override // d.b.g0.a.b1.a
+    @Override // d.b.h0.a.b1.a
     public String c() {
-        return this.f12466d;
+        return this.f12474d;
     }
 
-    @Override // d.b.g0.a.b1.a
+    @Override // d.b.h0.a.b1.a
     public void d(boolean z) {
     }
 
-    @Override // d.b.g0.a.b1.a
+    @Override // d.b.h0.a.b1.a
     public String e() {
         return null;
     }
 
-    @Override // d.b.g0.a.b1.a
+    @Override // d.b.h0.a.b1.a
     public void f(boolean z) {
-        d.b.g0.g.i.a C;
-        d.b.g0.a.r1.e y = d.b.g0.a.r1.e.y();
+        d.b.h0.g.i.a C;
+        d.b.h0.a.r1.e y = d.b.h0.a.r1.e.y();
         if (y == null || !y.i0() || z || (C = C()) == null || C.o0()) {
             return;
         }
         C.runOnJSThread(new b());
     }
 
-    @Override // d.b.g0.a.b1.a
+    @Override // d.b.h0.a.b1.a
     public boolean onBackPressed() {
         return false;
     }
 
-    @Override // d.b.g0.a.b1.a
+    @Override // d.b.h0.a.b1.a
     public void onDestroy() {
-        d.b.g0.a.r1.e y = d.b.g0.a.r1.e.y();
+        d.b.h0.a.r1.e y = d.b.h0.a.r1.e.y();
         if (y == null || !y.i0()) {
             return;
         }
         T();
     }
 
-    @Override // d.b.g0.j.a.c
+    @Override // d.b.h0.j.a.c
     public void onPause() {
         E();
     }
@@ -642,12 +642,12 @@ public class AudioPlayer implements d.b.g0.a.b1.a, d.b.g0.j.a.c {
     }
 
     public int y() {
-        return this.f12470h;
+        return this.f12478h;
     }
 
     public int z() {
         if (H()) {
-            return this.f12467e.u();
+            return this.f12475e.u();
         }
         return 0;
     }

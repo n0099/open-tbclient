@@ -5,21 +5,21 @@ import android.widget.TextView;
 public final class dt {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f22873a;
+    public TextView f22881a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f22874b;
+    public TextView f22882b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f22875c;
+    public TextView f22883c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f22876d;
+    public TextView f22884d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f22877e;
+    public final /* synthetic */ FeedbackListActivity f22885e;
 
     public dt(FeedbackListActivity feedbackListActivity) {
-        this.f22877e = feedbackListActivity;
+        this.f22885e = feedbackListActivity;
     }
 }

@@ -5,28 +5,28 @@ import com.kwad.sdk.api.KsNativeAd;
 public class e extends com.kwad.sdk.a.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public KsNativeAd.VideoPlayListener f31988b;
+    public KsNativeAd.VideoPlayListener f32083b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.e f31989c = new com.kwad.sdk.contentalliance.detail.video.f() { // from class: com.kwad.sdk.a.b.e.1
+    public com.kwad.sdk.contentalliance.detail.video.e f32084c = new com.kwad.sdk.contentalliance.detail.video.f() { // from class: com.kwad.sdk.a.b.e.1
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a() {
-            if (e.this.f31988b != null) {
-                e.this.f31988b.onVideoPlayComplete();
+            if (e.this.f32083b != null) {
+                e.this.f32083b.onVideoPlayComplete();
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a(int i, int i2) {
-            if (e.this.f31988b != null) {
-                e.this.f31988b.onVideoPlayError(i, i2);
+            if (e.this.f32083b != null) {
+                e.this.f32083b.onVideoPlayError(i, i2);
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
-            if (e.this.f31988b != null) {
-                e.this.f31988b.onVideoPlayStart();
+            if (e.this.f32083b != null) {
+                e.this.f32083b.onVideoPlayStart();
             }
         }
     };
@@ -34,14 +34,14 @@ public class e extends com.kwad.sdk.a.a.a {
     @Override // com.kwad.sdk.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.a.a.b bVar = ((com.kwad.sdk.a.a.a) this).f31954a;
-        this.f31988b = bVar.f31956b;
-        bVar.f31960f.a(this.f31989c);
+        com.kwad.sdk.a.a.b bVar = ((com.kwad.sdk.a.a.a) this).f32049a;
+        this.f32083b = bVar.f32051b;
+        bVar.f32055f.a(this.f32084c);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        ((com.kwad.sdk.a.a.a) this).f31954a.f31960f.b(this.f31989c);
+        ((com.kwad.sdk.a.a.a) this).f32049a.f32055f.b(this.f32084c);
     }
 }

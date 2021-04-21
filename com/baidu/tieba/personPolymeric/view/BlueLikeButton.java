@@ -17,32 +17,32 @@ import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tieba.R;
 import d.b.c.e.p.k;
 import d.b.c.e.p.l;
-import d.b.h0.k0.a;
-import d.b.h0.r.f0.q.b;
+import d.b.i0.k0.a;
+import d.b.i0.r.f0.q.b;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BlueLikeButton extends TextView implements b {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f20151e;
+    public boolean f20159e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f20152f;
+    public boolean f20160f;
 
     public BlueLikeButton(Context context) {
         super(context);
-        this.f20151e = false;
-        this.f20152f = false;
+        this.f20159e = false;
+        this.f20160f = false;
     }
 
-    @Override // d.b.h0.r.f0.q.b
+    @Override // d.b.i0.r.f0.q.b
     public void a(boolean z, int i) {
         f(z);
     }
 
-    @Override // d.b.h0.r.f0.q.b
+    @Override // d.b.i0.r.f0.q.b
     public void b(View view) {
-        if (this.f20152f) {
+        if (this.f20160f) {
             return;
         }
         TiebaStatic.log(new StatisticItem("c12503").param("obj_locate", "4"));
@@ -53,7 +53,7 @@ public class BlueLikeButton extends TextView implements b {
             statisticItem.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
             TiebaStatic.log(statisticItem);
         }
-        if (this.f20151e) {
+        if (this.f20159e) {
             return;
         }
         Context context = getContext();
@@ -67,24 +67,24 @@ public class BlueLikeButton extends TextView implements b {
         }
     }
 
-    @Override // d.b.h0.r.f0.q.b
+    @Override // d.b.i0.r.f0.q.b
     public void c(View.OnClickListener onClickListener) {
         setOnClickListener(onClickListener);
     }
 
-    @Override // d.b.h0.r.f0.q.b
+    @Override // d.b.i0.r.f0.q.b
     public void d(boolean z, int i, boolean z2) {
         a(z, i);
     }
 
-    @Override // d.b.h0.r.f0.q.b
+    @Override // d.b.i0.r.f0.q.b
     public void e(int i) {
     }
 
     public void f(boolean z) {
-        this.f20151e = z;
+        this.f20159e = z;
         if (z) {
-            if (this.f20152f) {
+            if (this.f20160f) {
                 setText(R.string.followed);
                 TBSelector.makeDrawableSelector().setShape(0).setType(1).radius(l.g(getContext(), R.dimen.tbds42)).defaultColor(R.color.CAM_X0204).into(this);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0105, 1);
@@ -95,7 +95,7 @@ public class BlueLikeButton extends TextView implements b {
             setPadding(0, 0, 0, 0);
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             SkinManager.setViewTextColor(this, R.color.CAM_X0110, 1);
-        } else if (this.f20152f) {
+        } else if (this.f20160f) {
             setText(R.string.attention);
             TBSelector.selectorBackgroundDrawable(DrawableSelector.make().setShape(0).setType(1).radius(l.g(getContext(), R.dimen.tbds42)).gradientLinear(DrawableSelector.TL_BR, R.color.CAM_X0303, R.color.CAM_X0302).build(), DrawableSelector.make().setShape(0).setType(1).radius(l.g(getContext(), R.dimen.tbds42)).gradientLinear(DrawableSelector.TL_BR, R.color.cp_link_tip_b_alpha50, R.color.cp_link_tip_a_alpha50).build()).into(this);
             SkinManager.setViewTextColor(this, R.color.CAM_X0101, 1);
@@ -109,18 +109,18 @@ public class BlueLikeButton extends TextView implements b {
     }
 
     public void setBJH(boolean z) {
-        this.f20152f = z;
+        this.f20160f = z;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f20151e = false;
-        this.f20152f = false;
+        this.f20159e = false;
+        this.f20160f = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f20151e = false;
-        this.f20152f = false;
+        this.f20159e = false;
+        this.f20160f = false;
     }
 }

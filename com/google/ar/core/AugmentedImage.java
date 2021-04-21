@@ -5,7 +5,7 @@ public class AugmentedImage extends TrackableBase {
         super(j, session);
     }
 
-    private native d.g.b.a.a nativeGetCenterPose(long j, long j2);
+    private native d.h.b.a.a nativeGetCenterPose(long j, long j2);
 
     private native float nativeGetExtentX(long j, long j2);
 

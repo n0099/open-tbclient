@@ -7,7 +7,7 @@ public class e implements Comparator<d> {
     @Override // java.util.Comparator
     /* renamed from: a */
     public int compare(d dVar, d dVar2) {
-        int i = (dVar.f42425c > dVar2.f42425c ? 1 : (dVar.f42425c == dVar2.f42425c ? 0 : -1));
+        int i = (dVar.f42665c > dVar2.f42665c ? 1 : (dVar.f42665c == dVar2.f42665c ? 0 : -1));
         if (i > 0) {
             return 1;
         }

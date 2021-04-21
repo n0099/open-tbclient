@@ -13,26 +13,26 @@ import java.util.List;
 public class SlidePlayTouchViewPager extends com.kwad.sdk.contentalliance.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f33104a;
+    public boolean f33199a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f33105b;
+    public boolean f33200b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f33106c;
+    public boolean f33201c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public e f33107d;
+    public e f33202d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f33108e;
+    public boolean f33203e;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f33109g;
+    public int f33204g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f33110h;
+    public float f33205h;
     public float i;
     public boolean j;
     public boolean k;
@@ -61,7 +61,7 @@ public class SlidePlayTouchViewPager extends com.kwad.sdk.contentalliance.b.b {
     public SlidePlayTouchViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.l = new BitSet();
-        this.f33108e = true;
+        this.f33203e = true;
         this.m = new ArrayList();
     }
 
@@ -69,7 +69,7 @@ public class SlidePlayTouchViewPager extends com.kwad.sdk.contentalliance.b.b {
         if (motionEvent.getActionMasked() != 0) {
             return;
         }
-        this.f33110h = motionEvent.getX();
+        this.f33205h = motionEvent.getX();
         this.i = motionEvent.getY();
         this.k = false;
         this.j = false;
@@ -80,19 +80,19 @@ public class SlidePlayTouchViewPager extends com.kwad.sdk.contentalliance.b.b {
     }
 
     private boolean h() {
-        return !this.f33108e || getAdapter() == null;
+        return !this.f33203e || getAdapter() == null;
     }
 
     @Override // com.kwad.sdk.contentalliance.b.b
     public int a(int i) {
         if (getCurrentItem() <= getFirstValidItemPosition()) {
-            int i2 = this.f33109g;
+            int i2 = this.f33204g;
             if (i - i2 < 0) {
                 return i2;
             }
         }
         if (getCurrentItem() >= getLastValidItemPosition()) {
-            int i3 = this.f33109g;
+            int i3 = this.f33204g;
             if (i - i3 > 0) {
                 return i3;
             }
@@ -112,15 +112,15 @@ public class SlidePlayTouchViewPager extends com.kwad.sdk.contentalliance.b.b {
     }
 
     public void a(MotionEvent motionEvent) {
-        if (this.f33105b) {
-            float abs = Math.abs(motionEvent.getX() - this.f33110h);
+        if (this.f33200b) {
+            float abs = Math.abs(motionEvent.getX() - this.f33205h);
             float y = motionEvent.getY();
             float abs2 = Math.abs(y - this.i);
-            if (abs2 <= this.f32186f || abs2 * 0.5f <= abs) {
+            if (abs2 <= this.f32281f || abs2 * 0.5f <= abs) {
                 return;
             }
-            if (!this.f33104a && y > this.i && getCurrentItem() == getFirstValidItemPosition()) {
-                if (!this.f33106c) {
+            if (!this.f33199a && y > this.i && getCurrentItem() == getFirstValidItemPosition()) {
+                if (!this.f33201c) {
                     e();
                 }
                 for (a aVar : this.m) {
@@ -136,7 +136,7 @@ public class SlidePlayTouchViewPager extends com.kwad.sdk.contentalliance.b.b {
     }
 
     public void a(TargetBoundUpdatedType targetBoundUpdatedType) {
-        this.f33109g = targetBoundUpdatedType == TargetBoundUpdatedType.ON_SCROLL_END ? getScrollY() : targetBoundUpdatedType == TargetBoundUpdatedType.RESET ? 0 : targetBoundUpdatedType == TargetBoundUpdatedType.ON_MOVE_TO_NEXT ? this.f33109g + getHeight() : this.f33109g - getHeight();
+        this.f33204g = targetBoundUpdatedType == TargetBoundUpdatedType.ON_SCROLL_END ? getScrollY() : targetBoundUpdatedType == TargetBoundUpdatedType.RESET ? 0 : targetBoundUpdatedType == TargetBoundUpdatedType.ON_MOVE_TO_NEXT ? this.f33204g + getHeight() : this.f33204g - getHeight();
     }
 
     public void a(a aVar) {
@@ -153,16 +153,16 @@ public class SlidePlayTouchViewPager extends com.kwad.sdk.contentalliance.b.b {
         } else {
             this.l.set(i);
         }
-        this.f33108e = this.l.cardinality() == 0;
+        this.f33203e = this.l.cardinality() == 0;
     }
 
     public boolean a() {
-        return !this.f33108e;
+        return !this.f33203e;
     }
 
     public void b() {
         this.l.clear();
-        this.f33108e = this.l.cardinality() == 0;
+        this.f33203e = this.l.cardinality() == 0;
     }
 
     public void b(a aVar) {
@@ -201,25 +201,25 @@ public class SlidePlayTouchViewPager extends com.kwad.sdk.contentalliance.b.b {
         int action = motionEvent.getAction() & 255;
         b(motionEvent);
         if (action == 2) {
-            float abs = Math.abs(motionEvent.getX() - this.f33110h);
+            float abs = Math.abs(motionEvent.getX() - this.f33205h);
             float y = motionEvent.getY();
             float f2 = this.i;
             float f3 = y - f2;
             float abs2 = Math.abs(y - f2);
-            if (getCurrentItem() == getFirstValidItemPosition() && f3 > this.f32186f && abs2 * 0.5f > abs) {
+            if (getCurrentItem() == getFirstValidItemPosition() && f3 > this.f32281f && abs2 * 0.5f > abs) {
                 this.j = true;
-                e eVar = this.f33107d;
-                if (eVar != null && this.f33104a) {
+                e eVar = this.f33202d;
+                if (eVar != null && this.f33199a) {
                     eVar.a(motionEvent);
                 }
                 return true;
-            } else if (getCurrentItem() == getLastValidItemPosition() && f3 < (-this.f32186f) && abs2 * 0.5f > abs) {
+            } else if (getCurrentItem() == getLastValidItemPosition() && f3 < (-this.f32281f) && abs2 * 0.5f > abs) {
                 this.k = true;
                 return true;
             }
         }
-        e eVar2 = this.f33107d;
-        if (eVar2 != null && this.f33104a) {
+        e eVar2 = this.f33202d;
+        if (eVar2 != null && this.f33199a) {
             eVar2.a(motionEvent);
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -257,28 +257,28 @@ public class SlidePlayTouchViewPager extends com.kwad.sdk.contentalliance.b.b {
             if (action == 1 || action == 3) {
                 g();
             }
-            e eVar2 = this.f33107d;
-            if (eVar2 != null && this.f33104a) {
+            e eVar2 = this.f33202d;
+            if (eVar2 != null && this.f33199a) {
                 eVar2.b(motionEvent);
             }
             return true;
         }
         this.k = false;
         this.j = false;
-        float abs = Math.abs(motionEvent.getX() - this.f33110h);
+        float abs = Math.abs(motionEvent.getX() - this.f33205h);
         float y = motionEvent.getY();
         float f2 = this.i;
         float f3 = y - f2;
         float abs2 = Math.abs(y - f2);
         if (getCurrentItem() == getFirstValidItemPosition()) {
-            if (f3 > this.f32186f && abs2 * 0.5f > abs) {
+            if (f3 > this.f32281f && abs2 * 0.5f > abs) {
                 this.j = true;
             }
-            if (!this.j && f3 > 0.0f && (eVar = this.f33107d) != null && this.f33104a) {
+            if (!this.j && f3 > 0.0f && (eVar = this.f33202d) != null && this.f33199a) {
                 eVar.b(motionEvent);
             }
         }
-        if (getCurrentItem() == getLastValidItemPosition() && f3 < (-this.f32186f) && abs2 * 0.5f > abs) {
+        if (getCurrentItem() == getLastValidItemPosition() && f3 < (-this.f32281f) && abs2 * 0.5f > abs) {
             this.k = true;
         }
         if (this.j) {

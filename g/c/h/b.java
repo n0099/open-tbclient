@@ -8,7 +8,7 @@ import org.java_websocket.framing.Framedata;
 public class b extends d {
 
     /* renamed from: h  reason: collision with root package name */
-    public int f68640h;
+    public int f68787h;
     public String i;
 
     public b() {
@@ -19,7 +19,7 @@ public class b extends d {
 
     @Override // g.c.h.f, org.java_websocket.framing.Framedata
     public ByteBuffer f() {
-        if (this.f68640h == 1005) {
+        if (this.f68787h == 1005) {
             return g.c.k.b.a();
         }
         return super.f();
@@ -28,38 +28,38 @@ public class b extends d {
     @Override // g.c.h.d, g.c.h.f
     public void h() throws InvalidDataException {
         super.h();
-        if (this.f68640h == 1007 && this.i == null) {
+        if (this.f68787h == 1007 && this.i == null) {
             throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
         }
-        if (this.f68640h == 1005 && this.i.length() > 0) {
+        if (this.f68787h == 1005 && this.i.length() > 0) {
             throw new InvalidDataException(1002, "A close frame must have a closecode if it has a reason");
         }
-        int i = this.f68640h;
+        int i = this.f68787h;
         if (i > 1015 && i < 3000) {
             throw new InvalidDataException(1002, "Trying to send an illegal close code!");
         }
-        int i2 = this.f68640h;
+        int i2 = this.f68787h;
         if (i2 == 1006 || i2 == 1015 || i2 == 1005 || i2 > 4999 || i2 < 1000 || i2 == 1004) {
-            throw new InvalidFrameException("closecode must not be sent over the wire: " + this.f68640h);
+            throw new InvalidFrameException("closecode must not be sent over the wire: " + this.f68787h);
         }
     }
 
     @Override // g.c.h.f
     public void j(ByteBuffer byteBuffer) {
-        this.f68640h = 1005;
+        this.f68787h = 1005;
         this.i = "";
         byteBuffer.mark();
         if (byteBuffer.remaining() == 0) {
-            this.f68640h = 1000;
+            this.f68787h = 1000;
         } else if (byteBuffer.remaining() == 1) {
-            this.f68640h = 1002;
+            this.f68787h = 1002;
         } else {
             if (byteBuffer.remaining() >= 2) {
                 ByteBuffer allocate = ByteBuffer.allocate(4);
                 allocate.position(2);
                 allocate.putShort(byteBuffer.getShort());
                 allocate.position(0);
-                this.f68640h = allocate.getInt();
+                this.f68787h = allocate.getInt();
             }
             byteBuffer.reset();
             try {
@@ -72,14 +72,14 @@ public class b extends d {
                     throw new InvalidDataException(1007);
                 }
             } catch (InvalidDataException unused2) {
-                this.f68640h = 1007;
+                this.f68787h = 1007;
                 this.i = null;
             }
         }
     }
 
     public int o() {
-        return this.f68640h;
+        return this.f68787h;
     }
 
     public String p() {
@@ -87,9 +87,9 @@ public class b extends d {
     }
 
     public void q(int i) {
-        this.f68640h = i;
+        this.f68787h = i;
         if (i == 1015) {
-            this.f68640h = 1005;
+            this.f68787h = 1005;
             this.i = "";
         }
         s();
@@ -106,7 +106,7 @@ public class b extends d {
     public final void s() {
         byte[] f2 = g.c.k.c.f(this.i);
         ByteBuffer allocate = ByteBuffer.allocate(4);
-        allocate.putInt(this.f68640h);
+        allocate.putInt(this.f68787h);
         allocate.position(2);
         ByteBuffer allocate2 = ByteBuffer.allocate(f2.length + 2);
         allocate2.put(allocate);
@@ -117,6 +117,6 @@ public class b extends d {
 
     @Override // g.c.h.f
     public String toString() {
-        return super.toString() + "code: " + this.f68640h;
+        return super.toString() + "code: " + this.f68787h;
     }
 }

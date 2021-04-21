@@ -2,14 +2,14 @@ package com.tencent.open.utils;
 
 import android.content.Context;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f39596a;
+    public static Context f39691a;
 
     public static final Context a() {
-        Context context = f39596a;
+        Context context = f39691a;
         if (context == null) {
             return null;
         }
@@ -28,6 +28,6 @@ public final class e {
     }
 
     public static final void a(Context context) {
-        f39596a = context;
+        f39691a = context;
     }
 }

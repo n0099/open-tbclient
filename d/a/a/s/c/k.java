@@ -16,12 +16,12 @@ public class k extends f<d.a.a.y.d> {
     public d.a.a.y.d i(d.a.a.y.a<d.a.a.y.d> aVar, float f2) {
         d.a.a.y.d dVar;
         d.a.a.y.d dVar2;
-        d.a.a.y.d dVar3 = aVar.f41801b;
-        if (dVar3 != null && (dVar = aVar.f41802c) != null) {
+        d.a.a.y.d dVar3 = aVar.f41896b;
+        if (dVar3 != null && (dVar = aVar.f41897c) != null) {
             d.a.a.y.d dVar4 = dVar3;
             d.a.a.y.d dVar5 = dVar;
-            d.a.a.y.c<A> cVar = this.f41599e;
-            if (cVar == 0 || (dVar2 = (d.a.a.y.d) cVar.b(aVar.f41804e, aVar.f41805f.floatValue(), dVar4, dVar5, f2, e(), f())) == null) {
+            d.a.a.y.c<A> cVar = this.f41694e;
+            if (cVar == 0 || (dVar2 = (d.a.a.y.d) cVar.b(aVar.f41899e, aVar.f41900f.floatValue(), dVar4, dVar5, f2, e(), f())) == null) {
                 this.i.d(d.a.a.x.g.k(dVar4.b(), dVar5.b(), f2), d.a.a.x.g.k(dVar4.c(), dVar5.c(), f2));
                 return this.i;
             }

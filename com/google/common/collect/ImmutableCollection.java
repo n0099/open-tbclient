@@ -1,11 +1,11 @@
 package com.google.common.collect;
 
 import com.google.common.collect.ImmutableList;
-import d.g.c.a.n;
-import d.g.c.c.c1;
-import d.g.c.c.j0;
-import d.g.c.c.m;
-import d.g.c.c.n0;
+import d.h.c.a.n;
+import d.h.c.c.c1;
+import d.h.c.c.j0;
+import d.h.c.c.m;
+import d.h.c.c.n0;
 import java.io.Serializable;
 import java.util.AbstractCollection;
 import java.util.Arrays;
@@ -19,47 +19,47 @@ public abstract class ImmutableCollection<E> extends AbstractCollection<E> imple
     public static abstract class a<E> extends b<E> {
 
         /* renamed from: a  reason: collision with root package name */
-        public Object[] f30784a;
+        public Object[] f30879a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f30785b;
+        public int f30880b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f30786c;
+        public boolean f30881c;
 
         public a(int i) {
             m.b(i, "initialCapacity");
-            this.f30784a = new Object[i];
-            this.f30785b = 0;
+            this.f30879a = new Object[i];
+            this.f30880b = 0;
         }
 
         @Override // com.google.common.collect.ImmutableCollection.b
         public b<E> b(E... eArr) {
             j0.b(eArr);
-            g(this.f30785b + eArr.length);
-            System.arraycopy(eArr, 0, this.f30784a, this.f30785b, eArr.length);
-            this.f30785b += eArr.length;
+            g(this.f30880b + eArr.length);
+            System.arraycopy(eArr, 0, this.f30879a, this.f30880b, eArr.length);
+            this.f30880b += eArr.length;
             return this;
         }
 
         public a<E> f(E e2) {
             n.p(e2);
-            g(this.f30785b + 1);
-            Object[] objArr = this.f30784a;
-            int i = this.f30785b;
-            this.f30785b = i + 1;
+            g(this.f30880b + 1);
+            Object[] objArr = this.f30879a;
+            int i = this.f30880b;
+            this.f30880b = i + 1;
             objArr[i] = e2;
             return this;
         }
 
         public final void g(int i) {
-            Object[] objArr = this.f30784a;
+            Object[] objArr = this.f30879a;
             if (objArr.length < i) {
-                this.f30784a = Arrays.copyOf(objArr, b.e(objArr.length, i));
-                this.f30786c = false;
-            } else if (this.f30786c) {
-                this.f30784a = (Object[]) objArr.clone();
-                this.f30786c = false;
+                this.f30879a = Arrays.copyOf(objArr, b.e(objArr.length, i));
+                this.f30881c = false;
+            } else if (this.f30881c) {
+                this.f30879a = (Object[]) objArr.clone();
+                this.f30881c = false;
             }
         }
     }

@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.preload.a.b;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f29730a = c();
+    public static final int f29738a = c();
 
     public static int a(String str) {
         int b2 = b(str);
@@ -31,7 +31,7 @@ public final class e {
     }
 
     public static int a() {
-        return f29730a;
+        return f29738a;
     }
 
     public static int c(String str) {
@@ -51,6 +51,6 @@ public final class e {
     }
 
     public static boolean b() {
-        return f29730a >= 9;
+        return f29738a >= 9;
     }
 }

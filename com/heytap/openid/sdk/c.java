@@ -19,19 +19,19 @@ import java.security.NoSuchAlgorithmException;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.heytap.openid.a f31380a = null;
+    public com.heytap.openid.a f31475a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31381b = null;
+    public String f31476b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f31382c = null;
+    public String f31477c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f31383d = new Object();
+    public final Object f31478d = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f31384e = new a();
+    public ServiceConnection f31479e = new a();
 
     /* loaded from: classes6.dex */
     public class a implements ServiceConnection {
@@ -40,15 +40,15 @@ public class c {
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            c.this.f31380a = a.AbstractBinderC0361a.a(iBinder);
-            synchronized (c.this.f31383d) {
-                c.this.f31383d.notify();
+            c.this.f31475a = a.AbstractBinderC0364a.a(iBinder);
+            synchronized (c.this.f31478d) {
+                c.this.f31478d.notify();
             }
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            c.this.f31380a = null;
+            c.this.f31475a = null;
         }
     }
 
@@ -56,7 +56,7 @@ public class c {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f31386a = new c(null);
+        public static final c f31481a = new c(null);
     }
 
     public /* synthetic */ c(a aVar) {
@@ -64,7 +64,7 @@ public class c {
 
     public synchronized String a(Context context, String str) {
         if (Looper.myLooper() != Looper.getMainLooper()) {
-            if (this.f31380a != null) {
+            if (this.f31475a != null) {
                 try {
                     return b(context, str);
                 } catch (RemoteException e2) {
@@ -75,16 +75,16 @@ public class c {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
             intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-            if (context.bindService(intent, this.f31384e, 1)) {
-                synchronized (this.f31383d) {
+            if (context.bindService(intent, this.f31479e, 1)) {
+                synchronized (this.f31478d) {
                     try {
-                        this.f31383d.wait(3000L);
+                        this.f31478d.wait(3000L);
                     } catch (InterruptedException e3) {
                         e3.printStackTrace();
                     }
                 }
             }
-            if (this.f31380a == null) {
+            if (this.f31475a == null) {
                 return "";
             }
             try {
@@ -109,13 +109,13 @@ public class c {
 
     public final String b(Context context, String str) {
         Signature[] signatureArr;
-        if (TextUtils.isEmpty(this.f31381b)) {
-            this.f31381b = context.getPackageName();
+        if (TextUtils.isEmpty(this.f31476b)) {
+            this.f31476b = context.getPackageName();
         }
-        if (TextUtils.isEmpty(this.f31382c)) {
+        if (TextUtils.isEmpty(this.f31477c)) {
             String str2 = null;
             try {
-                signatureArr = context.getPackageManager().getPackageInfo(this.f31381b, 64).signatures;
+                signatureArr = context.getPackageManager().getPackageInfo(this.f31476b, 64).signatures;
             } catch (PackageManager.NameNotFoundException e2) {
                 e2.printStackTrace();
                 signatureArr = null;
@@ -136,9 +136,9 @@ public class c {
                     e3.printStackTrace();
                 }
             }
-            this.f31382c = str2;
+            this.f31477c = str2;
         }
-        String a2 = ((a.AbstractBinderC0361a.C0362a) this.f31380a).a(this.f31381b, this.f31382c, str);
+        String a2 = ((a.AbstractBinderC0364a.C0365a) this.f31475a).a(this.f31476b, this.f31477c, str);
         return TextUtils.isEmpty(a2) ? "" : a2;
     }
 }

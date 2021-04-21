@@ -8,25 +8,25 @@ import java.util.concurrent.Executor;
 public class NetcheckTaskListenerWrapper {
 
     /* renamed from: a  reason: collision with root package name */
-    public a.b f31913a;
+    public a.b f32008a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Executor f31914b;
+    public Executor f32009b;
 
     @Keep
     public void OnFinish(long j, String str) {
-        a.EnumC0368a[] values;
-        EnumSet noneOf = EnumSet.noneOf(a.EnumC0368a.class);
-        for (a.EnumC0368a enumC0368a : a.EnumC0368a.values()) {
-            if (((1 << enumC0368a.a()) & j) != 0) {
-                noneOf.add(enumC0368a);
+        a.EnumC0371a[] values;
+        EnumSet noneOf = EnumSet.noneOf(a.EnumC0371a.class);
+        for (a.EnumC0371a enumC0371a : a.EnumC0371a.values()) {
+            if (((1 << enumC0371a.a()) & j) != 0) {
+                noneOf.add(enumC0371a);
             }
         }
-        this.f31914b.execute(c.a(this, noneOf, str));
+        this.f32009b.execute(c.a(this, noneOf, str));
     }
 
     @Keep
     public void OnProgress(int i) {
-        this.f31914b.execute(b.a(this, i));
+        this.f32009b.execute(b.a(this, i));
     }
 }

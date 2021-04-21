@@ -1,11 +1,13 @@
 package d.b.g0.r;
-
-import android.os.Bundle;
-/* loaded from: classes3.dex */
-public interface a {
-    Bundle a(String str, Bundle bundle);
-
-    void b();
-
-    void c(String str);
+/* loaded from: classes2.dex */
+public final class a {
+    public static String a(String str, String str2) {
+        try {
+            Class<?> cls = Class.forName("android.os.SystemProperties");
+            return (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, str2);
+        } catch (Throwable th) {
+            th.printStackTrace();
+            return null;
+        }
+    }
 }

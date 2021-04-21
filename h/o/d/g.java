@@ -12,13 +12,13 @@ import rx.internal.operators.NotificationLite;
 public class g implements k {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f68945g;
+    public static final int f69092g;
 
     /* renamed from: e  reason: collision with root package name */
-    public Queue<Object> f68946e;
+    public Queue<Object> f69093e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile Object f68947f;
+    public volatile Object f69094f;
 
     static {
         int i = f.c() ? 16 : 128;
@@ -31,23 +31,23 @@ public class g implements k {
                 printStream.println("Failed to set 'rx.buffer.size' with value " + property + " => " + e2.getMessage());
             }
         }
-        f68945g = i;
+        f69092g = i;
     }
 
     public g(Queue<Object> queue, int i) {
-        this.f68946e = queue;
+        this.f69093e = queue;
     }
 
     public static g a() {
         if (f0.b()) {
-            return new g(true, f68945g);
+            return new g(true, f69092g);
         }
         return new g();
     }
 
     public static g b() {
         if (f0.b()) {
-            return new g(false, f68945g);
+            return new g(false, f69092g);
         }
         return new g();
     }
@@ -61,13 +61,13 @@ public class g implements k {
     }
 
     public boolean e() {
-        Queue<Object> queue = this.f68946e;
+        Queue<Object> queue = this.f69093e;
         return queue == null || queue.isEmpty();
     }
 
     public void f() {
-        if (this.f68947f == null) {
-            this.f68947f = NotificationLite.b();
+        if (this.f69094f == null) {
+            this.f69094f = NotificationLite.b();
         }
     }
 
@@ -75,7 +75,7 @@ public class g implements k {
         boolean z;
         boolean z2;
         synchronized (this) {
-            Queue<Object> queue = this.f68946e;
+            Queue<Object> queue = this.f69093e;
             z = true;
             z2 = false;
             if (queue != null) {
@@ -93,12 +93,12 @@ public class g implements k {
 
     public Object h() {
         synchronized (this) {
-            Queue<Object> queue = this.f68946e;
+            Queue<Object> queue = this.f69093e;
             if (queue == null) {
                 return null;
             }
             Object peek = queue.peek();
-            Object obj = this.f68947f;
+            Object obj = this.f69094f;
             if (peek == null && obj != null && queue.peek() == null) {
                 peek = obj;
             }
@@ -108,14 +108,14 @@ public class g implements k {
 
     public Object i() {
         synchronized (this) {
-            Queue<Object> queue = this.f68946e;
+            Queue<Object> queue = this.f69093e;
             if (queue == null) {
                 return null;
             }
             Object poll = queue.poll();
-            Object obj = this.f68947f;
+            Object obj = this.f69094f;
             if (poll == null && obj != null && queue.peek() == null) {
-                this.f68947f = null;
+                this.f69094f = null;
                 poll = obj;
             }
             return poll;
@@ -124,7 +124,7 @@ public class g implements k {
 
     @Override // h.k
     public boolean isUnsubscribed() {
-        return this.f68946e == null;
+        return this.f69093e == null;
     }
 
     public synchronized void j() {
@@ -136,10 +136,10 @@ public class g implements k {
     }
 
     public g(boolean z, int i) {
-        this.f68946e = z ? new j<>(i) : new r<>(i);
+        this.f69093e = z ? new j<>(i) : new r<>(i);
     }
 
     public g() {
-        this(new h.o.d.j.c(f68945g), f68945g);
+        this(new h.o.d.j.c(f69092g), f69092g);
     }
 }

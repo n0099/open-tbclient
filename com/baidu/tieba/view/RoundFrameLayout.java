@@ -13,10 +13,10 @@ import android.widget.FrameLayout;
 public class RoundFrameLayout extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Path f21856e;
+    public Path f21864e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RectF f21857f;
+    public RectF f21865f;
 
     public RoundFrameLayout(Context context) {
         super(context);
@@ -25,8 +25,8 @@ public class RoundFrameLayout extends FrameLayout {
 
     public final void a() {
         setWillNotDraw(false);
-        this.f21856e = new Path();
-        this.f21857f = new RectF();
+        this.f21864e = new Path();
+        this.f21865f = new RectF();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -37,7 +37,7 @@ public class RoundFrameLayout extends FrameLayout {
         int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
         super.dispatchDraw(canvas);
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
-        canvas.drawPath(this.f21856e, paint);
+        canvas.drawPath(this.f21864e, paint);
         if (saveLayer >= 1 && saveLayer <= canvas.getSaveCount()) {
             canvas.restoreToCount(saveLayer);
         }
@@ -47,8 +47,8 @@ public class RoundFrameLayout extends FrameLayout {
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        this.f21857f.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
-        this.f21856e.addOval(this.f21857f, Path.Direction.CW);
+        this.f21865f.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+        this.f21864e.addOval(this.f21865f, Path.Direction.CW);
     }
 
     public RoundFrameLayout(Context context, AttributeSet attributeSet) {

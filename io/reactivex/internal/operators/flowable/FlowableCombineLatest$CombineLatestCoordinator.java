@@ -63,7 +63,7 @@ public final class FlowableCombineLatest$CombineLatestCoordinator<T, R> extends 
                 if (z2) {
                     cancelAll();
                     Throwable b2 = ExceptionHelper.b(this.error);
-                    if (b2 != null && b2 != ExceptionHelper.f69103a) {
+                    if (b2 != null && b2 != ExceptionHelper.f69250a) {
                         cVar.onError(b2);
                     } else {
                         cVar.onComplete();
@@ -73,7 +73,7 @@ public final class FlowableCombineLatest$CombineLatestCoordinator<T, R> extends 
                 return false;
             }
             Throwable b3 = ExceptionHelper.b(this.error);
-            if (b3 != null && b3 != ExceptionHelper.f69103a) {
+            if (b3 != null && b3 != ExceptionHelper.f69250a) {
                 cancelAll();
                 aVar.clear();
                 cVar.onError(b3);

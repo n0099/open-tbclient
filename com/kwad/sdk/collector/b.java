@@ -26,36 +26,36 @@ import java.util.Set;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f32167a = "/*";
+    public static String f32262a = "/*";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f32168b = "*";
+    public static String f32263b = "*";
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f32169c = 86400000;
+    public static long f32264c = 86400000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f32170d = 60000;
+    public static long f32265d = 60000;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Map<String, Set<String>> f32171e = new HashMap();
+    public static Map<String, Set<String>> f32266e = new HashMap();
 
     /* renamed from: f  reason: collision with root package name */
-    public static Map<String, String> f32172f = new HashMap();
+    public static Map<String, String> f32267f = new HashMap();
 
     public static long a() {
-        return f32170d;
+        return f32265d;
     }
 
     public static String a(String str) {
         if (str == null) {
             return null;
         }
-        return f32172f.get(str);
+        return f32267f.get(str);
     }
 
     public static void a(long j) {
-        f32169c = j;
+        f32264c = j;
     }
 
     public static void a(AppStatusRules appStatusRules) {
@@ -76,7 +76,7 @@ public class b {
     }
 
     private void a(AppStatusHelper.AppRunningInfo appRunningInfo, long j, @NonNull List<AppStatusHelper.AppRunningInfo> list, long j2) {
-        if (j <= 0 || f32169c + j <= j2) {
+        if (j <= 0 || f32264c + j <= j2) {
             return;
         }
         AppStatusHelper.AppRunningInfo cloneNewOne = appRunningInfo.cloneNewOne();
@@ -117,33 +117,33 @@ public class b {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        Set<String> hashSet = f32171e.containsKey(str) ? f32171e.get(str) : new HashSet<>();
+        Set<String> hashSet = f32266e.containsKey(str) ? f32266e.get(str) : new HashSet<>();
         hashSet.add(str2);
-        f32171e.put(str, hashSet);
+        f32266e.put(str, hashSet);
     }
 
     @WorkerThread
     public static void b() {
-        if (f32171e.size() > 0) {
+        if (f32266e.size() > 0) {
             return;
         }
         try {
-            a(new File(Environment.getExternalStorageDirectory(), d.f34802b));
+            a(new File(Environment.getExternalStorageDirectory(), d.f34897b));
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }
     }
 
     public static void b(long j) {
-        f32170d = j;
+        f32265d = j;
     }
 
     public static void c() {
-        f32171e.clear();
+        f32266e.clear();
     }
 
     public static boolean d() {
-        return f32171e.size() == 0;
+        return f32266e.size() == 0;
     }
 
     @RequiresPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION)
@@ -163,11 +163,11 @@ public class b {
         int i4;
         File file2;
         String[] strArr2;
-        Set<Map.Entry<String, Set<String>>> entrySet = f32171e.entrySet();
+        Set<Map.Entry<String, Set<String>>> entrySet = f32266e.entrySet();
         File file3 = new File(Environment.getExternalStorageDirectory(), "/Android/data/");
-        Map<String, AppStatusHelper.AppRunningInfo> createByPackages = packageNameFilter.createByPackages(f32171e.keySet());
+        Map<String, AppStatusHelper.AppRunningInfo> createByPackages = packageNameFilter.createByPackages(f32266e.keySet());
         ArrayList arrayList = new ArrayList();
-        com.kwad.sdk.core.d.a.a("FAnalyser", "targetSuffixMap size: " + f32171e.size() + ", packageRunningInfoSet size: " + createByPackages.size());
+        com.kwad.sdk.core.d.a.a("FAnalyser", "targetSuffixMap size: " + f32266e.size() + ", packageRunningInfoSet size: " + createByPackages.size());
         long currentTimeMillis = System.currentTimeMillis();
         Iterator<Map.Entry<String, Set<String>>> it2 = entrySet.iterator();
         while (it2.hasNext()) {
@@ -178,8 +178,8 @@ public class b {
             if (appRunningInfo != null) {
                 for (String str4 : value) {
                     int i5 = 0;
-                    if (str4.endsWith(f32167a)) {
-                        File file4 = new File(file3, str4.replace(f32167a, ""));
+                    if (str4.endsWith(f32262a)) {
+                        File file4 = new File(file3, str4.replace(f32262a, ""));
                         if (file4.exists() && file4.isDirectory() && (list2 = file4.list()) != null) {
                             int length = list2.length;
                             int i6 = 0;
@@ -203,10 +203,10 @@ public class b {
                                 list2 = strArr2;
                             }
                         }
-                    } else if (str4.endsWith(f32168b)) {
+                    } else if (str4.endsWith(f32263b)) {
                         String str5 = "/";
                         File file6 = new File(file3, str4.substring(0, str4.lastIndexOf("/")));
-                        String replace = str4.replace(f32168b, "");
+                        String replace = str4.replace(f32263b, "");
                         if (file6.exists() && file6.isDirectory() && (list = file6.list()) != null) {
                             String absolutePath = file6.getAbsolutePath();
                             int length2 = list.length;

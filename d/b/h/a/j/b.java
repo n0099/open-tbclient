@@ -12,7 +12,7 @@ import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f49850a = "b";
+    public static final String f43777a = "b";
 
     public static boolean a(Context context) {
         if (context == null) {
@@ -21,7 +21,7 @@ public class b {
         try {
             return ContextCompat.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
         } catch (Throwable th) {
-            BdLog.c(f49850a, th);
+            BdLog.c(f43777a, th);
             return !ApiUtil.shouldCheckPermission();
         }
     }
@@ -47,7 +47,7 @@ public class b {
             }
             return checkPermissionGranted;
         } catch (Throwable th) {
-            BdLog.c(f49850a, th);
+            BdLog.c(f43777a, th);
             return !ApiUtil.shouldCheckPermission();
         }
     }
@@ -56,7 +56,7 @@ public class b {
         if (context == null) {
             return false;
         }
-        SharedPreferences sharedPreferences = context.getSharedPreferences(f49850a, 0);
+        SharedPreferences sharedPreferences = context.getSharedPreferences(f43777a, 0);
         if (sharedPreferences == null) {
             return true;
         }
@@ -68,7 +68,7 @@ public class b {
 
     public static void d(Context context, String str) {
         SharedPreferences sharedPreferences;
-        if (context == null || (sharedPreferences = context.getSharedPreferences(f49850a, 0)) == null) {
+        if (context == null || (sharedPreferences = context.getSharedPreferences(f43777a, 0)) == null) {
             return;
         }
         SharedPreferences.Editor edit = sharedPreferences.edit();

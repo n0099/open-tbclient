@@ -2,7 +2,7 @@ package com.baidu.tbadk.template.message;
 
 import android.util.Log;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import d.b.h0.x0.c.b;
+import d.b.i0.x0.c.b;
 /* loaded from: classes3.dex */
 public class TemplateHttpResponseMessage extends TbHttpResponsedMessage {
     public b mIResp;

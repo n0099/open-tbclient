@@ -19,7 +19,7 @@ public class PullTidSocketResponseMessage extends SocketResponsedMessage {
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         try {
-            this.tid = Long.toString(((GetLockWindowTidResIdl) PushDialogStatic.f20313a.parseFrom(bArr, GetLockWindowTidResIdl.class)).data.tid.longValue());
+            this.tid = Long.toString(((GetLockWindowTidResIdl) PushDialogStatic.f20321a.parseFrom(bArr, GetLockWindowTidResIdl.class)).data.tid.longValue());
         } catch (Throwable unused) {
         }
     }

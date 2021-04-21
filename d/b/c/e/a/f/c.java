@@ -10,37 +10,37 @@ import java.nio.ByteBuffer;
 public class c extends DiskFileOperate {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f42095a;
+    public Bitmap f42335a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BitmapFactory.Options f42096b;
+    public BitmapFactory.Options f42336b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f42097c;
+    public a f42337c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f42098d;
+    public boolean f42338d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f42099e;
+    public long f42339e;
 
     /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: d  reason: collision with root package name */
-        public static byte f42100d = Byte.MIN_VALUE;
+        public static byte f42340d = Byte.MIN_VALUE;
 
         /* renamed from: e  reason: collision with root package name */
-        public static byte f42101e = Byte.MIN_VALUE;
+        public static byte f42341e = Byte.MIN_VALUE;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f42102a = false;
+        public boolean f42342a = false;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f42103b = 0;
+        public long f42343b = 0;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f42104c = true;
+        public boolean f42344c = true;
 
         public static int a() {
             return 14;
@@ -54,12 +54,12 @@ public class c extends DiskFileOperate {
             if (wrap.getInt() != 1786600511) {
                 return false;
             }
-            if ((wrap.get() & f42100d) != 0) {
-                this.f42102a = true;
+            if ((wrap.get() & f42340d) != 0) {
+                this.f42342a = true;
             }
-            this.f42103b = wrap.getLong();
-            if ((wrap.get() & f42101e) != 0) {
-                this.f42104c = false;
+            this.f42343b = wrap.getLong();
+            if ((wrap.get() & f42341e) != 0) {
+                this.f42344c = false;
             }
             return true;
         }
@@ -67,9 +67,9 @@ public class c extends DiskFileOperate {
         public byte[] c() {
             ByteBuffer allocate = ByteBuffer.allocate(a());
             allocate.putInt(1786600511);
-            allocate.put(this.f42102a ? (byte) (f42100d | 0) : (byte) 0);
-            allocate.putLong(this.f42103b);
-            allocate.put(this.f42104c ? (byte) 0 : (byte) (f42101e | 0));
+            allocate.put(this.f42342a ? (byte) (f42340d | 0) : (byte) 0);
+            allocate.putLong(this.f42343b);
+            allocate.put(this.f42344c ? (byte) 0 : (byte) (f42341e | 0));
             allocate.flip();
             return allocate.array();
         }
@@ -77,11 +77,11 @@ public class c extends DiskFileOperate {
 
     public c(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
-        this.f42095a = null;
-        this.f42096b = null;
-        this.f42097c = null;
-        this.f42098d = true;
-        this.f42097c = new a();
+        this.f42335a = null;
+        this.f42336b = null;
+        this.f42337c = null;
+        this.f42338d = true;
+        this.f42337c = new a();
     }
 
     public byte[] a() {
@@ -93,58 +93,58 @@ public class c extends DiskFileOperate {
     }
 
     public boolean b() {
-        return this.f42097c.f42104c;
+        return this.f42337c.f42344c;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public byte[] buildFormatData() {
-        if (this.mData == null || !this.f42098d) {
+        if (this.mData == null || !this.f42338d) {
             return null;
         }
-        return this.f42097c.c();
+        return this.f42337c.c();
     }
 
     public void c(boolean z) {
-        this.f42097c.f42104c = z;
+        this.f42337c.f42344c = z;
     }
 
     public void d(boolean z) {
-        this.f42098d = z;
+        this.f42338d = z;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public void endLog() {
-        d.b.c.e.l.a.k(isSuccess(), System.currentTimeMillis() - this.f42099e);
+        d.b.c.e.l.a.k(isSuccess(), System.currentTimeMillis() - this.f42339e);
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public boolean formatData(byte[] bArr) {
-        if (bArr != null && this.f42097c.b(bArr)) {
-            long j = this.f42097c.f42103b;
+        if (bArr != null && this.f42337c.b(bArr)) {
+            long j = this.f42337c.f42343b;
             if (j == 0 || j >= System.currentTimeMillis()) {
-                if (this.f42096b == null) {
+                if (this.f42336b == null) {
                     BitmapFactory.Options options = new BitmapFactory.Options();
-                    this.f42096b = options;
+                    this.f42336b = options;
                     options.inPreferredConfig = Bitmap.Config.RGB_565;
                 }
                 int a2 = a.a();
                 try {
-                    this.f42095a = BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.f42096b);
+                    this.f42335a = BitmapFactory.decodeByteArray(bArr, a2, bArr.length - a2, this.f42336b);
                 } catch (Error e2) {
                     BdLog.e(e2.getMessage());
                 }
-                return this.f42095a != null;
+                return this.f42335a != null;
             }
         }
         return false;
     }
 
     public Bitmap getBitmap() {
-        return this.f42095a;
+        return this.f42335a;
     }
 
     public boolean isGif() {
-        return this.f42097c.f42102a;
+        return this.f42337c.f42342a;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -157,11 +157,11 @@ public class c extends DiskFileOperate {
     }
 
     public void setGif(boolean z) {
-        this.f42097c.f42102a = z;
+        this.f42337c.f42342a = z;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public void startLog() {
-        this.f42099e = System.currentTimeMillis();
+        this.f42339e = System.currentTimeMillis();
     }
 }

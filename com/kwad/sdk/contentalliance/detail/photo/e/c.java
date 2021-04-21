@@ -15,25 +15,25 @@ import com.kwad.sdk.utils.aq;
 public class c extends com.kwad.sdk.contentalliance.detail.b {
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f32609b;
+    public ImageView f32704b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f32610c;
+    public ViewGroup f32705c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f32611d;
+    public ViewGroup f32706d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f32612e;
+    public TextView f32707e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f32613f;
+    public TextView f32708f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ScaleAnimSeekBar f32614g;
+    public ScaleAnimSeekBar f32709g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.b f32615h;
+    public com.kwad.sdk.contentalliance.detail.video.b f32710h;
     public boolean i;
     public long j;
     public boolean k = false;
@@ -76,10 +76,10 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
                 if (j != 0) {
                     c.this.j = j;
                     int i = (int) (((((float) j2) * 1.0f) * 10000.0f) / ((float) j));
-                    if (c.this.k || !c.this.f32614g.a()) {
+                    if (c.this.k || !c.this.f32709g.a()) {
                         return;
                     }
-                    c.this.f32614g.setProgress(i);
+                    c.this.f32709g.setProgress(i);
                 }
             }
 
@@ -93,7 +93,7 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
             public void c() {
                 super.c();
                 c.this.k = true;
-                if (c.this.f32609b.getVisibility() == 0) {
+                if (c.this.f32704b.getVisibility() == 0) {
                     c.this.r();
                 }
             }
@@ -108,7 +108,7 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
         this.q = new ScaleAnimSeekBar.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.e.c.5
             @Override // com.kwad.sdk.core.view.ScaleAnimSeekBar.a
             public void a(ScaleAnimSeekBar scaleAnimSeekBar) {
-                c.this.f32610c.setVisibility(8);
+                c.this.f32705c.setVisibility(8);
                 c.this.e();
                 c.this.r();
             }
@@ -122,7 +122,7 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
 
             @Override // com.kwad.sdk.core.view.ScaleAnimSeekBar.a
             public void b(ScaleAnimSeekBar scaleAnimSeekBar) {
-                c.this.f32610c.setVisibility(0);
+                c.this.f32705c.setVisibility(0);
                 c.this.f();
                 c.this.p();
                 c.this.s();
@@ -132,110 +132,110 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(float f2) {
-        this.f32614g.setAlpha(f2);
-        this.f32614g.setThumbEnable(f2 == 1.0f);
+        this.f32709g.setAlpha(f2);
+        this.f32709g.setThumbEnable(f2 == 1.0f);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.f32612e.setText(ai.a((this.j * this.f32614g.getProgress()) / 10000));
-        if (this.f32611d.getVisibility() == 0) {
+        this.f32707e.setText(ai.a((this.j * this.f32709g.getProgress()) / 10000));
+        if (this.f32706d.getVisibility() == 0) {
             return;
         }
-        this.f32613f.setText(ai.a(this.j));
-        this.f32611d.setVisibility(0);
+        this.f32708f.setText(ai.a(this.j));
+        this.f32706d.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        this.f32611d.setVisibility(8);
+        this.f32706d.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        this.f32614g.setProgress(0);
-        this.f32614g.setVisibility(8);
+        this.f32709g.setProgress(0);
+        this.f32709g.setVisibility(8);
         q();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        if (this.f32614g.getVisibility() == 0) {
+        if (this.f32709g.getVisibility() == 0) {
             return;
         }
-        this.f32614g.setVisibility(0);
+        this.f32709g.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void p() {
-        this.f32615h.a((this.j * this.f32614g.getProgress()) / 10000);
+        this.f32710h.a((this.j * this.f32709g.getProgress()) / 10000);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void q() {
         t();
-        this.f32614g.a(false);
+        this.f32709g.a(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void r() {
         t();
-        this.f32614g.a(true);
+        this.f32709g.a(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void s() {
         t();
-        this.f32614g.postDelayed(this.m, PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
+        this.f32709g.postDelayed(this.m, PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
     }
 
     private void t() {
-        this.f32614g.removeCallbacks(this.m);
+        this.f32709g.removeCallbacks(this.m);
     }
 
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        AdTemplate adTemplate = ((com.kwad.sdk.contentalliance.detail.b) this).f32422a.j;
+        AdTemplate adTemplate = ((com.kwad.sdk.contentalliance.detail.b) this).f32517a.j;
         long longValue = com.kwad.sdk.core.response.b.d.c(com.kwad.sdk.core.response.b.c.k(adTemplate)).longValue();
         this.j = longValue;
         if (longValue < StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD || com.kwad.sdk.core.response.b.d.F(adTemplate.photoInfo)) {
             return;
         }
         this.i = true;
-        this.f32615h = ((com.kwad.sdk.contentalliance.detail.b) this).f32422a.m;
+        this.f32710h = ((com.kwad.sdk.contentalliance.detail.b) this).f32517a.m;
         f();
         g();
-        a(((com.kwad.sdk.contentalliance.detail.b) this).f32422a.l.getSourceType() == 0 ? 1.0f : 0.0f);
-        this.f32614g.setOnSeekBarChangeListener(this.q);
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32422a.f32442b.add(this.n);
-        this.f32615h.a(this.p);
-        ((com.kwad.sdk.contentalliance.detail.b) this).f32422a.f32445e.add(this.o);
+        a(((com.kwad.sdk.contentalliance.detail.b) this).f32517a.l.getSourceType() == 0 ? 1.0f : 0.0f);
+        this.f32709g.setOnSeekBarChangeListener(this.q);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32517a.f32537b.add(this.n);
+        this.f32710h.a(this.p);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32517a.f32540e.add(this.o);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f32614g.removeCallbacks(this.m);
+        this.f32709g.removeCallbacks(this.m);
         if (this.i) {
-            this.f32614g.setOnSeekBarChangeListener(null);
-            this.f32614g.setVisibility(8);
-            ((com.kwad.sdk.contentalliance.detail.b) this).f32422a.f32442b.remove(this.n);
-            this.f32615h.b(this.p);
-            ((com.kwad.sdk.contentalliance.detail.b) this).f32422a.f32445e.remove(this.o);
+            this.f32709g.setOnSeekBarChangeListener(null);
+            this.f32709g.setVisibility(8);
+            ((com.kwad.sdk.contentalliance.detail.b) this).f32517a.f32537b.remove(this.n);
+            this.f32710h.b(this.p);
+            ((com.kwad.sdk.contentalliance.detail.b) this).f32517a.f32540e.remove(this.o);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f32609b = (ImageView) b(R.id.ksad_video_control_button);
-        this.f32610c = (ViewGroup) b(R.id.ksad_video_bottom_container);
-        this.f32611d = (ViewGroup) b(R.id.ksad_video_seek_tip_layout);
-        this.f32612e = (TextView) b(R.id.ksad_video_seek_progress);
-        this.f32613f = (TextView) b(R.id.ksad_video_seek_duration);
+        this.f32704b = (ImageView) b(R.id.ksad_video_control_button);
+        this.f32705c = (ViewGroup) b(R.id.ksad_video_bottom_container);
+        this.f32706d = (ViewGroup) b(R.id.ksad_video_seek_tip_layout);
+        this.f32707e = (TextView) b(R.id.ksad_video_seek_progress);
+        this.f32708f = (TextView) b(R.id.ksad_video_seek_duration);
         ScaleAnimSeekBar scaleAnimSeekBar = (ScaleAnimSeekBar) b(R.id.ksad_video_seek_bar);
-        this.f32614g = scaleAnimSeekBar;
+        this.f32709g = scaleAnimSeekBar;
         scaleAnimSeekBar.setMaxProgress(10000);
     }
 }

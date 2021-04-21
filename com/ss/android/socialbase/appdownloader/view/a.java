@@ -8,8 +8,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
-import d.o.a.e.b.d.c;
-import d.o.a.e.b.g.d;
+import d.p.a.e.b.d.c;
+import d.p.a.e.b.g.d;
 /* loaded from: classes6.dex */
 public class a extends Fragment {
     public static Intent d() {
@@ -61,7 +61,7 @@ public class a extends Fragment {
         String packageName = e2.getPackageName();
         if (!TextUtils.isEmpty(Build.MANUFACTURER)) {
             String lowerCase = Build.MANUFACTURER.toLowerCase();
-            if (lowerCase.contains(c.f67948c)) {
+            if (lowerCase.contains(c.f68095c)) {
                 Intent intent = new Intent();
                 intent.putExtra("packageName", packageName);
                 intent.setComponent(new ComponentName("com.color.safecenter", "com.color.safecenter.permission.PermissionManagerActivity"));
@@ -96,10 +96,10 @@ public class a extends Fragment {
     @Override // android.app.Fragment
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (d.o.a.e.a.f.c.d()) {
-            d.o.a.e.a.f.c.c(true);
+        if (d.p.a.e.a.f.c.d()) {
+            d.p.a.e.a.f.c.c(true);
         } else {
-            d.o.a.e.a.f.c.c(false);
+            d.p.a.e.a.f.c.c(false);
         }
     }
 }

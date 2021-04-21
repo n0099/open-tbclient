@@ -4,7 +4,7 @@ import android.os.RemoteException;
 import android.text.TextUtils;
 import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
 import com.baidu.swan.ubc.IRemoteUBCService;
-import d.b.g0.n.e;
+import d.b.h0.n.e;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */

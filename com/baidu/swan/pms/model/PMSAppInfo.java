@@ -3,8 +3,8 @@ package com.baidu.swan.pms.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import d.b.g0.l.k.f;
-import d.b.g0.l.k.g;
+import d.b.h0.l.k.f;
+import d.b.h0.l.k.g;
 /* loaded from: classes3.dex */
 public class PMSAppInfo implements Parcelable {
     public static final Parcelable.Creator<PMSAppInfo> CREATOR = new a();
@@ -96,7 +96,7 @@ public class PMSAppInfo implements Parcelable {
         if (fVar == null) {
             return;
         }
-        this.appId = fVar.f49315g;
+        this.appId = fVar.f49644g;
         this.versionCode = fVar.i;
         this.versionName = fVar.j;
         this.type = fVar.o;

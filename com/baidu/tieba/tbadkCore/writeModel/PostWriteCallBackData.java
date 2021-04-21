@@ -8,8 +8,8 @@ import com.baidu.tbadk.data.VideoEasterEggData;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.tieba.video.VideoTitleData;
-import d.b.h0.r.q.t1;
-import d.b.h0.t.a;
+import d.b.i0.r.q.t1;
+import d.b.i0.t.a;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */

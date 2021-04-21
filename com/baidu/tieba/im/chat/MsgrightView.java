@@ -13,7 +13,7 @@ import com.baidu.tieba.im.chat.view.ChatClipImageItemView;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import d.b.c.e.p.l;
-import d.b.i0.e1.f.e;
+import d.b.j0.e1.f.e;
 /* loaded from: classes4.dex */
 public class MsgrightView extends e {
     public static final String z = "com.baidu.tieba.im.chat.MsgrightView";
@@ -32,7 +32,7 @@ public class MsgrightView extends e {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             MsgrightView msgrightView = MsgrightView.this;
-            msgrightView.f55171b.onItemViewClick(view, 6, msgrightView.f55175f, 0L);
+            msgrightView.f55592b.onItemViewClick(view, 6, msgrightView.f55596f, 0L);
         }
     }
 
@@ -44,7 +44,7 @@ public class MsgrightView extends e {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             MsgrightView msgrightView = MsgrightView.this;
-            msgrightView.f55171b.onItemViewClick(view, 1, msgrightView.f55175f, 0L);
+            msgrightView.f55592b.onItemViewClick(view, 1, msgrightView.f55596f, 0L);
         }
     }
 
@@ -71,11 +71,11 @@ public class MsgrightView extends e {
         this.n.setIsLeft(false);
     }
 
-    @Override // d.b.i0.e1.f.e
+    @Override // d.b.j0.e1.f.e
     public void l(View view, ChatMessage chatMessage) {
         super.l(view, chatMessage);
         if (chatMessage == null) {
-            this.f55177h.setVisibility(8);
+            this.f55598h.setVisibility(8);
             this.t.setVisibility(8);
             this.u.setVisibility(8);
             this.x.setVisibility(8);
@@ -153,7 +153,7 @@ public class MsgrightView extends e {
         }
     }
 
-    @Override // d.b.i0.e1.f.e
+    @Override // d.b.j0.e1.f.e
     public void v(View view, ChatMessage chatMessage) {
         if (chatMessage.getLocalData() != null && chatMessage.getLocalData().getStatus() != null && (chatMessage.getLocalData().getStatus().shortValue() == 3 || chatMessage.getLocalData().getStatus().shortValue() == 2)) {
             if (this.v.getVisibility() != 8) {

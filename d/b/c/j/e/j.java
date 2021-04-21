@@ -3,28 +3,28 @@ package d.b.c.j.e;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public float f42907a = 8.0f;
+    public float f43147a = 8.0f;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f42908b = 15.0f;
+    public float f43148b = 15.0f;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f42909c = 4.0f;
+    public float f43149c = 4.0f;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f42910d = 60.0f;
+    public float f43150d = 60.0f;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f42911e = 150;
+    public int f43151e = 150;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f42912f = 150;
+    public int f43152f = 150;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f42913g = 500;
+    public int f43153g = 500;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f42914h = 0.4f;
+    public float f43154h = 0.4f;
     public float i = 1.0f;
     public float j = 20.0f;
     public float k = 10.0f;
@@ -39,27 +39,27 @@ public class j {
     }
 
     public float c() {
-        return this.f42908b;
+        return this.f43148b;
     }
 
     public int d() {
-        return this.f42912f;
+        return this.f43152f;
     }
 
     public float e() {
-        return this.f42914h;
+        return this.f43154h;
     }
 
     public float f() {
-        return this.f42909c;
+        return this.f43149c;
     }
 
     public float g() {
-        return this.f42910d;
+        return this.f43150d;
     }
 
     public int h() {
-        return this.f42913g;
+        return this.f43153g;
     }
 
     public float i() {
@@ -67,11 +67,11 @@ public class j {
     }
 
     public float j() {
-        return this.f42907a;
+        return this.f43147a;
     }
 
     public int k() {
-        return this.f42911e;
+        return this.f43151e;
     }
 
     public float l() {

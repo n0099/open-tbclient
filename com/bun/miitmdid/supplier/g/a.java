@@ -7,11 +7,11 @@ import com.bun.miitmdid.utils.SupplierListener;
 public class a implements InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f26803a;
+    public Context f26811a;
 
     public a(Context context) {
         com.heytap.openid.sdk.a.a(context);
-        this.f26803a = context;
+        this.f26811a = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -39,7 +39,7 @@ public class a implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
         try {
-            String d2 = com.heytap.openid.sdk.a.d(this.f26803a);
+            String d2 = com.heytap.openid.sdk.a.d(this.f26811a);
             return d2 == null ? "" : d2;
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -50,7 +50,7 @@ public class a implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
         try {
-            String b2 = com.heytap.openid.sdk.a.b(this.f26803a);
+            String b2 = com.heytap.openid.sdk.a.b(this.f26811a);
             return b2 == null ? "" : b2;
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -66,7 +66,7 @@ public class a implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
         try {
-            String c2 = com.heytap.openid.sdk.a.c(this.f26803a);
+            String c2 = com.heytap.openid.sdk.a.c(this.f26811a);
             return c2 == null ? "" : c2;
         } catch (Exception e2) {
             e2.printStackTrace();

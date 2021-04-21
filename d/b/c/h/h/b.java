@@ -12,25 +12,25 @@ import java.util.Map;
 public class b {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Map<String, b> f42740d = new HashMap();
+    public static final Map<String, b> f42980d = new HashMap();
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Object f42741e = new Object();
+    public static final Object f42981e = new Object();
 
     /* renamed from: f  reason: collision with root package name */
-    public static DateFormat f42742f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINESE);
+    public static DateFormat f42982f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINESE);
 
     /* renamed from: a  reason: collision with root package name */
-    public LinkedList<a> f42743a = new LinkedList<>();
+    public LinkedList<a> f42983a = new LinkedList<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public String f42744b;
+    public String f42984b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f42745c;
+    public long f42985c;
 
     public b(String str) {
-        this.f42744b = str;
+        this.f42984b = str;
     }
 
     public static b c() {
@@ -41,16 +41,16 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             str = "Default";
         }
-        if (!f42740d.containsKey(str)) {
-            synchronized (f42741e) {
-                if (!f42740d.containsKey(str)) {
+        if (!f42980d.containsKey(str)) {
+            synchronized (f42981e) {
+                if (!f42980d.containsKey(str)) {
                     b bVar = new b(str);
-                    f42740d.put(str, bVar);
+                    f42980d.put(str, bVar);
                     return bVar;
                 }
             }
         }
-        return f42740d.get(str);
+        return f42980d.get(str);
     }
 
     public static void e(String str, String str2) {
@@ -58,30 +58,30 @@ public class b {
     }
 
     public final void a() {
-        while (this.f42743a.size() >= 70) {
-            this.f42743a.poll();
+        while (this.f42983a.size() >= 70) {
+            this.f42983a.poll();
         }
     }
 
     public final void b() {
-        if (this.f42745c == 0) {
-            this.f42745c = System.currentTimeMillis();
+        if (this.f42985c == 0) {
+            this.f42985c = System.currentTimeMillis();
         }
     }
 
     public void f(String str, String str2) {
         b();
         a();
-        this.f42743a.add(new a(str, str2));
+        this.f42983a.add(new a(str, str2));
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("trace_" + this.f42744b + "{begin@" + f42742f.format(new Date(this.f42745c)) + "->");
-        for (int i = 0; i < this.f42743a.size(); i++) {
-            a aVar = this.f42743a.get(i);
-            sb.append(String.format("%s(%s)@%s", aVar.f42746a, aVar.f42747b, f42742f.format(new Date(aVar.f42748c))));
-            if (i < this.f42743a.size() - 1) {
+        sb.append("trace_" + this.f42984b + "{begin@" + f42982f.format(new Date(this.f42985c)) + "->");
+        for (int i = 0; i < this.f42983a.size(); i++) {
+            a aVar = this.f42983a.get(i);
+            sb.append(String.format("%s(%s)@%s", aVar.f42986a, aVar.f42987b, f42982f.format(new Date(aVar.f42988c))));
+            if (i < this.f42983a.size() - 1) {
                 sb.append("->");
             }
         }
@@ -93,18 +93,18 @@ public class b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f42746a;
+        public String f42986a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42747b;
+        public String f42987b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f42748c;
+        public long f42988c;
 
         public a(String str, String str2, long j) {
-            this.f42746a = str;
-            this.f42747b = str2;
-            this.f42748c = j;
+            this.f42986a = str;
+            this.f42987b = str2;
+            this.f42988c = j;
         }
 
         public a(String str, String str2) {

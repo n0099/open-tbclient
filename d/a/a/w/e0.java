@@ -10,7 +10,7 @@ import java.util.Collections;
 public class e0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final JsonReader.a f41746a = JsonReader.a.a(SearchView.IME_OPTION_NO_MICROPHONE, "c", Config.OS, "fillEnabled", com.baidu.mapsdkplatform.comapi.map.r.f7699a, "hd");
+    public static final JsonReader.a f41841a = JsonReader.a.a(SearchView.IME_OPTION_NO_MICROPHONE, "c", Config.OS, "fillEnabled", com.baidu.mapsdkplatform.comapi.map.r.f7699a, "hd");
 
     public static d.a.a.u.j.i a(JsonReader jsonReader, d.a.a.d dVar) throws IOException {
         d.a.a.u.i.d dVar2 = null;
@@ -20,7 +20,7 @@ public class e0 {
         boolean z = false;
         boolean z2 = false;
         while (jsonReader.t()) {
-            int D = jsonReader.D(f41746a);
+            int D = jsonReader.D(f41841a);
             if (D == 0) {
                 str = jsonReader.z();
             } else if (D == 1) {

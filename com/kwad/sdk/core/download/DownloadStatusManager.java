@@ -20,10 +20,10 @@ import java.util.WeakHashMap;
 public class DownloadStatusManager {
 
     /* renamed from: f  reason: collision with root package name */
-    public static com.ksad.download.f f33810f = new com.kwad.sdk.core.download.c.a();
+    public static com.ksad.download.f f33905f = new com.kwad.sdk.core.download.c.a();
 
     /* renamed from: g  reason: collision with root package name */
-    public static final BroadcastReceiver f33811g = new BroadcastReceiver() { // from class: com.kwad.sdk.core.download.DownloadStatusManager.1
+    public static final BroadcastReceiver f33906g = new BroadcastReceiver() { // from class: com.kwad.sdk.core.download.DownloadStatusManager.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             DownloadStatusManager.a().a(intent);
@@ -31,7 +31,7 @@ public class DownloadStatusManager {
     };
 
     /* renamed from: h  reason: collision with root package name */
-    public static final BroadcastReceiver f33812h = new BroadcastReceiver() { // from class: com.kwad.sdk.core.download.DownloadStatusManager.2
+    public static final BroadcastReceiver f33907h = new BroadcastReceiver() { // from class: com.kwad.sdk.core.download.DownloadStatusManager.2
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             DownloadStatusManager.a().b(intent);
@@ -39,19 +39,19 @@ public class DownloadStatusManager {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakHashMap<d, AdTemplate> f33813a;
+    public final WeakHashMap<d, AdTemplate> f33908a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Map<d, AdTemplate> f33814b;
+    public final Map<d, AdTemplate> f33909b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f33815c;
+    public volatile boolean f33910c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final HashMap<String, AdTemplate> f33816d;
+    public final HashMap<String, AdTemplate> f33911d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Map<String, AdTemplate> f33817e;
+    public final Map<String, AdTemplate> f33912e;
 
     /* loaded from: classes6.dex */
     public enum Holder {
@@ -64,7 +64,7 @@ public class DownloadStatusManager {
         }
 
         public DownloadStatusManager getInstance() {
-            if (!this.mInstance.f33815c) {
+            if (!this.mInstance.f33910c) {
                 synchronized (this.lock) {
                     this.mInstance.b();
                 }
@@ -75,12 +75,12 @@ public class DownloadStatusManager {
 
     public DownloadStatusManager() {
         WeakHashMap<d, AdTemplate> weakHashMap = new WeakHashMap<>();
-        this.f33813a = weakHashMap;
-        this.f33814b = Collections.synchronizedMap(weakHashMap);
-        this.f33815c = false;
+        this.f33908a = weakHashMap;
+        this.f33909b = Collections.synchronizedMap(weakHashMap);
+        this.f33910c = false;
         HashMap<String, AdTemplate> hashMap = new HashMap<>();
-        this.f33816d = hashMap;
-        this.f33817e = Collections.synchronizedMap(hashMap);
+        this.f33911d = hashMap;
+        this.f33912e = Collections.synchronizedMap(hashMap);
         b();
     }
 
@@ -89,15 +89,15 @@ public class DownloadStatusManager {
     }
 
     public static void a(Context context) {
-        if (Holder.INSTANCE.mInstance.f33815c) {
+        if (Holder.INSTANCE.mInstance.f33910c) {
             try {
                 synchronized (Holder.INSTANCE.lock) {
-                    if (Holder.INSTANCE.mInstance.f33815c) {
-                        context.unregisterReceiver(f33811g);
-                        context.unregisterReceiver(f33812h);
-                        Holder.INSTANCE.mInstance.f33814b.clear();
-                        Holder.INSTANCE.mInstance.f33817e.clear();
-                        Holder.INSTANCE.mInstance.f33815c = false;
+                    if (Holder.INSTANCE.mInstance.f33910c) {
+                        context.unregisterReceiver(f33906g);
+                        context.unregisterReceiver(f33907h);
+                        Holder.INSTANCE.mInstance.f33909b.clear();
+                        Holder.INSTANCE.mInstance.f33912e.clear();
+                        Holder.INSTANCE.mInstance.f33910c = false;
                     }
                 }
             } catch (Exception unused) {
@@ -121,7 +121,7 @@ public class DownloadStatusManager {
         String string = extras.getString("RESULT_DOWNLOAD_ID");
         String action = intent.getAction();
         char c3 = 2;
-        if (TextUtils.equals(a.f33819b, action)) {
+        if (TextUtils.equals(a.f33914b, action)) {
             str = "";
             str2 = null;
             i = 0;
@@ -129,7 +129,7 @@ public class DownloadStatusManager {
             i3 = 0;
             i4 = 0;
             c2 = 1;
-        } else if (TextUtils.equals(a.f33820c, action)) {
+        } else if (TextUtils.equals(a.f33915c, action)) {
             i = extras.getInt("KEY_RESULT_PROGRESS", 0);
             i4 = extras.getInt("KEY_RESULT_PROGRESS_SOFARBYTES", 0);
             str2 = null;
@@ -137,7 +137,7 @@ public class DownloadStatusManager {
             i3 = extras.getInt("KEY_RESULT_PROGRESS_TOTALBYTES", 0);
             str = "";
             i2 = 0;
-        } else if (TextUtils.equals(a.f33821d, action)) {
+        } else if (TextUtils.equals(a.f33916d, action)) {
             String string2 = extras.getString("KEY_REUSLT_FILEPATH");
             str = "";
             str2 = string2;
@@ -146,7 +146,7 @@ public class DownloadStatusManager {
             i3 = 0;
             i4 = 0;
             c2 = 3;
-        } else if (TextUtils.equals(a.f33822e, action)) {
+        } else if (TextUtils.equals(a.f33917e, action)) {
             int i5 = extras.getInt("KEY_RESULT_ERROR_CODE", 0);
             str = extras.getString("KEY_RESULT_ERROR_MSG", "");
             str2 = null;
@@ -155,7 +155,7 @@ public class DownloadStatusManager {
             c2 = 4;
             i2 = i5;
             i = 0;
-        } else if (TextUtils.equals(a.f33823f, action)) {
+        } else if (TextUtils.equals(a.f33918f, action)) {
             str = "";
             str2 = null;
             i = 0;
@@ -163,7 +163,7 @@ public class DownloadStatusManager {
             i3 = 0;
             i4 = 0;
             c2 = 5;
-        } else if (TextUtils.equals(a.f33824g, action)) {
+        } else if (TextUtils.equals(a.f33919g, action)) {
             str = "";
             str2 = null;
             i = 0;
@@ -171,7 +171,7 @@ public class DownloadStatusManager {
             i3 = 0;
             i4 = 0;
             c2 = 6;
-        } else if (TextUtils.equals(a.f33825h, action)) {
+        } else if (TextUtils.equals(a.f33920h, action)) {
             str = "";
             str2 = null;
             i = 0;
@@ -233,8 +233,8 @@ public class DownloadStatusManager {
             }
         }
         f fVar = new f();
-        Set<d> keySet = this.f33814b.keySet();
-        synchronized (this.f33814b) {
+        Set<d> keySet = this.f33909b.keySet();
+        synchronized (this.f33909b) {
             for (d dVar : keySet) {
                 if (dVar != null) {
                     if (TextUtils.equals(dVar.a(), string)) {
@@ -281,7 +281,7 @@ public class DownloadStatusManager {
 
     private void a(String str, f fVar) {
         AdTemplate value;
-        for (Map.Entry<String, AdTemplate> entry : this.f33817e.entrySet()) {
+        for (Map.Entry<String, AdTemplate> entry : this.f33912e.entrySet()) {
             if (entry != null && (value = entry.getValue()) != null) {
                 AdInfo j = com.kwad.sdk.core.response.b.c.j(value);
                 com.kwad.sdk.core.a.a().a(str, value);
@@ -298,29 +298,29 @@ public class DownloadStatusManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        if (this.f33815c || KsAdSDKImpl.get().getContext() == null) {
+        if (this.f33910c || KsAdSDKImpl.get().getContext() == null) {
             return;
         }
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(a.f33819b);
-        intentFilter.addAction(a.f33820c);
-        intentFilter.addAction(a.f33821d);
-        intentFilter.addAction(a.f33822e);
-        intentFilter.addAction(a.f33823f);
-        intentFilter.addAction(a.f33824g);
-        intentFilter.addAction(a.f33825h);
+        intentFilter.addAction(a.f33914b);
+        intentFilter.addAction(a.f33915c);
+        intentFilter.addAction(a.f33916d);
+        intentFilter.addAction(a.f33917e);
+        intentFilter.addAction(a.f33918f);
+        intentFilter.addAction(a.f33919g);
+        intentFilter.addAction(a.f33920h);
         intentFilter.addAction(a.i);
         intentFilter.addAction(a.j);
         intentFilter.addAction(a.k);
         intentFilter.addAction(a.m);
         intentFilter.addAction(a.l);
         intentFilter.addAction(a.n);
-        KsAdSDKImpl.get().getContext().registerReceiver(f33811g, intentFilter);
+        KsAdSDKImpl.get().getContext().registerReceiver(f33906g, intentFilter);
         IntentFilter intentFilter2 = new IntentFilter();
         intentFilter2.addAction(PackageChangedReceiver.ACTION_INSTALL);
         intentFilter2.addDataScheme("package");
-        KsAdSDKImpl.get().getContext().registerReceiver(f33812h, intentFilter2);
-        this.f33815c = true;
+        KsAdSDKImpl.get().getContext().registerReceiver(f33907h, intentFilter2);
+        this.f33910c = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -330,17 +330,17 @@ public class DownloadStatusManager {
             return;
         }
         f fVar = new f();
-        Set<d> keySet = this.f33814b.keySet();
-        synchronized (this.f33814b) {
+        Set<d> keySet = this.f33909b.keySet();
+        synchronized (this.f33909b) {
             for (d dVar : keySet) {
                 if (dVar != null && !TextUtils.isEmpty(schemeSpecificPart) && TextUtils.equals(schemeSpecificPart, dVar.b())) {
                     dVar.a((String) null, 0, fVar);
                 }
             }
         }
-        f33810f.a(schemeSpecificPart);
-        Set<Map.Entry<String, AdTemplate>> entrySet = this.f33817e.entrySet();
-        synchronized (this.f33817e) {
+        f33905f.a(schemeSpecificPart);
+        Set<Map.Entry<String, AdTemplate>> entrySet = this.f33912e.entrySet();
+        synchronized (this.f33912e) {
             Iterator<Map.Entry<String, AdTemplate>> it = entrySet.iterator();
             while (it.hasNext()) {
                 Map.Entry<String, AdTemplate> next = it.next();
@@ -355,11 +355,11 @@ public class DownloadStatusManager {
     }
 
     public void a(d dVar) {
-        this.f33814b.remove(dVar);
+        this.f33909b.remove(dVar);
     }
 
     public void a(d dVar, AdTemplate adTemplate) {
-        this.f33814b.put(dVar, adTemplate);
+        this.f33909b.put(dVar, adTemplate);
     }
 
     public void a(AdTemplate adTemplate) {
@@ -368,7 +368,7 @@ public class DownloadStatusManager {
             if (TextUtils.isEmpty(s)) {
                 return;
             }
-            this.f33817e.put(s, adTemplate);
+            this.f33912e.put(s, adTemplate);
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }

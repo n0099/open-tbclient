@@ -14,15 +14,15 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicBoolean f36173a = new AtomicBoolean(false);
+    public static final AtomicBoolean f36268a = new AtomicBoolean(false);
 
     public static void a(Context context) {
         final String Z;
         final String str;
-        if (f36173a.get() || KsAdSDKImpl.get().getIsExternal()) {
+        if (f36268a.get() || KsAdSDKImpl.get().getIsExternal()) {
             return;
         }
-        f36173a.set(true);
+        f36268a.set(true);
         if (AbiUtil.b()) {
             Z = com.kwad.sdk.core.config.c.aa();
             if (TextUtils.isEmpty(Z)) {
@@ -41,11 +41,11 @@ public class e {
             @Override // com.kwai.sodler.lib.a.b.a
             public com.kwai.sodler.lib.b.b a(String str2) {
                 com.kwai.sodler.lib.b.b bVar = new com.kwai.sodler.lib.b.b();
-                bVar.f37435c = Z;
-                bVar.f37437e = true;
-                bVar.f37433a = str;
-                bVar.f37434b = "3.0";
-                bVar.f37439g = false;
+                bVar.f37530c = Z;
+                bVar.f37532e = true;
+                bVar.f37528a = str;
+                bVar.f37529b = "3.0";
+                bVar.f37534g = false;
                 return bVar;
             }
         });

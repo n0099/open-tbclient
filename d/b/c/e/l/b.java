@@ -3,7 +3,7 @@ package d.b.c.e.l;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f42345a;
+    public a f42585a;
 
     /* loaded from: classes.dex */
     public interface a {

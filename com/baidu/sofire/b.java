@@ -8,13 +8,13 @@ import java.net.UnknownHostException;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f11291a = -1;
+    public static int f11299a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ThreadLocal<StringBuilder> f11292b = new ThreadLocal<>();
+    public static ThreadLocal<StringBuilder> f11300b = new ThreadLocal<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f11293c;
+    public static int f11301c;
 
     public static String a(Throwable th) {
         for (Throwable th2 = th; th2 != null; th2 = th2.getCause()) {

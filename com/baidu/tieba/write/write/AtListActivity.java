@@ -42,11 +42,11 @@ import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.write.write.AtSelectFriendList;
 import d.b.c.j.e.q;
-import d.b.i0.v3.v.a;
+import d.b.j0.v3.v.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class AtListActivity extends SuspendedActivity implements d.b.h0.t0.a, AdapterView.OnItemClickListener, a.c {
+public class AtListActivity extends SuspendedActivity implements d.b.i0.t0.a, AdapterView.OnItemClickListener, a.c {
     public static final String FROM_AT = "0";
     public static final String FROM_BJH = "2";
     public static final String FROM_CHAT = "1";
@@ -71,8 +71,8 @@ public class AtListActivity extends SuspendedActivity implements d.b.h0.t0.a, Ad
     public ArrayList<MetaData> mFriendList = new ArrayList<>();
     public BdListView mListView = null;
     public l mFriendListTask = null;
-    public d.b.i0.v3.o.a mModel = null;
-    public d.b.i0.v3.v.a mAdapter = null;
+    public d.b.j0.v3.o.a mModel = null;
+    public d.b.j0.v3.v.a mAdapter = null;
     public String mPreEditString = null;
     public RelativeLayout mParent = null;
     public View mDivLine = null;
@@ -293,7 +293,7 @@ public class AtListActivity extends SuspendedActivity implements d.b.h0.t0.a, Ad
     }
 
     private void initData(Bundle bundle) {
-        this.mModel = new d.b.i0.v3.o.a();
+        this.mModel = new d.b.j0.v3.o.a();
         if (bundle != null) {
             this.isNeedMultiple = bundle.getBoolean(IntentConfig.IS_NEED_MULTIPLE);
             this.isForChat = bundle.getBoolean(AtListActivityConfig.IS_FOR_CHAT, false);
@@ -330,7 +330,7 @@ public class AtListActivity extends SuspendedActivity implements d.b.h0.t0.a, Ad
         initNavigationBar();
         this.mContainer = (RelativeLayout) findViewById(R.id.container);
         this.mListView = (BdListView) findViewById(R.id.list);
-        d.b.i0.v3.v.a aVar = new d.b.i0.v3.v.a(this, this.isNeedMultiple);
+        d.b.j0.v3.v.a aVar = new d.b.j0.v3.v.a(this, this.isNeedMultiple);
         this.mAdapter = aVar;
         aVar.f(this);
         this.mAdapter.d(new e());
@@ -430,20 +430,20 @@ public class AtListActivity extends SuspendedActivity implements d.b.h0.t0.a, Ad
         }
     }
 
-    @Override // d.b.h0.t0.a
+    @Override // d.b.i0.t0.a
     public Intent getResultIntent() {
         return this.mResultIntent;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public d.b.h0.t0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public d.b.i0.t0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         this.mContentView = linearLayout;
         this.mNavigationBar = navigationBar;
         LayoutInflater.from(this).inflate(R.layout.at_list_activity, (ViewGroup) this.mContentView, true);
         return this;
     }
 
-    @Override // d.b.i0.v3.v.a.c
+    @Override // d.b.j0.v3.v.a.c
     public void handlerItem(View view, MetaData metaData) {
         if (metaData == null) {
             return;
@@ -451,7 +451,7 @@ public class AtListActivity extends SuspendedActivity implements d.b.h0.t0.a, Ad
         this.mCandidateList.g(metaData);
     }
 
-    @Override // d.b.h0.t0.a
+    @Override // d.b.i0.t0.a
     public boolean isOnViewCancel() {
         d.b.c.e.p.l.w(getPageContext().getPageActivity(), this.mEditText);
         View view = this.mNaviSearchEditView;
@@ -465,7 +465,7 @@ public class AtListActivity extends SuspendedActivity implements d.b.h0.t0.a, Ad
         return false;
     }
 
-    @Override // d.b.h0.t0.a
+    @Override // d.b.i0.t0.a
     public boolean isOnViewTop() {
         View childAt;
         BdListView bdListView = this.mListView;
@@ -485,7 +485,7 @@ public class AtListActivity extends SuspendedActivity implements d.b.h0.t0.a, Ad
         this.mAdapter.notifyDataSetChanged();
         SkinManager.setBackgroundResource(this.mListFooter, R.drawable.invite_friend_list_item_bg_color);
         SkinManager.setBackgroundResource(this.mButtonPost, R.drawable.post_button_bg);
-        d.b.h0.r.u.c d2 = d.b.h0.r.u.c.d(this.mButtonPost);
+        d.b.i0.r.u.c d2 = d.b.i0.r.u.c.d(this.mButtonPost);
         d2.k(R.string.J_X03);
         d2.f(R.color.CAM_X0302);
         SkinManager.setViewTextColor(this.mButtonPost, R.color.CAM_X0101, 3);
@@ -550,7 +550,7 @@ public class AtListActivity extends SuspendedActivity implements d.b.h0.t0.a, Ad
             TiebaStatic.log(new StatisticItem("c12930").param("obj_id", item.getUserIdLong()));
         }
         if (this.isForBjh) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921427, new d.b.h0.t.b(item.getUk(), item.getName_show())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921427, new d.b.i0.t.b(item.getUk(), item.getName_show())));
         }
         this.mResultIntent = new Intent();
         Bundle bundle = new Bundle();
@@ -582,7 +582,7 @@ public class AtListActivity extends SuspendedActivity implements d.b.h0.t0.a, Ad
         this.mNoDataView.e();
     }
 
-    @Override // d.b.h0.t0.a
+    @Override // d.b.i0.t0.a
     public void onViewChangeSkinType(int i2) {
     }
 
@@ -618,34 +618,34 @@ public class AtListActivity extends SuspendedActivity implements d.b.h0.t0.a, Ad
     }
 
     /* loaded from: classes5.dex */
-    public class l extends BdAsyncTask<String, Integer, d.b.i0.v3.m.b> {
+    public class l extends BdAsyncTask<String, Integer, d.b.j0.v3.m.b> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f22098a;
+        public NetWork f22106a;
 
         public l() {
-            this.f22098a = null;
+            this.f22106a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public d.b.i0.v3.m.b doInBackground(String... strArr) {
+        public d.b.j0.v3.m.b doInBackground(String... strArr) {
             NetWork netWork = new NetWork();
-            this.f22098a = netWork;
+            this.f22106a = netWork;
             netWork.setUrl(TbConfig.SERVER_ADDRESS + "c/u/follow/list");
             if (!AtListActivity.this.isForChat) {
                 if (AtListActivity.this.isForBjh) {
-                    this.f22098a.addPostData("from", "2");
+                    this.f22106a.addPostData("from", "2");
                 } else {
-                    this.f22098a.addPostData("from", "0");
+                    this.f22106a.addPostData("from", "0");
                 }
             } else {
-                this.f22098a.addPostData("from", "1");
+                this.f22106a.addPostData("from", "1");
             }
-            String postNetData = this.f22098a.postNetData();
-            if (this.f22098a.getNetContext().getResponse().isRequestSuccess()) {
-                d.b.i0.v3.m.b bVar = new d.b.i0.v3.m.b();
+            String postNetData = this.f22106a.postNetData();
+            if (this.f22106a.getNetContext().getResponse().isRequestSuccess()) {
+                d.b.j0.v3.m.b bVar = new d.b.j0.v3.m.b();
                 bVar.b(postNetData);
                 return bVar;
             }
@@ -655,7 +655,7 @@ public class AtListActivity extends SuspendedActivity implements d.b.h0.t0.a, Ad
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(d.b.i0.v3.m.b bVar) {
+        public void onPostExecute(d.b.j0.v3.m.b bVar) {
             AtListActivity.this.mFriendListTask = null;
             AtListActivity atListActivity = AtListActivity.this;
             atListActivity.hideLoadingView(atListActivity.mContainer);
@@ -664,7 +664,7 @@ public class AtListActivity extends SuspendedActivity implements d.b.h0.t0.a, Ad
             if (AtListActivity.this.mCandidateContainer != null && AtListActivity.this.mCandidateContainer.getVisibility() == 0) {
                 AtListActivity.this.mDivLine.setVisibility(0);
             }
-            if (this.f22098a.getNetContext().getResponse().isRequestSuccess()) {
+            if (this.f22106a.getNetContext().getResponse().isRequestSuccess()) {
                 AtListActivity.this.mModel.b(bVar);
                 if (AtListActivity.this.mAdapter == null) {
                     return;
@@ -681,7 +681,7 @@ public class AtListActivity extends SuspendedActivity implements d.b.h0.t0.a, Ad
                 AtListActivity.this.mAdapter.notifyDataSetInvalidated();
                 AtListActivity.this.mListView.setSelection(0);
             } else {
-                AtListActivity.this.showToast(this.f22098a.getErrorString());
+                AtListActivity.this.showToast(this.f22106a.getErrorString());
                 AtListActivity atListActivity3 = AtListActivity.this;
                 atListActivity3.showNetRefreshView(atListActivity3.mContainer, AtListActivity.this.getString(R.string.refresh_view_title_text), null, AtListActivity.this.getString(R.string.refresh_view_button_text), true, AtListActivity.this.getNetRefreshListener());
             }
@@ -690,7 +690,7 @@ public class AtListActivity extends SuspendedActivity implements d.b.h0.t0.a, Ad
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            NetWork netWork = this.f22098a;
+            NetWork netWork = this.f22106a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
             }

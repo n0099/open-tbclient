@@ -79,19 +79,19 @@ public class BdNetTask implements INoProGuard {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f26723a = 1;
+        public static final int f26731a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f26724b = 2;
+        public static final int f26732b = 2;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int f26725c = 3;
+        public static final int f26733c = 3;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final int f26726d = 4;
+        public static final int f26734d = 4;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final /* synthetic */ int[] f26727e = {1, 2, 3, 4};
+        public static final /* synthetic */ int[] f26735e = {1, 2, 3, 4};
     }
 
     public BdNetTask() {
@@ -103,7 +103,7 @@ public class BdNetTask implements INoProGuard {
         this.mConnectionTimeOut = 0;
         this.mFollowRedirects = true;
         this.isUseCorenet = true;
-        this.mTaskPriority$77d0b2dd = b.f26724b;
+        this.mTaskPriority$77d0b2dd = b.f26732b;
     }
 
     private void clearForRecycle() {
@@ -275,7 +275,7 @@ public class BdNetTask implements INoProGuard {
     }
 
     public boolean isHigherPriority() {
-        return this.mTaskPriority$77d0b2dd == b.f26723a;
+        return this.mTaskPriority$77d0b2dd == b.f26731a;
     }
 
     public boolean isRedirect() {

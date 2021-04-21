@@ -8,16 +8,16 @@ import android.widget.AbsListView;
 public class DragSortItemView extends ViewGroup {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13794e;
+    public int f13802e;
 
     public DragSortItemView(Context context) {
         super(context);
-        this.f13794e = 48;
+        this.f13802e = 48;
         setLayoutParams(new AbsListView.LayoutParams(-1, -2));
     }
 
     public int getGravity() {
-        return this.f13794e;
+        return this.f13802e;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -26,7 +26,7 @@ public class DragSortItemView extends ViewGroup {
         if (childAt == null) {
             return;
         }
-        if (this.f13794e == 48) {
+        if (this.f13802e == 48) {
             childAt.layout(0, 0, getMeasuredWidth(), childAt.getMeasuredHeight());
         } else {
             childAt.layout(0, getMeasuredHeight() - childAt.getMeasuredHeight(), getMeasuredWidth(), getMeasuredHeight());
@@ -53,6 +53,6 @@ public class DragSortItemView extends ViewGroup {
     }
 
     public void setGravity(int i) {
-        this.f13794e = i;
+        this.f13802e = i;
     }
 }

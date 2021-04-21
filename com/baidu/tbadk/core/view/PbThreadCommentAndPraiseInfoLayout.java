@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import d.b.c.e.p.l;
-import d.b.h0.r.q.a2;
-import d.b.h0.r.q.e;
-import d.b.h0.r.u.c;
+import d.b.i0.r.q.a2;
+import d.b.i0.r.q.e;
+import d.b.i0.r.u.c;
 /* loaded from: classes3.dex */
 public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseInfoLayout {
     public View.OnClickListener k0;
@@ -167,10 +167,10 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             return;
         }
         e eVar = new e();
-        eVar.f51170b = 4;
-        eVar.f51172d = 2;
-        this.f13154h.setStatisticData(eVar);
-        this.f13154h.s();
+        eVar.f51506b = 4;
+        eVar.f51508d = 2;
+        this.f13162h.setStatisticData(eVar);
+        this.f13162h.s();
     }
 
     public void T() {
@@ -232,13 +232,13 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void setAgreeViewType(a2 a2Var) {
         if (a2Var != null) {
-            this.f13154h.setDisagreeShow(a2Var.y2());
+            this.f13162h.setDisagreeShow(a2Var.y2());
         }
         if (a2Var != null && a2Var.A2()) {
-            this.f13154h.setDisagreeShow(true);
+            this.f13162h.setDisagreeShow(true);
         }
         if (a2Var != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13154h.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13162h.getLayoutParams();
             if (a2Var.A2()) {
                 layoutParams.weight = 0.2f;
             } else if (a2Var.y2()) {
@@ -246,7 +246,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             } else {
                 layoutParams.weight = 0.5f;
             }
-            this.f13154h.setLayoutParams(layoutParams);
+            this.f13162h.setLayoutParams(layoutParams);
         }
     }
 

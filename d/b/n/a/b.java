@@ -39,25 +39,25 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public Supplier<List<ProcessEventSceneHandler>> f64847a;
+    public Supplier<List<ProcessEventSceneHandler>> f65021a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f64848b;
+    public String f65022b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f64849c;
+    public Context f65023c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f64850d;
+    public long f65024d;
 
     public b(@NonNull Context context) {
         if (context instanceof Application) {
-            this.f64849c = context;
+            this.f65023c = context;
         } else {
-            this.f64849c = context.getApplicationContext();
+            this.f65023c = context.getApplicationContext();
         }
-        this.f64848b = d.b.b0.b.a.a.b();
-        this.f64850d = System.currentTimeMillis();
+        this.f65022b = d.b.c0.b.a.a.b();
+        this.f65024d = System.currentTimeMillis();
         if (Build.VERSION.SDK_INT <= 19) {
             b();
         }
@@ -69,7 +69,7 @@ public class b {
         if (Build.VERSION.SDK_INT > 19) {
             forwardingProcessEventSceneHandler.addEventHandleCallback(new DefaultProcessEventSceneHandler());
         }
-        Supplier<List<ProcessEventSceneHandler>> supplier = this.f64847a;
+        Supplier<List<ProcessEventSceneHandler>> supplier = this.f65021a;
         if (supplier != null && Build.VERSION.SDK_INT > 19) {
             forwardingProcessEventSceneHandler.addEventHandleCallback(supplier.get());
         }
@@ -110,27 +110,27 @@ public class b {
     public final void h(@NonNull String str, @NonNull LogExtra logExtra) {
         HashSet hashSet;
         Set<LogFile> obtainProcessSnapShots;
-        File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(this.f64848b);
+        File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(this.f65022b);
         if (!obtainFileDirWithProcessName.exists()) {
             obtainFileDirWithProcessName.mkdirs();
         }
         JSONObject jSONObject = new JSONObject();
-        c(this.f64849c, jSONObject);
+        c(this.f65023c, jSONObject);
         logExtra.mJSONAttach = jSONObject.toString();
         ForwardingProcessEventSceneHandler a2 = a();
         File file = null;
         if (a2 != null) {
             hashSet = new HashSet(5);
             EventObject eventObject = new EventObject(LogType.NATIVE_CRASH, str);
-            Set<ProcessSnapshotType> requireGeneralSnapshots = a2.requireGeneralSnapshots(this.f64849c, eventObject);
-            if (requireGeneralSnapshots != null && requireGeneralSnapshots.size() > 0 && (obtainProcessSnapShots = SnapshotUtil.obtainProcessSnapShots(this.f64849c, requireGeneralSnapshots, obtainFileDirWithProcessName, this.f64848b, logExtra)) != null && obtainProcessSnapShots.size() > 0) {
+            Set<ProcessSnapshotType> requireGeneralSnapshots = a2.requireGeneralSnapshots(this.f65023c, eventObject);
+            if (requireGeneralSnapshots != null && requireGeneralSnapshots.size() > 0 && (obtainProcessSnapShots = SnapshotUtil.obtainProcessSnapShots(this.f65023c, requireGeneralSnapshots, obtainFileDirWithProcessName, this.f65022b, logExtra)) != null && obtainProcessSnapShots.size() > 0) {
                 hashSet.addAll(obtainProcessSnapShots);
             }
-            Set<LogFile> customizedSnapshots = a2.getCustomizedSnapshots(this.f64849c, obtainFileDirWithProcessName, eventObject);
+            Set<LogFile> customizedSnapshots = a2.getCustomizedSnapshots(this.f65023c, obtainFileDirWithProcessName, eventObject);
             if (customizedSnapshots != null && customizedSnapshots.size() > 0) {
                 hashSet.addAll(customizedSnapshots);
             }
-            LogFile obtainFragmentSnapShot = SnapshotUtil.obtainFragmentSnapShot(this.f64849c, a2, eventObject, obtainFileDirWithProcessName, SnapshotConstant.ProcessConstants.PROCESS_SHARED_FRAGMENT_FILE);
+            LogFile obtainFragmentSnapShot = SnapshotUtil.obtainFragmentSnapShot(this.f65023c, a2, eventObject, obtainFileDirWithProcessName, SnapshotConstant.ProcessConstants.PROCESS_SHARED_FRAGMENT_FILE);
             if (obtainFragmentSnapShot != null && obtainFragmentSnapShot.mFile.exists()) {
                 hashSet.add(obtainFragmentSnapShot);
             }
@@ -146,14 +146,14 @@ public class b {
         } else {
             hashSet = null;
         }
-        e(this.f64849c);
+        e(this.f65023c);
         if (hashSet != null) {
             file = SnapshotUtil.createPathNameKeeper(obtainFileDirWithProcessName, hashSet);
             if (LLog.sDebug && file != null) {
                 Log.d("loki-native-NativeCrashHandler", "pathNameKeeper = " + file.getAbsolutePath());
             }
         }
-        g(this.f64849c, str, file, logExtra);
+        g(this.f65023c, str, file, logExtra);
     }
 
     public void i(@NonNull String str, int i, int i2) {
@@ -168,7 +168,7 @@ public class b {
             }
         }
         logExtra.mCrashTime = String.valueOf(System.currentTimeMillis());
-        logExtra.mLaunchTime = String.valueOf(this.f64850d);
+        logExtra.mLaunchTime = String.valueOf(this.f65024d);
         if (DeviceUtil.OSInfo.hasNougat()) {
             logExtra.mProcessLifeTime = String.valueOf(SystemClock.elapsedRealtime() - Utility.getProcessStartElapsedRealTime());
         }

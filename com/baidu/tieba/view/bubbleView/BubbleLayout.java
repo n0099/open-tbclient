@@ -12,16 +12,16 @@ public class BubbleLayout extends FrameLayout {
     public static float n = -1.0f;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrowDirection f21904e;
+    public ArrowDirection f21912e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.i0.u3.j.a f21905f;
+    public d.b.j0.u3.j.a f21913f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f21906g;
+    public float f21914g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f21907h;
+    public float f21915h;
     public float i;
     public float j;
     public int k;
@@ -32,25 +32,25 @@ public class BubbleLayout extends FrameLayout {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f21908a;
+        public static final /* synthetic */ int[] f21916a;
 
         static {
             int[] iArr = new int[ArrowDirection.values().length];
-            f21908a = iArr;
+            f21916a = iArr;
             try {
                 iArr[ArrowDirection.LEFT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f21908a[ArrowDirection.RIGHT.ordinal()] = 2;
+                f21916a[ArrowDirection.RIGHT.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f21908a[ArrowDirection.TOP.ordinal()] = 3;
+                f21916a[ArrowDirection.TOP.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f21908a[ArrowDirection.BOTTOM.ordinal()] = 4;
+                f21916a[ArrowDirection.BOTTOM.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -68,7 +68,7 @@ public class BubbleLayout extends FrameLayout {
         if (i2 < i || i4 < i3) {
             return;
         }
-        this.f21905f = new d.b.i0.u3.j.a(new RectF(i, i3, i2, i4), this.f21906g, this.f21907h, this.i, this.j, this.l, this.m, this.k, this.f21904e);
+        this.f21913f = new d.b.j0.u3.j.a(new RectF(i, i3, i2, i4), this.f21914g, this.f21915h, this.i, this.j, this.l, this.m, this.k, this.f21912e);
     }
 
     public final void c() {
@@ -76,11 +76,11 @@ public class BubbleLayout extends FrameLayout {
         int paddingRight = getPaddingRight();
         int paddingTop = getPaddingTop();
         int paddingBottom = getPaddingBottom();
-        int i = a.f21908a[this.f21904e.ordinal()];
+        int i = a.f21916a[this.f21912e.ordinal()];
         if (i == 1) {
-            paddingLeft = (int) (paddingLeft + this.f21906g);
+            paddingLeft = (int) (paddingLeft + this.f21914g);
         } else if (i == 2) {
-            paddingRight = (int) (paddingRight + this.f21906g);
+            paddingRight = (int) (paddingRight + this.f21914g);
         } else if (i == 3) {
             paddingTop = (int) (paddingTop + this.i);
         } else if (i == 4) {
@@ -101,11 +101,11 @@ public class BubbleLayout extends FrameLayout {
         int paddingRight = getPaddingRight();
         int paddingTop = getPaddingTop();
         int paddingBottom = getPaddingBottom();
-        int i = a.f21908a[this.f21904e.ordinal()];
+        int i = a.f21916a[this.f21912e.ordinal()];
         if (i == 1) {
-            paddingLeft = (int) (paddingLeft - this.f21906g);
+            paddingLeft = (int) (paddingLeft - this.f21914g);
         } else if (i == 2) {
-            paddingRight = (int) (paddingRight - this.f21906g);
+            paddingRight = (int) (paddingRight - this.f21914g);
         } else if (i == 3) {
             paddingTop = (int) (paddingTop - this.i);
         } else if (i == 4) {
@@ -123,7 +123,7 @@ public class BubbleLayout extends FrameLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        d.b.i0.u3.j.a aVar = this.f21905f;
+        d.b.j0.u3.j.a aVar = this.f21913f;
         if (aVar != null) {
             aVar.draw(canvas);
         }
@@ -144,7 +144,7 @@ public class BubbleLayout extends FrameLayout {
     }
 
     public ArrowDirection getArrowDirection() {
-        return this.f21904e;
+        return this.f21912e;
     }
 
     public float getArrowHeight() {
@@ -156,7 +156,7 @@ public class BubbleLayout extends FrameLayout {
     }
 
     public float getArrowWidth() {
-        return this.f21906g;
+        return this.f21914g;
     }
 
     public int getBubbleColor() {
@@ -164,7 +164,7 @@ public class BubbleLayout extends FrameLayout {
     }
 
     public float getCornersRadius() {
-        return this.f21907h;
+        return this.f21915h;
     }
 
     public int getStrokeColor() {
@@ -188,14 +188,14 @@ public class BubbleLayout extends FrameLayout {
     public BubbleLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R$styleable.BubbleLayout);
-        this.f21906g = obtainStyledAttributes.getDimension(R$styleable.BubbleLayout_bl_arrowWidth, a(8.0f, context));
+        this.f21914g = obtainStyledAttributes.getDimension(R$styleable.BubbleLayout_bl_arrowWidth, a(8.0f, context));
         this.i = obtainStyledAttributes.getDimension(R$styleable.BubbleLayout_bl_arrowHeight, a(8.0f, context));
-        this.f21907h = obtainStyledAttributes.getDimension(R$styleable.BubbleLayout_bl_cornersRadius, 0.0f);
+        this.f21915h = obtainStyledAttributes.getDimension(R$styleable.BubbleLayout_bl_cornersRadius, 0.0f);
         this.j = obtainStyledAttributes.getDimension(R$styleable.BubbleLayout_bl_arrowPosition, a(12.0f, context));
         this.k = obtainStyledAttributes.getColor(R$styleable.BubbleLayout_bl_bubbleColor, -1);
         this.l = obtainStyledAttributes.getDimension(R$styleable.BubbleLayout_bl_strokeWidth, n);
         this.m = obtainStyledAttributes.getColor(R$styleable.BubbleLayout_bl_strokeColor, -7829368);
-        this.f21904e = ArrowDirection.fromInt(obtainStyledAttributes.getInt(R$styleable.BubbleLayout_tb_bl_arrowDirection, ArrowDirection.LEFT.getValue()));
+        this.f21912e = ArrowDirection.fromInt(obtainStyledAttributes.getInt(R$styleable.BubbleLayout_tb_bl_arrowDirection, ArrowDirection.LEFT.getValue()));
         obtainStyledAttributes.recycle();
         c();
     }

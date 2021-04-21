@@ -15,25 +15,25 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotRanklistActivity;
 import d.b.c.e.p.j;
 import d.b.c.e.p.l;
-import d.b.h0.d0.h;
-import d.b.h0.r.f0.f;
-import d.b.h0.r.f0.g;
+import d.b.i0.d0.h;
+import d.b.i0.r.f0.f;
+import d.b.i0.r.f0.g;
 /* loaded from: classes4.dex */
 public class HotRankView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext<?> f17298e;
+    public TbPageContext<?> f17306e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BdTypeListView f17299f;
+    public BdTypeListView f17307f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.b.i0.c1.a.a f17300g;
+    public d.b.j0.c1.a.a f17308g;
 
     /* renamed from: h  reason: collision with root package name */
-    public g f17301h;
+    public g f17309h;
     public View i;
-    public d.b.h0.d0.g j;
+    public d.b.i0.d0.g j;
     public h k;
 
     /* loaded from: classes4.dex */
@@ -41,15 +41,15 @@ public class HotRankView extends FrameLayout {
         public a() {
         }
 
-        @Override // d.b.h0.r.f0.f.g
+        @Override // d.b.i0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             if (!j.z()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
-                HotRankView.this.f17299f.A(0L);
+                HotRankView.this.f17307f.A(0L);
                 return;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004012));
-            ((HotRanklistActivity) HotRankView.this.f17298e.getOrignalPage()).loadHotTopicRanklistData();
+            ((HotRanklistActivity) HotRankView.this.f17306e.getOrignalPage()).loadHotTopicRanklistData();
         }
     }
 
@@ -78,22 +78,22 @@ public class HotRankView extends FrameLayout {
             if (j.A()) {
                 HotRankView.this.e();
                 HotRankView hotRankView = HotRankView.this;
-                hotRankView.l(true, l.g(hotRankView.f17298e.getPageActivity(), R.dimen.ds500));
-                ((HotRanklistActivity) HotRankView.this.f17298e.getOrignalPage()).loadHotTopicRanklistData();
+                hotRankView.l(true, l.g(hotRankView.f17306e.getPageActivity(), R.dimen.ds500));
+                ((HotRanklistActivity) HotRankView.this.f17306e.getOrignalPage()).loadHotTopicRanklistData();
             }
         }
     }
 
     public HotRankView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f17299f = null;
-        this.f17300g = null;
-        this.f17301h = null;
+        this.f17307f = null;
+        this.f17308g = null;
+        this.f17309h = null;
         f(context);
     }
 
     public void c(boolean z) {
-        BdTypeListView bdTypeListView = this.f17299f;
+        BdTypeListView bdTypeListView = this.f17307f;
         if (bdTypeListView != null) {
             if (z) {
                 bdTypeListView.z();
@@ -104,7 +104,7 @@ public class HotRankView extends FrameLayout {
     }
 
     public void d() {
-        d.b.h0.d0.g gVar = this.j;
+        d.b.i0.d0.g gVar = this.j;
         if (gVar != null) {
             gVar.dettachView(this);
             this.j = null;
@@ -121,26 +121,26 @@ public class HotRankView extends FrameLayout {
 
     public final void f(Context context) {
         BdTypeListView bdTypeListView = new BdTypeListView(context);
-        this.f17299f = bdTypeListView;
+        this.f17307f = bdTypeListView;
         bdTypeListView.setVerticalScrollBarEnabled(false);
-        this.f17299f.setDividerHeight(0);
-        this.f17299f.setSelector(17170445);
+        this.f17307f.setDividerHeight(0);
+        this.f17307f.setSelector(17170445);
         d.b.c.a.f<?> a2 = d.b.c.a.j.a(context);
         if (a2 instanceof TbPageContext) {
-            this.f17298e = (TbPageContext) a2;
+            this.f17306e = (TbPageContext) a2;
         }
-        g gVar = new g(this.f17298e);
-        this.f17301h = gVar;
+        g gVar = new g(this.f17306e);
+        this.f17309h = gVar;
         gVar.b(new a());
-        this.f17299f.setPullRefresh(this.f17301h);
-        this.i = BdListViewHelper.d(context, this.f17299f, BdListViewHelper.HeadType.HASTAB);
-        this.f17299f.setOnScrollListener(new b());
-        this.f17300g = new d.b.i0.c1.a.a((HotRanklistActivity) this.f17298e.getOrignalPage(), this.f17299f);
-        addView(this.f17299f);
+        this.f17307f.setPullRefresh(this.f17309h);
+        this.i = BdListViewHelper.d(context, this.f17307f, BdListViewHelper.HeadType.HASTAB);
+        this.f17307f.setOnScrollListener(new b());
+        this.f17308g = new d.b.j0.c1.a.a((HotRanklistActivity) this.f17306e.getOrignalPage(), this.f17307f);
+        addView(this.f17307f);
     }
 
     public boolean g() {
-        d.b.h0.d0.g gVar = this.j;
+        d.b.i0.d0.g gVar = this.j;
         if (gVar != null) {
             return gVar.isViewAttached();
         }
@@ -157,9 +157,9 @@ public class HotRankView extends FrameLayout {
 
     public void i() {
         SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(this.f17299f, R.color.CAM_X0201);
-        this.f17299f.getListAdapter().notifyDataSetChanged();
-        d.b.h0.d0.g gVar = this.j;
+        SkinManager.setBackgroundColor(this.f17307f, R.color.CAM_X0201);
+        this.f17307f.getListAdapter().notifyDataSetChanged();
+        d.b.i0.d0.g gVar = this.j;
         if (gVar != null) {
             gVar.onChangeSkinType();
         }
@@ -175,15 +175,15 @@ public class HotRankView extends FrameLayout {
         this.i.setLayoutParams(layoutParams);
     }
 
-    public void k(d.b.i0.c1.c.j jVar, String str) {
-        if (this.f17300g == null) {
+    public void k(d.b.j0.c1.c.j jVar, String str) {
+        if (this.f17308g == null) {
             return;
         }
         if (jVar == null) {
-            jVar = new d.b.i0.c1.c.j();
+            jVar = new d.b.j0.c1.c.j();
         }
-        this.f17299f.setVisibility(0);
-        this.f17300g.b(jVar, str);
+        this.f17307f.setVisibility(0);
+        this.f17308g.b(jVar, str);
     }
 
     public void l(boolean z, int i) {
@@ -192,16 +192,16 @@ public class HotRankView extends FrameLayout {
         }
         if (this.j == null) {
             if (i <= 0) {
-                this.j = new d.b.h0.d0.g(getContext());
+                this.j = new d.b.i0.d0.g(getContext());
             } else {
-                d.b.h0.d0.g gVar = new d.b.h0.d0.g(getContext(), i);
+                d.b.i0.d0.g gVar = new d.b.i0.d0.g(getContext(), i);
                 this.j = gVar;
                 gVar.h();
             }
             this.j.onChangeSkinType();
         }
         this.j.attachView(this, z);
-        this.f17299f.setVisibility(8);
+        this.f17307f.setVisibility(8);
     }
 
     public void m(String str, boolean z) {
@@ -214,22 +214,22 @@ public class HotRankView extends FrameLayout {
         this.k.j(getContext().getResources().getDimensionPixelSize(R.dimen.ds280));
         this.k.attachView(this, z);
         this.k.o();
-        this.f17299f.setVisibility(8);
+        this.f17307f.setVisibility(8);
     }
 
     public HotRankView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f17299f = null;
-        this.f17300g = null;
-        this.f17301h = null;
+        this.f17307f = null;
+        this.f17308g = null;
+        this.f17309h = null;
         f(context);
     }
 
     public HotRankView(Context context) {
         super(context);
-        this.f17299f = null;
-        this.f17300g = null;
-        this.f17301h = null;
+        this.f17307f = null;
+        this.f17308g = null;
+        this.f17309h = null;
         f(context);
     }
 }

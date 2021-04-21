@@ -9,11 +9,11 @@ import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.internal.C$Gson$Types;
 import com.google.gson.stream.JsonToken;
-import d.g.d.b.b;
-import d.g.d.b.d;
-import d.g.d.b.e;
-import d.g.d.b.h;
-import d.g.d.d.a;
+import d.h.d.b.b;
+import d.h.d.b.d;
+import d.h.d.b.e;
+import d.h.d.b.h;
+import d.h.d.d.a;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -22,27 +22,27 @@ import java.util.Map;
 public final class MapTypeAdapterFactory implements TypeAdapterFactory {
 
     /* renamed from: e  reason: collision with root package name */
-    public final b f31240e;
+    public final b f31335e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final boolean f31241f;
+    public final boolean f31336f;
 
     /* loaded from: classes6.dex */
     public final class Adapter<K, V> extends TypeAdapter<Map<K, V>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final TypeAdapter<K> f31242a;
+        public final TypeAdapter<K> f31337a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final TypeAdapter<V> f31243b;
+        public final TypeAdapter<V> f31338b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final e<? extends Map<K, V>> f31244c;
+        public final e<? extends Map<K, V>> f31339c;
 
         public Adapter(Gson gson, Type type, TypeAdapter<K> typeAdapter, Type type2, TypeAdapter<V> typeAdapter2, e<? extends Map<K, V>> eVar) {
-            this.f31242a = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
-            this.f31243b = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter2, type2);
-            this.f31244c = eVar;
+            this.f31337a = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
+            this.f31338b = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter2, type2);
+            this.f31339c = eVar;
         }
 
         public final String a(JsonElement jsonElement) {
@@ -74,13 +74,13 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
                 aVar.I();
                 return null;
             }
-            Map<K, V> a2 = this.f31244c.a();
+            Map<K, V> a2 = this.f31339c.a();
             if (M == JsonToken.BEGIN_ARRAY) {
                 aVar.n();
                 while (aVar.y()) {
                     aVar.n();
-                    K read = this.f31242a.read(aVar);
-                    if (a2.put(read, this.f31243b.read(aVar)) == null) {
+                    K read = this.f31337a.read(aVar);
+                    if (a2.put(read, this.f31338b.read(aVar)) == null) {
                         aVar.t();
                     } else {
                         throw new JsonSyntaxException("duplicate key: " + read);
@@ -90,9 +90,9 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
             } else {
                 aVar.o();
                 while (aVar.y()) {
-                    d.f67095a.a(aVar);
-                    K read2 = this.f31242a.read(aVar);
-                    if (a2.put(read2, this.f31243b.read(aVar)) != null) {
+                    d.f67242a.a(aVar);
+                    K read2 = this.f31337a.read(aVar);
+                    if (a2.put(read2, this.f31338b.read(aVar)) != null) {
                         throw new JsonSyntaxException("duplicate key: " + read2);
                     }
                 }
@@ -107,14 +107,14 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
         /* JADX WARN: Multi-variable type inference failed */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: c */
-        public void write(d.g.d.d.b bVar, Map<K, V> map) throws IOException {
+        public void write(d.h.d.d.b bVar, Map<K, V> map) throws IOException {
             if (map == null) {
                 bVar.B();
-            } else if (!MapTypeAdapterFactory.this.f31241f) {
+            } else if (!MapTypeAdapterFactory.this.f31336f) {
                 bVar.r();
                 for (Map.Entry<K, V> entry : map.entrySet()) {
                     bVar.z(String.valueOf(entry.getKey()));
-                    this.f31243b.write(bVar, entry.getValue());
+                    this.f31338b.write(bVar, entry.getValue());
                 }
                 bVar.v();
             } else {
@@ -123,7 +123,7 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
                 int i = 0;
                 boolean z = false;
                 for (Map.Entry<K, V> entry2 : map.entrySet()) {
-                    JsonElement jsonTree = this.f31242a.toJsonTree(entry2.getKey());
+                    JsonElement jsonTree = this.f31337a.toJsonTree(entry2.getKey());
                     arrayList.add(jsonTree);
                     arrayList2.add(entry2.getValue());
                     z |= jsonTree.isJsonArray() || jsonTree.isJsonObject();
@@ -134,7 +134,7 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
                     while (i < size) {
                         bVar.q();
                         h.b((JsonElement) arrayList.get(i), bVar);
-                        this.f31243b.write(bVar, arrayList2.get(i));
+                        this.f31338b.write(bVar, arrayList2.get(i));
                         bVar.t();
                         i++;
                     }
@@ -145,7 +145,7 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
                 int size2 = arrayList.size();
                 while (i < size2) {
                     bVar.z(a((JsonElement) arrayList.get(i)));
-                    this.f31243b.write(bVar, arrayList2.get(i));
+                    this.f31338b.write(bVar, arrayList2.get(i));
                     i++;
                 }
                 bVar.v();
@@ -154,23 +154,23 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
     }
 
     public MapTypeAdapterFactory(b bVar, boolean z) {
-        this.f31240e = bVar;
-        this.f31241f = z;
+        this.f31335e = bVar;
+        this.f31336f = z;
     }
 
     public final TypeAdapter<?> a(Gson gson, Type type) {
         if (type != Boolean.TYPE && type != Boolean.class) {
-            return gson.getAdapter(d.g.d.c.a.b(type));
+            return gson.getAdapter(d.h.d.c.a.b(type));
         }
-        return TypeAdapters.f31287f;
+        return TypeAdapters.f31382f;
     }
 
     @Override // com.google.gson.TypeAdapterFactory
-    public <T> TypeAdapter<T> create(Gson gson, d.g.d.c.a<T> aVar) {
+    public <T> TypeAdapter<T> create(Gson gson, d.h.d.c.a<T> aVar) {
         Type e2 = aVar.e();
         if (Map.class.isAssignableFrom(aVar.c())) {
             Type[] j = C$Gson$Types.j(e2, C$Gson$Types.k(e2));
-            return new Adapter(gson, j[0], a(gson, j[0]), j[1], gson.getAdapter(d.g.d.c.a.b(j[1])), this.f31240e.a(aVar));
+            return new Adapter(gson, j[0], a(gson, j[0]), j[1], gson.getAdapter(d.h.d.c.a.b(j[1])), this.f31335e.a(aVar));
         }
         return null;
     }

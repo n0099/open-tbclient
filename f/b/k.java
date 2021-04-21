@@ -5,17 +5,17 @@ import io.reactivex.internal.util.NotificationLite;
 public final class k<T> {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final k<Object> f68464b = new k<>(null);
+    public static final k<Object> f68611b = new k<>(null);
 
     /* renamed from: a  reason: collision with root package name */
-    public final Object f68465a;
+    public final Object f68612a;
 
     public k(Object obj) {
-        this.f68465a = obj;
+        this.f68612a = obj;
     }
 
     public static <T> k<T> a() {
-        return (k<T>) f68464b;
+        return (k<T>) f68611b;
     }
 
     public static <T> k<T> b(Throwable th) {
@@ -29,7 +29,7 @@ public final class k<T> {
     }
 
     public Throwable d() {
-        Object obj = this.f68465a;
+        Object obj = this.f68612a;
         if (NotificationLite.isError(obj)) {
             return NotificationLite.getError(obj);
         }
@@ -37,18 +37,18 @@ public final class k<T> {
     }
 
     public boolean e() {
-        return NotificationLite.isError(this.f68465a);
+        return NotificationLite.isError(this.f68612a);
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof k) {
-            return f.b.x.b.a.a(this.f68465a, ((k) obj).f68465a);
+            return f.b.x.b.a.a(this.f68612a, ((k) obj).f68612a);
         }
         return false;
     }
 
     public int hashCode() {
-        Object obj = this.f68465a;
+        Object obj = this.f68612a;
         if (obj != null) {
             return obj.hashCode();
         }
@@ -56,13 +56,13 @@ public final class k<T> {
     }
 
     public String toString() {
-        Object obj = this.f68465a;
+        Object obj = this.f68612a;
         if (obj == null) {
             return "OnCompleteNotification";
         }
         if (NotificationLite.isError(obj)) {
             return "OnErrorNotification[" + NotificationLite.getError(obj) + "]";
         }
-        return "OnNextNotification[" + this.f68465a + "]";
+        return "OnNextNotification[" + this.f68612a + "]";
     }
 }

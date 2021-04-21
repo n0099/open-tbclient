@@ -32,9 +32,9 @@ import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.AccountType;
-import d.b.x.a.g;
-import d.b.x.a.h;
-import d.b.x.a.i;
+import d.b.y.a.g;
+import d.b.y.a.h;
+import d.b.y.a.i;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -475,27 +475,27 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
     private void d() {
         try {
             if (this.n) {
-                this.f11141b.setBackgroundColor(getResources().getColor(d.b.x.a.b.sapi_sdk_sms_bg_night_mode));
-                this.f11143d.setTextColor(getResources().getColor(d.b.x.a.b.sapi_sdk_sms_edit_phone_text_color_night_mode));
-                this.f11143d.setHintTextColor(getResources().getColor(d.b.x.a.b.sapi_sdk_sms_edit_hint_color_night_mode));
-                this.f11144e.setTextColor(getResources().getColor(d.b.x.a.b.sapi_sdk_sms_edit_check_code_text_color_night_mode));
-                this.f11144e.setHintTextColor(getResources().getColor(d.b.x.a.b.sapi_sdk_sms_edit_check_code_hint_text_color_night_mode));
-                this.f11146g.setTextColor(getResources().getColor(d.b.x.a.b.sapi_sdk_sms_prompt_phone_number_error_color_night_mode));
-                this.f11147h.setBackgroundColor(getResources().getColor(d.b.x.a.b.sapi_sdk_separate_line_color_night_mode));
+                this.f11141b.setBackgroundColor(getResources().getColor(d.b.y.a.b.sapi_sdk_sms_bg_night_mode));
+                this.f11143d.setTextColor(getResources().getColor(d.b.y.a.b.sapi_sdk_sms_edit_phone_text_color_night_mode));
+                this.f11143d.setHintTextColor(getResources().getColor(d.b.y.a.b.sapi_sdk_sms_edit_hint_color_night_mode));
+                this.f11144e.setTextColor(getResources().getColor(d.b.y.a.b.sapi_sdk_sms_edit_check_code_text_color_night_mode));
+                this.f11144e.setHintTextColor(getResources().getColor(d.b.y.a.b.sapi_sdk_sms_edit_check_code_hint_text_color_night_mode));
+                this.f11146g.setTextColor(getResources().getColor(d.b.y.a.b.sapi_sdk_sms_prompt_phone_number_error_color_night_mode));
+                this.f11147h.setBackgroundColor(getResources().getColor(d.b.y.a.b.sapi_sdk_separate_line_color_night_mode));
                 Field declaredField = TextView.class.getDeclaredField("mCursorDrawableRes");
                 declaredField.setAccessible(true);
-                declaredField.set(this.f11144e, Integer.valueOf(d.b.x.a.d.sapi_sdk_input_edit_text_cursor_bg_night));
+                declaredField.set(this.f11144e, Integer.valueOf(d.b.y.a.d.sapi_sdk_input_edit_text_cursor_bg_night));
             } else {
-                this.f11141b.setBackgroundColor(getResources().getColor(d.b.x.a.b.sapi_sdk_sms_bg_light_mode));
-                this.f11143d.setTextColor(getResources().getColor(d.b.x.a.b.sapi_sdk_sms_edit_phone_text_color));
-                this.f11143d.setHintTextColor(getResources().getColor(d.b.x.a.b.sapi_sdk_sms_edit_hint_color));
-                this.f11144e.setTextColor(getResources().getColor(d.b.x.a.b.sapi_sdk_sms_edit_check_code_text_color));
-                this.f11144e.setHintTextColor(getResources().getColor(d.b.x.a.b.sapi_sdk_sms_edit_check_code_hint_text_color));
-                this.f11146g.setTextColor(getResources().getColor(d.b.x.a.b.sapi_sdk_sms_prompt_phone_number_error_color));
-                this.f11147h.setBackgroundColor(getResources().getColor(d.b.x.a.b.sapi_sdk_separate_line_color));
+                this.f11141b.setBackgroundColor(getResources().getColor(d.b.y.a.b.sapi_sdk_sms_bg_light_mode));
+                this.f11143d.setTextColor(getResources().getColor(d.b.y.a.b.sapi_sdk_sms_edit_phone_text_color));
+                this.f11143d.setHintTextColor(getResources().getColor(d.b.y.a.b.sapi_sdk_sms_edit_hint_color));
+                this.f11144e.setTextColor(getResources().getColor(d.b.y.a.b.sapi_sdk_sms_edit_check_code_text_color));
+                this.f11144e.setHintTextColor(getResources().getColor(d.b.y.a.b.sapi_sdk_sms_edit_check_code_hint_text_color));
+                this.f11146g.setTextColor(getResources().getColor(d.b.y.a.b.sapi_sdk_sms_prompt_phone_number_error_color));
+                this.f11147h.setBackgroundColor(getResources().getColor(d.b.y.a.b.sapi_sdk_separate_line_color));
                 Field declaredField2 = TextView.class.getDeclaredField("mCursorDrawableRes");
                 declaredField2.setAccessible(true);
-                declaredField2.set(this.f11144e, Integer.valueOf(d.b.x.a.d.sapi_sdk_input_edit_text_cursor_bg));
+                declaredField2.set(this.f11144e, Integer.valueOf(d.b.y.a.d.sapi_sdk_input_edit_text_cursor_bg));
             }
         } catch (Exception unused) {
         }
@@ -507,17 +507,17 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         boolean z = true;
         this.m = true;
         this.f11140a = context;
-        this.f11141b = LayoutInflater.from(context).inflate(d.b.x.a.f.layout_sapi_sdk_sms_login_view, (ViewGroup) this, true);
+        this.f11141b = LayoutInflater.from(context).inflate(d.b.y.a.f.layout_sapi_sdk_sms_login_view, (ViewGroup) this, true);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i.sapi_sdk_sms_login_view, i, 0);
         boolean z2 = obtainStyledAttributes.getBoolean(i.sapi_sdk_sms_login_view_sapi_sdk_show_keyboard, false);
         obtainStyledAttributes.recycle();
-        this.f11142c = this.f11141b.findViewById(d.b.x.a.e.code_container);
-        this.f11143d = (EditText) this.f11141b.findViewById(d.b.x.a.e.phone);
-        this.i = this.f11141b.findViewById(d.b.x.a.e.loading_container);
-        this.f11144e = (EditText) this.f11141b.findViewById(d.b.x.a.e.check_code);
-        this.f11145f = (TextView) this.f11141b.findViewById(d.b.x.a.e.get_code);
-        this.f11146g = (TextView) this.f11141b.findViewById(d.b.x.a.e.prompt);
-        this.f11147h = this.f11141b.findViewById(d.b.x.a.e.separate_line);
+        this.f11142c = this.f11141b.findViewById(d.b.y.a.e.code_container);
+        this.f11143d = (EditText) this.f11141b.findViewById(d.b.y.a.e.phone);
+        this.i = this.f11141b.findViewById(d.b.y.a.e.loading_container);
+        this.f11144e = (EditText) this.f11141b.findViewById(d.b.y.a.e.check_code);
+        this.f11145f = (TextView) this.f11141b.findViewById(d.b.y.a.e.get_code);
+        this.f11146g = (TextView) this.f11141b.findViewById(d.b.y.a.e.prompt);
+        this.f11147h = this.f11141b.findViewById(d.b.y.a.e.separate_line);
         a(this.f11143d, context.getString(g.sapi_sdk_sms_hint_input_phone));
         a(this.f11144e, context.getString(g.sapi_sdk_sms_hint_input_check_code));
         this.f11143d.addTextChangedListener(new e(this, null));
@@ -558,19 +558,19 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
         int color;
-        getResources().getColor(d.b.x.a.b.sapi_sdk_sms_get_code_text_color);
+        getResources().getColor(d.b.y.a.b.sapi_sdk_sms_get_code_text_color);
         int i = -1;
         if (this.n) {
-            i = getResources().getColor(d.b.x.a.b.sapi_sdk_sms_bg_night_mode);
+            i = getResources().getColor(d.b.y.a.b.sapi_sdk_sms_bg_night_mode);
             if (z) {
-                color = getResources().getColor(d.b.x.a.b.sapi_sdk_sms_get_code_text_color_night_mode);
+                color = getResources().getColor(d.b.y.a.b.sapi_sdk_sms_get_code_text_color_night_mode);
             } else {
-                color = getResources().getColor(d.b.x.a.b.sapi_sdk_sms_get_code_disable_color_night_mode);
+                color = getResources().getColor(d.b.y.a.b.sapi_sdk_sms_get_code_disable_color_night_mode);
             }
         } else if (z) {
-            color = getResources().getColor(d.b.x.a.b.sapi_sdk_sms_get_code_text_color);
+            color = getResources().getColor(d.b.y.a.b.sapi_sdk_sms_get_code_text_color);
         } else {
-            color = getResources().getColor(d.b.x.a.b.sapi_sdk_sms_get_code_disable_color);
+            color = getResources().getColor(d.b.y.a.b.sapi_sdk_sms_get_code_disable_color);
         }
         GradientDrawable gradientDrawable = (GradientDrawable) this.f11145f.getBackground();
         gradientDrawable.setStroke(SapiUtils.dip2px(getContext(), 0.5f), color);

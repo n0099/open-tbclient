@@ -1,7 +1,7 @@
 package com.google.gson;
 
 import com.google.gson.internal.LazilyParsedNumber;
-import d.g.d.b.a;
+import d.h.d.b.a;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 /* loaded from: classes6.dex */

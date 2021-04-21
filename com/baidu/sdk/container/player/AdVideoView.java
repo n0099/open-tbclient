@@ -16,8 +16,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import com.baidu.mobads.container.widget.player.PlayerEvent;
 import com.baidu.sdk.container.player.BaseMediaPlayer;
-import d.b.c0.a.i.a;
-import d.b.c0.a.k.h;
+import d.b.d0.a.i.a;
+import d.b.d0.a.k.h;
 import java.lang.ref.SoftReference;
 /* loaded from: classes2.dex */
 public class AdVideoView extends RelativeLayout {
@@ -25,18 +25,18 @@ public class AdVideoView extends RelativeLayout {
     public int B;
     public boolean C;
     public Surface D;
-    public d.b.c0.a.i.d E;
+    public d.b.d0.a.i.d E;
     public SurfaceHolder F;
-    public d.b.c0.a.i.b G;
+    public d.b.d0.a.i.b G;
 
     /* renamed from: e  reason: collision with root package name */
     public BaseMediaPlayer f11206e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.b.c0.a.i.a f11207f;
+    public d.b.d0.a.i.a f11207f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a.InterfaceC0581a f11208g;
+    public a.InterfaceC0603a f11208g;
 
     /* renamed from: h  reason: collision with root package name */
     public a.b f11209h;
@@ -47,7 +47,7 @@ public class AdVideoView extends RelativeLayout {
     public boolean m;
     public int n;
     public e o;
-    public d.b.c0.a.i.c p;
+    public d.b.d0.a.i.c p;
     public View q;
     public boolean r;
     public String s;
@@ -60,29 +60,29 @@ public class AdVideoView extends RelativeLayout {
     public int z;
 
     /* loaded from: classes2.dex */
-    public class a implements d.b.c0.a.i.e {
+    public class a implements d.b.d0.a.i.e {
         public a() {
         }
 
-        @Override // d.b.c0.a.i.e
+        @Override // d.b.d0.a.i.e
         public void playStateChanged(int i) {
             AdVideoView.this.k(i);
         }
     }
 
     /* loaded from: classes2.dex */
-    public class b implements d.b.c0.a.i.d {
+    public class b implements d.b.d0.a.i.d {
         public b() {
         }
 
-        @Override // d.b.c0.a.i.d
+        @Override // d.b.d0.a.i.d
         public void surfaceCreated(Surface surface) {
             AdVideoView.this.D = surface;
             AdVideoView.this.v = true;
             AdVideoView.this.w();
         }
 
-        @Override // d.b.c0.a.i.d
+        @Override // d.b.d0.a.i.d
         public void surfaceDestroy() {
             if (AdVideoView.this.f11208g != null) {
                 AdVideoView.this.f11208g.onDestroyed();
@@ -94,18 +94,18 @@ public class AdVideoView extends RelativeLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class c implements d.b.c0.a.i.b {
+    public class c implements d.b.d0.a.i.b {
         public c() {
         }
 
-        @Override // d.b.c0.a.i.b
+        @Override // d.b.d0.a.i.b
         public void surfaceCreated(SurfaceHolder surfaceHolder) {
             AdVideoView.this.F = surfaceHolder;
             AdVideoView.this.v = true;
             AdVideoView.this.w();
         }
 
-        @Override // d.b.c0.a.i.b
+        @Override // d.b.d0.a.i.b
         public void surfaceDestroy() {
             if (AdVideoView.this.f11208g != null) {
                 AdVideoView.this.f11208g.onDestroyed();
@@ -126,7 +126,7 @@ public class AdVideoView extends RelativeLayout {
             String action = intent.getAction();
             if ("android.intent.action.SCREEN_OFF".equals(action)) {
                 Context context2 = AdVideoView.this.i;
-                if (d.b.c0.a.k.c.a(context2, context2.getPackageName())) {
+                if (d.b.d0.a.k.c.a(context2, context2.getPackageName())) {
                     return;
                 }
                 AdVideoView.this.w = true;
@@ -270,7 +270,7 @@ public class AdVideoView extends RelativeLayout {
                 this.z = 0;
                 this.A = false;
                 l();
-                d.b.c0.a.i.a aVar = this.f11207f;
+                d.b.d0.a.i.a aVar = this.f11207f;
                 if (aVar != null) {
                     aVar.playCompletion();
                     return;
@@ -291,7 +291,7 @@ public class AdVideoView extends RelativeLayout {
                     this.f11206e.k(i2);
                 }
                 setVideoMute(this.r);
-                d.b.c0.a.i.c cVar = this.p;
+                d.b.d0.a.i.c cVar = this.p;
                 if (cVar != null) {
                     cVar.onVideoSizeChanged(this.f11206e.d(), this.f11206e.c());
                 }
@@ -316,7 +316,7 @@ public class AdVideoView extends RelativeLayout {
             case 260:
                 this.A = true;
                 l();
-                d.b.c0.a.i.a aVar2 = this.f11207f;
+                d.b.d0.a.i.a aVar2 = this.f11207f;
                 if (aVar2 != null) {
                     aVar2.renderingStart();
                     return;
@@ -416,7 +416,7 @@ public class AdVideoView extends RelativeLayout {
             return;
         }
         baseMediaPlayer.g();
-        d.b.c0.a.i.a aVar = this.f11207f;
+        d.b.d0.a.i.a aVar = this.f11207f;
         if (aVar != null) {
             aVar.playPause();
         }
@@ -428,12 +428,12 @@ public class AdVideoView extends RelativeLayout {
         w();
     }
 
-    public void setAdVideoViewListener(d.b.c0.a.i.a aVar) {
+    public void setAdVideoViewListener(d.b.d0.a.i.a aVar) {
         this.f11207f = aVar;
     }
 
-    public void setDestroyedListener(a.InterfaceC0581a interfaceC0581a) {
-        this.f11208g = interfaceC0581a;
+    public void setDestroyedListener(a.InterfaceC0603a interfaceC0603a) {
+        this.f11208g = interfaceC0603a;
     }
 
     public void setDisplayMode(int i) {
@@ -493,7 +493,7 @@ public class AdVideoView extends RelativeLayout {
     }
 
     public final void u() {
-        d.b.c0.a.i.a aVar = this.f11207f;
+        d.b.d0.a.i.a aVar = this.f11207f;
         if (aVar != null) {
             aVar.playFailure();
         }
@@ -516,8 +516,8 @@ public class AdVideoView extends RelativeLayout {
     public final void w() {
         if (!TextUtils.isEmpty(this.s) && this.u && this.v) {
             Context context = this.i;
-            if ((d.b.c0.a.k.c.a(context, context.getPackageName()) || !this.w) && this.A) {
-                d.b.c0.a.i.a aVar = this.f11207f;
+            if ((d.b.d0.a.k.c.a(context, context.getPackageName()) || !this.w) && this.A) {
+                d.b.d0.a.i.a aVar = this.f11207f;
                 if (aVar != null) {
                     aVar.playResume();
                 }

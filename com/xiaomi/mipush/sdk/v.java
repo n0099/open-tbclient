@@ -7,19 +7,19 @@ import android.util.Log;
 public final class v implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f40498a;
+    public final /* synthetic */ Context f40593a;
 
     public v(Context context) {
-        this.f40498a = context;
+        this.f40593a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            PackageInfo packageInfo = this.f40498a.getPackageManager().getPackageInfo(this.f40498a.getPackageName(), 4612);
-            u.c(this.f40498a);
-            u.d(this.f40498a, packageInfo);
-            u.c(this.f40498a, packageInfo);
+            PackageInfo packageInfo = this.f40593a.getPackageManager().getPackageInfo(this.f40593a.getPackageName(), 4612);
+            u.c(this.f40593a);
+            u.d(this.f40593a, packageInfo);
+            u.c(this.f40593a, packageInfo);
         } catch (Throwable th) {
             Log.e("ManifestChecker", "", th);
         }

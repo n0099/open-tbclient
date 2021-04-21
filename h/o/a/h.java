@@ -5,14 +5,14 @@ import h.d;
 public final class h<T, R> implements d.a<R> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final d.a<T> f68747e;
+    public final d.a<T> f68894e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.b<? extends R, ? super T> f68748f;
+    public final d.b<? extends R, ? super T> f68895f;
 
     public h(d.a<T> aVar, d.b<? extends R, ? super T> bVar) {
-        this.f68747e = aVar;
-        this.f68748f = bVar;
+        this.f68894e = aVar;
+        this.f68895f = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,9 +20,9 @@ public final class h<T, R> implements d.a<R> {
     /* renamed from: a */
     public void call(h.j<? super R> jVar) {
         try {
-            h.j<? super T> call = h.r.c.n(this.f68748f).call(jVar);
+            h.j<? super T> call = h.r.c.n(this.f68895f).call(jVar);
             call.onStart();
-            this.f68747e.call(call);
+            this.f68894e.call(call);
         } catch (Throwable th) {
             h.m.a.e(th);
             jVar.onError(th);

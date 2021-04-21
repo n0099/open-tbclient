@@ -15,25 +15,25 @@ public class a extends Presenter {
         final e eVar = (e) n();
         KsAdVideoPlayConfig build = new KsAdVideoPlayConfig.Builder().videoSoundEnable(true).build();
         k kVar = (k) l();
-        kVar.a(eVar.f34231c);
+        kVar.a(eVar.f34326c);
         kVar.a(build);
         kVar.setVisibility(0);
         kVar.setOnEndBtnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (com.kwad.sdk.core.response.b.a.y(c.j(eVar.f34231c))) {
-                    com.kwad.sdk.core.download.b.b bVar = eVar.f34229a;
+                if (com.kwad.sdk.core.response.b.a.y(c.j(eVar.f34326c))) {
+                    com.kwad.sdk.core.download.b.b bVar = eVar.f34324a;
                     if (bVar != null) {
                         bVar.a(a.this.m());
                         return;
                     }
                     return;
                 }
-                RecyclerView recyclerView = eVar.f34230b;
-                if (recyclerView == null || recyclerView.getAdapter() == null || eVar.f34230b.getAdapter().getItemCount() <= 1) {
+                RecyclerView recyclerView = eVar.f34325b;
+                if (recyclerView == null || recyclerView.getAdapter() == null || eVar.f34325b.getAdapter().getItemCount() <= 1) {
                     return;
                 }
-                eVar.f34230b.scrollToPosition(1);
+                eVar.f34325b.scrollToPosition(1);
             }
         });
     }

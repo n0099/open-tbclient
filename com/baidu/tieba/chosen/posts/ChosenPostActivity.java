@@ -6,9 +6,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import d.b.h0.g0.c.a;
-import d.b.i0.y.a.b;
-import d.b.i0.y.a.c.d;
+import d.b.i0.g0.c.a;
+import d.b.j0.y.a.b;
+import d.b.j0.y.a.c.d;
 /* loaded from: classes4.dex */
 public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> implements a {
     public static final int EVENT_ID_PICTURE_CLICK = 4096;
@@ -22,8 +22,8 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
     public b mViewController;
     public ViewEventCenter mViewEventController;
 
-    private void handlePictureClick(d.b.h0.g0.c.b bVar) {
-        d.b.h0.g0.b.a a2 = bVar.a();
+    private void handlePictureClick(d.b.i0.g0.c.b bVar) {
+        d.b.i0.g0.b.a a2 = bVar.a();
         if (a2 instanceof d) {
             sendMessage(((d) a2).b(getPageContext().getPageActivity()));
         }
@@ -50,7 +50,7 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         return this.mViewController;
     }
 
-    @Override // d.b.h0.g0.c.a
+    @Override // d.b.i0.g0.c.a
     public boolean isEventMustSelf() {
         return false;
     }
@@ -80,8 +80,8 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         adjustResizeForSoftInput();
     }
 
-    @Override // d.b.h0.g0.c.a
-    public boolean onEventDispatch(d.b.h0.g0.c.b bVar) {
+    @Override // d.b.i0.g0.c.a
+    public boolean onEventDispatch(d.b.i0.g0.c.b bVar) {
         if (bVar.b() == 4096) {
             handlePictureClick(bVar);
         }

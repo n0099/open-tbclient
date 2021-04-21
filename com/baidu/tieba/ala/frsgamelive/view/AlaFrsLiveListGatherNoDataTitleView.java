@@ -7,8 +7,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.b.i0.t.e.b.a;
-import d.b.i0.x.b;
+import d.b.j0.t.e.b.a;
+import d.b.j0.x.b;
 /* loaded from: classes4.dex */
 public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
     public TextView m;
@@ -33,12 +33,12 @@ public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
         o(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // d.b.i0.x.b
+    @Override // d.b.j0.x.b
     public int h() {
         return R.layout.ala_frs_game_live_no_data_view;
     }
 
-    @Override // d.b.i0.x.b
+    @Override // d.b.j0.x.b
     public void o(TbPageContext<?> tbPageContext, int i) {
         if (this.p != i) {
             SkinManager.setViewTextColor(this.m, R.color.CAM_X0109);
@@ -52,7 +52,7 @@ public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.b.i0.x.b
+    @Override // d.b.j0.x.b
     /* renamed from: u */
     public void n(a aVar) {
         o(this.o, TbadkCoreApplication.getInst().getSkinType());

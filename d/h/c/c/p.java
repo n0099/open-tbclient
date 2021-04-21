@@ -1,0 +1,147 @@
+package d.h.c.c;
+
+import com.google.common.collect.BoundType;
+import com.google.common.collect.Multisets;
+import com.google.common.collect.Ordering;
+import d.h.c.c.i0;
+import d.h.c.c.w0;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.NavigableSet;
+import java.util.Set;
+/* loaded from: classes6.dex */
+public abstract class p<E> extends x<E> implements v0<E> {
+
+    /* renamed from: e  reason: collision with root package name */
+    public transient Comparator<? super E> f67152e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public transient NavigableSet<E> f67153f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public transient Set<i0.a<E>> f67154g;
+
+    /* loaded from: classes6.dex */
+    public class a extends Multisets.d<E> {
+        public a() {
+        }
+
+        @Override // com.google.common.collect.Multisets.d
+        public i0<E> b() {
+            return p.this;
+        }
+
+        @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
+        public Iterator<i0.a<E>> iterator() {
+            return p.this.c();
+        }
+
+        @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
+        public int size() {
+            return p.this.d().entrySet().size();
+        }
+    }
+
+    public Set<i0.a<E>> b() {
+        return new a();
+    }
+
+    public abstract Iterator<i0.a<E>> c();
+
+    @Override // d.h.c.c.v0, d.h.c.c.t0
+    public Comparator<? super E> comparator() {
+        Comparator<? super E> comparator = this.f67152e;
+        if (comparator == null) {
+            Ordering reverse = Ordering.from(d().comparator()).reverse();
+            this.f67152e = reverse;
+            return reverse;
+        }
+        return comparator;
+    }
+
+    public abstract v0<E> d();
+
+    @Override // d.h.c.c.v0
+    public v0<E> descendingMultiset() {
+        return d();
+    }
+
+    @Override // d.h.c.c.x, d.h.c.c.i0
+    public Set<i0.a<E>> entrySet() {
+        Set<i0.a<E>> set = this.f67154g;
+        if (set == null) {
+            Set<i0.a<E>> b2 = b();
+            this.f67154g = b2;
+            return b2;
+        }
+        return set;
+    }
+
+    @Override // d.h.c.c.v0
+    public i0.a<E> firstEntry() {
+        return d().lastEntry();
+    }
+
+    @Override // d.h.c.c.v0
+    public v0<E> headMultiset(E e2, BoundType boundType) {
+        return d().tailMultiset(e2, boundType).descendingMultiset();
+    }
+
+    @Override // d.h.c.c.v0
+    public i0.a<E> lastEntry() {
+        return d().firstEntry();
+    }
+
+    @Override // d.h.c.c.v0
+    public i0.a<E> pollFirstEntry() {
+        return d().pollLastEntry();
+    }
+
+    @Override // d.h.c.c.v0
+    public i0.a<E> pollLastEntry() {
+        return d().pollFirstEntry();
+    }
+
+    @Override // d.h.c.c.v0
+    public v0<E> subMultiset(E e2, BoundType boundType, E e3, BoundType boundType2) {
+        return d().subMultiset(e3, boundType2, e2, boundType).descendingMultiset();
+    }
+
+    @Override // d.h.c.c.v0
+    public v0<E> tailMultiset(E e2, BoundType boundType) {
+        return d().headMultiset(e2, boundType).descendingMultiset();
+    }
+
+    @Override // d.h.c.c.r, java.util.Collection, java.util.Set
+    public Object[] toArray() {
+        return standardToArray();
+    }
+
+    @Override // d.h.c.c.y
+    public String toString() {
+        return entrySet().toString();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.h.c.c.x, d.h.c.c.i0
+    public NavigableSet<E> elementSet() {
+        NavigableSet<E> navigableSet = this.f67153f;
+        if (navigableSet == null) {
+            w0.b bVar = new w0.b(this);
+            this.f67153f = bVar;
+            return bVar;
+        }
+        return navigableSet;
+    }
+
+    @Override // d.h.c.c.r, java.util.Collection, java.util.Set
+    public <T> T[] toArray(T[] tArr) {
+        return (T[]) standardToArray(tArr);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.h.c.c.x, d.h.c.c.r, d.h.c.c.y
+    public i0<E> delegate() {
+        return d();
+    }
+}

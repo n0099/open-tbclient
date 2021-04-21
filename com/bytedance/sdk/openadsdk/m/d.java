@@ -5,17 +5,17 @@ import java.util.List;
 public class d implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d f29477a;
+    public static volatile d f29485a;
 
     public static d b() {
-        if (f29477a == null) {
+        if (f29485a == null) {
             synchronized (d.class) {
-                if (f29477a == null) {
-                    f29477a = new d();
+                if (f29485a == null) {
+                    f29485a = new d();
                 }
             }
         }
-        return f29477a;
+        return f29485a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.m.a

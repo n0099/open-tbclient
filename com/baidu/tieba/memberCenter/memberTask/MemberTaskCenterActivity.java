@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic;
 import d.b.c.e.p.j;
-import d.b.h0.r.s.a;
-import d.b.i0.r1.c.b.r;
-import d.b.i0.r1.e.a;
-import d.b.i0.r1.e.c;
+import d.b.i0.r.s.a;
+import d.b.j0.r1.c.b.r;
+import d.b.j0.r1.e.a;
+import d.b.j0.r1.e.c;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.GetMemberTaskList.ImgInfo;
@@ -26,9 +26,9 @@ import tbclient.GetMemberTaskList.ImgInfo;
 public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActivity> {
     public String imageUrl;
     public String jumpUrl;
-    public d.b.i0.r1.e.a mFinishMemberTaskModel;
-    public d.b.i0.r1.e.c mModel;
-    public d.b.i0.r1.e.d mView;
+    public d.b.j0.r1.e.a mFinishMemberTaskModel;
+    public d.b.j0.r1.e.c mModel;
+    public d.b.j0.r1.e.d mView;
     public int type;
     public boolean isFromH5 = false;
     public a.b mFinishMemberTaskCallbak = new a();
@@ -40,7 +40,7 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         public a() {
         }
 
-        @Override // d.b.i0.r1.e.a.b
+        @Override // d.b.j0.r1.e.a.b
         public void a(int i, String str, int i2, int i3, long j) {
             if (i == 0 && MemberTaskCenterActivity.this.mView != null) {
                 MemberTaskCenterActivity.this.showGetScoresSuccessDialog(i3);
@@ -72,7 +72,7 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         public b() {
         }
 
-        @Override // d.b.i0.r1.e.c.b
+        @Override // d.b.j0.r1.e.c.b
         public void a(int i, String str) {
             MemberTaskCenterActivity.this.mView.b().setVisibility(8);
             MemberTaskCenterActivity memberTaskCenterActivity = MemberTaskCenterActivity.this;
@@ -82,7 +82,7 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
             MemberTaskCenterActivity.this.setNetRefreshViewEmotionDefMarginTop();
         }
 
-        @Override // d.b.i0.r1.e.c.b
+        @Override // d.b.j0.r1.e.c.b
         public void b(List<ImgInfo> list, List<r> list2, long j) {
             MemberTaskCenterActivity.this.mView.b().setVisibility(0);
             MemberTaskCenterActivity memberTaskCenterActivity = MemberTaskCenterActivity.this;
@@ -132,15 +132,15 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     public class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f18628e;
+        public final /* synthetic */ d.b.i0.r.s.a f18636e;
 
-        public d(d.b.h0.r.s.a aVar) {
-            this.f18628e = aVar;
+        public d(d.b.i0.r.s.a aVar) {
+            this.f18636e = aVar;
         }
 
-        @Override // d.b.h0.r.s.a.e
-        public void onClick(d.b.h0.r.s.a aVar) {
-            this.f18628e.dismiss();
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
+            this.f18636e.dismiss();
             ViewHelper.skipToLoginActivity(MemberTaskCenterActivity.this.getPageContext().getPageActivity());
         }
     }
@@ -149,15 +149,15 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     public class e implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f18630e;
+        public final /* synthetic */ d.b.i0.r.s.a f18638e;
 
-        public e(d.b.h0.r.s.a aVar) {
-            this.f18630e = aVar;
+        public e(d.b.i0.r.s.a aVar) {
+            this.f18638e = aVar;
         }
 
-        @Override // d.b.h0.r.s.a.e
-        public void onClick(d.b.h0.r.s.a aVar) {
-            this.f18630e.dismiss();
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
+            this.f18638e.dismiss();
         }
     }
 
@@ -165,15 +165,15 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     public class f implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f18632e;
+        public final /* synthetic */ d.b.i0.r.s.a f18640e;
 
-        public f(d.b.h0.r.s.a aVar) {
-            this.f18632e = aVar;
+        public f(d.b.i0.r.s.a aVar) {
+            this.f18640e = aVar;
         }
 
-        @Override // d.b.h0.r.s.a.e
-        public void onClick(d.b.h0.r.s.a aVar) {
-            this.f18632e.dismiss();
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
+            this.f18640e.dismiss();
             MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(MemberTaskCenterActivity.this.getPageContext().getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 0);
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_MISSION_CENTER_NATIVE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_BUTTON);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
@@ -184,15 +184,15 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     public class g implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.b.h0.r.s.a f18634e;
+        public final /* synthetic */ d.b.i0.r.s.a f18642e;
 
-        public g(d.b.h0.r.s.a aVar) {
-            this.f18634e = aVar;
+        public g(d.b.i0.r.s.a aVar) {
+            this.f18642e = aVar;
         }
 
-        @Override // d.b.h0.r.s.a.e
-        public void onClick(d.b.h0.r.s.a aVar) {
-            this.f18634e.dismiss();
+        @Override // d.b.i0.r.s.a.e
+        public void onClick(d.b.i0.r.s.a aVar) {
+            this.f18642e.dismiss();
         }
     }
 
@@ -202,19 +202,19 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
             return;
         }
         if (!TbadkCoreApplication.isLogin()) {
-            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(getPageContext().getPageActivity());
+            d.b.i0.r.s.a aVar = new d.b.i0.r.s.a(getPageContext().getPageActivity());
             aVar.setTitle(R.string.tips_login_and_get_scores);
             aVar.setPositiveButton(R.string.login, new d(aVar));
             aVar.setNegativeButton(R.string.cancel, new e(aVar));
             aVar.create(getPageContext());
             aVar.show();
         } else if (TbadkCoreApplication.getCurrentMemberType() >= 2) {
-            d.b.i0.r1.e.a aVar2 = this.mFinishMemberTaskModel;
+            d.b.j0.r1.e.a aVar2 = this.mFinishMemberTaskModel;
             if (aVar2 != null) {
                 aVar2.f(rVar.c(), rVar.a());
             }
         } else {
-            d.b.h0.r.s.a aVar3 = new d.b.h0.r.s.a(getPageContext().getPageActivity());
+            d.b.i0.r.s.a aVar3 = new d.b.i0.r.s.a(getPageContext().getPageActivity());
             aVar3.setTitle(R.string.tips_nomal_member_get_scores);
             aVar3.setButtonTextColor(R.color.CAM_X0305);
             aVar3.setPositiveButton(R.string.open_now, new f(aVar3));
@@ -246,11 +246,11 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.mView = new d.b.i0.r1.e.d(this, this.mCommenClickListener);
-        d.b.i0.r1.e.c cVar = new d.b.i0.r1.e.c();
+        this.mView = new d.b.j0.r1.e.d(this, this.mCommenClickListener);
+        d.b.j0.r1.e.c cVar = new d.b.j0.r1.e.c();
         this.mModel = cVar;
         cVar.m(this.mTaskLoadCallback);
-        d.b.i0.r1.e.a aVar = new d.b.i0.r1.e.a();
+        d.b.j0.r1.e.a aVar = new d.b.j0.r1.e.a();
         this.mFinishMemberTaskModel = aVar;
         aVar.h(this.mFinishMemberTaskCallbak);
         this.mModel.j();
@@ -260,11 +260,11 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d.b.i0.r1.e.a aVar = this.mFinishMemberTaskModel;
+        d.b.j0.r1.e.a aVar = this.mFinishMemberTaskModel;
         if (aVar != null) {
             aVar.g();
         }
-        d.b.i0.r1.e.c cVar = this.mModel;
+        d.b.j0.r1.e.c cVar = this.mModel;
         if (cVar != null) {
             cVar.k();
         }

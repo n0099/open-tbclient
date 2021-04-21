@@ -21,15 +21,15 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import d.b.c.e.p.l;
-import d.b.h0.b1.j.d;
-import d.b.h0.r.k;
-import d.b.h0.r.q.a2;
 import d.b.i.p;
-import d.b.i0.x.b0;
+import d.b.i0.b1.j.d;
+import d.b.i0.r.k;
+import d.b.i0.r.q.a2;
+import d.b.j0.x.b0;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MutiImgDoubleLayout extends LinearLayout implements p<d.b.h0.r.q.a> {
+public class MutiImgDoubleLayout extends LinearLayout implements p<d.b.i0.r.q.a> {
     public static final int r;
 
     /* renamed from: e  reason: collision with root package name */
@@ -47,8 +47,8 @@ public class MutiImgDoubleLayout extends LinearLayout implements p<d.b.h0.r.q.a>
     public TbImageView j;
     public String k;
     public boolean l;
-    public b0<d.b.h0.r.q.a> m;
-    public d.b.h0.r.q.a n;
+    public b0<d.b.i0.r.q.a> m;
+    public d.b.i0.r.q.a n;
     public int o;
     public d p;
     public LinkedList<MediaData> q;
@@ -60,7 +60,7 @@ public class MutiImgDoubleLayout extends LinearLayout implements p<d.b.h0.r.q.a>
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b0<d.b.h0.r.q.a> subClickListener = MutiImgDoubleLayout.this.getSubClickListener();
+            b0<d.b.i0.r.q.a> subClickListener = MutiImgDoubleLayout.this.getSubClickListener();
             if (subClickListener != null) {
                 view.setTag("2");
                 subClickListener.a(view, MutiImgDoubleLayout.this.n);
@@ -73,9 +73,9 @@ public class MutiImgDoubleLayout extends LinearLayout implements p<d.b.h0.r.q.a>
         public b() {
         }
 
-        @Override // d.b.h0.b1.j.d
+        @Override // d.b.i0.b1.j.d
         public void a(View view, int i, boolean z) {
-            b0<d.b.h0.r.q.a> subClickListener = MutiImgDoubleLayout.this.getSubClickListener();
+            b0<d.b.i0.r.q.a> subClickListener = MutiImgDoubleLayout.this.getSubClickListener();
             if (subClickListener != null) {
                 view.setTag("1");
                 MutiImgDoubleLayout.this.n.objType = 2;
@@ -180,7 +180,7 @@ public class MutiImgDoubleLayout extends LinearLayout implements p<d.b.h0.r.q.a>
         return size;
     }
 
-    public b0<d.b.h0.r.q.a> getSubClickListener() {
+    public b0<d.b.i0.r.q.a> getSubClickListener() {
         return this.m;
     }
 
@@ -207,12 +207,12 @@ public class MutiImgDoubleLayout extends LinearLayout implements p<d.b.h0.r.q.a>
         PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.thread_card_voice);
         this.f4480g = playVoiceBntNew;
         playVoiceBntNew.setAfterClickListener(new a());
-        d.b.h0.b.g.b.b(this.f4480g, R.dimen.tbds28, R.dimen.tbds14);
-        d.b.h0.b.g.b.k(this.f4478e, R.dimen.tbds7, R.dimen.tbds10);
-        d.b.h0.b.g.b.k(this.f4479f, R.dimen.tbds7, R.dimen.tbds10);
+        d.b.i0.b.g.b.b(this.f4480g, R.dimen.tbds28, R.dimen.tbds14);
+        d.b.i0.b.g.b.k(this.f4478e, R.dimen.tbds7, R.dimen.tbds10);
+        d.b.i0.b.g.b.k(this.f4479f, R.dimen.tbds7, R.dimen.tbds10);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.thread_card_img_double_container);
         this.f4481h = relativeLayout;
-        d.b.h0.b.g.b.b(relativeLayout, R.dimen.tbds20, R.dimen.tbds14);
+        d.b.i0.b.g.b.b(relativeLayout, R.dimen.tbds20, R.dimen.tbds14);
         this.i = (TbImageView) findViewById(R.id.thread_card_img_double_one);
         this.j = (TbImageView) findViewById(R.id.thread_card_img_double_two);
         this.p = new b();
@@ -221,7 +221,7 @@ public class MutiImgDoubleLayout extends LinearLayout implements p<d.b.h0.r.q.a>
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.b.i.p
     /* renamed from: j */
-    public void a(d.b.h0.r.q.a aVar) {
+    public void a(d.b.i0.r.q.a aVar) {
         this.n = aVar;
         a2 n = aVar.n();
         ThreadCardUtils.setTitle(this.f4478e, n);
@@ -299,7 +299,7 @@ public class MutiImgDoubleLayout extends LinearLayout implements p<d.b.h0.r.q.a>
     public void setPreloadSizeReadyCallback(d.b.c.j.c.b bVar) {
     }
 
-    public void setSubClickListener(b0<d.b.h0.r.q.a> b0Var) {
+    public void setSubClickListener(b0<d.b.i0.r.q.a> b0Var) {
         this.m = b0Var;
     }
 

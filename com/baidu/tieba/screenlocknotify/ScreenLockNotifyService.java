@@ -4,7 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
-import d.b.i0.u2.b;
+import d.b.j0.u2.b;
 /* loaded from: classes4.dex */
 public class ScreenLockNotifyService extends Service {
     public b mLockReceiver = null;

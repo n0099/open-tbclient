@@ -21,23 +21,23 @@ import java.util.zip.ZipInputStream;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f41732a;
+    public final Context f41827a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f41733b;
+    public final String f41828b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public final a f41734c;
+    public final a f41829c;
 
     public b(Context context, String str, @Nullable String str2) {
         Context applicationContext = context.getApplicationContext();
-        this.f41732a = applicationContext;
-        this.f41733b = str;
+        this.f41827a = applicationContext;
+        this.f41828b = str;
         if (str2 == null) {
-            this.f41734c = null;
+            this.f41829c = null;
         } else {
-            this.f41734c = new a(applicationContext);
+            this.f41829c = new a(applicationContext);
         }
     }
 
@@ -50,16 +50,16 @@ public class b {
     public final d a() {
         Pair<FileExtension, InputStream> a2;
         l<d> i;
-        a aVar = this.f41734c;
-        if (aVar == null || (a2 = aVar.a(this.f41733b)) == null) {
+        a aVar = this.f41829c;
+        if (aVar == null || (a2 = aVar.a(this.f41828b)) == null) {
             return null;
         }
         FileExtension fileExtension = a2.first;
         InputStream inputStream = a2.second;
         if (fileExtension == FileExtension.ZIP) {
-            i = e.t(new ZipInputStream(inputStream), this.f41733b);
+            i = e.t(new ZipInputStream(inputStream), this.f41828b);
         } else {
-            i = e.i(inputStream, this.f41733b);
+            i = e.i(inputStream, this.f41828b);
         }
         if (i.b() != null) {
             return i.b();
@@ -78,8 +78,8 @@ public class b {
 
     @WorkerThread
     public final l<d> c() throws IOException {
-        d.a.a.x.d.a("Fetching " + this.f41733b);
-        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f41733b).openConnection();
+        d.a.a.x.d.a("Fetching " + this.f41828b);
+        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.f41828b).openConnection();
         httpURLConnection.setRequestMethod("GET");
         try {
             httpURLConnection.connect();
@@ -92,7 +92,7 @@ public class b {
                 return g2;
             }
             String f2 = f(httpURLConnection);
-            return new l<>(new IllegalArgumentException("Unable to fetch " + this.f41733b + ". Failed with " + httpURLConnection.getResponseCode() + "\n" + f2));
+            return new l<>(new IllegalArgumentException("Unable to fetch " + this.f41828b + ". Failed with " + httpURLConnection.getResponseCode() + "\n" + f2));
         } catch (Exception e2) {
             return new l<>(e2);
         } finally {
@@ -106,7 +106,7 @@ public class b {
         if (a2 != null) {
             return new l<>(a2);
         }
-        d.a.a.x.d.a("Animation for " + this.f41733b + " not found in cache. Fetching from network.");
+        d.a.a.x.d.a("Animation for " + this.f41828b + " not found in cache. Fetching from network.");
         return b();
     }
 
@@ -153,24 +153,24 @@ public class b {
         if (contentType.contains("application/zip")) {
             d.a.a.x.d.a("Handling zip response.");
             fileExtension = FileExtension.ZIP;
-            a aVar = this.f41734c;
+            a aVar = this.f41829c;
             if (aVar == null) {
                 i = e.t(new ZipInputStream(httpURLConnection.getInputStream()), null);
             } else {
-                i = e.t(new ZipInputStream(new FileInputStream(aVar.f(this.f41733b, httpURLConnection.getInputStream(), fileExtension))), this.f41733b);
+                i = e.t(new ZipInputStream(new FileInputStream(aVar.f(this.f41828b, httpURLConnection.getInputStream(), fileExtension))), this.f41828b);
             }
         } else {
             d.a.a.x.d.a("Received json response.");
             fileExtension = FileExtension.JSON;
-            a aVar2 = this.f41734c;
+            a aVar2 = this.f41829c;
             if (aVar2 == null) {
                 i = e.i(httpURLConnection.getInputStream(), null);
             } else {
-                i = e.i(new FileInputStream(new File(aVar2.f(this.f41733b, httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.f41733b);
+                i = e.i(new FileInputStream(new File(aVar2.f(this.f41828b, httpURLConnection.getInputStream(), fileExtension).getAbsolutePath())), this.f41828b);
             }
         }
-        if (this.f41734c != null && i.b() != null) {
-            this.f41734c.e(this.f41733b, fileExtension);
+        if (this.f41829c != null && i.b() != null) {
+            this.f41829c.e(this.f41828b, fileExtension);
         }
         return i;
     }
